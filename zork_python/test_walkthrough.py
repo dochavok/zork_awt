@@ -1578,6 +1578,55 @@ class TestMechanics(unittest.TestCase):
             self.game.jigs_up("You have died.")
         self.assertFalse(self.game._running, "Third death must end the game")
 
+    # ---- egg / canary / bauble chain -----------------------------------------
+
+    def test_thief_deposits_egg_in_treasure_room(self):
+        """Thief demon deposits and opens the egg when thief is in TREASURE-ROOM alone."""
+        import io
+        from unittest.mock import patch
+        from content.actions import i_thief
+        w = self._w()
+
+        egg           = self._obj("EGG")
+        canary        = self._obj("CANARY")
+        thief         = self._obj("THIEF")
+        treasure_room = self._room("TREASURE-ROOM")
+
+        # Arm the thief with the egg (simulates give/steal path)
+        w.move_object(egg, thief)
+
+        # Place thief in TREASURE-ROOM; player stays at WEST-OF-HOUSE (setUp default)
+        w.move_object(thief, treasure_room)
+        thief.clear_flag("INVISIBLE")
+
+        # Fire demon tick once — deposit branch fires (rm is treasure_room, rm is not world.here)
+        with patch("sys.stdout", io.StringIO()):
+            i_thief(w)
+
+        self.assertIs(egg.location, treasure_room,
+                      "Egg should be deposited into TREASURE-ROOM")
+        self.assertTrue(egg.has_flag("OPENBIT"),
+                        "Egg should be open after _deposit_booty")
+        self.assertTrue(w.get_global("EGG-SOLVE"),
+                        "EGG-SOLVE should be True after deposit")
+        self.assertIs(canary.location, egg,
+                      "Canary should remain inside the opened egg")
+
+    def test_wind_canary_drops_bauble(self):
+        """Winding the canary in a forest room attracts a songbird that drops the brass bauble."""
+        w      = self._w()
+        bauble = self._obj("BAUBLE")
+
+        self._give("CANARY")
+        self._teleport("FOREST-1")
+        self._cmd("wind canary", "brass bauble")
+
+        self.assertTrue(w.get_global("SING-SONG"),
+                        "SING-SONG should be True after winding canary")
+        forest_room = self._room("FOREST-1")
+        self.assertIs(bauble.location, forest_room,
+                      "Bauble should land in the current forest room")
+
 
 # ---------------------------------------------------------------------------
 
