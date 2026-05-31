@@ -1402,8 +1402,10 @@ class TestMechanics(unittest.TestCase):
             if o.tvalue > 0:
                 w.move_object(o, case)
 
-        # Milestone points total 78; trophy tvalues total 272; 78+272 = 350
-        w.set_global("BASE-SCORE", 78)
+        # Set BASE-SCORE so that BASE-SCORE + actual tvalues in case = 350.
+        # (ZIL tvalues sum to 132; milestone bonuses account for the rest.)
+        tval_total = sum(o.tvalue for o in case.contents)
+        w.set_global("BASE-SCORE", 350 - tval_total)
 
         # Enter Living Room and wait — M_END fires _update_trophy_score
         self._give("LAMP")

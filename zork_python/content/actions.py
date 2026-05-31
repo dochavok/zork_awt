@@ -2017,6 +2017,13 @@ def _update_trophy_score(world: "World") -> None:
     base = int(world.get_global("BASE-SCORE") or 0)
     world.score = base + tval
     world.set_global("SCORE", world.score)
+    if world.score >= 350 and not world.get_global("WON-FLAG"):
+        world.set_global("WON-FLAG", True)
+        _map = world.objects.get("MAP")
+        if _map:
+            _map.clear_flag("INVISIBLE")
+        print('\nAn almost inaudible voice whispers in your ear, "Look to your treasures'
+              '\nfor the final secret."')
 
 
 def _otval_frob(obj) -> int:
