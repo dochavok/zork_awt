@@ -1516,6 +1516,68 @@ class TestMechanics(unittest.TestCase):
         self.assertIsNotNone(diamond, "DIAMOND object should exist after machine runs")
         self.assertIs(diamond.location, self._w().winner, "Diamond should be in player inventory")
 
+    # ---- resurrection / three-strikes ----------------------------------------
+
+    def test_death_without_altar_ends_game(self):
+        """First death without altar visit terminates the game."""
+        import io
+        from unittest.mock import patch
+        self.game._running = True
+        with patch("sys.stdout", io.StringIO()):
+            self.game.jigs_up("You have died.")
+        self.assertFalse(self.game._running, "Game should end when altar not visited")
+
+    def test_altar_visit_sets_flag(self):
+        """Entering SOUTH-TEMPLE sets VISITED-ALTAR."""
+        self._teleport("SOUTH-TEMPLE")
+        self.assertTrue(self._w().get_global("VISITED-ALTAR"), "VISITED-ALTAR should be True after entering SOUTH-TEMPLE")
+
+    def test_death_with_altar_resurrects(self):
+        """Death after altar visit resurrects player at CLEARING; game still running."""
+        import io
+        from unittest.mock import patch
+        self._teleport("SOUTH-TEMPLE")
+        self.game._running = True
+        with patch("sys.stdout", io.StringIO()):
+            self.game.jigs_up("You have died.")
+        self.assertTrue(self.game._running, "Game should continue after resurrection")
+        self.assertEqual(self._w().here.name, "CLEARING", "Player should be resurrected at CLEARING")
+
+    def test_scatter_valuables_go_underground(self):
+        """Valuables in inventory scatter to LAND-OF-LIVING-DEAD on death."""
+        import io
+        from unittest.mock import patch
+        self._teleport("SOUTH-TEMPLE")
+        self._give("SKULL")   # tvalue=10
+        with patch("sys.stdout", io.StringIO()):
+            self.game.jigs_up("You have died.")
+        lld = self._room("LAND-OF-LIVING-DEAD")
+        skull = self._obj("SKULL")
+        self.assertIs(skull.location, lld, "SKULL (tvalue>0) should scatter to LAND-OF-LIVING-DEAD")
+
+    def test_scatter_junk_goes_to_clearing(self):
+        """Non-valuables in inventory scatter to CLEARING on death."""
+        import io
+        from unittest.mock import patch
+        self._teleport("SOUTH-TEMPLE")
+        self._give("LAMP")   # tvalue=0
+        with patch("sys.stdout", io.StringIO()):
+            self.game.jigs_up("You have died.")
+        clearing = self._room("CLEARING")
+        lamp = self._obj("LAMP")
+        self.assertIs(lamp.location, clearing, "LAMP (tvalue=0) should scatter to CLEARING")
+
+    def test_third_death_ends_game(self):
+        """Third death permanently ends the game regardless of altar visit."""
+        import io
+        from unittest.mock import patch
+        self._teleport("SOUTH-TEMPLE")
+        self._w().set_global("DEATHS-SO-FAR", 2)
+        self.game._running = True
+        with patch("sys.stdout", io.StringIO()):
+            self.game.jigs_up("You have died.")
+        self.assertFalse(self.game._running, "Third death must end the game")
+
 
 # ---------------------------------------------------------------------------
 

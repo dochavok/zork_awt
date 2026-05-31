@@ -479,6 +479,10 @@ def _init_globals(world: "World") -> None:
     # LIGHT-SHAFT bonus: 13 points when player first sees shaft lit from below
     world.set_global("LIGHT-SHAFT",   13)
 
+    # Resurrection / three-strikes
+    world.set_global("DEATHS-SO-FAR", 0)      # increments on each death; game over at 3
+    world.set_global("VISITED-ALTAR",  False)  # set True when player enters SOUTH-TEMPLE
+
 
 # ---------------------------------------------------------------------------
 # Clock initialization (mirrors GO() in 1dungeon.zil)

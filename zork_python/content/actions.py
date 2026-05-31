@@ -2261,6 +2261,8 @@ def _torch_room_fcn(world: "World", msg: int = 0) -> int:
 
 
 def _south_temple_fcn(world: "World", msg: int = 0) -> int:
+    if msg == M_ENTER:
+        world.set_global("VISITED-ALTAR", True)
     if msg == M_BEG:
         coffin = _obj(world, "COFFIN")
         player = world.winner

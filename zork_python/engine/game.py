@@ -413,14 +413,46 @@ class Game:
     # Death / quit                                                         #
     # ------------------------------------------------------------------ #
 
+    def _scatter_items(self) -> None:
+        """Move player inventory to scatter destinations: valuables underground, junk to CLEARING."""
+        lld      = self.world.rooms.get("LAND-OF-LIVING-DEAD")
+        clearing = self.world.rooms.get("CLEARING")
+        player   = self.world.winner
+        if not player or not lld or not clearing:
+            return
+        for item in list(player.contents):
+            dest = lld if (item.tvalue or 0) > 0 else clearing
+            self.world.move_object(item, dest)
+
     def jigs_up(self, message: str) -> None:
-        """Print death message, apply -10 death penalty, and stop the game loop (ZIL JIGS-UP)."""
+        """Death handler: scatter items, track deaths, resurrect or end game (ZIL JIGS-UP)."""
         print(message)
         base = int(self.world.get_global("BASE-SCORE") or 0) - 10
         self.world.set_global("BASE-SCORE", base)
         self.world.score = max(0, self.world.score - 10)
         self.world.set_global("SCORE", self.world.score)
-        self._running = False
+
+        self._scatter_items()
+
+        deaths = int(self.world.get_global("DEATHS-SO-FAR") or 0) + 1
+        self.world.set_global("DEATHS-SO-FAR", deaths)
+
+        if deaths >= 3:
+            print("\n**** You have died ****\n\nUnfortunately, you have run out of chances. "
+                  "Better luck next time.")
+            self._running = False
+            return
+
+        if self.world.get_global("VISITED-ALTAR"):
+            clearing = self.world.rooms.get("CLEARING")
+            self.world.move_object(self.world.winner, clearing)
+            self.world.here = clearing
+            print("\nAs you take your last breath, a warm glow surrounds you...\n"
+                  "You are resurrected in a clearing in the forest.\n"
+                  "Your score has been adjusted.")
+        else:
+            print("\n**** You have died ****\n\nYou have not been granted the gift of resurrection.")
+            self._running = False
 
     def quit(self) -> None:
         """Stop the game loop cleanly."""
