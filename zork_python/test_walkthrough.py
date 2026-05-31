@@ -1485,6 +1485,35 @@ class TestMechanics(unittest.TestCase):
         self.assertIs(trunk.location,   w.winner, "trunk should be in player inventory")
         self.assertIs(trident.location, w.winner, "trident should be in player inventory")
 
+    def test_timber_room_blocks_laden_player(self):
+        """Player carrying large items cannot pass through the narrow Timber Room passage."""
+        self._give("COAL")
+        self._teleport("TIMBER-ROOM")
+        out = self._cmd("go west")
+        self.assertIn("cannot fit", out, "Should print failure message for laden player")
+        self.assertEqual(self._w().here.name, "TIMBER-ROOM", "Player should not have moved")
+
+    def test_timber_room_allows_empty_handed_player(self):
+        """Empty-handed player can pass through the narrow Timber Room passage."""
+        self._teleport("TIMBER-ROOM")
+        self._cmd("go west")
+        self.assertEqual(self._w().here.name, "LOWER-SHAFT",
+                         "Empty-handed player should reach Lower Shaft (Drafty Room)")
+
+    def test_coal_machine_produces_diamond(self):
+        """Placing coal in the machine and turning the switch with a screwdriver creates a diamond."""
+        self._give("COAL", "SCREWDRIVER")
+        self._teleport("MACHINE-ROOM")
+        self._cmd("open lid")
+        self._cmd("put coal in machine", "Done")
+        self._cmd("close lid")
+        self._cmd("turn switch with screwdriver", "machine comes to life")
+        self._cmd("open lid")
+        self._cmd("take diamond", "Taken")
+        diamond = self._obj("DIAMOND")
+        self.assertIsNotNone(diamond, "DIAMOND object should exist after machine runs")
+        self.assertIs(diamond.location, self._w().winner, "Diamond should be in player inventory")
+
 
 # ---------------------------------------------------------------------------
 
