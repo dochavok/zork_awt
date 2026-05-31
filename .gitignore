@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Claude Code local settings (machine-specific permissions)
+.claude/
+
+# VS Code (project settings are committed; exclude user-specific overrides)
+.vscode/launch.json
+.vscode/tasks.json
