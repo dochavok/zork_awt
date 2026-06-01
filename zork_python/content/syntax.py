@@ -415,7 +415,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec()),
         SyntaxRule(verb="look", prep="behind", action="V-LOOK-BEHIND",
                    obj1=ObjectSpec()),
-        SyntaxRule(verb="look", prep="in", action="V-LOOK-INSIDE",
+        SyntaxRule(verb="look", particle="in", action="V-LOOK-INSIDE",
                    obj1=ObjectSpec(locations=_held_car_og_ir_many)),
         SyntaxRule(verb="look", prep="at", action="V-READ", preaction="PRE-READ",
                    obj1=ObjectSpec(locations=_held_car_og_ir),
@@ -710,7 +710,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
 
         # TAKE
         SyntaxRule(verb="take", action="V-TAKE", preaction="PRE-TAKE",
-                   obj1=ObjectSpec(find_flag=TAKEBIT, locations=_og_ir_many)),
+                   obj1=ObjectSpec(find_flag=TAKEBIT, locations=_held_many_have)),
         SyntaxRule(verb="take", particle="in", action="V-BOARD", preaction="PRE-BOARD",
                    obj1=ObjectSpec(find_flag=VEHBIT, locations=_og_ir)),
         SyntaxRule(verb="take", particle="out", action="V-DISEMBARK",

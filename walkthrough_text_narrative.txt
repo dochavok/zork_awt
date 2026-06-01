@@ -200,7 +200,7 @@ This is due to the fact that the batteries are dying - we'll need to
 finish our trip to the coal mines before they die out (because
 fire-based light sources are dangerous in the coal mines).
 
-From here go NORTH, UP, NORTH, NORTH, WEST, NORTH, WEST, NORTH. TAKE
+From here go NORTH, NORTH, UP, NORTH, NORTH, WEST, NORTH, WEST, NORTH. TAKE
 FIGURINE and go EAST. PUT SCREWDRIVER IN BASKET. You won't actually be
 doing anything with the basket right now, but since you're here, you
 might as well drop it off here seeing as how you won't use it anywhere
@@ -217,12 +217,12 @@ CANDLE, COAL IN BASKET and then LOWER BASKET. The basket should only
 contain a screwdriver, lit candles (for light), and a small pile of
 coal. You should only have a matchbook and a lantern.
 
-Go NORTH, DOWN, EAST, NORTHEAST, SOUTHEAST, SOUTHWEST, DOWN, WEST. At
+Go NORTH, DOWN, EAST, NORTHEAST, SOUTHEAST, SOUTHWEST, DOWN, DOWN, WEST. At
 this point, DROP ALL, then GO WEST. That basket that you lowered is now
 in this room, so go ahead and TAKE CANDLES, COAL, SCREWDRIVER and go
 SOUTH.
 
-Ready for some fun? OPEN LID, PUT COAL IN MACHINE, CLOSE LID, and MOVE
+Ready for some fun? OPEN LID, PUT COAL IN MACHINE, CLOSE LID, and TURN
 SWITCH WITH SCREWDRIVER. OPEN LID to reveal a huge diamond! TAKE
 DIAMOND, then go NORTH and PUT CANDLE, DIAMOND, SCREWDRIVER IN BASKET.
 GO EAST.
@@ -258,7 +258,7 @@ actually another treasure, but it's also an effectively inexhaustable
 light source, so you can't lose. Now go SOUTH and EAST. OPEN COFFIN
 and TAKE SCEPTRE. Go WEST, SOUTH, DOWN, NORTH, NORTH, NORTH, WEST,
 WEST, SOUTH, and UP. You know the drill, but this time it's a little
-different, just to let you know. PUT ALL TREASURE BUT SCEPTRE IN CASE.
+different, just to let you know. PUT ALL TREASURE BUT SCEPTRE AND TORCH IN CASE.
 SAVE.
 
 K) End of the Rainbow
@@ -267,7 +267,7 @@ From the case go EAST, EAST, EAST, EAST, DOWN, DOWN, NORTH. The rainbow
 is currently not solid (as in, you can't walk on it), but as you know
 there is always a pot of gold at the end of any rainbow. WAVE SCEPTRE.
 Amazing! TAKE POT. Oh, but this is far from over - go EAST, EAST,
-NORTH, NORTH. TAKE SWORD and go NORTHEAST. Now, DIG IN SAND WITH
+NORTH, NORTH. TAKE SHOVEL and go NORTHEAST. Now, DIG SAND WITH
 SHOVEL until you reach the scarab. Take it - it's another treasure.
 Backtrack all the way to the trophy case: SOUTHWEST, SOUTH, SOUTH,
 WEST, WEST, SOUTHWEST, UP, UP, NORTHWEST, WEST, WEST, WEST. PUT ALL
@@ -276,15 +276,16 @@ TREASURE BUT TORCH IN CASE.
 L) Row, Row, Row Your Boat
 --------------------------
 Two more treasures; the fun never stops. Go DOWN, NORTH, EAST, EAST,
-EAST, UP, NORTHWEST, NORTH, and NORTH. TAKE PUMP. Now go SOUTH, SOUTH,
+EAST, UP, NORTHWEST, EAST. TURN BOLT WITH WRENCH to reopen the dam and
+drain the reservoir again. Go WEST, NORTH, and NORTH. TAKE PUMP. Now go SOUTH, SOUTH,
 EAST, DOWN, and TAKE PLASTIC. This pile of plastic is actually an
 inflatable boat, and you'll use the hand air pump to inflate it. But we
 need a good place to launch the boat; so here goes:
 
 Go UP, SOUTH, DOWN, EAST, and EAST. From here, DROP ALL BUT PUMP, TORCH
-and prepare to INFLATE PLASTIC. The plastic will inflate into a boat
+and prepare to INFLATE PLASTIC WITH PUMP. The plastic will inflate into a boat
 complete with a tan label inside. You don't have to, but if you feel
-like it you can READ LABEL (just be sure to drop it; it's unimportant).
+like it you can OPEN PLASTIC, READ LABEL (just be sure to drop it; it's unimportant).
 
 GET IN BOAT and LAUNCH BOAT. You can't control the path of the boat;
 its completely dependent upon the flow of the river. WAIT until you
@@ -307,9 +308,9 @@ WEST, SOUTHEAST, EAST, DOWN, SOUTH, and EAST. TAKE COFFIN, dropping
 whatever is necessary to take it (anything but the torch; you need it
 because it is the last treasure).
 
-It's almost over! Go SOUTH, and then PRAY. Incredible! You couldn't get
+It's almost over! Go WEST, SOUTH, and then PRAY. Incredible! You couldn't get
 the coffin out any other way, but a magic warp is always acceptable. Go
-WEST, SOUTH, SOUTHEAST, WEST, and WEST. Here, PUT ALL TREASURE IN CASE.
+EAST, SOUTH, SOUTHEAST, WEST, and WEST. Here, PUT ALL TREASURE IN CASE.
 
 O) Into the Tomb
 ----------------

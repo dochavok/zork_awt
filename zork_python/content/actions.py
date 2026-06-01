@@ -1346,6 +1346,13 @@ def _robber_function(world: "World", mode=None) -> int:
         if _verb(world, "V-LISTEN"):
             print("The thief says nothing, as you have not been formally introduced.")
             return M_HANDLED
+        if _verb(world, "V-ATTACK"):
+            if thief:
+                thief.set_flag(FIGHTBIT)
+            result = _hero_blow(world, "THIEF", "THIEF-FLAG")
+            if world.get_global("THIEF-FLAG"):
+                _robber_function(world, F_DEAD)
+            return result
         return M_NOT_HANDLED
 
     if mode == F_BUSY:
@@ -1365,11 +1372,17 @@ def _robber_function(world: "World", mode=None) -> int:
             thief.set_flag(INVISIBLE)
             _deposit_booty(world, world.here)
             treasure_room = world.rooms.get("TREASURE-ROOM")
-            if treasure_room and thief.location is treasure_room:
+            if treasure_room and world.here is treasure_room:
+                printed_header = False
                 for item in list(treasure_room.contents):
                     if item.name not in ("CHALICE", "THIEF", "ADVENTURER"):
                         item.clear_flag(INVISIBLE)
+                        if not printed_header:
+                            print("As the thief dies, the power of his magic decreases, and his\ntreasures reappear:")
+                            printed_header = True
                         print(f"  A {item.desc}")
+                if printed_header:
+                    print("The chalice is now safe to take.")
         world.game.clock.disable("I-THIEF")
         return M_HANDLED
 
@@ -2275,10 +2288,29 @@ def _south_temple_fcn(world: "World", msg: int = 0) -> int:
 def _dam_room_fcn(world: "World", msg: int = 0) -> int:
     if msg == M_LOOK:
         print(
-            "You are standing on the top of Flood Control Dam #3, which was quite\n"
-            "a tourist attraction in its day. The river Frigid is flowing by below.\n"
-            "There is a small path on the north end of the dam."
+            "You are standing on the top of the Flood Control Dam #3, which was\n"
+            "quite a tourist attraction in times far distant. There are paths to\n"
+            "the north, south, and west, and a scramble down."
         )
+        low_tide   = world.get_global("LOW-TIDE")
+        gates_open = world.get_global("GATES-OPEN")
+        if low_tide and gates_open:
+            print("The water level behind the dam is low: The sluice gates have been\n"
+                  "opened. Water rushes through the dam and downstream.")
+        elif gates_open:
+            print("The sluice gates are open, and water rushes through the dam. The\n"
+                  "water level behind the dam is still high.")
+        elif low_tide:
+            print("The sluice gates are closed. The water level in the reservoir is\n"
+                  "quite low, but the level is rising quickly.")
+        else:
+            print("The sluice gates on the dam are closed. Behind the dam, there can be\n"
+                  "seen a wide reservoir. Water is pouring over the top of the now\n"
+                  "abandoned dam.")
+        gate_flag = world.get_global("GATE-FLAG")
+        bubble_desc = " which is\nglowing serenely" if gate_flag else ""
+        print(f"There is a control panel here, on which a large metal bolt is mounted.\n"
+              f"Directly above the bolt is a small green plastic bubble{bubble_desc}.")
         return M_HANDLED
     return M_NOT_HANDLED
 

@@ -340,7 +340,7 @@ def _pre_take(world: "World") -> int:
         if ground and prsi is ground:
             world.prsi = None
             return M_NOT_HANDLED
-        if prsi.location is not prso.location:
+        if prso.location is not prsi:
             print(f"The {prso.desc} isn't in the {prsi.desc}.")
             return M_HANDLED
         world.prsi = None
@@ -393,7 +393,7 @@ def _v_look_inside(world: "World") -> int:
     prso = world.prso
     if prso is None:
         return M_NOT_HANDLED
-    if prso.has_flag(DOORBIT):
+    if prso.has_flag(DOORBIT) and not prso.has_flag(CONTBIT):
         if prso.has_flag(OPENBIT):
             print(f"The {prso.desc} is open, but I can't tell what's beyond it.")
         else:

@@ -322,4 +322,343 @@ with patch('random.randint', _always_max):
     c('west')
     put_treasures()
 
+    # ------------------------------------------------------------------
+    sec('H - The Treasure Chest in the Reservoir')
+    # ------------------------------------------------------------------
+    # Navigate to Maintenance Room to get wrench+screwdriver, enable bolt
+    c('down')           # living room → cellar
+    c('north')          # cellar → troll room
+    c('east')           # troll room → ew-passage
+    c('north')          # ew-passage → chasm
+    c('northeast')      # chasm → reservoir-south
+    c('east')           # reservoir-south → dam-room
+    c('north')          # dam-room → dam-lobby
+    c('north')          # dam-lobby → maintenance-room
+    c('push red button')    # turns room lights on permanently
+    c('turn off lamp')      # save batteries
+    c('take wrench')
+    c('take screwdriver')
+    c('push yellow button') # enables bolt turning (GATE-FLAG)
+    c('south')          # maintenance-room → dam-lobby
+    c('south')          # dam-lobby → dam-room
+    c('turn bolt with wrench')  # opens sluice gates; drains reservoir immediately
+    c('west')           # dam-room → reservoir-south
+    c('turn on lamp')
+    c('north')          # reservoir-south → reservoir (LOW-TIDE now open)
+    c('drop all but lamp')  # drop at RESERVOIR; pick up on the way back
+    c('north')          # reservoir → reservoir-north
+    c('north')          # reservoir-north → atlantis-room
+    c('take trident')
+    c('south')          # atlantis-room → reservoir-north
+    c('south')          # reservoir-north → reservoir
+    c('take trunk')
+    c('south')          # reservoir → reservoir-south
+    c('southwest')      # reservoir-south → chasm
+    c('southwest')      # chasm → ew-passage
+    c('west')           # ew-passage → troll-room
+    c('south')          # troll-room → cellar
+    c('up')             # cellar → living-room
+    put_treasures()
+
+    # ------------------------------------------------------------------
+    sec('I - The Coal Mines')
+    # ------------------------------------------------------------------
+    # Get garlic first (protection against bat)
+    c('east')               # living room → kitchen
+    c('open sack')
+    c('take garlic')
+    c('west')               # kitchen → living room
+    # Navigate back to reservoir to collect dropped items
+    c('down')
+    c('north')
+    c('east')
+    c('north')
+    c('northeast')
+    c('north')              # reservoir-south → reservoir
+    c('take all')           # reclaim everything dropped in section H
+    # Navigate to bat room: reservoir → reservoir-north → atlantis → small-cave →
+    #   mirror-room-1 → cold-passage → slide-room → mine-entrance → squeeky → bat-room
+    c('north')              # reservoir → reservoir-north
+    c('north')              # reservoir-north → atlantis-room  (narrative missing this NORTH)
+    c('up')                 # atlantis-room → small-cave
+    c('north')              # small-cave → mirror-room-1
+    c('north')              # mirror-room-1 → cold-passage
+    c('west')               # cold-passage → slide-room
+    c('north')              # slide-room → mine-entrance
+    c('west')               # mine-entrance → squeeky-room
+    c('north')              # squeeky-room → bat-room
+    c('take figurine')
+    c('east')               # shaft room
+    c('put screwdriver in basket')
+    c('drop matchbook')
+    c('drop candles')
+    # Down through smelly/gas rooms into coal mine
+    c('north')              # smelly room
+    c('down')               # gas room
+    c('take bracelet')
+    c('east')
+    c('northeast')
+    c('southeast')
+    c('southwest')
+    c('down')
+    c('down')
+    c('west')
+    c('drop all but lamp')
+    c('east')
+    c('south')
+    c('take coal')
+    c('north')
+    c('up')
+    c('up')
+    c('north')
+    c('east')
+    c('south')
+    c('north')
+    c('up')
+    c('south')              # back at shaft room
+    # Load basket and lower it
+    c('take candles')
+    c('take matchbook')
+    c('light match')
+    c('light candles with match')
+    c('put candles in basket')
+    c('put coal in basket')
+    c('lower basket')
+    # Navigate back down to lower shaft / machine room
+    # shaft-room → smelly → gas → mine-1 → mine-2 → mine-3 → mine-4 → ladder-top → ladder-bottom → timber-room
+    c('north')              # shaft-room → smelly-room
+    c('down')               # smelly-room → gas-room
+    c('east')               # gas-room → mine-1
+    c('northeast')          # mine-1 → mine-2
+    c('southeast')          # mine-2 → mine-3
+    c('southwest')          # mine-3 → mine-4
+    c('down')               # mine-4 → ladder-top
+    c('down')               # ladder-top → ladder-bottom
+    c('west')               # ladder-bottom → timber-room
+    c('drop all')
+    c('west')               # timber-room → lower-shaft (basket now here)
+    c('take candles')
+    c('take coal')
+    c('take screwdriver')
+    c('south')              # machine room
+    c('open lid')
+    c('put coal in machine')
+    c('close lid')
+    c('turn switch with screwdriver')
+    c('open lid')
+    c('take diamond')
+    c('north')              # lower shaft
+    c('put candles in basket')
+    c('put diamond in basket')
+    c('put screwdriver in basket')
+    c('east')
+    # Backtrack up to shaft room to raise basket
+    c('take all but timbers and stiletto')
+    c('east')
+    c('up')
+    c('up')
+    c('north')
+    c('east')
+    c('south')
+    c('north')
+    c('up')
+    c('south')              # shaft room
+    c('raise basket')
+    c('take candles')
+    c('take diamond')
+    # Return to trophy case
+    c('west')
+    c('south')
+    c('east')
+    c('south')
+    c('down')
+    c('up')
+    put_treasures()
+
+    # ------------------------------------------------------------------
+    sec('J - Eerie Silence')
+    # ------------------------------------------------------------------
+    # Navigate to dam to close it (makes loud room quiet)
+    c('down')
+    c('north')
+    c('east')
+    c('east')
+    c('north')
+    c('northeast')
+    c('east')               # dam-room
+    c('turn bolt with wrench')
+    # Quickly to loud room (now quiet) for platinum bar
+    c('south')              # deep-canyon
+    c('down')               # loud-room
+    c('take bar')
+    c('west')               # round-room
+    # Navigate to torch room
+    c('southeast')          # engravings-cave
+    c('east')               # dome-room
+    c('down')               # torch-room (rope still tied)
+    c('turn off lamp')
+    c('drop lamp')
+    c('drop candles')
+    c('take torch')
+    # Get sceptre from coffin
+    c('south')              # north-temple
+    c('east')               # egypt-room
+    c('open coffin')
+    c('take sceptre')
+    # Return to trophy case
+    c('west')
+    c('south')
+    c('down')
+    c('north')
+    c('north')
+    c('north')
+    c('west')
+    c('west')
+    c('south')
+    c('up')
+    put_treasures(keep_names=('SCEPTRE', 'TORCH'))
+
+    # ------------------------------------------------------------------
+    sec('K - End of the Rainbow')
+    # ------------------------------------------------------------------
+    # Navigate to end of rainbow: living room → kitchen → behind house →
+    # clearing → canyon view → cliff middle → canyon bottom → end of rainbow
+    c('east')               # kitchen
+    c('east')               # behind house
+    c('east')               # clearing
+    c('east')               # canyon view
+    c('down')               # cliff middle
+    c('down')               # canyon bottom
+    c('north')              # end of rainbow
+    c('wave sceptre')
+    c('take pot')
+    # Cross rainbow to sandy beach: east (onto rainbow) → east (falls) →
+    # north (shore) → north (sandy beach)
+    c('east')               # on the rainbow
+    c('east')               # aragain falls
+    c('north')              # shore
+    c('north')              # sandy beach
+    c('take shovel')
+    c('northeast')          # sandy cave
+    c('dig sand with shovel')
+    c('take scarab')
+    # Backtrack to trophy case
+    c('southwest')          # sandy beach
+    c('south')              # shore
+    c('south')              # aragain falls
+    c('west')               # on the rainbow
+    c('west')               # end of rainbow
+    c('southwest')          # canyon bottom
+    c('up')                 # cliff middle
+    c('up')                 # canyon view
+    c('northwest')          # clearing
+    c('west')               # behind house
+    c('west')               # kitchen
+    c('west')               # living room
+    put_treasures(keep_names=('TORCH',))
+
+    # ------------------------------------------------------------------
+    sec('L - Row, Row, Row Your Boat')
+    # ------------------------------------------------------------------
+    # Navigate to dam, reopen it, then get pump from reservoir-north
+    c('down')
+    c('north')
+    c('east')
+    c('east')
+    c('east')
+    c('up')             # loud-room → deep-canyon
+    c('northwest')      # reservoir-south
+    c('east')           # dam-room
+    c('turn bolt with wrench')  # reopen dam; LOW-TIDE = True
+    c('west')           # reservoir-south
+    c('north')          # reservoir
+    c('north')          # reservoir-north
+    c('take pump')
+    # Get inflatable boat from dam-base
+    c('south')          # reservoir
+    c('south')          # reservoir-south
+    c('east')           # dam-room
+    c('down')           # dam-base
+    c('take plastic')
+    # Navigate to white cliffs beach to launch
+    c('up')             # dam-room
+    c('south')          # deep-canyon
+    c('down')           # loud-room
+    c('east')           # damp-cave
+    c('east')           # white-cliffs-north (launch point)
+    c('drop all but pump and torch')
+    c('inflate plastic with pump')
+    c('get in boat')
+    c('launch boat')
+    c('wait')           # river carries us: white-cliffs-north → river-3
+    c('wait')           # river-3, clock ticking
+    c('wait')           # → river-4 (buoy is here)
+    c('take buoy')
+    c('east')           # land on sandy beach
+    c('open buoy')
+    c('take emerald')
+    c('drop buoy')
+    c('get out of boat')
+    c('deflate boat')
+    c('take plastic')
+    # Return to trophy case via rainbow path
+    c('south')          # shore → aragain falls
+    c('west')           # on the rainbow
+    c('west')           # end of rainbow
+    c('southwest')      # canyon bottom
+    c('up')             # cliff middle
+    c('up')             # canyon view
+    c('northwest')      # clearing
+    c('west')           # behind house
+    c('west')           # kitchen
+    c('west')           # living room
+    put_treasures(keep_names=('TORCH',))
+    # Retrieve dropped items from white cliffs beach
+    c('down')
+    c('north')
+    c('east')
+    c('east')
+    c('east')
+    c('east')
+    c('east')           # white-cliffs-north
+    c('take all')       # label stays inside the deflated boat
+
+    # ------------------------------------------------------------------
+    sec('M - Ramses Coffin')
+    # ------------------------------------------------------------------
+    # Navigate from white cliffs beach to egypt room
+    c('west')           # damp-cave
+    c('west')           # loud-room
+    c('west')           # round-room
+    c('southeast')      # engravings-cave
+    c('east')           # dome-room
+    c('down')           # torch-room
+    c('south')          # north-temple
+    c('east')           # egypt-room
+    # Drop everything except torch to make room for coffin (size 55)
+    c('drop all but torch')
+    c('take coffin')
+    # Navigate to south-temple (altar) to pray
+    c('west')           # north-temple
+    c('south')          # south-temple
+    c('pray')           # warp to forest-1
+    # Return to trophy case from forest-1
+    c('east')           # path? or south?
+    c('south')          # north-of-house
+    c('southeast')      # east-of-house
+    c('west')           # kitchen
+    c('west')           # living-room
+    put_treasures()
+
+    # ------------------------------------------------------------------
+    sec('O - Into the Tomb')
+    # ------------------------------------------------------------------
+    c('read parchment')
+    c('east')           # kitchen
+    c('east')           # behind house
+    c('southwest')      # south of house
+    c('northwest')      # west of house
+    c('southwest')      # stone barrow (WON-FLAG required)
+    c('in')             # enter tomb — win!
+
     report()

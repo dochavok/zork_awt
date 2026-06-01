@@ -346,7 +346,13 @@ class Game:
         w = self.world
 
         if w.winner is not None:
-            w.move_object(w.winner, room)
+            winner_loc = w.winner.location
+            if (winner_loc is not None
+                    and hasattr(winner_loc, "has_flag")
+                    and winner_loc.has_flag("VEHBIT")):
+                w.move_object(winner_loc, room)   # move vehicle; winner stays inside
+            else:
+                w.move_object(w.winner, room)
         w.here = room
 
         if room.action is not None:
@@ -393,21 +399,33 @@ class Game:
             self._describe_contents(room)
 
     def _describe_contents(self, room: Room) -> None:
-        """Print visible objects in the room."""
+        """Print visible objects in the room, recursing into transparent containers."""
         from engine.world import INVISIBLE, NDESCBIT
         w = self.world
 
-        for obj in list(room.contents):
-            if w.winner is not None and obj is w.winner:
-                continue
-            if obj.has_flag(INVISIBLE) or obj.has_flag(NDESCBIT):
-                continue
-            if not obj.touched and obj.fdesc:
-                print(obj.fdesc)
-            elif obj.ldesc:
-                print(obj.ldesc)
-            else:
-                print(f"There is {_article(obj.desc)} here.")
+        def _describe(container, depth: int = 0) -> None:
+            for obj in list(container.contents):
+                if w.winner is not None and obj is w.winner:
+                    continue
+                if obj.has_flag(INVISIBLE) or obj.has_flag(NDESCBIT):
+                    continue
+                if depth == 0:
+                    if not obj.touched and obj.fdesc:
+                        print(obj.fdesc)
+                    elif obj.ldesc:
+                        print(obj.ldesc)
+                    else:
+                        print(f"There is {_article(obj.desc)} here.")
+                else:
+                    if not obj.touched and obj.fdesc:
+                        print(obj.fdesc)
+                # Recurse into open or transparent containers
+                if (obj.has_flag("CONTBIT")
+                        and (obj.has_flag("OPENBIT") or obj.has_flag("TRANSBIT"))
+                        and not obj.has_flag(INVISIBLE)):
+                    _describe(obj, depth + 1)
+
+        _describe(room)
 
     # ------------------------------------------------------------------ #
     # Death / quit                                                         #
