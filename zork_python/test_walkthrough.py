@@ -773,6 +773,320 @@ class TestWalkthrough(unittest.TestCase):
 
 
 # ===========================================================================
+# Negative-path tests
+# ===========================================================================
+
+class TestNegativePaths(unittest.TestCase):
+    """
+    23 wrong-input tests across 5 categories.  Each verifies that the correct
+    error message appears and that game state is not changed unexpectedly.
+    """
+
+    def setUp(self):
+        self._rand_patch = patch("random.randint", _always_max)
+        self._rand_patch.start()
+        self.game = _make_game()
+        buf = io.StringIO()
+        with patch("sys.stdout", buf):
+            self.game.enter_room(self.game.world.here)
+
+    def tearDown(self):
+        self._rand_patch.stop()
+
+    # ---- helpers -----------------------------------------------------------
+
+    def _w(self):
+        return self.game.world
+
+    def _obj(self, name):
+        return self.game.world.objects.get(name)
+
+    def _room(self, name):
+        return self.game.world.rooms.get(name)
+
+    def _give(self, *obj_names):
+        world = self.game.world
+        for name in obj_names:
+            obj = world.objects.get(name)
+            if obj and world.winner:
+                world.move_object(obj, world.winner)
+
+    def _place(self, obj_name, room_name):
+        world = self.game.world
+        obj = world.objects.get(obj_name)
+        room = world.rooms.get(room_name)
+        if obj and room:
+            world.move_object(obj, room)
+
+    def _teleport(self, room_name):
+        dest = self._room(room_name)
+        if dest:
+            buf = io.StringIO()
+            with patch("sys.stdout", buf):
+                self.game.enter_room(dest)
+
+    def _cmd(self, command, *expected_fragments):
+        buf = io.StringIO()
+        with patch("sys.stdout", buf):
+            self.game.do_turn(command)
+        out = buf.getvalue()
+        for frag in expected_fragments:
+            self.assertIn(frag, out,
+                          f"Command {command!r}: expected {frag!r} in output {out!r}")
+        return out
+
+    # =========================================================================
+    # Category 1 — Movement failures
+    # =========================================================================
+
+    def test_01_dead_direction(self):
+        """Going northwest from WEST-OF-HOUSE (no exit) prints failure message."""
+        # Player starts at WEST-OF-HOUSE; northwest has no exit
+        self.assertEqual(self._w().here.name, "WEST-OF-HOUSE")
+        self._cmd("go northwest", "can't go that way")
+        self.assertEqual(self._w().here.name, "WEST-OF-HOUSE",
+                         "Player must not move on a dead direction")
+
+    def test_02_trap_door_closed_blocks_descent(self):
+        """Going down from LIVING-ROOM when trap door is closed prints failure."""
+        self._give("LAMP")
+        self._cmd("turn on lamp")
+        self._cmd("go south"); self._cmd("go east")
+        self._cmd("open window"); self._cmd("enter house")
+        self._cmd("go west")  # LIVING-ROOM
+        self.assertEqual(self._w().here.name, "LIVING-ROOM")
+        self._cmd("move rug")
+        # Trap door is closed by default; do NOT open it
+        trap = self._obj("TRAP-DOOR")
+        self.assertFalse(trap.has_flag("OPENBIT"), "Trap door must be closed for this test")
+        out = self._cmd("go down")
+        self.assertIn("closed", out)
+        self.assertEqual(self._w().here.name, "LIVING-ROOM",
+                         "Player must stay in LIVING-ROOM when trap door is closed")
+
+    def test_03_grating_closed_blocks_ascent(self):
+        """Going up from GRATING-ROOM when grate is closed prints failure."""
+        self._give("LAMP")
+        self._cmd("turn on lamp")
+        self._teleport("GRATING-ROOM")
+        grate = self._obj("GRATE")
+        self.assertFalse(grate.has_flag("OPENBIT"), "Grate must be closed for this test")
+        out = self._cmd("go up")
+        self.assertIn("closed", out)
+        self.assertEqual(self._w().here.name, "GRATING-ROOM",
+                         "Player must stay in GRATING-ROOM when grate is closed")
+
+    def test_04_timber_room_laden_blocks_west(self):
+        """Going west from TIMBER-ROOM while carrying heavy items prints failure."""
+        self._give("COAL")  # size > 4
+        self._teleport("TIMBER-ROOM")
+        out = self._cmd("go west")
+        self.assertIn("cannot fit", out)
+        self.assertEqual(self._w().here.name, "TIMBER-ROOM",
+                         "Player must not pass through with heavy load")
+
+    def test_05_chimney_too_many_items(self):
+        """Going up chimney from STUDIO with 3+ items prints failure."""
+        self._give("LAMP", "SWORD", "ROPE")  # 3 items; lamp present but count too high
+        self._cmd("turn on lamp")
+        self._teleport("STUDIO")
+        out = self._cmd("go up chimney")
+        self.assertIn("can't get up there", out)
+        self.assertEqual(self._w().here.name, "STUDIO",
+                         "Player must stay in STUDIO when carrying too much")
+
+    def test_06_hades_gate_barred_before_exorcism(self):
+        """Going south from ENTRANCE-TO-HADES before exorcism is barred by spirits."""
+        self._give("LAMP")
+        self._cmd("turn on lamp")
+        self._teleport("ENTRANCE-TO-HADES")
+        self.assertFalse(self._w().get_global("LLD-FLAG"),
+                         "LLD-FLAG must be False for this test")
+        out = self._cmd("go south")
+        self.assertIn("invisible force", out)
+        self.assertEqual(self._w().here.name, "ENTRANCE-TO-HADES",
+                         "Player must not enter Hades before exorcism")
+
+    # =========================================================================
+    # Category 2 — Using items you don't have / can't see
+    # =========================================================================
+
+    def test_07_take_item_not_present(self):
+        """Taking the lamp when it is not in the room or inventory fails."""
+        # Lamp starts in LIVING-ROOM; player is at WEST-OF-HOUSE
+        self.assertEqual(self._w().here.name, "WEST-OF-HOUSE")
+        out = self._cmd("take lamp")
+        self.assertIn("can't see", out.lower())
+
+    def test_08_take_already_held_item(self):
+        """Taking an item already in inventory prints an appropriate message."""
+        self._give("SWORD")
+        self._teleport("WEST-OF-HOUSE")
+        out = self._cmd("take sword")
+        self.assertTrue(
+            "already have" in out.lower() or "can't see" in out.lower(),
+            f"Expected 'already have' or 'can't see' in output, got: {out!r}"
+        )
+
+    def test_09_read_book_not_present(self):
+        """Reading the book when player doesn't have it fails."""
+        self.assertEqual(self._w().here.name, "WEST-OF-HOUSE")
+        out = self._cmd("read book")
+        self.assertIn("can't see", out.lower())
+
+    def test_10_unlock_grate_without_keys(self):
+        """Unlocking the grate without keys in inventory prints failure."""
+        self._give("LAMP")
+        self._cmd("turn on lamp")
+        self._teleport("GRATING-ROOM")
+        # Ensure player has no keys
+        keys = self._obj("KEYS")
+        self.assertIsNot(keys.location, self._w().winner,
+                         "Player must not have keys for this test")
+        out = self._cmd("unlock grate")
+        self.assertIn("don't have anything", out)
+
+    def test_11_attack_troll_without_weapon(self):
+        """Attacking the troll without holding the sword prints failure."""
+        self._give("LAMP")
+        self._cmd("turn on lamp")
+        self._cmd("go south"); self._cmd("go east"); self._cmd("open window")
+        self._cmd("enter house"); self._cmd("go west")
+        self._cmd("open trap door"); self._cmd("go down"); self._cmd("go north")
+        # Sword is on the floor in Troll Room but not held
+        sword = self._obj("SWORD")
+        self.assertIsNot(sword.location, self._w().winner,
+                         "Sword must not be in inventory for this test")
+        out = self._cmd("kill troll with sword")
+        self.assertTrue(
+            "not holding" in out.lower() or "you're not holding" in out.lower()
+            or "don't have" in out.lower() or "can't see" in out.lower(),
+            f"Expected weapon-not-held message, got: {out!r}"
+        )
+
+    # =========================================================================
+    # Category 3 — Object state mismatches
+    # =========================================================================
+
+    def test_12_open_already_open_mailbox(self):
+        """Opening an already-open mailbox prints 'already open'."""
+        self._cmd("open mailbox")   # opens it
+        out = self._cmd("open mailbox")
+        self.assertIn("already open", out)
+
+    def test_13_close_already_closed_mailbox(self):
+        """Closing an already-closed mailbox prints 'already closed'."""
+        # Mailbox starts closed
+        mailbox = self._obj("MAILBOX")
+        self.assertFalse(mailbox.has_flag("OPENBIT"), "Mailbox must be closed for this test")
+        out = self._cmd("close mailbox")
+        self.assertIn("already closed", out)
+
+    def test_14_turn_on_lamp_already_on(self):
+        """Turning on the lamp when it is already on prints 'already on'."""
+        self._give("LAMP")
+        self._cmd("turn on lamp")   # turn on
+        out = self._cmd("turn on lamp")
+        self.assertIn("already on", out)
+
+    def test_15_open_locked_grate(self):
+        """Opening the grate when it is locked prints a locked message."""
+        self._give("LAMP")
+        self._cmd("turn on lamp")
+        self._teleport("GRATING-ROOM")
+        # Grate starts locked (GRUNLOCK=False)
+        self.assertFalse(self._w().get_global("GRUNLOCK"),
+                         "Grate must be locked for this test")
+        out = self._cmd("open grate")
+        self.assertIn("locked", out)
+
+    def test_16_light_candles_with_unlit_match(self):
+        """Lighting candles with an unlit match fails — parser can't find lit match."""
+        self._give("LAMP", "CANDLES", "MATCH")
+        self._cmd("turn on lamp")
+        self._teleport("WEST-OF-HOUSE")
+        # Match is not lit (no FLAMEBIT)
+        match = self._obj("MATCH")
+        self.assertFalse(match.has_flag("FLAMEBIT"), "Match must be unlit for this test")
+        out = self._cmd("light candles with match")
+        self.assertIn("can't see", out.lower())
+
+    # =========================================================================
+    # Category 4 — Puzzle-specific wrong actions
+    # =========================================================================
+
+    def test_17_wave_sceptre_wrong_location(self):
+        """Waving sceptre outside rainbow rooms produces dazzle message, not rainbow."""
+        self._give("SCEPTRE")
+        self._teleport("LIVING-ROOM")
+        out = self._cmd("wave sceptre")
+        self.assertIn("dazzling", out)
+        self.assertFalse(self._w().get_global("RAINBOW-FLAG"),
+                         "RAINBOW-FLAG must not be set when sceptre waved in wrong room")
+
+    def test_18_read_book_before_bell_rung(self):
+        """Reading the book in Hades before ringing bell (XC=False) does not complete exorcism."""
+        self._give("LAMP", "BOOK")
+        self._cmd("turn on lamp")
+        self._teleport("ENTRANCE-TO-HADES")
+        self.assertFalse(self._w().get_global("XC"),
+                         "XC must be False before ringing bell")
+        self._cmd("read book")
+        self.assertFalse(self._w().get_global("LLD-FLAG"),
+                         "Exorcism must not complete without XC set")
+
+    def test_19_light_match_in_drafty_room(self):
+        """Lighting a match in the drafty Timber Room prints the drafty message."""
+        self._give("MATCH")
+        self._teleport("TIMBER-ROOM")
+        out = self._cmd("light match")
+        self.assertIn("drafty", out)
+        match = self._obj("MATCH")
+        self.assertFalse(match.has_flag("FLAMEBIT"),
+                         "Match must not light in a drafty room")
+
+    def test_20_go_down_dome_without_rope(self):
+        """Going down from DOME-ROOM without rope tied prints failure message."""
+        self._give("LAMP")
+        self._cmd("turn on lamp")
+        self._teleport("DOME-ROOM")
+        self.assertFalse(self._w().get_global("DOME-FLAG"),
+                         "DOME-FLAG must be False (rope not tied) for this test")
+        out = self._cmd("go down")
+        self.assertIn("fracturing", out)
+        self.assertEqual(self._w().here.name, "DOME-ROOM",
+                         "Player must stay in DOME-ROOM without rope")
+
+    # =========================================================================
+    # Category 5 — Parser / vocabulary rejections
+    # =========================================================================
+
+    def test_21_unknown_verb(self):
+        """A completely unknown word prints a 'don't know' message."""
+        out = self._cmd("frobnitz")
+        self.assertIn("don't know", out.lower())
+
+    def test_22_verb_with_no_object(self):
+        """'take' with no object produces an error about what to take."""
+        out = self._cmd("take")
+        self.assertTrue(
+            "what" in out.lower() or "don't know" in out.lower() or "nothing" in out.lower(),
+            f"Expected a missing-object error, got: {out!r}"
+        )
+
+    def test_23_put_missing_destination(self):
+        """'put lamp' with no destination produces a parser error."""
+        self._give("LAMP")
+        out = self._cmd("put lamp")
+        self.assertTrue(
+            "where" in out.lower() or "what" in out.lower()
+            or "don't know" in out.lower() or "don't understand" in out.lower()
+            or "recognize" in out.lower(),
+            f"Expected a missing-destination error, got: {out!r}"
+        )
+
+
+# ===========================================================================
 # Failure-condition tests
 # ===========================================================================
 
