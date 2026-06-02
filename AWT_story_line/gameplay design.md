@@ -1,6 +1,6 @@
 # Enchanted Realms: One Ring
 
-### Game Design Document v0.1
+### Game Design Document v0.2
 
 -----
 
@@ -136,18 +136,22 @@ Equipment occupies the following slots. Armor is found through exploration and n
 - Two versions: **Regular** and **Enchanted**.
 - Regular glasses provide a small bonus to perception checks.
 - Enchanted glasses make perception checks significantly easier or guarantee success.
+- Found in a **hidden room inside Will’s Wizard Tower**.
 - Enchanted by **Kevry Talbots** — but only if the glasses are already equipped in the head slot when the player visits him.
+- **Warning:** Wearing the glasses out of Will’s hidden room triggers an instant fail state (Will attacks — no recovery). The player must pick them up and leave without equipping them.
 - Inventory item; can be picked up and dropped.
 - Equips in the **head slot**.
 
 ### The One Ring *(Core Quest Item)*
 
 - Only one exists in the game.
+- **Origin:** The ring fell through the roof of Pyronicus’s home. Will Passion becomes aware of it and sends the player on a quest to retrieve it from Pyronicus. Pyronicus hands it over willingly.
 - Grants **invisibility** while worn, enabling certain quests that cannot otherwise be completed.
 - Equips in the **ring slot**.
 - Carries a **corruption timer**: each turn the ring is worn advances the corruption counter.
 - Milestone messages warn the player as corruption progresses.
 - Removing the ring **pauses** the timer; putting it back on **resumes** from where it left off. The timer never resets.
+- **Late-stage removal:** At the final corruption ticks, the player must pass a **challenge roll** to remove the ring. The outcome messages vary based on how close the roll was — near misses and clean successes are narrated differently, adding dread to the endgame.
 - **Full corruption = game over (failure ending).**
 - Design note: 2–3 quests should require or significantly benefit from invisibility, creating meaningful temptation to use the ring.
 
@@ -165,6 +169,27 @@ Equipment occupies the following slots. Armor is found through exploration and n
 
 -----
 
+## Special Mechanics
+
+### The Mirror Room
+
+- A standalone location (TBD placement in the world).
+- Contains a mirror. If the player passes the mirror while **visible** (ring not worn), “yourself sees you” — the player is immediately kicked back to the room they came from.
+- Passing the mirror while **invisible** (ring worn) proceeds normally.
+- This is a single specific puzzle room, not a global rule.
+- Design note: creates a natural incentive to use the ring, directly feeding into corruption temptation.
+
+### The Dig Room
+
+- Located in a new dungeon/cave area (TBD).
+- Contains a spot that can be dug — only revealed on a successful **perception check**.
+- Digging the spot causes the **entire floor to collapse**. The player automatically falls through to the room below with no input.
+- This creates a **one-way connection** downward — there is no falling back up through the hole.
+- An **alternate path back up** must exist within the dungeon (TBD design).
+- **Open question:** Does the fall deal damage? TBD.
+
+-----
+
 ## The Four Dungeon Masters
 
 Four hidden NPCs called Dungeon Masters are scattered throughout the world. All are helpful. They are discovered naturally as the player explores, and their full roles are TBD.
@@ -179,6 +204,8 @@ Opening the mailbox teleports the player to **Will’s Wizard Tower**. Will can 
 
 - Likely teaches non-mage classes how to learn spells from scrolls.
 - One of the more mechanically important DMs for Warrior and Rogue players.
+- **Sends the player on the One Ring quest** — aware that the ring landed in Pyronicus’s home, Will dispatches the player to retrieve it.
+- **Will’s hidden room** contains the Enchanted Glasses. Wearing them out of this room triggers an instant fail state.
 
 -----
 
@@ -210,23 +237,26 @@ Opening the mailbox teleports the player to **Will’s Wizard Tower**. Will can 
 **Location:** TBD — likely a **volcano or fire area**
 
 - Name implies fire; environment TBD.
-- Role distinct from other three DMs, TBD.
+- **Holds the One Ring** — it fell through his roof. He is not hostile about it and surrenders the ring willingly when the player arrives on Will’s errand.
+- Role otherwise distinct from other three DMs, TBD.
 - The fire/volcano area would be a unique, dangerous environment.
 
 -----
 
 ## World & Locations
 
-|Location           |Notes                                                        |
-|-------------------|-------------------------------------------------------------|
-|White House        |Opening area; homage to Zork. Mailbox portal to Will’s tower.|
-|Town               |Central hub; inn, archery range nearby.                      |
-|Archery Range      |Edge of town; hazardous stray arrows; quest to make safe.    |
-|The Bog            |Four rooms; one hides Litlock’s house. Perception-gated.     |
-|The Sea            |69 moves to Kevry’s island. Requires boat.                   |
-|Kevry’s Island     |Small location. Easter egg.                                  |
-|Will’s Wizard Tower|Accessed via mailbox portal.                                 |
-|Volcano Area       |TBD. Home of Pyronicus.                                      |
+|Location           |Notes                                                                        |
+|-------------------|-----------------------------------------------------------------------------|
+|White House        |Opening area; homage to Zork. Mailbox portal to Will’s tower.                |
+|Town               |Central hub; inn, archery range nearby.                                      |
+|Archery Range      |Edge of town; hazardous stray arrows; quest to make safe.                    |
+|The Bog            |Four rooms; one hides Litlock’s house. Perception-gated.                     |
+|The Sea            |69 moves to Kevry’s island. Requires boat.                                   |
+|Kevry’s Island     |Small location. Easter egg.                                                  |
+|Will’s Wizard Tower|Accessed via mailbox portal. Contains hidden room with the Enchanted Glasses.|
+|Mirror Room        |Standalone location TBD. Visible players are repelled; ring required to pass.|
+|Dungeon/Cave Area  |New area TBD. Contains the Dig Room with a collapsing floor puzzle.          |
+|Volcano Area       |TBD. Home of Pyronicus. Holds the One Ring until player retrieves it.        |
 
 -----
 
@@ -234,13 +264,15 @@ Opening the mailbox teleports the player to **Will’s Wizard Tower**. Will can 
 
 - [ ] Red Knight name — *look this up.*
 - [ ] Finalize number of levels and XP thresholds.
-- [ ] Design 2–3 quests that require or benefit from ring invisibility.
+- [ ] Design 2–3 quests that require or benefit from ring invisibility (Mirror Room is one candidate).
 - [ ] Define full list of spell types available via scrolls.
-- [ ] Flesh out Pyronicus’s role and the volcano area.
-- [ ] Decide which DM enchants the glasses in the lore (currently Kevry).
+- [ ] Flesh out Pyronicus’s role and the volcano area beyond ring retrieval.
 - [ ] Determine cost of inn rest and training in Zenni.
 - [ ] Flesh out the Red Knight and archery trainer as full NPCs.
 - [ ] Armor items to design for each slot.
 - [ ] Additional armor slot review pass planned (flagged for later).
 - [ ] Define all challenge roll types and their dice.
 - [ ] Heart Necklace — determine which quest rewards it.
+- [ ] Mirror Room — determine world placement.
+- [ ] Dungeon/Cave Area — design layout, alternate path back up from dig room, and whether falling deals damage.
+- [ ] Finalize corruption challenge roll: define dice type, difficulty, and full set of outcome messages for near-miss vs. clean success vs. failure.
