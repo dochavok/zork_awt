@@ -1085,6 +1085,24 @@ class TestNegativePaths(unittest.TestCase):
             f"Expected a missing-destination error, got: {out!r}"
         )
 
+    # =========================================================================
+    # Category 6 — Environmental deaths
+    # =========================================================================
+
+    def test_24_waterfall_kills_player(self):
+        """Staying in the boat past RIVER-4 carries the player over the waterfall."""
+        from content.actions import i_river
+        w = self._w()
+
+        self._teleport("RIVER-5")
+        w.game.clock.queue("I-RIVER", i_river, 1)
+        self.game._running = True
+
+        out = self._cmd("wait")
+        self.assertIn("waterfall", out.lower())
+        self.assertFalse(self.game._running,
+                         "Game must end after going over the waterfall")
+
 
 # ===========================================================================
 # Failure-condition tests
