@@ -205,6 +205,12 @@ Equipment occupies the following slots. Armor is found through exploration and n
 - Permanently adds one heart to the player’s maximum.
 - Equips in the **neck slot**.
 
+### The Forgotten Blade
+
+- Treasure item — ceremonial sword of ancient ornate metalwork, craft lost to history. **Not a combat weapon; grants no combat bonus.**
+- Given by the frozen soldier upon revival in the Quest 34 Fountain Room (lower tier dungeon).
+- High value. Goes to the Trophy Case in Town Hall Tower.
+
 ### Spell Scrolls
 
 - Found throughout the world.
@@ -222,7 +228,7 @@ Equipment occupies the following slots. Armor is found through exploration and n
 
 | Spell | Effect | Duration | Reuse Timer | Source |
 |-------|--------|----------|-------------|--------|
-| **Light** | Creates a light source | 10 turns | 20 turns | Quest 12 — ghost in the Chuckle House teaches Mages directly; gives scroll to Warriors/Rogues (take to Will Passion) |
+| **Light** | Creates a light source | 10 turns | 20 turns | Quest 12 — music box key in Bog-NW; scroll inside locked music box in Will's Tower |
 
 -----
 
@@ -488,7 +494,9 @@ Four hidden NPCs called Dungeon Masters are scattered throughout the world. All 
 |— Bone Crunch Floor Room        |Dry bones arranged plainly on the floor — no perception check needed. Warning text: *"The sound is coming from beyond that doorway — bone grinding on stone, steady and unhurried. You get the distinct impression that silence is not optional here."* `CLEAR BONES` disarms. Moving through without clearing: instant death. Death text: *"The bones crack underfoot. The grinding stops. Then the doorway fills."* (Trap 36)|
 |— Skeleton Room                 |Dead end. Full room of undead skeletons. Instant death on entry if Trap 36 triggered. Never required — nothing inside.|
 |— Werewolf's Room               |Undead werewolf (critical path — ring quest). Cannot be harmed by conventional weapons. `DRIVE STAKE INTO WEREWOLF` with consecrated silver stake destroys it. Ivory Torch mounted on wall — take before leaving. Werewolf drops: **Werewolf's Amulet** (ring ritual artifact, The Veil of the Arcane).|
-|— Quest 34 Room                 |Perception check reveals a section of wall is a door. Door speaks in unknown language — clearly a question. `READ SCROLL` (incantation scroll, Quest 28) opens it. Behind: soldier encased in magical ice. `HOLD TORCH NEAR ICE` (two turns, Ivory Torch from Werewolf's Room) thaws him. Soldier gives named blade (combat bonus) and reappears in town as minor NPC offering free weapon training sessions.|
+|— Tool Alcove                   |Quest 34 barrier room. North of The Junction. Appears as a dead end — empty iron brackets on walls. Speaking door disguised as back wall. Perception check required for discovery. **Three-state room:** (1) *Before discovery:* "The passage ends at a shallow recess lined with iron brackets — the kind used to hang tools or equipment. The brackets are empty. The back wall is flat and featureless." (2) *Perception check fires:* "Something in the back wall notices you. You're not sure how you know that, but you do." — immediately followed by persistent description. (3) *Persistent (after discovery):* "As you focus on the back wall, it asks you something. Once. The sound of it fills the alcove and then is gone, leaving only the clear impression that an answer is expected." `READ SCROLL` response: *"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."* — scroll consumed; passage north opens permanently. *Open state (all future visits):* "The passage ends at a shallow recess lined with empty iron brackets. The back wall stands open. It has nothing left to ask."|
+|— Quest 34 Mid Room             |North of Tool Alcove. A channel of dark water fills the room wall to wall — narrow but uncrossable. **Room description:** *"Everything in this room is becoming the pool. Water seeps through the walls in thin lines, runs down the stone, disappears into the dark surface below. The ceiling drips. The pool fills the room wall to wall — narrow, long, bottomless as far as you can tell. The passage north is visible on the other side. The water is between you and it."* **Swimming penalty:** *"The moment you enter, the water is inside you somehow — not wet, not cold, just wrong. The pain that follows is real and serious and spreads fast. You are back at the doorway, bleeding from nowhere you can see."* (1 heart damage; player returned to doorway automatically.) **Freeze solution:** `POUR VIAL IN WATER` (vial of glacier melt from Prayer Alcove, upper tier) freezes the pool; player crosses freely.|
+|— Quest 34 Fountain Room        |North of Quest 34 Mid Room. Contains a soldier encased in a block of magical ice — alive but suspended. **Room description:** *"Cold stops you at the threshold — not wind, just cold, settled and absolute. The fountain to your left has been frozen mid-pour for what might be a very long time. The block of ice in the center of the room is frosted thick, but not so thick you can't see the shape inside it. A person. Standing. Composed."* **Turn 1 (`HOLD TORCH NEAR ICE`):** *"The ivory torch throws heat that seems wrong for its size. Where the flame meets the ice, the frost retreats — a wet gleam spreading outward from the torch's reach. A single deep crack sounds from somewhere inside the block — not shattering, just shifting. A small clear window opens in the surface. Through it, the figure is closer than expected. Still composed. Still waiting."* **Turn 2 (`HOLD TORCH NEAR ICE`):** *"The crack deepens — then several more, fast, branching outward from the window. The block doesn't collapse so much as release. The ice falls away in sheets, and the soldier steps forward out of it as if he had been about to do so anyway. He blinks. He looks at his hands. He looks at you."* **Soldier handoff:** *"He looks at the sword at his side as if surprised to find it still there. He draws it and holds it out to you without ceremony. 'The Forgotten Blade,' he says. 'It has no business down here.' Neither, apparently, does he — he moves past you and is gone before you can speak."* Soldier reappears in town as a minor NPC offering free weapon training sessions. **Reward: The Forgotten Blade** — see Items.|
 |— Dark Room                     |Magical darkness fills the passage ahead. Player can remain but cannot move forward — hard block, no damage, no escalation. Normal torches and Light spell ineffective. Guardian's Lantern (Warden's drop, upper tier) required. `TURN ON LANTERN` or `LIGHT LANTERN` dispels darkness and opens passage.|
 |— Spirit Room                   |6–9 silent spirits. Terrifying in their silence. Hard block in both directions while player is visible — cannot move forward or back. One Ring (invisibility) required to pass. Spirits cannot be killed.|
 |— Burial Chamber                |*"The chamber is circular, the walls carved with processions of figures — mourners, by the look of them, rendered in a style no living hand in Roundabout would recognize. Niches hold candles that have not burned in centuries, wax melted flat and cold. The plinth at the center holds the mask. Everything in this room was arranged deliberately, long ago, by people who are not coming back."* Contains: **Funeral Mask of Hammered Gold** (treasure) on central plinth. Taking the mask triggers no reaction from the spirits.|
@@ -660,8 +668,7 @@ She picks up her book.
 - [ ] Design 2–3 quests that require or benefit from ring invisibility (Chuckle House is one; need 1–2 more).
 - [ ] Define full list of spell types available via scrolls.
 - [ ] Player name — review all NPC dialogue and flag where name use is appropriate once familiarity established. Priority: May, Shamus, Raznak, Redcrosse Knight, Vikings.
-- [ ] Flesh out Pyronicus’s role beyond ring retrieval and Pale Blade forging — volcano quests (21, 26, 42, 45) TBD.
-- [ ] Design volcano area quest item locations for Quests 21, 26, 42, 45.
+- [ ] Pyronicus forging interaction — design the full quest/scene for bringing the Viking runed metal to Pyronicus and receiving the Pale Blade.
 - [ ] Design 2–3 additional chests in the world — locations, contents, Zenni amounts TBD.
 - [ ] Treasure case in Will’s Wizard Tower — prices for treasure items (ship-in-a-bottle, gold nugget, etc.) TBD.
 - [ ] Ty’s Casino Corner — Zenni stakes for Cargo game TBD.
@@ -690,9 +697,8 @@ She picks up her book.
 - [ ] Pie Rat Ship deck — flesh out sub-rooms and items/interactions aboard.
 - [ ] Pie Rats Mining Inc. sealed section — determine items hidden there; gold nugget in Assay Room (treasure or quest item TBD).
 - [ ] Desert Island buried chest — determine TBD quest item alongside 30 Zenni.
-- [ ] Lighthouse — resolve Quests 14 & 23 keeper inconsistency; redesign both around lighthouse location.
+- [x] Lighthouse — resolve Quests 14 & 23 keeper inconsistency; redesign both around lighthouse location.
 - [ ] Graveyard artifact religion — determine which of the seven religions based on skeleton amulet symbol.
-- [ ] Pyronicus forging dialogue — interaction when player brings runed metal for Pale Blade.
 - [ ] Kevry’s island dialogue — full dialogue tree for Kevry; flagged as dialogue-heavy design pass.
 - [ ] Opening Roundabout experience — May’s first interaction, Quest Board introduction, tutorial moment.
 - [ ] Alternate light sources for mine heist — add to Shamus’s stock once designed.
@@ -702,4 +708,4 @@ She picks up her book.
 - [ ] **Golden Dragon Scale** — treasure item reward for dragon-nip quest. Goes to Trophy Case in Town Hall Tower.
 - [ ] **Trophy Case** — Town Hall Tower. Achievement display for treasure items (e.g. 8/10 found). Rowan Finch dialogue TBD — his grandfather Calder likely donated early items; add connection.
 - [ ] **Treasure achievement system** — design full treasure list, total count, and end-game display. Replaces Zork scoring with achievement-style tracking.
-- [ ] **Enchanted Glasses descriptions** — "wire-rimmed glasses" (regular), "slightly glowing wire-rimmed glasses" (Actually Enchanted). In Will’s bedroom, description updates to show them on the nightstand after DROP GLASSES. Persists across visits.
+- [x] **Enchanted Glasses descriptions** — "wire-rimmed glasses" (regular), "slightly glowing wire-rimmed glasses" (Actually Enchanted). In Will’s bedroom, description updates to show them on the nightstand after DROP GLASSES. Persists across visits.
