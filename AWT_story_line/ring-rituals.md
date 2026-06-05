@@ -115,8 +115,6 @@ Located in The Altar sub-room of the Church of All.
 
 *He means it. You can tell because he doesn't say anything else.*
 
-**Insufficient offering / incomplete state text:** *"Devotion is appreciated. Contributions pay the bills."* — fires for other incomplete states (artifact placed with no ring, wrong order attempts). TBD variants for altar design pass.
-
 **Altar description:** Stone altar, nothing elaborate. The dial gives it a mystical quality — each turn of the dial causes the altar to shimmer.
 
 ---
@@ -150,10 +148,23 @@ The player must infer from Ivanaar's hint ("a blacksmith who knows what he is lo
 **Step 3 — Pyronicus's Forge**
 Bring runed metal to Pyronicus's Forge (below the illusory volcano). Pyronicus forges it into the Pale Blade.
 
-Full forge scene TBD — commands, description of forging process, Pyronicus's dialogue. Key beats to establish:
-- Forging is instant but described in text
-- Pyronicus assumes the blade is for the ring ritual (he knows more than he says)
-- His dialogue should be economical — consistent with his established voice
+**Trigger:** `GIVE METAL TO PYRONICUS` or `PUT METAL ON FORGE` (with runed metal in inventory)
+
+*Pyronicus turns the metal over in his hands without speaking. He runs a thumb along the runes. Then he sets it on the forge.*
+
+*"Brotherhood metal," he says. "I haven't seen this in some time." He picks up his hammer. "You know what it's for."*
+
+*He doesn't phrase it as a question.*
+
+*The forge does the rest quickly — the metal accepts the heat the way it has been waiting to, and Pyronicus works it with the focused economy of someone who has done this before and expects to do it again. When he's done, he holds it up. The blade is pale, almost white, and thin in the way of something that doesn't need to be heavy to do what it does.*
+
+*He holds it out, pommel first.*
+
+*"It will go willingly," he says. "When the time comes."*
+
+*He goes back to his work.*
+
+**[Runed Metal removed from inventory. The Pale Blade added to inventory.]**
 
 **Step 4 — Ritual**
 Bring the Pale Blade to the Church of All altar. Attune to The Brotherhood of the Pale Blade. Place ring + artifact on altar. Blade is consumed. Ritual complete.
@@ -204,7 +215,7 @@ Bring Werewolf's Amulet to the Church of All altar. Attune to The Veil of the Ar
 - May's backstop hint added for players who walk past statue without examining (fixed)
 - Crowbar failure message added: *"The base is sealed tight. Something with leverage could pry it open."* (fixed)
 - Keeper's skeleton room description written and confirmed (fixed)
-- Werewolf's Room still needs: connection to the scholar made explicit in room description or examine text — player should sense the tragedy behind the creature (open)
+- Werewolf's Room scholar connection — RESOLVED. Post-combat room description: *"The scholar lies where the creature fell."* Reversion text confirmed.
 - Werewolf combat mechanic TBD: attack cadence, player options each turn — **BLOCKED on combat system design**
 - Death/reversion text confirmed: *"The creature drops. Between one moment and the next, it is not the creature anymore. The scholar lies on the floor of the cave he came down here to find."*
 - Post-combat room description confirmed (see locations.md — The Still Den)
@@ -234,7 +245,7 @@ Return to Roundabout Town Square fountain. Mix fire clay with fountain water →
 Assemble three pieces using clay adhesive → The Repaired Bowl.
 
 **Step 6 — Shrine Offering**
-Return to Verdant Circle shrine in Roundabout Forest. Place repaired bowl on pedestal with Zenni coin offering. Bowl becomes ring ritual artifact — The Repaired Bowl.
+Return to Verdant Circle shrine in Roundabout Forest. Place repaired bowl on pedestal with Zenni coin offering. Bowl becomes ring ritual artifact — The Repaired Bowl. Full mechanic in `quests.md` (Quest 49).
 
 **May's hints:**
 - Tier 1: *"Something about that shrine bowl needs water — clean, running water. Check the Quest Board; there may be something relevant posted."*
@@ -247,10 +258,4 @@ Bring The Crystal Bowl to the Church of All altar. Attune to The Verdant Circle.
 
 ## What's TBD
 
-- **Will's second briefing** — exact dialogue for when player returns ring to Will; how much he reveals about the three religions
-- **Ritual mechanic detail** — exact commands, descriptions, and outcome text for each ritual at the altar
-- **Ritual order** — whether the three rituals must be performed in a specific order
-- **Pyronicus forge scene** — full dialogue and command sequence for forging the Pale Blade
-- **Werewolf combat mechanic** — attack cadence, player options, death sequence, scholar reversion text
-- **Post-ritual arc** — what happens after all three rituals are complete; ring quest conclusion
-- **Graveyard Amulet** — earlier concept, replaced by the Werewolf's Amulet (dropped by the undead werewolf in The Still Den). The Veil of the Arcane ritual artifact is the Werewolf's Amulet. No graveyard dig is part of the ring quest.
+- **Werewolf combat mechanic** — attack cadence, player options each turn — **BLOCKED on combat system design**

@@ -45,7 +45,7 @@ Eastern end of Main Street. Church of All to the south. Roundabout Wasteland to 
 
 **Mugger mechanic:** A shadowy figure lurks here. Perception check fires every visit until the mugger is spotted and slain. On failed perception: player is mugged — loses 1 heart (physical damage) and 2–3 Zenni (random), loses consciousness, wakes in the Back Alley one turn later. If player has no Zenni: still mugged, 1 heart damage, nothing taken. On successful perception: mugger is visible — fight to the death. Losing the fight: player wakes with 1 heart remaining, text nudges them to rest at the inn. Winning: mugger is slain permanently, Back Alley is safe.
 
-**Loot:** A set of lockpicks — usable as a trap disarm tool. Opens the large iron chest in the Mine Passage (mid-tier dungeon), bolted to the floor, contains 20 Zenni.
+**Loot:** A set of lockpicks — opens the large iron chest in the Mine Passage (mid-tier dungeon), bolted to the floor, contains 20 Zenni. Not a general trap disarm tool.
 
 **Quest Board cascade:** After 100 turns if mugger not yet slain, May posts a bounty notice. Free drink reward when mugger is slain (May flag clears after use).
 
@@ -120,8 +120,18 @@ Dimensional magic makes this space larger than possible. Books cannot be taken �
 ### Church of All (Nave)
 Appears as a normal medieval church from the outside. Near the Graveyard. Contains a dial at the altar that allows attunement to any of 7 religions. `TURN DIAL LEFT` and `TURN DIAL RIGHT` cycle through religions one at a time. Current attunement shown in room description. Attunement can be changed freely — no penalty.
 
+**Room description:** *The church is plain inside — stone floor, wooden pews worn smooth, light coming through narrow windows in thin bars. It could belong to any faith. That appears to be the point. At the far end, where an altar would normally hold a single symbol, there is instead a stone altar with a brass dial mounted at its face. Seven marks around the dial. Whatever is currently selected glows faintly.*
+
 ### The Altar
 Separate sub-room inside the Church of All. Contains the attunement dial and the ritual space.
+
+**Room description:** *The altar is plain stone, unadorned. The dial dominates it — brass, worn at the edges from use, seven symbols arranged around its face. The currently selected religion is marked in a faint glow. The air here feels slightly different from the nave. Not sacred, exactly. Attentive.*
+
+**Attunement line (updates on each dial turn):** *The dial is set to [religion name].*
+
+**Default attunement:** The Keepers of the Lantern.
+
+**Dial turn feedback:** The altar shimmers. Room description does not otherwise change.
 
 **Seven religions (dial order left to right):**
 1. **The Verdant Circle** — *A sprouting seed inside a circle of leaves.* Nature, growth, forests, patience.
@@ -138,10 +148,16 @@ Separate sub-room inside the Church of All. Contains the attunement dial and the
 - Once all three are glowing, place the ring on the altar to complete the ritual sequence.
 - Ring placed before all three are glowing: *"Nothing happens. Something is missing from the ritual. You pick up the ring."* Ring returns to inventory automatically.
 - Wrong religion attuned when artifact placed: altar shimmers normally but artifact does not glow.
-- Insufficient offering text (artifact placed without ring, or other incomplete states): *"Devotion is appreciated. Contributions pay the bills."* (TBD variants — see ring-rituals.md)
+
 
 ### Keeper's Chamber
 The private quarters of the Keeper of the Faiths. Door is locked; key found on the Keeper's skeleton in the Lower Crypt (dungeon lower tier). Inside: sparse quarters, personal effects, a **vial of holy water** on the writing desk, and a note in the Keeper's hand. The note reveals that the scholar of The Veil of the Arcane was transformed into an undead werewolf — and that the silver stake must be consecrated with holy water to be effective. `POUR HOLY WATER ON STAKE` → consecrated silver stake.
+
+**Room description (vial present):** *A small room, plainly kept. A narrow bed, a writing desk, a shelf of religious texts. The kind of room that belongs to someone who doesn't spend much time in it. On the desk: a vial of clear liquid, and a note in a careful hand. Whatever the Keeper was preparing for, he prepared it here.*
+
+**Room description (vial taken):** *A small room, plainly kept. A narrow bed, a writing desk, a shelf of religious texts. The kind of room that belongs to someone who doesn't spend much time in it. On the desk: a note in a careful hand.*
+
+**Note:** Readable but not takeable. Reveals the scholar became an undead werewolf and that the stake must be consecrated with holy water.
 
 ---
 
@@ -206,7 +222,7 @@ The illusory volcano itself. Appears entirely real. Harder perception check requ
 
 **Ring handover:** *Pyronicus sets down his work and regards you with calm, unhurried eyes. "Will's errand," he says. "Yes." He moves to a workbench and returns with the ring, placing it in your hand with the care of someone returning something that was never theirs. "It fell through my ceiling," he says. "Rings don't do that by accident." He pauses. "Will told you what you need to know, I assume." He goes back to what he was doing. The conversation, apparently, is over.*
 
-**Pale Blade forging:** When player brings runed metal from the Viking Encampment: Pyronicus forges it into the Pale Blade. Dialogue TBD — see `ring-rituals.md`.
+**Pale Blade forging:** When player brings runed metal from the Viking Encampment: Pyronicus forges it into the Pale Blade. Full forge scene confirmed — see `ring-rituals.md` (Artifact 1, Step 3).
 
 ---
 
@@ -230,7 +246,11 @@ Central hub. Fire pit, longhouses, Vikings going about their business. East → 
 
 **Runed metal handoff (after all three trials):** Triggered when player drags Aylora back after Trial 3.
 
-*Ivanaar looks at Aylora, then at you, then at Aylora again. He says nothing for a long moment. "...Thornbrew?" he finally asks. You nod. He laughs — once, short, like it surprised him too. Then he straightens, and the laugh is gone, and something older takes its place. "Will Passion sent you. He asked me to build something that would tell him whether you were worth trusting with what comes next. He didn't tell me what comes next." He moves to the longhouse and returns holding a length of dark metal — dense, rune-carved, warm to the touch even in the open air. He holds it with both hands. "This is Brotherhood metal. It has been kept since before this encampment. It would make a fine blade in the right hands — a blacksmith who knows what he is looking at could tell you more." He places it in your hands. "I hope Will is right about you." Ivanaar returns to his fire. He does not look back.*
+*Ivanaar looks at Aylora, then at you, then at Aylora again. He says nothing for a long moment. "...Thornbrew?" he finally asks. You nod. He laughs — once, short, like it surprised him too. Then he straightens, and the laugh is gone, and something older takes its place. "Will Passion sent you. He asked me to build something that would tell him whether you were worth trusting with what comes next. He didn't tell me what comes next." He moves to the longhouse and returns holding a length of dark metal — dense, rune-carved, warm to the touch even in the open air. He holds it with both hands. "This is Brotherhood metal. It has been kept since before this encampment. It would make a fine blade in the right hands — a blacksmith who knows what he is looking at could tell you more." He places it in your hands. "I hope Will is right about you."*
+
+*"One more thing. There are three stones out in the world — Brotherhood metal, rune-carved. They've been scattered a long time. If you come across them, bring them to me." He glances back once. "I'll make it worth your time."*
+
+*Ivanaar returns to his fire.*
 
 **[Runed Metal added to inventory.]**
 
@@ -269,11 +289,11 @@ Between town and the bog. Two-state room.
 Each visit fires a silent perception check. On success: "You see a bottle at the bottom of the pond." — quest discovered, May's hints unlock. Sighting not permanent; check fires on every visit until quest is discovered. Retrieving the bottle requires a fishing rod (purchased from vendor) and a successful challenge roll (`FISH`); Rogues get a bonus. The bottle is a treasure item.
 
 ### Bog of Eternal Stench
-Four rooms arranged in a 2×2 grid. Players may move diagonally between rooms. All four share the name "Bog of Eternal Stench." Accessed from the Roundabout Pond to the east.
+Four rooms arranged in a 2×2 grid. Players may move diagonally between rooms. All four display the same room title to the player: **"The Bog of Eternal Stench"** — directional designations (Bog-NE, Bog-NW, Bog-SE, Bog-SW) are internal design references only, never shown to the player. Accessed from the Roundabout Pond to the east.
 
 - **Bog-SE:** *The bog stretches in every direction, dark water between clumps of soggy earth. The smell is comprehensive and personal. Reeds crowd the edges of every dry patch. Something is moving just out of sight, or was.* Entry point. Dankhaus hidden here — dense brush conceals the path; perception check required each visit until discovered. Once discovered, path is permanently visible.
-- **Bog-NE:** *The ground here is technically solid. Technically. Dark water pools between tufts of coarse grass. The smell has layers. You have stopped trying to identify them, and don't really want to.*
-- **Bog-SW:** *A flat expanse of bog, grey-green and indifferent. The water is still except where it isn't. The smell arrived before you did and will be here long after you leave.*
+- **Bog-NE:** *The ground here is technically solid. Technically. Dark water pools between tufts of coarse grass. The smell has layers. You have stopped trying to identify them, and don't really want to.* Contains a rune stone (Quest 42) — perception check required.
+- **Bog-SW:** *A flat expanse of bog, grey-green and indifferent. The water is still except where it isn't. The smell arrived before you did and will be here long after you leave.* Contains bog thyme (Quest 40) — perception check required to spot it among the reeds.
 - **Bog-NW:** *The reeds are taller here, crowding in from the edges. The water is darker. The smell is worse. This part of the bog feels less visited, which is saying something.* Contains a hollow log — perception check required to find it. Inside: the key to Will's music box (Quest 12). Also: Quest 50 Bog-NW exit surfaces here (shovel required to finish hole from Lost Apprentice's Cell).
 
 ### The Dankhaus
@@ -296,6 +316,17 @@ East of the Wasteland. A road that forks — south toward Roundabout Beach, uphi
 
 ### The Old Oak
 Between Beach Road Fork and Roundabout Forest. A large oak dominates this spot. A child stands here — a kite is tangled in the upper branches. `CLIMB TREE` retrieves the kite; a rune stone threaded on a cord falls free. `GIVE KITE TO CHILD` completes Quest 41. The rune stone is one of three needed for Quest 42.
+
+### Beekeeper's Cottage
+*A low wooden cottage sits at the edge of the trees, almost part of the forest. Stacked hive boxes line the south wall, painted in fading colours. The smell of beeswax and woodsmoke is pleasant in a specific, unhurried way. The beekeeper is here — a broad woman with patience in her posture and a concerning number of sting marks on her forearms.* Spur west off The Old Oak, at the forest edge.
+
+**Beekeeper (NPC):** On first visit, explains that a swarm escaped and nested in a hollow tree at the forest edge — she gestures east. She can't get near it without her smoke equipment, which is somewhere in the tunnels below. Quest 24 discovered on first visit. After quest: warm, gives enchanted honey reward.
+
+### Swarm Tree
+*A broad-trunked tree at the forest edge, older than the others around it. A low drone comes from a dark gap in the bark at chest height. The air nearby has a quality that suggests strongly you should not approach without a plan.* Spur east off The Old Oak, adjacent to Beekeeper's Cottage.
+
+**Without smoke jar:** Walking within reach triggers the swarm — 1 heart damage (physical), player retreats automatically to The Old Oak. *"The swarm boils out of the hollow before you can do anything useful. You retreat."*
+**With smoke jar:** `USE SMOKE JAR` — bees settle. Queen vial visible in hollow. `TAKE VIAL` completes the collection step.
 
 ### Roundabout Forest
 *You wouldn't know, walking through here, that the ground beneath you is hollow. The forest is peaceful — birdsong, dappled light, the smell of pine. The mine entrance sits somewhere among the roots and undergrowth, easy to miss if you don't know to look.* Single room. Transitional space above the mine. Connects downhill to The Old Oak. Possible Zenni discovery via perception check (TBD). The crumbled Verdant Circle shrine is visible on entry — no perception check required. **Shrine description:** *A stone shrine stands at the edge of the trees — old enough that the forest has started to take it back. A carved pedestal, still solid. On it, the remains of a ceramic bowl, smashed at some point and not recently. Three or four pieces visible here; others have clearly gone elsewhere. The symbol on the pedestal is a sprouting seed inside a circle of leaves.*
@@ -367,7 +398,7 @@ Underground pre-dungeon level connecting the Tavern Cellar, the mine, the Gravey
 First room past the Dungeon Entrance. A thin cord stretched at chest height carries an ink bladder — triggering it douses the player in ink (negates invisibility). No warning; cord invisible until hit. Splits west to Supply Room, east to Storage Area. (Trap 45)
 
 ### Supply Room
-West branch off Ink Corridor. Shelves of old stores. Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility Idol"), mortar compound (Quest 18/22), portcullis bar (Quest 19), smoke jar (Quest 24 — guarded by Trap 17). **Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar visible in wreckage either way. Perception spots the unstable arrangement. Must be reached before Idol Room — sack of salt required for safe idol swap.
+West branch off Ink Corridor. Shelves of old stores. Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility Idol"), mortar compound (Quest 18/22), portcullis bar (Quest 19), smoke jar (Quest 24 — guarded by Trap 17). **Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar and small clay pot (Quest 40) visible in wreckage either way. Perception spots the unstable arrangement. The small clay pot is the one intact pot that survives the collapse. Must be reached before Idol Room — sack of salt required for safe idol swap.
 
 ### Narrow Passageway
 Short connecting passage between Supply Room and Idol Room. Enforces item-first ordering.
@@ -458,7 +489,7 @@ Wet, low-ceilinged chamber at base of sluice. One-way drop from upper tier. No e
 Liminal branching passage. 2×3×2 decision tree — 12 outcomes (6 success, 6 failure). Failure loops back to room start with no awareness. Full tree in `mechanics.md` (Special Mechanics section).
 
 #### Lost Apprentice's Cell
-Quest 50: combat with afflicted apprentice; post-combat `USE SHOVEL` finishes hole to Bog-NW; apprentice follows player out; Apprentice's Gloves reward (hands slot, +2/+3 TBD); quest completes on bog exit.
+Quest 50: combat with afflicted apprentice; post-combat `USE SHOVEL` finishes hole to Bog-NW; apprentice follows player out; Apprentice's Gloves reward (hands slot, +3); quest completes on bog exit.
 
 #### Supply Cache
 Partially collapsed side room. Contains a **gold nugget** — buried in rubble, treasure item.
@@ -637,7 +668,7 @@ Base of the sluice from the Flooding Room above. One-way drop, no damage. No exi
 Liminal branching passage between Trap Side Entry and Lost Apprentice's Cell. Full decision tree in `mechanics.md`.
 
 ### Lost Apprentice's Cell (Room 16)
-Quest 50: combat with afflicted apprentice. Post-combat `USE SHOVEL` finishes hole to Bog-NW. Apprentice follows player out. Apprentice's Gloves reward (hands slot, +2/+3 TBD). Quest completes on bog exit.
+Quest 50: combat with afflicted apprentice. Post-combat `USE SHOVEL` finishes hole to Bog-NW. Apprentice follows player out. Apprentice's Gloves reward (hands slot, +3). Quest completes on bog exit.
 
 ### Supply Cache (Room 17 — trap side)
 Partially collapsed side room. Contains a **gold nugget** — buried in rubble, treasure item.

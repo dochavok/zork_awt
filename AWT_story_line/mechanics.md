@@ -38,6 +38,7 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap.
 | Item | Cost |
 |------|------|
 | Food & Drink (1 heart) | 2 Zenni |
+| Hearty Stew (2 hearts) | 2 Zenni — unlocked after Quest 40 |
 | Inn Rest (full heal) | 5 Zenni |
 | Weapon training | 3 Zenni |
 | Archery training | 3 Zenni |
@@ -123,7 +124,19 @@ Dice-based, scales with player level. Warriors start proficient with melee; Rogu
 - Neck *(Heart Necklace)*
 - Ring *(The One Ring)*
 
-Armor is found through exploration and never degrades. Runic inscription (Quest 42 reward) improves one piece's associated roll bonus permanently.
+Armor is found through exploration and never degrades.
+
+**Armor audit (complete):**
+| Slot | Item |
+|------|------|
+| Head | Enchanted Glasses / Actually Enchanted Glasses |
+| Chest | Ivanaar's Tunic (Quest 42 reward) |
+| Legs | Boots (Quest 25 reward) |
+| Hands | Apprentice's Gloves (Quest 50 reward) |
+| Neck | Heart Necklace (Lynds arm wrestling) |
+| Ring | The One Ring |
+
+**TODO — Combat system:** Include damage avoidance roll mechanic for Ivanaar's Tunic — second roll during combat phase that can negate damage that would otherwise be taken.
 
 ---
 

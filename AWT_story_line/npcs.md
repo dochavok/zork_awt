@@ -76,7 +76,7 @@ Lives in a single large obsidian room built around an ancient forge. Will told P
 
 **Ring handover:** *Pyronicus sets down his work and regards you with calm, unhurried eyes. "Will's errand," he says. "Yes." He moves to a workbench and returns with the ring, placing it in your hand with the care of someone returning something that was never theirs. "It fell through my ceiling," he says. "Rings don't do that by accident." He pauses. "Will told you what you need to know, I assume." He goes back to what he was doing. The conversation, apparently, is over.*
 
-**Pale Blade forging:** When player brings runed metal from the Viking Encampment, Pyronicus forges it into the Pale Blade. Full forge scene TBD — see `ring-rituals.md`.
+**Pale Blade forging:** When player brings runed metal from the Viking Encampment, Pyronicus forges it into the Pale Blade. Full forge scene confirmed — see `ring-rituals.md` (Artifact 1, Step 3).
 
 Role beyond ring retrieval and forging TBD — likely quest hooks tied to forge and volcano (Quests 21, 26, 35, 42, 45).
 

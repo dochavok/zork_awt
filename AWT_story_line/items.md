@@ -71,7 +71,7 @@ Found in a carved niche in the Prayer Alcove — perception check reveals the al
 **Location:** Reward from Quest 50 (The Lost Apprentice) — apprentice gives them on Bog-NW exit
 **Quest use:** None — combat bonus.
 
-+2 or +3 combat roll bonus (TBD once dice system finalized). Missable — Quest 50 is inaccessible if Flooding Room trap is disarmed before triggering.
++3 combat roll bonus. Missable — Quest 50 is inaccessible if Flooding Room trap is disarmed before triggering.
 
 ---
 
@@ -89,7 +89,7 @@ Dense, rune-carved, warm to the touch even in open air. Brotherhood metal kept s
 **Location:** Forged by Pyronicus from runed metal
 **Quest use:** Ring ritual artifact — consumed at The Brotherhood of the Pale Blade ritual at the Church of All altar.
 
-Forging scene TBD — see `ring-rituals.md`.
+Forging scene confirmed — see `ring-rituals.md` (Artifact 1, Step 3).
 
 ---
 
@@ -342,7 +342,7 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 
 ### Lockpicks
 **Location:** Looted from the Back Alley mugger after defeating him
-**Quest use:** Opens the large iron chest in Mine Passage (contains 20 Zenni). General trap disarm tool.
+**Use:** Opens the large iron chest in Mine Passage (contains 20 Zenni). Not a quest item; not a general trap disarm tool.
 
 ---
 
@@ -375,21 +375,30 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 
 ### Rune Stones (3)
 **Locations:**
-1. **Bog rune stone:** Bog (perception check) — *A grey stone, heavy for its size, one face worn flat by water. Faint lines are etched across the surface in no pattern you recognize.*
+1. **Bog rune stone:** Bog-NE (perception check) — *A grey stone, heavy for its size, one face worn flat by water. Faint lines are etched across the surface in no pattern you recognize.*
 2. **Dungeon rune stone:** Inscription Chamber, mid-tier (perception check) — *A pale stone, roughly square, with deep natural veins of darker mineral running through it like old script.*
 3. **Old Oak rune stone:** Reward from Quest 41 (The Child's Kite) — *A small flat stone, dark and smooth, threaded on a cord. Mineral veins run through it in a pattern that looks almost intentional.*
-**Quest use:** Quest 42 (The Runesmith's Commission) — deliver all three for free runic inscription on one piece of armor.
+**Quest use:** Quest 42 (The Brotherhood Stones) — deliver all three to Ivanaar at the Viking Encampment.
+
+---
+
+### Ivanaar's Tunic
+**Slot:** Chest
+**Location:** Reward from Quest 42 (The Brotherhood Stones) — Ivanaar restores the runes and gives the tunic on delivery of all three stones.
+**Quest use:** None — combat bonus.
+
+Brotherhood weave, old but not worn. The runes along the hem and collar are faint until the stones are delivered — restored by Ivanaar on completion. Grants a damage avoidance roll during combat (second roll during combat phase that can negate damage). **Note: include in combat system design.**
 
 ---
 
 ### Bog Thyme
-**Location:** Specific bog room — perception check required
+**Location:** Bog-SW — perception check required
 **Quest use:** Quest 40 (Shamus's Recipe) — deliver with clay pot to Shamus for hearty stew menu upgrade.
 
 ---
 
 ### Small Clay Pot
-**Location:** Dungeon (specific room TBD)
+**Location:** Supply Room, Dungeon Upper Tier — visible in wreckage of Trap 17 (clay pot shelf) whether trap is triggered or disarmed. The one intact pot that survives the collapse.
 **Quest use:** Quest 40 — Shamus's pots are all cracked; needs this to cook the hearty stew.
 
 ---

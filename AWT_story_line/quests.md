@@ -3,18 +3,15 @@
 Authoritative quest reference. All 50 quest slots with discovery trigger, steps, rewards, May's hint tiers, prerequisites, and cascade effects.
 Update this file immediately when any quest detail is designed or changed.
 
-Rejected quests: 6 (UNUSED), 23 (UNUSED), 31 (UNUSED), 35 (UNUSED), 36 (UNUSED).
+**Quest numbering note:** Not all quest numbers are used. Numbers marked "Quest Removed From Game" were retired or removed during design and must not be reused. All retired ideas are archived in `unused_quest_ideas.md` (separate directory). Next available number: 52.
 
 ---
 
-## Quest 1 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 1 — Quest Removed From Game
 
-## Quest 2 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 2 — Quest Removed From Game
 
-## Quest 3 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 3 — Quest Removed From Game
 
 ---
 
@@ -34,10 +31,9 @@ Rejected quests: 6 (UNUSED), 23 (UNUSED), 31 (UNUSED), 35 (UNUSED), 36 (UNUSED).
 
 ---
 
-## Quest 5 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 5 — Quest Removed From Game
 
-## Quest 6 — UNUSED/REJECTED
+## Quest 6 — Quest Removed From Game
 
 ---
 
@@ -55,17 +51,13 @@ Rejected quests: 6 (UNUSED), 23 (UNUSED), 31 (UNUSED), 35 (UNUSED), 36 (UNUSED).
 
 ---
 
-## Quest 8 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 8 — Quest Removed From Game
 
-## Quest 9 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 9 — Quest Removed From Game
 
-## Quest 10 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 10 — Quest Removed From Game
 
-## Quest 11 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 11 — Quest Removed From Game
 
 ---
 
@@ -92,23 +84,20 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
-## Quest 13 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 13 — Quest Removed From Game
 
-## Quest 14 — UNUSED/RETIRED
+## Quest 14 — Quest Removed From Game
 *(Lighthouse quest — retired. See `locations.md` — Lighthouse.)*
 
-## Quest 15 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 15 — Quest Removed From Game
 
-## Quest 16 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 16 — Quest Removed From Game
 
 ---
 
 ## Quest 17 — The Frozen Watch
 
-**Discovery:** Quest Board — Records Room Worker posts seeking news of a missing relative who entered the Chuckle House and never returned; asks for the relative's pocket watch if they are dead.
+**Discovery:** Quest Board — Records Room Worker posts seeking news of a missing relative who entered the Chuckle House and never returned; asks for the relative's pocket watch if they are dead. Posting appears when the player delivers the One Ring to Will Passion (second briefing trigger).
 **Prerequisites:** One Ring (required throughout Chuckle House); Unbind Undead spell (Lighthouse scroll).
 
 **Steps:**
@@ -140,8 +129,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
-## Quest 18 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 18 — Quest Removed From Game
 
 ---
 
@@ -179,11 +167,9 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
-## Quest 20 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 20 — Quest Removed From Game
 
-## Quest 21 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 21 — Quest Removed From Game
 
 ---
 
@@ -204,14 +190,14 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
-## Quest 23 — UNUSED/RETIRED
+## Quest 23 — Quest Removed From Game
 *(Lighthouse quest — retired. See `locations.md` — Lighthouse.)*
 
 ---
 
 ## Quest 24 — The Beekeeper's Swarm
 
-**Discovery:** Beekeeper on the forest edge — trying to recapture an escaped swarm nested in a hollow tree near the bog.
+**Discovery:** Beekeeper's Cottage (spur off The Old Oak) — beekeeper explains swarm escaped to a hollow tree at the forest edge. Quest Board posting appears when player receives the town charter (Quest 17 reward).
 **Prerequisites:** Smoke jar from Supply Room (Dungeon Upper Tier, behind Trap 17).
 
 **Steps:**
@@ -242,8 +228,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
-## Quest 26 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 26 — Quest Removed From Game
 
 ---
 
@@ -281,12 +266,11 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
-## Quest 29 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 29 — Quest Removed From Game
 
 ## Quest 30 — *(see Quests 19 & 30 above)*
 
-## Quest 31 — UNUSED/REJECTED
+## Quest 31 — Quest Removed From Game
 
 ---
 
@@ -314,8 +298,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
-## Quest 33 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 33 — Quest Removed From Game
 
 ---
 
@@ -340,12 +323,11 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
-## Quest 35 — UNUSED/REJECTED
+## Quest 35 — Quest Removed From Game
 
-## Quest 36 — UNUSED/REJECTED
+## Quest 36 — Quest Removed From Game
 
-## Quest 37 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 37 — Quest Removed From Game
 
 ---
 
@@ -364,22 +346,21 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
-## Quest 39 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 39 — Quest Removed From Game
 
 ---
 
 ## Quest 40 — Shamus's Recipe
 
 **Discovery:** Quest Board — posted early, one of the first quests available. Shamus also mentions it wistfully in conversation.
-**Prerequisites:** Bog thyme (specific bog room, perception check) + small clay pot (dungeon, TBD room).
+**Prerequisites:** Bog thyme (Bog-SW, perception check) + small clay pot (Supply Room, Dungeon Upper Tier — visible in Trap 17 wreckage).
 
 **Steps:**
-1. Find bog thyme via perception check in specific bog room.
-2. Find small clay pot in dungeon (room TBD).
+1. Find bog thyme via perception check in Bog-SW.
+2. Find small clay pot in Supply Room — visible in wreckage of Trap 17 whether triggered or disarmed.
 3. Deliver both to Shamus.
 
-**Reward:** Permanent inn menu upgrade — "hearty stew" option, restores 2 hearts, modest Zenni premium (exact cost TBD).
+**Reward:** Permanent inn menu upgrade — "hearty stew" option, restores 2 hearts at the same price as Food & Drink (2 Zenni).
 
 ---
 
@@ -397,41 +378,35 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
-## Quest 42 — The Runesmith's Commission
+## Quest 42 — The Brotherhood Stones
 
-**Discovery:** Runesmith has set up shop in town. Organic discovery by visiting.
-**Prerequisites:** Three rune stones (bog, dungeon, Old Oak).
+**Discovery:** Ivanaar Stormbringer introduces the quest immediately after the trust trial runed metal handoff (Viking Encampment).
+**Prerequisites:** Trust trials complete (Quest 19/30 chain).
 
 **Rune stones:**
-- **Bog rune stone:** *A grey stone, heavy for its size, one face worn flat by water. Faint lines are etched across the surface in no pattern you recognize.* Found in bog (perception check).
+- **Bog rune stone:** *A grey stone, heavy for its size, one face worn flat by water. Faint lines are etched across the surface in no pattern you recognize.* Found in Bog-NE (perception check).
 - **Dungeon rune stone:** *A pale stone, roughly square, with deep natural veins of darker mineral running through it like old script.* Found in Inscription Chamber, mid-tier (perception check).
 - **Old Oak rune stone:** *A small flat stone, dark and smooth, threaded on a cord. Mineral veins run through it in a pattern that looks almost intentional.* Reward from Quest 41.
 
 **Steps:**
 1. Collect all three rune stones.
-2. Deliver to runesmith.
+2. Return to Ivanaar at the Viking Encampment — `GIVE STONES TO IVANAAR`.
 
-**Reward:** Free runic inscription on any one piece of worn armor — permanently improves that armor's associated roll bonus by a small margin.
+**Reward:** Ivanaar's Tunic — chest slot armor. Brotherhood weave with restored runes. Grants a damage avoidance roll during combat — a second roll during the combat phase that can negate damage that would otherwise be taken. **Note: include damage avoidance mechanic in combat system design.**
 
 ---
 
-## Quest 43 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 43 — Quest Removed From Game
 
-## Quest 44 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 44 — Quest Removed From Game
 
-## Quest 45 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 45 — Quest Removed From Game
 
-## Quest 46 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 46 — Quest Removed From Game
 
-## Quest 47 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 47 — Quest Removed From Game
 
-## Quest 48 — *(TBD)*
-*Stub — not yet designed.*
+## Quest 48 — Quest Removed From Game
 
 ---
 
@@ -469,7 +444,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ## Quest 50 — The Lost Apprentice
 
-**Discovery:** Quest Board — Will Passion posts anonymously, describing a missing person last seen heading toward the dungeon.
+**Discovery:** Quest Board — Will Passion posts anonymously, describing a missing person last seen heading toward the dungeon. Posted at game start.
 **Missability:** The Quest Board posting is removed permanently if the player disarms the Flooding Room trap (Trap 41). Those players never reach the trap side. Quest 50 is fully missable — no impact on the ring quest.
 
 **Prerequisites:** Access to trap side of mid-tier (via Flooding Room sweep — one-way). Shovel.
@@ -483,20 +458,38 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 6. Apprentice follows player out.
 7. As they surface in Bog-NW, apprentice gives his gloves. Quest completes on bog exit — no return to Will required.
 
-**Reward:** Apprentice's Gloves — hands slot, +2 or +3 combat roll bonus (TBD). Will is visibly shaken when player next visits the tower; says little about it.
+**Reward:** Apprentice's Gloves — hands slot, +3 combat roll bonus. Will is visibly shaken when player next visits the tower; says little about it.
+
+---
+
+## Quest 51 — The Back Alley Mugger
+
+**Discovery:** Organic — entering the Back Alley for the first time. Quest Board — May posts a bounty notice after 100 turns if the mugger has not yet been slain.
+**Prerequisites:** None.
+
+**Steps:**
+1. Enter the Back Alley. Perception check fires on every visit until mugger is spotted.
+   - Failed check: mugged — 1 heart damage, 2–3 Zenni stolen (nothing taken if broke). Player loses consciousness, wakes in the Back Alley one turn later.
+2. Successful perception check: mugger is visible — fight to the death.
+   - Losing: wake with 1 heart remaining; text nudges toward the inn.
+   - Winning: mugger slain permanently. Back Alley is safe. Lockpicks drop as loot.
+3. Collect reward from May at the tavern bar.
+
+**Reward:** One free drink from May (1 heart restoration). May flag clears after use.
+**Loot:** Lockpicks — opens the large iron chest in Mine Passage (20 Zenni). Not a general trap disarm tool.
 
 ---
 
 ## Quest Board Cascade
 
-Which quests are posted at start, and which unlock new postings — full cascade TBD.
-
-**Confirmed early postings:**
+**Confirmed postings:**
 - Quest 22 (The Ruined Aqueduct) — posted early, ensures most players complete before needing fountain
 - Quest 40 (Shamus's Recipe) — posted early
 - Quest 7 (The Bone Flute) — posted 20 turns after player first meets Pyronicus
-- Quest 17 (The Frozen Watch) — posted by Records Room Worker
-- Quest 50 (The Lost Apprentice) — posted anonymously by Will; removed if Flooding Room trap disarmed
+- Quest 17 (The Frozen Watch) — posted by Records Room Worker when player delivers ring to Will (second briefing)
+- Quest 24 (The Beekeeper's Swarm) — posted when player receives town charter (Quest 17 reward)
+- Quest 50 (The Lost Apprentice) — posted anonymously by Will at game start; removed if Flooding Room trap disarmed
+- Quest 51 (The Back Alley Mugger) — posted by May after 100 turns if mugger not yet slain; also discoverable organically
 
 **Confirmed non-Board quests:**
 - Quest 12 (discovered via `LOOK AT MUSIC BOX`)
@@ -507,4 +500,3 @@ Which quests are posted at start, and which unlock new postings — full cascade
 - Quest 38 (discovered via Collapsed Gallery)
 - Quest 41 (discovered organically at The Old Oak)
 
-**Full cascade design:** TBD — which quests unlock new postings and in what order.
