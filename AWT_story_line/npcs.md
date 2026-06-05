@@ -222,7 +222,7 @@ She picks up her book. *"He said that once, about a research problem. I think ab
 **Design notes:**
 - The scholar is never named, anywhere.
 - No in-game application item exists — the ledger is flavor, not a pickup.
-- The Veil of the Arcane is implied (not stated) to be the religion for the graveyard amulet ritual — player connects it later.
+- The Veil of the Arcane is implied (not stated) to be the religion for the Werewolf's Amulet ritual — player connects it later.
 
 ---
 

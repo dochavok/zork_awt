@@ -204,7 +204,7 @@ Mages read scroll directly (consumed). Warriors/Rogues bring to Will (consumed, 
 
 ### Shovel
 **Location:** Pie Rat Ship (from ship heist)
-**Quest use:** Three confirmed uses: (1) Stored Room collapse → Hole to Below; (2) Desert Island buried chest; (3) Quest 50 — finish hole to Bog-NW from Lost Apprentice's Cell. Also: `DIG` at Graveyard for ring ritual amulet.
+**Quest use:** Three confirmed uses: (1) Stored Room collapse → Hole to Below; (2) Desert Island buried chest; (3) Quest 50 — finish hole to Bog-NW from Lost Apprentice's Cell.
 
 Will Passion 1-in-20 chance of audio note on any `DIG` command.
 

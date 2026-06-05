@@ -265,7 +265,7 @@ One shovel in the world. Three confirmed uses:
 2. Desert Island buried chest
 3. Quest 50 — finish hole from Lost Apprentice's Cell to Bog-NW
 
-Also: `DIG` at Graveyard to find ring ritual amulet (TBD).
+The Werewolf's Amulet (Veil of the Arcane ring ritual artifact) is dropped by the undead werewolf on defeat — not found via dig.
 
 **Will Passion audio note:** 1-in-20 random chance on any `DIG` command (all three dig locations equally, no cooldown):
 
