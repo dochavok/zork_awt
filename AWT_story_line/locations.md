@@ -3,11 +3,14 @@
 Authoritative room-by-room reference. Every room: description, connections, items, mechanics, NPC states.
 Update this file immediately when any location detail is designed or changed.
 
+**XP defaults:** All rooms award 1 XP on first discovery unless noted otherwise. Exceptions: ocean traversal squares (0 XP), Kevry's Island rooms (5 XP each), dungeon lower tier rooms (2 XP each), dungeon trap side mid-tier rooms (2 XP each), Burial Chamber (3 XP), Skeleton Room (0 XP — instant death on entry). Perception-gated rooms (hidden behind a perception check to discover) award double their base value, except critical path rooms which are set individually. Each room's XP value is noted in its entry below.
+
 ---
 
 ## Opening Area
 
 ### White House / West of House
+**XP: 1**
 Opening area; homage to Zork. One room only. Any command except `OPEN MAILBOX` returns: *"What does this look like? A Great Underground Empire?"* Opening the mailbox triggers Will's appearance in the field. Will delivers opening text and asks "Are you up for an adventure?" No = game over, never leaves field. Yes = teleported to Will's Wizard Tower. Never revisited after opening sequence.
 
 ---
@@ -15,6 +18,7 @@ Opening area; homage to Zork. One room only. Any command except `OPEN MAILBOX` r
 ## Will's Wizard Tower
 
 ### Will's Wizard Tower (Main Room)
+**XP: 1**
 Accessed via mailbox portal from White House (opening sequence) or via mailbox in Tale and Ale Main Room.
 
 **First impression:** *The tower doesn't announce itself. It simply is — books, firelight, the low hum of something you can't quite locate. A desk dominates one end, buried under papers that somehow manage to look organized. A painting hangs on the wall, slightly crooked. The room has the feeling of a place where important things happen without any particular fuss.*
@@ -22,6 +26,7 @@ Accessed via mailbox portal from White House (opening sequence) or via mailbox i
 Contains a painting of the Tale and Ale — `LOOK AT PAINTING` teleports player back to Tale and Ale Main Room. Painting hangs slightly crooked; Will never straightens it.
 
 ### Will Passion's Bedroom
+**XP: 1**
 Hidden room inside the tower. "Where the magic happens." Contains the Enchanted Glasses on the nightstand. Equipping the glasses inside the bedroom is permitted; equipping them outside triggers instant fail state. `DROP GLASSES` places them on the nightstand — description persists. Contains **dragon-nip** — a glowing sprig hidden under the nightstand, practically impossible to find (requires perfect roll at highest level, or Actually Enchanted Glasses). Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn't ask.
 
 ---
@@ -29,18 +34,23 @@ Hidden room inside the tower. "Where the magic happens." Contains the Enchanted 
 ## Roundabout Town — Main Street
 
 ### Main West
+**XP: 1**
 Western end of Main Street. Library to the north. Archery Range further west. Southeast leads to The Alley.
 
 ### Roundabout Town Square
+**XP: 1**
 Center of town. Town Hall to the north. Tavern to the south. Southwest leads to The Alley. Contains a **fountain** — dry until Quest 22 (The Ruined Aqueduct) is completed. Once flowing, fountain water is required for Quest 49 (The Ruined Shrine) clay adhesive.
 
 ### Main East
+**XP: 1**
 Eastern end of Main Street. Church of All to the south. Roundabout Wasteland to the east. TBD buildings.
 
 ### The Alley
+**XP: 1**
 *The gap between buildings is narrow enough that the sky above is just a strip. Cobblestones give way to packed dirt underfoot. The tavern's back wall runs along the south side. It smells like kitchen waste and something less identifiable. Further south, the alley deepens.* Accessible from Roundabout Town Square (southwest) and Main West (southeast). Exits north to Roundabout Town Square only. South leads to The Back Alley.
 
 ### The Back Alley
+**XP: 1**
 *Darker than the alley, smaller, and considerably less welcoming. The tavern's back wall seals the south end. Broken crates and barrels have accumulated here the way things do when no one is watching. The ground is stained. The air is close. This is where things happen that don't happen on Main Street.* Dead end behind the tavern.
 
 **Mugger mechanic:** A shadowy figure lurks here. Perception check fires every visit until the mugger is spotted and slain. On failed perception: player is mugged — loses 1 heart (physical damage) and 2–3 Zenni (random), loses consciousness, wakes in the Back Alley one turn later. If player has no Zenni: still mugged, 1 heart damage, nothing taken. On successful perception: mugger is visible — fight to the death. Losing the fight: player wakes with 1 heart remaining, text nudges them to rest at the inn. Winning: mugger is slain permanently, Back Alley is safe.
@@ -54,20 +64,25 @@ Eastern end of Main Street. Church of All to the south. Roundabout Wasteland to 
 ## Town Hall
 
 ### Town Hall (Exterior / Main Entrance)
+**XP: 1**
 *The Town Hall in Roundabout dominates the northern side of the town square. It is a massive brick building with two floors, a broad sloped roof, and a tower with a conical roof in the center. The double doors are solid oak and very heavy.* North of Roundabout Town Square. Two floors plus tower.
 
 Ground floor entry. Grand foyer. Stairs lead up to the Upper Hall. Council Chamber to one side, Records Room to the other.
 
 ### Council Chamber
+**XP: 1**
 Ground floor, off the Main Entrance. Where town business is conducted. **Councilman Rowan Finch** is found here — grandson of Calder Finch, a noted dungeon explorer. Quest 32 giver. Rewards the player with Calder's Middle Tier Key upon quest completion.
 
 ### Records Room
+**XP: 1**
 Ground floor, off the Main Entrance. Dusty and bureaucratic. Contains the **town charter** — required for Quest 27. The Records Room Worker initially refuses to hand over the charter. After the player returns the pocket watch (from the Chuckle House ghost quest), he gives up the charter as thanks — the watch belonged to his family. Charter is a quest item.
 
 ### Upper Hall
+**XP: 1**
 Second floor, top of the stairs. Connects to the Tower. Contains a display cabinet of old town documents and civic artifacts — unlocked, accessible from the start. `OPEN CABINET` reveals contents. The **wax seal** (Quest 4) is inside — `TAKE SEAL` picks it up. No perception check required.
 
 ### The Tower
+**XP: 1**
 Accessed from the Upper Hall. Top of the conical tower, overlooking Roundabout Town Square. Contains the **Trophy Case** — an achievement display for treasure items found during the playthrough. Shows count of treasures found (e.g. 8/10). Rowan Finch dialogue TBD — his grandfather Calder donated early items to the case.
 
 ---
@@ -75,30 +90,39 @@ Accessed from the Upper Hall. Top of the conical tower, overlooking Roundabout T
 ## Tale and Ale Tavern
 
 ### Main Room
+**XP: 1**
 Central gathering space. Entry point into the inn. Contains a mailbox — completely out of place, acknowledged by no one. `OPEN MAILBOX` teleports player to Will's Wizard Tower.
 
 ### Bar
+**XP: 1**
 Where drinks are ordered; 1-heart food & drink purchases happen here. **May** (bartender) works here. Quest Board is described in the room text; `LOOK AT BOARD` lists active posted quests.
 
 ### Ty's Casino Corner
+**XP: 1**
 Gambling area inside the tavern. Cargo game (Ship, Captain, Crew dice game). Zenni stakes TBD.
 
 ### Pipe Room
+**XP: 1**
 Smoking parlor. Atmospheric; natural gathering spot for Rogues and shady deals.
 
 ### Kitchen
+**XP: 1**
 Back-of-house. **Shamus** works here — cook and unofficial vendor. `TALK TO SHAMUS` to buy or sell items. Cellar door to the Cellar/Storeroom is here; bartender holds the key.
 
 ### Stable
+**XP: 1**
 Exterior, adjacent to inn. Horse/cart quest TBD.
 
 ### Upstairs Hall
+**XP: 1**
 Connects the three guest rooms.
 
 ### Guest Rooms 1, 2, 3
+**XP: 1 each**
 TBD occupants/uses.
 
 ### Cellar / Storeroom
+**XP: 1**
 Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds the key. Starts flooded — drain must be unclogged (crowbar required) before the room is usable. Once drained, reveals a door to the Secret Tunnel. Tunnel door stays in whatever state the player leaves it. Travel bidirectional once drained. Entering from either direction before draining = instant drowning fail state (no warning). **Open question:** Perception check on kitchen-side entry before draining — leaning no roll, resolve later.
 
 ---
@@ -106,11 +130,13 @@ Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds th
 ## Library
 
 ### Library (Main Hall)
+**XP: 1**
 *The library is smaller than the building suggests from outside — half the floor space is shelving, floor to ceiling, packed in columns with narrow gaps between. A card catalogue occupies one wall. The other holds a reading table, lamp burning low, a cup of something gone cold. The librarian looks up when you enter. Unlike every librarian you have ever imagined, she appears to want to talk to you.*
 
 Entry space. Lavish wood, copper, and gold. The endless shelves begin here. Medieval exterior with startling red double doors. Interior feels ancient — Babylonian/Egyptian in flavor but older, furnished for comfort. Foundation is secretly a temple to Thoth; all staff are priests/clergy. Only Litlock and long-time patrons know the true nature. **The Librarian** (half-elf, half-Kenku) works here. Full dialogue in `npcs.md`.
 
 ### The Stacks
+**XP: 1**
 Dimensional magic makes this space larger than possible. Books cannot be taken — `READ BOOK` in place only.
 
 ---
@@ -118,11 +144,13 @@ Dimensional magic makes this space larger than possible. Books cannot be taken �
 ## Church of All
 
 ### Church of All (Nave)
+**XP: 1**
 Appears as a normal medieval church from the outside. Near the Graveyard. Contains a dial at the altar that allows attunement to any of 7 religions. `TURN DIAL LEFT` and `TURN DIAL RIGHT` cycle through religions one at a time. Current attunement shown in room description. Attunement can be changed freely — no penalty.
 
 **Room description:** *The church is plain inside — stone floor, wooden pews worn smooth, light coming through narrow windows in thin bars. It could belong to any faith. That appears to be the point. At the far end, where an altar would normally hold a single symbol, there is instead a stone altar with a brass dial mounted at its face. Seven marks around the dial. Whatever is currently selected glows faintly.*
 
 ### The Altar
+**XP: 1**
 Separate sub-room inside the Church of All. Contains the attunement dial and the ritual space.
 
 **Room description:** *The altar is plain stone, unadorned. The dial dominates it — brass, worn at the edges from use, seven symbols arranged around its face. The currently selected religion is marked in a faint glow. The air here feels slightly different from the nave. Not sacred, exactly. Attentive.*
@@ -151,6 +179,7 @@ Separate sub-room inside the Church of All. Contains the attunement dial and the
 
 
 ### Keeper's Chamber
+**XP: 1**
 The private quarters of the Keeper of the Faiths. Door is locked; key found on the Keeper's skeleton in the Lower Crypt (dungeon lower tier). Inside: sparse quarters, personal effects, a **vial of holy water** on the writing desk, and a note in the Keeper's hand. The note reveals that the scholar of The Veil of the Arcane was transformed into an undead werewolf — and that the silver stake must be consecrated with holy water to be effective. `POUR HOLY WATER ON STAKE` → consecrated silver stake.
 
 **Room description (vial present):** *A small room, plainly kept. A narrow bed, a writing desk, a shelf of religious texts. The kind of room that belongs to someone who doesn't spend much time in it. On the desk: a vial of clear liquid, and a note in a careful hand. Whatever the Keeper was preparing for, he prepared it here.*
@@ -164,6 +193,7 @@ The private quarters of the Keeper of the Faiths. Door is locked; key found on t
 ## Graveyard
 
 ### Graveyard
+**XP: 1**
 *The graves here are old, most of them. Headstones lean at angles that suggest the ground beneath has shifted, or decided it no longer agrees with what's above it. The church is behind you. The mausoleum sits at the far end, grey and patient. The air is still in a way that has nothing to do with wind.* South of the Church of All. Single room.
 
 Denizens TBD. Needs dedicated design pass.
@@ -171,9 +201,11 @@ Denizens TBD. Needs dedicated design pass.
 **Town square statue:** The statue in Roundabout Town Square has a hollow base — seam visible to anyone who types `LOOK AT STATUE` (no perception check). Attempting to open without a crowbar: *"The base is sealed tight. Something with leverage could pry it open."* Crowbar opens it → silver stake + folded note inside. Note unsigned but identified by emerald wax seal (same seal as Keeper's skeleton). May's tier 1 hint (fires only if player has not yet examined the statue): *"Someone was seen tampering with the statue in Roundabout Town Square. Probably nothing. Probably."*
 
 ### The Mausoleum
+**XP: 1**
 *The mausoleum is older than anything around it. The stone is dark with age and moisture, the carved details worn to suggestions. The door is heavy iron, pitted with rust but still on its hinges. Whatever family name was once above the entrance has been lost to weather. Steps descend inside toward the crypt below.* South of the Graveyard. Weathered and decrepit. Stairs lead down to The Crypt.
 
 ### The Crypt
+**XP: 1**
 **First visit:** *The crypt has not been visited recently. Dust lies undisturbed on the stone floor, on the alcoves, on the remains within them. It is very quiet. Very cold. At the far end a rough-cut passage opens into darkness — older than the crypt itself, by the look of the stonework.*
 
 **Subsequent visits:** *The crypt is quiet and cold. Dust lies on the stone floor — a set of footprints visible in it, the only sign anything has changed. The alcoves hold their dead without comment. At the far end the passage leads on into the dark.*
@@ -189,15 +221,19 @@ Connects south to The Charnel Walk (Secret Tunnels).
 Location in Roundabout TBD. Four rooms, linear. Ring (invisibility) required throughout — all mirrors repel visible players. Quest 17 anchor.
 
 ### The Entrance
+**XP: 1**
 TBD — entry room, sets the tone. Mirror mechanic not yet active here.
 
 ### The Rejection Mirror
+**XP: 1**
 A mirror that repels visible players — stepping in front of it while visible sends the player back to the Entrance. Passing while invisible (ring worn) proceeds normally. No ghost here — ghost is in the last room.
 
 ### The Shatter Trap Mirror
+**XP: 1**
 A mirror that repels visible players. Also rigged with a crossbow behind the frame (Trap 16). Fires at any player passing through — visible or invisible. Perception check spots the firing pin and disarms it before it fires; otherwise the crossbow fires once and is spent. Mirror still repels visible players until the ghost is freed.
 
 ### Ghost's Room
+**XP: 1**
 Mirrors on all sides. The ghost of the Records Room Worker's missing relative haunts this room — hostile. Ghost visible only while wearing the ring. `CAST UNBIND UNDEAD` releases the ghost; he says *"Thank you. I can rest now."* and drops the pocket watch. **Exit mechanic:** 50% chance each attempt to leave fails — player returned to same room with a disorientation message. Permanent — does not end when ghost is freed. Post-freeing: mirrors no longer repel visible players anywhere in the Chuckle House.
 
 **May's hints — Ghost/Watch quest:**
@@ -212,12 +248,15 @@ Mirrors on all sides. The ghost of the Records Room Worker's missing relative ha
 ## Roundabout Wasteland & Volcano
 
 ### Roundabout Wasteland
+**XP: 1**
 *The wasteland sits at the edge of Roundabout like an embarrassing relative. Something went very wrong here, and not recently. The ground doesn't grow anything. The structures that remain are shells. Whatever happened, it happened thoroughly. The cause is a matter of some local sensitivity. The prevailing theory among residents involves adventurers, which explains why no one wants to discuss it in detail. To the east, a volcano rises against the sky — large, dark, and entirely convincing.* East of Main East. Single room. Quest hooks TBD.
 
 ### The Volcano
+**XP: 1**
 The illusory volcano itself. Appears entirely real. Harder perception check required to see through it. On success: uneven staircase DOWN revealed. On failure: player sees only an active volcano with no apparent entrance.
 
 ### Pyronicus's Forge
+**XP: 2**
 *The room is large enough that the walls at the far end are suggestion rather than certainty. Obsidian everywhere — floor, walls, ceiling — smooth and black and catching the forge light in brief amber before giving it back to the dark. The forge itself dominates the center: enormous, ancient, burning with the steady purpose of something that has never been allowed to go out. The heat it produces rises through the rock above, feeding an illusion so convincing that even the smoke smells right. Pyronicus built this room first. The volcano came after.* Single room.
 
 **Ring handover:** *Pyronicus sets down his work and regards you with calm, unhurried eyes. "Will's errand," he says. "Yes." He moves to a workbench and returns with the ring, placing it in your hand with the care of someone returning something that was never theirs. "It fell through my ceiling," he says. "Rings don't do that by accident." He pauses. "Will told you what you need to know, I assume." He goes back to what he was doing. The conversation, apparently, is over.*
@@ -229,9 +268,11 @@ The illusory volcano itself. Appears entirely real. Harder perception check requ
 ## Archery Range & Viking Encampment
 
 ### Archery Range
+**XP: 1**
 *Straw targets line the far end of a long cleared field, bristling with arrows. The range is well-used. The Vikings from the encampment to the west use it freely — and apparently consider the entire field fair game, including the parts you're standing in.* Hazardous — challenge roll each time the player passes through to avoid being hit by an errant arrow. Permanently safe once Viking trust is earned (silent mechanic, no acknowledgment). **Raznak** found here.
 
 ### Viking Encampment (The Encampment — hub)
+**XP: 1**
 West of the Archery Range. Followers of The Brotherhood of the Pale Blade. Three trust trials must be completed in order: Riddle Stone (Trial 1) → Ritual Circle (Trial 2) → Fire Pit (Trial 3).
 
 Central hub. Fire pit, longhouses, Vikings going about their business. East → Archery Range. North → Haalvar's Hut (Trial 1). South → The Ritual Circle (Trial 2). West → The Fire Pit (Trial 3).
@@ -255,6 +296,7 @@ Central hub. Fire pit, longhouses, Vikings going about their business. East → 
 **[Runed Metal added to inventory.]**
 
 ### Haalvar's Hut (Trial 1 — The Riddle Stone)
+**XP: 1**
 North of The Encampment. **Haalvar** administers the trial. The hut contains a stone with runic carvings and a fluid-like appearance — solid to the touch, its surface moves like dark water. On entry, Haalvar delivers the riddle: *"I have no legs but travel far. I have no mouth but swallow ships. I have no hands but I will take everything you own if you let me. What am I?"*
 
 - **Correct answer:** `SEA` — stone glows; Haalvar: *"The stone is satisfied. I am also satisfied, which happens less often. Go south — there is a circle there that will want your attention next."* Trial 1 complete.
@@ -262,6 +304,7 @@ North of The Encampment. **Haalvar** administers the trial. The hut contains a s
 - **Actually Enchanted Glasses:** Kevry's voice whispers the answer.
 
 ### The Ritual Circle (Trial 2)
+**XP: 1**
 South of The Encampment. An unnamed child administers the trial — he does not speak. Five rune stones arranged around a carved symbol: Earth, Air, Fire, Water, Heart.
 
 **Correct order:** Earth → Air → Fire → Water → Heart. First four from the banner; Heart stone always last.
@@ -272,6 +315,7 @@ South of The Encampment. An unnamed child administers the trial — he does not 
 - **Correct completion:** Child points back toward the encampment. Trial 2 complete.
 
 ### The Fire Pit (Trial 3 — The Drinking Challenge)
+**XP: 1**
 West of The Encampment. **Aylora** is the Viking champion. Best of five rounds; each round is a strength-based challenge roll. Warriors get a class bonus; Rogues and Mages roll straight. The drink: Thornbrew.
 
 - **Player wins:** Aylora passes out. Player drags her back to the encampment → triggers Ivanaar's runed metal handoff.
@@ -282,6 +326,7 @@ West of The Encampment. **Aylora** is the Viking champion. Best of five rounds; 
 ## Roundabout Pond & Bog
 
 ### Roundabout Pond
+**XP: 1**
 Between town and the bog. Two-state room.
 
 **Base description:** *The pond is easy to walk past without noticing. It sits low between the town path and the bog, ringed with reeds and the occasional frog. The water is dark and calm.*
@@ -289,6 +334,7 @@ Between town and the bog. Two-state room.
 Each visit fires a silent perception check. On success: "You see a bottle at the bottom of the pond." — quest discovered, May's hints unlock. Sighting not permanent; check fires on every visit until quest is discovered. Retrieving the bottle requires a fishing rod (purchased from vendor) and a successful challenge roll (`FISH`); Rogues get a bonus. The bottle is a treasure item.
 
 ### Bog of Eternal Stench
+**XP: 1 per bog room (4 total)**
 Four rooms arranged in a 2×2 grid. Players may move diagonally between rooms. All four display the same room title to the player: **"The Bog of Eternal Stench"** — directional designations (Bog-NE, Bog-NW, Bog-SE, Bog-SW) are internal design references only, never shown to the player. Accessed from the Roundabout Pond to the east.
 
 - **Bog-SE:** *The bog stretches in every direction, dark water between clumps of soggy earth. The smell is comprehensive and personal. Reeds crowd the edges of every dry patch. Something is moving just out of sight, or was.* Entry point. Dankhaus hidden here — dense brush conceals the path; perception check required each visit until discovered. Once discovered, path is permanently visible.
@@ -297,9 +343,10 @@ Four rooms arranged in a 2×2 grid. Players may move diagonally between rooms. A
 - **Bog-NW:** *The reeds are taller here, crowding in from the edges. The water is darker. The smell is worse. This part of the bog feels less visited, which is saying something.* Contains a hollow log — perception check required to find it. Inside: the key to Will's music box (Quest 12). Also: Quest 50 Bog-NW exit surfaces here (shovel required to finish hole from Lost Apprentice's Cell).
 
 ### The Dankhaus
+**XP: 1 per room**
 Three-bedroom home hidden in the bog behind dense brush. Perception check required to find it (Bog-SE). Litlock's residence; also houses Lynds and Aurix the Kobold child. Appears as a yurt from outside. Magical wards bar unwanted entry — design pass needed.
 
-- **Common Room:** Entry and gathering space. Large fireplace. Litlock's presence felt here most strongly on first visit — dulls with time.
+- **Common Room:** Entry and gathering space. Large fireplace. Litlock's presence felt here most strongly on first visit — dulls with time. **XP: 3** (perception-gated discovery bonus)
 - **Kitchen:** TBD contents and use.
 - **Garden:** Large garden outside. TBD — possible ingredient/item source.
 - **Litlock's Room:** TBD access and contents.
@@ -312,32 +359,38 @@ Three-bedroom home hidden in the bog behind dense brush. Perception check requir
 ## Beach Road, Forest & Mine
 
 ### Beach Road
+**XP: 1**
 East of the Wasteland. A road that forks — south toward Roundabout Beach, uphill winding toward Roundabout Forest. Single room.
 
 ### The Old Oak
+**XP: 1**
 Between Beach Road Fork and Roundabout Forest. A large oak dominates this spot. A child stands here — a kite is tangled in the upper branches. `CLIMB TREE` retrieves the kite; a rune stone threaded on a cord falls free. `GIVE KITE TO CHILD` completes Quest 41. The rune stone is one of three needed for Quest 42.
 
 ### Beekeeper's Cottage
+**XP: 1**
 *A low wooden cottage sits at the edge of the trees, almost part of the forest. Stacked hive boxes line the south wall, painted in fading colours. The smell of beeswax and woodsmoke is pleasant in a specific, unhurried way. The beekeeper is here — a broad woman with patience in her posture and a concerning number of sting marks on her forearms.* Spur west off The Old Oak, at the forest edge.
 
 **Beekeeper (NPC):** On first visit, explains that a swarm escaped and nested in a hollow tree at the forest edge — she gestures east. She can't get near it without her smoke equipment, which is somewhere in the tunnels below. Quest 24 discovered on first visit. After quest: warm, gives enchanted honey reward.
 
 ### Swarm Tree
+**XP: 1**
 *A broad-trunked tree at the forest edge, older than the others around it. A low drone comes from a dark gap in the bark at chest height. The air nearby has a quality that suggests strongly you should not approach without a plan.* Spur east off The Old Oak, adjacent to Beekeeper's Cottage.
 
 **Without smoke jar:** Walking within reach triggers the swarm — 1 heart damage (physical), player retreats automatically to The Old Oak. *"The swarm boils out of the hollow before you can do anything useful. You retreat."*
 **With smoke jar:** `USE SMOKE JAR` — bees settle. Queen vial visible in hollow. `TAKE VIAL` completes the collection step.
 
 ### Roundabout Forest
+**XP: 1**
 *You wouldn't know, walking through here, that the ground beneath you is hollow. The forest is peaceful — birdsong, dappled light, the smell of pine. The mine entrance sits somewhere among the roots and undergrowth, easy to miss if you don't know to look.* Single room. Transitional space above the mine. Connects downhill to The Old Oak. Possible Zenni discovery via perception check (TBD). The crumbled Verdant Circle shrine is visible on entry — no perception check required. **Shrine description:** *A stone shrine stands at the edge of the trees — old enough that the forest has started to take it back. A carved pedestal, still solid. On it, the remains of a ceramic bowl, smashed at some point and not recently. Three or four pieces visible here; others have clearly gone elsewhere. The symbol on the pedestal is a sprouting seed inside a circle of leaves.*
 
 ### Pie Rats Mining Inc.
+**XP: 1 per room**
 Underground beneath Roundabout Forest. Legitimate mining facade; actually a smuggling front for the Pie Rats pirate faction.
 
 - **Mine Entrance:** Forest floor. Sealed permanently after the cave-in explosion.
 - **Main Shaft:** Central spine. Connects Mine Entrance (up) to Mine Tunnels (down). Side passage to Assay Room.
 - **Assay Room:** Off Main Shaft. Where ore samples were tested. Connects to Hidden Secondary Entrance into Secret Tunnels.
-- **Hidden Secondary Entrance:** Between Assay Room and Forgotten Shaft. Perception check from mine side; auto-discovered from tunnel side. Remains accessible after cave-in.
+- **Hidden Secondary Entrance:** Between Assay Room and Forgotten Shaft. Perception check from mine side; auto-discovered from tunnel side. Remains accessible after cave-in. **XP: 2**
 - **Mine Tunnels:** Working tunnels. Torch sconces on walls — torches taken immediately begin burning down (40 turn timer). Burnout = fail state for gunpowder sequence.
 - **The Rat's Nest:** Off Mine Tunnels. Hidden storage for Pie Rat contraband. Contains the Pie Rat disguise required for the ship heist.
 
@@ -346,34 +399,41 @@ Underground beneath Roundabout Forest. Legitimate mining facade; actually a smug
 ## Roundabout Beach & Sea
 
 ### Roundabout Beach
+**XP: 1**
 *Roundabout Beach opens up as the town falls behind you — a generous sweep of sand, the water catching whatever light the sky offers. The docks stretch east to where the Pie Rat Ship is moored, close enough to read the name on its hull. The lighthouse stands to the north on a finger of rock, its lamp turning slowly. It smells like freedom, or at least like salt.*
 
 Players carrying a shovel will likely attempt to dig. `DIG` succeeds up to 5 times with flavor text (nothing but wet sand); 6th attempt: "The beach is littered with holes. There's nowhere else to dig."
 
 ### The Lighthouse
+**XP: 1**
 Dead-end room off Roundabout Beach to the north. Open, unattended. A desk holds a scroll — the **Unbind Undead spell**, left by Silas Bryne (unmet NPC, referenced only in May's Quest 17 hints). No quest assigned beyond the scroll. Quests 14 and 23 both retired.
 
 ### The Docks
+**XP: 1**
 *The boards flex slightly underfoot, worn smooth by years of boots and cargo. Bollards thick with rope line the edge. A coil of rope sits loose on the nearest bollard. The Pie Rat Ship sits in her berth like she owns it, which she more or less does — the only vessel worth the name in Roundabout's harbor. The smell is fish and brine and honest work.*
 
 **Rope:** A coil of rope is visible as a takeable item. This is the one Rope item in the world — used to tie off the Hole to Below beam in the dungeon mid-tier (`TIE ROPE TO BEAM`).
 
 ### Pie Rat Ship
+**XP: 1 per room (Deck, Hold)**
 Moored at the Docks. Crewed by Pie Rats until the explosion draws them away. The only vessel available to sail the Roundabout Sea. Boarding commands (all synonyms): `BOARD SHIP`, `GET ON SHIP`, `CLIMB ABOARD`, `ENTER SHIP`.
 
 - **Deck:** TBD.
 - **Hold / Below Deck:** Each turn aboard fires a silent perception check. On success: treasure map found and added to inventory. Actually Enchanted Glasses pass all perception checks — map found on first turn.
 
 ### The Sea
+**XP: 1 per Roundabout Sea room (3 total); 0 XP for all 69 Open Ocean traversal squares; Desert Island: 1 XP**
 Three Roundabout Sea rooms + 69 Open Ocean squares to Kevry's island. Requires boat. Desert Island is a spur off the Eastern Roundabout Sea.
 
 ### Kevry's Island
+**XP: 5 per room (2 rooms = 10 total)**
 Small location. Easter egg. No hints from May.
 
 ---
 
 ## Secret Tunnels
 
+**XP: 1 per room**
 Underground pre-dungeon level connecting the Tavern Cellar, the mine, the Graveyard Crypt, and the Dungeon Entrance.
 
 - **The Junction:** First room off the Tavern Cellar. Hub — branches toward mine (east), Graveyard Crypt (west/TBD), and deeper toward dungeon.
@@ -395,48 +455,62 @@ Underground pre-dungeon level connecting the Tavern Cellar, the mine, the Gravey
 - Combat Room → east → Creature Den → Flooding Room (spur; Trap 41; always a surprise)
 
 ### Ink Corridor
+**XP: 1**
 First room past the Dungeon Entrance. A thin cord stretched at chest height carries an ink bladder — triggering it douses the player in ink (negates invisibility). No warning; cord invisible until hit. Splits west to Supply Room, east to Storage Area. (Trap 45)
 
 ### Supply Room
+**XP: 1**
 West branch off Ink Corridor. Shelves of old stores. Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility Idol"), mortar compound (Quest 18/22), portcullis bar (Quest 19), smoke jar (Quest 24 — guarded by Trap 17). **Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar and small clay pot (Quest 40) visible in wreckage either way. Perception spots the unstable arrangement. The small clay pot is the one intact pot that survives the collapse. Must be reached before Idol Room — sack of salt required for safe idol swap.
 
 ### Narrow Passageway
+**XP: 1**
 Short connecting passage between Supply Room and Idol Room. Enforces item-first ordering.
 
 ### Idol Room
+**XP: 1**
 South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a pressure-sensitive pedestal. Removing without replacing with equal weight slams a stone door — no exit without crowbar (`PRY DOOR`, strength check). Safe swap: `SWAP IDOL WITH SALT` with sack of salt. Idol is treasure. Connects south to Combat Room. (Trap 33)
 
 ### Storage Area
+**XP: 1**
 East branch off Ink Corridor. Wide chamber. Contains: hand cart (Quest 32), support beam (Quest 38). No passage deeper — only forward via Quest 38 shortcut once cleared.
 
 ### Collapsed Gallery
+**XP: 1**
 South of Storage Area. Timbers wedged across it blocking a secondary exit (Quest 38). Pickaxe from mine required; three strength checks clear the timbers; propping with support beam makes shortcut permanent. **Exit opens into the Rickety Bridge** — bypasses everything above Shrine Room.
 
 ### Creature Den
+**XP: 1**
 East of Idol Room, adjacent to Combat Room. Lair of **The Warden** — permanently empty after defeat. On examination post-fight: remnants of a uniform/insignia mark this as an official post. The Warden drops the **Guardian's Lantern** on defeat.
 
 ### Combat Room
+**XP: 1**
 South of Idol Room. A pressure plate in the corridor before this room rings a bell in the Creature Den — player hears the sound before entering. **The Warden** emerges: completely monstrous in appearance; standard combat; one-time fight. **Trap interaction:** Perception check spots the plate; disarming bypasses the fight; `JUMP ON PLATE` triggers deliberately. Enchanted Glasses auto-reveal the plate. Spur east leads to Flooding Room. Connects south to Prayer Alcove. (Trap 29)
 
 ### The Warden's Drop
 **Guardian's Lantern** — magical lantern. `TURN ON LANTERN` or `LIGHT LANTERN` both work. Flickers but does not light anywhere except the Dark Room in the lower tier, where it cuts through magical darkness and opens passage forward.
 
 ### Flooding Room
+**XP: 1**
 Spur east off Combat Room, through/past Creature Den. Low-lying cave. Pressure plate opens a sluice — floods the room in two turns. Three levers: Left (stuck, permanently spent), Right (breaks off, permanently spent), Middle (correct, closes sluice). No warning on entry. After a wrong pull on turn 1: explicit warning *"The water is at your knees. One turn left."* Failure sweeps player through sluice into mid tier directly below — one-way, no damage. Perception check *before entry* spots the suspiciously clean pressure plate; disarming jams it. (Trap 41)
 
 ### Prayer Alcove
+**XP: 2**
 South of Combat Room. A low stone alcove — looks like a dead end until examined. Carved niche in the back wall. Contains: **crowbar** (Quests 19&30, 25; Trap 33 escape); **vial of glacier melt** (Quest 34 mid room freeze). Perception check reveals full depth. Connects south to Portcullis Corridor.
 
 ### Portcullis Corridor
+**XP: 1**
 South of Prayer Alcove. A metal portcullis blocks the corridor, carrying an arcane charge. Touching without disarming: 1 heart lightning damage, stunned one turn. Three ways through: (1) perception spots charge and discharge mechanism; (2) disarm check discharges safely; (3) strength check lifts — only after discharge. Portcullis Bar from Supply Room props it permanently open. Without the bar it drops when released. (Trap 19)
 
 ### Shrine Room
+**XP: 1**
 South of Portcullis Corridor. A small carved stone room, older than surrounding dungeon stonework. Contains one of three Verdant Circle shrine bowl pieces (Quest 49) — visible on a perception check. Connects south into the Rickety Bridge.
 
 ### Rickety Bridge
+**XP: 1**
 Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 shortcut exits here from the west. **Weight mechanic:** Carry weight limit (exact TBD). If inventory exceeds limit, bridge groans and player is turned back. Must drop items, cross, return for them. Always crossable at or under limit.
 
 ### Mid-Tier Key Door
+**XP: 1**
 South end of Rickety Bridge. Heavy iron door. *The door is iron, set deep into the stone. The lock is substantial — no amount of forcing will open this. It wants a key.* Lockpick attempt returns: "This lock can't be picked." Finding this door triggers Quest 32 discovery and unlocks May's three-tier hints. Middle Tier Key (Quest 32 reward) is the only way through.
 
 ---
@@ -448,12 +522,15 @@ South end of Rickety Bridge. Heavy iron door. *The door is iron, set deep into t
 ### Key Side
 
 #### Key Door Landing
+**XP: 1**
 Base of the key door staircase. Rough-cut cave room. Connects south to Mine Passage.
 
 #### Mine Passage
+**XP: 1**
 Worked cave section, old support timbers and rusting tools. Contains: charcoal (Quest 28, no perception check); silver dust (Quest 4, perception check); large iron chest bolted to floor — lockpick-only (Back Alley mugger's lockpicks), contains 20 Zenni. Connects south to Stored Room.
 
 #### Stored Room
+**XP: 1**
 Deliberate rubble fill hiding a hole. Spur east to The Crevice.
 
 **Before digging:** *The floor is packed tight with rubble — not the chaotic scatter of a cave-in, but deliberate, careful fill. Someone put this here on purpose.*
@@ -463,38 +540,49 @@ One `DIG` (shovel required) collapses floor permanently → Hole to Below; spur 
 **After digging:** *Apparently the "something" being covered was a giant hole. The floor is gone — caved into the darkness below where the rubble gave way.* [Rope detail once rope tied off.]
 
 #### The Crevice
+**XP: 1**
 Dead-end spur east of Stored Room. A skeleton is wedged in a narrow crack — tried to squeeze through and failed. Gold pocket watch hangs from one outstretched finger. `TAKE WATCH` (treasure, sellable). Permanently inaccessible after Stored Room collapses — **missable**.
 
 #### Inscription Chamber
+**XP: 1**
 Ancient inscription on cave wall (Quest 28: `RUB PAPER ON ENGRAVING` with thin paper + charcoal). Rune stone (Quest 42, perception check). Crawlspace in east wall leads to Cave Creature's Lair — revealed by Trap 8 (Rope Snare) trigger or perception check.
 
 #### Cave Creature's Lair
+**XP: 2**
 Accessed via crawlspace off Inscription Chamber. Creature absent, never encountered. Bone flute on floor (Quest 7).
 
 #### Echo Alcove
+**XP: 1**
 Listening station. One-way acoustic connection to the Antechamber in the lower tier — the sound of bones grinding drifts up from below. Same text every visit: *"A faint grinding drifts up from somewhere far below — bone on stone."* No interaction, no commands.
 
 #### Magnetic Vault
+**XP: 1**
 Heavily magnetic room. Trap 15 (Magnetic Chest) on central chest — opening without disarming yanks all metal items to the chest. Perception reveals metallic filings in ring around latch; disarm removes lodestone from lid. Diamond brooch inside (second most valuable treasure in game).
 
 #### Deep Lock Door
+**XP: 1**
 End of key side critical path. Permanently sealed — no key, no lockpicks, dead end. Lower tier reached only via Hole to Below.
 
 ### Trap Side (5 rooms — entered via Flooding Room sweep only)
 
 #### Trap Side Entry
+**XP: 2**
 Wet, low-ceilinged chamber at base of sluice. One-way drop from upper tier. No exits except south.
 
 #### Dream Corridor
+**XP: 2**
 Liminal branching passage. 2×3×2 decision tree — 12 outcomes (6 success, 6 failure). Failure loops back to room start with no awareness. Full tree in `mechanics.md` (Special Mechanics section).
 
 #### Lost Apprentice's Cell
+**XP: 2**
 Quest 50: combat with afflicted apprentice; post-combat `USE SHOVEL` finishes hole to Bog-NW; apprentice follows player out; Apprentice's Gloves reward (hands slot, +3); quest completes on bog exit.
 
 #### Supply Cache
+**XP: 2**
 Partially collapsed side room. Contains a **gold nugget** — buried in rubble, treasure item.
 
 #### Flood Sump
+**XP: 2**
 Lowest point on trap side. Shallow pool. No confirmed items.
 
 ---
@@ -542,11 +630,13 @@ Lowest point on trap side. Shallow pool. No confirmed items.
 ```
 
 ### Pile of Rubble (Room 1)
+**XP: 2**
 Bottom of Hole to Below. Rope anchor point for return to mid tier.
 
 *The ceiling is a jagged wound — stone and packed earth hanging at the edge where the floor above used to be. Below that: the rubble that was the floor, now a rough-graded pile you're standing on. The air smells of disturbed earth and something older underneath it. Passages lead further in.*
 
 ### Lower Crypt (Room 2)
+**XP: 2**
 Keeper's skeleton under inert pendulum blade. Key ring on skeleton.
 
 **Room description:** *A rough cave, low-ceilinged and close. A pendulum blade hangs motionless from the ceiling — triggered long ago, dried blood on the edge. Beneath it, a skeleton in robes. Whatever the Keeper came down here to do, this is as far as he got.*
@@ -559,6 +649,7 @@ Keeper's skeleton under inert pendulum blade. Key ring on skeleton.
 The emerald wax seal on a cord around the skeleton's neck matches the seal on the statue note in Roundabout Town Square. Key opens the Keeper's Chamber in the Church of All.
 
 ### The Encampment (Room 3)
+**XP: 2**
 Scholar and Keeper's research area. Makeshift — bedrolls, scattered equipment, journals piled without order.
 
 **Room description:** *The camp is old but not abandoned — abandoned implies a choice. Bedrolls still laid out. Equipment set down mid-use. Journals open to pages no one finished. Whatever happened here, no one saw it coming.*
@@ -566,9 +657,11 @@ Scholar and Keeper's research area. Makeshift — bedrolls, scattered equipment,
 No mechanical trigger — context and lore only.
 
 ### Thermal Vent Room (Room 4)
+**XP: 2**
 Dead-end spur. Warm air rises from fissures in the floor. Fire clay (Quest 49) pressed into ceiling overhang — invisible until `LOOK UP`; `TAKE CLAY` retrieves it. No perception check. Whispering Jar whisper (*"The ceiling of the thermal vent holds a secret."*) is the only hint anywhere.
 
 ### Antechamber / Bone Crunch Floor Room (Room 5)
+**XP: 2**
 Trap 36. Dry bones arranged plainly on the floor — no perception check needed.
 
 **Warning text:** *"The sound is coming from beyond that doorway — bone grinding on stone, steady and unhurried. You get the distinct impression that silence is not optional here."*
@@ -578,19 +671,23 @@ Trap 36. Dry bones arranged plainly on the floor — no perception check needed.
 **Death text:** *"The bones crack underfoot. The grinding stops. Then the doorway fills."*
 
 ### Skeleton Room (Room 6)
+**XP: 0** (instant death on entry — XP unreachable)
 Dead end south of Antechamber. 6–9 undead skeletons. Instant death on entry. Never required — nothing inside.
 
 ### The Junction (Room 7)
+**XP: 2**
 Navigational fork east of Antechamber.
 
 *The passage widens here into a rough junction, the stone walls bearing the marks of tools long since abandoned. Three directions offer themselves without comment. The floor is grit and old dust.*
 
 ### The Narrow Pass (Room 8)
+**XP: 2**
 Long narrow passage east of The Junction leading to The Still Den.
 
 *A long passage, barely wide enough for your shoulders. The walls are close and the ceiling drops as you move east. Somewhere ahead, something breathes — slow and irregular, like sleep that isn't quite sleep.*
 
 ### The Still Den / Werewolf's Room (Room 9)
+**XP: 2**
 Undead werewolf — critical path. Cannot be harmed by conventional weapons. Only `DRIVE STAKE INTO WEREWOLF` (stake must be consecrated with holy water first) destroys it. Reverts to scholar appearance on death. Ivory Torch mounted on wall — take before leaving. Werewolf drops **Werewolf's Amulet** (ring ritual artifact, The Veil of the Arcane).
 
 **Room description (werewolf alive):** *A wide cave, low but not cramped. The walls are gouged at every height — long parallel marks, overlapping, years of them. The floor is worn smooth in a rough oval, the path of something that has been pacing this space for longer than it can remember. It is very still right now. That changes the moment you enter.*
@@ -602,6 +699,7 @@ Undead werewolf — critical path. Cannot be harmed by conventional weapons. Onl
 **TODO:** Werewolf combat mechanic — attack cadence, player options each turn.
 
 ### Tool Alcove (Room 10)
+**XP: 3**
 Quest 34 barrier room. North of The Junction. Speaking door disguised as back wall. Perception check required for discovery.
 
 **Before discovery:** *"The passage ends at a shallow recess lined with iron brackets — the kind used to hang tools or equipment. The brackets are empty. The back wall is flat and featureless."*
@@ -615,6 +713,7 @@ Quest 34 barrier room. North of The Junction. Speaking door disguised as back wa
 **Open state (all future visits):** *"The passage ends at a shallow recess lined with empty iron brackets. The back wall stands open. It has nothing left to ask."*
 
 ### Quest 34 Mid Room (Room 11)
+**XP: 2**
 North of Tool Alcove. A channel of dark water fills the room wall to wall — narrow but uncrossable.
 
 **Room description:** *Everything in this room is becoming the pool. Water seeps through the walls in thin lines, runs down the stone, disappears into the dark surface below. The ceiling drips. The pool fills the room wall to wall — narrow, long, bottomless as far as you can tell. The passage north is visible on the other side. The water is between you and it.*
@@ -624,6 +723,7 @@ North of Tool Alcove. A channel of dark water fills the room wall to wall — na
 **Freeze solution:** `POUR VIAL IN WATER` (vial of glacier melt from Prayer Alcove, upper tier) freezes the pool; player crosses freely.
 
 ### Quest 34 Fountain Room (Room 12)
+**XP: 2**
 North of Quest 34 Mid Room. Contains a soldier encased in a block of magical ice — alive but suspended.
 
 **Room description:** *Cold stops you at the threshold — not wind, just cold, settled and absolute. The fountain to your left has been frozen mid-pour for what might be a very long time. The block of ice in the center of the room is frosted thick, but not so thick you can't see the shape inside it. A person. Standing. Composed.*
@@ -637,6 +737,7 @@ North of Quest 34 Mid Room. Contains a soldier encased in a block of magical ice
 Soldier reappears in town as a minor NPC offering free weapon training sessions. Reward: **The Forgotten Blade** — see `items.md`.
 
 ### Dark Room (Room 11 — Dark branch off The Junction)
+**XP: 2**
 Magical darkness fills the passage ahead. Hard block without Guardian's Lantern. Normal torches and Light spell ineffective.
 
 **Before lantern:** *You cannot see anything. This is not like being in the dark. This is something the dark is doing on purpose.*
@@ -646,6 +747,7 @@ Magical darkness fills the passage ahead. Hard block without Guardian's Lantern.
 **Persistent (lantern hung):** *A plain stone room, unremarkable in every way. Stone walls, stone floor, a passage north. The Guardian's Lantern burns steadily on the wall. It is not dark.* Lantern stays on wall permanently — in room but not takeable.
 
 ### Spirit Room (Room 12 — Dark branch)
+**XP: 2**
 6–9 silent spirits. Hard block both directions while player is visible. One Ring required. Spirits cannot be killed. South of Dark Room.
 
 **Room description:** *The room is silent. Shapes drift through it — sparse, irregular, neither here nor entirely anywhere. They are not human. They are not entirely not human. They take note of you the moment you enter. The passage north is visible. Getting there is another matter.*
@@ -655,23 +757,12 @@ Magical darkness fills the passage ahead. Hard block without Guardian's Lantern.
 **Ring on:** *The attention in the room drops all at once — not gradually, immediately. The shapes drift back to their own patterns. They have forgotten you entirely.*
 
 ### Burial Chamber (Room 13 — Dark branch)
+**XP: 3**
 South of Spirit Room.
 
 *The chamber is circular, the walls carved with processions of figures — mourners, by the look of them, rendered in a style no living hand in Roundabout would recognize. Niches hold candles that have not burned in centuries, wax melted flat and cold. The plinth at the center holds the mask. Everything in this room was arranged deliberately, long ago, by people who are not coming back.*
 
 Contains **Funeral Mask of Hammered Gold** (treasure) on central plinth. Taking the mask triggers no reaction from the spirits.
 
-### Trap Side Entry (Room 14)
-Base of the sluice from the Flooding Room above. One-way drop, no damage. No exits except south.
-
-### Dream Corridor (Room 15)
-Liminal branching passage between Trap Side Entry and Lost Apprentice's Cell. Full decision tree in `mechanics.md`.
-
-### Lost Apprentice's Cell (Room 16)
-Quest 50: combat with afflicted apprentice. Post-combat `USE SHOVEL` finishes hole to Bog-NW. Apprentice follows player out. Apprentice's Gloves reward (hands slot, +3). Quest completes on bog exit.
-
-### Supply Cache (Room 17 — trap side)
-Partially collapsed side room. Contains a **gold nugget** — buried in rubble, treasure item.
-
-### Flood Sump
-Lowest point on trap side. Shallow pool. No confirmed items.
+### Trap Side Rooms (Rooms 14–17 + Flood Sump)
+These rooms are physically part of the mid-tier trap side, entered via the Flooding Room sluice sweep. Full room definitions are in the **Dungeon — Middle Tier / Trap Side** section above. XP values are defined there.

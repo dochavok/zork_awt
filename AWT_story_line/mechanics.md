@@ -138,6 +138,8 @@ Armor is found through exploration and never degrades.
 
 **TODO — Combat system:** Include damage avoidance roll mechanic for Ivanaar's Tunic — second roll during combat phase that can negate damage that would otherwise be taken.
 
+**TODO — Combat XP:** Each combat encounter needs a specific XP value assigned during the combat design pass. Guidelines: standard enemies 2–4 XP, named/boss enemies 10–15 XP. See experience.md for full context.
+
 ---
 
 ## The One Ring
@@ -182,6 +184,64 @@ Spells learned permanently once acquired.
 |-------|--------|----------|-------------|--------|
 | Light | Creates light source | 10 turns | 20 turns | Quest 12 — music box key in Bog-NW |
 | Unbind Undead | Releases a bound spirit | Instant | 20 turns | Lighthouse — scroll on Silas Bryne's desk |
+| REST | Recovers 1 heart | Instant | 50 turns | Granted at Level 6 — no scroll required, no XP awarded |
+
+**REST notes:** Outside combat only — hostile in room returns *"You can't rest now, there's fighting to be done!"* Before reuse timer expires returns *"What are you sitting around for, there's a dungeon to explore!"* Works while inked. Stacks with inn healing and food.
+
+**Standard level-up message (all levels):** *"You hear music — a familiar melody. You have reached level [#]!"*
+
+**Level-up message on acquiring REST (Level 6 only):** Fires after the standard level-up message. *"You feel a deeper sense of calm settle over you — the kind that comes with hard-won experience. You can now REST to recover when the fighting stops."*
+
+**Nobu's Favor (Level 7) and Finishing Move (Level 8):** No additional message. Secret abilities are never announced.
+
+---
+
+## Finishing Move
+
+Granted silently at Level 8. The player is never told this ability exists — no level-up message, no journal entry, nothing.
+
+**Trigger:** All 3d20 roll 15 or higher in a single combat roll (~2.7% chance per roll).
+
+**Effect:** Instant kill. The enemy is defeated immediately regardless of remaining health.
+
+**Narrative (shown to player on trigger):**
+
+*"Finish him."*
+*The voice is not yours. It doesn't need to be.*
+*You already knew how this was going to end. The voice just said it out loud.*
+*Your body is already moving.*
+
+**Design notes:**
+- The voice has no source and no attribution. It is never explained.
+- The ability is intentionally invisible — players who trigger it will wonder; players who never trigger it will never know it existed.
+- No exemptions — by Level 8 all named/ritual fights are expected to be complete.
+
+---
+
+## Nobu's Favor
+
+Granted silently at Level 7. The player is never told this ability exists — no level-up message, no journal entry, nothing. It simply fires when needed.
+
+**Trigger:** Player is reduced to 0 hearts.
+
+**Effect:** Survives on 1 heart. Transported instantly to the Tale and Ale Main Room. Once per game — does not reset.
+
+**Narrative (shown to player on trigger):**
+
+*The world goes dark. Not the dungeon dark — something older than that. Quieter.*
+
+*You are somewhere else.*
+
+*A voice, close and unhurried, as if it has all the time there is: "But did you die?"*
+
+*The Main Room of the Tale and Ale materializes around you. The fire is going. Someone left a drink on the table. The chair nearest the hearth looks like it was made for exactly this moment.*
+
+*You are alive. You are not sure how. You are quite sure you could use a rest.*
+
+**Design notes:**
+- Nobu is not an NPC. The name appears nowhere else in the game. The voice is never explained.
+- The ability is intentionally invisible — players who trigger it will wonder; players who never trigger it will never know it existed.
+- After firing, subsequent reduction to 0 hearts is permanent death as normal.
 
 ---
 
