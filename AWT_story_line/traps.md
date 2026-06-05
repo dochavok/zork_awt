@@ -8,11 +8,6 @@ A large curved blade suspended from the ceiling, triggered by a pressure plate m
 **8. Rope Snare — Ankle**
 A loop of fine cord hidden under loose dirt on a cave floor. Triggering it yanks the player off their feet (no damage) and suspends them upside down from a ceiling hook for several turns unless they cut the rope or pass a strength check to pull free. *(Quest 7 — The Bone Flute: Trap 8 guards the crawlspace off the Inscription Chamber in the mid-tier dungeon. Triggering it or spotting it with a perception check reveals the crawlspace entrance to the Cave Creature's Lair.)*
 
-**9. Gas Vent**
-A hairline crack in a cave wall leaks odorless gas. Each turn spent in the room without noticing it costs one heart. A perception check detects a faint shimmer in the air; disarming means plugging the crack with fire clay (from the volcano area), wax, or similar. If the player carries a lit torch into the room without spotting it first, the gas ignites — two hearts of damage and the torch is extinguished. *(Trap Corridor, mid-tier trap side.)*
-
-**11. Weighted Ceiling Cage**
-A metal cage drops from above when a pressure plate is triggered, trapping the player in place. It doesn't deal damage but locks the player in the room until they pick the cage lock (trap disarm check), find the release lever in an adjacent room, or break a bar with a strength check. *(Quest 50 — Lost Apprentice's Cell, mid-tier trap side.)*
 
 **15. Magnetic Chest**
 A chest in the dungeon is rigged so opening it without disarming triggers a powerful magnetic pulse. Any metal items in the player's inventory are yanked toward the chest and stuck to it — including equipped armor and weapons — requiring a strength check to pry each one loose, costing a turn per item. Perception spots unusual metallic filings arranged in a ring around the chest's latch; disarming means removing a lodestone embedded in the lid's underside. *(Magnetic Vault, mid-tier key side.)*

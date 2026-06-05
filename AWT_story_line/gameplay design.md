@@ -261,6 +261,135 @@ Dead-end spur east of the Stored Room. A narrow crack in the cave wall — a ske
 **Will Passion audio note:**
 On any `DIG` command anywhere in the game, a 1-in-20 random check triggers: *Will Passion materializes in your thoughts, uninvited. "Do you know how long it takes to dig a six-foot hole?" You suspect he does. You suspect he has timed it.* Applies equally to the Desert Island, the Stored Room, and the Quest 50 apprentice hole.
 
+### The Dream Corridor
+
+The Trap Corridor (mid-tier trap side, between Trap Side Entry and Lost Apprentice's Cell) is a branching decision tree — a liminal, dreamlike passage the player must navigate by instinct, sense, and nerve. The player does not know they are in a dream until they successfully pass through. On failure, the room description replays from the beginning and the same choices are presented again — identical every time. No damage, no cost. Just the loop.
+
+**Structure:** 2 × 3 × 2 — three levels of decision yielding 12 outcomes. 6 successes, 6 failures.
+
+---
+
+**Inciting Event — Room Description (repeats on every failure):**
+
+*The corridor is low and wet. Water drips somewhere behind you. Your torch throws just enough light to see the floor — and the footprints already pressed into the mud. Leading in from the entrance. Your size. Your stride. You haven't been here before.*
+
+---
+
+## Level 1 — Instinct vs. Caution
+
+**A — Follow them**
+**B — Go another way**
+
+---
+
+## Level 2A — Follow Path
+
+*The prints lead forward. You know this feeling — the particular shape of a place you've already moved through. You have been here. You just don't remember when.*
+
+**A1 — See:** *The footprints change. Halfway down the corridor they shift — your stride lengthens, the toe digs deeper. Whatever you were walking toward, you were walking faster by the time you reached it. You follow the change.*
+
+**A2 — Hear:** *A sound comes from your left — a passage you didn't notice before, or didn't exist before. Water moving. Not dripping. Flowing. Like something is draining toward an opening.*
+
+**A3 — Smell:** *It stops you mid-step. Something warm. Cooked. Completely wrong for a place like this — bread, maybe, or stew. Coming from ahead, faint but real, the kind of smell that makes your body move before your mind does.*
+
+---
+
+## Level 2B — Go Another Way Path
+
+*You step off the prints. The corridor looks different from here — longer, maybe, or the walls are closer. Nothing you can point to. Just the feeling that the version of this place you're now standing in is not the one you entered.*
+
+**B1 — Feel:** *Something pulls at you — not physical, not quite. A certainty about one direction that has no evidence behind it. The kind of knowing that lives below thought. You trust it, or you don't.*
+
+**B2 — See:** *Your torch catches the wall of a side tunnel you hadn't noticed — or that wasn't there before. Claw marks run along the stone at shoulder height. Deep, parallel, dragged fast. Whatever made them was large. Whatever made them went that way. You follow anyway.*
+
+**B3 — Feel:** *The ground hums. Low, slow, rhythmic. Like something heavy moving far below, or far ahead — it's impossible to tell. Your boots feel it more than you do. You follow the vibration.*
+
+---
+
+## Level 3 — Outcomes
+
+### A1 — See (Follow path)
+The footprints end at a wall. Not a door — a wall. But the mud at the base is disturbed, smeared, like something passed through it. The torch flickers.
+
+**Option 1 — Press your hand against the wall** *(FAILURE)*
+*Cold stone. Solid. You press harder, run your fingers along the seam where the smear meets the surface. Nothing gives. It is definitively, completely a wall. You press your forehead against it.*
+*You wake up at the entrance. The footprints are there. Your size. Your stride.*
+
+**Option 2 — Step back and look at the full wall** *(FAILURE)*
+*Distance doesn't help. It's a wall. Flat, unbroken, mortared tight. Whatever the smear in the mud means, it doesn't mean a door. You stand there long enough to be certain.*
+*You wake up at the entrance. The footprints are there. Your size. Your stride.*
+
+---
+
+### A2 — Hear (Follow path)
+You turn left. The passage is narrow — barely a shoulder's width. The sound of moving water is clearer now, ahead and below. The passage slopes down. Your torch bends in a draft coming up from somewhere beneath you.
+
+**Option 1 — Follow the slope down toward the sound** *(SUCCESS)*
+*The slope levels. The passage opens. The sound of water is all around you now — a drain somewhere below the floor, pulling the flood somewhere useful. The air is damp but moving. Ahead, a doorway. You walk through it.*
+*You are through.*
+
+**Option 2 — Follow the draft — go toward the air, not the water** *(FAILURE)*
+*The draft gets stronger. The passage narrows further and then opens without warning — onto nothing. A drop. You can't see the bottom. The torch goes with you.*
+*You wake up at the entrance. The footprints are there. Your size. Your stride. Your heart is going very fast and you're not entirely sure why.*
+
+---
+
+### A3 — Smell (Follow path)
+The smell gets stronger as you move. At the end of the corridor a low alcove opens to the right — just wide enough to crouch into. Inside: nothing. No food, no fire, no source. The smell is overwhelming in here. Your stomach responds before your brain does.
+
+**Option 1 — Crouch inside and look for the source** *(FAILURE)*
+*The alcove goes back further than it looked. You crouch deeper, torch first. The smell is everywhere and the source is nowhere. The ceiling gets lower. You keep looking. The torch goes out.*
+*You wake up at the entrance. The footprints are there. Your size. Your stride. You are not hungry anymore.*
+
+**Option 2 — Ignore it and keep moving forward** *(SUCCESS)*
+*You keep walking. The smell fades behind you the way smells do when you stop chasing them. The corridor ends at a doorway. You don't remember the corridor having a doorway. You walk through it.*
+*You are through.*
+
+---
+
+### B1 — Feel (Go another way path)
+The certainty leads you to a section of wall that looks identical to every other section of wall. No seam, no mark, no reason. The feeling is loudest here. Your torch doesn't flicker. The wall doesn't breathe. It just is — and something in you insists this is the place.
+
+**Option 1 — Trust it. Press forward into the wall.** *(SUCCESS)*
+*You don't slow down. You don't brace. You walk into it the way you'd walk through a doorway you've used a thousand times. The wall is not there. The room beyond is. You are through it before you've decided what just happened.*
+*You are through.*
+
+**Option 2 — Trust it. Wait. See if something happens.** *(FAILURE)*
+*You wait. The certainty doesn't grow or fade — it just sits there, patient, offering nothing new. The corridor is very quiet. You wait longer. The torch burns. Nothing happens. The feeling eventually becomes indistinguishable from doubt.*
+*You wake up at the entrance. The footprints are there. Your size. Your stride. The certainty is gone.*
+
+---
+
+### B2 — See (Go another way path)
+The claw marks run the length of the tunnel, shoulder height, deep and continuous. You follow them. The tunnel is long enough that the entrance is behind you and the far end is still ahead. The marks don't stop or change. They just keep going.
+
+Then the tunnel goes silent in a way it wasn't silent before. One breath of stillness. Then something at the far end shifts. Not loud. Not close. Just present. Aware, maybe. The marks continue toward it.
+
+**Option 1 — Keep walking.** *(SUCCESS)*
+*You don't slow down. Whatever is ahead has already heard you — stopping won't help and going back won't either. You walk toward the sound. The tunnel ends at a doorway. Nothing is there. Nothing was ever there, or it's somewhere you're not anymore. You walk through it.*
+*You are through.*
+
+**Option 2 — Fall back.** *(FAILURE)*
+*You take one step back. Then another. The sound doesn't repeat but the silence that follows it is worse. You turn and move fast, faster, back toward the entrance, back toward the footprints, back toward something that made sense.*
+*You wake up at the entrance. The footprints are there. Your size. Your stride. The far end of the tunnel is very far away now.*
+
+---
+
+### B3 — Feel (Go another way path)
+The vibration leads you to a section of floor where it is strongest — a rough circle of stone, slightly discolored, slightly lower than the surrounding floor. The hum comes up through your boots and into your legs. It is steady. It is patient. It has been doing this for a long time.
+
+**Option 1 — Step onto the discolored stone** *(SUCCESS)*
+*The hum rises through you the moment your full weight is on it — up through your legs, your chest, your jaw. The floor doesn't move. You do. The corridor shifts around you, or you shift through it, and then you are somewhere else. The hum is gone. The room ahead is quiet and real.*
+*You are through.*
+
+**Option 2 — Kneel and press your hand to it** *(SUCCESS)*
+*The vibration is different through your palm than through your boots — more specific, like a word you almost recognize. You press harder. The circle of stone depresses slightly, just enough to feel deliberate, and something in the corridor unlocks without a sound. A doorway is there that wasn't before. You stand up and walk through it.*
+*You are through.*
+
+---
+
+**On passing through:** The player arrives in the Lost Apprentice's Cell. No explanation is given for what the corridor was. The dream framing is never named in-game.
+
 ### The Treasure Map
 
 - Hidden aboard the Pie Rat Ship in the hold/below deck.
@@ -415,7 +544,7 @@ Four hidden NPCs called Dungeon Masters are scattered throughout the world. All 
 |— Main Entrance                 |Ground floor entry. Grand foyer. Stairs lead up to the Upper Hall. Council Chamber to one side, Records Room to the other.|
 |— Council Chamber               |Ground floor, off the Main Entrance. Where town business is conducted. **Councilman Rowan Finch** is found here — grandson of Calder Finch, a noted dungeon explorer. Rowan is the quest giver for Quest 32 (The Missing Gravestone). Rewards the player with Calder's Middle Tier Key upon quest completion.|
 |— Records Room                  |Ground floor, off the Main Entrance. Dusty and bureaucratic. Contains the **town charter** — required for Quest 27 (The Toll Bridge Operator — bridge in the Secret Tunnels gates the Dungeon entrance). The **Records Room Worker** initially refuses to hand over the charter. After the player returns the pocket watch (from the Chuckle House ghost quest), he gives up the charter as thanks — the watch belonged to his family. The connection between the watch and his family is a surprise to him. Charter is a quest item.|
-|— Upper Hall                    |Second floor, top of the stairs. Connects to the Tower. TBD contents.|
+|— Upper Hall                    |Second floor, top of the stairs. Connects to the Tower. Contains a display cabinet of old town documents and civic artifacts — unlocked, accessible from the start. `OPEN CABINET` reveals contents. The **wax seal** (Quest 4) is inside — `TAKE SEAL` picks it up. No perception check required.|
 |— The Tower                     |Accessed from the Upper Hall. Top of the conical tower, overlooking Roundabout Town Square. Contains the **Trophy Case** — an achievement display for treasure items found during the playthrough. Shows count of treasures found (e.g. 8/10). **Rowan Finch dialogue:** TBD — his grandfather Calder was a dungeon explorer who likely donated early items to the case; Rowan should acknowledge this connection.|
 |**Tale and Ale Tavern**         |Accessed from Roundabout Town Square (south). Exterior faces the square.     |
 |— Main Room                     |Central gathering space. Entry point into the inn. Contains a mailbox — completely out of place, acknowledged by no one. `OPEN MAILBOX` teleports player to Will's Wizard Tower.|
@@ -450,7 +579,7 @@ Four hidden NPCs called Dungeon Masters are scattered throughout the world. All 
 |**Pie Rats Mining Inc.**        |Underground beneath Roundabout Forest. Legitimate mining facade; actually a smuggling front for the Pie Rats pirate faction. Lore: the Pie Rats established the mine generations ago as a supply and storage operation to support their seafaring raids — the tunnels connect to hidden sea-facing chambers used to move contraband. The forest above provides cover.|
 |— Mine Entrance                 |Forest floor entrance. Sealed permanently after the cave-in explosion.       |
 |— Main Shaft                    |Central spine of the mine. Connects the Mine Entrance (up) to the Mine Tunnels (down). Side passage leads to the Assay Room.|
-|— Assay Room                    |Off the Main Shaft via a side passage. Where ore samples were tested. Contains a gold nugget — may be treasure only or have a further purpose (TBD). Connects to the Hidden Secondary Entrance into the Secret Tunnels.|
+|— Assay Room                    |Off the Main Shaft via a side passage. Where ore samples were tested. Connects to the Hidden Secondary Entrance into the Secret Tunnels. No treasure — gold nugget moved to Supply Cache (dungeon mid-tier trap side).|
 |— Hidden Secondary Entrance     |Between the Assay Room and the Forgotten Shaft. Perception check required from the mine/Assay Room side; obvious and auto-discovered from the tunnel/Forgotten Shaft side. Remains accessible after the cave-in.|
 |— Mine Tunnels                  |Working tunnels below the Main Shaft. Torch sconces on the walls — torches can be taken but immediately begin burning down (40 turn timer). Burnout is a fail state for the gunpowder sequence. Torch should be the last item taken before planting gunpowder — grabbing it early wastes it.|
 |— The Rat's Nest                |Off the Mine Tunnels. Hidden storage for Pie Rat contraband. Contains the Pie Rat disguise required for the ship heist.|
@@ -503,9 +632,9 @@ Four hidden NPCs called Dungeon Masters are scattered throughout the world. All 
 |— Spirit Room                   |6–9 silent spirits. Terrifying in their silence. Hard block in both directions while player is visible — cannot move forward or back. One Ring (invisibility) required to pass. Spirits cannot be killed.|
 |— Burial Chamber                |*"The chamber is circular, the walls carved with processions of figures — mourners, by the look of them, rendered in a style no living hand in Roundabout would recognize. Niches hold candles that have not burned in centuries, wax melted flat and cold. The plinth at the center holds the mask. Everything in this room was arranged deliberately, long ago, by people who are not coming back."* Contains: **Funeral Mask of Hammered Gold** (treasure) on central plinth. Taking the mask triggers no reaction from the spirits.|
 |— Trap Side Entry               |Base of the sluice from the Flooding Room above. One-way drop, no damage. No exits except south.|
-|— Trap Corridor                 |Trap 9 (Gas Vent): odorless gas, 1 heart per turn undetected; lit torch into undetected vent ignites (2 hearts, torch extinguished); disarm: fire clay, wax, or similar plugs crack.|
-|— Lost Apprentice's Cell        |Trap 11 (Weighted Ceiling Cage) drops on entry. Quest 50: combat with afflicted apprentice; post-combat `USE SHOVEL` finishes hole to Bog-NW; apprentice follows player out; Apprentice's Gloves reward (hands slot, +2/+3 combat TBD); quest completes on bog exit.|
-|— Supply Cache                  |Partially collapsed side room. No confirmed items.|
+|— Dream Corridor                |Liminal branching passage between Trap Side Entry and Lost Apprentice's Cell. A 2×3×2 decision tree — 12 outcomes, 6 success, 6 failure. On failure the room resets and replays; player has no awareness of the loop until they pass through. Full tree in Special Mechanics section.|
+|— Lost Apprentice's Cell        |Quest 50: combat with afflicted apprentice; post-combat `USE SHOVEL` finishes hole to Bog-NW; apprentice follows player out; Apprentice's Gloves reward (hands slot, +2/+3 combat TBD); quest completes on bog exit.|
+|— Supply Cache                  |Partially collapsed side room. Contains a **gold nugget** — buried in the rubble, treasure item. Rewards exploration on the trap side.|
 |— Flood Sump                    |Lowest point on trap side. Shallow pool. No confirmed items.|
 |**Roundabout Beach**            |*Roundabout Beach opens up as the town falls behind you — a generous sweep of sand, the water catching whatever light the sky offers. The docks stretch east to where the Pie Rat Ship is moored, close enough to read the name on its hull. The lighthouse stands to the north on a finger of rock, its lamp turning slowly. It smells like freedom, or at least like salt.* Layout: Town → Beach → Docks (east/west TBD) → board ship → Roundabout Sea → Open Ocean. Lighthouse is north, perpendicular to the main axis. Players carrying a shovel will likely attempt to dig. `DIG` succeeds up to 5 times with flavor text (finding nothing but wet sand); on the 6th attempt: "The beach is littered with holes. There's nowhere else to dig." Each `DIG` counts as a turn (torch burnout and ring corruption tick normally).|
 |— The Lighthouse                |Dead-end room off Roundabout Beach to the north, perpendicular to the main town↔docks axis. Open, unattended. A desk holds a scroll — the Unbind Undead spell, left by Silas Bryne (the keeper, an unmet NPC referenced only in May's Quest 17 hints). No quest assigned to this location beyond the scroll. Quests 14 and 23 both retired.|
@@ -691,13 +820,13 @@ She picks up her book.
 - [ ] Hint system — review Zenni tier cost ranges (1–3, 4–6, 7–12) against final economy once quest rewards set.
 - [ ] Lynds — define reaction when player loses the arm wrestle.
 - [ ] Quest Board — design full cascade: which quests unlock new postings and in what order.
-- [x] Viking Encampment — all three trials designed and locked. NPCs named. Room descriptions TBD (writing pass).
-- [ ] Town Hall — Upper Hall contents; Tower quest use.
+- [x] Viking Encampment — all three trials designed and locked. NPCs named. Room descriptions complete.
+- [ ] Town Hall — Upper Hall contents (wax seal display cabinet confirmed; further contents TBD); Tower quest use.
 - [ ] Church of All — sub-rooms; which quests require specific religion attunement.
 - [ ] Pie Rat Coin — determine which future quest uses it.
 - [ ] Pie Rat heist — define alternate light sources (harder to obtain than mine torch).
 - [ ] Pie Rat Ship deck — flesh out sub-rooms and items/interactions aboard.
-- [ ] Pie Rats Mining Inc. sealed section — determine items hidden there; gold nugget in Assay Room (treasure or quest item TBD).
+- [ ] Pie Rats Mining Inc. sealed section — determine items hidden there.
 - [ ] Desert Island buried chest — determine TBD quest item alongside 30 Zenni.
 - [x] Lighthouse — Quests 14 & 23 retired. Lighthouse is open, unattended. Unbind Undead scroll on Silas Bryne's desk. No further quest assigned.
 - [ ] Graveyard artifact religion — determine which of the seven religions based on skeleton amulet symbol.
@@ -707,6 +836,7 @@ She picks up her book.
 - [ ] **Dice system** — design the dice mechanic (d6, d10, d20 etc.), roll thresholds, and how leveling improves rolls. Ties directly into XP/level scale.
 - [ ] **XP/level scale** — design level cap, XP thresholds per level, and how leveling improves dice rolls. Ties directly into dice system. Design both together.
 - [ ] **Dragon-nip quest** — glowing sprig hidden under the nightstand in Will’s bedroom. Practically impossible to find — requires perfect roll at highest level or Actually Enchanted Glasses equipped in the bedroom. Returning it to Will grants Golden Dragon Scale (treasure). Will suspects it came from his bedroom but doesn’t ask — dialogue TBD. Dragon-nip implies Will has a dragon familiar — never confirmed, only implied.
+- [ ] **Dragon-nip dialogue** — flesh out Will’s reaction when player returns the dragon-nip. He suspects it’s his but doesn’t ask where it was found. Tone: quietly pleased, slightly embarrassed, says little.
 - [ ] **Golden Dragon Scale** — treasure item reward for dragon-nip quest. Goes to Trophy Case in Town Hall Tower.
 - [ ] **Trophy Case** — Town Hall Tower. Achievement display for treasure items (e.g. 8/10 found). Rowan Finch dialogue TBD — his grandfather Calder likely donated early items; add connection.
 - [ ] **Treasure achievement system** — design full treasure list, total count, and end-game display. Replaces Zork scoring with achievement-style tracking.
