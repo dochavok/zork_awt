@@ -823,7 +823,7 @@ She picks up her book.
 - [x] Viking Encampment — all three trials designed and locked. NPCs named. Room descriptions complete.
 - [ ] Town Hall — Upper Hall contents (wax seal display cabinet confirmed; further contents TBD); Tower quest use.
 - [ ] Church of All — sub-rooms; which quests require specific religion attunement.
-- [ ] Pie Rat Coin — determine which future quest uses it.
+- [x] Pie Rat Coin — confirmed as treasure item, no quest use.
 - [ ] Pie Rat heist — define alternate light sources (harder to obtain than mine torch).
 - [ ] Pie Rat Ship deck — flesh out sub-rooms and items/interactions aboard.
 - [ ] Pie Rats Mining Inc. sealed section — determine items hidden there.

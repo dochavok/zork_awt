@@ -246,7 +246,7 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 
 ### Pie Rat Coin
 **Location:** Flipped by a Pie Rat after the player returns the stolen ship
-**Quest use:** TBD — future quest anchor. Purpose not yet designed.
+**Quest use:** None — treasure item.
 
 ---
 
@@ -427,4 +427,5 @@ All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 | **Ship-in-a-Bottle** | Roundabout Pond (fishing rod + challenge roll) | TBD | Treasure item; May's hints imply Kevry connection |
 | **Gold Pocket Watch** | The Crevice, Dungeon Mid-Tier | TBD | **Missable** — permanently inaccessible after Stored Room collapses |
 | **Gold Nugget** | Supply Cache, Dungeon Mid-Tier Trap Side | TBD | Buried in rubble |
+| **Pie Rat Coin** | Flipped by a Pie Rat after returning the stolen ship | TBD | Unusual currency; pirate provenance |
 | Prices for items in Will's Wizard Tower treasure case | TBD | — | Design pass needed |
