@@ -321,6 +321,12 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 **Reward:** The Forgotten Blade — ceremonial sword, treasure item (not a combat weapon). Soldier reappears in town as minor NPC offering free weapon training sessions.
 
+**Pull-back mechanics (for players who missed the Tool Alcove perception check):**
+
+- **May — late hint (one tier only):** Fires if Quest 34 is the last incomplete major quest and the player has been in the lower tier for 50+ turns without discovering the Tool Alcove door. *"There are rooms in the deep passages that aren't finished. Sometimes a room that looks like a dead end is asking you something."*
+
+- **Archivist — second visit dialogue:** If the player returns to the archivist after receiving the incantation scroll but before completing Quest 34: *"Whatever that engraving answers — I suspect it's somewhere in the lower passages. Somewhere that feels like it's waiting."*
+
 ---
 
 ## Quest 35 — Quest Removed From Game

@@ -137,7 +137,13 @@ Entry space. Lavish wood, copper, and gold. The endless shelves begin here. Medi
 
 ### The Stacks
 **XP: 1**
-Dimensional magic makes this space larger than possible. Books cannot be taken — `READ BOOK` in place only.
+The Archivist's working space. Deeper in the collection than the Main Hall suggests is possible.
+
+*The passage from the Main Hall opens into something that shouldn't fit inside this building. The shelves here are older — darker wood, no labels, arranged in a logic that isn't immediately obvious and may not be alphabetical. The ceiling is lost somewhere above the lamplight. At the far end, a large table holds the controlled wreckage of ongoing work: rolled maps weighted open at the corners, books splayed face-down, sheets of careful notation in a hand that doesn't waste space. The Archivist sits at the center of it, or rather the work surrounds him and he happens to be there too.*
+
+**The Archivist** works here. Full dialogue in `npcs.md`. `TALK TO ARCHIVIST` to interact.
+
+**Book research mechanic:** `TALK TO ARCHIVIST` about a subject → he offers matching titles → `READ BOOK` on each in place (books cannot be taken). Only the correct title advances the relevant quest; wrong books yield flavor text. If player names the specific title, he retrieves it directly. Synonyms accepted. May's hints tie in: Tier 1–2 by topic, Tier 3 names the exact title.
 
 ---
 
@@ -381,7 +387,7 @@ Between Beach Road Fork and Roundabout Forest. A large oak dominates this spot. 
 
 ### Roundabout Forest
 **XP: 1**
-*You wouldn't know, walking through here, that the ground beneath you is hollow. The forest is peaceful — birdsong, dappled light, the smell of pine. The mine entrance sits somewhere among the roots and undergrowth, easy to miss if you don't know to look.* Single room. Transitional space above the mine. Connects downhill to The Old Oak. Possible Zenni discovery via perception check (TBD). The crumbled Verdant Circle shrine is visible on entry — no perception check required. **Shrine description:** *A stone shrine stands at the edge of the trees — old enough that the forest has started to take it back. A carved pedestal, still solid. On it, the remains of a ceramic bowl, smashed at some point and not recently. Three or four pieces visible here; others have clearly gone elsewhere. The symbol on the pedestal is a sprouting seed inside a circle of leaves.*
+*You wouldn't know, walking through here, that the ground beneath you is hollow. The forest is peaceful — birdsong, dappled light, the smell of pine. The mine entrance sits somewhere among the roots and undergrowth, easy to miss if you don't know to look.* Single room. Transitional space above the mine. Connects downhill to The Old Oak. The crumbled Verdant Circle shrine is visible on entry — no perception check required. **Shrine description:** *A stone shrine stands at the edge of the trees — old enough that the forest has started to take it back. A carved pedestal, still solid. On it, the remains of a ceramic bowl, smashed at some point and not recently. Three or four pieces visible here; others have clearly gone elsewhere. The symbol on the pedestal is a sprouting seed inside a circle of leaves.*
 
 ### Pie Rats Mining Inc.
 **XP: 1 per room**
@@ -680,6 +686,10 @@ Navigational fork east of Antechamber.
 
 *The passage widens here into a rough junction, the stone walls bearing the marks of tools long since abandoned. Three directions offer themselves without comment. The floor is grit and old dust.*
 
+**50/50 text — fires when player exits Tool Alcove (Room 10) south into The Junction, before Tool Alcove discovery only. One of two variants selected at random:**
+- *"As you step back into the junction, you're not sure why, but you feel like you left something unfinished back there."*
+- *"Behind you, north, there's a sound — or almost a sound. Gone before you can name it."*
+
 ### The Narrow Pass (Room 8)
 **XP: 2**
 Long narrow passage east of The Junction leading to The Still Den.
@@ -711,6 +721,10 @@ Quest 34 barrier room. North of The Junction. Speaking door disguised as back wa
 **`READ SCROLL` response:** *"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."* — scroll consumed; passage north opens permanently.
 
 **Open state (all future visits):** *"The passage ends at a shallow recess lined with empty iron brackets. The back wall stands open. It has nothing left to ask."*
+
+**Pull-back mechanics (before discovery only):**
+- Freed soldier (town re-appearance, Quest 34 complete in another playthrough context — see npcs.md): *"There's a room down there that talked to me once. I never figured out what it said."*
+- 50/50 text on Junction exit — see The Junction (Room 7) above.
 
 ### Quest 34 Mid Room (Room 11)
 **XP: 2**

@@ -224,6 +224,48 @@ She picks up her book. *"He said that once, about a research problem. I think ab
 - No in-game application item exists — the ledger is flavor, not a pickup.
 - The Veil of the Arcane is implied (not stated) to be the religion for the Werewolf's Amulet ritual — player connects it later.
 
+### The Archivist
+**Location:** The Stacks, Library.
+**Personality:** Scholarly, curious, meticulous. Speaks precisely — qualifies claims, distinguishes between what is known and what is inferred. Not unfriendly, but absorbed. The map project has been on his table for a while.
+
+**Appearance:** An older man, slight, ink on both hands. He works at a large table buried under rolled maps, open books held flat by smooth stones, and sheets covered in careful notation. He does not look up immediately when the player enters.
+
+**Interaction verb:** `TALK TO ARCHIVIST`
+
+**The Stacks — book research mechanic:** The Archivist manages the deep collection. Player asks about a subject; he offers several matching titles. Player must `READ BOOK` in place — only the correct one advances the relevant quest. Wrong books yield flavor text only. If the player names the specific title, he retrieves it directly — one `READ BOOK` and done. Synonyms accepted. Books cannot be taken. May's hints tie in: Tier 1–2 by topic, Tier 3 names the specific title.
+
+**Quest 28 — first interaction (before rubbing delivered):**
+
+He looks up when spoken to, marking his place with two fingers before setting the book aside.
+
+*"Yes. I've been trying to authenticate a map — provenance is unclear, which makes it nearly useless for the purpose I need it for. There's an engraving in the lower passages that should settle the question, if I could get a clean impression of it."*
+
+He glances at the table, then back.
+
+*"I can't leave this. If you're heading down that way — thin paper, a stick of charcoal, and some patience. The engraving is in the Inscription Chamber. You'll know it when you see it."*
+
+**Quest 28 — rubbing delivered:**
+
+He takes the rubbing and holds it to the light without speaking for a moment.
+
+*"Yes."* He sets it down flat, smoothing the edges. *"This appears to be an answer to a question I was never able to find."* He opens a drawer and produces a rolled scroll. *"Take this. I've had it for years — couldn't place it. I suspect you'll find the question before I would."*
+
+**Quest 28 — second visit (after scroll given, Quest 34 incomplete):**
+
+He is already working when the player arrives.
+
+*"Whatever that engraving answers — I suspect it's somewhere in the lower passages. Somewhere that feels like it's waiting."* He doesn't look up. *"That's not intuition. That's just what the text implies."*
+
+**Quest 28 — after Quest 34 complete:**
+
+*"The soldier."* He says it quietly, to himself as much as to the player. *"I had assumed the chamber was ceremonial. Not occupied."* He makes a note. *"Thank you for telling me."*
+
+**Design notes:**
+- No name. "The Archivist" only.
+- The `READ BOOK` mechanic is his domain — all library research quests route through him and The Stacks.
+- His Quest 28 reward (the incantation scroll) is the only connection to Quest 34. The second-visit line is the nudge toward the Tool Alcove for players who found the door and don't know what to do next — or haven't found it yet.
+- Post-Quest-34 dialogue is optional flavor; only fires if player returns and speaks to him.
+
 ---
 
 ## Other Named NPCs
@@ -247,6 +289,8 @@ Lighthouse keeper. **Unmet NPC — never appears in game.** Referenced only in M
 
 ### The Soldier (Quest 34)
 Encased in magical ice in the Quest 34 Fountain Room (dungeon lower tier). Thawed by Ivory Torch over two turns. Hands over the Forgotten Blade without ceremony. Wanders off dazed. Reappears in town as a minor NPC offering free weapon training sessions. Name TBD.
+
+**Town dialogue (after Quest 34 complete — fires once, before Tool Alcove door is opened in current playthrough):** *"There's a room down there that talked to me once. I never figured out what it said."* — passive ambient line; no `TALK TO` required.
 
 ---
 

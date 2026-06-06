@@ -78,7 +78,26 @@ All checks are dice-based and hidden from the player. Players see outcomes only,
 - Trap detection & disarm
 - Additional types TBD
 
-**TODO — Perception difficulty scale:** Define difficulty tiers (easy/medium/hard/very hard) and their dice mechanics. Once defined, do a full pass of all perception checks across locations.md, quests.md, and traps.md to assign difficulty ratings. Quest 49 bowl pieces are confirmed easy. All others TBD.
+**Perception mechanic:**
+
+All perception checks are fully invisible to the player. The roll fires silently on every qualifying visit. The player sees only outcomes — they find the thing, or they don't. No indication a check occurred, no failure message.
+
+- **Repeating checks** fire every visit until the thing is found (bog items, ship hold treasure map, back alley mugger, Dankhaus path). Once found, permanently visible.
+- **One-time checks** fire once per visit to a room (Tool Alcove, Prayer Alcove). Player must return for another attempt — pull-back mechanics handle motivation for critical-path rooms.
+- **Second Glance (Level 5 ability):** On any failed perception check, the roll automatically fires a second time. Invisible — the player never knows it happened. They simply find things more reliably after Level 5.
+- **Enchanted Glasses:** Small bonus to all perception rolls. **Actually Enchanted Glasses:** Pass all perception checks automatically — no roll required.
+- **Class bonuses:** Mages and Rogues receive an inherent bonus to perception rolls. Applied silently to every check.
+
+**Difficulty tiers:**
+
+| Tier | Target Number | Notes |
+|------|--------------|-------|
+| Easy | TBD | Quest 49 bowl pieces confirmed easy |
+| Medium | TBD | Default for most optional checks |
+| Hard | TBD | Critical path blockers, well-hidden items |
+| Very Hard | TBD | Volcano entrance — "harder than normal" |
+
+**TODO — Assign difficulty tiers:** Do a full pass of all perception checks in `memory/project-perception-checks.md` to assign difficulty ratings. Then set target numbers for each tier against the dice progression table in `experience.md`. Numbers must be set before implementation.
 
 **Damage types** (tracked for future use — no current mechanical effect):
 | Type | Source |
