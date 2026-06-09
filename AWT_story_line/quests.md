@@ -486,6 +486,25 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
+## Quest 52 — Make Litlock Laugh
+
+**Discovery:** Organic — first visit to the Dankhaus after ward removal (Lynds arm wrestling reward).
+**Prerequisites:** Dankhaus access (beat Lynds, receive invitation). No Quest Board posting.
+
+**Steps:**
+1. Enter the Dankhaus — Litlock greets the player and issues the challenge: *"Entertain me."*
+2. Navigate the 2×2×2 dialogue tree (full tree in `npcs.md` — Litlock entry).
+   - Tier 1: Tell a joke (A) or do something physical (B)
+   - Tier 2A: Wordplay/pun (FAIL) or absurdist observation (SUCCESS)
+   - Tier 2B: Something dignified (FAIL) or something committed and ridiculous (SUCCESS)
+   - Tier 3: Push further (SUCCESS) or explain it (FAIL)
+   - Failures loop back to Tier 1 — no penalty, retryable.
+3. On full success: Litlock bonks the player on the head. *"You'll see things a bit differently now. Don't ask me to explain it."*
+
+**Reward:** Chuckle House becomes visible (west of the Graveyard) — the only way to access it. 6 XP.
+
+---
+
 ## Quest Board Cascade
 
 **Confirmed postings:**

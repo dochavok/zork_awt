@@ -2,8 +2,8 @@
 
 -----
 
-**5. Swinging Blade Pendulum**
-A large curved blade suspended from the ceiling, triggered by a pressure plate mid-room. It sweeps the full width of the passage. A perception check spots the blade folded against the ceiling; disarming requires climbing a wall bracket (strength check) to pin the pivot mechanism with a nail or spike. **Lower Crypt (lower tier) inert variant:** The blade has already fired — it hangs motionless, dried blood on the edge, the Keeper's skeleton beneath it. Pressure plate still depressed under the skeleton's weight. No longer a threat; purely atmospheric.
+**5. Swinging Blade Pendulum (inert)**
+Atmospheric only. The blade has already fired — it hangs motionless from the ceiling of the Lower Crypt, dried blood on the edge, the Keeper's skeleton beneath it. Pressure plate still depressed under the skeleton's weight. No longer a threat; no perception check; no mechanical interaction.
 
 **8. Rope Snare — Ankle**
 A loop of fine cord hidden under loose dirt on a cave floor. Triggering it yanks the player off their feet (no damage) and suspends them upside down from a ceiling hook for several turns unless they cut the rope or pass a strength check to pull free. *(Quest 7 — The Bone Flute: Trap 8 guards the crawlspace off the Inscription Chamber in the mid-tier dungeon. Triggering it or spotting it with a perception check reveals the crawlspace entrance to the Cave Creature's Lair.)*

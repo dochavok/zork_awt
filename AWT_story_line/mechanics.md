@@ -50,7 +50,7 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap.
 
 **Zenni sources:**
 - Will Passion opening gift: 10 Zenni
-- Hidden room Zenni: 18 rooms × 1–3 Zenni (avg ~36 Zenni total if all found); randomized per new game; Actually Enchanted Glasses find most of them
+- Hidden room Zenni: 18 rooms randomized per new game; 9 Easy / 5 Medium / 1 Hard pay 1–3 Zenni each; 3 Very Hard pay 5 Zenni each; Actually Enchanted Glasses pass all checks and find all rooms automatically
 - Desert Island buried chest: 30 Zenni
 - Additional chests: 2–3 elsewhere (TBD)
 - Vendor buyback: half price, own items only; no buyback for treasure
@@ -90,14 +90,16 @@ All perception checks are fully invisible to the player. The roll fires silently
 
 **Difficulty tiers:**
 
-| Tier | Target Number | Notes |
-|------|--------------|-------|
-| Easy | TBD | Quest 49 bowl pieces confirmed easy |
-| Medium | TBD | Default for most optional checks |
-| Hard | TBD | Critical path blockers, well-hidden items |
-| Very Hard | TBD | Volcano entrance — "harder than normal" |
+Target numbers are absolute — a higher-level player beats the same check more reliably as their dice pool grows.
 
-**TODO — Assign difficulty tiers:** Do a full pass of all perception checks in `memory/project-perception-checks.md` to assign difficulty ratings. Then set target numbers for each tier against the dice progression table in `experience.md`. Numbers must be set before implementation.
+| Tier | Target | Usage |
+|------|--------|-------|
+| Easy | 5 | Critical path items, early overworld, quest breadcrumbs |
+| Medium | 9 | Optional items, repeating checks, moderate consequence traps |
+| Hard | 14 | Well-hidden traps, significant consequences, critical path with pull-back |
+| Very Hard | 18 | Most subtle tells, severe consequences (ink trap), intentionally punishing |
+
+All perception checks rated — see `memory/project-perception-checks.md` for full inventory.
 
 **Damage types** (tracked for future use — no current mechanical effect):
 | Type | Source |
@@ -121,6 +123,24 @@ All perception checks are fully invisible to the player. The roll fires silently
 ### Combat
 
 Dice-based, scales with player level. Warriors start proficient with melee; Rogues with bows; Mages with spells. Cross-class skills acquirable via trainers and quests.
+
+**Round structure:** Turn-based. Player issues an attack command each round (`KILL X WITH SWORD`, `SHOOT X WITH BOW`, `CAST FIREBALL AT X`). Player and enemy roll simultaneously. Higher roll wins the right to deal damage — 1 heart per hit. On a tie, both deal 1 heart damage simultaneously.
+
+**Fleeing:** Player may flee by leaving the room. Enemy resets to full hearts.
+
+**Bow — first round bonus:** +5 to the attack roll on the opening bow attack of any combat. No bonus on subsequent rounds.
+
+**Fireball:** Guaranteed 1 heart damage — no roll required. 10-turn reuse timer. Effectively once per combat encounter.
+
+**Confirmed enemy stats:**
+
+| Enemy | Location | Attack Level | Dice | Hearts | Notes |
+|-------|----------|-------------|------|--------|-------|
+| Back Alley Mugger | The Back Alley | 1 | 1d6 | 2 | Early game; winnable at Level 1 but not trivial |
+| Aylora | The Fire Pit, Viking Encampment | 2 | 2d6 | 3 | Strength challenge, best of five rounds; retryable |
+| Afflicted Apprentice | Lost Apprentice's Cell, mid-tier trap side | 3 | 2d8 | 3 | Missable; player may arrive at low level via Flooding Room |
+| The Warden | Combat Room, Dungeon Upper Tier | 4 | 2d10 | 5 | One-time fight; monstrous, former dungeon guardian |
+| Undead Werewolf | The Still Den, Dungeon Lower Tier | 5 | 3d10 | — | Cannot be harmed by conventional weapons; stake kill only — see Undead Werewolf Chain |
 
 ---
 
@@ -155,9 +175,13 @@ Armor is found through exploration and never degrades.
 | Neck | Heart Necklace (Lynds arm wrestling) |
 | Ring | The One Ring |
 
-**TODO — Combat system:** Include damage avoidance roll mechanic for Ivanaar's Tunic — second roll during combat phase that can negate damage that would otherwise be taken.
+**Ivanaar's Tunic — damage avoidance:**
+When the enemy wins a combat round and would deal 1 heart damage, the tunic fires a silent 1d10 roll. Result of 7–10 (40%) negates the damage entirely. Fixed — does not scale with player level. The roll is completely hidden; no message indicates it occurred. On a successful avoidance, one of four flavor messages fires at random instead of taking damage:
 
-**TODO — Combat XP:** Each combat encounter needs a specific XP value assigned during the combat design pass. Guidelines: standard enemies 2–4 XP, named/boss enemies 10–15 XP. See experience.md for full context.
+1. *The threads along the hem pulse faintly. Whatever just happened, the tunic had something to do with it.*
+2. *For a moment the fabric stiffens — then relaxes, as if it exhaled. The blow that should have landed didn't.*
+3. *The runes along the collar catch the light briefly. You are less hurt than you expected to be.*
+4. *Something in the weave absorbed it. You felt the impact — and then didn't.*
 
 ---
 
@@ -165,11 +189,46 @@ Armor is found through exploration and never degrades.
 
 - Grants invisibility while worn.
 - Corruption timer advances each turn worn. Pauses on removal; resumes on re-equip. Never resets.
-- Milestone messages warn as corruption progresses.
-- **Late-stage removal:** At final corruption ticks, player must pass a challenge roll to remove. Near-miss and clean success narrated differently.
-- **Full corruption = game over (failure ending).**
+- **Total ticks to full corruption: 50.**
 - Altar use at Church of All does NOT tick corruption — the ring is being used for its purpose, not personal gain.
 - 2–3 quests require or significantly benefit from invisibility (confirmed: Chuckle House; TBD: 1–2 more).
+
+**Corruption milestones:**
+
+| Tick | Event |
+|------|-------|
+| 10 | First warning |
+| 25 | Midpoint warning |
+| 40 | Urgent warning |
+| 41–49 | Challenge roll window — removal requires passing a roll; difficulty escalates each tick |
+| 50 | Full corruption — game over (failure ending), no roll offered |
+
+**Milestone messages:**
+
+- **Tick 10:** *The ring is warm. You hadn't noticed until just now. You're not sure when it started.*
+- **Tick 25:** *The ring is heavier than it was. Not in weight — in presence. It knows you're wearing it. You find yourself aware of it in a way you weren't before.*
+- **Tick 40:** *The ring is harder to ignore than it was. You are aware of it the way you're aware of a sound that hasn't stopped. You should take it off. You know you should take it off.*
+
+**Late-stage removal (ticks 41–49):** Every attempt to remove the ring requires passing a challenge roll. Uses the player's current level dice only — no bonus applied. Higher-level players roll better dice and succeed more reliably. Difficulty increases by 2 each tick:
+
+| Tick | Target |
+|------|--------|
+| 41 | 5 |
+| 42 | 7 |
+| 43 | 9 |
+| 44 | 11 |
+| 45 | 13 |
+| 46 | 15 |
+| 47 | 17 |
+| 48 | 19 |
+| 49 | 21 |
+
+**Removal outcome messages:**
+- **Clean success:** *You remove the ring. Whatever it wants, it didn't get it this time.*
+- **Near-miss success:** *The ring comes off. It didn't want to. You're not sure you could have held out another moment.*
+- **Failure:** *You try to take the ring off. Your fingers find it. They don't do what you ask.*
+
+**Game over message (tick 50):** *You reach for the ring. Your hand doesn't move. You watch it not move. The ring is warm and patient and it has been waiting for exactly this. You are not going to take it off.*
 
 **Corruption is sacred:** Ring corruption must never be reduced, slowed, or mitigated by any mechanic, item, or quest reward. This is a hard design constraint.
 
@@ -204,6 +263,7 @@ Spells learned permanently once acquired.
 | Light | Creates light source | 10 turns | 20 turns | Quest 12 — music box key in Bog-NW |
 | Unbind Undead | Releases a bound spirit | Instant | 20 turns | Lighthouse — scroll on Silas Bryne's desk |
 | REST | Recovers 1 heart | Instant | 50 turns | Granted at Level 6 — no scroll required, no XP awarded |
+| Fireball | Guaranteed 1 heart damage — no roll required | Instant | 10 turns | Quest 7 reward — Pyronicus |
 
 **REST notes:** Outside combat only — hostile in room returns *"You can't rest now, there's fighting to be done!"* Before reuse timer expires returns *"What are you sitting around for, there's a dungeon to explore!"* Works while inked. Stacks with inn healing and food.
 
@@ -275,6 +335,8 @@ May sells hints for Zenni at The Bar, Tale and Ale. Hints are tiered — each ti
 
 Some hints are conditional: May's tier 1 hint for Quests 19&30 fires only if player has not yet examined the statue. Post-visit Chuckle House hints unlock once player has entered the Chuckle House.
 
+**Raznak nudge (free, no Zenni):** If the player has visited the Archery Range at least once but has never spoken to Raznak (not yet reached any dialogue state), May offers unprompted: *"You should talk to Raznak."* Fires once only. No tier, no cost.
+
 ---
 
 ## Shovel & Dig Mechanic
@@ -293,6 +355,37 @@ The Werewolf's Amulet (Veil of the Arcane ring ritual artifact) is dropped by th
 Implemented as a post-dig random check on any successful DIG command.
 
 Beach `DIG`: succeeds up to 5 times with flavor text (nothing but wet sand); 6th attempt: "The beach is littered with holes. There's nowhere else to dig." Each `DIG` counts as a turn.
+
+---
+
+## Zenni Rooms
+
+18 rooms across the world contain hidden Zenni, discoverable via silent perception check. Rooms are selected randomly at game initialization and fixed for that playthrough. Actually Enchanted Glasses pass all perception checks — all 18 rooms found automatically.
+
+**Difficulty distribution (assigned at game init):**
+| Tier | Count | Target | Zenni |
+|------|-------|--------|-------|
+| Easy | 9 | 5 | 1–3 |
+| Medium | 5 | 9 | 1–3 |
+| Hard | 1 | 14 | 1–3 |
+| Very Hard | 3 | 18 | 5 |
+
+**Eligible room pool:**
+
+*Overworld & Town:*
+White House, Will's Wizard Tower (Main Room), Will's Bedroom, Main West, Town Square, Main East, The Alley, Back Alley, Town Hall Exterior, Council Chamber, Records Room, Upper Hall, The Tower, Tale & Ale Main Room, Bar, Ty's Casino Corner, Pipe Room, Kitchen, Stable, Upstairs Hall, Guest Rooms 1/2/3, Cellar/Storeroom, Library Main Hall, The Stacks, Church Nave, The Altar, Keeper's Chamber, Graveyard, The Mausoleum, The Crypt, Roundabout Wasteland, The Volcano, Pyronicus's Forge, Archery Range, Viking Encampment, Haalvar's Hut, Ritual Circle, Fire Pit, Roundabout Pond, Dankhaus rooms, Beach Road, The Old Oak, Beekeeper's Cottage, Swarm Tree, Roundabout Forest, Roundabout Beach, The Lighthouse, The Docks, Pie Rat Ship Deck
+
+*Dungeon — Upper Tier:*
+Ink Corridor, Supply Room, Narrow Passageway, Idol Room, Storage Area, Collapsed Gallery, Creature Den, Combat Room, Prayer Alcove, Portcullis Corridor, Shrine Room, Mid-Tier Key Door
+
+*Dungeon — Mid Tier:*
+Key Door Landing, Stored Room, Inscription Chamber, Cave Creature's Lair, Echo Alcove, Magnetic Vault, Deep Lock Door, Trap Side Entry and Trap Side rooms (5)
+
+*Dungeon — Lower Tier:*
+Lower Crypt, The Encampment, Thermal Vent Room, The Junction, The Narrow Pass, The Still Den, Tool Alcove, Quest 34 Mid Room, Quest 34 Fountain Room, Spirit Room, Burial Chamber
+
+**Excluded rooms (not eligible):**
+All four Bog rooms, all Sea / Open Ocean squares, Desert Island, Kevry's Island, Pie Rat Ship Hold, Flooding Room, Dream Corridor, Dark Room, Hole to Below / Pile of Rubble, Rickety Bridge, all Chuckle House rooms (Entrance, Rejection Mirror, Shatter Trap Mirror, Ghost's Room), Mine Passage, The Crevice (has dedicated treasure — gold pocket watch), Skeleton Room (instant death on entry)
 
 ---
 
@@ -431,6 +524,16 @@ Chain:
 3. Holy water — Keeper's Chamber, Church of All (key required)
 4. `POUR HOLY WATER ON STAKE` → consecrated silver stake
 5. `DRIVE STAKE INTO WEREWOLF` → werewolf destroyed; reverts to scholar appearance on death
+
+**Combat mechanic:** The werewolf cannot be harmed by conventional weapons, spells, or bow. Each round the player and werewolf roll simultaneously — the player takes damage on a loss, but the werewolf takes no damage regardless of result. The only kill condition is `DRIVE STAKE INTO WEREWOLF` with the consecrated silver stake — instant kill, no roll required.
+
+**Attack value:** Level 5 (3d10, EV 16.5). Late-game threat — a player without the stake burns hearts fast.
+
+**Weapon failure messages:**
+- **Melee:** *Your blade finds its mark. The creature doesn't notice. It turns toward you with the patience of something that has been waiting a very long time.*
+- **Bow:** *The arrow strikes true and stays there. The werewolf looks at it briefly, then at you. It does not appear concerned.*
+- **Fireball:** *The fire takes hold for a moment — then dies. Whatever this creature is made of, it isn't interested in burning.*
+- **Unconsecrated stake:** *The stake pierces flesh. The werewolf snarls — pain, but not the right kind. It pulls free and the wound closes. You need something more than silver.*
 
 ---
 

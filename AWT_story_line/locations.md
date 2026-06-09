@@ -224,7 +224,9 @@ Connects south to The Charnel Walk (Secret Tunnels).
 
 ## The Chuckle House
 
-Location in Roundabout TBD. Four rooms, linear. Ring (invisibility) required throughout — all mirrors repel visible players. Quest 17 anchor.
+**Location:** West of the Graveyard. Dead-end spur — not visible or accessible until Litlock's quest is complete (bonk on the head mechanic). No perception check can find it; the building is genuinely invisible until the bonk. Once visible, it remains visible for the rest of the playthrough.
+
+Four rooms, linear. Ring (invisibility) required throughout — all mirrors repel visible players. Quest 17 anchor.
 
 ### The Entrance
 **XP: 1**

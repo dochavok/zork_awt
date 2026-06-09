@@ -1,30 +1,117 @@
-Based on everything in the design docs, here’s a proposed XP system:
+# Enchanted Realms: One Ring — Experience & Leveling
 
-XP System Proposal
+Authoritative reference for XP sources, leveling curve, dice progression, and level rewards.
+Update this file immediately when any XP value or level detail is designed or changed.
 
-Sources of XP
+---
 
-Exploration (passive, automatic)  
-Each room has a defined XP value awarded the first time it is discovered. Most rooms award 1 XP. Significant destinations award more. Ocean traversal squares award 0 XP. Perception-gated rooms (hidden behind a perception check to discover) generally award double their base value; critical path rooms are set individually. All room XP values are defined in locations.md.
+## Sources of XP
 
-Combat  
-XP scales with enemy difficulty. These are guidelines — each combat encounter has a specific XP value defined during the combat design pass. Standard enemies: 2–4 XP. Named or boss-tier enemies: 10–15 XP. The design should ensure that avoiding combat is a meaningful trade-off — you skip the risk but also skip the reward.
+### Exploration (passive, automatic)
+Each room has a defined XP value awarded the first time it is discovered. Most rooms award 1 XP. Significant destinations award more. Ocean traversal squares award 0 XP. Perception-gated rooms (hidden behind a perception check to discover) generally award double their base value; critical path rooms are set individually. All room XP values are defined in `locations.md`.
 
-Quest Completion  
-Main quest milestones (critical path events): 20–30 XP each. Side quests scale with complexity — simple fetch quests award ~4 XP; multi-step quests award ~8–10 XP; long chains with prerequisites award 15–20 XP.
+**Exploration total (all confirmed rooms): 133 XP**
 
-Trap Disarmament  
-Successfully disarming a trap rather than triggering it awards 3–5 XP. These are guidelines — each trap has a specific XP value defined during the trap design pass. More complex disarms (multi-step, strength check required) award toward the higher end.
+---
 
-Skill Acquisition  
-Completing the quest or trainer interaction that grants a new combat skill (weapon use, archery, first spell learned) awards a one-time bonus of 5 XP. For spells, only the first spell learned awards XP — subsequent spells do not. This keeps XP gain balanced across classes: every class gets exactly one skill-acquisition bonus, from different sources.
+### Quest Completion
+Each quest has a specific XP value. All quests bumped by a flat +2 XP from base guideline values.
 
-Dice Progression
+| Quest | Name | XP |
+|-------|------|----|
+| Quest 4 | The Whispering Jar | 10 |
+| Quest 7 | The Bone Flute | 6 |
+| Quest 12 | The Locked Music Box | 10 |
+| Quests 19 & 30 | The Hollow Statue / The Undead Warden | 22 |
+| Quest 17 | The Frozen Watch | 17 |
+| Quest 22 | The Ruined Aqueduct | 10 |
+| Quest 24 | The Beekeeper's Swarm | 10 |
+| Quest 25 | The Flooded Cellar | 10 |
+| Quest 27 | The Toll Bridge Operator | 6 |
+| Quest 28 | The Archivist's Request | 6 |
+| Quest 32 | The Missing Gravestone | 12 |
+| Quest 34 | The Frozen Soldier | 17 |
+| Quest 38 | The Collapsed Passage | 8 |
+| Quest 40 | Shamus's Recipe | 6 |
+| Quest 41 | The Child's Kite | 4 |
+| Quest 42 | The Brotherhood Stones | 12 |
+| Quest 49 | The Ruined Shrine | 17 |
+| Quest 50 | The Lost Apprentice | 12 |
+| Quest 51 | The Back Alley Mugger | 6 |
+| Quest 52 | Make Litlock Laugh | 6 |
 
-Players start with 1d6. Each level upgrades the dice pool — either better dice (larger die size) or additional dice. A flat bonus to all rolls is added every level. Players never see the numbers; they only see outcomes.
+**Quest total (confirmed): 209 XP**
+
+---
+
+### Trap Disarmament
+Successfully disarming a trap awards XP. Triggering a trap awards nothing. Intentional triggers (e.g. `JUMP ON PLATE`) award nothing.
+
+| Trap | Description | XP |
+|------|-------------|----|
+| Trap 5 | Swinging Blade Pendulum (inert — atmospheric only) | 0 |
+| Trap 8 | Rope Snare — Ankle | 3 |
+| Trap 15 | Magnetic Chest | 4 |
+| Trap 16 | Mirror Shatter Trap | 3 |
+| Trap 17 | Smoke Bomb Cache | 3 |
+| Trap 19 | Electrified Portcullis | 5 |
+| Trap 29 | Pressure Plate — Bell | 3 |
+| Trap 33 | Weight-Sensitive Pedestal (safe swap) | 5 |
+| Trap 36 | Bone Crunch Floor | 3 |
+| Trap 41 | Pressure Plate — Flooding | 5 |
+| Trap 45 | Invisible Thread — Ink | 5 |
+
+**Trap total (confirmed): 39 XP**
+
+---
+
+### Combat
+XP scales with enemy difficulty. Named/boss enemies award toward the higher end.
+
+| Enemy | Location | XP |
+|-------|----------|----|
+| Back Alley Mugger | The Back Alley | 5 |
+| Aylora (drinking challenge) | The Fire Pit, Viking Encampment | 2 |
+| Afflicted Apprentice | Lost Apprentice's Cell, mid-tier trap side | 8 |
+| The Warden | Combat Room, Dungeon Upper Tier | 12 |
+| Undead Werewolf | The Still Den, Dungeon Lower Tier | 15 |
+
+**Combat total (confirmed): 42 XP**
+
+*Note: Additional combat encounters will be assigned XP during the combat design pass. Guidelines: standard enemies 2–4 XP, named/boss enemies 10–15 XP.*
+
+---
+
+### Skill Acquisition
+Completing the quest or trainer interaction that grants a new combat skill awards 5 XP. Each player starts with one skill and can learn the other two — maximum 2 skill acquisitions per playthrough.
+
+**Skill acquisition total: 10 XP**
+
+---
+
+## XP Summary
+
+| Source | XP |
+|--------|----|
+| Exploration | 133 |
+| Quests | 209 |
+| Traps (disarm) | 39 |
+| Combat | 42 |
+| Skill acquisition | 10 |
+| **Confirmed total** | **433 XP** |
+
+Level 8 threshold: 420 XP. A completionist player who completes all confirmed content reaches Level 8. TBD content (Redcrosse Knight, dragon-nip, graveyard, additional combat encounters) provides additional buffer.
+
+---
+
+## Dice Progression
+
+Players start with 1d6. Each level upgrades the dice pool — either better dice (larger die size) or additional dice. Players never see the numbers; they only see outcomes.
+
+**Corruption removal roll exception:** Uses level dice only — no bonus applied. See `mechanics.md` (The One Ring — Late-stage removal).
 
 | Level | Dice | Bonus | Min | Expected Value | Max |
-|-------|------|-------|-----|---------------|-----|
+|-------|------|-------|-----|----------------|-----|
 | 1 | 1d6  | +0 | 1  | 3.5  | 6  |
 | 2 | 2d6  | +1 | 3  | 8.0  | 13 |
 | 3 | 2d8  | +2 | 4  | 11.0 | 18 |
@@ -34,9 +121,11 @@ Players start with 1d6. Each level upgrades the dice pool — either better dice
 | 7 | 2d20 | +6 | 8  | 27.0 | 46 |
 | 8 | 3d20 | +7 | 10 | 38.5 | 67 |
 
-Leveling Curve
+---
 
-Front-loaded — early levels come quickly so the player feels progression before the dungeon. Slows through mid and late game. No artificial cap; the world's total available XP (~460) is the ceiling.
+## Leveling Curve
+
+Front-loaded — early levels come quickly so the player feels progression before the dungeon. Slows through mid and late game.
 
 | Level | Cumulative XP | Additional Hearts | Skill / Ability |
 |-------|--------------|-------------------|-----------------|
@@ -44,22 +133,23 @@ Front-loaded — early levels come quickly so the player feels progression befor
 | 2 | 20  | — | — |
 | 3 | 45  | +1 | — |
 | 4 | 85  | — | Lucky (reroll 1s on all roll types) |
-| 5 | 145 | +1 | Second Glance (reroll failed perception checks once) |
+| 5 | 145 | +1 | Second Glance (reroll failed perception checks once, invisible to player) |
 | 6 | 225 | — | REST (recover 1 heart; 50-turn reuse; outside combat only) |
-| 7 | 320 | +1 | Nobu's Favor (secret — see mechanics.md) |
-| 8 | 420 | — | Finishing Move (all 3d20 roll 15+: instant kill; ~2.7% per combat roll) |
+| 7 | 320 | +1 | Nobu's Favor (secret — see `mechanics.md`) |
+| 8 | 420 | — | Finishing Move (all 3d20 roll 15+: instant kill; ~2.7% per combat roll; secret — see `mechanics.md`) |
 
-Level 2 should be reachable through normal early exploration and one or two quests — the player should level up before they ever enter the dungeon, so they arrive feeling ready rather than fragile.
+Level 2 should be reachable through normal early exploration and one or two quests — the player should level up before they ever enter the dungeon, arriving feeling ready rather than fragile.
 
-Note: Corruption resistance (bonus die on ring removal challenge roll) is explicitly excluded from all level rewards. Ring corruption is never mitigated by any mechanic, item, or level reward. Hard constraint.
+Hearts are granted at Levels 3, 5, and 7. The Heart Necklace (Lynds arm wrestling reward) is a separate source. Total maximum hearts: class base + 3 (leveling) + 1 (Heart Necklace).
 
-Hearts are granted at Levels 3, 5, and 7 — one per level. The Heart Necklace (quest reward) remains a separate source. Total maximum hearts: class base + 3 (leveling) + 1 (Heart Necklace) + any other quest rewards.
+**Hard constraint:** Corruption resistance (bonus die on ring removal challenge roll) is explicitly excluded from all level rewards. Ring corruption is never mitigated by any mechanic, item, or level reward.
 
-Class XP Adjustments
+---
 
-Each class gets a flat XP bonus in their natural domain. This makes class identity feel present in progression without locking any content.
+## Class XP Adjustments
 
-	•	Warriors — +1 XP per combat kill
-	•	Mages — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean traversal)
-	•	Rogues — +1 XP per trap disarmed
+Each class gets a flat XP bonus in their natural domain. Class identity feels present in progression without locking any content.
 
+- **Warriors** — +1 XP per combat kill
+- **Mages** — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean)
+- **Rogues** — +1 XP per trap disarmed

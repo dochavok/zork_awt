@@ -56,7 +56,99 @@ Will asks: *"Are you up for an adventure?"*
 **Location:** The Dankhaus, hidden in Bog-SE behind dense brush.
 **Personality:** Jovial. Raises Aurix the Kobold child.
 
-Each time the player passes through Bog-SE, a perception check occurs. On success the path to the Dankhaus is revealed — permanently visible for the rest of the playthrough. Access gated by magical wards (design pass needed).
+Each time the player passes through Bog-SE, a perception check occurs. On success the path to the Dankhaus is revealed — permanently visible for the rest of the playthrough. Access gated by magical wards — unlocked by Lynds after arm wrestling quest.
+
+**Quest — Make Litlock Laugh (quest slot TBD)**
+
+A 2×2×2 dialogue-tree puzzle. One path per tier succeeds; the other fails and loops back to Tier 1. The player must find the correct path through all three tiers to make Litlock laugh fully.
+
+**Reward:** Litlock bonks the player firmly on the head with two knuckles — a magical side effect that makes the Chuckle House (west of the Graveyard) visible. The building cannot be found by any other means — no perception check, no hint. The bonk is the only way. Litlock offers no explanation.
+
+---
+
+**Inciting moment (first visit after ward removal):**
+
+*Litlock looks up from whatever he's doing with the particular alertness of someone who has been waiting for company without admitting it to himself. He takes you in. Then he grins — wide, genuine, the kind that arrives before the person decides to smile.*
+
+*"Right," he says. "Entertain me."*
+
+---
+
+**Tier 1 — Opening move**
+
+**A — Tell a joke**
+*You clear your throat. "I have a joke."*
+*Litlock leans back. "Everyone has a joke. Let's see if yours is different."*
+→ proceeds to Tier 2A
+
+**B — Do something physical**
+*You don't say anything. You just do something.*
+*Litlock watches with the focused attention of a man who has seen a great deal and is genuinely curious whether this will be new.*
+→ proceeds to Tier 2B
+
+---
+
+**Tier 2A — The joke path**
+
+**A1 — Wordplay / pun** *(FAIL)*
+*You deliver the pun. It lands with the particular thud of something that was never going to work.*
+*Litlock stares at you for a moment. "That," he says carefully, "was a pun. I respect that you tried. I do not respect the pun." He waves a hand. "Again."*
+→ loops to Tier 1
+
+**A2 — Absurdist observation** *(SUCCESS → Tier 3)*
+*"You know," you say, "I've been thinking about the bog. Specifically about the smell. And I think the smell isn't the bog at all — I think the bog smells fine and it's everything else that's wrong."*
+*Litlock blinks. Then something shifts in his expression — not quite a laugh yet, but its immediate predecessor.*
+*"Go on," he says.*
+→ proceeds to Tier 3
+
+---
+
+**Tier 2B — The physical path**
+
+**B1 — Something dignified** *(FAIL)*
+*You execute a formal bow. Precise. Respectful. Technically flawless.*
+*Litlock watches the whole thing. "That was very well done," he says. "I am completely unmoved. Try something else."*
+→ loops to Tier 1
+
+**B2 — Something completely committed and ridiculous** *(SUCCESS → Tier 3)*
+*You sit down on the floor. Not because there's nowhere to sit — there are chairs. You just sit on the floor, look up at Litlock, and wait.*
+*Litlock looks at you. Looks at the chairs. Looks back at you.*
+*Something in his face is working very hard not to become a laugh.*
+*"Why," he says carefully, "are you on the floor?"*
+→ proceeds to Tier 3
+
+---
+
+**Tier 3 — The finish**
+
+*(Reached from either A2 or B2)*
+
+**C1 — Push further** *(SUCCESS → bonk)*
+
+*From A2 path:*
+*"In fact," you continue, with complete conviction, "I think the bog has been unfairly maligned for years, and someone should apologize to it."*
+
+*From B2 path:*
+*You look up at him from the floor. "I find it clarifying," you say. "You should try it."*
+
+*Either way:*
+*That does it.*
+*Litlock laughs — fully, completely, the kind of laugh that takes over a person entirely. He laughs until he has to put something down. He laughs until Aurix appears in the doorway to see what's happening and then disappears again.*
+*When he finally stops, he wipes his eyes, looks at you with something that might be respect, and reaches over and bonks you firmly on the top of the head with two knuckles.*
+*"There," he says. "You'll see things a bit differently now. Don't ask me to explain it."*
+*He picks up whatever he put down and goes back to it, still smiling.*
+
+**C2 — Explain it** *(FAIL)*
+
+*From A2 path:*
+*"What I mean is," you begin, "the fundamental olfactory baseline of—"*
+*Litlock holds up a hand. "Stop. You were almost there. You explained it. You can never explain it." He shakes his head with genuine sadness. "Again."*
+
+*From B2 path:*
+*"It's a metaphor," you say. "For groundedness. For—"*
+*Litlock closes his eyes briefly. "You were right there," he says. "Right there. And then you talked." He opens his eyes. "Again."*
+
+→ loops to Tier 1
 
 ---
 
@@ -112,15 +204,67 @@ Beating him earns the **Heart Necklace** and a Dankhaus invitation from Litlock.
 
 ### Raznak
 **Location:** Archery Range (west edge of town).
-**Personality:** Viking. Three states.
+**Personality:** Viking. Economical with words. Respects competence and earned trust above all.
 
-**Requires Viking trust trials completed first.**
+Viking trust trials must be completed before Raznak will engage with any class — including Rogues. Trust is the gate, not skill.
 
-- **Trust not earned:** Raznak eyes the player with suspicion, says nothing.
-- **Trust earned, training not started:** Raznak notices the player and beckons; room description prompts `TALK TO RAZNAK`. Rogues are not beckoned — they already know bow use.
-- **Training complete:** Raznak acknowledges the player warmly. Details TBD.
+**State 1 — Trust not earned (all classes):**
 
-Uses player's name once familiarity established.
+`TALK TO RAZNAK` or any approach:
+
+*Raznak eyes you the way he'd eye an arrow with a bad fletching — not hostile, just certain you're not ready.*
+
+*"You want something from me, go talk to the encampment first. West of here. When they know you, come back."*
+
+He turns away. The conversation is over.
+
+---
+
+**State 2A — Trust earned, Rogue:**
+
+Raznak watches the player cross the range. He doesn't say anything for a moment. His eyes go to the player's hands. Then their stance. Then back to their hands.
+
+*"You've done this before."*
+
+It isn't a question. He disappears into the longhouse and returns with a bow — plain, well-maintained, strung and ready.
+
+*"Don't embarrass it,"* he says, and hands it over.
+
+That's the entire interaction. He goes back to what he was doing. → Bow added to inventory. Proceeds to State 3.
+
+---
+
+**State 2B — Trust earned, Warrior or Mage:**
+
+*Raznak looks at you differently now — not warm exactly, but the suspicion is gone. "You want to learn the bow," he says. It isn't a question either. "Three Zenni. We start now if you have it."*
+
+`GIVE RAZNAK THREE ZENNI` / `PAY RAZNAK` → archery skill learned. Proceeds to bow handoff and State 3.
+
+If player doesn't have 3 Zenni: *"Come back when you do."*
+
+---
+
+**State 3 — Training complete, bow handoff (Warrior or Mage):**
+
+Raznak watches the player complete the final drill. He is quiet for a moment in the way of someone making a decision they've already made.
+
+*"You're not a natural,"* he says. *"You worked for it. That's better."*
+
+He takes a bow from the rack — slightly better than the practice ones, strung tight, balanced.
+
+*"This one's yours. It'll tell you when you're doing it wrong."*
+
+He pauses.
+
+*"Most bows don't. This one does. Pay attention to it."*
+
+→ Bow added to inventory.
+
+---
+
+**State 3 — Subsequent visits (all classes):**
+
+Raznak acknowledges the player warmly — a nod, a word, nothing elaborate. Uses player's name once familiarity established.
 
 ---
 

@@ -7,6 +7,21 @@ Update this file immediately when any item detail is designed or changed.
 
 ## Equipment
 
+### The Bow
+**Slot:** None (carried)
+**Weight:** 1
+**Location:** Awarded by Raznak at the Archery Range after Viking trust trials complete.
+- **Rogues:** Raznak hands it over immediately on first interaction after trust earned — no training required, no Zenni cost.
+- **Warriors / Mages:** Awarded after paying 3 Zenni for archery training.
+
+Required to make ranged (bow) attacks in combat. Must be carried in inventory.
+
+**First round bonus:** The opening bow attack in any combat gains +5 to the roll — advantage of distance and surprise. Subsequent rounds in the same combat have no bonus.
+
+**Inventory description:** "A bow, plain and well-maintained, strung tight and balanced. It has the feeling of something that expects to be used correctly."
+
+---
+
 ### The One Ring *(Core Quest Item)*
 **Slot:** Ring
 **Location:** Pyronicus's Forge (retrieved from Pyronicus on first visit)
@@ -387,7 +402,14 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 **Location:** Reward from Quest 42 (The Brotherhood Stones) — Ivanaar restores the runes and gives the tunic on delivery of all three stones.
 **Quest use:** None — combat bonus.
 
-Brotherhood weave, old but not worn. The runes along the hem and collar are faint until the stones are delivered — restored by Ivanaar on completion. Grants a damage avoidance roll during combat (second roll during combat phase that can negate damage). **Note: include in combat system design.**
+Brotherhood weave, old but not worn. The runes along the hem and collar are faint until the stones are delivered — restored by Ivanaar on completion.
+
+**Damage avoidance:** When the enemy wins a combat round, the tunic rolls 1d10 silently. Result of 7–10 (40%) negates the damage. Fixed — does not scale with player level. On a successful avoidance, one of four flavor messages fires at random:
+
+1. *The threads along the hem pulse faintly. Whatever just happened, the tunic had something to do with it.*
+2. *For a moment the fabric stiffens — then relaxes, as if it exhaled. The blow that should have landed didn't.*
+3. *The runes along the collar catch the light briefly. You are less hurt than you expected to be.*
+4. *Something in the weave absorbed it. You felt the impact — and then didn't.*
 
 ---
 
