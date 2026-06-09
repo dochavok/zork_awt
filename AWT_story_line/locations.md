@@ -454,9 +454,66 @@ Moored at the Docks. Crewed by Pie Rats until the explosion draws them away. The
 **XP: 1 per Roundabout Sea room (3 total); 0 XP for all 69 Open Ocean traversal squares; Desert Island: 1 XP**
 Three Roundabout Sea rooms + 69 Open Ocean squares to Kevry's island. Requires boat. Desert Island is a spur off the Eastern Roundabout Sea.
 
+### Western Roundabout Sea
+**XP: 1**
+*The smell of the town still reaches you here — smoke and bread underneath the salt. The beach stretches behind you, the lighthouse standing watch to the north. The water is choppier than it looked from shore. Ahead, the coast begins to fall away.*
+
+### Roundabout Sea (Middle)
+**XP: 1**
+*The coast is gone. There is nothing in any direction but open water and sky. The sea moves in long slow swells that lift and drop the hull with a steady indifference. You are very small out here.*
+
+### Eastern Roundabout Sea
+**XP: 1**
+*Is that — yes. An island. Small, tree-lined, a beach curving around the side facing you. The water around it is shallow and clear. Nothing out here suggested this was coming. It sits quietly off the bow, waiting to be noticed. East of it, the sea continues without comment.*
+
+`DOCK`, `LAND`, `MOOR`, or `MAKE LAND` puts the player ashore on the Desert Island. Continuing east enters the Open Ocean.
+
+### Open Ocean
+**XP: 0 per room (69 rooms)**
+Each room draws a random description from the pool below. The rare option triggers at 1-in-100 chance per room entered.
+
+**Standard pool:**
+1. *Open ocean in every direction. Nothing else.*
+2. *The ocean does not vary its presentation.*
+3. *No land. No landmarks. Just the creak of the hull and the indifferent sea.*
+4. *The ocean offers nothing in any direction. It does not apologize for this.*
+5. *Sea. Sky. Nothing else to report.*
+
+**Rare option:** *You could swear you heard laughter just now. Distant, directionless. The ocean is empty in every direction. You've been out here a while.*
+
+### Desert Island
+**XP: 1**
+Spur off the Eastern Roundabout Sea — not on the main east axis. Visible from the Eastern Roundabout Sea. Reached via `DOCK`, `LAND`, `MOOR`, or `MAKE LAND`. `BOARD SHIP` returns the player to the Eastern Roundabout Sea. Appears to be the obvious payoff for sailing east — masks Kevry's location 69 squares further into the Open Ocean.
+
+**Island Shore (the only room):** *The sand on the beach is undisturbed. That fact, for some reason, does not comfort you. Nothing here is threatening and nothing here is welcoming. The island feels like a place that has been waiting — not for you specifically, but for someone. The quiet here is a different kind of quiet than the open ocean — heavier, more deliberate. You have the distinct feeling that something happened here once. The island isn't telling.*
+
+A buried chest is here — not visible without digging. With the treasure map: `DIG` succeeds immediately. Without the map: 10% chance per `DIG` attempt. Contents: 30 Zenni + TBD quest item.
+
 ### Kevry's Island
-**XP: 5 per room (2 rooms = 10 total)**
-Small location. Easter egg. No hints from May.
+**XP: 5 per room (4 rooms = 20 total)**
+Easter egg. 69 squares into the Open Ocean east of the Eastern Roundabout Sea. No hints from May. Boarding commands (`DOCK`, `LAND`, `MOOR`, `MAKE LAND`) to come ashore; `BOARD SHIP` returns player to Open Ocean square 69.
+
+### Land, Ho!
+**XP: 5**
+First room on the island. Same boarding mechanic as Desert Island.
+
+*The island resolves out of the horizon slowly, then all at once. Sand, trees, solid ground. You've earned this. The beach curves invitingly ahead.*
+
+### Empty Beach
+**XP: 5**
+*The beach is long and quiet, the sand unmarked. A line of scrubby trees runs along the inland edge. Somewhere beyond them, half-hidden, a small structure. The only sounds are the water behind you and the wind doing very little. It feels like a place that has been left alone for a long time and is content with that.*
+
+### A House / Kevry's House
+**XP: 5**
+Room name changes to **Kevry's House** after the player enters and interacts with Kevry.
+
+*The interior is cluttered in the way that only makes sense to its owner. Charts pinned to every surface, ropes coiled with obsessive care, a hammock in the corner. A lantern hangs from a beam. Someone has been here a long time and made their peace with it.*
+
+### Captain's Quarters
+**XP: 5**
+Kevry is found here. Enchants the Enchanted Glasses if already equipped in the head slot. Full dialogue tree needs a dedicated design pass — see `todo.md`.
+
+*A small back room, all table and charts and the smell of ink. A weathered man sits hunched over a map, muttering. He doesn't hear you come in. When he finally looks up, his face does something complicated — surprise, then recognition of the type that doesn't require prior acquaintance, then a wide and genuine grin.*
 
 ---
 

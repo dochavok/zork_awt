@@ -344,7 +344,63 @@ May sells hints for Zenni at The Bar, Tale and Ale. Hints are tiered — each ti
 
 Some hints are conditional: May's tier 1 hint for Quests 19&30 fires only if player has not yet examined the statue. Post-visit Chuckle House hints unlock once player has entered the Chuckle House.
 
+**May's responses by tip amount:**
+- **Tier 1 (1–3 Zenni):** *May palms the coin without looking at it, leans in, and shares what she knows. "That's worth something," she says.*
+- **Tier 2 (4–6 Zenni):** *May pockets the coins carefully. "That buys you something worth hearing," she says.*
+- **Tier 3 (7–12 Zenni):** *May counts the coins once, pockets them, and leans all the way across the bar.*
+- **Nothing to share (any amount, no hints remaining):** Randomly selected from:
+  1. *May pushes the Zenni back. "Keep it. I've got nothing worth that right now." She goes back to wiping the bar.*
+  2. *May looks at the coin and shakes her head slowly. "I'd be robbing you. Ask me again when something changes."*
+  3. *May sets the Zenni on the bar and slides it back. "Nothing in here worth selling today," she says, tapping her temple.*
+- **Over 12 Zenni:** *May looks genuinely uncomfortable. "I appreciate the thought, but no." She slides it all back. "Ask me something and we'll talk."*
+
+May only offers hints for quests that are discovered AND incomplete. She won't hint on undiscovered or finished quests. Each tier for each quest is a one-time purchase — May will not re-sell a tier already bought.
+
+**Free drink flag system:** A boolean flag tracks pending free drinks, each with a reason string for contextual dialogue. Flag is set by quest events; cleared after the free drink is redeemed. Current known flags:
+1. **Mugger slain** — *May thanks the player for dealing with whoever was lurking in the Back Alley, and doesn't charge for the drink.*
+
 **Raznak nudge (free, no Zenni):** If the player has visited the Archery Range at least once but has never spoken to Raznak (not yet reached any dialogue state), May offers unprompted: *"You should talk to Raznak."* Fires once only. No tier, no cost.
+
+---
+
+## Tip Journal
+
+Purchasable from Shamus (Tale and Ale Kitchen) for 5 Zenni. Available to the player on request at any time.
+
+Records:
+- Quests discovered and their discovery source (May, Quest Board, or organic)
+- Hints purchased per tier per quest
+- Quest completion status
+
+A quest does not appear in the journal until it has been discovered — undiscovered quests are invisible to the player.
+
+Display verb (`READ JOURNAL`? `OPEN JOURNAL`?), visual format of quest entries, and completed quest handling TBD — see `todo.md`.
+
+---
+
+## Quest Board
+
+Located in The Bar of the Tale and Ale. Described in the room text. `LOOK AT BOARD` displays all currently posted quests. Completed quests are automatically removed from the board.
+
+**Confirmed postings (cascade order):**
+- Quest 22 (The Ruined Aqueduct) — posted early, ensures most players complete before needing fountain
+- Quest 40 (Shamus's Recipe) — posted early
+- Quest 7 (The Bone Flute) — posted 20 turns after player first meets Pyronicus
+- Quest 17 (The Frozen Watch) — posted by Records Room Worker when player delivers ring to Will (second briefing)
+- Quest 24 (The Beekeeper's Swarm) — posted when player receives town charter (Quest 17 reward)
+- Quest 50 (The Lost Apprentice) — posted anonymously by Will at game start; removed if Flooding Room trap disarmed
+- Quest 51 (The Back Alley Mugger) — posted by May after 100 turns if mugger not yet slain; also discoverable organically
+
+**Non-Board quests (discovered organically or via NPC):**
+- Quest 12 (discovered via `LOOK AT MUSIC BOX`)
+- Quest 27 (discovered via Toll Bridge perception check)
+- Quest 28 (discovered via archivist in library)
+- Quest 32 (discovered via Mid-Tier Key Door)
+- Quest 34 (discovered via Tool Alcove / speaking door)
+- Quest 38 (discovered via Collapsed Gallery)
+- Quest 41 (discovered organically at The Old Oak)
+
+Full cascade design — which quests unlock new postings — TBD. See `todo.md`.
 
 ---
 
@@ -468,6 +524,57 @@ Full tree (paths numbered A1–A3, B1–B3):
 **B3 — Feel (Go another way):** Vibration strongest at a discolored circle of floor.
 - Option 1 — Step onto discolored stone: *SUCCESS*
 - Option 2 — Kneel and press hand to it: *SUCCESS* (both options succeed)
+
+**Full prose text:**
+
+**Inciting event (repeats on every failure):**
+*The corridor is low and wet. Water drips somewhere behind you. Your torch throws just enough light to see the floor — and the footprints already pressed into the mud. Leading in from the entrance. Your size. Your stride. You haven't been here before.*
+
+**Level 1 — Instinct vs. Caution:**
+- A — Follow them
+- B — Go another way
+
+**Level 2A — Follow path:**
+*The prints lead forward. You know this feeling — the particular shape of a place you've already moved through. You have been here. You just don't remember when.*
+
+- **A1 — See:** *The footprints change. Halfway down the corridor they shift — your stride lengthens, the toe digs deeper. Whatever you were walking toward, you were walking faster by the time you reached it. You follow the change.*
+- **A2 — Hear:** *A sound comes from your left — a passage you didn't notice before, or didn't exist before. Water moving. Not dripping. Flowing. Like something is draining toward an opening.*
+- **A3 — Smell:** *It stops you mid-step. Something warm. Cooked. Completely wrong for a place like this — bread, maybe, or stew. Coming from ahead, faint but real, the kind of smell that makes your body move before your mind does.*
+
+**Level 2B — Go another way:**
+*You step off the prints. The corridor looks different from here — longer, maybe, or the walls are closer. Nothing you can point to. Just the feeling that the version of this place you're now standing in is not the one you entered.*
+
+- **B1 — Feel:** *Something pulls at you — not physical, not quite. A certainty about one direction that has no evidence behind it. The kind of knowing that lives below thought. You trust it, or you don't.*
+- **B2 — See:** *Your torch catches the wall of a side tunnel you hadn't noticed — or that wasn't there before. Claw marks run along the stone at shoulder height. Deep, parallel, dragged fast. Whatever made them was large. Whatever made them went that way. You follow anyway.*
+- **B3 — Feel:** *The ground hums. Low, slow, rhythmic. Like something heavy moving far below, or far ahead — it's impossible to tell. Your boots feel it more than you do. You follow the vibration.*
+
+**Level 3 — Outcomes:**
+
+*A1 — The footprints end at a wall. Not a door — a wall. But the mud at the base is disturbed, smeared, like something passed through it. The torch flickers.*
+- Press hand against wall → FAILURE: *Cold stone. Solid. You press harder, run your fingers along the seam where the smear meets the surface. Nothing gives. It is definitively, completely a wall. You press your forehead against it. You wake up at the entrance. The footprints are there. Your size. Your stride.*
+- Step back and look at the full wall → FAILURE: *Distance doesn't help. It's a wall. Flat, unbroken, mortared tight. Whatever the smear in the mud means, it doesn't mean a door. You stand there long enough to be certain. You wake up at the entrance. The footprints are there. Your size. Your stride.*
+
+*A2 — You turn left. The passage is narrow — barely a shoulder's width. The sound of moving water is clearer now, ahead and below. The passage slopes down. Your torch bends in a draft coming up from somewhere beneath you.*
+- Follow slope down toward sound → SUCCESS: *The slope levels. The passage opens. The sound of water is all around you now — a drain somewhere below the floor, pulling the flood somewhere useful. The air is damp but moving. Ahead, a doorway. You walk through it. You are through.*
+- Follow draft — go toward air, not water → FAILURE: *The draft gets stronger. The passage narrows further and then opens without warning — onto nothing. A drop. You can't see the bottom. The torch goes with you. You wake up at the entrance. The footprints are there. Your size. Your stride. Your heart is going very fast and you're not entirely sure why.*
+
+*A3 — The smell gets stronger as you move. At the end of the corridor a low alcove opens to the right — just wide enough to crouch into. Inside: nothing. No food, no fire, no source. The smell is overwhelming in here. Your stomach responds before your brain does.*
+- Crouch inside and look for the source → FAILURE: *The alcove goes back further than it looked. You crouch deeper, torch first. The smell is everywhere and the source is nowhere. The ceiling gets lower. You keep looking. The torch goes out. You wake up at the entrance. The footprints are there. Your size. Your stride. You are not hungry anymore.*
+- Ignore it and keep moving forward → SUCCESS: *You keep walking. The smell fades behind you the way smells do when you stop chasing them. The corridor ends at a doorway. You don't remember the corridor having a doorway. You walk through it. You are through.*
+
+*B1 — The certainty leads you to a section of wall that looks identical to every other section of wall. No seam, no mark, no reason. The feeling is loudest here. Your torch doesn't flicker. The wall doesn't breathe. It just is — and something in you insists this is the place.*
+- Trust it. Press forward into the wall → SUCCESS: *You don't slow down. You don't brace. You walk into it the way you'd walk through a doorway you've used a thousand times. The wall is not there. The room beyond is. You are through it before you've decided what just happened. You are through.*
+- Trust it. Wait. See if something happens → FAILURE: *You wait. The certainty doesn't grow or fade — it just sits there, patient, offering nothing new. The corridor is very quiet. You wait longer. The torch burns. Nothing happens. The feeling eventually becomes indistinguishable from doubt. You wake up at the entrance. The footprints are there. Your size. Your stride. The certainty is gone.*
+
+*B2 — The claw marks run the length of the tunnel, shoulder height, deep and continuous. You follow them. The tunnel is long enough that the entrance is behind you and the far end is still ahead. The marks don't stop or change. They just keep going. Then the tunnel goes silent in a way it wasn't silent before. One breath of stillness. Then something at the far end shifts. Not loud. Not close. Just present. Aware, maybe. The marks continue toward it.*
+- Keep walking → SUCCESS: *You don't slow down. Whatever is ahead has already heard you — stopping won't help and going back won't either. You walk toward the sound. The tunnel ends at a doorway. Nothing is there. Nothing was ever there, or it's somewhere you're not anymore. You walk through it. You are through.*
+- Fall back → FAILURE: *You take one step back. Then another. The sound doesn't repeat but the silence that follows it is worse. You turn and move fast, faster, back toward the entrance, back toward the footprints, back toward something that made sense. You wake up at the entrance. The footprints are there. Your size. Your stride. The far end of the tunnel is very far away now.*
+
+*B3 — The vibration leads you to a section of floor where it is strongest — a rough circle of stone, slightly discolored, slightly lower than the surrounding floor. The hum comes up through your boots and into your legs. It is steady. It is patient. It has been doing this for a long time.*
+- Step onto the discolored stone → SUCCESS: *The hum rises through you the moment your full weight is on it — up through your legs, your chest, your jaw. The floor doesn't move. You do. The corridor shifts around you, or you shift through it, and then you are somewhere else. The hum is gone. The room ahead is quiet and real. You are through.*
+- Kneel and press your hand to it → SUCCESS: *The vibration is different through your palm than through your boots — more specific, like a word you almost recognize. You press harder. The circle of stone depresses slightly, just enough to feel deliberate, and something in the corridor unlocks without a sound. A doorway is there that wasn't before. You stand up and walk through it. You are through.*
+
+**On passing through:** The player arrives in the Lost Apprentice's Cell. No explanation is given for what the corridor was. The dream framing is never named in-game.
 
 ---
 
