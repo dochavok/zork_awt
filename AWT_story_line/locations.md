@@ -209,9 +209,11 @@ The private quarters of the Keeper of the Faiths. Door is locked; key found on t
 
 ### Graveyard
 **XP: 1**
-*The graves here are old, most of them. Headstones lean at angles that suggest the ground beneath has shifted, or decided it no longer agrees with what's above it. The church is behind you. The mausoleum sits at the far end, grey and patient. The air is still in a way that has nothing to do with wind.* South of the Church of All. Single room.
+South of the Church of All. Single room. North to Church of All; south to Mausoleum. West exit to Chuckle House appears only after Litlock's bonk (Quest 16) — absent from description until then.
 
-Denizens TBD. Needs dedicated design pass.
+**Pre-bonk description:** *The graves here are old, most of them. Headstones lean at angles that suggest the ground beneath has shifted, or decided it no longer agrees with what's above it. The church stands to the north. The mausoleum sits at the far end to the south, grey and patient. The air is still in a way that has nothing to do with wind.*
+
+**Post-bonk description:** *The graves here are old, most of them. Headstones lean at angles that suggest the ground beneath has shifted, or decided it no longer agrees with what's above it. The church stands to the north. The mausoleum sits at the far end to the south, grey and patient. To the west, a low building stands where there was nothing before — and you are not sure how you missed it. It is a low structure with a painted facade — or was, once. The paint shows something cheerful from a distance: bright colors, broad shapes, a kind of deliberate festivity. Up close, the colors are gone to grey and the shapes resolve into faces. They are smiling. They have been smiling for a very long time. The air is still in a way that has nothing to do with wind.*
 
 **Town square statue:** The statue in Roundabout Town Square has a hollow base — seam visible to anyone who types `LOOK AT STATUE` (no perception check). Attempting to open without a crowbar: *"The base is sealed tight. Something with leverage could pry it open."* Crowbar opens it → silver stake + folded note inside. Note unsigned but identified by emerald wax seal (same seal as Keeper's skeleton). May's tier 1 hint (fires only if player has not yet examined the statue): *"Someone was seen tampering with the statue in Roundabout Town Square. Probably nothing. Probably."*
 
@@ -239,7 +241,17 @@ Four rooms, linear. Ring (invisibility) required throughout — all mirrors repe
 
 ### The Entrance
 **XP: 1**
-TBD — entry room, sets the tone. Mirror mechanic not yet active here.
+No mirrors in this room — mirror mechanic begins in the Rejection Mirror. The building was a funhouse; that history is legible from this room.
+
+**Room description:** *The entrance hall is wider than the exterior suggests. A faded runner covers the floor — the pattern beneath the grime might have been geometric once, or might have been faces too; it's hard to say now. The ceiling is low and painted, or was. Hooks on the wall where coats or hats once hung, empty now. A ticket booth stands to one side, the glass cracked, the stool inside still in place as if whoever left simply forgot to come back. The building has the quality of a held breath.*
+
+**On entry (first visit only):** *Something in the walls makes a sound as you cross the threshold — not quite a creak, not quite a welcome.*
+
+**Ticket booth (EXAMINE BOOTH / LOOK AT BOOTH):** *The ticket window is cracked but intact. A small wooden sign on the ledge reads: ADMISSION. Below it, in smaller text: EVERYONE GETS IN. The booth is empty. Whoever collected the tickets isn't collecting anymore.*
+
+**Hooks on wall (EXAMINE HOOKS / LOOK AT HOOKS):** *Empty brackets where something square once hung — the right shape for mirrors, though whatever was here is long gone. The hooks in the deeper rooms still have their tenants.*
+
+**Exits:** South to Graveyard; north to Rejection Mirror.
 
 ### The Rejection Mirror
 **XP: 1**
@@ -363,13 +375,13 @@ Four rooms arranged in a 2×2 grid. Players may move diagonally between rooms. A
 **XP: 1 per room**
 Three-bedroom home hidden in the bog behind dense brush. Perception check required to find it (Bog-SE). Litlock's residence; also houses Lynds and Aurix the Kobold child. Appears as a yurt from outside. Magical wards bar unwanted entry — design pass needed.
 
-- **Common Room:** Entry and gathering space. Large fireplace. Litlock's presence felt here most strongly on first visit — dulls with time. **XP: 3** (perception-gated discovery bonus)
-- **Kitchen:** TBD contents and use.
-- **Garden:** Large garden outside. TBD — possible ingredient/item source.
-- **Litlock's Room:** TBD access and contents.
-- **Litlock's Study:** TBD — likely quest-relevant items or information.
-- **Lynds's Room:** Semi-permanent residence of Lynds. TBD.
-- **Aurix's Room:** Room of Aurix the Kobold child. TBD.
+- **Common Room:** Entry and gathering space. Large fireplace. **XP: 3** (perception-gated discovery bonus). *Litlock fills whatever room he's in without trying to. The common room is large enough, and he's in it — near the fireplace, which is also large, and burning steadily. Chairs, a table, shelves. The kind of room that works because the people in it make it work. He looks up.*
+- **Kitchen:** *A working kitchen — herbs drying overhead, something on the fire, the garden accessible through the east door. It smells like it has always smelled like this.*
+- **Garden:** *The garden shouldn't work. The bog is right there, the soil is wrong, and nothing about this location suggests flowers or vegetables. And yet. Raised beds, neatly kept. Things growing that have no business growing here. The Dankhaus wall is to the west. The bog presses in on every other side and seems to have accepted that it lost this argument.*
+- **Litlock's Room:** *A plain room — bed, chest, a low shelf of things that don't announce themselves. Nothing here suggests the man who laughed until he had to put something down. That version of Litlock lives in the common room. This one is private.*
+- **Litlock's Study:** *The study is where Litlock keeps the part of himself he doesn't lead with. Shelves of books and things that aren't books. A desk with papers in an order that makes sense to someone. A candle burned low. The jovial man from the common room was entirely real — so is this room, and they belong to the same person.*
+- **Lynds's Room:** *Lynds's room. Large, untidy, comfortable. The furniture has been through some things.*
+- **Aurix's Room:** *Small bed, small shelf, the accumulated objects of a child who picks things up and keeps them. The chalk marks on the floor have been there long enough that no one is going to do anything about them.*
 
 ---
 
