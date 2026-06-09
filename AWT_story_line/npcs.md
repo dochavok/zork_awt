@@ -40,7 +40,10 @@ Will asks: *"Are you up for an adventure?"*
 4. *Will peers at you over his spectacles. "You found a mailbox in a field and opened it. I have every confidence you'll solve this."*
 5. *"Will once watched a student spend forty minutes in this room before finding the exit. 'I won't tell you how long you've been here,' he says. 'Yet.'"*
 
-**Spell teaching:** Warriors/Rogues bring scrolls; scroll consumed, spell learned. Cannot wear Enchanted Glasses in Will's presence.
+**Spell teaching:** Warriors/Rogues who attempt `READ SCROLL` on a spell scroll are told the scroll resists them and names Will Passion as the one who can help. Bringing the scroll to Will and issuing either `READ SCROLL` (in his presence) or `GIVE SCROLL TO WILL` triggers the teaching interaction. Scroll consumed, spell learned permanently. Cannot wear Enchanted Glasses in Will's presence during teaching — if equipped, Will notices: *"Take those off. I can't teach someone who already thinks they can see everything."* Glasses must be removed before the interaction proceeds.
+
+**Teaching dialogue:**
+*Will glances at the scroll, then at you. He takes it without ceremony and unrolls it, reading silently for a moment. Then he reads it aloud — not to you, exactly, more as if the words need to be heard in the right kind of room. When he finishes, you understand it. You're not sure how. "Keep that," he says, nodding at the space where the scroll was. It's gone. "The knowing, I mean."*
 
 **Inked player:** Will still engages but is disdainful. *"Will peers over his spectacles. 'And you found the thread,' he says, and pauses. 'Everyone finds the thread.' He turns back to his work. 'The inn has a bath. Use it. Twice.'"*
 
@@ -157,6 +160,15 @@ A 2×2×2 dialogue-tree puzzle. One path per tier succeeds; the other fails and 
 **Personality:** Eccentric, friendly, excited to see sailors. Ramshackle beach hut.
 
 Optional — not required for completion. **Enchants the Enchanted Glasses** if already equipped (head slot) when player arrives. The long journey is its own reward. Also whispers the Riddle Stone answer (Trial 1) if the player wears the Enchanted Glasses in Haalvar's Hut.
+
+**Glasses equipped on arrival (Quest 53):**
+*Kevry looks at the glasses, then at you, then at the glasses again. "Will sent you." It isn't a question. He takes them gently. "Interesting that he didn't come himself." He does something brief and private with them that you don't quite follow. When he hands them back they feel different. Lighter, somehow, and more certain. "There. Don't lose them."*
+
+**Glasses in inventory but not equipped on arrival:**
+*"You've got something in there," Kevry says, not looking up. "Did you not bring them?"* No enchantment. Player must equip and return — Kevry enchants on any subsequent visit with glasses equipped.
+
+**No glasses on arrival:**
+Standard easter egg dialogue. No mention of glasses.
 
 ---
 

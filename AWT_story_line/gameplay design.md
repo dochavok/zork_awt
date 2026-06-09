@@ -215,21 +215,9 @@ Equipment occupies the following slots. Armor is found through exploration and n
 
 - Found throughout the world.
 - Mages: read to learn the spell. Scroll is consumed.
-- Warriors/Rogues: must bring to a DM (likely Will) to learn. Scroll is consumed.
+- Warriors/Rogues: bring to Will Passion in the Wizard Tower to learn. Scroll is consumed.
 
-### Spell Mechanics
-
-- All spells are learned permanently once acquired.
-- **Reuse timers:** Every spell has a reuse timer — a number of turns that must pass before it can be cast again. The timer begins when the spell is cast.
-- **Duration:** Some spells have a duration (number of turns the effect lasts). Duration and reuse timer are independent — the reuse timer starts when cast, not when the effect expires.
-- Two light sources (any combination of torch and/or Light spell) function the same as one — no stacking bonus, just redundancy.
-
-### Known Spells
-
-| Spell | Effect | Duration | Reuse Timer | Source |
-|-------|--------|----------|-------------|--------|
-| **Light** | Creates a light source | 10 turns | 20 turns | Quest 12 — music box key in Bog-NW; scroll inside locked music box in Will's Tower |
-| **Unbind Undead** | Releases a bound spirit | Instant | 20 turns | Lighthouse — scroll on Silas's desk |
+See `mechanics.md` for full spell list, reuse timers, durations, and sources.
 
 -----
 
@@ -519,7 +507,7 @@ Four hidden NPCs called Dungeon Masters are scattered throughout the world. All 
 |The Sea                         |Three Roundabout Sea rooms + 69 Open Ocean squares to Kevry’s island. Requires boat. Desert Island is a spur off the Eastern Roundabout Sea.|
 |Kevry’s Island                  |Small location. Easter egg.                                                  |
 |Will’s Wizard Tower             |Accessed via mailbox portal from White House (opening sequence) or via mailbox in Tale and Ale Main Room. **First impression:** *The tower doesn’t announce itself. It simply is — books, firelight, the low hum of something you can’t quite locate. A desk dominates one end, buried under papers that somehow manage to look organized. A painting hangs on the wall, slightly crooked. The room has the feeling of a place where important things happen without any particular fuss.* Contains a painting of the Tale and Ale — `LOOK AT PAINTING` teleports player back to Tale and Ale Main Room. Painting hangs slightly crooked; Will never straightens it.|
-|— Will Passion’s Bedroom        |Hidden room inside the tower. "Where the magic happens." Contains the Enchanted Glasses on the nightstand. Equipping the glasses inside the bedroom is permitted; equipping them outside triggers instant fail state. `DROP GLASSES` places them on the nightstand — description persists. Contains **dragon-nip** — a glowing sprig hidden under the nightstand, practically impossible to find (requires perfect roll at highest level, or Actually Enchanted Glasses). Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn’t ask.|
+|— Will Passion’s Bedroom        |Hidden room inside the tower. "Where the magic happens." Contains the Enchanted Glasses on the nightstand. Equipping the glasses in Will's presence triggers an instant fail state — Will attacks, no recovery. The bedroom is safe because Will is not there. `DROP GLASSES` places them on the nightstand — description persists. Contains **dragon-nip** — a glowing sprig hidden under the nightstand, practically impossible to find (requires perfect roll at highest level, or Actually Enchanted Glasses). Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn’t ask.|
 |The Chuckle House               |Funhouse with multiple mirror rooms. The Rejection Mirror repels visible players; ring required to pass. Ghost tied to the Rejection Mirror room — visible only while wearing ring. See Chuckle House entry in locations table.|
 |Dungeon/Cave Area               |Three-tier dungeon. Upper tier finalized (15 rooms). Middle tier finalized (15 rooms). Lower tier in progress (11 of 20 rooms confirmed — see lower tier section below). Entry to lower tier via Hole to Below (Stored Room, mid-tier key side).|
 |**Volcano Area**                |East of the Roundabout Wasteland. The volcano is a convincing magical illusion — false heat, smoke, and rumbling powered by Pyronicus's forge below. A harder-than-normal perception check pierces the illusion and reveals an uneven staircase (DOWN) to Pyronicus's home. Visible from the Wasteland to the east. Several quest items found in this area (Quests 21, 26, 35, 42, 45 — TBD exact locations).|
@@ -770,13 +758,14 @@ She picks up her book.
 
 ### Tip Journal
 
-- A purchasable item (vendor TBD).
+- Purchasable from Shamus (Tale and Ale Kitchen) for 5 Zenni.
 - Available to the player on request at any time.
 - Records:
   - Quests discovered and their discovery source (May, Quest Board, or organic)
   - Hints purchased per tier per quest
   - Quest completion status
 - A quest does not appear in the journal until it has been discovered — undiscovered quests are invisible to the player.
+- Display verb, visual format, and completed quest handling TBD — see Open Questions.
 
 ### Quest Board
 
@@ -795,7 +784,7 @@ She picks up her book.
 - [x] Bathing cost after ink trap — included with inn rest at 5 Zenni.
 - [x] Vendor mechanic — Shamus (cook, Tale and Ale Kitchen). Sells gunpowder (5Z), Tip Journal (5Z), Fishing Rod (8Z). Buyback at half price for his items only.
 - [x] Archery trainer — Raznak, Viking, at Archery Range. Requires Viking trust trials. Three NPC states designed.
-- [ ] Finalize number of levels and XP thresholds.
+- [x] Finalize number of levels and XP thresholds. — 8 levels; full XP curve in `experience.md`.
 - [ ] Design 2–3 quests that require or benefit from ring invisibility (Chuckle House is one; need 1–2 more).
 - [ ] Define full list of spell types available via scrolls.
 - [ ] Player name — review all NPC dialogue and flag where name use is appropriate once familiarity established. Priority: May, Shamus, Raznak, Redcrosse Knight, Vikings.
@@ -803,19 +792,20 @@ She picks up her book.
 - [ ] Design 2–3 additional chests in the world — locations, contents, Zenni amounts TBD.
 - [ ] Treasure case in Will’s Wizard Tower — prices for treasure items (ship-in-a-bottle, gold nugget, etc.) TBD.
 - [ ] Ty’s Casino Corner — Zenni stakes for Cargo game TBD.
-- [ ] Hearty stew (Quest 40 inn upgrade) — set Zenni cost for 2-heart option.
+- [x] Hearty stew (Quest 40 inn upgrade) — 2 Zenni. See `mechanics.md`.
+- [ ] Tip Journal — design display verb (`READ JOURNAL`? `OPEN JOURNAL`?), visual format of quest entries, and whether completed quests are shown, hidden, or marked.
 - [ ] Assign quest Zenni rewards across all quests once quest list is finalized.
 - [ ] Flesh out the Redcrosse Knight as full NPC — location, personality, Fight the Knight quest design.
 - [ ] Armor items to design for head, chest, legs, hands slots.
-- [ ] Define all challenge roll types and their dice.
+- [x] Define all challenge roll types — Perception, Strength, Agility, Trap Disarm, Fishing. All in `mechanics.md`.
 - [x] Chuckle House — four-room linear layout designed and locked. Quest 17 fully resolved. Room descriptions and Roundabout placement still TBD (writing pass).
 - [x] Dungeon/Cave Area — upper tier 15-room layout finalized. See Dungeon Upper Tier section.
 - [x] Dungeon upper tier — Quest 38 Collapsed Gallery exit resolved: opens into Rickety Bridge.
 - [x] Dungeon/Cave Area — lower tier layout and critical path structure finalized. All 17 rooms confirmed.
 - [x] Dungeon upper tier — Combat Room creature: The Warden. Former dungeon guardian, now mindless. Monstrous appearance, standard combat, one-time fight. Den shows uniform/insignia remnants post-fight.
-- [x] Dungeon upper tier — The Warden's drop item: **Guardian's Lantern** — magical lantern required to dispel magical darkness in lower tier Dark Room.
+- [x] Dungeon upper tier — The Warden’s drop item: **Guardian’s Lantern** — magical lantern required to dispel magical darkness in lower tier Dark Room.
 - [x] Dungeon upper tier — Flooding Room: no damage on sweep, displacement only. Destination = mid tier position directly below. One-way.
-- [ ] Finalize corruption challenge roll: dice type, difficulty, outcome messages for near-miss vs. clean success vs. failure.
+- [x] Finalize corruption challenge roll — tick-by-tick targets (difficulty 5 at tick 41, escalating by 2 per tick to 21 at tick 49), level dice only, no bonus. Three outcome messages (clean success, near-miss, failure). All in `mechanics.md`.
 - [ ] **Dankhaus magical wards — design pass needed.** Five candidate mechanics: (1) Litlock’s invitation (2) ward token (3) spell/scroll (4) reputation threshold (5) ring invisibility at corruption cost.
 - [ ] Hint system — review Zenni tier cost ranges (1–3, 4–6, 7–12) against final economy once quest rewards set.
 - [ ] Lynds — define reaction when player loses the arm wrestle.
@@ -828,13 +818,13 @@ She picks up her book.
 - [ ] Pie Rat Ship deck — flesh out sub-rooms and items/interactions aboard.
 - [ ] Pie Rats Mining Inc. sealed section — determine items hidden there.
 - [ ] Desert Island buried chest — determine TBD quest item alongside 30 Zenni.
-- [x] Lighthouse — Quests 14 & 23 retired. Lighthouse is open, unattended. Unbind Undead scroll on Silas Bryne's desk. No further quest assigned.
+- [x] Lighthouse — Quests 14 & 23 retired. Lighthouse is open, unattended. Unbind Undead scroll on Silas Bryne’s desk. No further quest assigned.
 - [ ] Graveyard — denizens TBD; dedicated design pass needed.
-- [ ] Kevry’s island dialogue — full dialogue tree for Kevry; flagged as dialogue-heavy design pass.
+- [x] Kevry’s island dialogue — three states designed: glasses equipped (enchants + dialogue), glasses in inventory only (C4 nudge), no glasses (standard easter egg). See `npcs.md` and Quest 53.
 - [ ] Opening Roundabout experience — May’s first interaction, Quest Board introduction, tutorial moment.
 - [ ] Alternate light sources for mine heist — add to Shamus’s stock once designed.
-- [ ] **Dice system** — design the dice mechanic (d6, d10, d20 etc.), roll thresholds, and how leveling improves rolls. Ties directly into XP/level scale.
-- [ ] **XP/level scale** — design level cap, XP thresholds per level, and how leveling improves dice rolls. Ties directly into dice system. Design both together.
+- [x] **Dice system** — 1d6 at Level 1 through 3d20 at Level 8; full progression table in `experience.md`.
+- [x] **XP/level scale** — Level cap 8; XP thresholds 20/45/85/145/225/320/420; full table in `experience.md`.
 - [ ] **Dragon-nip quest** — glowing sprig hidden under the nightstand in Will’s bedroom. Practically impossible to find — requires perfect roll at highest level or Actually Enchanted Glasses equipped in the bedroom. Returning it to Will grants Golden Dragon Scale (treasure). Will suspects it came from his bedroom but doesn’t ask — dialogue TBD. Dragon-nip implies Will has a dragon familiar — never confirmed, only implied.
 - [ ] **Dragon-nip dialogue** — flesh out Will’s reaction when player returns the dragon-nip. He suspects it’s his but doesn’t ask where it was found. Tone: quietly pleased, slightly embarrassed, says little.
 - [ ] **Golden Dragon Scale** — treasure item reward for dragon-nip quest. Goes to Trophy Case in Town Hall Tower.

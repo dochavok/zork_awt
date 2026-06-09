@@ -39,8 +39,9 @@ Each quest has a specific XP value. All quests bumped by a flat +2 XP from base 
 | Quest 50 | The Lost Apprentice | 12 |
 | Quest 51 | The Back Alley Mugger | 6 |
 | Quest 52 | Make Litlock Laugh | 6 |
+| Quest 53 | Will's Glasses | 10 or 20 (10 if regular Enchanted Glasses returned; 20 if Actually Enchanted) |
 
-**Quest total (confirmed): 209 XP**
+**Quest total (confirmed): 219–229 XP** (Quest 53 variable — 219 if glasses not enchanted, 229 if Actually Enchanted)
 
 ---
 
@@ -94,13 +95,19 @@ Completing the quest or trainer interaction that grants a new combat skill award
 | Source | XP |
 |--------|----|
 | Exploration | 133 |
-| Quests | 209 |
+| Quests | 219–229 |
 | Traps (disarm) | 39 |
 | Combat | 42 |
 | Skill acquisition | 10 |
-| **Confirmed total** | **433 XP** |
+| **Confirmed base total** | **443–453 XP** |
+| Class bonus (Warrior) | +40 XP |
+| Class bonus (Mage) | +46 XP |
+| Class bonus (Rogue) | +50 XP |
+| **Confirmed total with class bonus** | **483–503 XP** (varies by class and Quest 53 outcome) |
 
-Level 8 threshold: 420 XP. A completionist player who completes all confirmed content reaches Level 8. TBD content (Redcrosse Knight, dragon-nip, graveyard, additional combat encounters) provides additional buffer.
+Class bonuses are awarded on top of base XP and vary by class. Quest 53 awards 10 XP (glasses not enchanted) or 20 XP (Actually Enchanted) — a completionist who sails to Kevry earns the higher value. All classes clear the Level 8 threshold of 420 XP comfortably on a completionist run.
+
+Level 8 threshold: 420 XP. Every class clears it on a completionist run. TBD content (Redcrosse Knight, dragon-nip, graveyard, additional combat encounters) provides additional buffer — Warriors in particular will gain significant bonus XP as more combat encounters are designed.
 
 ---
 
@@ -148,8 +155,16 @@ Hearts are granted at Levels 3, 5, and 7. The Heart Necklace (Lynds arm wrestlin
 
 ## Class XP Adjustments
 
-Each class gets a flat XP bonus in their natural domain. Class identity feels present in progression without locking any content.
+Each class gets a bonus in their natural domain. Class identity feels present in progression without locking any content. Bonuses are calibrated so a completionist run of confirmed content yields approximately 40–50 class bonus XP regardless of class.
 
-- **Warriors** — +1 XP per combat kill
-- **Mages** — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean)
-- **Rogues** — +1 XP per trap disarmed
+- **Warriors** — +10 XP per combat kill (4 confirmed kills = +40 XP; grows naturally as combat design pass adds encounters)
+- **Mages** — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean; 46 reachable rooms = +46 XP)
+- **Rogues** — +5 XP per trap disarmed (10 disarmable traps = +50 XP)
+
+**Class bonus totals (confirmed content):**
+
+| Class | Bonus | Confirmed events | Bonus XP |
+|-------|-------|-----------------|----------|
+| Warrior | +10/kill | 4 kills | +40 XP |
+| Mage | +1/dungeon room | 46 rooms | +46 XP |
+| Rogue | +5/trap disarmed | 10 traps | +50 XP |

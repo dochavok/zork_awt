@@ -3,7 +3,7 @@
 Authoritative quest reference. All 50 quest slots with discovery trigger, steps, rewards, May's hint tiers, prerequisites, and cascade effects.
 Update this file immediately when any quest detail is designed or changed.
 
-**Quest numbering note:** Not all quest numbers are used. Numbers marked "Quest Removed From Game" were retired or removed during design and must not be reused. All retired ideas are archived in `unused_quest_ideas.md` (separate directory). Next available number: 52.
+**Quest numbering note:** Not all quest numbers are used. Numbers marked "Quest Removed From Game" were retired or removed during design and must not be reused. All retired ideas are archived in `unused_quest_ideas.md` (separate directory). Next available number: 54.
 
 ---
 
@@ -312,7 +312,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 2. Door speaks in unknown language — clearly a question; cannot be understood.
 3. `READ SCROLL` (incantation scroll) → door opens; scroll consumed. (*"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."*)
 4. Pass through Quest 34 Mid Room — dark pool wall to wall.
-   - Swimming: 1 heart damage, returned to doorway.
+   - Swimming: 1 heart arcane damage, returned to doorway.
    - Solution: `POUR VIAL IN WATER` (vial of glacier melt, Prayer Alcove, upper tier) → pool freezes; player crosses freely.
 5. Enter Quest 34 Fountain Room — soldier encased in magical ice.
 6. `HOLD TORCH NEAR ICE` (turn 1) → ice begins to thaw.
@@ -502,6 +502,38 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 3. On full success: Litlock bonks the player on the head. *"You'll see things a bit differently now. Don't ask me to explain it."*
 
 **Reward:** Chuckle House becomes visible (west of the Graveyard) — the only way to access it. 6 XP.
+
+---
+
+## Quest 53 — Will's Glasses
+
+**Discovery:** Organic only — silent perception check fires on every visit to Will's Wizard Tower Main Room. On success, hidden bedroom door becomes visible. No Quest Board posting. No May hints.
+**Prerequisites:** None — accessible from the start of the game.
+
+**Steps:**
+1. Visit Will's Wizard Tower Main Room — silent perception check fires (Easy difficulty). On success: bedroom door becomes visible. Check repeats every visit until discovered.
+2. Enter Will's Bedroom — glasses on nightstand. Room description visible in full.
+3. `TAKE GLASSES` — wire-rimmed glasses added to inventory.
+4. `WEAR GLASSES` or `PUT ON GLASSES` inside the bedroom — safe, because Will is not present. Equipping anywhere Will can see the player triggers an instant fail state (Will attacks, no recovery).
+5. Board the Pie Rat Ship and sail 69 squares east through the Open Ocean to Kevry's island. Glasses must be equipped (head slot) on arrival.
+   - **If glasses in inventory but not equipped on arrival:** *"You've got something in there," Kevry says, not looking up. "Did you not bring them?"* No enchantment. Player must equip and return — Kevry enchants on any subsequent visit with glasses equipped.
+   - **If glasses not in inventory on arrival:** Kevry has his standard easter egg dialogue. No mention of glasses.
+6. `TALK TO KEVRY` with glasses equipped — Kevry enchants them.
+   - *Kevry looks at the glasses, then at you, then at the glasses again. "Will sent you." It isn't a question. He takes them gently. "Interesting that he didn't come himself." He does something brief and private with them that you don't quite follow. When he hands them back they feel different. Lighter, somehow, and more certain. "There. Don't lose them."*
+   - Glasses upgrade to Actually Enchanted Glasses — pass all perception checks automatically.
+7. Return to Will's Bedroom. `DROP GLASSES` on the nightstand — quest complete, XP awarded.
+   - Will is not present and never acknowledges the glasses were missing or returned.
+
+**Reward:** XP (see below). Actually Enchanted Glasses may be picked up again freely after dropping.
+
+**XP:**
+- Enchanted Glasses returned (regular): 10 XP
+- Actually Enchanted Glasses returned: 20 XP
+- Only one reward fires depending on glasses state at time of drop.
+
+**Missability:** Fully missable. No hints anywhere. Bedroom requires lucky perception check. Kevry's island requires knowing to sail 69 squares east with glasses equipped.
+
+**Dragon-nip note:** Players who return to the bedroom with Actually Enchanted Glasses equipped will auto-succeed the dragon-nip perception check (normally effectively impossible). This is intentional — the glasses quest unlocks the dragon-nip quest for players thorough enough to find both.
 
 ---
 

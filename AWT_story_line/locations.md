@@ -27,7 +27,16 @@ Contains a painting of the Tale and Ale — `LOOK AT PAINTING` teleports player 
 
 ### Will Passion's Bedroom
 **XP: 1**
-Hidden room inside the tower. "Where the magic happens." Contains the Enchanted Glasses on the nightstand. Equipping the glasses inside the bedroom is permitted; equipping them outside triggers instant fail state. `DROP GLASSES` places them on the nightstand — description persists. Contains **dragon-nip** — a glowing sprig hidden under the nightstand, practically impossible to find (requires perfect roll at highest level, or Actually Enchanted Glasses). Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn't ask.
+Hidden room inside the tower. **Discovery:** Silent Easy perception check fires on every visit to the Main Room. On success, bedroom door becomes visible — permanently. No nudge, no hint. Repeating check. "Where the magic happens." Contains the Enchanted Glasses on the nightstand. Equipping the glasses in Will's presence triggers an instant fail state — Will attacks, no recovery. The bedroom is safe because Will is not there. `DROP GLASSES` places them on the nightstand — description persists. Contains **dragon-nip** — a glowing sprig hidden under the nightstand, practically impossible to find (requires perfect roll at highest level, or Actually Enchanted Glasses). Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn't ask.
+
+**Room description:**
+*This is, apparently, where the magic happens. The bedroom is smaller than the main room and considerably more honest about its occupant. Books here are not organized — they are stacked, wedged, balanced, and in at least one case load-bearing. A narrow bed sits against the far wall, made with the perfunctory neatness of someone who knows they'll be up again soon. A nightstand holds a pair of wire-rimmed glasses, a half-melted candle, and a ring left by a cup that was never there long enough to matter. The rest of the room is Will's business and clearly has been for a very long time.*
+
+**Glasses on nightstand (before taking):** *A pair of wire-rimmed glasses sit on the nightstand. They look perfectly ordinary.*
+
+**Glasses on nightstand (after DROP GLASSES):** *Your wire-rimmed glasses sit on the nightstand where you left them.*
+
+**Dragon-nip (perception success only):** *Something small glows faintly under the nightstand — easy to miss, impossible to unsee once noticed. A sprig of something, tucked against the baseboard as if it rolled there and was forgotten.*
 
 ---
 
@@ -123,7 +132,7 @@ TBD occupants/uses.
 
 ### Cellar / Storeroom
 **XP: 1**
-Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds the key. Starts flooded — drain must be unclogged (crowbar required) before the room is usable. Once drained, reveals a door to the Secret Tunnel. Tunnel door stays in whatever state the player leaves it. Travel bidirectional once drained. Entering from either direction before draining = instant drowning fail state (no warning). **Open question:** Perception check on kitchen-side entry before draining — leaning no roll, resolve later.
+Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds the key. Starts flooded — drain must be unclogged (crowbar required) before the room is usable. Once drained, reveals a door to the Secret Tunnel. Tunnel door stays in whatever state the player leaves it. Travel bidirectional once drained. Entering from either direction before draining = instant drowning fail state (water damage, no warning, no roll). The flood is obvious from the kitchen doorway — no perception check on entry.
 
 ---
 
@@ -277,7 +286,7 @@ The illusory volcano itself. Appears entirely real. Harder perception check requ
 
 ### Archery Range
 **XP: 1**
-*Straw targets line the far end of a long cleared field, bristling with arrows. The range is well-used. The Vikings from the encampment to the west use it freely — and apparently consider the entire field fair game, including the parts you're standing in.* Hazardous — challenge roll each time the player passes through to avoid being hit by an errant arrow. Permanently safe once Viking trust is earned (silent mechanic, no acknowledgment). **Raznak** found here.
+*Straw targets line the far end of a long cleared field, bristling with arrows. The range is well-used. The Vikings from the encampment to the west use it freely — and apparently consider the entire field fair game, including the parts you're standing in.* Hazardous — agility challenge roll each time the player passes through to avoid being hit by an errant arrow; failure deals 1 heart physical damage. Permanently safe once Viking trust is earned (silent mechanic, no acknowledgment). **Raznak** found here.
 
 ### Viking Encampment (The Encampment — hub)
 **XP: 1**
@@ -734,7 +743,7 @@ North of Tool Alcove. A channel of dark water fills the room wall to wall — na
 
 **Room description:** *Everything in this room is becoming the pool. Water seeps through the walls in thin lines, runs down the stone, disappears into the dark surface below. The ceiling drips. The pool fills the room wall to wall — narrow, long, bottomless as far as you can tell. The passage north is visible on the other side. The water is between you and it.*
 
-**Swimming penalty:** *The moment you enter, the water is inside you somehow — not wet, not cold, just wrong. The pain that follows is real and serious and spreads fast. You are back at the doorway, bleeding from nowhere you can see.* (1 heart damage; player returned to doorway automatically.)
+**Swimming penalty:** *The moment you enter, the water is inside you somehow — not wet, not cold, just wrong. The pain that follows is real and serious and spreads fast. You are back at the doorway, bleeding from nowhere you can see.* (1 heart arcane damage; player returned to doorway automatically.)
 
 **Freeze solution:** `POUR VIAL IN WATER` (vial of glacier melt from Prayer Alcove, upper tier) freezes the pool; player crosses freely.
 

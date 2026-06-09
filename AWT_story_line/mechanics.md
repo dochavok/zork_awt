@@ -15,7 +15,7 @@ Players choose one of three classes at the start of the game. Class selection is
 |-------|----------------|----------------|----------------------|
 | Warrior | 6 | Weapon use | Strength checks |
 | Mage | 4 | Spell casting | Perception checks |
-| Rogue | 5 | Bow use | Perception & trap disarm checks |
+| Rogue | 5 | Bow use | Perception, Trap Disarm & Fishing checks |
 
 Each class can acquire the other classes' skills through training and quests.
 
@@ -63,7 +63,7 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap.
 
 - XP earned through combat, quests, and discovering new locations.
 - Leveling is instant when XP threshold is met.
-- Level cap TBD.
+- Level cap: 8. Full XP thresholds and dice progression in `experience.md`.
 - Leveling improves dice rolls for both combat and challenge checks.
 
 ---
@@ -73,10 +73,11 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap.
 All checks are dice-based and hidden from the player. Players see outcomes only, never numbers.
 
 **Roll types:**
-- Perception — finding hidden things, noticing details
-- Strength — forcing, breaking, physical feats
-- Trap detection & disarm
-- Additional types TBD
+- **Perception** — finding hidden things, noticing details, spotting traps. Class bonus: Mages and Rogues.
+- **Strength** — forcing doors, breaking locks, prying, physical feats (arm wrestling, rope snare escape, portcullis lift, timber clearing, Boggart strongbox, magnetic chest recovery). Class bonus: Warriors.
+- **Agility** — dodging hazards (Archery Range arrow dodge before Viking trust earned). No class bonus.
+- **Trap disarm** — disabling a detected trap without triggering it. Class bonus: Rogues.
+- **Fishing** — `FISH` at Roundabout Pond; success retrieves the bottle (Quest 12). Class bonus: Rogues.
 
 **Perception mechanic:**
 
@@ -99,24 +100,24 @@ Target numbers are absolute — a higher-level player beats the same check more 
 | Hard | 14 | Well-hidden traps, significant consequences, critical path with pull-back |
 | Very Hard | 18 | Most subtle tells, severe consequences (ink trap), intentionally punishing |
 
-All perception checks rated — see `memory/project-perception-checks.md` for full inventory.
+Perception check locations and difficulty ratings are annotated inline in `locations.md`.
 
 **Damage types** (tracked for future use — no current mechanical effect):
 | Type | Source |
 |------|--------|
-| Smoke | Trap 17, smoke/fume sources |
-| Physical | Standard impact, blade, blunt |
-| Poison | Gradual drain over turns |
-| Fire | Heat and flame |
-| Fall | Drops and pits |
-| Arcane | Magical sources, runes, enchantments |
-| Lightning | Electrical charge — Trap 19 |
-| Water | Aquatic / pool damage |
+| Physical | Combat (all enemies), mugger, bee swarm (Swarm Tree), errant arrow (Archery Range), Bone Crunch Floor (Trap 36), Skeleton Room (instant death) |
+| Smoke | Trap 17 (Supply Room clay pot) |
+| Lightning | Trap 19 (Electrified Portcullis) |
+| Arcane | Quest 34 Mid Room pool (magical dark water) |
+| Poison | Gradual drain over turns — no confirmed source yet |
+| Fire | Heat and flame — no confirmed source yet |
+| Fall | Drops and pits — no confirmed source yet |
+| Water | Drowning (Flooded Cellar before drain — instant death fail state) |
 
-**Class bonuses:**
-- Warriors: inherent strength bonuses
-- Mages: inherent perception bonuses
-- Rogues: inherent bonuses to perception and trap-related checks
+**Class bonuses by roll type:**
+- Warriors: Strength checks
+- Mages: Perception checks
+- Rogues: Perception, Trap Disarm, and Fishing checks
 
 ---
 
@@ -257,6 +258,14 @@ Spells learned permanently once acquired.
 **Duration:** Number of turns effect lasts. Independent of reuse timer.
 
 **Two light sources** (any combo of torch and/or Light spell) function the same as one — no stacking bonus, just redundancy.
+
+**Spell scrolls vs. use-item scrolls:** Spell scrolls teach a spell permanently (Light, Unbind Undead, Fireball). Use-item scrolls are consumed on use without teaching anything (incantation scroll — Quest 28/34 speaking door). The resistance mechanic below applies to spell scrolls only; use-item scrolls work for all classes.
+
+**Warrior/Rogue scroll resistance:** `READ SCROLL` on a spell scroll returns:
+
+*"The words are legible. The meaning is not. Whatever is written here was meant for someone with a different kind of mind — or a different kind of training. Will Passion, in his tower, has been known to translate this sort of thing for people like you."*
+
+Scroll is not consumed. Player retains it. Bringing the scroll to Will Passion in the Wizard Tower triggers the teaching interaction via either `READ SCROLL` (in his presence) or `GIVE SCROLL TO WILL` — Will takes it, reads it aloud, scroll consumed, spell learned permanently.
 
 | Spell | Effect | Duration | Reuse Timer | Source |
 |-------|--------|----------|-------------|--------|
@@ -579,7 +588,8 @@ All items need weight values assigned — design pass needed.
 | `CAST UNBIND UNDEAD` | Releases ghost in Ghost's Room (Chuckle House) |
 | `HOLD TORCH NEAR ICE` | Quest 34 — two turns to thaw frozen soldier |
 | `POUR VIAL IN WATER` | Quest 34 — freezes dark pool in mid room |
-| `READ SCROLL` | Quest 34 — answers speaking door |
+| `READ SCROLL` | Quest 34 — answers speaking door (all classes); spell scrolls — Mage only (Warriors/Rogues get resistance message pointing to Will); in Will's Tower, triggers spell teaching for Warriors/Rogues |
+| `GIVE SCROLL TO WILL` | Synonym for `READ SCROLL` in Will's Tower — Warriors/Rogues; both work |
 | `TURN ON LANTERN` / `LIGHT LANTERN` | Guardian's Lantern — dispels Dark Room darkness |
 | `TIE ROPE TO BEAM` | Hole to Below — enables bidirectional travel |
 | `CLIMB DOWN ROPE` / `CLIMB UP ROPE` | Hole to Below traversal (also `DOWN` / `UP`) |
