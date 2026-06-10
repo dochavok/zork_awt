@@ -10,13 +10,10 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [ ] **Carry weight system** — Rickety Bridge has a weight limit; exact limit TBD. All items need weight values assigned. (`locations.md`, `mechanics.md`)
 - [ ] **2–3 quests requiring ring invisibility** — Chuckle House confirmed; need 1–2 more. (`mechanics.md`)
 - [ ] **Full verb list and synonym handling policy** — design pass needed. (`mechanics.md`)
-- [x] **Pie Rat Coin purpose** — confirmed as Trophy Case treasure item. Sell price still TBD. (`items.md`)
-
 ---
 
 ## Locations
 
-- [x] **Main East buildings** — description written to `locations.md`; sparse/shuttered implied, no specific buildings needed.
 - [ ] **Tower (Rowan Finch dialogue)** — Trophy Case; connection to Calder Finch who donated early items. (`locations.md`, `npcs.md`)
 - [ ] **Stable** — horse/cart quest TBD. (`locations.md`)
 - [ ] **Guest Rooms 1, 2, 3** — occupants and uses TBD. (`locations.md`)
