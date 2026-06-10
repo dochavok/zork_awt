@@ -298,7 +298,7 @@ The illusory volcano itself. Appears entirely real. Harder perception check requ
 
 ### Archery Range
 **XP: 1**
-*Straw targets line the far end of a long cleared field, bristling with arrows. The range is well-used. The Vikings from the encampment to the west use it freely — and apparently consider the entire field fair game, including the parts you're standing in.* Hazardous — agility challenge roll each time the player passes through to avoid being hit by an errant arrow; failure deals 1 heart physical damage. Permanently safe once Viking trust is earned (silent mechanic, no acknowledgment). **Raznak** found here.
+*Straw targets line the far end of a long cleared field, bristling with arrows. The range is well-used. The Vikings from the encampment to the west use it freely — and apparently consider the entire field fair game, including the parts you're standing in.* Hazardous — agility challenge roll each time the player passes through to avoid being hit by an errant arrow; failure deals 1 heart physical damage. Permanently safe once all three Viking trust trials are complete (silent mechanic, no acknowledgment). **Raznak** found here.
 
 ### Viking Encampment (The Encampment — hub)
 **XP: 1**
@@ -361,6 +361,8 @@ Between town and the bog. Two-state room.
 **Base description:** *The pond is easy to walk past without noticing. It sits low between the town path and the bog, ringed with reeds and the occasional frog. The water is dark and calm.*
 
 Each visit fires a silent perception check. On success: "You see a bottle at the bottom of the pond." — quest discovered, May's hints unlock. Sighting not permanent; check fires on every visit until quest is discovered. Retrieving the bottle requires a fishing rod (purchased from vendor) and a successful challenge roll (`FISH`); Rogues get a bonus. The bottle is a treasure item.
+
+**May's hints:** Imply Kevry was trying to retrieve his ship from the pond — player connects ship and bottle. Kevry knows about it but was never able to fish it out himself.
 
 ### Bog of Eternal Stench
 **XP: 1 per bog room (4 total)**
@@ -448,7 +450,7 @@ Dead-end room off Roundabout Beach to the north. Open, unattended. A desk holds 
 Moored at the Docks. Crewed by Pie Rats until the explosion draws them away. The only vessel available to sail the Roundabout Sea. Boarding commands (all synonyms): `BOARD SHIP`, `GET ON SHIP`, `CLIMB ABOARD`, `ENTER SHIP`.
 
 - **Deck:** TBD.
-- **Hold / Below Deck:** Each turn aboard fires a silent perception check. On success: treasure map found and added to inventory. Actually Enchanted Glasses pass all perception checks — map found on first turn.
+- **Hold / Below Deck:** Each turn aboard fires a silent perception check. On success: treasure map found and added to inventory. Actually Enchanted Glasses pass all perception checks — map found on first turn. A player who sails to Kevry's island without finding the map, gets the glasses enchanted there, and returns to the ship will auto-find the map on their next turn aboard.
 
 ### The Sea
 **XP: 1 per Roundabout Sea room (3 total); 0 XP for all 69 Open Ocean traversal squares; Desert Island: 1 XP**

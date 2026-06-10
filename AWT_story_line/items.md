@@ -92,6 +92,16 @@ Found in a carved niche in the Prayer Alcove — perception check reveals the al
 
 ## Quest Items
 
+### Treasure Map
+**Location:** Pie Rat Ship — Hold / Below Deck
+**Quest use:** Guarantees `DIG` success on the Desert Island buried chest on the first attempt. Without the map: 10% chance per `DIG`.
+
+Found via silent perception check — fires once per turn spent aboard the ship. Actually Enchanted Glasses pass all perception checks; map found on first turn. A player who sails to Kevry's island without finding the map, gets the glasses enchanted there, and returns to the ship will auto-find the map on their next turn aboard.
+
+Not consumable — stays in inventory after use.
+
+---
+
 ### Runed Metal
 **Location:** Awarded by Ivanaar Stormbringer after all three Viking trust trials
 **Quest use:** Taken to Pyronicus's forge → forged into the Pale Blade.

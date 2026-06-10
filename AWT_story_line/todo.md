@@ -27,13 +27,14 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [ ] **Pie Rats Mining Inc. sealed section** — items hidden in the sealed section after cave-in. (`locations.md`)
 - [ ] **Dankhaus magical wards** — design pass needed. Five candidates: (1) Litlock's invitation (2) ward token (3) spell/scroll (4) reputation threshold (5) ring invisibility at corruption cost. (`locations.md`, `gameplay design.md`)
 - [ ] **Secret Tunnels — Graveyard Crypt connection** — direction/layout TBD. (`locations.md`)
+- [ ] **Graveyard denizens** — who or what inhabits the graveyard; dedicated design pass needed. (`locations.md`)
 - [ ] **Ty's Casino Corner** — Zenni stakes for Cargo game TBD. (`locations.md`)
 
 ---
 
 ## NPCs
 
-- [ ] **The Redcrosse Knight** — location, personality, full "Fight the Knight" quest design. (`npcs.md`, `mechanics.md`)
+- [x] **The Redcrosse Knight** — designed: Town Square, formal-warm personality, Level 3 minimum, all dialogue states. Quest 54 written. (`npcs.md`, `quests.md`, `mechanics.md`)
 - [ ] **Pyronicus** — role beyond ring retrieval and Pale Blade forging; quest hooks tied to forge/volcano TBD. (`npcs.md`)
 - [ ] **Rowan Finch** — dialogue connecting Calder to Trophy Case TBD. (`npcs.md`)
 - [ ] **The Soldier (Quest 34)** — name TBD. (`npcs.md`)
@@ -65,6 +66,12 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [ ] **Gold Nugget sell price** — treasure item; TBD. (`items.md`)
 - [ ] **Pie Rat Coin** — purpose and sell price TBD. (`items.md`)
 - [ ] **Armor items** — design items for head, chest, legs, hands slots. (`gameplay design.md`)
+
+---
+
+## Housekeeping
+
+- [ ] **Encoding cleanup** — all source files contain `â€"` artifacts (UTF-8 em-dashes rendered incorrectly). Do a find-and-replace pass across all `.md` files in `AWT_story_line\` to replace `â€"` with `—`. Low priority but affects readability.
 
 ---
 

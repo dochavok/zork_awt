@@ -17,8 +17,8 @@ Update this file immediately when any NPC detail is designed or changed.
 Will appears without ceremony, straightening his cuffs as though he merely stepped from one room to another. *"You opened the mailbox," he says. "I wasn't entirely certain you would."* He studies the player for a moment. *"I have a small errand for you. It involves a town called Roundabout, an object that has a habit of ending up where it doesn't belong, and someone who is holding it quite innocently and will give it up without a fuss."* He pauses. *"The object itself is another matter."*
 
 Will asks: *"Are you up for an adventure?"*
-- **No:** *"No," he repeats, tasting the word. "Interesting." He waves a hand, not unkindly. "Off you go, then."* GAME OVER.
-- **Yes:** *"Then we begin."* Player teleported to tower.
+- **No:** *Will pauses. "No," he repeats, tasting the word. "Interesting." He waves a hand, not unkindly. "Off you go, then." And he is gone. The field is quiet. The mailbox stands closed in the morning light, as though it never opened. As though none of this happened.* GAME OVER. Player never leaves the field.
+- **Yes:** *Will straightens to his full height. Something changes in the air — a pressure, a stillness, the sense of a page turning. "Then we begin," he says. The field vanishes. The tower arrives around you like a cloak settling onto broad shoulders.* Player teleported to tower.
 
 **Tower visit sequence:**
 1. Player arrives — sees tower first impression.
@@ -281,10 +281,29 @@ Raznak acknowledges the player warmly — a nod, a word, nothing elaborate. Uses
 ---
 
 ### The Redcrosse Knight: Knight of Faith
-**Location:** TBD.
-**Personality:** TBD.
+**Location:** Roundabout Town Square.
+**Personality:** Formally warm. A teacher first — he takes the trial seriously but is rooting for the player to pass. Few unnecessary words. The kind of man who gives respect before it's earned and more after.
 
-Teaches melee weapon use to Mages and Rogues. "Fight the Knight" quest is a trial by combat to earn his respect — not a hostile encounter. Uses player's name once familiarity established. Full design pass needed.
+Teaches melee weapon use to Mages and Rogues via Quest 54 (Fight the Knight) — a trial by combat to earn his respect, not a hostile encounter. Uses player's name once familiarity established.
+
+**Minimum level to attempt:** Level 3. Below Level 3, he turns the player away without hostility.
+
+**Dialogue states:**
+
+**First encounter (pre-trial):**
+*"The Knight stands at ease in the square, watching the town go about its business. When he notices you, he turns fully to face you — unhurried, attentive. 'You're looking at me like someone who wants to learn something,' he says. 'I teach one thing. Come find me when you're ready to show me what you already know.'"*
+
+**Below Level 3 (attempt turned away):**
+*"He looks you over once. 'Not yet,' he says, not unkindly. 'Come back when you've got more behind you.'"*
+
+**After player loses (stopped at 1 heart):**
+*"He steps back and lowers his weapon. 'You fought well enough to keep your feet. That's not nothing.' He studies you for a moment. 'Come back. I'll be here.'"*
+
+**After player wins:**
+*"He holds still for a moment after you land the deciding blow. Then something in his posture shifts — subtle, but real. 'Good,' he says. Just that. He sheathes his weapon and nods toward an open space in the square. 'Again — this time I'll show you what you did right.'"* → training begins, 3 Zenni, melee skill unlocked.
+
+**Return visits after training complete:**
+*"He gives you a short nod when you pass. Nothing more is needed."*
 
 ---
 

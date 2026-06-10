@@ -32,7 +32,7 @@ Each class can acquire the other classes' skills through training and quests.
 
 ### Zenni (Currency)
 
-Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap.
+Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spent on: inn rest, food and drink, skill training, vendor items, and hints.
 
 **Economy baseline:**
 | Item | Cost |
@@ -50,7 +50,7 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap.
 
 **Zenni sources:**
 - Will Passion opening gift: 10 Zenni
-- Hidden room Zenni: 18 rooms randomized per new game; 9 Easy / 5 Medium / 1 Hard pay 1–3 Zenni each; 3 Very Hard pay 5 Zenni each; Actually Enchanted Glasses pass all checks and find all rooms automatically
+- Hidden room Zenni: 18 rooms randomized per new game; 9 Easy / 5 Medium / 1 Hard pay 1–3 Zenni each; 3 Very Hard pay 5 Zenni each (~36 Zenni total if all found); Actually Enchanted Glasses pass all checks and find all rooms automatically
 - Desert Island buried chest: 30 Zenni
 - Additional chests: 2–3 elsewhere (TBD)
 - Vendor buyback: half price, own items only; no buyback for treasure
@@ -147,11 +147,21 @@ Dice-based, scales with player level. Warriors start proficient with melee; Rogu
 
 ### Skill Progression
 
-**Weapon training** — The Redcrosse Knight: Knight of Faith. Teaches melee to Mages and Rogues after "Fight the Knight" trial by combat. Location TBD.
+Each class starts with one combat skill. The other two can be acquired through quests. Skills learned this way are permanent.
 
-**Archery training** — Raznak (Viking), Archery Range. Requires Viking trust trials completed first. Arrow hazard on range is silently disabled once trust earned (no acknowledgment). Rogues already know bow use — not beckoned by Raznak.
+**Cross-class skill matrix:**
 
-**Spell training** — Will Passion, Wizard Tower. Warriors/Rogues bring scrolls; scroll consumed, spell learned permanently. Cannot wear Enchanted Glasses in Will's presence during teaching.
+| Skill | Warrior | Mage | Rogue |
+|-------|---------|------|-------|
+| Melee weapon | Starts with | Quest 54 — Fight the Knight | Quest 54 — Fight the Knight |
+| Bow / Archery | Quest 55 — The Archer's Trial | Quest 55 — The Archer's Trial | Starts with |
+| Spell casting | Quest 56 — Will's Teaching | Starts with | Quest 56 — Will's Teaching |
+
+**Weapon training (Quest 54)** — The Redcrosse Knight: Knight of Faith, Roundabout Town Square. Trial by combat — full fight to 1 heart remaining; he stops just before the killing blow. He yields if the player wins; sends them away to train more if they lose. Minimum Level 3 to attempt. Cost: 3 Zenni. Classes: Mage, Rogue only.
+
+**Archery training (Quest 55)** — Raznak (Viking), Archery Range. Requires all three Viking trust trials complete (Quest 57) first. Arrow hazard on range is silently disabled once trust earned. Rogues start with bow — not beckoned by Raznak and cannot trigger this quest. Cost: 3 Zenni. Classes: Warrior, Mage only.
+
+**Spell training (Quest 56)** — Will Passion, Wizard Tower. Warriors and Rogues cannot read spell scrolls directly — resistance message points them to Will. Bring any spell scroll; Will teaches it aloud; scroll consumed, spell learned permanently. Repeatable for each new scroll. Cost: 3 Zenni per spell. Cannot wear Enchanted Glasses in Will's presence during teaching. Classes: Warrior, Rogue only.
 
 ---
 

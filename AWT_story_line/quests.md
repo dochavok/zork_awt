@@ -1,103 +1,103 @@
-# Enchanted Realms: One Ring — Quests
+﻿# Enchanted Realms: One Ring â€” Quests
 
 Authoritative quest reference. All 50 quest slots with discovery trigger, steps, rewards, May's hint tiers, prerequisites, and cascade effects.
 Update this file immediately when any quest detail is designed or changed.
 
-**Quest numbering note:** Not all quest numbers are used. Numbers marked "Quest Removed From Game" were retired or removed during design and must not be reused. All retired ideas are archived in `unused_quest_ideas.md` (separate directory). Next available number: 54.
+**Quest numbering note:** Not all quest numbers are used. Numbers marked "Quest Removed From Game" were retired or removed during design and must not be reused. All retired ideas are archived in `unused_quest_ideas.md` (separate directory). Next available number: 58.
 
 ---
 
-## Quest 1 — Quest Removed From Game
+## Quest 1 â€” Quest Removed From Game
 
-## Quest 2 — Quest Removed From Game
+## Quest 2 â€” Quest Removed From Game
 
-## Quest 3 — Quest Removed From Game
+## Quest 3 â€” Quest Removed From Game
 
 ---
 
-## Quest 4 — The Whispering Jar
+## Quest 4 â€” The Whispering Jar
 
-**Discovery:** Inn's back room — a cracked ceramic jar hums faintly. Innkeeper mentions it used to call out warnings.
-**Prerequisites:** Wax seal (Town Hall Upper Hall) + silver dust (Mine Passage, dungeon mid-tier, perception check) + restoration phrase (etched into base of jar — readable with perception check or Enchanted Glasses).
+**Discovery:** Inn's back room â€” a cracked ceramic jar hums faintly. Innkeeper mentions it used to call out warnings.
+**Prerequisites:** Wax seal (Town Hall Upper Hall) + silver dust (Mine Passage, dungeon mid-tier, perception check) + restoration phrase (etched into base of jar â€” readable with perception check or Enchanted Glasses).
 **Steps:**
-1. `OPEN CABINET` in Town Hall Upper Hall → `TAKE SEAL` (no perception check)
-2. Descend to Mine Passage in dungeon mid-tier → find silver dust (perception check required)
-3. Return to jar → `PRESS SEAL`, `DUST JAR`, `READ INCANTATION`
-4. Jar whispers once: *"The ceiling of the thermal vent holds a secret."* — one time only, never repeated.
+1. `OPEN CABINET` in Town Hall Upper Hall â†’ `TAKE SEAL` (no perception check)
+2. Descend to Mine Passage in dungeon mid-tier â†’ find silver dust (perception check required)
+3. Return to jar â†’ `PRESS SEAL`, `DUST JAR`, `READ INCANTATION`
+4. Jar whispers once: *"The ceiling of the thermal vent holds a secret."* â€” one time only, never repeated.
 
 **Reward:** The Whispering Jar hint points player to fire clay in the Thermal Vent Room (lower tier, `LOOK UP`). No other hint for this exists anywhere.
 
-**May's hint (one tier only — unlocks once player has first descended to the lower tier):** *"That jar in the back room of the inn — people say it used to warn about things. If it's still got something to say, I'd want to hear it before going any deeper."*
+**May's hint (one tier only â€” unlocks once player has first descended to the lower tier):** *"That jar in the back room of the inn â€” people say it used to warn about things. If it's still got something to say, I'd want to hear it before going any deeper."*
 
 ---
 
-## Quest 5 — Quest Removed From Game
+## Quest 5 â€” Quest Removed From Game
 
-## Quest 6 — Quest Removed From Game
+## Quest 6 â€” Quest Removed From Game
 
 ---
 
-## Quest 7 — The Bone Flute
+## Quest 7 â€” The Bone Flute
 
-**Discovery:** Quest Board posting — Pyronicus posts a notice 20 turns after the player first meets him.
+**Discovery:** Quest Board posting â€” Pyronicus posts a notice 20 turns after the player first meets him.
 **Prerequisites:** Access to Inscription Chamber (dungeon mid-tier).
 **Steps:**
-1. Find crawlspace off Inscription Chamber — revealed by Trap 8 (Rope Snare) trigger or perception check.
+1. Find crawlspace off Inscription Chamber â€” revealed by Trap 8 (Rope Snare) trigger or perception check.
 2. Enter Cave Creature's Lair (creature absent, never encountered).
 3. Take bone flute from floor.
 4. Return flute to Pyronicus.
 
-**Reward:** Fireball spell scroll — castable in combat.
+**Reward:** Fireball spell scroll â€” castable in combat.
 
 ---
 
-## Quest 8 — Quest Removed From Game
+## Quest 8 â€” Quest Removed From Game
 
-## Quest 9 — Quest Removed From Game
+## Quest 9 â€” Quest Removed From Game
 
-## Quest 10 — Quest Removed From Game
+## Quest 10 â€” Quest Removed From Game
 
-## Quest 11 — Quest Removed From Game
+## Quest 11 â€” Quest Removed From Game
 
 ---
 
-## Quest 12 — The Locked Music Box
+## Quest 12 â€” The Locked Music Box
 
-**Discovery:** `LOOK AT MUSIC BOX` in Will's Wizard Tower — Will mentions it belonged to a student who never returned.
+**Discovery:** `LOOK AT MUSIC BOX` in Will's Wizard Tower â€” Will mentions it belonged to a student who never returned.
 **Prerequisites:** Access to Will's Tower (available from start). Key is in Bog-NW hollow log.
-**Discovery source:** Will directly (not May's list). Triggered by `LOOK AT MUSIC BOX` — no dialogue command needed.
+**Discovery source:** Will directly (not May's list). Triggered by `LOOK AT MUSIC BOX` â€” no dialogue command needed.
 
 **Will's hints (free, triggered by successive examinations):**
-1. Will mentions the box and the missing student wistfully — quest discovered.
+1. Will mentions the box and the missing student wistfully â€” quest discovered.
 2. Will recalls the student spent a lot of time in the bog.
 3. Will specifically remembers the student liked to hide things in hollow logs.
 After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only. Once scroll found, Will says nothing further.
 
 **Steps:**
-1. `LOOK AT MUSIC BOX` in Will's Tower — discovers quest, begins hint sequence.
-2. Search Bog-NW — perception check reveals hollow log. Inside: music box key.
-3. Return to tower → open music box with key → plays short melody → scroll inside.
-4. **Mages:** Read scroll directly (consumed) → Light spell learned.
-5. **Warriors/Rogues:** Take scroll to Will (cannot wear Enchanted Glasses in Will's presence) → scroll consumed, Light spell learned.
+1. `LOOK AT MUSIC BOX` in Will's Tower â€” discovers quest, begins hint sequence.
+2. Search Bog-NW â€” perception check reveals hollow log. Inside: music box key.
+3. Return to tower â†’ open music box with key â†’ plays short melody â†’ scroll inside.
+4. **Mages:** Read scroll directly (consumed) â†’ Light spell learned.
+5. **Warriors/Rogues:** Take scroll to Will (cannot wear Enchanted Glasses in Will's presence) â†’ scroll consumed, Light spell learned.
 
-**Reward:** Light spell — 10 turns duration, 20 turns reuse timer.
-
----
-
-## Quest 13 — Quest Removed From Game
-
-## Quest 14 — Quest Removed From Game
-*(Lighthouse quest — retired. See `locations.md` — Lighthouse.)*
-
-## Quest 15 — Quest Removed From Game
-
-## Quest 16 — Quest Removed From Game
+**Reward:** Light spell â€” 10 turns duration, 20 turns reuse timer.
 
 ---
 
-## Quest 17 — The Frozen Watch
+## Quest 13 â€” Quest Removed From Game
 
-**Discovery:** Quest Board — Records Room Worker posts seeking news of a missing relative who entered the Chuckle House and never returned; asks for the relative's pocket watch if they are dead. Posting appears when the player delivers the One Ring to Will Passion (second briefing trigger).
+## Quest 14 â€” Quest Removed From Game
+*(Lighthouse quest â€” retired. See `locations.md` â€” Lighthouse.)*
+
+## Quest 15 â€” Quest Removed From Game
+
+## Quest 16 â€” Quest Removed From Game
+
+---
+
+## Quest 17 â€” The Frozen Watch
+
+**Discovery:** Quest Board â€” Records Room Worker posts seeking news of a missing relative who entered the Chuckle House and never returned; asks for the relative's pocket watch if they are dead. Posting appears when the player delivers the One Ring to Will Passion (second briefing trigger).
 **Prerequisites:** One Ring (required throughout Chuckle House); Unbind Undead spell (Lighthouse scroll).
 
 **Steps:**
@@ -105,112 +105,112 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 2. Obtain Unbind Undead scroll from Lighthouse (Silas Bryne's desk).
    - Mages: read scroll directly.
    - Warriors/Rogues: bring to Will Passion.
-3. Equip One Ring (invisibility required — all Chuckle House mirrors repel visible players).
-4. Navigate Chuckle House: Entrance → Rejection Mirror → Shatter Trap Mirror → Ghost's Room.
-5. `CAST UNBIND UNDEAD` on ghost → ghost says *"Thank you. I can rest now."* and drops pocket watch.
-6. `TAKE WATCH` (50% exit-fail mechanic persists even after ghost freed — disorientation on failed exit attempt).
-7. Deliver pocket watch to Records Room Worker → he gives town charter.
+3. Equip One Ring (invisibility required â€” all Chuckle House mirrors repel visible players).
+4. Navigate Chuckle House: Entrance â†’ Rejection Mirror â†’ Shatter Trap Mirror â†’ Ghost's Room.
+5. `CAST UNBIND UNDEAD` on ghost â†’ ghost says *"Thank you. I can rest now."* and drops pocket watch.
+6. `TAKE WATCH` (50% exit-fail mechanic persists even after ghost freed â€” disorientation on failed exit attempt).
+7. Deliver pocket watch to Records Room Worker â†’ he gives town charter.
 
-**Reward:** Town charter → required for Quest 27 (Toll Bridge/dungeon access).
+**Reward:** Town charter â†’ required for Quest 27 (Toll Bridge/dungeon access).
 **Corruption note:** Wearing the ring throughout the Chuckle House is an intentional corruption cost.
 
 **May's hints (Ghost/Watch quest):**
-- Before visiting — Tier 1: *"People say the mirrors in the Chuckle House show more than they should. Most folks don't go back a second time."*
-- Before visiting — Tier 2: *"Word is a family member of the records room clerk went into the Chuckle House years ago and never came out. He doesn't talk about it."*
-- Before visiting — Tier 3: *"The trick with the Chuckle House is that some doors only open for people the mirrors can't find."*
-- After visiting (ghost not yet freed) — Tier 1: *"Malevolent spirits can only be freed through magic."*
-- After visiting (ghost not yet freed) — Tier 2: *"Silas Bryne — keeps the lighthouse — mentioned he came across a spell he couldn't make heads or tails of. Left it on his desk."*
+- Before visiting â€” Tier 1: *"People say the mirrors in the Chuckle House show more than they should. Most folks don't go back a second time."*
+- Before visiting â€” Tier 2: *"Word is a family member of the records room clerk went into the Chuckle House years ago and never came out. He doesn't talk about it."*
+- Before visiting â€” Tier 3: *"The trick with the Chuckle House is that some doors only open for people the mirrors can't find."*
+- After visiting (ghost not yet freed) â€” Tier 1: *"Malevolent spirits can only be freed through magic."*
+- After visiting (ghost not yet freed) â€” Tier 2: *"Silas Bryne â€” keeps the lighthouse â€” mentioned he came across a spell he couldn't make heads or tails of. Left it on his desk."*
 
 **May's hints (Charter/Records Worker):**
-- Tier 1: *"The clerk's not giving up that charter easily. Some debts aren't paid in Zenni — and he's carrying one he doesn't know about yet."*
+- Tier 1: *"The clerk's not giving up that charter easily. Some debts aren't paid in Zenni â€” and he's carrying one he doesn't know about yet."*
 - Tier 2: *"There are things the clerk would trade that charter for without a second thought. He just hasn't been offered the right one."*
-- Tier 3: *"Word is the records room clerk had a relative who went into the Chuckle House years ago and never came back. He doesn't talk about it. He's also the one sitting on the town charter, and he's not giving it up easily — but something personal might move him more than an argument would."*
+- Tier 3: *"Word is the records room clerk had a relative who went into the Chuckle House years ago and never came back. He doesn't talk about it. He's also the one sitting on the town charter, and he's not giving it up easily â€” but something personal might move him more than an argument would."*
 - Special rule: if ghost quest is complete and charter not yet obtained, Tiers 1 and 2 auto-marked given; only Tier 3 available for purchase.
 
 ---
 
-## Quest 18 — Quest Removed From Game
+## Quest 18 â€” Quest Removed From Game
 
 ---
 
-## Quests 19 & 30 — The Hollow Statue / The Undead Warden
+## Quests 19 & 30 â€” The Hollow Statue / The Undead Warden
 
 *(Combined quest chain)*
 
-**Discovery — Path A (The Scholar):** May's tier 1 hint: *"There's talk of a scholar who went into the deep passages and never came back. The Librarian might know something about it."* → `TALK TO LIBRARIAN` reveals scholar researched The Veil of the Arcane and descended into the lower passages.
+**Discovery â€” Path A (The Scholar):** May's tier 1 hint: *"There's talk of a scholar who went into the deep passages and never came back. The Librarian might know something about it."* â†’ `TALK TO LIBRARIAN` reveals scholar researched The Veil of the Arcane and descended into the lower passages.
 
-**Discovery — Path B (The Keeper):** May's hints (three tiers):
+**Discovery â€” Path B (The Keeper):** May's hints (three tiers):
 - Tier 1: *"The Keeper of the Faiths has gone missing. No one's seen him in some time."*
-- Tier 2: *"Word is he went looking for someone — a scholar who'd gone into the deep passages and never come back."*
+- Tier 2: *"Word is he went looking for someone â€” a scholar who'd gone into the deep passages and never come back."*
 - Tier 3: *"No one can get into his office at the Church. Locked tight. You'd need his key to find out what he knew."*
 
-**Discovery — Statue:** `LOOK AT STATUE` in Roundabout Town Square (no perception check — seam visible on examination). Attempting to open without crowbar: *"The base is sealed tight. Something with leverage could pry it open."*
+**Discovery â€” Statue:** `LOOK AT STATUE` in Roundabout Town Square (no perception check â€” seam visible on examination). Attempting to open without crowbar: *"The base is sealed tight. Something with leverage could pry it open."*
 
 **May's tier 1 hint (fires only if player has not yet examined the statue):** *"Someone was seen tampering with the statue in Roundabout Town Square. Probably nothing. Probably."*
 
 **Steps:**
-1. Get crowbar from Prayer Alcove (Dungeon Upper Tier — perception check reveals full depth of alcove).
-2. `USE CROWBAR ON STATUE BASE` → reveals silver stake + folded note with Keeper's emerald wax seal.
-3. Descend to Lower Crypt (Dungeon Lower Tier via Hole to Below) → find Keeper's skeleton under inert pendulum blade.
+1. Get crowbar from Prayer Alcove (Dungeon Upper Tier â€” perception check reveals full depth of alcove).
+2. `USE CROWBAR ON STATUE BASE` â†’ reveals silver stake + folded note with Keeper's emerald wax seal.
+3. Descend to Lower Crypt (Dungeon Lower Tier via Hole to Below) â†’ find Keeper's skeleton under inert pendulum blade.
    - Robes and emerald seal match the statue note. Key ring on skeleton.
-   - Room description: *"A rough cave, low-ceilinged and close. A pendulum blade hangs motionless from the ceiling — triggered long ago, dried blood on the edge. Beneath it, a skeleton in robes. Whatever the Keeper came down here to do, this is as far as he got."*
+   - Room description: *"A rough cave, low-ceilinged and close. A pendulum blade hangs motionless from the ceiling â€” triggered long ago, dried blood on the edge. Beneath it, a skeleton in robes. Whatever the Keeper came down here to do, this is as far as he got."*
 4. `TAKE KEYS` from skeleton.
-5. Return to Church of All → use Keeper's keys on Keeper's Chamber door.
+5. Return to Church of All â†’ use Keeper's keys on Keeper's Chamber door.
 6. Inside Keeper's Chamber: find vial of holy water + Keeper's note (reveals scholar became undead werewolf; holy water must consecrate the stake).
-7. `POUR HOLY WATER ON STAKE` → consecrated silver stake.
-8. Descend to The Still Den (Dungeon Lower Tier) → undead werewolf.
-9. `DRIVE STAKE INTO WEREWOLF` → werewolf destroyed; reverts to scholar appearance on death.
+7. `POUR HOLY WATER ON STAKE` â†’ consecrated silver stake.
+8. Descend to The Still Den (Dungeon Lower Tier) â†’ undead werewolf.
+9. `DRIVE STAKE INTO WEREWOLF` â†’ werewolf destroyed; reverts to scholar appearance on death.
 10. Werewolf drops **Werewolf's Amulet** (ring ritual artifact, The Veil of the Arcane).
 11. Take Ivory Torch from wall before leaving.
 
-**Reward:** Werewolf's Amulet → ring ritual artifact for The Veil of the Arcane ritual at Church of All altar. See `ring-rituals.md`.
+**Reward:** Werewolf's Amulet â†’ ring ritual artifact for The Veil of the Arcane ritual at Church of All altar. See `ring-rituals.md`.
 
 ---
 
-## Quest 20 — Quest Removed From Game
+## Quest 20 â€” Quest Removed From Game
 
-## Quest 21 — Quest Removed From Game
+## Quest 21 â€” Quest Removed From Game
 
 ---
 
-## Quest 22 — The Ruined Aqueduct
+## Quest 22 â€” The Ruined Aqueduct
 
-**Discovery:** Quest Board — posted early, one of the first quests available.
+**Discovery:** Quest Board â€” posted early, one of the first quests available.
 **Prerequisites:** Access to Dungeon Upper Tier.
 
 **Steps:**
-1. Find collapsed aqueduct section in Dungeon Upper Tier — gap three rooms wide.
+1. Find collapsed aqueduct section in Dungeon Upper Tier â€” gap three rooms wide.
 2. Locate stone blocks in collapsed gallery nearby.
 3. Carry blocks two at a time to the gap (strength check each transit not to drop).
 4. Place all three blocks.
-5. Seal joints with mortar from Supply Room → aqueduct restored.
+5. Seal joints with mortar from Supply Room â†’ aqueduct restored.
 
 **Reward:** Innkeeper permanently lowers Food & Drink cost by 1 Zenni.
-**Cascade:** Town Square fountain begins running → water required for Quest 49 (The Ruined Shrine) clay adhesive. Ensures most players complete this naturally before needing the fountain.
+**Cascade:** Town Square fountain begins running â†’ water required for Quest 49 (The Ruined Shrine) clay adhesive. Ensures most players complete this naturally before needing the fountain.
 
 ---
 
-## Quest 23 — Quest Removed From Game
-*(Lighthouse quest — retired. See `locations.md` — Lighthouse.)*
+## Quest 23 â€” Quest Removed From Game
+*(Lighthouse quest â€” retired. See `locations.md` â€” Lighthouse.)*
 
 ---
 
-## Quest 24 — The Beekeeper's Swarm
+## Quest 24 â€” The Beekeeper's Swarm
 
-**Discovery:** Beekeeper's Cottage (spur off The Old Oak) — beekeeper explains swarm escaped to a hollow tree at the forest edge. Quest Board posting appears when player receives the town charter (Quest 17 reward).
+**Discovery:** Beekeeper's Cottage (spur off The Old Oak) â€” beekeeper explains swarm escaped to a hollow tree at the forest edge. Quest Board posting appears when player receives the town charter (Quest 17 reward).
 **Prerequisites:** Smoke jar from Supply Room (Dungeon Upper Tier, behind Trap 17).
 
 **Steps:**
-1. Get smoke jar from Supply Room (disarm or trigger Trap 17 — smoke jar visible in wreckage either way).
-2. Hold smoke jar and walk into swarm room → bees pacified.
+1. Get smoke jar from Supply Room (disarm or trigger Trap 17 â€” smoke jar visible in wreckage either way).
+2. Hold smoke jar and walk into swarm room â†’ bees pacified.
 3. Take queen (small tagged bee in glass vial near nest).
 4. Return queen to beekeeper.
 
-**Reward:** Jar of enchanted honey — consumable, restores 2 hearts.
+**Reward:** Jar of enchanted honey â€” consumable, restores 2 hearts.
 
 ---
 
-## Quest 25 — The Flooded Cellar
+## Quest 25 â€” The Flooded Cellar
 
 **Discovery:** Innkeeper mentions a locked cellar that flooded years ago and was sealed off.
 **Prerequisites:** Crowbar from Dungeon Upper Tier (Prayer Alcove).
@@ -219,172 +219,172 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 1. Get cellar key from bartender.
 2. Enter cellar via cellar door in kitchen.
 3. Remove drain cover with crowbar.
-4. `CLEAR DRAIN` → clog clears.
-5. Cellar drains → reveals pre-flood Zenni cache + door to Secret Tunnel.
+4. `CLEAR DRAIN` â†’ clog clears.
+5. Cellar drains â†’ reveals pre-flood Zenni cache + door to Secret Tunnel.
 
-**Reward:** Zenni cache. Bartender gives a pair of boots (leg-slot armor, +3 trap disarm roll bonus — *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar"*). Secret Tunnel door permanently accessible (bidirectional).
+**Reward:** Zenni cache. Bartender gives a pair of boots (leg-slot armor, +3 trap disarm roll bonus â€” *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar"*). Secret Tunnel door permanently accessible (bidirectional).
 
-**Open question:** Perception check on kitchen-side entry before draining — leaning no roll. Resolve later.
-
----
-
-## Quest 26 — Quest Removed From Game
+**Open question:** Perception check on kitchen-side entry before draining â€” leaning no roll. Resolve later.
 
 ---
 
-## Quest 27 — The Toll Bridge Operator
+## Quest 26 â€” Quest Removed From Game
 
-**Discovery:** Find the Toll Bridge in the Secret Tunnels. Perception check on bridge reveals faded official seal → public property → quest discovery + May's hint unlocked.
+---
+
+## Quest 27 â€” The Toll Bridge Operator
+
+**Discovery:** Find the Toll Bridge in the Secret Tunnels. Perception check on bridge reveals faded official seal â†’ public property â†’ quest discovery + May's hint unlocked.
 **If player already has charter:** *"You remember something about a bridge in the town charter."*
 **Prerequisites:** Town charter (from Quest 17 reward chain). No Quest Board entry.
 
 **May's hint (one tier only):** *"There's something in the town charter about public bridges and rights of way. Might be worth a look."*
 
 **Steps:**
-1. Find Toll Bridge — Boggart charges extortionate toll, gives no hints about what would satisfy him.
+1. Find Toll Bridge â€” Boggart charges extortionate toll, gives no hints about what would satisfy him.
 2. Obtain town charter (via Quest 17 chain).
-3. `GIVE CHARTER TO BOGGART` → Boggart reads it, grumbles, vacates. Drops strongbox.
-4. Strength check to open strongbox → several turns' worth of Zenni.
+3. `GIVE CHARTER TO BOGGART` â†’ Boggart reads it, grumbles, vacates. Drops strongbox.
+4. Strength check to open strongbox â†’ several turns' worth of Zenni.
 
 **Reward:** Bridge permanently free. Dungeon Entrance accessible.
 
 ---
 
-## Quest 28 — The Archivist's Request
+## Quest 28 â€” The Archivist's Request
 
-**Discovery:** Archivist in town library trying to authenticate an old map — needs a rubbing from a specific dungeon engraving.
-**Prerequisites:** Thin paper (vendor, 2 Zenni — destroyed if player gets wet, reappears for sale) + charcoal (Mine Passage, mid-tier, no perception check). No hints from May; no Quest Board posting.
+**Discovery:** Archivist in town library trying to authenticate an old map â€” needs a rubbing from a specific dungeon engraving.
+**Prerequisites:** Thin paper (vendor, 2 Zenni â€” destroyed if player gets wet, reappears for sale) + charcoal (Mine Passage, mid-tier, no perception check). No hints from May; no Quest Board posting.
 
 **Steps:**
 1. Buy thin paper from vendor (2 Zenni).
 2. Find charcoal in Mine Passage (mid-tier).
-3. In Inscription Chamber (mid-tier): `RUB PAPER ON ENGRAVING` → produces rubbing.
-4. Return rubbing to archivist → earns incantation scroll.
+3. In Inscription Chamber (mid-tier): `RUB PAPER ON ENGRAVING` â†’ produces rubbing.
+4. Return rubbing to archivist â†’ earns incantation scroll.
    - Archivist: *"This appears to be an answer to a question I was never able to find."*
 
-**Reward:** Incantation scroll — required for Quest 34 (speaking door in lower tier). Archivist's remark is the only connection to Quest 34.
+**Reward:** Incantation scroll â€” required for Quest 34 (speaking door in lower tier). Archivist's remark is the only connection to Quest 34.
 
 ---
 
-## Quest 29 — Quest Removed From Game
+## Quest 29 â€” Quest Removed From Game
 
-## Quest 30 — *(see Quests 19 & 30 above)*
+## Quest 30 â€” *(see Quests 19 & 30 above)*
 
-## Quest 31 — Quest Removed From Game
+## Quest 31 â€” Quest Removed From Game
 
 ---
 
-## Quest 32 — The Missing Gravestone
+## Quest 32 â€” The Missing Gravestone
 
-**Discovery:** Finding the Mid-Tier Key Door in the dungeon triggers quest discovery and unlocks May's three-tier hints. Councilman Rowan Finch approaches the player — his grandfather Calder Finch's gravestone was stolen from the cemetery. No Quest Board posting.
+**Discovery:** Finding the Mid-Tier Key Door in the dungeon triggers quest discovery and unlocks May's three-tier hints. Councilman Rowan Finch approaches the player â€” his grandfather Calder Finch's gravestone was stolen from the cemetery. No Quest Board posting.
 
 **May's hints:**
-- Tier 1: *"There's a locked door down in the tunnels, they say. Heavy thing — needs a proper key. Word is someone in town might know something about it."*
+- Tier 1: *"There's a locked door down in the tunnels, they say. Heavy thing â€” needs a proper key. Word is someone in town might know something about it."*
 - Tier 2: *"The Finch family goes back a long way in Roundabout. Rowan's grandfather was quite the explorer, from what I hear. Rowan works up at the Town Hall if you want to ask him about it."*
-- Tier 3: *"Old Calder Finch — now there was an explorer. Spent more time underground than above it. Whatever he knew about that door went with him to the cemetery. Rowan might point you in the right direction."*
+- Tier 3: *"Old Calder Finch â€” now there was an explorer. Spent more time underground than above it. Whatever he knew about that door went with him to the cemetery. Rowan might point you in the right direction."*
 - Gravestone hint (one tier only): *"I've heard carts are good for moving heavy things. Stones, for instance."*
 
 **Steps:**
-1. Find Mid-Tier Key Door in dungeon upper tier → quest discovered.
+1. Find Mid-Tier Key Door in dungeon upper tier â†’ quest discovered.
 2. Talk to Councilman Rowan Finch in Council Chamber (Town Hall).
-3. Perception check in the bog → gravestone face-down in mud.
+3. Perception check in the bog â†’ gravestone face-down in mud.
 4. Find hand cart in Storage Area (Dungeon Upper Tier).
-5. `LOAD STONE ONTO CART` → move gravestone back to cemetery.
+5. `LOAD STONE ONTO CART` â†’ move gravestone back to cemetery.
 6. Return to Rowan Finch.
 
-**Reward interaction:** *"That cart came from the dungeon," Rowan says flatly. "Don't bother denying it — I've seen it before, in my grandfather's papers." He studies you for a moment. "He left a key. Said it led to a lower level — wouldn't say what was down there." He holds it out. "Take it. It was never meant for me."*
+**Reward interaction:** *"That cart came from the dungeon," Rowan says flatly. "Don't bother denying it â€” I've seen it before, in my grandfather's papers." He studies you for a moment. "He left a key. Said it led to a lower level â€” wouldn't say what was down there." He holds it out. "Take it. It was never meant for me."*
 
-**Reward:** Middle Tier Key — opens Mid-Tier Key Door, gates access to key side of mid-tier dungeon.
-
----
-
-## Quest 33 — Quest Removed From Game
+**Reward:** Middle Tier Key â€” opens Mid-Tier Key Door, gates access to key side of mid-tier dungeon.
 
 ---
 
-## Quest 34 — The Frozen Soldier
+## Quest 33 â€” Quest Removed From Game
 
-**Discovery:** Organic — player finds Tool Alcove (lower tier) and the speaking door, then connects it to archivist's remark from Quest 28.
+---
+
+## Quest 34 â€” The Frozen Soldier
+
+**Discovery:** Organic â€” player finds Tool Alcove (lower tier) and the speaking door, then connects it to archivist's remark from Quest 28.
 **Prerequisites:** Incantation scroll (Quest 28 reward) + Ivory Torch (The Still Den, lower tier).
 
 **Steps:**
-1. Find Tool Alcove (lower tier, north of The Junction) — perception check reveals speaking door disguised as back wall.
-2. Door speaks in unknown language — clearly a question; cannot be understood.
-3. `READ SCROLL` (incantation scroll) → door opens; scroll consumed. (*"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."*)
-4. Pass through Quest 34 Mid Room — dark pool wall to wall.
+1. Find Tool Alcove (lower tier, north of The Junction) â€” perception check reveals speaking door disguised as back wall.
+2. Door speaks in unknown language â€” clearly a question; cannot be understood.
+3. `READ SCROLL` (incantation scroll) â†’ door opens; scroll consumed. (*"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."*)
+4. Pass through Quest 34 Mid Room â€” dark pool wall to wall.
    - Swimming: 1 heart arcane damage, returned to doorway.
-   - Solution: `POUR VIAL IN WATER` (vial of glacier melt, Prayer Alcove, upper tier) → pool freezes; player crosses freely.
-5. Enter Quest 34 Fountain Room — soldier encased in magical ice.
-6. `HOLD TORCH NEAR ICE` (turn 1) → ice begins to thaw.
-7. `HOLD TORCH NEAR ICE` (turn 2) → soldier freed.
+   - Solution: `POUR VIAL IN WATER` (vial of glacier melt, Prayer Alcove, upper tier) â†’ pool freezes; player crosses freely.
+5. Enter Quest 34 Fountain Room â€” soldier encased in magical ice.
+6. `HOLD TORCH NEAR ICE` (turn 1) â†’ ice begins to thaw.
+7. `HOLD TORCH NEAR ICE` (turn 2) â†’ soldier freed.
 8. Soldier gives the Forgotten Blade and wanders off.
 
-**Reward:** The Forgotten Blade — ceremonial sword, treasure item (not a combat weapon). Soldier reappears in town as minor NPC offering free weapon training sessions.
+**Reward:** The Forgotten Blade â€” ceremonial sword, treasure item (not a combat weapon). Soldier reappears in town as minor NPC offering free weapon training sessions.
 
 **Pull-back mechanics (for players who missed the Tool Alcove perception check):**
 
-- **May — late hint (one tier only):** Fires if Quest 34 is the last incomplete major quest and the player has been in the lower tier for 50+ turns without discovering the Tool Alcove door. *"There are rooms in the deep passages that aren't finished. Sometimes a room that looks like a dead end is asking you something."*
+- **May â€” late hint (one tier only):** Fires if Quest 34 is the last incomplete major quest and the player has been in the lower tier for 50+ turns without discovering the Tool Alcove door. *"There are rooms in the deep passages that aren't finished. Sometimes a room that looks like a dead end is asking you something."*
 
-- **Archivist — second visit dialogue:** If the player returns to the archivist after receiving the incantation scroll but before completing Quest 34: *"Whatever that engraving answers — I suspect it's somewhere in the lower passages. Somewhere that feels like it's waiting."*
-
----
-
-## Quest 35 — Quest Removed From Game
-
-## Quest 36 — Quest Removed From Game
-
-## Quest 37 — Quest Removed From Game
+- **Archivist â€” second visit dialogue:** If the player returns to the archivist after receiving the incantation scroll but before completing Quest 34: *"Whatever that engraving answers â€” I suspect it's somewhere in the lower passages. Somewhere that feels like it's waiting."*
 
 ---
 
-## Quest 38 — The Collapsed Passage
+## Quest 35 â€” Quest Removed From Game
 
-**Discovery:** Organic — player finds the Collapsed Gallery (Dungeon Upper Tier, east branch) blocked by timbers.
+## Quest 36 â€” Quest Removed From Game
+
+## Quest 37 â€” Quest Removed From Game
+
+---
+
+## Quest 38 â€” The Collapsed Passage
+
+**Discovery:** Organic â€” player finds the Collapsed Gallery (Dungeon Upper Tier, east branch) blocked by timbers.
 **Prerequisites:** Pickaxe (from mine, not dungeon) + support beam (Storage Area, Dungeon Upper Tier).
 
 **Steps:**
 1. Find Collapsed Gallery (east branch off Ink Corridor, south of Storage Area).
 2. Get pickaxe from mine.
-3. Three strength checks — one per main timber. After each success, another loosens.
+3. Three strength checks â€” one per main timber. After each success, another loosens.
 4. After clearing all three, prop passage with support beam.
 
-**Reward:** Permanent shortcut — passage exits into Rickety Bridge, placing player between Shrine Room and Mid-Tier Key Door, bypassing everything above. Significantly speeds dungeon traversal.
+**Reward:** Permanent shortcut â€” passage exits into Rickety Bridge, placing player between Shrine Room and Mid-Tier Key Door, bypassing everything above. Significantly speeds dungeon traversal.
 
 ---
 
-## Quest 39 — Quest Removed From Game
+## Quest 39 â€” Quest Removed From Game
 
 ---
 
-## Quest 40 — Shamus's Recipe
+## Quest 40 â€” Shamus's Recipe
 
-**Discovery:** Quest Board — posted early, one of the first quests available. Shamus also mentions it wistfully in conversation.
-**Prerequisites:** Bog thyme (Bog-SW, perception check) + small clay pot (Supply Room, Dungeon Upper Tier — visible in Trap 17 wreckage).
+**Discovery:** Quest Board â€” posted early, one of the first quests available. Shamus also mentions it wistfully in conversation.
+**Prerequisites:** Bog thyme (Bog-SW, perception check) + small clay pot (Supply Room, Dungeon Upper Tier â€” visible in Trap 17 wreckage).
 
 **Steps:**
 1. Find bog thyme via perception check in Bog-SW.
-2. Find small clay pot in Supply Room — visible in wreckage of Trap 17 whether triggered or disarmed.
+2. Find small clay pot in Supply Room â€” visible in wreckage of Trap 17 whether triggered or disarmed.
 3. Deliver both to Shamus.
 
-**Reward:** Permanent inn menu upgrade — "hearty stew" option, restores 2 hearts at the same price as Food & Drink (2 Zenni).
+**Reward:** Permanent inn menu upgrade â€” "hearty stew" option, restores 2 hearts at the same price as Food & Drink (2 Zenni).
 
 ---
 
-## Quest 41 — The Child's Kite
+## Quest 41 â€” The Child's Kite
 
-**Discovery:** Organic — child at The Old Oak with kite tangled in upper branches.
+**Discovery:** Organic â€” child at The Old Oak with kite tangled in upper branches.
 **Prerequisites:** None.
 
 **Steps:**
-1. `CLIMB TREE` → retrieves kite; rune stone on a cord falls free.
+1. `CLIMB TREE` â†’ retrieves kite; rune stone on a cord falls free.
 2. `TAKE RUNE STONE`.
-3. `GIVE KITE TO CHILD` → quest complete.
+3. `GIVE KITE TO CHILD` â†’ quest complete.
 
 **Reward:** Old Oak rune stone (one of three needed for Quest 42). No perception check required anywhere.
 
 ---
 
-## Quest 42 — The Brotherhood Stones
+## Quest 42 â€” The Brotherhood Stones
 
 **Discovery:** Ivanaar Stormbringer introduces the quest immediately after the trust trial runed metal handoff (Viking Encampment).
 **Prerequisites:** Trust trials complete (Quest 19/30 chain).
@@ -396,132 +396,132 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 **Steps:**
 1. Collect all three rune stones.
-2. Return to Ivanaar at the Viking Encampment — `GIVE STONES TO IVANAAR`.
+2. Return to Ivanaar at the Viking Encampment â€” `GIVE STONES TO IVANAAR`.
 
-**Reward:** Ivanaar's Tunic — chest slot armor. Brotherhood weave with restored runes. Grants a damage avoidance roll during combat — a second roll during the combat phase that can negate damage that would otherwise be taken. **Note: include damage avoidance mechanic in combat system design.**
-
----
-
-## Quest 43 — Quest Removed From Game
-
-## Quest 44 — Quest Removed From Game
-
-## Quest 45 — Quest Removed From Game
-
-## Quest 46 — Quest Removed From Game
-
-## Quest 47 — Quest Removed From Game
-
-## Quest 48 — Quest Removed From Game
+**Reward:** Ivanaar's Tunic â€” chest slot armor. Brotherhood weave with restored runes. Grants a damage avoidance roll during combat â€” a second roll during the combat phase that can negate damage that would otherwise be taken. **Note: include damage avoidance mechanic in combat system design.**
 
 ---
 
-## Quest 49 — The Ruined Shrine
+## Quest 43 â€” Quest Removed From Game
 
-**Discovery:** Entering Roundabout Forest reveals a crumbled shrine to The Verdant Circle — visible to any player, no perception check required.
-**Prerequisites:** Quest 22 (Ruined Aqueduct) must be complete — fountain only runs after aqueduct is repaired.
+## Quest 44 â€” Quest Removed From Game
 
-**Quest flow:** Find shrine → collect three bowl pieces → descend to lower tier for fire clay → return to fountain to mix adhesive → assemble bowl → return to shrine → bowl becomes ring ritual artifact.
+## Quest 45 â€” Quest Removed From Game
+
+## Quest 46 â€” Quest Removed From Game
+
+## Quest 47 â€” Quest Removed From Game
+
+## Quest 48 â€” Quest Removed From Game
+
+---
+
+## Quest 49 â€” The Ruined Shrine
+
+**Discovery:** Entering Roundabout Forest reveals a crumbled shrine to The Verdant Circle â€” visible to any player, no perception check required.
+**Prerequisites:** Quest 22 (Ruined Aqueduct) must be complete â€” fountain only runs after aqueduct is repaired.
+
+**Quest flow:** Find shrine â†’ collect three bowl pieces â†’ descend to lower tier for fire clay â†’ return to fountain to mix adhesive â†’ assemble bowl â†’ return to shrine â†’ bowl becomes ring ritual artifact.
 
 **May's hints:**
-- Tier 1: *"Something about that shrine bowl needs water — clean, running water. Check the Quest Board; there may be something relevant posted."*
-- Tier 2: *"The town fountain hasn't run in years. Word is the aqueduct beneath the dungeon needs repair — it's on the Quest Board if you haven't seen it."*
+- Tier 1: *"Something about that shrine bowl needs water â€” clean, running water. Check the Quest Board; there may be something relevant posted."*
+- Tier 2: *"The town fountain hasn't run in years. Word is the aqueduct beneath the dungeon needs repair â€” it's on the Quest Board if you haven't seen it."*
 
 **Bowl pieces (3):**
-1. Near the shrine in Roundabout Forest (perception check — should be easy; set difficulty once perception mechanic is defined)
-2. In the bog (perception check — should be easy; set difficulty once perception mechanic is defined)
-3. Dungeon Upper Tier — Shrine Room (perception check — should be easy; set difficulty once perception mechanic is defined)
+1. Near the shrine in Roundabout Forest (perception check â€” should be easy; set difficulty once perception mechanic is defined)
+2. In the bog (perception check â€” should be easy; set difficulty once perception mechanic is defined)
+3. Dungeon Upper Tier â€” Shrine Room (perception check â€” should be easy; set difficulty once perception mechanic is defined)
 
 **Steps:**
-1. Find shrine (perception check in Roundabout Forest) — quest discovered.
+1. Find shrine (perception check in Roundabout Forest) â€” quest discovered.
 2. Collect all three bowl pieces.
-3. Descend to Thermal Vent Room (lower tier) — `LOOK UP` reveals fire clay. `TAKE CLAY`.
-4. Return to Town Square fountain (must be flowing — Quest 22 prerequisite). Mix fire clay with fountain water → clay adhesive.
+3. Descend to Thermal Vent Room (lower tier) â€” `LOOK UP` reveals fire clay. `TAKE CLAY`.
+4. Return to Town Square fountain (must be flowing â€” Quest 22 prerequisite). Mix fire clay with fountain water â†’ clay adhesive.
    - If fountain dry: *"The fountain is dry. You'll need clean running water."*
 5. Assemble bowl with adhesive.
-6. Return to shrine → `PUT BOWL ON PEDESTAL` — shrine does not respond. Text: *"The bowl is placed. The shrine is unmoved. Devotion is appreciated. Contributions pay the bills."*
-7. `PUT COIN ON PEDESTAL` (or `OFFER COIN`, `DROP COIN`) with any Zenni coin → transformation text fires → bowl becomes The Crystal Bowl (ring ritual artifact).
+6. Return to shrine â†’ `PUT BOWL ON PEDESTAL` â€” shrine does not respond. Text: *"The bowl is placed. The shrine is unmoved. Devotion is appreciated. Contributions pay the bills."*
+7. `PUT COIN ON PEDESTAL` (or `OFFER COIN`, `DROP COIN`) with any Zenni coin â†’ transformation text fires â†’ bowl becomes The Crystal Bowl (ring ritual artifact).
 
-**Transformation text:** *The coin settles on the pedestal. For a moment, nothing. Then the bowl begins to change — ceramic going pale, then translucent, then clear. The etched design that was barely visible before catches the light now, sharp and permanent. What sits on the pedestal is no longer what you put there.*
+**Transformation text:** *The coin settles on the pedestal. For a moment, nothing. Then the bowl begins to change â€” ceramic going pale, then translucent, then clear. The etched design that was barely visible before catches the light now, sharp and permanent. What sits on the pedestal is no longer what you put there.*
 
-**Reward:** The Repaired Bowl → ring ritual artifact for The Verdant Circle ritual at Church of All altar. See `ring-rituals.md`.
+**Reward:** The Repaired Bowl â†’ ring ritual artifact for The Verdant Circle ritual at Church of All altar. See `ring-rituals.md`.
 
 ---
 
-## Quest 50 — The Lost Apprentice
+## Quest 50 â€” The Lost Apprentice
 
-**Discovery:** Quest Board — Will Passion posts anonymously, describing a missing person last seen heading toward the dungeon. Posted at game start.
-**Missability:** The Quest Board posting is removed permanently if the player disarms the Flooding Room trap (Trap 41). Those players never reach the trap side. Quest 50 is fully missable — no impact on the ring quest.
+**Discovery:** Quest Board â€” Will Passion posts anonymously, describing a missing person last seen heading toward the dungeon. Posted at game start.
+**Missability:** The Quest Board posting is removed permanently if the player disarms the Flooding Room trap (Trap 41). Those players never reach the trap side. Quest 50 is fully missable â€” no impact on the ring quest.
 
-**Prerequisites:** Access to trap side of mid-tier (via Flooding Room sweep — one-way). Shovel.
+**Prerequisites:** Access to trap side of mid-tier (via Flooding Room sweep â€” one-way). Shovel.
 
 **Steps:**
-1. Be swept through the Flooding Room (Trap 41) → land on Trap Side Entry (mid-tier).
-2. Navigate Dream Corridor → Lost Apprentice's Cell.
-3. Combat with afflicted apprentice — defeating him breaks the affliction.
-4. Apprentice comes around — disoriented, sad. Hole in cell floor is nearly through to surface.
-5. `USE SHOVEL` → finishes hole to Bog-NW. Permanent exit created.
+1. Be swept through the Flooding Room (Trap 41) â†’ land on Trap Side Entry (mid-tier).
+2. Navigate Dream Corridor â†’ Lost Apprentice's Cell.
+3. Combat with afflicted apprentice â€” defeating him breaks the affliction.
+4. Apprentice comes around â€” disoriented, sad. Hole in cell floor is nearly through to surface.
+5. `USE SHOVEL` â†’ finishes hole to Bog-NW. Permanent exit created.
 6. Apprentice follows player out.
-7. As they surface in Bog-NW, apprentice gives his gloves. Quest completes on bog exit — no return to Will required.
+7. As they surface in Bog-NW, apprentice gives his gloves. Quest completes on bog exit â€” no return to Will required.
 
-**Reward:** Apprentice's Gloves — hands slot, +3 combat roll bonus. Will is visibly shaken when player next visits the tower; says little about it.
+**Reward:** Apprentice's Gloves â€” hands slot, +3 combat roll bonus. Will is visibly shaken when player next visits the tower; says little about it.
 
 ---
 
-## Quest 51 — The Back Alley Mugger
+## Quest 51 â€” The Back Alley Mugger
 
-**Discovery:** Organic — entering the Back Alley for the first time. Quest Board — May posts a bounty notice after 100 turns if the mugger has not yet been slain.
+**Discovery:** Organic â€” entering the Back Alley for the first time. Quest Board â€” May posts a bounty notice after 100 turns if the mugger has not yet been slain.
 **Prerequisites:** None.
 
 **Steps:**
 1. Enter the Back Alley. Perception check fires on every visit until mugger is spotted.
-   - Failed check: mugged — 1 heart damage, 2–3 Zenni stolen (nothing taken if broke). Player loses consciousness, wakes in the Back Alley one turn later.
-2. Successful perception check: mugger is visible — fight to the death.
+   - Failed check: mugged â€” 1 heart damage, 2â€“3 Zenni stolen (nothing taken if broke). Player loses consciousness, wakes in the Back Alley one turn later.
+2. Successful perception check: mugger is visible â€” fight to the death.
    - Losing: wake with 1 heart remaining; text nudges toward the inn.
    - Winning: mugger slain permanently. Back Alley is safe. Lockpicks drop as loot.
 3. Collect reward from May at the tavern bar.
 
 **Reward:** One free drink from May (1 heart restoration). May flag clears after use.
-**Loot:** Lockpicks — opens the large iron chest in Mine Passage (20 Zenni). Not a general trap disarm tool.
+**Loot:** Lockpicks â€” opens the large iron chest in Mine Passage (20 Zenni). Not a general trap disarm tool.
 
 ---
 
-## Quest 52 — Make Litlock Laugh
+## Quest 52 â€” Make Litlock Laugh
 
-**Discovery:** Organic — first visit to the Dankhaus after ward removal (Lynds arm wrestling reward).
+**Discovery:** Organic â€” first visit to the Dankhaus after ward removal (Lynds arm wrestling reward).
 **Prerequisites:** Dankhaus access (beat Lynds, receive invitation). No Quest Board posting.
 
 **Steps:**
-1. Enter the Dankhaus — Litlock greets the player and issues the challenge: *"Entertain me."*
-2. Navigate the 2×2×2 dialogue tree (full tree in `npcs.md` — Litlock entry).
+1. Enter the Dankhaus â€” Litlock greets the player and issues the challenge: *"Entertain me."*
+2. Navigate the 2Ã—2Ã—2 dialogue tree (full tree in `npcs.md` â€” Litlock entry).
    - Tier 1: Tell a joke (A) or do something physical (B)
    - Tier 2A: Wordplay/pun (FAIL) or absurdist observation (SUCCESS)
    - Tier 2B: Something dignified (FAIL) or something committed and ridiculous (SUCCESS)
    - Tier 3: Push further (SUCCESS) or explain it (FAIL)
-   - Failures loop back to Tier 1 — no penalty, retryable.
+   - Failures loop back to Tier 1 â€” no penalty, retryable.
 3. On full success: Litlock bonks the player on the head. *"You'll see things a bit differently now. Don't ask me to explain it."*
 
-**Reward:** Chuckle House becomes visible (west of the Graveyard) — the only way to access it. 6 XP.
+**Reward:** Chuckle House becomes visible (west of the Graveyard) â€” the only way to access it. 6 XP.
 
 ---
 
-## Quest 53 — Will's Glasses
+## Quest 53 â€” Will's Glasses
 
-**Discovery:** Organic only — silent perception check fires on every visit to Will's Wizard Tower Main Room. On success, hidden bedroom door becomes visible. No Quest Board posting. No May hints.
-**Prerequisites:** None — accessible from the start of the game.
+**Discovery:** Organic only â€” silent perception check fires on every visit to Will's Wizard Tower Main Room. On success, hidden bedroom door becomes visible. No Quest Board posting. No May hints.
+**Prerequisites:** None â€” accessible from the start of the game.
 
 **Steps:**
-1. Visit Will's Wizard Tower Main Room — silent perception check fires (Easy difficulty). On success: bedroom door becomes visible. Check repeats every visit until discovered.
-2. Enter Will's Bedroom — glasses on nightstand. Room description visible in full.
-3. `TAKE GLASSES` — wire-rimmed glasses added to inventory.
-4. `WEAR GLASSES` or `PUT ON GLASSES` inside the bedroom — safe, because Will is not present. Equipping anywhere Will can see the player triggers an instant fail state (Will attacks, no recovery).
+1. Visit Will's Wizard Tower Main Room â€” silent perception check fires (Easy difficulty). On success: bedroom door becomes visible. Check repeats every visit until discovered.
+2. Enter Will's Bedroom â€” glasses on nightstand. Room description visible in full.
+3. `TAKE GLASSES` â€” wire-rimmed glasses added to inventory.
+4. `WEAR GLASSES` or `PUT ON GLASSES` inside the bedroom â€” safe, because Will is not present. Equipping anywhere Will can see the player triggers an instant fail state (Will attacks, no recovery).
 5. Board the Pie Rat Ship and sail 69 squares east through the Open Ocean to Kevry's island. Glasses must be equipped (head slot) on arrival.
-   - **If glasses in inventory but not equipped on arrival:** *"You've got something in there," Kevry says, not looking up. "Did you not bring them?"* No enchantment. Player must equip and return — Kevry enchants on any subsequent visit with glasses equipped.
+   - **If glasses in inventory but not equipped on arrival:** *"You've got something in there," Kevry says, not looking up. "Did you not bring them?"* No enchantment. Player must equip and return â€” Kevry enchants on any subsequent visit with glasses equipped.
    - **If glasses not in inventory on arrival:** Kevry has his standard easter egg dialogue. No mention of glasses.
-6. `TALK TO KEVRY` with glasses equipped — Kevry enchants them.
+6. `TALK TO KEVRY` with glasses equipped â€” Kevry enchants them.
    - *Kevry looks at the glasses, then at you, then at the glasses again. "Will sent you." It isn't a question. He takes them gently. "Interesting that he didn't come himself." He does something brief and private with them that you don't quite follow. When he hands them back they feel different. Lighter, somehow, and more certain. "There. Don't lose them."*
-   - Glasses upgrade to Actually Enchanted Glasses — pass all perception checks automatically.
-7. Return to Will's Bedroom. `DROP GLASSES` on the nightstand — quest complete, XP awarded.
+   - Glasses upgrade to Actually Enchanted Glasses â€” pass all perception checks automatically.
+7. Return to Will's Bedroom. `DROP GLASSES` on the nightstand â€” quest complete, XP awarded.
    - Will is not present and never acknowledges the glasses were missing or returned.
 
 **Reward:** XP (see below). Actually Enchanted Glasses may be picked up again freely after dropping.
@@ -533,20 +533,20 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 **Missability:** Fully missable. No hints anywhere. Bedroom requires lucky perception check. Kevry's island requires knowing to sail 69 squares east with glasses equipped.
 
-**Dragon-nip note:** Players who return to the bedroom with Actually Enchanted Glasses equipped will auto-succeed the dragon-nip perception check (normally effectively impossible). This is intentional — the glasses quest unlocks the dragon-nip quest for players thorough enough to find both.
+**Dragon-nip note:** Players who return to the bedroom with Actually Enchanted Glasses equipped will auto-succeed the dragon-nip perception check (normally effectively impossible). This is intentional â€” the glasses quest unlocks the dragon-nip quest for players thorough enough to find both.
 
 ---
 
 ## Quest Board Cascade
 
 **Confirmed postings:**
-- Quest 22 (The Ruined Aqueduct) — posted early, ensures most players complete before needing fountain
-- Quest 40 (Shamus's Recipe) — posted early
-- Quest 7 (The Bone Flute) — posted 20 turns after player first meets Pyronicus
-- Quest 17 (The Frozen Watch) — posted by Records Room Worker when player delivers ring to Will (second briefing)
-- Quest 24 (The Beekeeper's Swarm) — posted when player receives town charter (Quest 17 reward)
-- Quest 50 (The Lost Apprentice) — posted anonymously by Will at game start; removed if Flooding Room trap disarmed
-- Quest 51 (The Back Alley Mugger) — posted by May after 100 turns if mugger not yet slain; also discoverable organically
+- Quest 22 (The Ruined Aqueduct) â€” posted early, ensures most players complete before needing fountain
+- Quest 40 (Shamus's Recipe) â€” posted early
+- Quest 7 (The Bone Flute) â€” posted 20 turns after player first meets Pyronicus
+- Quest 17 (The Frozen Watch) â€” posted by Records Room Worker when player delivers ring to Will (second briefing)
+- Quest 24 (The Beekeeper's Swarm) â€” posted when player receives town charter (Quest 17 reward)
+- Quest 50 (The Lost Apprentice) â€” posted anonymously by Will at game start; removed if Flooding Room trap disarmed
+- Quest 51 (The Back Alley Mugger) â€” posted by May after 100 turns if mugger not yet slain; also discoverable organically
 
 **Confirmed non-Board quests:**
 - Quest 12 (discovered via `LOOK AT MUSIC BOX`)
@@ -556,4 +556,73 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 - Quest 34 (discovered via Tool Alcove / speaking door)
 - Quest 38 (discovered via Collapsed Gallery)
 - Quest 41 (discovered organically at The Old Oak)
+
+## Quest 54 â€” Fight the Knight
+
+**Discovery:** Organic â€” speaking to the Redcrosse Knight in Roundabout Town Square. No Quest Board posting. No May hints.
+**Prerequisites:** Level 3 minimum. Below Level 3, the Knight turns the player away without triggering the quest.
+**Classes:** Mage and Rogue only. Warriors already have melee skill â€” this quest does not trigger for them.
+
+**Steps:**
+1. Speak to the Redcrosse Knight in the Town Square. He acknowledges the player and invites them to return when ready.
+2. Initiate the trial â€” `FIGHT KNIGHT` or `CHALLENGE KNIGHT`. Full combat begins.
+3. Combat runs until one side reaches 1 heart. The Knight stops the fight before the killing blow in either direction.
+   - **Player loses (reaches 1 heart):** *"He steps back and lowers his weapon. 'You fought well enough to keep your feet. That's not nothing.' He studies you for a moment. 'Come back. I'll be here.'"* Quest remains open â€” retryable.
+   - **Player wins (Knight reaches 1 heart):** *"He holds still for a moment after you land the deciding blow. Then something in his posture shifts â€” subtle, but real. 'Good,' he says. Just that. He sheathes his weapon and nods toward an open space in the square. 'Again â€” this time I'll show you what you did right.'"*
+4. Pay 3 Zenni. Melee weapon skill unlocked permanently.
+
+**Reward:** Melee weapon skill. 8 XP.
+
+---
+
+## Quest 55 â€” The Archer's Trial
+
+**Discovery:** Organic â€” speaking to Raznak at the Archery Range after all three Viking trust trials are complete (Quest 57). Raznak beckons Warriors and Mages; Rogues are not beckoned (already trained). No Quest Board posting. No May hints.
+**Prerequisites:** Quest 57 (Viking Trust Trials) complete. Level unrestricted.
+**Classes:** Warrior and Mage only. Rogues start with bow â€” quest does not trigger for them.
+
+**Steps:**
+1. Complete all three Viking trust trials (Quest 57). Arrow hazard on the Archery Range is silently disabled.
+2. Approach Raznak at the Archery Range. He beckons the player â€” `TALK TO RAZNAK` to begin.
+3. Pay 3 Zenni. Raznak demonstrates and teaches. Bow/archery skill unlocked permanently.
+
+**Reward:** Bow/archery skill. 6 XP.
+
+---
+
+## Quest 56 â€” Will's Teaching
+
+**Discovery:** Organic â€” attempting to `READ SCROLL` as a Warrior or Rogue. Resistance message fires and directs the player to Will Passion. No Quest Board posting. No May hints.
+**Prerequisites:** Any spell scroll in inventory. No level requirement.
+**Classes:** Warrior and Rogue only. Mages read scrolls directly â€” this quest does not trigger for them.
+**Repeatable:** Yes â€” fires once per scroll. Each scroll learned is a separate instance of this quest.
+
+**Steps:**
+1. Attempt to `READ SCROLL` as a Warrior or Rogue. Resistance message: player understands the scroll resists them and senses they need someone who knows how to open it.
+2. Travel to Will's Wizard Tower. `READ SCROLL` in Will's presence, or `GIVE SCROLL TO WILL`.
+3. Will reads it aloud. Scroll consumed. Spell learned permanently.
+   - *"Will glances at the scroll, then at you. He takes it without ceremony and unrolls it, reading silently for a moment. Then he reads it aloud â€” not to you, exactly, more as if the words need to be heard in the right kind of room. When he finishes, you understand it. You're not sure how. 'Keep that,' he says, nodding at the space where the scroll was. It's gone. 'The knowing, I mean.'"*
+4. Pay 3 Zenni per spell taught.
+
+**Reward:** Spell learned permanently. 4 XP per spell.
+**Note:** Cannot wear Enchanted Glasses in Will's presence during teaching â€” Will notices and refuses.
+
+---
+
+## Quest 57 â€” The Viking Trust Trials
+
+**Discovery:** Organic â€” entering the Viking Encampment for the first time. Ivanaar Stormbringer greets the player and directs them to Haalvar. No Quest Board posting. No May hints.
+**Prerequisites:** None.
+
+**Steps:**
+1. Enter the Viking Encampment. Ivanaar greets the player and points them north to Haalvar.
+2. **Trial 1 â€” The Riddle Stone** (Haalvar's Hut, north): Answer Haalvar's riddle. *"I have no legs but travel far. I have no mouth but swallow ships. I have no hands but I will take everything you own if you let me. What am I?"* Correct answer: `SEA`. Retryable on wrong answer.
+3. **Trial 2 â€” The Ritual Circle** (south of Encampment): Activate five elemental stones in correct order â€” Earth â†’ Air â†’ Fire â†’ Water â†’ Heart. Clue: `LOOK AT BANNER` in the Encampment reveals the first four. Heart stone is always last. Resets on wrong order.
+4. **Trial 3 â€” The Drinking Challenge** (The Fire Pit, west): Best of five rounds of Thornbrew drinking against Aylora â€” strength-based challenge rolls. Warriors get a class bonus. Player wins when Aylora passes out; drag her back to the Encampment to trigger Ivanaar's reaction.
+   - **Player loses:** Wakes in the Encampment two turns later. Retryable.
+5. Ivanaar awards the runed metal after witnessing Aylora returned.
+
+**Reward:** Runed metal (quest item â€” taken to Pyronicus to forge the Pale Blade, Brotherhood of the Pale Blade ring ritual artifact). 12 XP. Archery Range arrow hazard silently disabled. Quest 55 (The Archer's Trial) becomes available.
+
+---
 
