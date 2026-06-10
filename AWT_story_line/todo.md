@@ -7,7 +7,6 @@ Consolidated from all source files. Update this file when items are resolved; re
 ## Combat & Mechanics
 
 - [ ] **Werewolf combat mechanic** — attack cadence, player options each turn. BLOCKED on combat system design. (`locations.md`, `ring-rituals.md`, `mechanics.md`)
-- [x] **Carry weight system** — Bridge limit set to 12. Weight scale 1–5 (gravestone 10). All items assigned. (`mechanics.md`, `items.md`)
 - [ ] **2–3 quests requiring ring invisibility** — Chuckle House confirmed; need 1–2 more. (`mechanics.md`)
 - [ ] **Full verb list and synonym handling policy** — design pass needed. (`mechanics.md`)
 - [ ] **Trap detection → disarm flow** — needs consistent mechanic: does a successful perception check auto-attempt disarm, or does the player need to act intentionally? Leaning toward intentional (player must `DISARM TRAP` or equivalent verb after spotting it). (`mechanics.md`, `traps.md`)
@@ -40,7 +39,6 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## Items
 
-- [x] **Item weight values** — all items assigned weights in `items.md`. Scale documented in `mechanics.md`.
 - [ ] **Armor items** — design items for head, chest, legs, hands slots. (`gameplay design.md`)
 
 ---
