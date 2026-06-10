@@ -44,7 +44,7 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [ ] **Quest Board cascade** — design full cascade: which quests unlock new postings and in what order. (`quests.md`)
 - [ ] **2–3 additional chests** — locations and contents TBD. (`mechanics.md`)
 - [ ] **Desert Island buried chest** — TBD quest item alongside 30 Zenni. (`locations.md`, `gameplay design.md`)
-- [ ] **Treasure case prices** — Will's Wizard Tower; prices for treasure items TBD. (`mechanics.md`, `gameplay design.md`)
+- [ ] **Treasure item points** — assign point values for all Trophy Case items. (`items.md`)
 - [ ] **Alternate light sources for mine heist** — harder to obtain than mine torch; add to Shamus's stock once designed. (`gameplay design.md`)
 - [ ] **Opening Roundabout experience** — May's first interaction, Quest Board introduction, tutorial moment. (`gameplay design.md`)
 
@@ -53,10 +53,6 @@ Consolidated from all source files. Update this file when items are resolved; re
 ## Items
 
 - [ ] **Item weight values** — all items need weights for Rickety Bridge carry limit. (`items.md`, `mechanics.md`)
-- [ ] **Ship-in-a-Bottle sell price** — treasure item; TBD. (`items.md`)
-- [ ] **Gold Pocket Watch sell price** — treasure item; TBD. (`items.md`)
-- [ ] **Gold Nugget sell price** — treasure item; TBD. (`items.md`)
-- [ ] **Pie Rat Coin sell price** — purpose confirmed (Trophy Case treasure); sell price TBD. (`items.md`)
 - [ ] **Armor items** — design items for head, chest, legs, hands slots. (`gameplay design.md`)
 
 ---

@@ -283,7 +283,7 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 **Location:** Dropped by ghost in Ghost's Room, Chuckle House (after `CAST UNBIND UNDEAD`)
 **Quest use:** Quest 17 — deliver to Records Room Worker → receives town charter in thanks.
 
-Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevice (mid-tier dungeon) — treasure item, sellable, **missable** (The Crevice is permanently inaccessible after the Stored Room collapses).
+Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevice (mid-tier dungeon) — Trophy Case treasure item, **missable** (The Crevice is permanently inaccessible after the Stored Room collapses).
 
 ---
 
@@ -449,15 +449,14 @@ Brotherhood weave, old but not worn. The runes along the hem and collar are fain
 
 All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 
-| Item | Location | Value | Notes |
-|------|----------|-------|-------|
-| **Diamond Brooch** | Magnetic Vault, Dungeon Mid-Tier | Highest? | Second most valuable treasure in game |
-| **Chachapoyan Fertility Idol** | Idol Room, Dungeon Upper Tier | High | Safe swap required (sack of salt) |
-| **Funeral Mask of Hammered Gold** | Burial Chamber, Dungeon Lower Tier | High | Spirits do not react to taking it |
-| **The Forgotten Blade** | Quest 34 Fountain Room, Dungeon Lower Tier | High | Not a combat weapon; ceremonial only |
-| **Golden Dragon Scale** | Reward from returning dragon-nip to Will | High | Dragon-nip hidden under nightstand in Will's Bedroom |
-| **Ship-in-a-Bottle** | Roundabout Pond (fishing rod + challenge roll) | TBD | Treasure item; May's hints imply Kevry connection |
+| Item | Location | Points | Notes |
+|------|----------|--------|-------|
+| **Diamond Brooch** | Magnetic Vault, Dungeon Mid-Tier | TBD | Second most valuable treasure in game |
+| **Chachapoyan Fertility Idol** | Idol Room, Dungeon Upper Tier | TBD | Safe swap required (sack of salt) |
+| **Funeral Mask of Hammered Gold** | Burial Chamber, Dungeon Lower Tier | TBD | Spirits do not react to taking it |
+| **The Forgotten Blade** | Quest 34 Fountain Room, Dungeon Lower Tier | TBD | Not a combat weapon; ceremonial only |
+| **Golden Dragon Scale** | Reward from returning dragon-nip to Will | TBD | Dragon-nip hidden under nightstand in Will's Bedroom |
+| **Ship-in-a-Bottle** | Roundabout Pond (fishing rod + challenge roll) | TBD | May's hints imply Kevry connection |
 | **Gold Pocket Watch** | The Crevice, Dungeon Mid-Tier | TBD | **Missable** — permanently inaccessible after Stored Room collapses |
 | **Gold Nugget** | Supply Cache, Dungeon Mid-Tier Trap Side | TBD | Buried in rubble |
-| **Pie Rat Coin** | Flipped by a Pie Rat after returning the stolen ship | TBD sell price | Unusual currency; pirate provenance; Trophy Case treasure item |
-| Prices for items in Will's Wizard Tower treasure case | TBD | — | Design pass needed |
+| **Pie Rat Coin** | Flipped by a Pie Rat after returning the stolen ship | TBD | Unusual currency; pirate provenance |

@@ -54,7 +54,6 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 - Desert Island buried chest: 30 Zenni
 - Additional chests: 2–3 elsewhere (TBD)
 - Vendor buyback: half price, own items only; no buyback for treasure
-- Treasure case (Will's Tower): prices TBD
 - Quest rewards: TBD per quest
 
 ---
@@ -612,7 +611,7 @@ Multi-step quest chain that grants access to the Pie Rat Ship.
 6. Exit mine before explosion. Failure = death/fail state.
 7. Explosion — cave-in seals main mine entrance permanently.
 8. Steal the ship while Pie Rats respond to explosion.
-9. Return the ship — Pie Rats angry but grudgingly impressed. One Pie Rat flips player a Pie Rat Coin (Trophy Case treasure item; sell price TBD).
+9. Return the ship — Pie Rats angry but grudgingly impressed. One Pie Rat flips player a Pie Rat Coin (Trophy Case treasure item).
 
 **Notes:**
 - Hidden secondary mine entrance remains open after cave-in.

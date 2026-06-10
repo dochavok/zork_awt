@@ -631,7 +631,7 @@ One `DIG` (shovel required) collapses floor permanently → Hole to Below; spur 
 
 #### The Crevice
 **XP: 1**
-Dead-end spur east of Stored Room. A skeleton is wedged in a narrow crack — tried to squeeze through and failed. Gold pocket watch hangs from one outstretched finger. `TAKE WATCH` (treasure, sellable). Permanently inaccessible after Stored Room collapses — **missable**.
+Dead-end spur east of Stored Room. A skeleton is wedged in a narrow crack — tried to squeeze through and failed. Gold pocket watch hangs from one outstretched finger. `TAKE WATCH` (Trophy Case treasure). Permanently inaccessible after Stored Room collapses — **missable**.
 
 #### Inscription Chamber
 **XP: 1**
