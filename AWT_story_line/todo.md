@@ -71,7 +71,7 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## Housekeeping
 
-- [ ] **Encoding cleanup** — all source files contain `â€"` artifacts (UTF-8 em-dashes rendered incorrectly). Do a find-and-replace pass across all `.md` files in `AWT_story_line\` to replace `â€"` with `—`. Low priority but affects readability.
+- [x] **Encoding cleanup** — complete. All `””` and `â€”` artifacts replaced with `—` across all `.md` files.
 
 ---
 
@@ -99,4 +99,4 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [x] Chuckle House Entrance — designed and written to `locations.md`
 - [x] Graveyard — pre/post-bonk descriptions written to `locations.md`
 - [x] Dankhaus rooms (all 7) — descriptions written to `locations.md`
-- [x] Kevry's Island room descriptions — exist in `gameplay design.md`; migrate to `locations.md` pending content migration pass
+- [x] Kevry's Island room descriptions — all 4 rooms written to `locations.md`

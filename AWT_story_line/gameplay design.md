@@ -10,8 +10,8 @@ A Zork-style text adventure RPG. The player explores a rich world, uncovers hidd
 
 **Planned Versions:**
 
-- *One Ring* â€” This document. Centers on the corruption ring quest.
-- *Two Towers* â€” Potential sequel, TBD.
+- *One Ring* — This document. Centers on the corruption ring quest.
+- *Two Towers* — Potential sequel, TBD.
 
 -----
 
@@ -25,7 +25,7 @@ Players choose one of three classes at the start of the game. Class affects star
 |Mage   |4              |Spell casting |Perception checks              |
 |Rogue  |5              |Bow use       |Perception & trap disarm checks|
 
-Each class can acquire the other classesâ€™ skills through quests and trainers (see Skill Progression).
+Each class can acquire the other classes’ skills through quests and trainers (see Skill Progression).
 
 -----
 
