@@ -10,28 +10,23 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [ ] **Carry weight system** — Rickety Bridge has a weight limit; exact limit TBD. All items need weight values assigned. (`locations.md`, `mechanics.md`)
 - [ ] **2–3 quests requiring ring invisibility** — Chuckle House confirmed; need 1–2 more. (`mechanics.md`)
 - [ ] **Full verb list and synonym handling policy** — design pass needed. (`mechanics.md`)
+- [ ] **Trap detection → disarm flow** — needs consistent mechanic: does a successful perception check auto-attempt disarm, or does the player need to act intentionally? Leaning toward intentional (player must `DISARM TRAP` or equivalent verb after spotting it). (`mechanics.md`, `traps.md`)
 ---
 
 ## Locations
 
-- [x] **Tower (Rowan Finch dialogue)** — Trophy Case room description, verb spec, and Rowan's tangential mention written. (`locations.md`, `npcs.md`, `mechanics.md`)
-- [x] **Guest Rooms 1, 2, 3** — empty rooms; randomly assigned on rest; wake-up descriptions written. (`locations.md`)
-- [x] **Pie Rat Ship Deck** — collapsed to single room; description, boarding mechanic, shovel placement, sailing verbs written. (`locations.md`, `items.md`, `mechanics.md`)
-- [x] **Pie Rats Mining Inc. sealed section** — no meaningful sealed section after cave-in; pickaxe placed in Main Shaft. (`locations.md`, `items.md`)
-- [ ] **Dankhaus magical wards** — design pass needed. Five candidates: (1) Litlock's invitation (2) ward token (3) spell/scroll (4) reputation threshold (5) ring invisibility at corruption cost. (`locations.md`, `gameplay design.md`)
-- [ ] **Secret Tunnels — Graveyard Crypt connection** — direction/layout TBD. (`locations.md`)
-- [ ] **Graveyard denizens** — who or what inhabits the graveyard; dedicated design pass needed. (`locations.md`)
-- [ ] **Ty's Casino Corner** — Cargo game mechanic design needed. (`locations.md`, `mechanics.md`)
-- [ ] **Town room descriptions pass** — rooms with no flavor text: Main West, Roundabout Town Square, Council Chamber, Records Room, Upper Hall. (`locations.md`)
-- [ ] **Secret Tunnels room descriptions** — six rooms with no flavor text: The Junction, Undercroft, Forgotten Shaft, Bone Passage, Charnel Walk, Toll Bridge, Dungeon Entrance. (`locations.md`)
-- [ ] **Dungeon room descriptions pass** — upper and mid tier rooms with no flavor text: Ink Corridor, Supply Room, Narrow Passageway, Idol Room, Storage Area, Collapsed Gallery, Shrine Room, Rickety Bridge, Key Door Landing, Mine Passage, Inscription Chamber, Echo Alcove, Magnetic Vault, Deep Lock Door, Trap Side Entry, Flood Sump. (`locations.md`)
+- [ ] **Dankhaus ward — ring invisibility bypass** — leaning no; revisit if more ring corruption moments are needed. (`locations.md`, `mechanics.md`)
+- [x] **Secret Tunnels — Graveyard Crypt connection** — west from Junction via Bone Passage → Charnel Walk → Crypt (north/south symmetrical). (`locations.md`)
+- [x] **Ty's Casino Corner** — Cargo mechanic written to `mechanics.md`; Ty NPC entry in `npcs.md`. Player sets wager, Ty matches, 30 Zenni bankroll cap, no lockout timer.
+- [x] **Town room descriptions pass** — Main West, Roundabout Town Square (4 states: fountain × statue), Council Chamber, Records Room, Upper Hall. All written to `locations.md`.
+- [x] **Secret Tunnels room descriptions** — all seven rooms written to `locations.md`. Toll Bridge has three states (Boggart present, gone/strongbox present, strongbox looted).
+- [x] **Dungeon room descriptions pass** — all sixteen rooms written to `locations.md`. Trap Side Entry renamed to The Spillway across all files.
 
 ---
 
 ## NPCs
 
-- [x] **Rowan Finch** — first interaction and Trophy Case mention written. (`npcs.md`)
-- [ ] **Lynds** — reaction when player loses arm wrestle TBD. (`npcs.md`)
+- [x] **Lynds** — Quest 59 written; win, loss, and subsequent challenge dialogue all in `npcs.md` and `quests.md`.
 - [ ] **Player name use** — review all NPC dialogue and flag where name use is appropriate as familiarity grows. Priority: May, Shamus, Raznak, Redcrosse Knight, Vikings. Others TBD. (`npcs.md`)
 
 ---

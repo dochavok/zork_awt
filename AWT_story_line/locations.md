@@ -46,9 +46,21 @@ Hidden room inside the tower. **Discovery:** Silent Easy perception check fires 
 **XP: 1**
 Western end of Main Street. Library to the north. Archery Range further west. Southeast leads to The Alley.
 
+**Room description:** *Main Street narrows toward the west end, the buildings pulling back slightly as if making room for something that never arrived. The library stands to the north, solid and unhurried. The road continues west toward the archery range. To the southeast, a gap between buildings leads into the alley.*
+
 ### Roundabout Town Square
 **XP: 1**
 Center of town. Town Hall to the north. Tavern to the south. Southwest leads to The Alley. Contains a **fountain** — dry until Quest 22 (The Ruined Aqueduct) is completed. Once flowing, fountain water is required for Quest 49 (The Ruined Shrine) clay adhesive.
+
+**Room description (default — fountain dry, statue unexamined):** *The square is the kind of place a town organizes itself around without quite deciding to. Cobblestones, worn smooth at the center. The Town Hall anchors the north end with the authority of a building that has never doubted its own importance. The tavern faces it from the south, which seems about right. A fountain stands in the middle — dry, the basin cracked at one edge, the stonework patient in the way of things that have been waiting a long time. A stone statue stands to one side — a civic figure of some kind, the plaque below it worn to illegibility.*
+
+**Room description (fountain dry, statue examined — seam visible):** *...A stone statue stands to one side. The plaque below it is worn to illegibility, but the base has a seam around it — visible now that you're looking. Something with leverage could open it.*
+
+**Room description (fountain dry, statue looted):** *...The statue stands to one side, its base pried open and empty. Whatever was inside is gone.*
+
+**Room description (fountain flowing — Quest 22 complete):** *The fountain has been running long enough now that people have stopped remarking on it. The square sounds different with water in it.* (Statue state as above — independent.)
+
+**Statue states are independent of fountain state — combine as appropriate.**
 
 ### Main East
 **XP: 1**
@@ -84,13 +96,19 @@ Ground floor entry. Grand foyer. Stairs lead up to the Upper Hall. Council Chamb
 **XP: 1**
 Ground floor, off the Main Entrance. Where town business is conducted. **Councilman Rowan Finch** is found here — grandson of Calder Finch, a noted dungeon explorer. Quest 32 giver. Rewards the player with Calder's Middle Tier Key upon quest completion.
 
+**Room description:** *The room where Roundabout conducts its official business, which is to say the room where Roundabout sits in chairs and argues. A long table dominates the center — solid oak, scarred from use. The chairs around it are mismatched in the way of things that have been replaced one at a time over many years. A man sits at the far end with the bearing of someone who has inherited both the title and the table.*
+
 ### Records Room
 **XP: 1**
 Ground floor, off the Main Entrance. Dusty and bureaucratic. Contains the **town charter** — required for Quest 27. The Records Room Worker initially refuses to hand over the charter. After the player returns the pocket watch (from the Chuckle House ghost quest), he gives up the charter as thanks — the watch belonged to his family. Charter is a quest item.
 
+**Room description:** *Floor-to-ceiling shelves on every wall, packed with ledgers and rolled documents in an order that apparently makes sense to someone. The room smells of old paper and the particular dust of things that have not been touched in years. A clerk sits at a desk near the window, surrounded by more of the same. He looks up when you enter with the expression of a man who was hoping you wouldn't.*
+
 ### Upper Hall
 **XP: 1**
 Second floor, top of the stairs. Connects to the Tower. Contains a display cabinet of old town documents and civic artifacts — unlocked, accessible from the start. `OPEN CABINET` reveals contents. The **wax seal** (Quest 4) is inside — `TAKE SEAL` picks it up. No perception check required.
+
+**Room description:** *The second floor is quieter than the ground floor in the way that second floors always are — the noise of official business doesn't quite reach here. A long hall with a runner of carpet gone thin at the center. A display cabinet stands against the wall, unlocked, glass-fronted, holding an assortment of old civic documents and artifacts. The kind of things a town keeps because no one has decided to throw them away.*
 
 ### The Tower
 **XP: 1**
@@ -129,7 +147,7 @@ Where drinks are ordered; food & drink purchases happen here (1 heart, 2 Zenni; 
 
 ### Ty's Casino Corner
 **XP: 1**
-Gambling area inside the tavern. Cargo game (Ship, Captain, Crew dice game). Zenni stakes TBD.
+Gambling area inside the tavern. Cargo game (Ship, Captain, Crew dice game). Player sets wager per round; Ty matches. Ty's bankroll: 30 Zenni. Full mechanic in `mechanics.md`.
 
 **Connections:** Southeast → Main Room.
 
@@ -430,7 +448,7 @@ Four rooms arranged in a 2×2 grid. Players may move diagonally between rooms. A
 
 ### The Dankhaus
 **XP: 1 per room**
-Three-bedroom home hidden in the bog behind dense brush. Perception check required to find it (Bog-SE). Litlock's residence; also houses Lynds and Aurix the Kobold child. Appears as a yurt from outside. Magical wards bar unwanted entry — design pass needed.
+Three-bedroom home hidden in the bog behind dense brush. Perception check required to find it (Bog-SE). Litlock's residence; also houses Lynds and Aurix the Kobold child. Appears as a yurt from outside. Magical wards bar uninvited entry — cleared by flag set when player beats Lynds at arm wrestling (Lynds's invitation). Ward deflection (no invitation): *Something in the air near the door shifts as you approach. Not hostile. More like a house that knows you haven't been introduced yet.*
 
 - **Common Room:** Entry and gathering space. Large fireplace. **XP: 3** (perception-gated discovery bonus). *Litlock fills whatever room he's in without trying to. The common room is large enough, and he's in it — near the fireplace, which is also large, and burning steadily. Chairs, a table, shelves. The kind of room that works because the people in it make it work. He looks up.*
 - **Kitchen:** *A working kitchen — herbs drying overhead, something on the fire, the garden accessible through the east door. It smells like it has always smelled like this.*
@@ -603,13 +621,37 @@ Kevry is found here. Enchants the Enchanted Glasses if already equipped in the h
 **XP: 1 per room**
 Underground pre-dungeon level connecting the Tavern Cellar, the mine, the Graveyard Crypt, and the Dungeon Entrance.
 
-- **The Junction:** First room off the Tavern Cellar. Hub — branches toward mine (east), Graveyard Crypt (west/TBD), and deeper toward dungeon.
+- **The Junction:** First room off the Tavern Cellar. Hub — branches toward mine (east), Graveyard Crypt (west via Bone Passage and Charnel Walk), and deeper toward dungeon.
+
+  *The tunnel opens up here — not much, but enough to feel like a decision point. Rough stone walls, a ceiling low enough to notice. Passages branch in three directions. The one behind you leads back up to the cellar. The air is damp and smells of old earth and something faintly mineral. Down here, sound doesn't carry the way it should.*
+
 - **The Undercroft:** Wide rough-hewn passage on the mine branch.
+
+  *A wide passage, rough-hewn and unfinished, the kind of digging done in a hurry by people who knew where they were going. The walls are close enough that two people could pass but would have to mean it. The floor is uneven underfoot. The air is heavier here, deeper-smelling.*
+
 - **The Forgotten Shaft:** Narrowing abandoned passage. Connects to the Hidden Secondary Entrance on the mine side.
+
+  *The passage narrows as it goes — not dangerously, but noticeably. The stonework changes here, older and less deliberate, as if this part of the tunnel predates whoever dug the rest. The far wall has a gap in it that doesn't look entirely accidental.*
+
 - **The Bone Passage:** Crypt branch off the Junction. Older stonework.
+
+  *The stonework here is older than the rest of the tunnels — rougher cut, the joints wider, the walls slightly damp to the touch. The passage runs west. Whatever built this part didn't build it at the same time as the rest. The name feels earned.*
+
 - **The Charnel Walk:** Final room before Graveyard Crypt entrance.
+
+  *The passage ends at a low arch ahead — beyond it, the crypt. The air is colder here, noticeably so, as if the temperature has been coming down gradually and this is where it arrives. The walls are older stone, darker with moisture. The silence has a different quality than the tunnels behind you.*
+
 - **The Toll Bridge:** Deep in the Secret Tunnels. A small bridge over an underground ravine — only route to the Dungeon Entrance. A **Boggart** has claimed squatter's rights and charges an extortionate toll. Perception check reveals faded official seal — public property — triggering Quest 27 discovery and unlocking May's hint. `GIVE CHARTER TO BOGGART` forces him out; drops strongbox (strength check to open, several turns' worth of Zenni). Bridge permanently free after. (Quest 27)
+
+  **Room description (Boggart present):** *A narrow stone bridge spans a ravine in the tunnel floor — the drop below is deep enough that the bottom isn't visible. The bridge looks solid. A small, dense figure has planted itself at the center of it with the unmistakable air of someone who intends to stay. He eyes you with the satisfaction of a man whose position has never once been successfully argued with.*
+
+  **Room description (Boggart gone, strongbox present):** *The bridge is empty now. The strongbox sits where he was.*
+
+  **Room description (strongbox opened/looted):** *The bridge is empty. The open strongbox sits where he was, lid thrown back.*
+
 - **Dungeon Entrance:** Beyond the Toll Bridge. Threshold between Secret Tunnels and Dungeon Upper Tier. Connects south into the Ink Corridor.
+
+  *The tunnel ends at a threshold — stone floor, stone walls, a passage leading south into darkness. Whatever is ahead doesn't announce itself. The air is different here: stiller, older, with a quality that suggests the dark ahead has been dark for a very long time. This is the end of the tunnels. The dungeon begins.*
 
 ---
 
@@ -625,25 +667,45 @@ Underground pre-dungeon level connecting the Tavern Cellar, the mine, the Gravey
 **XP: 1**
 First room past the Dungeon Entrance. A thin cord stretched at chest height carries an ink bladder — triggering it douses the player in ink (negates invisibility). No warning; cord invisible until hit. Splits west to Supply Room, east to Storage Area. (Trap 45)
 
+**Room description (default):** *The corridor is narrow and plain — bare stone, low ceiling, torch brackets empty. It feels like an entrance to something, which it is. The passage splits ahead, west and east.*
+
+**Room description (perception check passed):** *The corridor is narrow and plain — bare stone, low ceiling, torch brackets empty. It feels like an entrance to something, which it is. The passage splits ahead, west and east. A thin cord stretches across the passage at chest height — easy to miss. Something is attached to it.*
+
 ### Supply Room
 **XP: 1**
 West branch off Ink Corridor. Shelves of old stores. Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility Idol"), mortar compound (Quest 18/22), portcullis bar (Quest 19), smoke jar (Quest 24 — guarded by Trap 17). **Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar and small clay pot (Quest 40) visible in wreckage either way. Perception spots the unstable arrangement. The small clay pot is the one intact pot that survives the collapse. Must be reached before Idol Room — sack of salt required for safe idol swap.
+
+**Room description (default):** *A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned. The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath.*
+
+**Room description (perception check passed):** *A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned. The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath. One of the shelves near the entrance has a trip mechanism built into the floor in front of it — barely visible. Whatever it triggers, it isn't subtle.*
 
 ### Narrow Passageway
 **XP: 1**
 Short connecting passage between Supply Room and Idol Room. Enforces item-first ordering.
 
+**Room description:** *A short passage, plain stone, lower-ceilinged than the corridor behind you. It goes south and ends at a doorway. The kind of passage that exists to connect two places and has no opinion about either of them.*
+
 ### Idol Room
 **XP: 1**
 South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a pressure-sensitive pedestal. Removing without replacing with equal weight slams a stone door — no exit without crowbar (`PRY DOOR`, strength check). Safe swap: `SWAP IDOL WITH SALT` with sack of salt. Idol is treasure. Connects south to Combat Room. (Trap 33)
+
+**Room description (default):** *The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level. At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake.*
+
+**Room description (perception check passed):** *The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level. At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake. The pedestal has a pressure plate built into its surface — the figurine's weight is the only thing keeping it inactive.*
 
 ### Storage Area
 **XP: 1**
 East branch off Ink Corridor. Wide chamber. Contains: hand cart (Quest 32), support beam (Quest 38). No passage deeper — only forward via Quest 38 shortcut once cleared.
 
+**Room description:** *A wide chamber, larger than expected — the dungeon opens up here before closing back down. The walls are rough, the floor uneven. Equipment has been left here: a hand cart against one wall, a heavy support beam laid across the floor. The east wall is solid. The south passage is blocked.*
+
 ### Collapsed Gallery
 **XP: 1**
 South of Storage Area. Timbers wedged across it blocking a secondary exit (Quest 38). Pickaxe from mine required; three strength checks clear the timbers; propping with support beam makes shortcut permanent. **Exit opens into the Rickety Bridge** — bypasses everything above Shrine Room.
+
+**Room description (blocked):** *The passage runs south but doesn't get far. Heavy timbers have come down across it — not from collapse exactly, more like someone wedged them there deliberately. The wood is old but solid. Beyond them, darkness.*
+
+**Room description (cleared):** *The passage runs south, clear now. The timbers that blocked it are gone, the support beam holding the way open. The shortcut saves time — significant time.*
 
 ### Creature Den
 **XP: 1**
@@ -672,9 +734,17 @@ South of Prayer Alcove. A metal portcullis blocks the corridor, carrying an arca
 **XP: 1**
 South of Portcullis Corridor. A small carved stone room, older than surrounding dungeon stonework. Contains one of three Verdant Circle shrine bowl pieces (Quest 49) — visible on a perception check. Connects south into the Rickety Bridge.
 
+**Room description (default):** *The room is older than the dungeon around it — the stonework finer, the walls carved rather than cut. Someone built this with intention. A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time.*
+
+**Room description (perception check passed):** *The room is older than the dungeon around it — the stonework finer, the walls carved rather than cut. Someone built this with intention. A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time. Something catches your eye near the base of the plinth — a curved fragment, stone, fitting the bowl's edge exactly.*
+
 ### Rickety Bridge
 **XP: 1**
-Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 shortcut exits here from the west. **Weight mechanic:** Carry weight limit (exact TBD). If inventory exceeds limit, bridge groans and player is turned back. Must drop items, cross, return for them. Always crossable at or under limit.
+Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 shortcut exits here from the west. **Weight mechanic:** Carry weight limit (exact TBD). If inventory exceeds limit, bridge groans and movement south is blocked — player cannot proceed until carry weight is at or under limit. Must drop items on this side, cross, then return for them. Always crossable at or under limit.
+
+**Room description (default):** *A narrow stone bridge over a gap in the dungeon floor. The bridge is old — the stones have shifted slightly in their mortar, the edges worn. It looks crossable. It probably is. The far side leads south to a heavy iron door.*
+
+**Room description (over weight limit):** *The bridge groans under your load — a deep, unhappy sound from somewhere in the stone. It isn't going to hold. You'll need to lighten what you're carrying.*
 
 ### Mid-Tier Key Door
 **XP: 1**
@@ -692,9 +762,15 @@ South end of Rickety Bridge. Heavy iron door. *The door is iron, set deep into t
 **XP: 1**
 Base of the key door staircase. Rough-cut cave room. Connects south to Mine Passage.
 
+**Room description:** *The staircase deposits you in a rough cave at the bottom — low ceiling, unworked stone, the kind of room that exists because something had to be at the bottom of the stairs. The air is cooler here, damper. The passage continues south.*
+
 #### Mine Passage
 **XP: 1**
 Worked cave section, old support timbers and rusting tools. Contains: charcoal (Quest 28, no perception check); silver dust (Quest 4, perception check); large iron chest bolted to floor — lockpick-only (Back Alley mugger's lockpicks), contains 20 Zenni. Connects south to Stored Room.
+
+**Room description (default):** *A worked section of cave — support timbers at intervals, rusting tools left where they were dropped. The smell of old rock dust is thick here. Someone mined this passage, or used it as a route through to something being mined. A large iron chest is bolted to the floor against one wall.*
+
+**Room description (perception check passed):** *A worked section of cave — support timbers at intervals, rusting tools left where they were dropped. The smell of old rock dust is thick here. Someone mined this passage, or used it as a route through to something being mined. A large iron chest is bolted to the floor against one wall. A faint shimmer near the base of one timber catches your eye — silver dust, settled into a crack in the stone.*
 
 #### Stored Room
 **XP: 1**
@@ -714,6 +790,14 @@ Dead-end spur east of Stored Room. A skeleton is wedged in a narrow crack — tr
 **XP: 1**
 Ancient inscription on cave wall (Quest 28: `RUB PAPER ON ENGRAVING` with thin paper + charcoal). Rune stone (Quest 42, perception check). Crawlspace in east wall leads to Cave Creature's Lair — revealed by Trap 8 (Rope Snare) trigger or perception check.
 
+**Room description (default):** *A cave room, wider than the passage leading to it. One wall has been worked — smoothed and carved with an inscription, old enough that the edges have softened. The other walls are natural stone, unmodified.*
+
+**Room description (rune stone found):** *...A small pale stone near the base of the carved wall catches your eye — etched with faint lines.*
+
+**Room description (crawlspace found):** *...A low gap in the east wall, partly shadowed — easy to miss. It goes back further than it looks.*
+
+Both perception checks are independent — either, both, or neither may fire on a given visit.*
+
 #### Cave Creature's Lair
 **XP: 2**
 Accessed via crawlspace off Inscription Chamber. Creature absent, never encountered. Bone flute on floor (Quest 7).
@@ -726,15 +810,25 @@ Listening station. One-way acoustic connection to the Antechamber in the lower t
 **XP: 1**
 Heavily magnetic room. Trap 15 (Magnetic Chest) on central chest — opening without disarming yanks all metal items to the chest. Perception reveals metallic filings in ring around latch; disarm removes lodestone from lid. Diamond brooch inside (second most valuable treasure in game).
 
+**Room description (default):** *A square room, stone walls, a single chest at the center on a low stone platform. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn. A nail in the wall points toward it. Dust has settled in a faint ring around the latch.*
+
+**Room description (perception check passed):** *A square room, stone walls, a single chest at the center on a low stone platform. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn. A nail in the wall points toward it. The ring of metallic filings around the latch is deliberate — a lodestone is built into the lid. Opening the chest without removing it first would be a problem.*
+
 #### Deep Lock Door
 **XP: 1**
 End of key side critical path. Permanently sealed — no key, no lockpicks, dead end. Lower tier reached only via Hole to Below.
 
+**Room description:** *The passage ends at a door set deep into the stone. It is sealed absolutely — no lock visible, no handle, no gap at the frame. Whatever mechanism holds it closed is on the other side, or nowhere. This door does not open. The passage ends here.*
+
 ### Trap Side (5 rooms — entered via Flooding Room sweep only)
 
-#### Trap Side Entry
+#### The Spillway
 **XP: 2**
 Wet, low-ceilinged chamber at base of sluice. One-way drop from upper tier. No exits except south.
+
+**Room description:** *The sluice deposits you here — wet stone, low ceiling, the sound of water draining somewhere below. The chamber is small and close. There's no way back up. The passage continues south.*
+
+
 
 #### Dream Corridor
 **XP: 2**
@@ -751,6 +845,8 @@ Partially collapsed side room. Contains a **gold nugget** — buried in rubble, 
 #### Flood Sump
 **XP: 2**
 Lowest point on trap side. Shallow pool. No confirmed items.
+
+**Room description:** *The passage ends here in a low chamber, the floor wet — a shallow pool covers most of it, fed by seepage through the walls. The water is still and dark. The ceiling is close. This is the lowest point down here, and it feels like it.*
 
 ---
 

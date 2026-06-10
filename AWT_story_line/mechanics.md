@@ -452,7 +452,7 @@ White House, Will's Wizard Tower (Main Room), Will's Bedroom, Main West, Town Sq
 Ink Corridor, Supply Room, Narrow Passageway, Idol Room, Storage Area, Collapsed Gallery, Creature Den, Combat Room, Prayer Alcove, Portcullis Corridor, Shrine Room, Mid-Tier Key Door
 
 *Dungeon — Mid Tier:*
-Key Door Landing, Stored Room, Inscription Chamber, Cave Creature's Lair, Echo Alcove, Magnetic Vault, Deep Lock Door, Trap Side Entry and Trap Side rooms (5)
+Key Door Landing, Stored Room, Inscription Chamber, Cave Creature's Lair, Echo Alcove, Magnetic Vault, Deep Lock Door, The Spillway and Trap Side rooms (5)
 
 *Dungeon — Lower Tier:*
 Lower Crypt, The Encampment, Thermal Vent Room, The Junction, The Narrow Pass, The Still Den, Tool Alcove, Quest 34 Mid Room, Quest 34 Fountain Room, Spirit Room, Burial Chamber
@@ -494,7 +494,7 @@ Beam exposed by collapse. `TIE ROPE TO BEAM` (rope from Docks, one item in world
 
 ### The Dream Corridor
 
-Liminal branching passage between Trap Side Entry and Lost Apprentice's Cell (mid-tier trap side). Player does not know they are in a dream until they successfully pass through. On failure, room resets and replays — identical every time. No damage, no cost. Just the loop.
+Liminal branching passage between The Spillway and Lost Apprentice's Cell (mid-tier trap side). Player does not know they are in a dream until they successfully pass through. On failure, room resets and replays — identical every time. No damage, no cost. Just the loop.
 
 **Structure:** 2×3×2 — three levels of decision yielding 12 outcomes. 6 successes, 6 failures.
 
@@ -627,6 +627,54 @@ Guardian's Lantern (dropped by The Warden, upper tier) flickers everywhere in th
 - Passage forward (south) opens.
 
 `TURN ON LANTERN` or `LIGHT LANTERN` both work.
+
+---
+
+### Ty's Casino Corner — Cargo (Ship, Captain, and Crew)
+
+Dice minigame in the northwest corner of the Tale and Ale. Ty runs the game. One round per session; player antes Zenni to play.
+
+**The goal:** Lock in a 6 (Ship), 5 (Captain), and 4 (Crew) in that exact order across up to 3 rolls, then score the highest possible total on the remaining two dice (the Cargo). Highest Cargo wins the round.
+
+**Locking rules:**
+- Only one die fills each slot — one 6, one 5, one 4, in sequence.
+- A 5 cannot lock without a 6 already locked. A 4 cannot lock without a 6 and 5 locked.
+- Extra 6s or 5s rolled before their slot is needed are rerollable — they do not lock automatically.
+- Multiple sequence dice can lock in a single roll (e.g. rolling 6 and 5 on Roll 1 locks both).
+- All locking is automatic — the player never decides which sequence dice to keep.
+
+**Turn sequence:**
+- Roll 1: Roll all 5 dice. Lock any sequence dice earned (6, then 5 if 6 is locked, then 4 if both are locked).
+- Roll 2: Roll all unlocked dice. Lock any further sequence dice earned.
+- Roll 3: Roll all unlocked dice. Lock any further sequence dice earned.
+- Failure to lock all three by end of Roll 3 = score of 0 for the round.
+
+**The Cargo decision:**
+- Once 6, 5, and 4 are all locked, the remaining two dice are the Cargo (score = sum, 2–12).
+- If rolls remain when the sequence is complete, the player may reroll both Cargo dice for a potentially higher score.
+- **The rerolled result must be kept, even if lower.** This is the only player decision in the game.
+
+**Ty's roll dialogue:**
+
+- *Roll 1 — locks all three immediately:* Ty looks at the dice for a moment without touching them. "Six, five, four." He sets three aside with two fingers, unhurried. "Cargo." He rolls the remaining two. He doesn't look surprised.
+- *Roll 1 — no 6, gets it on Roll 2:* The first roll comes up without a six. Ty considers the dice the way a man considers weather — not concerned, just noting it. He sweeps them up. The second roll produces the six. He sets it aside. "There it is." As if it were never in doubt.
+- *Roll 3 — fails to lock all three, scores zero:* The dice don't cooperate. Ty watches the last roll settle. No four. He looks at the table for a moment, then at you. "Happens." He gathers the dice. "Your turn."
+
+**Ty's score dialogue:**
+
+- *Cargo 1–6:* "Not much cargo on that ship." He records the score without ceremony.
+- *Cargo 7–12:* "Full load." A pause. "That'll be hard to beat."
+
+**Win/loss outcomes:**
+
+- *Player wins:* Ty looks at the scores. He slides the pot across without comment. "Well played."
+- *Player loses:* Ty looks at the scores. He pulls the pot in. "Better luck." He means it plainly — no gloating.
+
+**Stakes:** Player sets the wager each round; Ty matches it. No per-round cap. Ty has a fixed bankroll of 30 Zenni. No lockout timer; Ty is always available to play until cleaned out.
+
+- **Normal wager:** Ty matches without comment. Round proceeds.
+- **Wager exceeds Ty's remaining bankroll:** *"I can match [X]." He sets the Zenni on the table. "That's what I've got."* Round proceeds automatically at the reduced wager.
+- **Ty cleaned out:** *Ty doesn't say anything for a moment. He looks at the table, then at you, then back at the table. "You cleaned me out." A small nod, as if confirming something to himself. "I don't play on credit." He reaches for his drink and doesn't reach for the dice.* Game permanently unavailable for the rest of the playthrough.
 
 ---
 

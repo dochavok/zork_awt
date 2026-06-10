@@ -3,7 +3,7 @@
 Authoritative quest reference. All 50 quest slots with discovery trigger, steps, rewards, May's hint tiers, prerequisites, and cascade effects.
 Update this file immediately when any quest detail is designed or changed.
 
-**Quest numbering note:** Not all quest numbers are used. Numbers marked "Quest Removed From Game" were retired or removed during design and must not be reused. All retired ideas are archived in `unused_quest_ideas.md` (separate directory). Next available number: 58.
+**Quest numbering note:** Not all quest numbers are used. Numbers marked "Quest Removed From Game" were retired or removed during design and must not be reused. All retired ideas are archived in `unused_quest_ideas.md` (separate directory). Next available number: 60.
 
 ---
 
@@ -456,7 +456,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 **Prerequisites:** Access to trap side of mid-tier (via Flooding Room sweep — one-way). Shovel.
 
 **Steps:**
-1. Be swept through the Flooding Room (Trap 41) → land on Trap Side Entry (mid-tier).
+1. Be swept through the Flooding Room (Trap 41) → land on The Spillway (mid-tier).
 2. Navigate Dream Corridor → Lost Apprentice's Cell.
 3. Combat with afflicted apprentice — defeating him breaks the affliction.
 4. Apprentice comes around — disoriented, sad. Hole in cell floor is nearly through to surface.
@@ -534,30 +534,6 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 **Missability:** Fully missable. No hints anywhere. Bedroom requires lucky perception check. Kevry's island requires knowing to sail 69 squares east with glasses equipped.
 
 **Dragon-nip note:** Players who return to the bedroom with Actually Enchanted Glasses equipped will auto-succeed the dragon-nip perception check (normally effectively impossible). This is intentional — the glasses quest unlocks the dragon-nip quest for players thorough enough to find both.
-
----
-
-## Quest 58 — The Dragon-Nip
-
-**Discovery:** Organic only — silent perception check (Hard difficulty) fires on every visit to Will's Bedroom. On success: *"Something small glows faintly under the nightstand — easy to miss, impossible to unsee once noticed. A sprig of something, tucked against the baseboard as if it rolled there and was forgotten."* Players returning with Actually Enchanted Glasses equipped auto-succeed. No Quest Board posting. No May hints.
-**Prerequisites:** Access to Will's Bedroom (hidden door revealed via Quest 53 perception check).
-**Missability:** Extremely high. Hard perception check, no hints anywhere, no cascade from any other quest except the glasses connection.
-
-**Steps:**
-1. Pass perception check in Will's Bedroom (Hard; auto-pass with Actually Enchanted Glasses equipped).
-2. `TAKE DRAGON-NIP` or `TAKE SPRIG` — item added to inventory.
-3. Bring dragon-nip to Will Passion in the tower. `GIVE DRAGON-NIP TO WILL` or `SHOW DRAGON-NIP TO WILL`.
-4. Will takes it. Produces a Golden Dragon Scale. Quest complete.
-
-**Reward:** Golden Dragon Scale (Trophy Case treasure item). 15 XP.
-
-**Design notes:**
-- No Quest Board posting. Discovery is entirely organic.
-- Will's reaction dialogue: see `npcs.md` — quietly pleased, slightly embarrassed, says little.
-- The dragon-nip's existence is never explained. Will does not explain it. The scale is offered without elaboration.
-- Quest number placeholder — assign final number when quest list is finalized.
-
----
 
 ## Quest Board Cascade
 
@@ -647,4 +623,63 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 **Reward:** Runed metal (quest item — taken to Pyronicus to forge the Pale Blade, Brotherhood of the Pale Blade ring ritual artifact). 12 XP. Archery Range arrow hazard silently disabled. Quest 55 (The Archer's Trial) becomes available.
 
 ---
+
+## Quest 58 — The Dragon-Nip
+
+**Discovery:** Organic only — silent perception check (Hard difficulty) fires on every visit to Will's Bedroom. On success: *"Something small glows faintly under the nightstand — easy to miss, impossible to unsee once noticed. A sprig of something, tucked against the baseboard as if it rolled there and was forgotten."* Players returning with Actually Enchanted Glasses equipped auto-succeed. No Quest Board posting. No May hints.
+**Prerequisites:** Access to Will's Bedroom (hidden door revealed via Quest 53 perception check).
+**Missability:** Extremely high. Hard perception check, no hints anywhere, no cascade from any other quest except the glasses connection.
+
+**Steps:**
+1. Pass perception check in Will's Bedroom (Hard; auto-pass with Actually Enchanted Glasses equipped).
+2. `TAKE DRAGON-NIP` or `TAKE SPRIG` — item added to inventory.
+3. Bring dragon-nip to Will Passion in the tower. `GIVE DRAGON-NIP TO WILL` or `SHOW DRAGON-NIP TO WILL`.
+4. Will takes it. Produces a Golden Dragon Scale. Quest complete.
+
+**Reward:** Golden Dragon Scale (Trophy Case treasure item). 15 XP.
+
+**Design notes:**
+- No Quest Board posting. Discovery is entirely organic.
+- Will's reaction dialogue: see `npcs.md` — quietly pleased, slightly embarrassed, says little.
+- The dragon-nip's existence is never explained. Will does not explain it. The scale is offered without elaboration.
+
+---
+
+## Quest 59 — Beat Lynds
+
+**Discovery:** Organic — `TALK TO LYNDS` or `CHALLENGE LYNDS` in the Tale and Ale. No Quest Board posting. No May hints.
+**Prerequisites:** None. No level requirement. Retryable on loss.
+
+**Steps:**
+1. `TALK TO LYNDS` or `CHALLENGE LYNDS` in the Tale and Ale. Lynds greets the challenge without ceremony.
+
+   *Lynds looks at you the way a person looks at something they're about to do that they've done many times before. He sets his drink down and puts his elbow on the table.*
+
+   *"Go on then."*
+
+2. Arm wrestling is a single contested strength roll — player vs. Lynds (Level 4 dice: 2d10+3). Retryable after a 20-turn cooldown on loss.
+   - **Player loses:** *Lynds wins without apparent effort. He picks his drink back up. "Not bad." He means it as a compliment. "Come back whenever."* Cooldown message on retry before 20 turns: *"Give me a bit. I'm still drinking."*
+   - **Player wins:** See Step 3.
+
+3. Win state:
+
+   *Lynds holds still for a moment after his hand goes down. Then he laughs — short, surprised, genuine.*
+
+   *"Huh."*
+
+   *He studies you for a moment, then reaches into his shirt and pulls out a necklace — a simple cord, a clay charm worn smooth. He sets it on the table between you.*
+
+   *"My grandmother made that. Said it kept her heart going longer than it had any right to. I don't know if that's true but I've never had reason to doubt it. You earned it."*
+
+   *He picks up his drink.*
+
+   *"Come find us in the bog sometime. Ask for the Dankhaus. Tell them Lynds sent you."*
+
+   → Heart Necklace added to inventory. Invitation flag set (Dankhaus wards cleared).
+
+4. Subsequent challenges after winning — Lynds gives a friendly brush-off:
+
+   *Lynds grins. "You already beat me. I remember." He doesn't put his elbow down.*
+
+**Reward:** Heart Necklace (permanent +1 heart, neck slot). Dankhaus access. 5 XP.
 

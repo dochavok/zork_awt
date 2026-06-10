@@ -227,7 +227,49 @@ Vendor: sells gunpowder (5Z), Tip Journal (5Z), Fishing Rod (8Z). Buyback at hal
 **Location:** Tale and Ale (regular).
 **Personality:** Renowned for strength. Arm wrestles anyone.
 
-Beating him earns the **Heart Necklace** and a Dankhaus invitation from Litlock. Losing reaction TBD.
+**Quest 59 — Beat Lynds**
+
+Challenge trigger (`TALK TO LYNDS` or `CHALLENGE LYNDS`):
+
+*Lynds looks at you the way a person looks at something they're about to do that they've done many times before. He sets his drink down and puts his elbow on the table.*
+
+*"Go on then."*
+
+**Loss:**
+
+*Lynds wins without apparent effort. He picks his drink back up. "Not bad." He means it as a compliment. "Come back whenever."*
+
+20-turn cooldown before retry. If player challenges before cooldown expires: *"Give me a bit. I'm still drinking."*
+
+**Win:**
+
+*Lynds holds still for a moment after his hand goes down. Then he laughs — short, surprised, genuine.*
+
+*"Huh."*
+
+*He studies you for a moment, then reaches into his shirt and pulls out a necklace — a simple cord, a clay charm worn smooth. He sets it on the table between you.*
+
+*"My grandmother made that. Said it kept her heart going longer than it had any right to. I don't know if that's true but I've never had reason to doubt it. You earned it."*
+
+*He picks up his drink.*
+
+*"Come find us in the bog sometime. Ask for the Dankhaus. Tell them Lynds sent you."*
+
+→ Heart Necklace added to inventory. Invitation flag set (Dankhaus wards cleared).
+
+**Subsequent challenges after winning:**
+
+*Lynds grins. "You already beat me. I remember." He doesn't put his elbow down.*
+
+---
+
+### Ty
+**Location:** Ty's Casino Corner, Tale and Ale (permanent).
+**Personality:** Unflappable. Presides over the dice with the calm of a man who has never once worried about the outcome. Not a showman — the table is simply part of him.
+
+Runs the Cargo dice game (Ship, Captain, and Crew). Full mechanic in `mechanics.md` — Ty's Casino Corner.
+
+`TALK TO TY` or `PLAY CARGO` to start a round. Zenni ante TBD.
 
 ---
 
