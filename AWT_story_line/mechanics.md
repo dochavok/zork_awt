@@ -52,7 +52,6 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 - Will Passion opening gift: 10 Zenni
 - Hidden room Zenni: 18 rooms randomized per new game; 9 Easy / 5 Medium / 1 Hard pay 1–3 Zenni each; 3 Very Hard pay 5 Zenni each (~36 Zenni total if all found); Actually Enchanted Glasses pass all checks and find all rooms automatically
 - Desert Island buried chest: 30 Zenni
-- Additional chests: 2–3 elsewhere (TBD)
 - Vendor buyback: half price, own items only; no buyback for treasure
 - Quest rewards: TBD per quest
 
@@ -447,7 +446,7 @@ Beach `DIG`: succeeds up to 5 times with flavor text (nothing but wet sand); 6th
 **Eligible room pool:**
 
 *Overworld & Town:*
-White House, Will's Wizard Tower (Main Room), Will's Bedroom, Main West, Town Square, Main East, The Alley, Back Alley, Town Hall Exterior, Council Chamber, Records Room, Upper Hall, The Tower, Tale & Ale Main Room, Bar, Ty's Casino Corner, Pipe Room, Kitchen, Stable, Upstairs Hall, Guest Rooms 1/2/3, Cellar/Storeroom, Library Main Hall, The Stacks, Church Nave, The Altar, Keeper's Chamber, Graveyard, The Mausoleum, The Crypt, Roundabout Wasteland, The Volcano, Pyronicus's Forge, Archery Range, Viking Encampment, Haalvar's Hut, Ritual Circle, Fire Pit, Roundabout Pond, Dankhaus rooms, Beach Road, The Old Oak, Beekeeper's Cottage, Swarm Tree, Roundabout Forest, Roundabout Beach, The Lighthouse, The Docks, Pie Rat Ship Deck
+White House, Will's Wizard Tower (Main Room), Will's Bedroom, Main West, Town Square, Main East, The Alley, Back Alley, Town Hall Exterior, Council Chamber, Records Room, Upper Hall, The Tower, Tale & Ale Main Room, Bar, Ty's Casino Corner, Pipe Room, Kitchen, Upstairs Hall, Guest Rooms 1/2/3, Cellar/Storeroom, Library Main Hall, The Stacks, Church Nave, The Altar, Keeper's Chamber, Graveyard, The Mausoleum, The Crypt, Roundabout Wasteland, The Volcano, Pyronicus's Forge, Archery Range, Viking Encampment, Haalvar's Hut, Ritual Circle, Fire Pit, Roundabout Pond, Dankhaus rooms, Beach Road, The Old Oak, Beekeeper's Cottage, Swarm Tree, Roundabout Forest, Roundabout Beach, The Lighthouse, The Docks, Pie Rat Ship Deck
 
 *Dungeon — Upper Tier:*
 Ink Corridor, Supply Room, Narrow Passageway, Idol Room, Storage Area, Collapsed Gallery, Creature Den, Combat Room, Prayer Alcove, Portcullis Corridor, Shrine Room, Mid-Tier Key Door
@@ -682,6 +681,19 @@ All items need weight values assigned — design pass needed.
 
 ---
 
+### Trophy Case
+
+Fixed container in The Tower (Town Hall). Treasure items are placed here permanently — they cannot be removed once deposited.
+
+**Rules:**
+- Case must be open to accept items (`OPEN CASE` first).
+- `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` — registers treasure in count. Confirmation: *"The [item name] settles into the velvet. The case is a better place for it."*
+- `TAKE <ITEM> FROM CASE` — always returns: *"That belongs to Roundabout now."*
+- `LOOK IN CASE` / `EXAMINE CASE` — lists contents and count whether open or closed (glass panels visible either way).
+- **Count display:** *"[N] treasure[s] on display."* No denominator shown during play. Win condition reveals: *"9 of 9 treasures on display."*
+
+---
+
 ### Parser Verbs (Confirmed)
 
 | Verb | Context |
@@ -692,6 +704,7 @@ All items need weight values assigned — design pass needed.
 | `FISH` | Roundabout Pond; requires fishing rod |
 | `TURN DIAL LEFT` / `TURN DIAL RIGHT` | Church of All altar — cycles through 7 religions |
 | `BOARD SHIP` / `GET ON SHIP` / `CLIMB ABOARD` / `ENTER SHIP` | Boarding Pie Rat Ship (all synonyms) |
+| `SET SAIL` / `SAIL` | Begin sailing from Docks; directional movement (`GO EAST`, `SAIL EAST`) once underway |
 | `DOCK` | Returning ship to harbor |
 | `TALK TO [NPC]` | Standard NPC interaction verb |
 | `LOOK AT BOARD` | Quest Board in The Bar |
@@ -719,5 +732,9 @@ All items need weight values assigned — design pass needed.
 | `USE PORTCULLIS BAR` | Trap 19 — props portcullis open permanently |
 | `CLIMB TREE` | The Old Oak — retrieves kite + rune stone |
 | `LOOK AT MUSIC BOX` | Will's Tower — triggers quest discovery and hint sequence (Quest 12) |
+| `OPEN CASE` / `CLOSE CASE` | Trophy Case in The Tower — case must be open to place items |
+| `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` | Trophy Case — places treasure permanently; case must be open |
+| `LOOK IN CASE` / `EXAMINE CASE` | Trophy Case — lists contents and count; visible through glass whether open or closed |
+| `TAKE <ITEM> FROM CASE` | Trophy Case — always refused: *"That belongs to Roundabout now."* |
 
 Full verb list and synonym handling policy TBD — design pass needed.

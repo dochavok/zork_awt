@@ -228,8 +228,11 @@ Mages read scroll directly (consumed). Warriors/Rogues bring to Will (consumed, 
 ---
 
 ### Shovel
-**Location:** Pie Rat Ship (from ship heist)
+**Location:** Pie Rat Ship — Deck (lashed to rail near bow; takeable once aboard post-heist)
 **Quest use:** Three confirmed uses: (1) Stored Room collapse → Hole to Below; (2) Desert Island buried chest; (3) Quest 50 — finish hole to Bog-NW from Lost Apprentice's Cell.
+
+**In-room description:** *A shovel is lashed to the rail near the bow, practical and out of place at the same time.*
+**Inventory description:** *A sturdy shovel, slightly salt-pitted. It has clearly spent time at sea.*
 
 Will Passion 1-in-20 chance of audio note on any `DIG` command.
 
@@ -342,7 +345,7 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 ---
 
 ### Pickaxe
-**Location:** Mine (Pie Rats Mining Inc.)
+**Location:** Main Shaft, Pie Rats Mining Inc. — leaning against the wall, no perception check needed.
 **Quest use:** Quest 38 — required to clear the three timbers in Collapsed Gallery (three strength checks).
 
 ---

@@ -14,16 +14,15 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## Locations
 
-- [ ] **Tower (Rowan Finch dialogue)** — Trophy Case; connection to Calder Finch who donated early items. (`locations.md`, `npcs.md`)
-- [ ] **Stable** — horse/cart quest TBD. (`locations.md`)
-- [ ] **Guest Rooms 1, 2, 3** — occupants and uses TBD. (`locations.md`)
-- [ ] **Pie Rat Ship Deck** — flesh out sub-rooms and items/interactions aboard. (`locations.md`, `gameplay design.md`)
-- [ ] **Pie Rats Mining Inc. sealed section** — items hidden in the sealed section after cave-in. (`locations.md`)
+- [x] **Tower (Rowan Finch dialogue)** — Trophy Case room description, verb spec, and Rowan's tangential mention written. (`locations.md`, `npcs.md`, `mechanics.md`)
+- [x] **Guest Rooms 1, 2, 3** — empty rooms; randomly assigned on rest; wake-up descriptions written. (`locations.md`)
+- [x] **Pie Rat Ship Deck** — collapsed to single room; description, boarding mechanic, shovel placement, sailing verbs written. (`locations.md`, `items.md`, `mechanics.md`)
+- [x] **Pie Rats Mining Inc. sealed section** — no meaningful sealed section after cave-in; pickaxe placed in Main Shaft. (`locations.md`, `items.md`)
 - [ ] **Dankhaus magical wards** — design pass needed. Five candidates: (1) Litlock's invitation (2) ward token (3) spell/scroll (4) reputation threshold (5) ring invisibility at corruption cost. (`locations.md`, `gameplay design.md`)
 - [ ] **Secret Tunnels — Graveyard Crypt connection** — direction/layout TBD. (`locations.md`)
 - [ ] **Graveyard denizens** — who or what inhabits the graveyard; dedicated design pass needed. (`locations.md`)
-- [ ] **Ty's Casino Corner** — Zenni stakes for Cargo game TBD. (`locations.md`)
-- [ ] **Town room descriptions pass** — rooms with no flavor text: Main West, Roundabout Town Square, Council Chamber, Records Room, Upper Hall, Tale and Ale Main Room, Bar, Pipe Room, Kitchen, Upstairs Hall, Pie Rat Ship Hold. (`locations.md`)
+- [ ] **Ty's Casino Corner** — Cargo game mechanic design needed. (`locations.md`, `mechanics.md`)
+- [ ] **Town room descriptions pass** — rooms with no flavor text: Main West, Roundabout Town Square, Council Chamber, Records Room, Upper Hall. (`locations.md`)
 - [ ] **Secret Tunnels room descriptions** — six rooms with no flavor text: The Junction, Undercroft, Forgotten Shaft, Bone Passage, Charnel Walk, Toll Bridge, Dungeon Entrance. (`locations.md`)
 - [ ] **Dungeon room descriptions pass** — upper and mid tier rooms with no flavor text: Ink Corridor, Supply Room, Narrow Passageway, Idol Room, Storage Area, Collapsed Gallery, Shrine Room, Rickety Bridge, Key Door Landing, Mine Passage, Inscription Chamber, Echo Alcove, Magnetic Vault, Deep Lock Door, Trap Side Entry, Flood Sump. (`locations.md`)
 
@@ -31,7 +30,7 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## NPCs
 
-- [ ] **Rowan Finch** — dialogue connecting Calder to Trophy Case TBD. (`npcs.md`)
+- [x] **Rowan Finch** — first interaction and Trophy Case mention written. (`npcs.md`)
 - [ ] **Lynds** — reaction when player loses arm wrestle TBD. (`npcs.md`)
 - [ ] **Player name use** — review all NPC dialogue and flag where name use is appropriate as familiarity grows. Priority: May, Shamus, Raznak, Redcrosse Knight, Vikings. Others TBD. (`npcs.md`)
 
@@ -42,7 +41,6 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [ ] **Quest Zenni rewards** — assign across all quests once quest list finalized. (`quests.md`, `mechanics.md`)
 - [ ] **Hint system Zenni tier costs** — review ranges (1–3, 4–6, 7–12) against final economy once quest rewards set. (`mechanics.md`, `gameplay design.md`)
 - [ ] **Quest Board cascade** — design full cascade: which quests unlock new postings and in what order. (`quests.md`)
-- [ ] **2–3 additional chests** — locations and contents TBD. (`mechanics.md`)
 - [ ] **Desert Island buried chest** — TBD quest item alongside 30 Zenni. (`locations.md`, `gameplay design.md`)
 - [ ] **Treasure item points** — assign point values for all Trophy Case items. (`items.md`)
 - [ ] **Alternate light sources for mine heist** — harder to obtain than mine torch; add to Shamus's stock once designed. (`gameplay design.md`)

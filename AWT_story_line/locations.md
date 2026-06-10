@@ -94,7 +94,18 @@ Second floor, top of the stairs. Connects to the Tower. Contains a display cabin
 
 ### The Tower
 **XP: 1**
-Accessed from the Upper Hall. Top of the conical tower, overlooking Roundabout Town Square. Contains the **Trophy Case** — an achievement display for treasure items found during the playthrough. Shows count of treasures found (e.g. 8/10). Rowan Finch dialogue TBD — his grandfather Calder donated early items to the case.
+Accessed from the Upper Hall. Top of the conical tower, overlooking Roundabout Town Square. Contains the **Trophy Case** — a locked glass display case built into the stone wall, where treasure items found during the playthrough are stored.
+
+**Room description:** *The tower room is round, the walls following the cone of the roof above. A single window looks out over the town square, narrow enough that the view is more suggestion than panorama. The Trophy Case dominates the far wall — old wood and glass, built into the stone as if someone planned for it from the start. It is empty. The placard mounted below it reads: CALDER FINCH — EXPLORER. DONATED IN PERPETUITY FOR THE GLORY OF ROUNDABOUT. The case has not been added to in some time.*
+
+**Trophy Case — examine (`LOOK AT CASE` / `EXAMINE CASE`):** *The case is well-made — solid glass panels, brass fittings, velvet lining gone slightly pale with age. Whoever built it expected it to hold things worth looking at. At the moment it holds nothing. The placard below names the donor. The velvet has the faint impressions of items once displayed here and since removed — or perhaps never placed at all.*
+
+**Trophy Case — verb behavior:**
+- `OPEN CASE` — opens the case; required before placing items.
+- `CLOSE CASE` — closes the case.
+- `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` — if open: places treasure, registers in count. Confirmation text: *"The [item name] settles into the velvet. The case is a better place for it."* If closed: *"The case is closed."*
+- `LOOK IN CASE` / `EXAMINE CASE` — lists contents and count, whether open or closed (glass panels — visible either way). Count line: *"[N] treasure[s] on display."* During play, total is never revealed. Win condition fires full display: *"9 of 9 treasures on display."*
+- `TAKE <ITEM> FROM CASE` — *"That belongs to Roundabout now."* Not permitted at any time.
 
 ---
 
@@ -104,37 +115,79 @@ Accessed from the Upper Hall. Top of the conical tower, overlooking Roundabout T
 **XP: 1**
 Central gathering space. Entry point into the inn. Contains a mailbox — completely out of place, acknowledged by no one. `OPEN MAILBOX` teleports player to Will's Wizard Tower.
 
+**Connections:** South → Bar. North → Pipe Room. Northwest → Ty's Casino Corner. Up (staircase) → Upstairs Hall.
+
+**Room description:** *The Tale and Ale announces itself with warmth before you're fully through the door — woodsmoke, something cooking, the low sound of people who have decided their evening is going well. Tables fill most of the floor, a mix of occupied and merely claimed. The bar is south. A staircase climbs along the east wall. To the north, a doorway leads to a quieter room and the smell of pipe smoke. In the far northwest corner, someone is throwing dice. The whole room has the quality of a place that has been exactly like this for a long time and intends to stay that way. Against the wall near the entrance, entirely at odds with everything around it, stands a mailbox. No one looks at it.*
+
 ### Bar
 **XP: 1**
-Where drinks are ordered; 1-heart food & drink purchases happen here. **May** (bartender) works here. Quest Board is described in the room text; `LOOK AT BOARD` lists active posted quests.
+Where drinks are ordered; food & drink purchases happen here (1 heart, 2 Zenni; hearty stew 2 hearts after Quest 40). **May** (bartender) works here. Quest Board is described in the room text; `LOOK AT BOARD` lists active posted quests.
+
+**Connections:** North → Main Room. South → Kitchen.
+
+**Room description:** *The bar runs the length of the south wall — solid oak, worn smooth at the elbows. Bottles line the shelf behind it in an arrangement that suggests a system only May understands. She works the bar with the efficiency of someone who has answered every question before and will answer them all again without complaint. A board on the wall to one side holds notices — quest postings, local announcements, things people want found or done. The kitchen is further south.*
 
 ### Ty's Casino Corner
 **XP: 1**
 Gambling area inside the tavern. Cargo game (Ship, Captain, Crew dice game). Zenni stakes TBD.
 
+**Connections:** Southeast → Main Room.
+
+**Room description:** *The northwest corner of the tavern has been claimed so thoroughly it might as well be a different establishment. A large round table dominates the space, ringed with mismatched chairs. Ty sits at the head of it — or what he has decided is the head — presiding over the dice with the calm of a man who has never once worried about the outcome. The noise from the main room reaches here as a comfortable murmur. The game is Cargo: Ship, Captain, and Crew. The stakes are in Zenni.*
+
 ### Pipe Room
 **XP: 1**
 Smoking parlor. Atmospheric; natural gathering spot for Rogues and shady deals.
+
+**Connections:** South → Main Room.
+
+**Room description:** *The pipe room is quieter than the rest of the tavern, which appears to be the point. A few low chairs, a side table, the particular haze of an evening's worth of smoke that has nowhere urgent to be. Conversations here are conducted at a volume that doesn't carry. The kind of room where people come to think, or to be seen thinking, or to say things they'd rather not say at the bar.*
 
 ### Kitchen
 **XP: 1**
 Back-of-house. **Shamus** works here — cook and unofficial vendor. `TALK TO SHAMUS` to buy or sell items. Cellar door to the Cellar/Storeroom is here; bartender holds the key.
 
-### Stable
-**XP: 1**
-Exterior, adjacent to inn. Horse/cart quest TBD.
+**Connections:** North → Bar. Down (cellar door, key required) → Cellar/Storeroom.
+
+**Room description:** *The kitchen is warm and loud in the way that working kitchens are — pots, fire, the particular authority of someone who knows exactly what they're doing. Shamus moves through it without wasted motion, cooking and selling in equal measure — if you need something, he's worth asking. Dried herbs hang from the ceiling in loose bundles. A scarred wooden table dominates the center. The cellar door is set into the floor near the far wall; a faint smell of damp rises from it even when it's shut. The bartender keeps the key.*
 
 ### Upstairs Hall
 **XP: 1**
-Connects the three guest rooms.
+Connects the three guest rooms. Accessed via staircase from Main Room.
 
-### Guest Rooms 1, 2, 3
-**XP: 1 each**
-TBD occupants/uses.
+**Connections:** Down (staircase) → Main Room. Doors lead to Guest Room 1, Guest Room 2, Guest Room 3.
+
+**Room description:** *The upstairs hall is narrow and low-ceilinged, the floorboards announcing every step. Three doors lead off it — the guest rooms. A window at the far end looks out over the alley below. The stairs down creak in a specific sequence that regular guests have learned to navigate quietly.*
+
+### Guest Room 1
+**XP: 1**
+One of three guest rooms off the Upstairs Hall. Assigned randomly by May when the player pays for rest. Player wakes here refreshed (full heal).
+
+**Room description:** *A plain room, honestly kept. Bed, washstand, a window that looks out over the street. The kind of room that asks nothing of you.*
+
+**Wake-up description:** *You come around slowly. The bed is better than it had any reason to be. Light comes through the window — enough to know you slept. You feel considerably more capable than you did.*
+
+### Guest Room 2
+**XP: 1**
+One of three guest rooms off the Upstairs Hall. Assigned randomly by May when the player pays for rest. Player wakes here refreshed (full heal).
+
+**Room description:** *A corner room, slightly larger than it needs to be. Two windows, a wardrobe that doesn't quite close, a rag rug that was once a specific color. Comfortable in an unassuming way.*
+
+**Wake-up description:** *The wardrobe door has drifted open in the night. You close it out of habit. Whatever was wrong with you yesterday, sleep has addressed most of it.*
+
+### Guest Room 3
+**XP: 1**
+One of three guest rooms off the Upstairs Hall. Assigned randomly by May when the player pays for rest. Player wakes here refreshed (full heal).
+
+**Room description:** *The smallest of the three rooms, tucked at the end of the hall. Low ceiling, narrow bed, a single candle on the nightstand burned to nothing. Quiet in a way the other rooms aren't.*
+
+**Wake-up description:** *You wake in the small room at the end of the hall. The candle is out. You are rested — properly, completely rested. That will do.*
 
 ### Cellar / Storeroom
 **XP: 1**
 Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds the key. Starts flooded — drain must be unclogged (crowbar required) before the room is usable. Once drained, reveals a door to the Secret Tunnel. Tunnel door stays in whatever state the player leaves it. Travel bidirectional once drained. Entering from either direction before draining = instant drowning fail state (water damage, no warning, no roll). The flood is obvious from the kitchen doorway — no perception check on entry.
+
+**Connections:** Up (cellar door) → Kitchen. West (tunnel door, post-drain only) → The Junction (Secret Tunnels).
 
 ---
 
@@ -421,11 +474,30 @@ Between Beach Road Fork and Roundabout Forest. A large oak dominates this spot. 
 Underground beneath Roundabout Forest. Legitimate mining facade; actually a smuggling front for the Pie Rats pirate faction.
 
 - **Mine Entrance:** Forest floor. Sealed permanently after the cave-in explosion.
-- **Main Shaft:** Central spine. Connects Mine Entrance (up) to Mine Tunnels (down). Side passage to Assay Room.
+
+  *The entrance to Pie Rats Mining Inc. is a ragged wound in the earth, shored up with timber and optimism. A sign above the opening reads: PIE RATS MINING INC. — AUTHORIZED PERSONNEL ONLY. Someone has added, in different handwriting: THIS MEANS YOU. In another hand: ME? And beneath that, in the first handwriting: NO, NOT YOU SLOTH.*
+
+  **Post-cave-in:** *The entrance is gone. The explosion brought the whole thing down — timbers, signage, and a significant quantity of rock. Whatever was inside is inside permanently, or accessible some other way.*
+
+- **Main Shaft:** Central spine. Connects Mine Entrance (up) to Mine Tunnels (down). Side passage to Assay Room. Contains a **pickaxe** — mining equipment, obvious and takeable.
+
+  *The main shaft drops away from the entrance in a single rough-cut passage, wide enough for two men and a cart. Timber supports run at intervals — functional, not decorative. The smell of rock dust and old torchsmoke is thick here.*
+
 - **Assay Room:** Off Main Shaft. Where ore samples were tested. Connects to Hidden Secondary Entrance into Secret Tunnels.
+
+  *A side room off the main shaft, fitted out for testing ore samples. A long workbench runs the length of one wall, scarred with acid burns and impact marks. Scales, tongs, crucibles — the tools of a working assay operation, left mid-use. Whatever the Pie Rats were mining, someone was genuinely checking its quality. The far wall has a gap in it that doesn't look entirely accidental.*
+
 - **Hidden Secondary Entrance:** Between Assay Room and Forgotten Shaft. Perception check from mine side; auto-discovered from tunnel side. Remains accessible after cave-in. **XP: 2**
+
+  *The gap in the assay room wall opens into a rough passage that connects to the tunnel network below. It does not appear on any official plan of the mine. It would not.*
+
 - **Mine Tunnels:** Working tunnels. Torch sconces on walls — torches taken immediately begin burning down (40 turn timer). Burnout = fail state for gunpowder sequence.
+
+  *The working tunnels branch off the main shaft in two directions, following veins of ore that may or may not have been the point. Torch sconces are fixed to the walls at intervals — the torches in them are real and lit. The smell of fresh-cut rock is strongest here. The floor is rutted with cart tracks.*
+
 - **The Rat's Nest:** Off Mine Tunnels. Hidden storage for Pie Rat contraband. Contains the Pie Rat disguise required for the ship heist.
+
+  *A widening in the tunnel that someone has decided is a room. Crates and barrels are stacked with more care than the surroundings suggest — this is storage, not clutter. The Pie Rats keep their surplus here: things that aren't ore, things that don't show up on manifests, things that would raise questions on a dock.*
 
 ---
 
@@ -447,12 +519,17 @@ Dead-end room off Roundabout Beach to the north. Open, unattended. A desk holds 
 
 **Rope:** A coil of rope is visible as a takeable item. This is the one Rope item in the world — used to tie off the Hole to Below beam in the dungeon mid-tier (`TIE ROPE TO BEAM`).
 
-### Pie Rat Ship
-**XP: 1 per room (Deck, Hold)**
-Moored at the Docks. Crewed by Pie Rats until the explosion draws them away. The only vessel available to sail the Roundabout Sea. Boarding commands (all synonyms): `BOARD SHIP`, `GET ON SHIP`, `CLIMB ABOARD`, `ENTER SHIP`.
+### Pie Rat Ship — Deck
+**XP: 1**
+Moored at the Docks. Crewed by Pie Rats until the explosion draws them away. The only vessel available to sail the Roundabout Sea. Single room — no hold. Boarding commands (all synonyms): `BOARD SHIP`, `GET ON SHIP`, `CLIMB ABOARD`, `ENTER SHIP`. Sailing commands: `SET SAIL` (primary), `SAIL` (synonym). Directional movement once underway: `GO EAST`, `SAIL EAST`, etc. Leaving the ship at sea: *"The ocean offers no opinion on that idea, and neither does your survival instinct."* `DOCK` returns ship to Docks; `LAND` / `MOOR` / `MAKE LAND` puts player ashore at Desert Island or Kevry's Island.
 
-- **Deck:** TBD.
-- **Hold / Below Deck:** Each turn aboard fires a silent perception check. On success: treasure map found and added to inventory. Actually Enchanted Glasses pass all perception checks — map found on first turn. A player who sails to Kevry's island without finding the map, gets the glasses enchanted there, and returns to the ship will auto-find the map on their next turn aboard.
+**Boarding without disguise:** *A Pie Rat on deck looks you over with the thoroughness of someone whose job is exactly this. "You don't even look like a pirate." He doesn't move. Neither, apparently, will you.*
+
+**Room description:** *The deck is cluttered in the way of a working vessel — coils of line, barrels lashed to the rail, a general smell of fish and salt and something that has been at sea too long. This is a ship that wants to move.*
+
+**Shovel (in room, before taken):** *A shovel is lashed to the rail near the bow, practical and out of place at the same time.*
+
+**Perception check (each turn aboard):** Silent check fires every turn until treasure map is found. On success: map added to inventory. Actually Enchanted Glasses pass automatically — map found on first turn. A player who sails to Kevry's island without finding the map, gets the glasses enchanted there, and returns to the ship will auto-find the map on their next turn aboard.
 
 ### The Sea
 **XP: 1 per Roundabout Sea room (3 total); 0 XP for all 69 Open Ocean traversal squares; Desert Island: 1 XP**

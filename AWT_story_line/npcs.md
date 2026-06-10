@@ -211,6 +211,8 @@ Role is ring retrieval and Pale Blade forging only. No additional quest hooks.
 
 Sells hints for Zenni (tiered — see hint system in `mechanics.md`). Manages Quest Board postings. Uses player's name once familiarity is established.
 
+**First visit to the Bar (unprompted, fires once):** *"Shamus is in the kitchen if you need supplies. He keeps more than recipes back there."*
+
 ---
 
 ### Shamus
@@ -363,7 +365,15 @@ Does not speak. Administers Trial 2 by pointing. Looks disappointed on wrong ord
 **Location:** Council Chamber, Town Hall.
 **Personality:** Formal, civic-minded. Aware of his family's history.
 
-Grandson of Calder Finch (dungeon explorer). Quest 32 giver — gravestone stolen. Rewards Middle Tier Key on completion. Dialogue connecting Calder to the Trophy Case TBD.
+Grandson of Calder Finch (dungeon explorer). Quest 32 giver — gravestone stolen. Rewards Middle Tier Key on completion.
+
+**First interaction (before Quest 32 discovery):**
+*He looks up from his papers with the expression of someone who has been interrupted before and expects to be interrupted again. "Can I help you?" It is not entirely a question.*
+
+**General dialogue / Trophy Case mention:**
+*"My grandfather built this town as much as anyone. He explored the passages beneath it too — donated whatever he found to the Trophy Case upstairs. It's been empty for years. I don't know what that says about the state of adventure in Roundabout."*
+
+**Quest 32 trigger (after finding Mid-Tier Key Door):** See `quests.md` — Quest 32.
 
 ---
 
