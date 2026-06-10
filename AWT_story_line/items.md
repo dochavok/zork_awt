@@ -459,5 +459,5 @@ All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 | **Ship-in-a-Bottle** | Roundabout Pond (fishing rod + challenge roll) | TBD | Treasure item; May's hints imply Kevry connection |
 | **Gold Pocket Watch** | The Crevice, Dungeon Mid-Tier | TBD | **Missable** — permanently inaccessible after Stored Room collapses |
 | **Gold Nugget** | Supply Cache, Dungeon Mid-Tier Trap Side | TBD | Buried in rubble |
-| **Pie Rat Coin** | Flipped by a Pie Rat after returning the stolen ship | TBD | Unusual currency; pirate provenance |
+| **Pie Rat Coin** | Flipped by a Pie Rat after returning the stolen ship | TBD sell price | Unusual currency; pirate provenance; Trophy Case treasure item |
 | Prices for items in Will's Wizard Tower treasure case | TBD | — | Design pass needed |

@@ -107,7 +107,7 @@ Completing the quest or trainer interaction that grants a new combat skill award
 
 Class bonuses are awarded on top of base XP and vary by class. Quest 53 awards 10 XP (glasses not enchanted) or 20 XP (Actually Enchanted) — a completionist who sails to Kevry earns the higher value. All classes clear the Level 8 threshold of 420 XP comfortably on a completionist run.
 
-Level 8 threshold: 420 XP. Every class clears it on a completionist run. TBD content (Redcrosse Knight, dragon-nip, graveyard, additional combat encounters) provides additional buffer — Warriors in particular will gain significant bonus XP as more combat encounters are designed.
+Level 8 threshold: 420 XP. Every class clears it on a completionist run.
 
 ---
 

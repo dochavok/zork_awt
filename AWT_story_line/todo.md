@@ -10,7 +10,7 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [ ] **Carry weight system** — Rickety Bridge has a weight limit; exact limit TBD. All items need weight values assigned. (`locations.md`, `mechanics.md`)
 - [ ] **2–3 quests requiring ring invisibility** — Chuckle House confirmed; need 1–2 more. (`mechanics.md`)
 - [ ] **Full verb list and synonym handling policy** — design pass needed. (`mechanics.md`)
-- [ ] **Pie Rat Coin purpose** — flipped by Pie Rat after ship return; use TBD. (`mechanics.md`, `items.md`)
+- [x] **Pie Rat Coin purpose** — confirmed as Trophy Case treasure item. Sell price still TBD. (`items.md`)
 
 ---
 
@@ -26,6 +26,9 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [ ] **Secret Tunnels — Graveyard Crypt connection** — direction/layout TBD. (`locations.md`)
 - [ ] **Graveyard denizens** — who or what inhabits the graveyard; dedicated design pass needed. (`locations.md`)
 - [ ] **Ty's Casino Corner** — Zenni stakes for Cargo game TBD. (`locations.md`)
+- [ ] **Town room descriptions pass** — rooms with no flavor text: Main West, Roundabout Town Square, Council Chamber, Records Room, Upper Hall, Tale and Ale Main Room, Bar, Pipe Room, Kitchen, Upstairs Hall, Pie Rat Ship Hold. (`locations.md`)
+- [ ] **Secret Tunnels room descriptions** — six rooms with no flavor text: The Junction, Undercroft, Forgotten Shaft, Bone Passage, Charnel Walk, Toll Bridge, Dungeon Entrance. (`locations.md`)
+- [ ] **Dungeon room descriptions pass** — upper and mid tier rooms with no flavor text: Ink Corridor, Supply Room, Narrow Passageway, Idol Room, Storage Area, Collapsed Gallery, Shrine Room, Rickety Bridge, Key Door Landing, Mine Passage, Inscription Chamber, Echo Alcove, Magnetic Vault, Deep Lock Door, Trap Side Entry, Flood Sump. (`locations.md`)
 
 ---
 
@@ -56,18 +59,19 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [ ] **Ship-in-a-Bottle sell price** — treasure item; TBD. (`items.md`)
 - [ ] **Gold Pocket Watch sell price** — treasure item; TBD. (`items.md`)
 - [ ] **Gold Nugget sell price** — treasure item; TBD. (`items.md`)
-- [ ] **Pie Rat Coin** — purpose and sell price TBD. (`items.md`)
+- [ ] **Pie Rat Coin sell price** — purpose confirmed (Trophy Case treasure); sell price TBD. (`items.md`)
 - [ ] **Armor items** — design items for head, chest, legs, hands slots. (`gameplay design.md`)
 
 ---
 
 ## Narrative & Writing
 
-- [x] **Dragon-nip quest** — Will's return dialogue written to `npcs.md`; quest entry (Quest 58) written to `quests.md`. Golden Dragon Scale confirmed as reward.
-- [x] **Golden Dragon Scale** — confirmed as Trophy Case treasure item; reward for Quest 58. (`items.md`, `quests.md`)
 - [ ] **Treasure achievement system** — full treasure list, total count, end-game display format. Replaces Zork scoring. (`gameplay design.md`)
 - [ ] **Tip Journal** — design display verb, visual format of quest entries, completed quest handling. (`gameplay design.md`, `mechanics.md`)
 - [ ] **Tone & Voice** — game voice not formally documented; needs dedicated session. (memory)
+
+---
+
 ## Ring Quest / Critical Path
 
 - [ ] **Werewolf combat mechanic** — see Combat section above. BLOCKED.

@@ -612,7 +612,7 @@ Multi-step quest chain that grants access to the Pie Rat Ship.
 6. Exit mine before explosion. Failure = death/fail state.
 7. Explosion — cave-in seals main mine entrance permanently.
 8. Steal the ship while Pie Rats respond to explosion.
-9. Return the ship — Pie Rats angry but grudgingly impressed. One Pie Rat flips player a Pie Rat Coin (purpose TBD).
+9. Return the ship — Pie Rats angry but grudgingly impressed. One Pie Rat flips player a Pie Rat Coin (Trophy Case treasure item; sell price TBD).
 
 **Notes:**
 - Hidden secondary mine entrance remains open after cave-in.

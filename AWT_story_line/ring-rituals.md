@@ -254,8 +254,3 @@ Return to Verdant Circle shrine in Roundabout Forest. Place repaired bowl on ped
 **Step 7 — Ritual**
 Bring The Crystal Bowl to the Church of All altar. Attune to The Verdant Circle. Place ring + artifact on altar. Bowl consumed. Ritual complete.
 
----
-
-## What's TBD
-
-- **Werewolf combat mechanic** — attack cadence, player options each turn — **BLOCKED on combat system design**

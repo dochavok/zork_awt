@@ -513,7 +513,7 @@ Room name changes to **Kevry's House** after the player enters and interacts wit
 
 ### Captain's Quarters
 **XP: 5**
-Kevry is found here. Enchants the Enchanted Glasses if already equipped in the head slot. Full dialogue tree needs a dedicated design pass — see `todo.md`.
+Kevry is found here. Enchants the Enchanted Glasses if already equipped in the head slot.
 
 *A small back room, all table and charts and the smell of ink. A weathered man sits hunched over a map, muttering. He doesn't hear you come in. When he finally looks up, his face does something complicated — surprise, then recognition of the type that doesn't require prior acquaintance, then a wide and genuine grin.*
 
