@@ -721,11 +721,21 @@ No commands available in the Echo Alcove.
 
 ### Weight System (Rickety Bridge)
 
-The Rickety Bridge (between Shrine Room and Mid-Tier Key Door, upper tier) has a carry weight limit. Exact limit TBD.
+The Rickety Bridge (between Shrine Room and Mid-Tier Key Door, upper tier) has a carry weight limit of **12**.
 
-If inventory exceeds limit: bridge groans, player turned back. Must drop items, cross, return for them. Always crossable at or under limit. This is a logistical puzzle, not a trap.
+If inventory exceeds limit: bridge groans, movement south is blocked. Player must drop items on the north side, cross, then return for them. Always crossable at or under limit. This is a logistical puzzle, not a trap.
 
-All items need weight values assigned — design pass needed.
+**Weight scale (1–5, with one exception):**
+- **1** — tiny/negligible: rings, keys, coins, vials, scrolls, glasses, maps, paper, herbs, clothing
+- **2** — small/light: torches, flutes, jars, rods, nuggets
+- **3** — moderate: crowbar, pickaxe, rope, shovel, portcullis bar, runed metal, swords
+- **4** — heavy: sack of salt, Chachapoyan Fertility Idol, support beam
+- **5** — very heavy / not portable solo: hand cart
+- **10** — gravestone (cart-only; never crosses bridge)
+
+**Weight is invisible to the player.** No carry total is displayed. The player discovers the limit only when the bridge groans and refuses passage.
+
+**Minimum critical load to complete the game past the bridge:** 9 (rope 3 + lantern 2 + consecrated silver stake 2 + vial of glacier melt 1 + incantation scroll 1). The limit of 12 gives 3 points of comfortable headroom while forcing players carrying heavy upper-tier items (Idol, pickaxe, sack of salt, support beam) to make deliberate choices.
 
 ---
 
