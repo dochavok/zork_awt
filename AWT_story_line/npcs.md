@@ -61,7 +61,7 @@ Will asks: *"Are you up for an adventure?"*
 
 Each time the player passes through Bog-SE, a perception check occurs. On success the path to the Dankhaus is revealed — permanently visible for the rest of the playthrough. Access gated by magical wards — unlocked by Lynds after arm wrestling quest.
 
-**Quest — Make Litlock Laugh (quest slot TBD)**
+**Quest 52 — Make Litlock Laugh**
 
 A 2×2×2 dialogue-tree puzzle. One path per tier succeeds; the other fails and loops back to Tier 1. The player must find the correct path through all three tiers to make Litlock laugh fully.
 
@@ -182,7 +182,7 @@ Lives in a single large obsidian room built around an ancient forge. Will told P
 
 **Pale Blade forging:** When player brings runed metal from the Viking Encampment, Pyronicus forges it into the Pale Blade. Full forge scene confirmed — see `ring-rituals.md` (Artifact 1, Step 3).
 
-Role beyond ring retrieval and forging TBD — likely quest hooks tied to forge and volcano (Quests 21, 26, 35, 42, 45).
+Role is ring retrieval and Pale Blade forging only. No additional quest hooks.
 
 ---
 
@@ -407,8 +407,6 @@ She picks up her book. *"He said that once, about a research problem. I think ab
 
 **Interaction verb:** `TALK TO ARCHIVIST`
 
-**The Stacks — book research mechanic:** The Archivist manages the deep collection. Player asks about a subject; he offers several matching titles. Player must `READ BOOK` in place — only the correct one advances the relevant quest. Wrong books yield flavor text only. If the player names the specific title, he retrieves it directly — one `READ BOOK` and done. Synonyms accepted. Books cannot be taken. May's hints tie in: Tier 1–2 by topic, Tier 3 names the specific title.
-
 **Quest 28 — first interaction (before rubbing delivered):**
 
 He looks up when spoken to, marking his place with two fingers before setting the book aside.
@@ -437,7 +435,6 @@ He is already working when the player arrives.
 
 **Design notes:**
 - No name. "The Archivist" only.
-- The `READ BOOK` mechanic is his domain — all library research quests route through him and The Stacks.
 - His Quest 28 reward (the incantation scroll) is the only connection to Quest 34. The second-visit line is the nudge toward the Tool Alcove for players who found the door and don't know what to do next — or haven't found it yet.
 - Post-Quest-34 dialogue is optional flavor; only fires if player returns and speaks to him.
 
@@ -463,7 +460,7 @@ Lighthouse keeper. **Unmet NPC — never appears in game.** Referenced only in M
 ---
 
 ### The Soldier (Quest 34)
-Encased in magical ice in the Quest 34 Fountain Room (dungeon lower tier). Thawed by Ivory Torch over two turns. Hands over the Forgotten Blade without ceremony. Wanders off dazed. Reappears in town as a minor NPC offering free weapon training sessions. Name TBD.
+Encased in magical ice in the Quest 34 Fountain Room (dungeon lower tier). Thawed by Ivory Torch over two turns. Hands over the Forgotten Blade without ceremony. Wanders off dazed. Reappears in town as a minor NPC offering free weapon training sessions. Intentionally unnamed — referred to only as "the soldier."
 
 **Town dialogue (after Quest 34 complete — fires once, before Tool Alcove door is opened in current playthrough):** *"There's a room down there that talked to me once. I never figured out what it said."* — passive ambient line; no `TALK TO` required.
 

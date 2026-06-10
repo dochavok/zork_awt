@@ -7,11 +7,11 @@ Consolidated from all source files. Update this file when items are resolved; re
 ## Combat & Mechanics
 
 - [ ] **Werewolf combat mechanic** — attack cadence, player options each turn. BLOCKED on combat system design. (`locations.md`, `ring-rituals.md`, `mechanics.md`)
-- [ ] **Combat system design pass** — general combat flow, attack/defend rolls, player options each turn. Required before werewolf can be fully designed.
+- [x] **Combat system design pass** — round structure, simultaneous rolls, ties, flee, bow bonus, Fireball, Finishing Move, Ivanaar's Tunic. Defined in `mechanics.md`.
 - [ ] **Carry weight system** — Rickety Bridge has a weight limit; exact limit TBD. All items need weight values assigned. (`locations.md`, `mechanics.md`)
 - [ ] **2–3 quests requiring ring invisibility** — Chuckle House confirmed; need 1–2 more. (`mechanics.md`)
-- [ ] **Full spell list** — define all spell types available via scrolls, reuse timers, durations, and sources. (`mechanics.md`)
-- [ ] **Damage avoidance mechanic** (Quest 42 reward — Ivanaar's Tunic) — include in combat system design. (`quests.md`)
+- [x] **Full spell list** — four spells defined in `mechanics.md`: Light, Unbind Undead, REST, Fireball.
+- [x] **Damage avoidance mechanic** — Ivanaar's Tunic: silent 1d10, 40% negation, four flavor messages. Defined in `mechanics.md`.
 - [ ] **Full verb list and synonym handling policy** — design pass needed. (`mechanics.md`)
 - [ ] **Pie Rat Coin purpose** — flipped by Pie Rat after ship return; use TBD. (`mechanics.md`, `items.md`)
 
@@ -35,13 +35,10 @@ Consolidated from all source files. Update this file when items are resolved; re
 ## NPCs
 
 - [x] **The Redcrosse Knight** — designed: Town Square, formal-warm personality, Level 3 minimum, all dialogue states. Quest 54 written. (`npcs.md`, `quests.md`, `mechanics.md`)
-- [ ] **Pyronicus** — role beyond ring retrieval and Pale Blade forging; quest hooks tied to forge/volcano TBD. (`npcs.md`)
 - [ ] **Rowan Finch** — dialogue connecting Calder to Trophy Case TBD. (`npcs.md`)
-- [ ] **The Soldier (Quest 34)** — name TBD. (`npcs.md`)
 - [ ] **Lynds** — reaction when player loses arm wrestle TBD. (`npcs.md`)
 - [ ] **Player name use** — review all NPC dialogue and flag where name use is appropriate as familiarity grows. Priority: May, Shamus, Raznak, Redcrosse Knight, Vikings. Others TBD. (`npcs.md`)
-- [ ] **Litlock quest slot** — Make Litlock Laugh assigned Quest 52; confirm no slot conflict. (`npcs.md`)
-- [ ] **Kevry dialogue tree** — full dialogue pass needed (three states: glasses equipped, glasses in inventory only, no glasses). (`npcs.md`)
+- [x] **Kevry dialogue tree** — all three states written: glasses equipped, glasses in inventory only, no glasses. (`npcs.md`)
 
 ---
 
@@ -82,15 +79,14 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [ ] **Treasure achievement system** — full treasure list, total count, end-game display format. Replaces Zork scoring. (`gameplay design.md`)
 - [ ] **Tip Journal** — design display verb, visual format of quest entries, completed quest handling. (`gameplay design.md`, `mechanics.md`)
 - [ ] **Tone & Voice** — game voice not formally documented; needs dedicated session. (memory)
-- [ ] **Pyronicus Pale Blade forging scene** — full dialogue and scene for bringing runed metal; Pale Blade handoff. (`npcs.md`, `ring-rituals.md`)
-- [ ] **Book Mechanic quest home** — READ BOOK mechanic designed but no quest wired to it yet. (memory)
+- [x] **Pyronicus Pale Blade forging scene** — full scene written in `ring-rituals.md` (Artifact 1, Step 3).
 
 ---
 
 ## Ring Quest / Critical Path
 
 - [ ] **Werewolf combat mechanic** — see Combat section above. BLOCKED.
-- [ ] **Kevry dialogue tree** — see NPCs section above.
+- [x] **Kevry dialogue tree** — done; see NPCs section above.
 
 ---
 
