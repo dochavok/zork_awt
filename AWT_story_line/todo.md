@@ -16,7 +16,7 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## Locations
 
-- [ ] **Main East buildings** — what occupies the eastern end of Main Street? (`locations.md`)
+- [x] **Main East buildings** — description written to `locations.md`; sparse/shuttered implied, no specific buildings needed.
 - [ ] **Tower (Rowan Finch dialogue)** — Trophy Case; connection to Calder Finch who donated early items. (`locations.md`, `npcs.md`)
 - [ ] **Stable** — horse/cart quest TBD. (`locations.md`)
 - [ ] **Guest Rooms 1, 2, 3** — occupants and uses TBD. (`locations.md`)

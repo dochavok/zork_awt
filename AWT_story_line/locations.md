@@ -52,7 +52,9 @@ Center of town. Town Hall to the north. Tavern to the south. Southwest leads to 
 
 ### Main East
 **XP: 1**
-Eastern end of Main Street. Church of All to the south. Roundabout Wasteland to the east. TBD buildings.
+Eastern end of Main Street. Church of All to the south. Roundabout Wasteland to the east.
+
+*Main Street ends here, or nearly does. The buildings thin out toward the east — a few shuttered fronts, a sign that's lost its lettering, the church standing apart to the south as though it chose its distance deliberately. The wasteland begins where the cobblestones stop.*
 
 ### The Alley
 **XP: 1**
