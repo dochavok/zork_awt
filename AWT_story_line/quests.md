@@ -537,6 +537,28 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ---
 
+## Quest 58 — The Dragon-Nip
+
+**Discovery:** Organic only — silent perception check (Hard difficulty) fires on every visit to Will's Bedroom. On success: *"Something small glows faintly under the nightstand — easy to miss, impossible to unsee once noticed. A sprig of something, tucked against the baseboard as if it rolled there and was forgotten."* Players returning with Actually Enchanted Glasses equipped auto-succeed. No Quest Board posting. No May hints.
+**Prerequisites:** Access to Will's Bedroom (hidden door revealed via Quest 53 perception check).
+**Missability:** Extremely high. Hard perception check, no hints anywhere, no cascade from any other quest except the glasses connection.
+
+**Steps:**
+1. Pass perception check in Will's Bedroom (Hard; auto-pass with Actually Enchanted Glasses equipped).
+2. `TAKE DRAGON-NIP` or `TAKE SPRIG` — item added to inventory.
+3. Bring dragon-nip to Will Passion in the tower. `GIVE DRAGON-NIP TO WILL` or `SHOW DRAGON-NIP TO WILL`.
+4. Will takes it. Produces a Golden Dragon Scale. Quest complete.
+
+**Reward:** Golden Dragon Scale (Trophy Case treasure item). 15 XP.
+
+**Design notes:**
+- No Quest Board posting. Discovery is entirely organic.
+- Will's reaction dialogue: see `npcs.md` — quietly pleased, slightly embarrassed, says little.
+- The dragon-nip's existence is never explained. Will does not explain it. The scale is offered without elaboration.
+- Quest number placeholder — assign final number when quest list is finalized.
+
+---
+
 ## Quest Board Cascade
 
 **Confirmed postings:**

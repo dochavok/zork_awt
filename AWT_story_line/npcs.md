@@ -49,6 +49,23 @@ Will asks: *"Are you up for an adventure?"*
 
 **Will's hidden room:** Contains the Enchanted Glasses. Wearing them outside this room triggers an instant fail state.
 
+**Dragon-nip returned (Quest 58):**
+Player offers the sprig. Will glances at it. A longer pause this time.
+
+*He takes it from you. Stares at it for a moment — not at you, at it.*
+
+*"I've been looking for that."*
+
+He sets it on the desk. Opens a low drawer and produces a scale — large, gold, catching the light like a mirror that's decided to be something else. He holds it out.
+
+*"Where did you find it?"*
+
+He asks it the way someone asks a question they already suspect the answer to. He doesn't wait for a response.
+
+*"Never mind."*
+
+He turns back to his work.
+
 **Return visit (player brings ring back):** See `ring-rituals.md` — second briefing confirmed. Will explains the Church of All, the dial, and that three religions are needed. Does not name which three.
 
 **Final scene (player returns bound ring):** See `ring-rituals.md` — confirmed. Will takes the ring, listens for something, sets it on the desk. *"Well done."* Ring quest complete.

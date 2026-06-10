@@ -7,11 +7,8 @@ Consolidated from all source files. Update this file when items are resolved; re
 ## Combat & Mechanics
 
 - [ ] **Werewolf combat mechanic** — attack cadence, player options each turn. BLOCKED on combat system design. (`locations.md`, `ring-rituals.md`, `mechanics.md`)
-- [x] **Combat system design pass** — round structure, simultaneous rolls, ties, flee, bow bonus, Fireball, Finishing Move, Ivanaar's Tunic. Defined in `mechanics.md`.
 - [ ] **Carry weight system** — Rickety Bridge has a weight limit; exact limit TBD. All items need weight values assigned. (`locations.md`, `mechanics.md`)
 - [ ] **2–3 quests requiring ring invisibility** — Chuckle House confirmed; need 1–2 more. (`mechanics.md`)
-- [x] **Full spell list** — four spells defined in `mechanics.md`: Light, Unbind Undead, REST, Fireball.
-- [x] **Damage avoidance mechanic** — Ivanaar's Tunic: silent 1d10, 40% negation, four flavor messages. Defined in `mechanics.md`.
 - [ ] **Full verb list and synonym handling policy** — design pass needed. (`mechanics.md`)
 - [ ] **Pie Rat Coin purpose** — flipped by Pie Rat after ship return; use TBD. (`mechanics.md`, `items.md`)
 
@@ -34,11 +31,9 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## NPCs
 
-- [x] **The Redcrosse Knight** — designed: Town Square, formal-warm personality, Level 3 minimum, all dialogue states. Quest 54 written. (`npcs.md`, `quests.md`, `mechanics.md`)
 - [ ] **Rowan Finch** — dialogue connecting Calder to Trophy Case TBD. (`npcs.md`)
 - [ ] **Lynds** — reaction when player loses arm wrestle TBD. (`npcs.md`)
 - [ ] **Player name use** — review all NPC dialogue and flag where name use is appropriate as familiarity grows. Priority: May, Shamus, Raznak, Redcrosse Knight, Vikings. Others TBD. (`npcs.md`)
-- [x] **Kevry dialogue tree** — all three states written: glasses equipped, glasses in inventory only, no glasses. (`npcs.md`)
 
 ---
 
@@ -66,33 +61,13 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ---
 
-## Housekeeping
-
-- [x] **Encoding cleanup** — complete. All `””` and `â€”` artifacts replaced with `—` across all `.md` files.
-
----
-
 ## Narrative & Writing
 
-- [ ] **Dragon-nip quest** — Will's reaction dialogue when player returns it; tone: quietly pleased, slightly embarrassed, says little. (`locations.md`, `gameplay design.md`)
-- [ ] **Golden Dragon Scale** — confirm as Trophy Case treasure item. (`items.md`, `gameplay design.md`)
+- [x] **Dragon-nip quest** — Will's return dialogue written to `npcs.md`; quest entry (Quest 58) written to `quests.md`. Golden Dragon Scale confirmed as reward.
+- [x] **Golden Dragon Scale** — confirmed as Trophy Case treasure item; reward for Quest 58. (`items.md`, `quests.md`)
 - [ ] **Treasure achievement system** — full treasure list, total count, end-game display format. Replaces Zork scoring. (`gameplay design.md`)
 - [ ] **Tip Journal** — design display verb, visual format of quest entries, completed quest handling. (`gameplay design.md`, `mechanics.md`)
 - [ ] **Tone & Voice** — game voice not formally documented; needs dedicated session. (memory)
-- [x] **Pyronicus Pale Blade forging scene** — full scene written in `ring-rituals.md` (Artifact 1, Step 3).
-
----
-
 ## Ring Quest / Critical Path
 
 - [ ] **Werewolf combat mechanic** — see Combat section above. BLOCKED.
-- [x] **Kevry dialogue tree** — done; see NPCs section above.
-
----
-
-## Resolved (recent — for reference)
-
-- [x] Chuckle House Entrance — designed and written to `locations.md`
-- [x] Graveyard — pre/post-bonk descriptions written to `locations.md`
-- [x] Dankhaus rooms (all 7) — descriptions written to `locations.md`
-- [x] Kevry's Island room descriptions — all 4 rooms written to `locations.md`
