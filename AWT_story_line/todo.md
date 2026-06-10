@@ -11,22 +11,17 @@ Consolidated from all source files. Update this file when items are resolved; re
 - [ ] **2–3 quests requiring ring invisibility** — Chuckle House confirmed; need 1–2 more. (`mechanics.md`)
 - [ ] **Full verb list and synonym handling policy** — design pass needed. (`mechanics.md`)
 - [ ] **Trap detection → disarm flow** — needs consistent mechanic: does a successful perception check auto-attempt disarm, or does the player need to act intentionally? Leaning toward intentional (player must `DISARM TRAP` or equivalent verb after spotting it). (`mechanics.md`, `traps.md`)
+
 ---
 
 ## Locations
 
 - [ ] **Dankhaus ward — ring invisibility bypass** — leaning no; revisit if more ring corruption moments are needed. (`locations.md`, `mechanics.md`)
-- [x] **Secret Tunnels — Graveyard Crypt connection** — west from Junction via Bone Passage → Charnel Walk → Crypt (north/south symmetrical). (`locations.md`)
-- [x] **Ty's Casino Corner** — Cargo mechanic written to `mechanics.md`; Ty NPC entry in `npcs.md`. Player sets wager, Ty matches, 30 Zenni bankroll cap, no lockout timer.
-- [x] **Town room descriptions pass** — Main West, Roundabout Town Square (4 states: fountain × statue), Council Chamber, Records Room, Upper Hall. All written to `locations.md`.
-- [x] **Secret Tunnels room descriptions** — all seven rooms written to `locations.md`. Toll Bridge has three states (Boggart present, gone/strongbox present, strongbox looted).
-- [x] **Dungeon room descriptions pass** — all sixteen rooms written to `locations.md`. Trap Side Entry renamed to The Spillway across all files.
 
 ---
 
 ## NPCs
 
-- [x] **Lynds** — Quest 59 written; win, loss, and subsequent challenge dialogue all in `npcs.md` and `quests.md`.
 - [ ] **Player name use** — review all NPC dialogue and flag where name use is appropriate as familiarity grows. Priority: May, Shamus, Raznak, Redcrosse Knight, Vikings. Others TBD. (`npcs.md`)
 
 ---
