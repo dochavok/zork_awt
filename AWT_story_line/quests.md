@@ -572,7 +572,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 2. Initiate the trial — `FIGHT KNIGHT` or `CHALLENGE KNIGHT`. Full combat begins.
 3. Combat runs until one side reaches 1 heart. The Knight stops the fight before the killing blow in either direction.
    - **Player loses (reaches 1 heart):** *"He steps back and lowers his weapon. 'You fought well enough to keep your feet. That's not nothing.' He studies you for a moment. 'Come back. I'll be here.'"* Quest remains open — retryable.
-   - **Player wins (Knight reaches 1 heart):** *"He holds still for a moment after you land the deciding blow. Then something in his posture shifts — subtle, but real. 'Good,' he says. Just that. He sheathes his weapon and nods toward an open space in the square. 'Again — this time I'll show you what you did right.'"*
+   - **Player wins (Knight reaches 1 heart):** *"He holds still for a moment after you land the deciding blow. Then something in his posture shifts — subtle, but real. 'Good, [Name],' he says. Just that. He sheathes his weapon and nods toward an open space in the square. 'Again — this time I'll show you what you did right.'"*
 4. Pay 3 Zenni. Melee weapon skill unlocked permanently.
 
 **Reward:** Melee weapon skill. 8 XP. 5 Zenni.
@@ -632,7 +632,9 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ## Quest 58 — The Dragon-Nip
 
-**Discovery:** Organic only — silent perception check (Hard difficulty) fires on every visit to Will's Bedroom. On success: *"Something small glows faintly under the nightstand — easy to miss, impossible to unsee once noticed. A sprig of something, tucked against the baseboard as if it rolled there and was forgotten."* Players returning with Actually Enchanted Glasses equipped auto-succeed. No Quest Board posting. No May hints.
+**Discovery:** Organic only — silent perception check (Hard difficulty) fires on every visit to Will's Bedroom.
+On success: *"Something small glows faintly under the nightstand — easy to miss, impossible to unsee once noticed. A sprig of something, tucked against the baseboard as if it rolled there and was forgotten."*
+Players returning with Actually Enchanted Glasses equipped auto-succeed. No Quest Board posting. No May hints.
 **Prerequisites:** Access to Will's Bedroom (hidden door revealed via Quest 53 perception check).
 **Missability:** Extremely high. Hard perception check, no hints anywhere, no cascade from any other quest except the glasses connection.
 
@@ -658,34 +660,13 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 **Steps:**
 1. `TALK TO LYNDS` or `CHALLENGE LYNDS` in the Tale and Ale. Lynds greets the challenge without ceremony.
-
-   *Lynds looks at you the way a person looks at something they're about to do that they've done many times before. He sets his drink down and puts his elbow on the table.*
-
-   *"Go on then."*
+   Full dialogue in `npcs.md` — Lynds entry.
 
 2. Arm wrestling is a single contested strength roll — player vs. Lynds (Level 4 dice: 2d10+3). Retryable after a 20-turn cooldown on loss.
-   - **Player loses:** *Lynds wins without apparent effort. He picks his drink back up. "Not bad." He means it as a compliment. "Come back whenever."* Cooldown message on retry before 20 turns: *"Give me a bit. I'm still drinking."*
-   - **Player wins:** See Step 3.
 
-3. Win state:
+3. Win state → Heart Necklace added to inventory. Invitation flag set (Dankhaus wards cleared).
 
-   *Lynds holds still for a moment after his hand goes down. Then he laughs — short, surprised, genuine.*
-
-   *"Huh."*
-
-   *He studies you for a moment, then reaches into his shirt and pulls out a necklace — a simple cord, a clay charm worn smooth. He sets it on the table between you.*
-
-   *"My grandmother made that. Said it kept her heart going longer than it had any right to. I don't know if that's true but I've never had reason to doubt it. You earned it."*
-
-   *He picks up his drink.*
-
-   *"Come find us in the bog sometime. Ask for the Dankhaus. Tell them Lynds sent you."*
-
-   → Heart Necklace added to inventory. Invitation flag set (Dankhaus wards cleared).
-
-4. Subsequent challenges after winning — Lynds gives a friendly brush-off:
-
-   *Lynds grins. "You already beat me. I remember." He doesn't put his elbow down.*
+4. Subsequent challenges after winning — Lynds gives a friendly brush-off. Full dialogue in `npcs.md` — Lynds entry.
 
 **Reward:** Heart Necklace (permanent +1 heart, neck slot). Dankhaus access. 5 XP. 3 Zenni.
 

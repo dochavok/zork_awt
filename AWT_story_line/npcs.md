@@ -11,10 +11,25 @@ Update this file immediately when any NPC detail is designed or changed.
 **Location:** Will's Wizard Tower (via White House mailbox / Tale and Ale mailbox)
 **Personality:** Measured, dry humor, ancient. The weight of centuries is visible in him but not heavy — he's accommodating it rather than bearing it.
 
-**Appearance:** *Will Passion sits with the unhurried stillness of a man who has seen centuries compressed into a single lifetime. His long dark robes of deep violet — trimmed in crimson cord that winds like a binding spell — hang loosely from broad, weathered shoulders. His hair, dark as a raven's wing but streaked with the silver of hard-won wisdom, falls long and untamed past his shoulders. His beard is full and commanding, the kind that seems to grow with intent. Thin, almost delicate wire-rimmed spectacles rest upon his nose — an odd contrast to everything else about him, as if he borrowed them from a much more ordinary man. On his wrist sits a leather cuff, dark and worn. Around his neck, a crimson cord from which hangs... something. You can't quite make it out.*
+**Appearance:**
+*Will Passion sits with the unhurried stillness of a man who has seen centuries compressed into a single lifetime.*
+*His long dark robes of deep violet — trimmed in crimson cord that winds like a binding spell — hang loosely from broad, weathered shoulders.*
+*His hair, dark as a raven's wing but streaked with the silver of hard-won wisdom, falls long and untamed past his shoulders.*
+*His beard is full and commanding, the kind that seems to grow with intent.*
+*Thin, almost delicate wire-rimmed spectacles rest upon his nose — an odd contrast to everything else about him, as if he borrowed them from a much more ordinary man.*
+*On his wrist sits a leather cuff, dark and worn.*
+*Around his neck, a crimson cord from which hangs... something. You can't quite make it out.*
 
 **Opening scene (West of House):**
-Will appears without ceremony, straightening his cuffs as though he merely stepped from one room to another. *"You opened the mailbox," he says. "I wasn't entirely certain you would."* He studies the player for a moment. *"I have a small errand for you. It involves a town called Roundabout, an object that has a habit of ending up where it doesn't belong, and someone who is holding it quite innocently and will give it up without a fuss."* He pauses. *"The object itself is another matter."*
+Will appears without ceremony, straightening his cuffs as though he merely stepped from one room to another.
+
+*"You opened the mailbox," he says. "I wasn't entirely certain you would."*
+
+He studies the player for a moment.
+
+*"I have a small errand for you. It involves a town called Roundabout, an object that has a habit of ending up where it doesn't belong, and someone who is holding it quite innocently and will give it up without a fuss."*
+
+He pauses. *"The object itself is another matter."*
 
 Will asks: *"Are you up for an adventure?"*
 - **No:** *Will pauses. "No," he repeats, tasting the word. "Interesting." He waves a hand, not unkindly. "Off you go, then." And he is gone. The field is quiet. The mailbox stands closed in the morning light, as though it never opened. As though none of this happened.* GAME OVER. Player never leaves the field.
@@ -27,7 +42,12 @@ Will asks: *"Are you up for an adventure?"*
    - **Mage:** *"A Mage. Yes — I almost had it." He says this as though he's been working on a puzzle and just found the missing piece. "Good. You'll see things others miss. Pay attention to that instinct."*
    - **Rogue:** *"A Rogue. Yes." He seems to find this amusing in a quiet way. "You know, I should have seen that. Something about the way you looked at the door when you came in." He shakes his head. "Pay attention to everything. You already know how. Just keep doing it."*
 3. **Name entry:** *"And your name?"* Player types name. Used by priority NPCs as familiarity grows: May, Shamus, Raznak, Redcrosse Knight, Vikings. Others TBD.
-4. **Ring quest briefing:** *"There is a ring in Roundabout. It belongs to no one and everyone, depending on how you look at it — which is part of the problem."* He stands and moves to the window. *"It fell through the roof of a man named Pyronicus. He's holding it in good faith, completely unaware of what it is. He'll give it up without a fight."* He turns back. *"I need you to retrieve it. Bring it to me, or keep it close — but understand this: the ring is useful. It is also patient. And patient things have a way of getting what they want eventually."*
+4. **Ring quest briefing:**
+   *"There is a ring in Roundabout. It belongs to no one and everyone, depending on how you look at it — which is part of the problem."*
+   He stands and moves to the window.
+   *"It fell through the roof of a man named Pyronicus. He's holding it in good faith, completely unaware of what it is. He'll give it up without a fight."*
+   He turns back.
+   *"I need you to retrieve it. Bring it to me, or keep it close — but understand this: the ring is useful. It is also patient. And patient things have a way of getting what they want eventually."*
 5. **Zenni handoff:** *Almost as an afterthought, Will pulls a small pouch from somewhere in his robes and holds it out. "Here," he says. "Ten Zenni. Don't spend it all on drinks."*
 6. **Send-off:** *"When you're ready," Will says, settling back into his chair, "Roundabout awaits." He picks up his pen. The conversation, it seems, is over.*
 7. **Trailing warning:** As player looks at the painting: *"One more thing," Will says, rising from his chair. "The ring — I should have told you, it—"* Transport cuts him off.
@@ -40,7 +60,13 @@ Will asks: *"Are you up for an adventure?"*
 4. *Will peers at you over his spectacles. "You found a mailbox in a field and opened it. I have every confidence you'll solve this."*
 5. *"Will once watched a student spend forty minutes in this room before finding the exit. 'I won't tell you how long you've been here,' he says. 'Yet.'"*
 
-**Spell teaching:** Warriors/Rogues who attempt `READ SCROLL` on a spell scroll are told the scroll resists them and names Will Passion as the one who can help. Bringing the scroll to Will and issuing either `READ SCROLL` (in his presence) or `GIVE SCROLL TO WILL` triggers the teaching interaction. Scroll consumed, spell learned permanently. Cannot wear Enchanted Glasses in Will's presence during teaching — if equipped, Will notices: *"Take those off. I can't teach someone who already thinks they can see everything."* Glasses must be removed before the interaction proceeds.
+**Spell teaching:**
+Warriors/Rogues who attempt `READ SCROLL` on a spell scroll are told the scroll resists them and names Will Passion as the one who can help.
+Bringing the scroll to Will and issuing either `READ SCROLL` (in his presence) or `GIVE SCROLL TO WILL` triggers the teaching interaction.
+Scroll consumed, spell learned permanently.
+Cannot wear Enchanted Glasses in Will's presence during teaching — if equipped, Will notices:
+*"Take those off. I can't teach someone who already thinks they can see everything."*
+Glasses must be removed before the interaction proceeds.
 
 **Teaching dialogue:**
 *Will glances at the scroll, then at you. He takes it without ceremony and unrolls it, reading silently for a moment. Then he reads it aloud — not to you, exactly, more as if the words need to be heard in the right kind of room. When he finishes, you understand it. You're not sure how. "Keep that," he says, nodding at the space where the scroll was. It's gone. "The knowing, I mean."*
@@ -195,7 +221,12 @@ Standard easter egg dialogue. No mention of glasses.
 
 Lives in a single large obsidian room built around an ancient forge. Will told Pyronicus to expect the player — he is unconcerned about being found.
 
-**Ring handover:** *Pyronicus sets down his work and regards you with calm, unhurried eyes. "Will's errand," he says. "Yes." He moves to a workbench and returns with the ring, placing it in your hand with the care of someone returning something that was never theirs. "It fell through my ceiling," he says. "Rings don't do that by accident." He pauses. "Will told you what you need to know, I assume." He goes back to what he was doing. The conversation, apparently, is over.*
+**Ring handover:**
+*Pyronicus sets down his work and regards you with calm, unhurried eyes. "Will's errand," he says. "Yes."*
+*He moves to a workbench and returns with the ring, placing it in your hand with the care of someone returning something that was never theirs.*
+*"It fell through my ceiling," he says. "Rings don't do that by accident."*
+*He pauses. "Will told you what you need to know, I assume."*
+*He goes back to what he was doing. The conversation, apparently, is over.*
 
 **Pale Blade forging:** When player brings runed metal from the Viking Encampment, Pyronicus forges it into the Pale Blade. Full forge scene confirmed — see `ring-rituals.md` (Artifact 1, Step 3).
 
@@ -259,7 +290,7 @@ Challenge trigger (`TALK TO LYNDS` or `CHALLENGE LYNDS`):
 
 **Subsequent challenges after winning:**
 
-*Lynds grins. "You already beat me. I remember." He doesn't put his elbow down.*
+*Lynds grins. "You already beat me, [Name]. I remember." He doesn't put his elbow down.*
 
 ---
 
@@ -337,7 +368,7 @@ He pauses.
 
 **State 3 — Subsequent visits (all classes):**
 
-Raznak acknowledges the player warmly — a nod, a word, nothing elaborate. Uses player's name once familiarity established.
+*Raznak looks up when you enter the range. "[Name]," he says, with a nod. He goes back to his work. That's the entire greeting, and somehow it's enough.*
 
 ---
 
@@ -357,14 +388,16 @@ Teaches melee weapon use to Mages and Rogues via Quest 54 (Fight the Knight) —
 **Below Level 3 (attempt turned away):**
 *"He looks you over once. 'Not yet,' he says, not unkindly. 'Come back when you've got more behind you.'"*
 
-**After player loses (stopped at 1 heart):**
-*"He steps back and lowers his weapon. 'You fought well enough to keep your feet. That's not nothing.' He studies you for a moment. 'Come back. I'll be here.'"*
+**Fight initiation (first attempt only):**
+*"I'm [Name], and I'm ready."*
 
-**After player wins:**
-*"He holds still for a moment after you land the deciding blow. Then something in his posture shifts — subtle, but real. 'Good,' he says. Just that. He sheathes his weapon and nods toward an open space in the square. 'Again — this time I'll show you what you did right.'"* → training begins, 3 Zenni, melee skill unlocked.
+*He looks at you. Something in his posture shifts — just slightly. "Then let's see what you know." He draws his weapon.*
 
-**Return visits after training complete:**
-*"He gives you a short nod when you pass. Nothing more is needed."*
+**Fight initiation (subsequent attempts):**
+*(No preamble — he draws his weapon.)*
+
+**After player loses / After player wins / Return visits:**
+Full combat dialogue in `quests.md` — Quest 54.
 
 ---
 

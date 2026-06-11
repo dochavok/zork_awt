@@ -159,7 +159,11 @@ Each class starts with one combat skill. The other two can be acquired through q
 
 **Archery training (Quest 55)** — Raznak (Viking), Archery Range. Requires all three Viking trust trials complete (Quest 57) first. Arrow hazard on range is silently disabled once trust earned. Rogues start with bow — not beckoned by Raznak and cannot trigger this quest. Cost: 3 Zenni. Classes: Warrior, Mage only.
 
-**Spell training (Quest 56)** — Will Passion, Wizard Tower. Warriors and Rogues cannot read spell scrolls directly — resistance message points them to Will. Bring any spell scroll; Will teaches it aloud; scroll consumed, spell learned permanently. Repeatable for each new scroll. Cost: 3 Zenni per spell. Cannot wear Enchanted Glasses in Will's presence during teaching. Classes: Warrior, Rogue only.
+**Spell training (Quest 56)** — Will Passion, Wizard Tower.
+Warriors and Rogues cannot read spell scrolls directly — resistance message points them to Will.
+Bring any spell scroll; Will teaches it aloud; scroll consumed, spell learned permanently. Repeatable for each new scroll.
+Cost: 3 Zenni per spell. Cannot wear Enchanted Glasses in Will's presence during teaching.
+Classes: Warrior, Rogue only.
 
 ---
 
@@ -345,7 +349,12 @@ Granted silently at Level 7. The player is never told this ability exists — no
 
 May sells hints for Zenni at The Bar, Tale and Ale. Hints are tiered — each tier costs more than the last. Tiers must be purchased in order.
 
-**The player tips blind.** There is no menu, no listed price. The player gives May a Zenni amount and May decides what it buys. The tier boundaries are never shown to the player — only May "knows" them. A player who tips 3 Zenni every time will always get Tier 1 hints and never know they could have paid more. A player who tips 7 Zenni from the start will unlock Tier 3 but overpay for early hints. The inefficiency is intentional — it rewards players who experiment and pay attention to May's responses.
+**The player tips blind.** There is no menu, no listed price.
+The player gives May a Zenni amount and May decides what it buys.
+The tier boundaries are never shown to the player — only May "knows" them.
+A player who tips 3 Zenni every time will always get Tier 1 hints and never know they could have paid more.
+A player who tips 7 Zenni from the start will unlock Tier 3 but overpay for early hints.
+The inefficiency is intentional — it rewards players who experiment and pay attention to May's responses.
 
 **Tier cost ranges (internal — never shown to player):**
 - Tier 1: 1–3 Zenni
@@ -357,7 +366,7 @@ Some hints are conditional: May's tier 1 hint for Quests 19&30 fires only if pla
 **May's responses by tip amount:**
 - **Tier 1 (1–3 Zenni):** *May palms the coin without looking at it, leans in, and shares what she knows. "That's worth something," she says.*
 - **Tier 2 (4–6 Zenni):** *May pockets the coins carefully. "That buys you something worth hearing," she says.*
-- **Tier 3 (7–12 Zenni):** *May counts the coins once, pockets them, and leans all the way across the bar.*
+- **Tier 3 (7–12 Zenni):** *May counts the coins once, pockets them, and leans all the way across the bar. "[Name]," she says.*
 - **Nothing to share (any amount, no hints remaining):** Randomly selected from:
   1. *May pushes the Zenni back. "Keep it. I've got nothing worth that right now." She goes back to wiping the bar.*
   2. *May looks at the coin and shakes her head slowly. "I'd be robbing you. Ask me again when something changes."*
@@ -367,7 +376,7 @@ Some hints are conditional: May's tier 1 hint for Quests 19&30 fires only if pla
 May only offers hints for quests that are discovered AND incomplete. She won't hint on undiscovered or finished quests. Each tier for each quest is a one-time purchase — May will not re-sell a tier already bought.
 
 **Free drink flag system:** A boolean flag tracks pending free drinks, each with a reason string for contextual dialogue. Flag is set by quest events; cleared after the free drink is redeemed. Current known flags:
-1. **Mugger slain** — *May thanks the player for dealing with whoever was lurking in the Back Alley, and doesn't charge for the drink.*
+1. **Mugger slain** — *May thanks [Name] for dealing with whoever was lurking in the Back Alley, and doesn't charge for the drink.*
 
 **Raznak nudge (free, no Zenni):** If the player has visited the Archery Range at least once but has never spoken to Raznak (not yet reached any dialogue state), May offers unprompted: *"You should talk to Raznak."* Fires once only. No tier, no cost.
 
@@ -448,7 +457,18 @@ Beach `DIG`: succeeds up to 5 times with flavor text (nothing but wet sand); 6th
 **Eligible room pool:**
 
 *Overworld & Town:*
-White House, Will's Wizard Tower (Main Room), Will's Bedroom, Main West, Town Square, Main East, The Alley, Back Alley, Town Hall Exterior, Council Chamber, Records Room, Upper Hall, The Tower, Tale & Ale Main Room, Bar, Ty's Casino Corner, Pipe Room, Kitchen, Upstairs Hall, Guest Rooms 1/2/3, Cellar/Storeroom, Library Main Hall, The Stacks, Church Nave, The Altar, Keeper's Chamber, Graveyard, The Mausoleum, The Crypt, Roundabout Wasteland, The Volcano, Pyronicus's Forge, Archery Range, Viking Encampment, Haalvar's Hut, Ritual Circle, Fire Pit, Roundabout Pond, Dankhaus rooms, Beach Road, The Old Oak, Beekeeper's Cottage, Swarm Tree, Roundabout Forest, Roundabout Beach, The Lighthouse, The Docks, Pie Rat Ship Deck
+White House, Will's Wizard Tower (Main Room), Will's Bedroom,
+Main West, Town Square, Main East, The Alley, Back Alley,
+Town Hall Exterior, Council Chamber, Records Room, Upper Hall, The Tower,
+Tale & Ale Main Room, Bar, Ty's Casino Corner, Pipe Room, Kitchen, Upstairs Hall, Guest Rooms 1/2/3, Cellar/Storeroom,
+Library Main Hall, The Stacks,
+Church Nave, The Altar, Keeper's Chamber,
+Graveyard, The Mausoleum, The Crypt,
+Roundabout Wasteland, The Volcano, Pyronicus's Forge,
+Archery Range, Viking Encampment, Haalvar's Hut, Ritual Circle, Fire Pit,
+Roundabout Pond, Dankhaus rooms,
+Beach Road, The Old Oak, Beekeeper's Cottage, Swarm Tree, Roundabout Forest,
+Roundabout Beach, The Lighthouse, The Docks, Pie Rat Ship Deck
 
 *Dungeon — Upper Tier:*
 Ink Corridor, Supply Room, Narrow Passageway, Idol Room, Storage Area, Collapsed Gallery, Creature Den, Combat Room, Prayer Alcove, Portcullis Corridor, Shrine Room, Mid-Tier Key Door
@@ -576,13 +596,18 @@ Full tree (paths numbered A1–A3, B1–B3):
 - Trust it. Press forward into the wall → SUCCESS: *You don't slow down. You don't brace. You walk into it the way you'd walk through a doorway you've used a thousand times. The wall is not there. The room beyond is. You are through it before you've decided what just happened. You are through.*
 - Trust it. Wait. See if something happens → FAILURE: *You wait. The certainty doesn't grow or fade — it just sits there, patient, offering nothing new. The corridor is very quiet. You wait longer. The torch burns. Nothing happens. The feeling eventually becomes indistinguishable from doubt. You wake up at the entrance. The footprints are there. Your size. Your stride. The certainty is gone.*
 
-*B2 — The claw marks run the length of the tunnel, shoulder height, deep and continuous. You follow them. The tunnel is long enough that the entrance is behind you and the far end is still ahead. The marks don't stop or change. They just keep going. Then the tunnel goes silent in a way it wasn't silent before. One breath of stillness. Then something at the far end shifts. Not loud. Not close. Just present. Aware, maybe. The marks continue toward it.*
+*B2 — The claw marks run the length of the tunnel, shoulder height, deep and continuous. You follow them.*
+*The tunnel is long enough that the entrance is behind you and the far end is still ahead. The marks don't stop or change. They just keep going.*
+*Then the tunnel goes silent in a way it wasn't silent before. One breath of stillness.*
+*Then something at the far end shifts. Not loud. Not close. Just present. Aware, maybe. The marks continue toward it.*
 - Keep walking → SUCCESS: *You don't slow down. Whatever is ahead has already heard you — stopping won't help and going back won't either. You walk toward the sound. The tunnel ends at a doorway. Nothing is there. Nothing was ever there, or it's somewhere you're not anymore. You walk through it. You are through.*
 - Fall back → FAILURE: *You take one step back. Then another. The sound doesn't repeat but the silence that follows it is worse. You turn and move fast, faster, back toward the entrance, back toward the footprints, back toward something that made sense. You wake up at the entrance. The footprints are there. Your size. Your stride. The far end of the tunnel is very far away now.*
 
 *B3 — The vibration leads you to a section of floor where it is strongest — a rough circle of stone, slightly discolored, slightly lower than the surrounding floor. The hum comes up through your boots and into your legs. It is steady. It is patient. It has been doing this for a long time.*
 - Step onto the discolored stone → SUCCESS: *The hum rises through you the moment your full weight is on it — up through your legs, your chest, your jaw. The floor doesn't move. You do. The corridor shifts around you, or you shift through it, and then you are somewhere else. The hum is gone. The room ahead is quiet and real. You are through.*
-- Kneel and press your hand to it → SUCCESS: *The vibration is different through your palm than through your boots — more specific, like a word you almost recognize. You press harder. The circle of stone depresses slightly, just enough to feel deliberate, and something in the corridor unlocks without a sound. A doorway is there that wasn't before. You stand up and walk through it. You are through.*
+- Kneel and press your hand to it → SUCCESS: *The vibration is different through your palm than through your boots — more specific, like a word you almost recognize.*
+  *You press harder. The circle of stone depresses slightly, just enough to feel deliberate, and something in the corridor unlocks without a sound.*
+  *A doorway is there that wasn't before. You stand up and walk through it. You are through.*
 
 **On passing through:** The player arrives in the Lost Apprentice's Cell. No explanation is given for what the corridor was. The dream framing is never named in-game.
 

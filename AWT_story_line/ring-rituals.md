@@ -22,8 +22,7 @@ All three rituals must be completed. The ring quest cannot be completed without 
 
 **Opening briefing (tower, first visit):**
 Will tells the player to retrieve the ring from Pyronicus. No mention of rituals yet.
-
-*"There is a ring in Roundabout. It belongs to no one and everyone, depending on how you look at it — which is part of the problem. It fell through the roof of a man named Pyronicus. He's holding it in good faith, completely unaware of what it is. He'll give it up without a fight. I need you to retrieve it. Bring it to me, or keep it close — but understand this: the ring is useful. It is also patient. And patient things have a way of getting what they want eventually."*
+Full dialogue in `npcs.md` — Will Passion entry, Tower visit sequence step 4.
 
 **Second briefing (player returns ring to Will) — CONFIRMED:**
 
@@ -111,7 +110,7 @@ Located in The Altar sub-room of the Church of All.
 
 *He picks up his pen.*
 
-*"Well done."*
+*"Well done, [Name]."*
 
 *He means it. You can tell because he doesn't say anything else.*
 
@@ -133,13 +132,7 @@ The Viking Encampment (west of Archery Range) follows The Brotherhood of the Pal
 **Step 2 — Runed Metal Handoff**
 After Trial 3, Ivanaar Stormbringer awards the runed metal.
 
-*"Will Passion sent you. He asked me to build something that would tell him whether you were worth trusting with what comes next. He didn't tell me what comes next."*
-
-He holds the runed metal with both hands:
-
-*"This is Brotherhood metal. It has been kept since before this encampment. It would make a fine blade in the right hands — a blacksmith who knows what he is looking at could tell you more."*
-
-*"I hope Will is right about you."*
+Full dialogue in `locations.md` — Viking Encampment, runed metal handoff.
 
 **[Runed Metal added to inventory.]**
 
@@ -216,7 +209,6 @@ Bring Werewolf's Amulet to the Church of All altar. Attune to The Veil of the Ar
 - Crowbar failure message added: *"The base is sealed tight. Something with leverage could pry it open."* (fixed)
 - Keeper's skeleton room description written and confirmed (fixed)
 - Werewolf's Room scholar connection — RESOLVED. Post-combat room description: *"The scholar lies where the creature fell."* Reversion text confirmed.
-- Werewolf combat mechanic TBD: attack cadence, player options each turn — **BLOCKED on combat system design**
 - Death/reversion text confirmed: *"The creature drops. Between one moment and the next, it is not the creature anymore. The scholar lies on the floor of the cave he came down here to find."*
 - Post-combat room description confirmed (see locations.md — The Still Den)
 

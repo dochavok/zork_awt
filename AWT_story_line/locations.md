@@ -3,7 +3,10 @@
 Authoritative room-by-room reference. Every room: description, connections, items, mechanics, NPC states.
 Update this file immediately when any location detail is designed or changed.
 
-**XP defaults:** All rooms award 1 XP on first discovery unless noted otherwise. Exceptions: ocean traversal squares (0 XP), Kevry's Island rooms (5 XP each), dungeon lower tier rooms (2 XP each), dungeon trap side mid-tier rooms (2 XP each), Burial Chamber (3 XP), Skeleton Room (0 XP — instant death on entry). Perception-gated rooms (hidden behind a perception check to discover) award double their base value, except critical path rooms which are set individually. Each room's XP value is noted in its entry below.
+**XP defaults:** All rooms award 1 XP on first discovery unless noted otherwise.
+Exceptions: ocean traversal squares (0 XP), Kevry's Island rooms (5 XP each), dungeon lower tier rooms (2 XP each), dungeon trap side mid-tier rooms (2 XP each), Burial Chamber (3 XP), Skeleton Room (0 XP — instant death on entry).
+Perception-gated rooms (hidden behind a perception check to discover) award double their base value, except critical path rooms which are set individually.
+Each room's XP value is noted in its entry below.
 
 ---
 
@@ -27,10 +30,20 @@ Contains a painting of the Tale and Ale — `LOOK AT PAINTING` teleports player 
 
 ### Will Passion's Bedroom
 **XP: 1**
-Hidden room inside the tower. **Discovery:** Silent Easy perception check fires on every visit to the Main Room. On success, bedroom door becomes visible — permanently. No nudge, no hint. Repeating check. "Where the magic happens." Contains the Enchanted Glasses on the nightstand. Equipping the glasses in Will's presence triggers an instant fail state — Will attacks, no recovery. The bedroom is safe because Will is not there. `DROP GLASSES` places them on the nightstand — description persists. Contains **dragon-nip** — a glowing sprig hidden under the nightstand, practically impossible to find (requires perfect roll at highest level, or Actually Enchanted Glasses). Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn't ask.
+Hidden room inside the tower.
+**Discovery:** Silent Easy perception check fires on every visit to the Main Room. On success, bedroom door becomes visible — permanently. No nudge, no hint. Repeating check.
+"Where the magic happens." Contains the Enchanted Glasses on the nightstand.
+Equipping the glasses in Will's presence triggers an instant fail state — Will attacks, no recovery. The bedroom is safe because Will is not there.
+`DROP GLASSES` places them on the nightstand — description persists.
+Contains **dragon-nip** — a glowing sprig hidden under the nightstand, practically impossible to find (requires perfect roll at highest level, or Actually Enchanted Glasses).
+Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn't ask.
 
 **Room description:**
-*This is, apparently, where the magic happens. The bedroom is smaller than the main room and considerably more honest about its occupant. Books here are not organized — they are stacked, wedged, balanced, and in at least one case load-bearing. A narrow bed sits against the far wall, made with the perfunctory neatness of someone who knows they'll be up again soon. A nightstand holds a pair of wire-rimmed glasses, a half-melted candle, and a ring left by a cup that was never there long enough to matter. The rest of the room is Will's business and clearly has been for a very long time.*
+*This is, apparently, where the magic happens. The bedroom is smaller than the main room and considerably more honest about its occupant.*
+*Books here are not organized — they are stacked, wedged, balanced, and in at least one case load-bearing.*
+*A narrow bed sits against the far wall, made with the perfunctory neatness of someone who knows they'll be up again soon.*
+*A nightstand holds a pair of wire-rimmed glasses, a half-melted candle, and a ring left by a cup that was never there long enough to matter.*
+*The rest of the room is Will's business and clearly has been for a very long time.*
 
 **Glasses on nightstand (before taking):** *A pair of wire-rimmed glasses sit on the nightstand. They look perfectly ordinary.*
 
@@ -52,7 +65,11 @@ Western end of Main Street. Library to the north. Archery Range further west. So
 **XP: 1**
 Center of town. Town Hall to the north. Tavern to the south. Southwest leads to The Alley. Contains a **fountain** — dry until Quest 22 (The Ruined Aqueduct) is completed. Once flowing, fountain water is required for Quest 49 (The Ruined Shrine) clay adhesive.
 
-**Room description (default — fountain dry, statue unexamined):** *The square is the kind of place a town organizes itself around without quite deciding to. Cobblestones, worn smooth at the center. The Town Hall anchors the north end with the authority of a building that has never doubted its own importance. The tavern faces it from the south, which seems about right. A fountain stands in the middle — dry, the basin cracked at one edge, the stonework patient in the way of things that have been waiting a long time. A stone statue stands to one side — a civic figure of some kind, the plaque below it worn to illegibility.*
+**Room description (default — fountain dry, statue unexamined):**
+*The square is the kind of place a town organizes itself around without quite deciding to. Cobblestones, worn smooth at the center.*
+*The Town Hall anchors the north end with the authority of a building that has never doubted its own importance. The tavern faces it from the south, which seems about right.*
+*A fountain stands in the middle — dry, the basin cracked at one edge, the stonework patient in the way of things that have been waiting a long time.*
+*A stone statue stands to one side — a civic figure of some kind, the plaque below it worn to illegibility.*
 
 **Room description (fountain dry, statue examined — seam visible):** *...A stone statue stands to one side. The plaque below it is worn to illegibility, but the base has a seam around it — visible now that you're looking. Something with leverage could open it.*
 
@@ -70,13 +87,19 @@ Eastern end of Main Street. Church of All to the south. Roundabout Wasteland to 
 
 ### The Alley
 **XP: 1**
-*The gap between buildings is narrow enough that the sky above is just a strip. Cobblestones give way to packed dirt underfoot. The tavern's back wall runs along the south side. It smells like kitchen waste and something less identifiable. Further south, the alley deepens.* Accessible from Roundabout Town Square (southwest) and Main West (southeast). Exits north to Roundabout Town Square only. South leads to The Back Alley.
+*The gap between buildings is narrow enough that the sky above is just a strip. Cobblestones give way to packed dirt underfoot.*
+*The tavern's back wall runs along the south side. It smells like kitchen waste and something less identifiable. Further south, the alley deepens.*
+Accessible from Roundabout Town Square (southwest) and Main West (southeast). Exits north to Roundabout Town Square only. South leads to The Back Alley.
 
 ### The Back Alley
 **XP: 1**
 *Darker than the alley, smaller, and considerably less welcoming. The tavern's back wall seals the south end. Broken crates and barrels have accumulated here the way things do when no one is watching. The ground is stained. The air is close. This is where things happen that don't happen on Main Street.* Dead end behind the tavern.
 
-**Mugger mechanic:** A shadowy figure lurks here. Perception check fires every visit until the mugger is spotted and slain. On failed perception: player is mugged — loses 1 heart (physical damage) and 2–3 Zenni (random), loses consciousness, wakes in the Back Alley one turn later. If player has no Zenni: still mugged, 1 heart damage, nothing taken. On successful perception: mugger is visible — fight to the death. Losing the fight: player wakes with 1 heart remaining, text nudges them to rest at the inn. Winning: mugger is slain permanently, Back Alley is safe.
+**Mugger mechanic:** A shadowy figure lurks here. Perception check fires every visit until the mugger is spotted and slain.
+On failed perception: player is mugged — loses 1 heart (physical damage) and 2–3 Zenni (random), loses consciousness, wakes in the Back Alley one turn later. If player has no Zenni: still mugged, 1 heart damage, nothing taken.
+On successful perception: mugger is visible — fight to the death.
+Losing the fight: player wakes with 1 heart remaining, text nudges them to rest at the inn.
+Winning: mugger is slain permanently, Back Alley is safe.
 
 **Loot:** A set of lockpicks — opens the large iron chest in the Mine Passage (mid-tier dungeon), bolted to the floor, contains 20 Zenni. Not a general trap disarm tool.
 
@@ -96,27 +119,43 @@ Ground floor entry. Grand foyer. Stairs lead up to the Upper Hall. Council Chamb
 **XP: 1**
 Ground floor, off the Main Entrance. Where town business is conducted. **Councilman Rowan Finch** is found here — grandson of Calder Finch, a noted dungeon explorer. Quest 32 giver. Rewards the player with Calder's Middle Tier Key upon quest completion.
 
-**Room description:** *The room where Roundabout conducts its official business, which is to say the room where Roundabout sits in chairs and argues. A long table dominates the center — solid oak, scarred from use. The chairs around it are mismatched in the way of things that have been replaced one at a time over many years. A man sits at the far end with the bearing of someone who has inherited both the title and the table.*
+**Room description:**
+*The room where Roundabout conducts its official business, which is to say the room where Roundabout sits in chairs and argues.*
+*A long table dominates the center — solid oak, scarred from use. The chairs around it are mismatched in the way of things that have been replaced one at a time over many years.*
+*A man sits at the far end with the bearing of someone who has inherited both the title and the table.*
 
 ### Records Room
 **XP: 1**
 Ground floor, off the Main Entrance. Dusty and bureaucratic. Contains the **town charter** — required for Quest 27. The Records Room Worker initially refuses to hand over the charter. After the player returns the pocket watch (from the Chuckle House ghost quest), he gives up the charter as thanks — the watch belonged to his family. Charter is a quest item.
 
-**Room description:** *Floor-to-ceiling shelves on every wall, packed with ledgers and rolled documents in an order that apparently makes sense to someone. The room smells of old paper and the particular dust of things that have not been touched in years. A clerk sits at a desk near the window, surrounded by more of the same. He looks up when you enter with the expression of a man who was hoping you wouldn't.*
+**Room description:**
+*Floor-to-ceiling shelves on every wall, packed with ledgers and rolled documents in an order that apparently makes sense to someone.*
+*The room smells of old paper and the particular dust of things that have not been touched in years.*
+*A clerk sits at a desk near the window, surrounded by more of the same. He looks up when you enter with the expression of a man who was hoping you wouldn't.*
 
 ### Upper Hall
 **XP: 1**
 Second floor, top of the stairs. Connects to the Tower. Contains a display cabinet of old town documents and civic artifacts — unlocked, accessible from the start. `OPEN CABINET` reveals contents. The **wax seal** (Quest 4) is inside — `TAKE SEAL` picks it up. No perception check required.
 
-**Room description:** *The second floor is quieter than the ground floor in the way that second floors always are — the noise of official business doesn't quite reach here. A long hall with a runner of carpet gone thin at the center. A display cabinet stands against the wall, unlocked, glass-fronted, holding an assortment of old civic documents and artifacts. The kind of things a town keeps because no one has decided to throw them away.*
+**Room description:**
+*The second floor is quieter than the ground floor in the way that second floors always are — the noise of official business doesn't quite reach here.*
+*A long hall with a runner of carpet gone thin at the center.*
+*A display cabinet stands against the wall, unlocked, glass-fronted, holding an assortment of old civic documents and artifacts. The kind of things a town keeps because no one has decided to throw them away.*
 
 ### The Tower
 **XP: 1**
 Accessed from the Upper Hall. Top of the conical tower, overlooking Roundabout Town Square. Contains the **Trophy Case** — a locked glass display case built into the stone wall, where treasure items found during the playthrough are stored.
 
-**Room description:** *The tower room is round, the walls following the cone of the roof above. A single window looks out over the town square, narrow enough that the view is more suggestion than panorama. The Trophy Case dominates the far wall — old wood and glass, built into the stone as if someone planned for it from the start. It is empty. The placard mounted below it reads: CALDER FINCH — EXPLORER. DONATED IN PERPETUITY FOR THE GLORY OF ROUNDABOUT. The case has not been added to in some time.*
+**Room description:**
+*The tower room is round, the walls following the cone of the roof above. A single window looks out over the town square, narrow enough that the view is more suggestion than panorama.*
+*The Trophy Case dominates the far wall — old wood and glass, built into the stone as if someone planned for it from the start. It is empty.*
+*The placard mounted below it reads: CALDER FINCH — EXPLORER. DONATED IN PERPETUITY FOR THE GLORY OF ROUNDABOUT.*
+*The case has not been added to in some time.*
 
-**Trophy Case — examine (`LOOK AT CASE` / `EXAMINE CASE`):** *The case is well-made — solid glass panels, brass fittings, velvet lining gone slightly pale with age. Whoever built it expected it to hold things worth looking at. At the moment it holds nothing. The placard below names the donor. The velvet has the faint impressions of items once displayed here and since removed — or perhaps never placed at all.*
+**Trophy Case — examine (`LOOK AT CASE` / `EXAMINE CASE`):**
+*The case is well-made — solid glass panels, brass fittings, velvet lining gone slightly pale with age. Whoever built it expected it to hold things worth looking at.*
+*At the moment it holds nothing. The placard below names the donor.*
+*The velvet has the faint impressions of items once displayed here and since removed — or perhaps never placed at all.*
 
 **Trophy Case — verb behavior:**
 - `OPEN CASE` — opens the case; required before placing items.
@@ -135,7 +174,12 @@ Central gathering space. Entry point into the inn. Contains a mailbox — comple
 
 **Connections:** South → Bar. North → Pipe Room. Northwest → Ty's Casino Corner. Up (staircase) → Upstairs Hall.
 
-**Room description:** *The Tale and Ale announces itself with warmth before you're fully through the door — woodsmoke, something cooking, the low sound of people who have decided their evening is going well. Tables fill most of the floor, a mix of occupied and merely claimed. The bar is south. A staircase climbs along the east wall. To the north, a doorway leads to a quieter room and the smell of pipe smoke. In the far northwest corner, someone is throwing dice. The whole room has the quality of a place that has been exactly like this for a long time and intends to stay that way. Against the wall near the entrance, entirely at odds with everything around it, stands a mailbox. No one looks at it.*
+**Room description:**
+*The Tale and Ale announces itself with warmth before you're fully through the door — woodsmoke, something cooking, the low sound of people who have decided their evening is going well.*
+*Tables fill most of the floor, a mix of occupied and merely claimed. The bar is south. A staircase climbs along the east wall.*
+*To the north, a doorway leads to a quieter room and the smell of pipe smoke. In the far northwest corner, someone is throwing dice.*
+*The whole room has the quality of a place that has been exactly like this for a long time and intends to stay that way.*
+*Against the wall near the entrance, entirely at odds with everything around it, stands a mailbox. No one looks at it.*
 
 ### Bar
 **XP: 1**
@@ -143,7 +187,10 @@ Where drinks are ordered; food & drink purchases happen here (1 heart, 2 Zenni; 
 
 **Connections:** North → Main Room. South → Kitchen.
 
-**Room description:** *The bar runs the length of the south wall — solid oak, worn smooth at the elbows. Bottles line the shelf behind it in an arrangement that suggests a system only May understands. She works the bar with the efficiency of someone who has answered every question before and will answer them all again without complaint. A board on the wall to one side holds notices — quest postings, local announcements, things people want found or done. The kitchen is further south.*
+**Room description:**
+*The bar runs the length of the south wall — solid oak, worn smooth at the elbows. Bottles line the shelf behind it in an arrangement that suggests a system only May understands.*
+*She works the bar with the efficiency of someone who has answered every question before and will answer them all again without complaint.*
+*A board on the wall to one side holds notices — quest postings, local announcements, things people want found or done. The kitchen is further south.*
 
 ### Ty's Casino Corner
 **XP: 1**
@@ -151,7 +198,10 @@ Gambling area inside the tavern. Cargo game (Ship, Captain, Crew dice game). Pla
 
 **Connections:** Southeast → Main Room.
 
-**Room description:** *The northwest corner of the tavern has been claimed so thoroughly it might as well be a different establishment. A large round table dominates the space, ringed with mismatched chairs. Ty sits at the head of it — or what he has decided is the head — presiding over the dice with the calm of a man who has never once worried about the outcome. The noise from the main room reaches here as a comfortable murmur. The game is Cargo: Ship, Captain, and Crew. The stakes are in Zenni.*
+**Room description:**
+*The northwest corner of the tavern has been claimed so thoroughly it might as well be a different establishment.*
+*A large round table dominates the space, ringed with mismatched chairs. Ty sits at the head of it — or what he has decided is the head — presiding over the dice with the calm of a man who has never once worried about the outcome.*
+*The noise from the main room reaches here as a comfortable murmur. The game is Cargo: Ship, Captain, and Crew. The stakes are in Zenni.*
 
 ### Pipe Room
 **XP: 1**
@@ -159,7 +209,10 @@ Smoking parlor. Atmospheric; natural gathering spot for Rogues and shady deals.
 
 **Connections:** South → Main Room.
 
-**Room description:** *The pipe room is quieter than the rest of the tavern, which appears to be the point. A few low chairs, a side table, the particular haze of an evening's worth of smoke that has nowhere urgent to be. Conversations here are conducted at a volume that doesn't carry. The kind of room where people come to think, or to be seen thinking, or to say things they'd rather not say at the bar.*
+**Room description:**
+*The pipe room is quieter than the rest of the tavern, which appears to be the point.*
+*A few low chairs, a side table, the particular haze of an evening's worth of smoke that has nowhere urgent to be.*
+*Conversations here are conducted at a volume that doesn't carry. The kind of room where people come to think, or to be seen thinking, or to say things they'd rather not say at the bar.*
 
 ### Kitchen
 **XP: 1**
@@ -167,7 +220,11 @@ Back-of-house. **Shamus** works here — cook and unofficial vendor. `TALK TO SH
 
 **Connections:** North → Bar. Down (cellar door, key required) → Cellar/Storeroom.
 
-**Room description:** *The kitchen is warm and loud in the way that working kitchens are — pots, fire, the particular authority of someone who knows exactly what they're doing. Shamus moves through it without wasted motion, cooking and selling in equal measure — if you need something, he's worth asking. Dried herbs hang from the ceiling in loose bundles. A scarred wooden table dominates the center. The cellar door is set into the floor near the far wall; a faint smell of damp rises from it even when it's shut. The bartender keeps the key.*
+**Room description:**
+*The kitchen is warm and loud in the way that working kitchens are — pots, fire, the particular authority of someone who knows exactly what they're doing.*
+*Shamus moves through it without wasted motion, cooking and selling in equal measure — if you need something, he's worth asking.*
+*Dried herbs hang from the ceiling in loose bundles. A scarred wooden table dominates the center.*
+*The cellar door is set into the floor near the far wall; a faint smell of damp rises from it even when it's shut. The bartender keeps the key.*
 
 ### Upstairs Hall
 **XP: 1**
@@ -203,7 +260,11 @@ One of three guest rooms off the Upstairs Hall. Assigned randomly by May when th
 
 ### Cellar / Storeroom
 **XP: 1**
-Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds the key. Starts flooded — drain must be unclogged (crowbar required) before the room is usable. Once drained, reveals a door to the Secret Tunnel. Tunnel door stays in whatever state the player leaves it. Travel bidirectional once drained. Entering from either direction before draining = instant drowning fail state (water damage, no warning, no roll). The flood is obvious from the kitchen doorway — no perception check on entry.
+Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds the key.
+Starts flooded — drain must be unclogged (crowbar required) before the room is usable.
+Once drained, reveals a door to the Secret Tunnel. Tunnel door stays in whatever state the player leaves it. Travel bidirectional once drained.
+Entering from either direction before draining = instant drowning fail state (water damage, no warning, no roll).
+The flood is obvious from the kitchen doorway — no perception check on entry.
 
 **Connections:** Up (cellar door) → Kitchen. West (tunnel door) → The Junction (Secret Tunnels). **Pre-drain:** tunnel door exists and is openable from The Junction side — opening it before the cellar is drained triggers instant drowning fail state. Post-drain: bidirectional travel freely available.
 
@@ -213,15 +274,23 @@ Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds th
 
 ### Library (Main Hall)
 **XP: 1**
-*The library is smaller than the building suggests from outside — half the floor space is shelving, floor to ceiling, packed in columns with narrow gaps between. A card catalogue occupies one wall. The other holds a reading table, lamp burning low, a cup of something gone cold. The librarian looks up when you enter. Unlike every librarian you have ever imagined, she appears to want to talk to you.*
+*The library is smaller than the building suggests from outside — half the floor space is shelving, floor to ceiling, packed in columns with narrow gaps between.*
+*A card catalogue occupies one wall. The other holds a reading table, lamp burning low, a cup of something gone cold.*
+*The librarian looks up when you enter. Unlike every librarian you have ever imagined, she appears to want to talk to you.*
 
-Entry space. Lavish wood, copper, and gold. The endless shelves begin here. Medieval exterior with startling red double doors. Interior feels ancient — Babylonian/Egyptian in flavor but older, furnished for comfort. Foundation is secretly a temple to Thoth; all staff are priests/clergy. Only Litlock and long-time patrons know the true nature. **The Librarian** (half-elf, half-Kenku) works here. Full dialogue in `npcs.md`.
+Entry space. Lavish wood, copper, and gold. The endless shelves begin here.
+Medieval exterior with startling red double doors. Interior feels ancient — Babylonian/Egyptian in flavor but older, furnished for comfort.
+Foundation is secretly a temple to Thoth; all staff are priests/clergy. Only Litlock and long-time patrons know the true nature.
+**The Librarian** (half-elf, half-Kenku) works here. Full dialogue in `npcs.md`.
 
 ### The Stacks
 **XP: 1**
 The Archivist's working space. Deeper in the collection than the Main Hall suggests is possible.
 
-*The passage from the Main Hall opens into something that shouldn't fit inside this building. The shelves here are older — darker wood, no labels, arranged in a logic that isn't immediately obvious and may not be alphabetical. The ceiling is lost somewhere above the lamplight. At the far end, a large table holds the controlled wreckage of ongoing work: rolled maps weighted open at the corners, books splayed face-down, sheets of careful notation in a hand that doesn't waste space. The Archivist sits at the center of it, or rather the work surrounds him and he happens to be there too.*
+*The passage from the Main Hall opens into something that shouldn't fit inside this building.*
+*The shelves here are older — darker wood, no labels, arranged in a logic that isn't immediately obvious and may not be alphabetical. The ceiling is lost somewhere above the lamplight.*
+*At the far end, a large table holds the controlled wreckage of ongoing work: rolled maps weighted open at the corners, books splayed face-down, sheets of careful notation in a hand that doesn't waste space.*
+*The Archivist sits at the center of it, or rather the work surrounds him and he happens to be there too.*
 
 **The Archivist** works here. Full dialogue in `npcs.md`. `TALK TO ARCHIVIST` to interact.
 
@@ -235,7 +304,9 @@ The Archivist's working space. Deeper in the collection than the Main Hall sugge
 **XP: 1**
 Appears as a normal medieval church from the outside. Near the Graveyard. Contains a dial at the altar that allows attunement to any of 7 religions. `TURN DIAL LEFT` and `TURN DIAL RIGHT` cycle through religions one at a time. Current attunement shown in room description. Attunement can be changed freely — no penalty.
 
-**Room description:** *The church is plain inside — stone floor, wooden pews worn smooth, light coming through narrow windows in thin bars. It could belong to any faith. That appears to be the point. At the far end, where an altar would normally hold a single symbol, there is instead a stone altar with a brass dial mounted at its face. Seven marks around the dial. Whatever is currently selected glows faintly.*
+**Room description:**
+*The church is plain inside — stone floor, wooden pews worn smooth, light coming through narrow windows in thin bars. It could belong to any faith. That appears to be the point.*
+*At the far end, where an altar would normally hold a single symbol, there is instead a stone altar with a brass dial mounted at its face. Seven marks around the dial. Whatever is currently selected glows faintly.*
 
 ### The Altar
 **XP: 1**
@@ -268,7 +339,10 @@ Separate sub-room inside the Church of All. Contains the attunement dial and the
 
 ### Keeper's Chamber
 **XP: 1**
-The private quarters of the Keeper of the Faiths. Door is locked; key found on the Keeper's skeleton in the Lower Crypt (dungeon lower tier). Inside: sparse quarters, personal effects, a **vial of holy water** on the writing desk, and a note in the Keeper's hand. The note reveals that the scholar of The Veil of the Arcane was transformed into an undead werewolf — and that the silver stake must be consecrated with holy water to be effective. `POUR HOLY WATER ON STAKE` → consecrated silver stake.
+The private quarters of the Keeper of the Faiths. Door is locked; key found on the Keeper's skeleton in the Lower Crypt (dungeon lower tier).
+Inside: sparse quarters, personal effects, a **vial of holy water** on the writing desk, and a note in the Keeper's hand.
+The note reveals that the scholar of The Veil of the Arcane was transformed into an undead werewolf — and that the silver stake must be consecrated with holy water to be effective.
+`POUR HOLY WATER ON STAKE` → consecrated silver stake.
 
 **Room description (vial present):** *A small room, plainly kept. A narrow bed, a writing desk, a shelf of religious texts. The kind of room that belongs to someone who doesn't spend much time in it. On the desk: a vial of clear liquid, and a note in a careful hand. Whatever the Keeper was preparing for, he prepared it here.*
 
@@ -286,9 +360,18 @@ South of the Church of All. Single room. North to Church of All; south to Mausol
 
 **Pre-bonk description:** *The graves here are old, most of them. Headstones lean at angles that suggest the ground beneath has shifted, or decided it no longer agrees with what's above it. The church stands to the north. The mausoleum sits at the far end to the south, grey and patient. The air is still in a way that has nothing to do with wind.*
 
-**Post-bonk description:** *The graves here are old, most of them. Headstones lean at angles that suggest the ground beneath has shifted, or decided it no longer agrees with what's above it. The church stands to the north. The mausoleum sits at the far end to the south, grey and patient. To the west, a low building stands where there was nothing before — and you are not sure how you missed it. It is a low structure with a painted facade — or was, once. The paint shows something cheerful from a distance: bright colors, broad shapes, a kind of deliberate festivity. Up close, the colors are gone to grey and the shapes resolve into faces. They are smiling. They have been smiling for a very long time. The air is still in a way that has nothing to do with wind.*
+**Post-bonk description:**
+*The graves here are old, most of them. Headstones lean at angles that suggest the ground beneath has shifted, or decided it no longer agrees with what's above it.*
+*The church stands to the north. The mausoleum sits at the far end to the south, grey and patient.*
+*To the west, a low building stands where there was nothing before — and you are not sure how you missed it.*
+*It is a low structure with a painted facade — or was, once. The paint shows something cheerful from a distance: bright colors, broad shapes, a kind of deliberate festivity.*
+*Up close, the colors are gone to grey and the shapes resolve into faces. They are smiling. They have been smiling for a very long time.*
+*The air is still in a way that has nothing to do with wind.*
 
-**Town square statue:** The statue in Roundabout Town Square has a hollow base — seam visible to anyone who types `LOOK AT STATUE` (no perception check). Attempting to open without a crowbar: *"The base is sealed tight. Something with leverage could pry it open."* Crowbar opens it → silver stake + folded note inside. Note unsigned but identified by emerald wax seal (same seal as Keeper's skeleton). May's tier 1 hint (fires only if player has not yet examined the statue): *"Someone was seen tampering with the statue in Roundabout Town Square. Probably nothing. Probably."*
+**Town square statue:** The statue in Roundabout Town Square has a hollow base — seam visible to anyone who types `LOOK AT STATUE` (no perception check).
+Attempting to open without a crowbar: *"The base is sealed tight. Something with leverage could pry it open."*
+Crowbar opens it → silver stake + folded note inside. Note unsigned but identified by emerald wax seal (same seal as Keeper's skeleton).
+May's tier 1 hint (fires only if player has not yet examined the statue): *"Someone was seen tampering with the statue in Roundabout Town Square. Probably nothing. Probably."*
 
 ### The Mausoleum
 **XP: 1**
@@ -316,7 +399,11 @@ Four rooms, linear. Ring (invisibility) required throughout — all mirrors repe
 **XP: 1**
 No mirrors in this room — mirror mechanic begins in the Rejection Mirror. The building was a funhouse; that history is legible from this room.
 
-**Room description:** *The entrance hall is wider than the exterior suggests. A faded runner covers the floor — the pattern beneath the grime might have been geometric once, or might have been faces too; it's hard to say now. The ceiling is low and painted, or was. Hooks on the wall where coats or hats once hung, empty now. A ticket booth stands to one side, the glass cracked, the stool inside still in place as if whoever left simply forgot to come back. The building has the quality of a held breath.*
+**Room description:**
+*The entrance hall is wider than the exterior suggests. A faded runner covers the floor — the pattern beneath the grime might have been geometric once, or might have been faces too; it's hard to say now.*
+*The ceiling is low and painted, or was. Hooks on the wall where coats or hats once hung, empty now.*
+*A ticket booth stands to one side, the glass cracked, the stool inside still in place as if whoever left simply forgot to come back.*
+*The building has the quality of a held breath.*
 
 **On entry (first visit only):** *Something in the walls makes a sound as you cross the threshold — not quite a creak, not quite a welcome.*
 
@@ -336,7 +423,10 @@ A mirror that repels visible players. Also rigged with a crossbow behind the fra
 
 ### Ghost's Room
 **XP: 1**
-Mirrors on all sides. The ghost of the Records Room Worker's missing relative haunts this room — hostile. Ghost visible only while wearing the ring. `CAST UNBIND UNDEAD` releases the ghost; he says *"Thank you. I can rest now."* and drops the pocket watch. **Exit mechanic:** 50% chance each attempt to leave fails — player returned to same room with a disorientation message. Permanent — does not end when ghost is freed. Post-freeing: mirrors no longer repel visible players anywhere in the Chuckle House.
+Mirrors on all sides. The ghost of the Records Room Worker's missing relative haunts this room — hostile.
+Ghost visible only while wearing the ring. `CAST UNBIND UNDEAD` releases the ghost; he says *"Thank you. I can rest now."* and drops the pocket watch.
+**Exit mechanic:** 50% chance each attempt to leave fails — player returned to same room with a disorientation message. Permanent — does not end when ghost is freed.
+Post-freeing: mirrors no longer repel visible players anywhere in the Chuckle House.
 
 **May's hints — Ghost/Watch quest:**
 - Before visiting — Tier 1: People say the mirrors in the Chuckle House show more than they should. Most folks don't go back a second time.
@@ -351,7 +441,11 @@ Mirrors on all sides. The ghost of the Records Room Worker's missing relative ha
 
 ### Roundabout Wasteland
 **XP: 1**
-*The wasteland sits at the edge of Roundabout like an embarrassing relative. Something went very wrong here, and not recently. The ground doesn't grow anything. The structures that remain are shells. Whatever happened, it happened thoroughly. The cause is a matter of some local sensitivity. The prevailing theory among residents involves adventurers, which explains why no one wants to discuss it in detail. To the east, a volcano rises against the sky — large, dark, and entirely convincing.* East of Main East. Single room. Quest hooks TBD.
+*The wasteland sits at the edge of Roundabout like an embarrassing relative. Something went very wrong here, and not recently.*
+*The ground doesn't grow anything. The structures that remain are shells. Whatever happened, it happened thoroughly.*
+*The cause is a matter of some local sensitivity. The prevailing theory among residents involves adventurers, which explains why no one wants to discuss it in detail.*
+*To the east, a volcano rises against the sky — large, dark, and entirely convincing.*
+East of Main East. Single room. Quest hooks TBD.
 
 ### The Volcano
 **XP: 1**
@@ -359,9 +453,14 @@ The illusory volcano itself. Appears entirely real. Harder perception check requ
 
 ### Pyronicus's Forge
 **XP: 2**
-*The room is large enough that the walls at the far end are suggestion rather than certainty. Obsidian everywhere — floor, walls, ceiling — smooth and black and catching the forge light in brief amber before giving it back to the dark. The forge itself dominates the center: enormous, ancient, burning with the steady purpose of something that has never been allowed to go out. The heat it produces rises through the rock above, feeding an illusion so convincing that even the smoke smells right. Pyronicus built this room first. The volcano came after.* Single room.
+*The room is large enough that the walls at the far end are suggestion rather than certainty.*
+*Obsidian everywhere — floor, walls, ceiling — smooth and black and catching the forge light in brief amber before giving it back to the dark.*
+*The forge itself dominates the center: enormous, ancient, burning with the steady purpose of something that has never been allowed to go out.*
+*The heat it produces rises through the rock above, feeding an illusion so convincing that even the smoke smells right.*
+*Pyronicus built this room first. The volcano came after.*
+Single room.
 
-**Ring handover:** *Pyronicus sets down his work and regards you with calm, unhurried eyes. "Will's errand," he says. "Yes." He moves to a workbench and returns with the ring, placing it in your hand with the care of someone returning something that was never theirs. "It fell through my ceiling," he says. "Rings don't do that by accident." He pauses. "Will told you what you need to know, I assume." He goes back to what he was doing. The conversation, apparently, is over.*
+**Ring handover:** Full dialogue in `npcs.md` — Pyronicus entry.
 
 **Pale Blade forging:** When player brings runed metal from the Viking Encampment: Pyronicus forges it into the Pale Blade. Full forge scene confirmed — see `ring-rituals.md` (Artifact 1, Step 3).
 
@@ -371,7 +470,11 @@ The illusory volcano itself. Appears entirely real. Harder perception check requ
 
 ### Archery Range
 **XP: 1**
-*Straw targets line the far end of a long cleared field, bristling with arrows. The range is well-used. The Vikings from the encampment to the west use it freely — and apparently consider the entire field fair game, including the parts you're standing in.* Hazardous — agility challenge roll each time the player passes through to avoid being hit by an errant arrow; failure deals 1 heart physical damage. Permanently safe once all three Viking trust trials are complete (silent mechanic, no acknowledgment). **Raznak** found here.
+*Straw targets line the far end of a long cleared field, bristling with arrows. The range is well-used.*
+*The Vikings from the encampment to the west use it freely — and apparently consider the entire field fair game, including the parts you're standing in.*
+Hazardous — agility challenge roll each time the player passes through to avoid being hit by an errant arrow; failure deals 1 heart physical damage.
+Permanently safe once all three Viking trust trials are complete (silent mechanic, no acknowledgment).
+**Raznak** found here.
 
 ### Viking Encampment (The Encampment — hub)
 **XP: 1**
@@ -389,13 +492,45 @@ Central hub. Fire pit, longhouses, Vikings going about their business. East → 
 
 **Runed metal handoff (after all three trials):** Triggered when player drags Aylora back after Trial 3.
 
-*Ivanaar looks at Aylora, then at you, then at Aylora again. He says nothing for a long moment. "...Thornbrew?" he finally asks. You nod. He laughs — once, short, like it surprised him too. Then he straightens, and the laugh is gone, and something older takes its place. "Will Passion sent you. He asked me to build something that would tell him whether you were worth trusting with what comes next. He didn't tell me what comes next." He moves to the longhouse and returns holding a length of dark metal — dense, rune-carved, warm to the touch even in the open air. He holds it with both hands. "This is Brotherhood metal. It has been kept since before this encampment. It would make a fine blade in the right hands — a blacksmith who knows what he is looking at could tell you more." He places it in your hands. "I hope Will is right about you."*
+*Ivanaar looks at Aylora, then at you, then at Aylora again. He says nothing for a long moment.*
 
-*"One more thing. There are three stones out in the world — Brotherhood metal, rune-carved. They've been scattered a long time. If you come across them, bring them to me." He glances back once. "I'll make it worth your time."*
+*"...Thornbrew?" he finally asks.*
+
+*You nod. He laughs — once, short, like it surprised him too. Then he straightens, and the laugh is gone, and something older takes its place.*
+
+*"Will Passion sent you. He asked me to build something that would tell him whether you were worth trusting with what comes next. He didn't tell me what comes next."*
+
+*He moves to the longhouse and returns holding a length of dark metal — dense, rune-carved, warm to the touch even in the open air. He holds it with both hands.*
+
+*"This is Brotherhood metal. It has been kept since before this encampment. It would make a fine blade in the right hands — a blacksmith who knows what he is looking at could tell you more."*
+
+*He places it in your hands. "I hope Will is right about you."*
+
+*"One more thing. There are three stones out in the world — Brotherhood metal, rune-carved. They've been scattered a long time. If you come across them, bring them to me."*
+
+*He glances back once. "I'll make it worth your time."*
 
 *Ivanaar returns to his fire.*
 
 **[Runed Metal added to inventory.]**
+
+**Stone return (Quest 42 — `GIVE STONES TO IVANAAR`):**
+
+*Ivanaar turns the stones over in his hands, one by one. He doesn't speak for a long moment.*
+
+*When he looks up, something has settled in his expression that wasn't there before.*
+
+*"[Name]."*
+
+*He says it the way you'd say the name of someone you've decided to trust. He sets the stones down and disappears into the longhouse.*
+
+*He returns with a folded tunic — Brotherhood weave, the runes along the hem faintly lit now.*
+
+*"Wear it," he says, and hands it over.*
+
+*He returns to his fire.*
+
+**[Ivanaar's Tunic added to inventory.]**
 
 ### Haalvar's Hut (Trial 1 — The Riddle Stone)
 **XP: 1**
@@ -448,7 +583,10 @@ Four rooms arranged in a 2×2 grid. Players may move diagonally between rooms. A
 
 ### The Dankhaus
 **XP: 1 per room**
-Three-bedroom home hidden in the bog behind dense brush. Perception check required to find it (Bog-SE). Litlock's residence; also houses Lynds and Aurix the Kobold child. Appears as a yurt from outside. Magical wards bar uninvited entry — cleared by flag set when player beats Lynds at arm wrestling (Lynds's invitation). Ward deflection (no invitation): *Something in the air near the door shifts as you approach. Not hostile. More like a house that knows you haven't been introduced yet.*
+Three-bedroom home hidden in the bog behind dense brush. Perception check required to find it (Bog-SE).
+Litlock's residence; also houses Lynds and Aurix the Kobold child. Appears as a yurt from outside.
+Magical wards bar uninvited entry — cleared by flag set when player beats Lynds at arm wrestling (Lynds's invitation).
+Ward deflection (no invitation): *Something in the air near the door shifts as you approach. Not hostile. More like a house that knows you haven't been introduced yet.*
 
 - **Common Room:** Entry and gathering space. Large fireplace. **XP: 3** (perception-gated discovery bonus). *Litlock fills whatever room he's in without trying to. The common room is large enough, and he's in it — near the fireplace, which is also large, and burning steadily. Chairs, a table, shelves. The kind of room that works because the people in it make it work. He looks up.*
 - **Kitchen:** *A working kitchen — herbs drying overhead, something on the fire, the garden accessible through the east door. It smells like it has always smelled like this.*
@@ -485,7 +623,15 @@ Between Beach Road Fork and Roundabout Forest. A large oak dominates this spot. 
 
 ### Roundabout Forest
 **XP: 1**
-*You wouldn't know, walking through here, that the ground beneath you is hollow. The forest is peaceful — birdsong, dappled light, the smell of pine. The mine entrance sits somewhere among the roots and undergrowth, easy to miss if you don't know to look.* Single room. Transitional space above the mine. Connects downhill to The Old Oak. The crumbled Verdant Circle shrine is visible on entry — no perception check required. **Shrine description:** *A stone shrine stands at the edge of the trees — old enough that the forest has started to take it back. A carved pedestal, still solid. On it, the remains of a ceramic bowl, smashed at some point and not recently. Three or four pieces visible here; others have clearly gone elsewhere. The symbol on the pedestal is a sprouting seed inside a circle of leaves.*
+*You wouldn't know, walking through here, that the ground beneath you is hollow. The forest is peaceful — birdsong, dappled light, the smell of pine.*
+*The mine entrance sits somewhere among the roots and undergrowth, easy to miss if you don't know to look.*
+Single room. Transitional space above the mine. Connects downhill to The Old Oak.
+The crumbled Verdant Circle shrine is visible on entry — no perception check required.
+
+**Shrine description:**
+*A stone shrine stands at the edge of the trees — old enough that the forest has started to take it back. A carved pedestal, still solid.*
+*On it, the remains of a ceramic bowl, smashed at some point and not recently. Three or four pieces visible here; others have clearly gone elsewhere.*
+*The symbol on the pedestal is a sprouting seed inside a circle of leaves.*
 
 ### Pie Rats Mining Inc.
 **XP: 1 per room**
@@ -539,7 +685,11 @@ Dead-end room off Roundabout Beach to the north. Open, unattended. A desk holds 
 
 ### Pie Rat Ship — Deck
 **XP: 1**
-Moored at the Docks. Crewed by Pie Rats until the explosion draws them away. The only vessel available to sail the Roundabout Sea. Single room — no hold. Boarding commands (all synonyms): `BOARD SHIP`, `GET ON SHIP`, `CLIMB ABOARD`, `ENTER SHIP`. Sailing commands: `SET SAIL` (primary), `SAIL` (synonym). Directional movement once underway: `GO EAST`, `SAIL EAST`, etc. Leaving the ship at sea: *"The ocean offers no opinion on that idea, and neither does your survival instinct."* `DOCK` returns ship to Docks; `LAND` / `MOOR` / `MAKE LAND` puts player ashore at Desert Island or Kevry's Island.
+Moored at the Docks. Crewed by Pie Rats until the explosion draws them away. The only vessel available to sail the Roundabout Sea. Single room — no hold.
+Boarding commands (all synonyms): `BOARD SHIP`, `GET ON SHIP`, `CLIMB ABOARD`, `ENTER SHIP`.
+Sailing commands: `SET SAIL` (primary), `SAIL` (synonym). Directional movement once underway: `GO EAST`, `SAIL EAST`, etc.
+Leaving the ship at sea: *"The ocean offers no opinion on that idea, and neither does your survival instinct."*
+`DOCK` returns ship to Docks; `LAND` / `MOOR` / `MAKE LAND` puts player ashore at Desert Island or Kevry's Island.
 
 **Boarding without disguise:** *A Pie Rat on deck looks you over with the thoroughness of someone whose job is exactly this. "You don't even look like a pirate." He doesn't move. Neither, apparently, will you.*
 
@@ -584,7 +734,11 @@ Each room draws a random description from the pool below. The rare option trigge
 **XP: 1**
 Spur off the Eastern Roundabout Sea — not on the main east axis. Visible from the Eastern Roundabout Sea. Reached via `DOCK`, `LAND`, `MOOR`, or `MAKE LAND`. `BOARD SHIP` returns the player to the Eastern Roundabout Sea. Appears to be the obvious payoff for sailing east — masks Kevry's location 69 squares further into the Open Ocean.
 
-**Island Shore (the only room):** *The sand on the beach is undisturbed. That fact, for some reason, does not comfort you. Nothing here is threatening and nothing here is welcoming. The island feels like a place that has been waiting — not for you specifically, but for someone. The quiet here is a different kind of quiet than the open ocean — heavier, more deliberate. You have the distinct feeling that something happened here once. The island isn't telling.*
+**Island Shore (the only room):**
+*The sand on the beach is undisturbed. That fact, for some reason, does not comfort you.*
+*Nothing here is threatening and nothing here is welcoming. The island feels like a place that has been waiting — not for you specifically, but for someone.*
+*The quiet here is a different kind of quiet than the open ocean — heavier, more deliberate.*
+*You have the distinct feeling that something happened here once. The island isn't telling.*
 
 A buried chest is here — not visible without digging. With the treasure map: `DIG` succeeds immediately. Without the map: 10% chance per `DIG` attempt. Contents: 30 Zenni.
 
@@ -641,9 +795,15 @@ Underground pre-dungeon level connecting the Tavern Cellar, the mine, the Gravey
 
   *The passage ends at a low arch ahead — beyond it, the crypt. The air is colder here, noticeably so, as if the temperature has been coming down gradually and this is where it arrives. The walls are older stone, darker with moisture. The silence has a different quality than the tunnels behind you.*
 
-- **The Toll Bridge:** Deep in the Secret Tunnels. A small bridge over an underground ravine — only route to the Dungeon Entrance. A **Boggart** has claimed squatter's rights and charges an extortionate toll. Perception check reveals faded official seal — public property — triggering Quest 27 discovery and unlocking May's hint. `GIVE CHARTER TO BOGGART` forces him out; drops strongbox (strength check to open, several turns' worth of Zenni). Bridge permanently free after. (Quest 27)
+- **The Toll Bridge:** Deep in the Secret Tunnels. A small bridge over an underground ravine — only route to the Dungeon Entrance.
+  A **Boggart** has claimed squatter's rights and charges an extortionate toll.
+  Perception check reveals faded official seal — public property — triggering Quest 27 discovery and unlocking May's hint.
+  `GIVE CHARTER TO BOGGART` forces him out; drops strongbox (strength check to open, several turns' worth of Zenni). Bridge permanently free after. (Quest 27)
 
-  **Room description (Boggart present):** *A narrow stone bridge spans a ravine in the tunnel floor — the drop below is deep enough that the bottom isn't visible. The bridge looks solid. A small, dense figure has planted itself at the center of it with the unmistakable air of someone who intends to stay. He eyes you with the satisfaction of a man whose position has never once been successfully argued with.*
+  **Room description (Boggart present):**
+  *A narrow stone bridge spans a ravine in the tunnel floor — the drop below is deep enough that the bottom isn't visible. The bridge looks solid.*
+  *A small, dense figure has planted itself at the center of it with the unmistakable air of someone who intends to stay.*
+  *He eyes you with the satisfaction of a man whose position has never once been successfully argued with.*
 
   **Room description (Boggart gone, strongbox present):** *The bridge is empty now. The strongbox sits where he was.*
 
@@ -673,11 +833,18 @@ First room past the Dungeon Entrance. A thin cord stretched at chest height carr
 
 ### Supply Room
 **XP: 1**
-West branch off Ink Corridor. Shelves of old stores. Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility Idol"), mortar compound (Quest 18/22), portcullis bar (Quest 19), smoke jar (Quest 24 — guarded by Trap 17). **Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar and small clay pot (Quest 40) visible in wreckage either way. Perception spots the unstable arrangement. The small clay pot is the one intact pot that survives the collapse. Must be reached before Idol Room — sack of salt required for safe idol swap.
+West branch off Ink Corridor. Shelves of old stores.
+Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility Idol"), mortar compound (Quest 18/22), portcullis bar (Quest 19), smoke jar (Quest 24 — guarded by Trap 17).
+**Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar and small clay pot (Quest 40) visible in wreckage either way. Perception spots the unstable arrangement.
+The small clay pot is the one intact pot that survives the collapse.
+Must be reached before Idol Room — sack of salt required for safe idol swap.
 
 **Room description (default):** *A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned. The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath.*
 
-**Room description (perception check passed):** *A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned. The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath. One of the shelves near the entrance has a trip mechanism built into the floor in front of it — barely visible. Whatever it triggers, it isn't subtle.*
+**Room description (perception check passed):**
+*A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned.*
+*The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath.*
+*One of the shelves near the entrance has a trip mechanism built into the floor in front of it — barely visible. Whatever it triggers, it isn't subtle.*
 
 ### Narrow Passageway
 **XP: 1**
@@ -691,7 +858,10 @@ South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a press
 
 **Room description (default):** *The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level. At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake.*
 
-**Room description (perception check passed):** *The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level. At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake. The pedestal has a pressure plate built into its surface — the figurine's weight is the only thing keeping it inactive.*
+**Room description (perception check passed):**
+*The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level.*
+*At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake.*
+*The pedestal has a pressure plate built into its surface — the figurine's weight is the only thing keeping it inactive.*
 
 ### Storage Area
 **XP: 1**
@@ -713,14 +883,21 @@ East of Idol Room, adjacent to Combat Room. Lair of **The Warden** — permanent
 
 ### Combat Room
 **XP: 1**
-South of Idol Room. A pressure plate in the corridor before this room rings a bell in the Creature Den — player hears the sound before entering. **The Warden** emerges: completely monstrous in appearance; standard combat; one-time fight. **Trap interaction:** Perception check spots the plate; disarming bypasses the fight; `JUMP ON PLATE` triggers deliberately. Enchanted Glasses auto-reveal the plate. Spur east leads to Flooding Room. Connects south to Prayer Alcove. (Trap 29)
+South of Idol Room. A pressure plate in the corridor before this room rings a bell in the Creature Den — player hears the sound before entering.
+**The Warden** emerges: completely monstrous in appearance; standard combat; one-time fight.
+**Trap interaction:** Perception check spots the plate; disarming bypasses the fight; `JUMP ON PLATE` triggers deliberately. Enchanted Glasses auto-reveal the plate.
+Spur east leads to Flooding Room. Connects south to Prayer Alcove. (Trap 29)
 
 ### The Warden's Drop
 **Guardian's Lantern** — magical lantern. `TURN ON LANTERN` or `LIGHT LANTERN` both work. Flickers but does not light anywhere except the Dark Room in the lower tier, where it cuts through magical darkness and opens passage forward.
 
 ### Flooding Room
 **XP: 1**
-Spur east off Combat Room, through/past Creature Den. Low-lying cave. Pressure plate opens a sluice — floods the room in two turns. Three levers: Left (stuck, permanently spent), Right (breaks off, permanently spent), Middle (correct, closes sluice). No warning on entry. After a wrong pull on turn 1: explicit warning *"The water is at your knees. One turn left."* Failure sweeps player through sluice into mid tier directly below — one-way, no damage. Perception check *before entry* spots the suspiciously clean pressure plate; disarming jams it. (Trap 41)
+Spur east off Combat Room, through/past Creature Den. Low-lying cave.
+Pressure plate opens a sluice — floods the room in two turns. Three levers: Left (stuck, permanently spent), Right (breaks off, permanently spent), Middle (correct, closes sluice).
+No warning on entry. After a wrong pull on turn 1: explicit warning *"The water is at your knees. One turn left."*
+Failure sweeps player through sluice into mid tier directly below — one-way, no damage.
+Perception check *before entry* spots the suspiciously clean pressure plate; disarming jams it. (Trap 41)
 
 ### Prayer Alcove
 **XP: 2**
@@ -728,7 +905,10 @@ South of Combat Room. A low stone alcove — looks like a dead end until examine
 
 ### Portcullis Corridor
 **XP: 1**
-South of Prayer Alcove. A metal portcullis blocks the corridor, carrying an arcane charge. Touching without disarming: 1 heart lightning damage, stunned one turn. Three ways through: (1) perception spots charge and discharge mechanism; (2) disarm check discharges safely; (3) strength check lifts — only after discharge. Portcullis Bar from Supply Room props it permanently open. Without the bar it drops when released. (Trap 19)
+South of Prayer Alcove. A metal portcullis blocks the corridor, carrying an arcane charge.
+Touching without disarming: 1 heart lightning damage, stunned one turn.
+Three ways through: (1) perception spots charge and discharge mechanism; (2) disarm check discharges safely; (3) strength check lifts — only after discharge.
+Portcullis Bar from Supply Room props it permanently open. Without the bar it drops when released. (Trap 19)
 
 ### Shrine Room
 **XP: 1**
@@ -736,7 +916,10 @@ South of Portcullis Corridor. A small carved stone room, older than surrounding 
 
 **Room description (default):** *The room is older than the dungeon around it — the stonework finer, the walls carved rather than cut. Someone built this with intention. A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time.*
 
-**Room description (perception check passed):** *The room is older than the dungeon around it — the stonework finer, the walls carved rather than cut. Someone built this with intention. A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time. Something catches your eye near the base of the plinth — a curved fragment, stone, fitting the bowl's edge exactly.*
+**Room description (perception check passed):**
+*The room is older than the dungeon around it — the stonework finer, the walls carved rather than cut. Someone built this with intention.*
+*A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time.*
+*Something catches your eye near the base of the plinth — a curved fragment, stone, fitting the bowl's edge exactly.*
 
 ### Rickety Bridge
 **XP: 1**
@@ -770,7 +953,10 @@ Worked cave section, old support timbers and rusting tools. Contains: charcoal (
 
 **Room description (default):** *A worked section of cave — support timbers at intervals, rusting tools left where they were dropped. The smell of old rock dust is thick here. Someone mined this passage, or used it as a route through to something being mined. A large iron chest is bolted to the floor against one wall.*
 
-**Room description (perception check passed):** *A worked section of cave — support timbers at intervals, rusting tools left where they were dropped. The smell of old rock dust is thick here. Someone mined this passage, or used it as a route through to something being mined. A large iron chest is bolted to the floor against one wall. A faint shimmer near the base of one timber catches your eye — silver dust, settled into a crack in the stone.*
+**Room description (perception check passed):**
+*A worked section of cave — support timbers at intervals, rusting tools left where they were dropped. The smell of old rock dust is thick here.*
+*Someone mined this passage, or used it as a route through to something being mined. A large iron chest is bolted to the floor against one wall.*
+*A faint shimmer near the base of one timber catches your eye — silver dust, settled into a crack in the stone.*
 
 #### Stored Room
 **XP: 1**
@@ -812,7 +998,9 @@ Heavily magnetic room. Trap 15 (Magnetic Chest) on central chest — opening wit
 
 **Room description (default):** *A square room, stone walls, a single chest at the center on a low stone platform. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn. A nail in the wall points toward it. Dust has settled in a faint ring around the latch.*
 
-**Room description (perception check passed):** *A square room, stone walls, a single chest at the center on a low stone platform. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn. A nail in the wall points toward it. The ring of metallic filings around the latch is deliberate — a lodestone is built into the lid. Opening the chest without removing it first would be a problem.*
+**Room description (perception check passed):**
+*A square room, stone walls, a single chest at the center on a low stone platform. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn.*
+*A nail in the wall points toward it. The ring of metallic filings around the latch is deliberate — a lodestone is built into the lid. Opening the chest without removing it first would be a problem.*
 
 #### Deep Lock Door
 **XP: 1**
@@ -999,7 +1187,10 @@ North of Quest 34 Mid Room. Contains a soldier encased in a block of magical ice
 
 **Room description:** *Cold stops you at the threshold — not wind, just cold, settled and absolute. The fountain to your left has been frozen mid-pour for what might be a very long time. The block of ice in the center of the room is frosted thick, but not so thick you can't see the shape inside it. A person. Standing. Composed.*
 
-**Turn 1 (`HOLD TORCH NEAR ICE`):** *The ivory torch throws heat that seems wrong for its size. Where the flame meets the ice, the frost retreats — a wet gleam spreading outward from the torch's reach. A single deep crack sounds from somewhere inside the block — not shattering, just shifting. A small clear window opens in the surface. Through it, the figure is closer than expected. Still composed. Still waiting.*
+**Turn 1 (`HOLD TORCH NEAR ICE`):**
+*The ivory torch throws heat that seems wrong for its size. Where the flame meets the ice, the frost retreats — a wet gleam spreading outward from the torch's reach.*
+*A single deep crack sounds from somewhere inside the block — not shattering, just shifting.*
+*A small clear window opens in the surface. Through it, the figure is closer than expected. Still composed. Still waiting.*
 
 **Turn 2 (`HOLD TORCH NEAR ICE`):** *The crack deepens — then several more, fast, branching outward from the window. The block doesn't collapse so much as release. The ice falls away in sheets, and the soldier steps forward out of it as if he had been about to do so anyway. He blinks. He looks at his hands. He looks at you.*
 
@@ -1013,7 +1204,10 @@ Magical darkness fills the passage ahead. Hard block without Guardian's Lantern.
 
 **Before lantern:** *You cannot see anything. This is not like being in the dark. This is something the dark is doing on purpose.*
 
-**Lantern reveal:** *The lantern opens and the darkness collapses. No gradual brightening — one moment nothing, the next a plain stone room, fully lit, as if it had always been waiting to be seen. Unremarkable in every way except one: it is not dark. After what just happened, that feels like quite a lot. There is a hook on the wall. You hang the lantern on it. It feels like the right thing to do, and apparently it was.*
+**Lantern reveal:**
+*The lantern opens and the darkness collapses. No gradual brightening — one moment nothing, the next a plain stone room, fully lit, as if it had always been waiting to be seen.*
+*Unremarkable in every way except one: it is not dark. After what just happened, that feels like quite a lot.*
+*There is a hook on the wall. You hang the lantern on it. It feels like the right thing to do, and apparently it was.*
 
 **Persistent (lantern hung):** *A plain stone room, unremarkable in every way. Stone walls, stone floor, a passage north. The Guardian's Lantern burns steadily on the wall. It is not dark.* Lantern stays on wall permanently — in room but not takeable.
 

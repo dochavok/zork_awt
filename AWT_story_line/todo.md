@@ -6,7 +6,6 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## Combat & Mechanics
 
-- [ ] **Werewolf combat mechanic** — attack cadence, player options each turn. BLOCKED on combat system design. (`locations.md`, `ring-rituals.md`, `mechanics.md`)
 - [ ] **2–3 quests requiring ring invisibility** — Chuckle House confirmed; need 1–2 more. (`mechanics.md`)
 - [ ] **Full verb list and synonym handling policy** — design pass needed. (`mechanics.md`)
 - [ ] **Trap detection → disarm flow** — needs consistent mechanic: does a successful perception check auto-attempt disarm, or does the player need to act intentionally? Leaning toward intentional (player must `DISARM TRAP` or equivalent verb after spotting it). (`mechanics.md`, `traps.md`)
@@ -21,7 +20,7 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## NPCs
 
-- [ ] **Player name use** — review all NPC dialogue and flag where name use is appropriate as familiarity grows. Priority: May, Shamus, Raznak, Redcrosse Knight, Vikings. Others TBD. (`npcs.md`)
+- [x] **Player name use** — reviewed all NPC dialogue. Name use added: Raznak (post-training visits), Redcrosse Knight (fight initiation + win), Ivanaar (Quest 42 reward), Lynds (subsequent challenge), Will Passion (final scene only), May (Tier 3 hint response + mugger free drink). Shamus deferred — no quest reward interaction written yet. (`npcs.md`, `quests.md`, `locations.md`, `ring-rituals.md`, `mechanics.md`)
 
 ---
 
@@ -40,6 +39,3 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ---
 
-## Ring Quest / Critical Path
-
-- [ ] **Werewolf combat mechanic** — see Combat section above. BLOCKED.
