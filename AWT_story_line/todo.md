@@ -18,5 +18,4 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## Narrative & Writing
 
-- [ ] **Tip Journal** — design display verb, visual format of quest entries, completed quest handling. (`gameplay design.md`, `mechanics.md`)
 ---

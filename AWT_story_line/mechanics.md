@@ -396,14 +396,40 @@ May only offers hints for quests that are discovered AND incomplete. She won't h
 
 Purchasable from Shamus (Tale and Ale Kitchen) for 5 Zenni. Available to the player on request at any time.
 
-Records:
-- Quests discovered and their discovery source (May, Quest Board, or organic)
-- Hints purchased per tier per quest
-- Quest completion status
+**Display verb:** `READ JOURNAL`
 
-A quest does not appear in the journal until it has been discovered — undiscovered quests are invisible to the player.
+**What it records:**
+- Every discovered quest — does not appear until discovered; undiscovered quests are invisible
+- How the quest was discovered: `[Board]` (Quest Board posting), `[May]` (May's hint), or `[Organic]` (found in world)
+- Each hint tier purchased from May, in order, with the full hint text
 
-Display verb (`READ JOURNAL`? `OPEN JOURNAL`?), visual format of quest entries, and completed quest handling TBD — see `todo.md`.
+**What it does not record:**
+- Completed quests — they drop off immediately on completion, keeping the journal a live action list
+
+**Entry format:**
+
+```
+JOURNAL
+
+The Bone Flute         [Board]
+  Tier 1: Check the dungeon mid-tier — there's a passage off the Inscription Chamber.
+  Tier 2: The cave creature isn't there. It's safe to go in.
+
+The Whispering Jar     [Organic]
+
+The Ruined Aqueduct    [Board]
+  Tier 1: The aqueduct is southeast of town. The problem is visible from the road.
+```
+
+- Quest name and discovery source on one line
+- Purchased hint tiers appear indented below, each on its own line, with the full text
+- No hints purchased: nothing below the quest name — silence is implicit
+- Completed quests: removed from journal immediately on completion
+
+**Edge cases:**
+- Player has not purchased the journal: `READ JOURNAL` returns *"You don't have a journal."*
+- Player has the journal but no quests discovered yet: *"The journal is empty."*
+- Player has the journal and all active quests complete: *"The journal is empty."* (same message — no distinction)
 
 ---
 
@@ -842,6 +868,7 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 | `USE PORTCULLIS BAR` | Trap 19 — props portcullis open permanently |
 | `CLIMB TREE` | The Old Oak — retrieves kite + rune stone |
 | `LOOK AT MUSIC BOX` | Will's Tower — triggers quest discovery and hint sequence (Quest 12) |
+| `READ JOURNAL` | Tip Journal — displays all active discovered quests with purchased hints |
 | `OPEN CASE` / `CLOSE CASE` | Trophy Case in The Tower — case must be open to place items |
 | `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` | Trophy Case — places treasure permanently; case must be open |
 | `LOOK IN CASE` / `EXAMINE CASE` | Trophy Case — lists contents and count; visible through glass whether open or closed |
