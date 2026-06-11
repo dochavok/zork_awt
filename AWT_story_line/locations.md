@@ -586,7 +586,7 @@ Spur off the Eastern Roundabout Sea — not on the main east axis. Visible from 
 
 **Island Shore (the only room):** *The sand on the beach is undisturbed. That fact, for some reason, does not comfort you. Nothing here is threatening and nothing here is welcoming. The island feels like a place that has been waiting — not for you specifically, but for someone. The quiet here is a different kind of quiet than the open ocean — heavier, more deliberate. You have the distinct feeling that something happened here once. The island isn't telling.*
 
-A buried chest is here — not visible without digging. With the treasure map: `DIG` succeeds immediately. Without the map: 10% chance per `DIG` attempt. Contents: 30 Zenni + TBD quest item.
+A buried chest is here — not visible without digging. With the treasure map: `DIG` succeeds immediately. Without the map: 10% chance per `DIG` attempt. Contents: 30 Zenni.
 
 ### Kevry's Island
 **XP: 5 per room (4 rooms = 20 total)**

@@ -40,8 +40,14 @@ Each quest has a specific XP value. All quests bumped by a flat +2 XP from base 
 | Quest 51 | The Back Alley Mugger | 6 |
 | Quest 52 | Make Litlock Laugh | 6 |
 | Quest 53 | Will's Glasses | 10 or 20 (10 if regular Enchanted Glasses returned; 20 if Actually Enchanted) |
+| Quest 54 | Fight the Knight | 8 |
+| Quest 55 | The Archer's Trial | 6 |
+| Quest 56 | Will's Teaching | 4 per spell |
+| Quest 57 | The Viking Trust Trials | 12 |
+| Quest 58 | The Dragon-Nip | 4 |
+| Quest 59 | Beat Lynds | 5 |
 
-**Quest total (confirmed): 219–229 XP** (Quest 53 variable — 219 if glasses not enchanted, 229 if Actually Enchanted)
+**Quest total (confirmed): 254–264 XP** (Quest 53 variable — 219 if glasses not enchanted, 229 if Actually Enchanted)
 
 ---
 
@@ -95,15 +101,15 @@ Completing the quest or trainer interaction that grants a new combat skill award
 | Source | XP |
 |--------|----|
 | Exploration | 133 |
-| Quests | 219–229 |
+| Quests | 254–264 |
 | Traps (disarm) | 39 |
 | Combat | 42 |
 | Skill acquisition | 10 |
-| **Confirmed base total** | **443–453 XP** |
+| **Confirmed base total** | **478–488 XP** |
 | Class bonus (Warrior) | +40 XP |
 | Class bonus (Mage) | +46 XP |
 | Class bonus (Rogue) | +50 XP |
-| **Confirmed total with class bonus** | **483–503 XP** (varies by class and Quest 53 outcome) |
+| **Confirmed total with class bonus** | **518–538 XP** (varies by class and Quest 53 outcome) |
 
 Class bonuses are awarded on top of base XP and vary by class. Quest 53 awards 10 XP (glasses not enchanted) or 20 XP (Actually Enchanted) — a completionist who sails to Kevry earns the higher value. All classes clear the Level 8 threshold of 420 XP comfortably on a completionist run.
 

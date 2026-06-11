@@ -50,10 +50,10 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 
 **Zenni sources:**
 - Will Passion opening gift: 10 Zenni
-- Hidden room Zenni: 18 rooms randomized per new game; 9 Easy / 5 Medium / 1 Hard pay 1–3 Zenni each; 3 Very Hard pay 5 Zenni each (~36 Zenni total if all found); Actually Enchanted Glasses pass all checks and find all rooms automatically
-- Desert Island buried chest: 30 Zenni
+- Hidden room Zenni: 36 rooms randomized per new game; 18 Easy / 10 Medium / 2 Hard pay 1–3 Zenni each; 6 Very Hard pay 5 Zenni each (~74 Zenni total if all found); Actually Enchanted Glasses pass all checks and find all rooms automatically
+- Desert Island buried chest: 50 Zenni
 - Vendor buyback: half price, own items only; no buyback for treasure
-- Quest rewards: TBD per quest
+- Quest rewards: ~133 Zenni across all 27 active quests (3–10 Zenni per quest, mirroring XP tiers)
 
 ---
 
@@ -391,8 +391,8 @@ Display verb (`READ JOURNAL`? `OPEN JOURNAL`?), visual format of quest entries, 
 Located in The Bar of the Tale and Ale. Described in the room text. `LOOK AT BOARD` displays all currently posted quests. Completed quests are automatically removed from the board.
 
 **Confirmed postings (cascade order):**
-- Quest 22 (The Ruined Aqueduct) — posted early, ensures most players complete before needing fountain
-- Quest 40 (Shamus's Recipe) — posted early
+- Quest 22 (The Ruined Aqueduct) — posted at game start
+- Quest 40 (Shamus's Recipe) — posted on first visit to the Kitchen (meeting Shamus)
 - Quest 7 (The Bone Flute) — posted 20 turns after player first meets Pyronicus
 - Quest 17 (The Frozen Watch) — posted by Records Room Worker when player delivers ring to Will (second briefing)
 - Quest 24 (The Beekeeper's Swarm) — posted when player receives town charter (Quest 17 reward)
@@ -433,15 +433,15 @@ Beach `DIG`: succeeds up to 5 times with flavor text (nothing but wet sand); 6th
 
 ## Zenni Rooms
 
-18 rooms across the world contain hidden Zenni, discoverable via silent perception check. Rooms are selected randomly at game initialization and fixed for that playthrough. Actually Enchanted Glasses pass all perception checks — all 18 rooms found automatically.
+36 rooms across the world contain hidden Zenni, discoverable via silent perception check. Rooms are selected randomly at game initialization and fixed for that playthrough. Actually Enchanted Glasses pass all perception checks — all 36 rooms found automatically.
 
 **Difficulty distribution (assigned at game init):**
 | Tier | Count | Target | Zenni |
 |------|-------|--------|-------|
-| Easy | 9 | 5 | 1–3 |
-| Medium | 5 | 9 | 1–3 |
-| Hard | 1 | 14 | 1–3 |
-| Very Hard | 3 | 18 | 5 |
+| Easy | 18 | 5 | 1–3 |
+| Medium | 10 | 9 | 1–3 |
+| Hard | 2 | 14 | 1–3 |
+| Very Hard | 6 | 18 | 5 |
 
 **Eligible room pool:**
 
@@ -592,7 +592,7 @@ Hidden aboard the Pie Rat Ship in the hold.
 
 Each turn aboard fires a silent perception check. On success: map found and added to inventory. Actually Enchanted Glasses pass all checks — map found on first turn.
 
-Without the map: each `DIG` on Desert Island has a 10% chance of finding the buried chest. Player can keep trying indefinitely.
+Without the map: each `DIG` on Desert Island has a 10% chance of finding the buried chest (contains 50 Zenni). Player can keep trying indefinitely.
 
 Carrying the map guarantees `DIG` success on Desert Island on first attempt.
 

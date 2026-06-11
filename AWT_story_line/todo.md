@@ -27,11 +27,10 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## Quests & Economy
 
-- [ ] **Quest Zenni rewards** — assign across all quests once quest list finalized. (`quests.md`, `mechanics.md`)
+- [x] **Quest Zenni rewards** — assigned across all 27 active quests, mirroring XP tiers (4–6 XP = 3 Zenni, 8–12 XP = 5 Zenni, 17 XP = 8 Zenni, 22 XP = 10 Zenni). Written to quests.md.
 - [ ] **Hint system Zenni tier costs** — review ranges (1–3, 4–6, 7–12) against final economy once quest rewards set. (`mechanics.md`, `gameplay design.md`)
-- [ ] **Quest Board cascade** — design full cascade: which quests unlock new postings and in what order. (`quests.md`)
-- [ ] **Desert Island buried chest** — TBD quest item alongside 30 Zenni. (`locations.md`, `gameplay design.md`)
-- [ ] **Treasure item points** — assign point values for all Trophy Case items. (`items.md`)
+- [x] **Quest Board cascade** — 7 confirmed postings written to mechanics.md and quests.md. Resolved: Quest 22 at game start; Quest 40 on first Kitchen visit; Quest 7 after meeting Pyronicus; Quest 17 via Records Room Worker; Quest 24 after Quest 17 reward; Quest 50 by Will at game start; Quest 51 by May after 100 turns. Full unlock cascade (which quest completions post new quests) not yet designed.
+- [x] **Treasure item points** — 300 total points assigned across 9 items. Written to items.md.
 - [ ] **Alternate light sources for mine heist** — harder to obtain than mine torch; add to Shamus's stock once designed. (`gameplay design.md`)
 - [ ] **Opening Roundabout experience** — May's first interaction, Quest Board introduction, tutorial moment. (`gameplay design.md`)
 

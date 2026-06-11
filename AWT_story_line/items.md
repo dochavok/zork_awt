@@ -509,12 +509,12 @@ All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 
 | Item | Location | Weight | Points | Notes |
 |------|----------|--------|--------|-------|
-| **Diamond Brooch** | Magnetic Vault, Dungeon Mid-Tier | 1 | TBD | Second most valuable treasure in game |
-| **Chachapoyan Fertility Idol** | Idol Room, Dungeon Upper Tier | 4 | TBD | Safe swap required (sack of salt); same weight as sack of salt |
-| **Funeral Mask of Hammered Gold** | Burial Chamber, Dungeon Lower Tier | 3 | TBD | Spirits do not react to taking it |
-| **The Forgotten Blade** | Quest 34 Fountain Room, Dungeon Lower Tier | 3 | TBD | Not a combat weapon; ceremonial only |
-| **Golden Dragon Scale** | Reward from returning dragon-nip to Will | 1 | TBD | Dragon-nip hidden under nightstand in Will's Bedroom |
-| **Ship-in-a-Bottle** | Roundabout Pond (fishing rod + challenge roll) | 2 | TBD | May's hints imply Kevry connection |
-| **Gold Pocket Watch** | The Crevice, Dungeon Mid-Tier | 1 | TBD | **Missable** — permanently inaccessible after Stored Room collapses |
-| **Gold Nugget** | Supply Cache, Dungeon Mid-Tier Trap Side | 2 | TBD | Buried in rubble |
-| **Pie Rat Coin** | Flipped by a Pie Rat after returning the stolen ship | 1 | TBD | Unusual currency; pirate provenance |
+| **The Forgotten Blade** | Quest 34 Fountain Room, Dungeon Lower Tier | 3 | 60 | Most valuable treasure in game; not a combat weapon, ceremonial only |
+| **Diamond Brooch** | Magnetic Vault, Dungeon Mid-Tier | 1 | 45 | Second most valuable treasure in game |
+| **Funeral Mask of Hammered Gold** | Burial Chamber, Dungeon Lower Tier | 3 | 36 | Spirits do not react to taking it |
+| **Golden Dragon Scale** | Reward from returning dragon-nip to Will | 1 | 36 | Dragon-nip hidden under nightstand in Will's Bedroom |
+| **Chachapoyan Fertility Idol** | Idol Room, Dungeon Upper Tier | 4 | 30 | Safe swap required (sack of salt); same weight as sack of salt |
+| **Gold Pocket Watch** | The Crevice, Dungeon Mid-Tier | 1 | 30 | **Missable** — permanently inaccessible after Stored Room collapses |
+| **Ship-in-a-Bottle** | Roundabout Pond (fishing rod + challenge roll) | 2 | 24 | May's hints imply Kevry connection |
+| **Gold Nugget** | Supply Cache, Dungeon Mid-Tier Trap Side | 2 | 21 | Buried in rubble |
+| **Pie Rat Coin** | Flipped by a Pie Rat after returning the stolen ship | 1 | 18 | Unusual currency; pirate provenance |

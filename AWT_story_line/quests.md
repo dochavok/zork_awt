@@ -25,7 +25,7 @@ Update this file immediately when any quest detail is designed or changed.
 3. Return to jar → `PRESS SEAL`, `DUST JAR`, `READ INCANTATION`
 4. Jar whispers once: *"The ceiling of the thermal vent holds a secret."* — one time only, never repeated.
 
-**Reward:** The Whispering Jar hint points player to fire clay in the Thermal Vent Room (lower tier, `LOOK UP`). No other hint for this exists anywhere.
+**Reward:** The Whispering Jar hint points player to fire clay in the Thermal Vent Room (lower tier, `LOOK UP`). No other hint for this exists anywhere. 5 Zenni.
 
 **May's hint (one tier only — unlocks once player has first descended to the lower tier):** *"That jar in the back room of the inn — people say it used to warn about things. If it's still got something to say, I'd want to hear it before going any deeper."*
 
@@ -47,7 +47,7 @@ Update this file immediately when any quest detail is designed or changed.
 3. Take bone flute from floor.
 4. Return flute to Pyronicus.
 
-**Reward:** Fireball spell scroll — castable in combat.
+**Reward:** Fireball spell scroll — castable in combat. 3 Zenni.
 
 ---
 
@@ -80,7 +80,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 4. **Mages:** Read scroll directly (consumed) → Light spell learned.
 5. **Warriors/Rogues:** Take scroll to Will (cannot wear Enchanted Glasses in Will's presence) → scroll consumed, Light spell learned.
 
-**Reward:** Light spell — 10 turns duration, 20 turns reuse timer.
+**Reward:** Light spell — 10 turns duration, 20 turns reuse timer. 5 Zenni.
 
 ---
 
@@ -111,7 +111,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 6. `TAKE WATCH` (50% exit-fail mechanic persists even after ghost freed — disorientation on failed exit attempt).
 7. Deliver pocket watch to Records Room Worker → he gives town charter.
 
-**Reward:** Town charter → required for Quest 27 (Toll Bridge/dungeon access).
+**Reward:** Town charter → required for Quest 27 (Toll Bridge/dungeon access). 8 Zenni.
 **Corruption note:** Wearing the ring throughout the Chuckle House is an intentional corruption cost.
 
 **May's hints (Ghost/Watch quest):**
@@ -163,7 +163,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 10. Werewolf drops **Werewolf's Amulet** (ring ritual artifact, The Veil of the Arcane).
 11. Take Ivory Torch from wall before leaving.
 
-**Reward:** Werewolf's Amulet → ring ritual artifact for The Veil of the Arcane ritual at Church of All altar. See `ring-rituals.md`.
+**Reward:** Werewolf's Amulet → ring ritual artifact for The Veil of the Arcane ritual at Church of All altar. See `ring-rituals.md`. 10 Zenni.
 
 ---
 
@@ -185,7 +185,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 4. Place all three blocks.
 5. Seal joints with mortar from Supply Room → aqueduct restored.
 
-**Reward:** Innkeeper permanently lowers Food & Drink cost by 1 Zenni.
+**Reward:** Innkeeper permanently lowers Food & Drink cost by 1 Zenni. 5 Zenni.
 **Cascade:** Town Square fountain begins running → water required for Quest 49 (The Ruined Shrine) clay adhesive. Ensures most players complete this naturally before needing the fountain.
 
 ---
@@ -206,7 +206,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 3. Take queen (small tagged bee in glass vial near nest).
 4. Return queen to beekeeper.
 
-**Reward:** Jar of enchanted honey — consumable, restores 2 hearts.
+**Reward:** Jar of enchanted honey — consumable, restores 2 hearts. 5 Zenni.
 
 ---
 
@@ -222,7 +222,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 4. `CLEAR DRAIN` → clog clears.
 5. Cellar drains → reveals pre-flood Zenni cache + door to Secret Tunnel.
 
-**Reward:** Zenni cache. Bartender gives a pair of boots (leg-slot armor, +3 trap disarm roll bonus — *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar"*). Secret Tunnel door permanently accessible (bidirectional).
+**Reward:** Zenni cache. Bartender gives a pair of boots (leg-slot armor, +3 trap disarm roll bonus — *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar"*). Secret Tunnel door permanently accessible (bidirectional). 5 Zenni.
 
 **Open question:** Perception check on kitchen-side entry before draining — leaning no roll. Resolve later.
 
@@ -246,7 +246,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 3. `GIVE CHARTER TO BOGGART` → Boggart reads it, grumbles, vacates. Drops strongbox.
 4. Strength check to open strongbox → several turns' worth of Zenni.
 
-**Reward:** Bridge permanently free. Dungeon Entrance accessible.
+**Reward:** Bridge permanently free. Dungeon Entrance accessible. 3 Zenni.
 
 ---
 
@@ -262,7 +262,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 4. Return rubbing to archivist → earns incantation scroll.
    - Archivist: *"This appears to be an answer to a question I was never able to find."*
 
-**Reward:** Incantation scroll — required for Quest 34 (speaking door in lower tier). Archivist's remark is the only connection to Quest 34.
+**Reward:** Incantation scroll — required for Quest 34 (speaking door in lower tier). Archivist's remark is the only connection to Quest 34. 3 Zenni.
 
 ---
 
@@ -294,7 +294,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 **Reward interaction:** *"That cart came from the dungeon," Rowan says flatly. "Don't bother denying it — I've seen it before, in my grandfather's papers." He studies you for a moment. "He left a key. Said it led to a lower level — wouldn't say what was down there." He holds it out. "Take it. It was never meant for me."*
 
-**Reward:** Middle Tier Key — opens Mid-Tier Key Door, gates access to key side of mid-tier dungeon.
+**Reward:** Middle Tier Key — opens Mid-Tier Key Door, gates access to key side of mid-tier dungeon. 5 Zenni.
 
 ---
 
@@ -319,7 +319,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 7. `HOLD TORCH NEAR ICE` (turn 2) → soldier freed.
 8. Soldier gives the Forgotten Blade and wanders off.
 
-**Reward:** The Forgotten Blade — ceremonial sword, treasure item (not a combat weapon). Soldier reappears in town as minor NPC offering free weapon training sessions.
+**Reward:** The Forgotten Blade — ceremonial sword, treasure item (not a combat weapon). Soldier reappears in town as minor NPC offering free weapon training sessions. 8 Zenni.
 
 **Pull-back mechanics (for players who missed the Tool Alcove perception check):**
 
@@ -348,7 +348,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 3. Three strength checks — one per main timber. After each success, another loosens.
 4. After clearing all three, prop passage with support beam.
 
-**Reward:** Permanent shortcut — passage exits into Rickety Bridge, placing player between Shrine Room and Mid-Tier Key Door, bypassing everything above. Significantly speeds dungeon traversal.
+**Reward:** Permanent shortcut — passage exits into Rickety Bridge, placing player between Shrine Room and Mid-Tier Key Door, bypassing everything above. Significantly speeds dungeon traversal. 5 Zenni.
 
 ---
 
@@ -366,7 +366,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 2. Find small clay pot in Supply Room — visible in wreckage of Trap 17 whether triggered or disarmed.
 3. Deliver both to Shamus.
 
-**Reward:** Permanent inn menu upgrade — "hearty stew" option, restores 2 hearts at the same price as Food & Drink (2 Zenni).
+**Reward:** Permanent inn menu upgrade — "hearty stew" option, restores 2 hearts at the same price as Food & Drink (2 Zenni). 3 Zenni.
 
 ---
 
@@ -380,7 +380,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 2. `TAKE RUNE STONE`.
 3. `GIVE KITE TO CHILD` → quest complete.
 
-**Reward:** Old Oak rune stone (one of three needed for Quest 42). No perception check required anywhere.
+**Reward:** Old Oak rune stone (one of three needed for Quest 42). No perception check required anywhere. 3 Zenni.
 
 ---
 
@@ -398,7 +398,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 1. Collect all three rune stones.
 2. Return to Ivanaar at the Viking Encampment — `GIVE STONES TO IVANAAR`.
 
-**Reward:** Ivanaar's Tunic — chest slot armor. Brotherhood weave with restored runes. Grants a damage avoidance roll during combat — a second roll during the combat phase that can negate damage that would otherwise be taken. **Note: include damage avoidance mechanic in combat system design.**
+**Reward:** Ivanaar's Tunic — chest slot armor. Brotherhood weave with restored runes. Grants a damage avoidance roll during combat — a second roll during the combat phase that can negate damage that would otherwise be taken. **Note: include damage avoidance mechanic in combat system design.** 5 Zenni.
 
 ---
 
@@ -444,7 +444,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 **Transformation text:** *The coin settles on the pedestal. For a moment, nothing. Then the bowl begins to change — ceramic going pale, then translucent, then clear. The etched design that was barely visible before catches the light now, sharp and permanent. What sits on the pedestal is no longer what you put there.*
 
-**Reward:** The Repaired Bowl → ring ritual artifact for The Verdant Circle ritual at Church of All altar. See `ring-rituals.md`.
+**Reward:** The Repaired Bowl → ring ritual artifact for The Verdant Circle ritual at Church of All altar. See `ring-rituals.md`. 8 Zenni.
 
 ---
 
@@ -464,7 +464,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 6. Apprentice follows player out.
 7. As they surface in Bog-NW, apprentice gives his gloves. Quest completes on bog exit — no return to Will required.
 
-**Reward:** Apprentice's Gloves — hands slot, +3 combat roll bonus. Will is visibly shaken when player next visits the tower; says little about it.
+**Reward:** Apprentice's Gloves — hands slot, +3 combat roll bonus. Will is visibly shaken when player next visits the tower; says little about it. 5 Zenni.
 
 ---
 
@@ -481,7 +481,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
    - Winning: mugger slain permanently. Back Alley is safe. Lockpicks drop as loot.
 3. Collect reward from May at the tavern bar.
 
-**Reward:** One free drink from May (1 heart restoration). May flag clears after use.
+**Reward:** One free drink from May (1 heart restoration). May flag clears after use. 3 Zenni.
 **Loot:** Lockpicks — opens the large iron chest in Mine Passage (20 Zenni). Not a general trap disarm tool.
 
 ---
@@ -501,7 +501,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
    - Failures loop back to Tier 1 — no penalty, retryable.
 3. On full success: Litlock bonks the player on the head. *"You'll see things a bit differently now. Don't ask me to explain it."*
 
-**Reward:** Chuckle House becomes visible (west of the Graveyard) — the only way to access it. 6 XP.
+**Reward:** Chuckle House becomes visible (west of the Graveyard) — the only way to access it. 6 XP. 3 Zenni.
 
 ---
 
@@ -524,7 +524,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 7. Return to Will's Bedroom. `DROP GLASSES` on the nightstand — quest complete, XP awarded.
    - Will is not present and never acknowledges the glasses were missing or returned.
 
-**Reward:** XP (see below). Actually Enchanted Glasses may be picked up again freely after dropping.
+**Reward:** XP (see below). Actually Enchanted Glasses may be picked up again freely after dropping. 5 Zenni.
 
 **XP:**
 - Enchanted Glasses returned (regular): 10 XP
@@ -538,8 +538,8 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 ## Quest Board Cascade
 
 **Confirmed postings:**
-- Quest 22 (The Ruined Aqueduct) — posted early, ensures most players complete before needing fountain
-- Quest 40 (Shamus's Recipe) — posted early
+- Quest 22 (The Ruined Aqueduct) — posted at game start
+- Quest 40 (Shamus's Recipe) — posted on first visit to the Kitchen (meeting Shamus)
 - Quest 7 (The Bone Flute) — posted 20 turns after player first meets Pyronicus
 - Quest 17 (The Frozen Watch) — posted by Records Room Worker when player delivers ring to Will (second briefing)
 - Quest 24 (The Beekeeper's Swarm) — posted when player receives town charter (Quest 17 reward)
@@ -569,7 +569,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
    - **Player wins (Knight reaches 1 heart):** *"He holds still for a moment after you land the deciding blow. Then something in his posture shifts — subtle, but real. 'Good,' he says. Just that. He sheathes his weapon and nods toward an open space in the square. 'Again — this time I'll show you what you did right.'"*
 4. Pay 3 Zenni. Melee weapon skill unlocked permanently.
 
-**Reward:** Melee weapon skill. 8 XP.
+**Reward:** Melee weapon skill. 8 XP. 5 Zenni.
 
 ---
 
@@ -584,7 +584,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 2. Approach Raznak at the Archery Range. He beckons the player — `TALK TO RAZNAK` to begin.
 3. Pay 3 Zenni. Raznak demonstrates and teaches. Bow/archery skill unlocked permanently.
 
-**Reward:** Bow/archery skill. 6 XP.
+**Reward:** Bow/archery skill. 6 XP. 3 Zenni.
 
 ---
 
@@ -602,7 +602,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
    - *"Will glances at the scroll, then at you. He takes it without ceremony and unrolls it, reading silently for a moment. Then he reads it aloud — not to you, exactly, more as if the words need to be heard in the right kind of room. When he finishes, you understand it. You're not sure how. 'Keep that,' he says, nodding at the space where the scroll was. It's gone. 'The knowing, I mean.'"*
 4. Pay 3 Zenni per spell taught.
 
-**Reward:** Spell learned permanently. 4 XP per spell.
+**Reward:** Spell learned permanently. 4 XP per spell. 3 Zenni per spell.
 **Note:** Cannot wear Enchanted Glasses in Will's presence during teaching — Will notices and refuses.
 
 ---
@@ -620,7 +620,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
    - **Player loses:** Wakes in the Encampment two turns later. Retryable.
 5. Ivanaar awards the runed metal after witnessing Aylora returned.
 
-**Reward:** Runed metal (quest item — taken to Pyronicus to forge the Pale Blade, Brotherhood of the Pale Blade ring ritual artifact). 12 XP. Archery Range arrow hazard silently disabled. Quest 55 (The Archer's Trial) becomes available.
+**Reward:** Runed metal (quest item — taken to Pyronicus to forge the Pale Blade, Brotherhood of the Pale Blade ring ritual artifact). 12 XP. 5 Zenni. Archery Range arrow hazard silently disabled. Quest 55 (The Archer's Trial) becomes available.
 
 ---
 
@@ -636,7 +636,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 3. Bring dragon-nip to Will Passion in the tower. `GIVE DRAGON-NIP TO WILL` or `SHOW DRAGON-NIP TO WILL`.
 4. Will takes it. Produces a Golden Dragon Scale. Quest complete.
 
-**Reward:** Golden Dragon Scale (Trophy Case treasure item). 15 XP.
+**Reward:** Golden Dragon Scale (Trophy Case treasure item). 15 XP. 5 Zenni.
 
 **Design notes:**
 - No Quest Board posting. Discovery is entirely organic.
@@ -681,5 +681,5 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
    *Lynds grins. "You already beat me. I remember." He doesn't put his elbow down.*
 
-**Reward:** Heart Necklace (permanent +1 heart, neck slot). Dankhaus access. 5 XP.
+**Reward:** Heart Necklace (permanent +1 heart, neck slot). Dankhaus access. 5 XP. 3 Zenni.
 
