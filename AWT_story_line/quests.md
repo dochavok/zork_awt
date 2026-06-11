@@ -224,9 +224,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 4. `CLEAR DRAIN` → clog clears.
 5. Cellar drains → reveals pre-flood Zenni cache + door to Secret Tunnel.
 
-**Reward:** Zenni cache. Bartender gives a pair of boots (leg-slot armor, +3 trap disarm roll bonus — *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar"*). Secret Tunnel door permanently accessible (bidirectional). 5 Zenni.
-
-**Open question:** Perception check on kitchen-side entry before draining — leaning no roll. Resolve later.
+**Reward:** Zenni cache. Bartender gives Bartender's Boots (leg-slot armor, +3 trap disarm roll bonus — *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar"*). Secret Tunnel door permanently accessible (bidirectional). 5 Zenni.
 
 **May's hint (one tier only):** *"There's water behind more than one door near the inn. Best to sort that out from the top before you go wandering underneath."*
 
