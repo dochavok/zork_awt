@@ -1,5 +1,7 @@
 # Roundabout: The God-Forsaken Ring — Traps
 
+Trap numbers share the quest numbering space. Gaps in the sequence are ideas that didn't make it into the game — those numbers are retired and must not be reused. Only numbered entries below are active traps.
+
 -----
 
 **5. Swinging Blade Pendulum (inert)**

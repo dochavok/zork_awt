@@ -194,7 +194,7 @@ Armor is found through exploration and never degrades.
 |------|------|
 | Head | Enchanted Glasses / Actually Enchanted Glasses |
 | Chest | Ivanaar's Tunic (Quest 42 reward) |
-| Legs | Boots (Quest 25 reward) |
+| Legs | Bartender's Boots (Quest 25 reward) |
 | Hands | Apprentice's Gloves (Quest 50 reward) |
 | Neck | Heart Necklace (Lynds arm wrestling) |
 | Ring | The God-Forsaken Ring |
@@ -414,7 +414,7 @@ Three distinct light sources, each with a separate role:
 | Source | Works in dark rooms | Works in Dark Room (magical darkness) | Notes |
 |--------|--------------------|-----------------------------------------|-------|
 | Torch | Yes | No | Vendor item, 100-turn burnout, early game |
-| Light spell | Yes | No | Permanent once cast, Quest 12 unlock |
+| Light spell | Yes | No | Continuous (no duration limit, no reuse timer), Quest 12 unlock |
 | Guardian's Lantern | Yes | Yes | One-time Dark Room solution, stays on wall |
 
 The Dark Room (lower tier) is immune to both torch and Light spell — *"This is not like being in the dark. This is something the dark is doing on purpose."* The Guardian's Lantern is the only answer there.

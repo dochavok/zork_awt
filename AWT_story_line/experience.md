@@ -89,13 +89,6 @@ XP scales with enemy difficulty. Named/boss enemies award toward the higher end.
 
 ---
 
-### Skill Acquisition
-Completing the quest or trainer interaction that grants a new combat skill awards 5 XP. Each player starts with one skill and can learn the other two — maximum 2 skill acquisitions per playthrough.
-
-**Skill acquisition total: 10 XP**
-
----
-
 ## XP Summary
 
 | Source | XP |
@@ -104,7 +97,6 @@ Completing the quest or trainer interaction that grants a new combat skill award
 | Quests | 254–264 |
 | Traps (disarm) | 39 |
 | Combat | 42 |
-| Skill acquisition | 10 |
 | **Confirmed base total** | **478–488 XP** |
 | Class bonus (Warrior) | +40 XP |
 | Class bonus (Mage) | +46 XP |

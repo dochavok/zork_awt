@@ -1151,8 +1151,6 @@ Undead werewolf — critical path. Cannot be harmed by conventional weapons. Onl
 
 **Death/reversion text:** *The creature drops. Between one moment and the next, it is not the creature anymore. The scholar lies on the floor of the cave he came down here to find.*
 
-**TODO:** Werewolf combat mechanic — attack cadence, player options each turn.
-
 ### Tool Alcove (Room 10)
 **XP: 3**
 Quest 34 barrier room. North of The Junction. Speaking door disguised as back wall. Perception check required for discovery.

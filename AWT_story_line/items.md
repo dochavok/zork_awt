@@ -105,6 +105,16 @@ Always lit from purchase. Timer starts on first dark room entry (not on purchase
 
 ---
 
+### Bartender's Boots
+**Slot:** Legs
+**Weight:** 1
+**Location:** Reward from Quest 25 (The Flooded Cellar) — bartender gives them after cellar drains.
+**Quest use:** None — trap disarm bonus.
+
++3 trap disarm roll bonus. Flavor on receipt: *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar."*
+
+---
+
 ## Quest Items
 
 ### Treasure Map
