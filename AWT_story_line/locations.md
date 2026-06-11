@@ -1,4 +1,4 @@
-# Enchanted Realms: One Ring — Locations
+# Roundabout: The God-Forsaken Ring — Locations
 
 Authoritative room-by-room reference. Every room: description, connections, items, mechanics, NPC states.
 Update this file immediately when any location detail is designed or changed.
@@ -1213,7 +1213,7 @@ Magical darkness fills the passage ahead. Hard block without Guardian's Lantern.
 
 ### Spirit Room (Room 12 — Dark branch)
 **XP: 2**
-6–9 silent spirits. Hard block both directions while player is visible. One Ring required. Spirits cannot be killed. South of Dark Room.
+6–9 silent spirits. Hard block both directions while player is visible. The God-Forsaken Ring required. Spirits cannot be killed. South of Dark Room.
 
 **Room description:** *The room is silent. Shapes drift through it — sparse, irregular, neither here nor entirely anywhere. They are not human. They are not entirely not human. They take note of you the moment you enter. The passage north is visible. Getting there is another matter.*
 

@@ -1,4 +1,4 @@
-# Enchanted Realms: One Ring — Experience & Leveling
+# Roundabout: The God-Forsaken Ring — Experience & Leveling
 
 Authoritative reference for XP sources, leveling curve, dice progression, and level rewards.
 Update this file immediately when any XP value or level detail is designed or changed.
@@ -121,7 +121,7 @@ Level 8 threshold: 420 XP. Every class clears it on a completionist run.
 
 Players start with 1d6. Each level upgrades the dice pool — either better dice (larger die size) or additional dice. Players never see the numbers; they only see outcomes.
 
-**Corruption removal roll exception:** Uses level dice only — no bonus applied. See `mechanics.md` (The One Ring — Late-stage removal).
+**Corruption removal roll exception:** Uses level dice only — no bonus applied. See `mechanics.md` (The God-Forsaken Ring — Late-stage removal).
 
 | Level | Dice | Bonus | Min | Expected Value | Max |
 |-------|------|-------|-----|----------------|-----|

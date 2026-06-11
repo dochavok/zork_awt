@@ -1,4 +1,4 @@
-﻿# Enchanted Realms: One Ring — Quests
+﻿# Roundabout: The God-Forsaken Ring — Quests
 
 Authoritative quest reference. All 50 quest slots with discovery trigger, steps, rewards, May's hint tiers, prerequisites, and cascade effects.
 Update this file immediately when any quest detail is designed or changed.
@@ -97,15 +97,15 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ## Quest 17 — The Frozen Watch
 
-**Discovery:** Quest Board — Records Room Worker posts seeking news of a missing relative who entered the Chuckle House and never returned; asks for the relative's pocket watch if they are dead. Posting appears when the player delivers the One Ring to Will Passion (second briefing trigger).
-**Prerequisites:** One Ring (required throughout Chuckle House); Unbind Undead spell (Lighthouse scroll).
+**Discovery:** Quest Board — Records Room Worker posts seeking news of a missing relative who entered the Chuckle House and never returned; asks for the relative's pocket watch if they are dead. Posting appears when the player delivers the The God-Forsaken Ring to Will Passion (second briefing trigger).
+**Prerequisites:** The God-Forsaken Ring (required throughout Chuckle House); Unbind Undead spell (Lighthouse scroll).
 
 **Steps:**
 1. Find Quest Board posting.
 2. Obtain Unbind Undead scroll from Lighthouse (Silas Bryne's desk).
    - Mages: read scroll directly.
    - Warriors/Rogues: bring to Will Passion.
-3. Equip One Ring (invisibility required — all Chuckle House mirrors repel visible players).
+3. Equip The God-Forsaken Ring (invisibility required — all Chuckle House mirrors repel visible players).
 4. Navigate Chuckle House: Entrance → Rejection Mirror → Shatter Trap Mirror → Ghost's Room.
 5. `CAST UNBIND UNDEAD` on ghost → ghost says *"Thank you. I can rest now."* and drops pocket watch.
 6. `TAKE WATCH` (50% exit-fail mechanic persists even after ghost freed — disorientation on failed exit attempt).

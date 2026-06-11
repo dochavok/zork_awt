@@ -1,16 +1,16 @@
-# Enchanted Realms: One Ring — Ring Rituals
+# Roundabout: The God-Forsaken Ring — Ring Rituals
 
-Authoritative reference for the One Ring critical path: three artifact quest lines, Church of All ritual mechanics, and Will Passion's briefing structure.
+Authoritative reference for the The God-Forsaken Ring critical path: three artifact quest lines, Church of All ritual mechanics, and Will Passion's briefing structure.
 Update this file immediately when any ring quest detail is designed or changed.
 
 ---
 
 ## Overview
 
-The One Ring quest has two phases:
+The God-Forsaken Ring quest has two phases:
 
 1. **Retrieval:** Get the ring from Pyronicus (passive — he hands it over willingly).
-2. **Binding:** Perform three rituals at the Church of All altar to bind the ring safely. Each ritual requires a different religion attuned on the altar dial, the One Ring placed on the altar, and a specific artifact found during quests. The artifact is consumed (destroyed) by the ritual.
+2. **Binding:** Perform three rituals at the Church of All altar to bind the ring safely. Each ritual requires a different religion attuned on the altar dial, the The God-Forsaken Ring placed on the altar, and a specific artifact found during quests. The artifact is consumed (destroyed) by the ritual.
 
 All three rituals must be completed. The ring quest cannot be completed without them.
 

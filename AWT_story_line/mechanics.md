@@ -1,4 +1,4 @@
-# Enchanted Realms: One Ring — Mechanics
+# Roundabout: The God-Forsaken Ring — Mechanics
 
 Authoritative reference for all confirmed game mechanics and systems. Brainstorm ideas (mechanic ideas.md, mechanic ideas vol2.md) are separate — nothing here is tentative.
 Update this file immediately when any mechanic is confirmed or changed.
@@ -184,7 +184,7 @@ Classes: Warrior, Rogue only.
 - Legs
 - Hands
 - Neck *(Heart Necklace)*
-- Ring *(The One Ring)*
+- Ring *(The God-Forsaken Ring)*
 
 Armor is found through exploration and never degrades.
 
@@ -196,7 +196,7 @@ Armor is found through exploration and never degrades.
 | Legs | Boots (Quest 25 reward) |
 | Hands | Apprentice's Gloves (Quest 50 reward) |
 | Neck | Heart Necklace (Lynds arm wrestling) |
-| Ring | The One Ring |
+| Ring | The God-Forsaken Ring |
 
 **Ivanaar's Tunic — damage avoidance:**
 When the enemy wins a combat round and would deal 1 heart damage, the tunic fires a silent 1d10 roll. Result of 7–10 (40%) negates the damage entirely. Fixed — does not scale with player level. The roll is completely hidden; no message indicates it occurred. On a successful avoidance, one of four flavor messages fires at random instead of taking damage:
@@ -208,13 +208,13 @@ When the enemy wins a combat round and would deal 1 heart damage, the tunic fire
 
 ---
 
-## The One Ring
+## The God-Forsaken Ring
 
 - Grants invisibility while worn.
 - Corruption timer advances each turn worn. Pauses on removal; resumes on re-equip. Never resets.
 - **Total ticks to full corruption: 50.**
 - Altar use at Church of All does NOT tick corruption — the ring is being used for its purpose, not personal gain.
-- 2–3 quests require or significantly benefit from invisibility (confirmed: Chuckle House; TBD: 1–2 more).
+- Quests requiring invisibility: Chuckle House (Quest 17 — mirrors repel visible players) and Dankhaus (Litlock will not engage while player is invisible).
 
 **Corruption milestones:**
 
@@ -786,6 +786,21 @@ Fixed container in The Tower (Town Hall). Treasure items are placed here permane
 - `TAKE <ITEM> FROM CASE` — always returns: *"That belongs to Roundabout now."*
 - `LOOK IN CASE` / `EXAMINE CASE` — lists contents and count whether open or closed (glass panels visible either way).
 - **Count display:** *"[N] treasure[s] on display."* No denominator shown during play. Win condition reveals: *"9 of 9 treasures on display."*
+
+**Treasure achievement tiers (end-game display):**
+Shown at game end alongside player level. Based on total points deposited in the Trophy Case.
+
+| Points | Title |
+|--------|-------|
+| 0 | Empty-Handed |
+| 1–59 | Scavenger |
+| 60–119 | Loot Goblin |
+| 120–179 | Treasure Hunter |
+| 180–239 | Plunder King |
+| 240–299 | Roundabout's Unhinged Treasure Enthusiast |
+| 300 | Calder Finch |
+
+Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is missable — permanently inaccessible after the Stored Room collapses. A thorough player who misses one high-value item or two low-value items will land in the 240–299 tier.
 
 ---
 

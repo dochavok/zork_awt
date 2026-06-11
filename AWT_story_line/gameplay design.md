@@ -1,4 +1,4 @@
-﻿# Enchanted Realms: One Ring
+﻿# Roundabout: The God-Forsaken Ring
 
 ### Game Design Document v0.2
 
@@ -10,7 +10,7 @@ A Zork-style text adventure RPG. The player explores a rich world, uncovers hidd
 
 **Planned Versions:**
 
-- *One Ring* — This document. Centers on the corruption ring quest.
+- *The God-Forsaken Ring* — This document. Centers on the corruption ring quest.
 - *Two Towers* — Theme for the next game in the series.
 
 -----
@@ -67,7 +67,7 @@ Equipment occupies the following slots. Armor is found through exploration and n
 - **Legs**
 - **Hands**
 - **Neck** *(Heart Necklace quest reward)*
-- **Ring** *(The One Ring)*
+- **Ring** *(The God-Forsaken Ring)*
 
 -----
 
@@ -75,7 +75,7 @@ Equipment occupies the following slots. Armor is found through exploration and n
 
 Special mechanics are defined in `mechanics.md`. Systems covered there:
 
-- The One Ring & Corruption
+- The God-Forsaken Ring & Corruption
 - Enchanted Glasses
 - Spell Mechanics
 - Finishing Move

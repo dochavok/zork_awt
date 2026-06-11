@@ -1,4 +1,4 @@
-# Enchanted Realms: One Ring — NPCs
+# Roundabout: The God-Forsaken Ring — NPCs
 
 Authoritative NPC reference. Every named NPC: location, appearance, personality, dialogue states, quest role, name-use rules.
 Update this file immediately when any NPC detail is designed or changed.

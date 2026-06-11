@@ -1,4 +1,4 @@
-# Enchanted Realms: One Ring — Items
+# Roundabout: The God-Forsaken Ring — Items
 
 Authoritative item reference. Every item: room description, inventory description, location found, quest use, consumable/missable flags, weight. Weight scale in `mechanics.md` — Weight System section.
 Update this file immediately when any item detail is designed or changed.
@@ -22,7 +22,7 @@ Required to make ranged (bow) attacks in combat. Must be carried in inventory.
 
 ---
 
-### The One Ring *(Core Quest Item)*
+### The God-Forsaken Ring *(Core Quest Item)*
 **Slot:** Ring
 **Weight:** 1
 **Location:** Pyronicus's Forge (retrieved from Pyronicus on first visit)
