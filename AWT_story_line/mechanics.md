@@ -345,7 +345,9 @@ Granted silently at Level 7. The player is never told this ability exists — no
 
 May sells hints for Zenni at The Bar, Tale and Ale. Hints are tiered — each tier costs more than the last. Tiers must be purchased in order.
 
-**Tier cost ranges** (TBD exact values — review against final economy):
+**The player tips blind.** There is no menu, no listed price. The player gives May a Zenni amount and May decides what it buys. The tier boundaries are never shown to the player — only May "knows" them. A player who tips 3 Zenni every time will always get Tier 1 hints and never know they could have paid more. A player who tips 7 Zenni from the start will unlock Tier 3 but overpay for early hints. The inefficiency is intentional — it rewards players who experiment and pay attention to May's responses.
+
+**Tier cost ranges (internal — never shown to player):**
 - Tier 1: 1–3 Zenni
 - Tier 2: 4–6 Zenni
 - Tier 3: 7–12 Zenni

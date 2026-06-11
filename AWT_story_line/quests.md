@@ -208,6 +208,8 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 **Reward:** Jar of enchanted honey — consumable, restores 2 hearts. 5 Zenni.
 
+**May's hint (one tier only):** *"Bees aren't aggressive by nature — beekeepers have known for centuries how to calm them. Something about smoke. Ask me why it works and I couldn't tell you, but it does."*
+
 ---
 
 ## Quest 25 — The Flooded Cellar
@@ -225,6 +227,8 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 **Reward:** Zenni cache. Bartender gives a pair of boots (leg-slot armor, +3 trap disarm roll bonus — *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar"*). Secret Tunnel door permanently accessible (bidirectional). 5 Zenni.
 
 **Open question:** Perception check on kitchen-side entry before draining — leaning no roll. Resolve later.
+
+**May's hint (one tier only):** *"There's water behind more than one door near the inn. Best to sort that out from the top before you go wandering underneath."*
 
 ---
 
@@ -399,6 +403,8 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 2. Return to Ivanaar at the Viking Encampment — `GIVE STONES TO IVANAAR`.
 
 **Reward:** Ivanaar's Tunic — chest slot armor. Brotherhood weave with restored runes. Grants a damage avoidance roll during combat — a second roll during the combat phase that can negate damage that would otherwise be taken. **Note: include damage avoidance mechanic in combat system design.** 5 Zenni.
+
+**May's hint (one tier only):** *"Rushing through a place and knowing a place aren't the same thing. I've learned that much."*
 
 ---
 
@@ -647,7 +653,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ## Quest 59 — Beat Lynds
 
-**Discovery:** Organic — `TALK TO LYNDS` or `CHALLENGE LYNDS` in the Tale and Ale. No Quest Board posting. No May hints.
+**Discovery:** Organic — `TALK TO LYNDS` or `CHALLENGE LYNDS` in the Tale and Ale. No Quest Board posting.
 **Prerequisites:** None. No level requirement. Retryable on loss.
 
 **Steps:**
@@ -682,4 +688,6 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
    *Lynds grins. "You already beat me. I remember." He doesn't put his elbow down.*
 
 **Reward:** Heart Necklace (permanent +1 heart, neck slot). Dankhaus access. 5 XP. 3 Zenni.
+
+**May's hint (one tier only):** *"I've seen plenty of people try Lynds. The ones who come back and win aren't the same people who first sat down across from him."*
 

@@ -205,7 +205,7 @@ One of three guest rooms off the Upstairs Hall. Assigned randomly by May when th
 **XP: 1**
 Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds the key. Starts flooded — drain must be unclogged (crowbar required) before the room is usable. Once drained, reveals a door to the Secret Tunnel. Tunnel door stays in whatever state the player leaves it. Travel bidirectional once drained. Entering from either direction before draining = instant drowning fail state (water damage, no warning, no roll). The flood is obvious from the kitchen doorway — no perception check on entry.
 
-**Connections:** Up (cellar door) → Kitchen. West (tunnel door, post-drain only) → The Junction (Secret Tunnels).
+**Connections:** Up (cellar door) → Kitchen. West (tunnel door) → The Junction (Secret Tunnels). **Pre-drain:** tunnel door exists and is openable from The Junction side — opening it before the cellar is drained triggers instant drowning fail state. Post-drain: bidirectional travel freely available.
 
 ---
 
@@ -621,7 +621,7 @@ Kevry is found here. Enchants the Enchanted Glasses if already equipped in the h
 **XP: 1 per room**
 Underground pre-dungeon level connecting the Tavern Cellar, the mine, the Graveyard Crypt, and the Dungeon Entrance.
 
-- **The Junction:** First room off the Tavern Cellar. Hub — branches toward mine (east), Graveyard Crypt (west via Bone Passage and Charnel Walk), and deeper toward dungeon.
+- **The Junction:** First room off the Tavern Cellar. Hub — branches toward mine (east), Graveyard Crypt (west via Bone Passage and Charnel Walk), and deeper toward dungeon. A door to the north leads to the Cellar/Storeroom — if the cellar has not been drained, opening this door triggers instant drowning fail state.
 
   *The tunnel opens up here — not much, but enough to feel like a decision point. Rough stone walls, a ceiling low enough to notice. Passages branch in three directions. The one behind you leads back up to the cellar. The air is damp and smells of old earth and something faintly mineral. Down here, sound doesn't carry the way it should.*
 
