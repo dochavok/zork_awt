@@ -27,15 +27,8 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## Quests & Economy
 
-- [x] **Hint system Zenni tier costs** — confirmed. Tipping-blind mechanic documented; tier ranges internal only, never shown to player. (`mechanics.md`)
 - [ ] **Alternate light sources for mine heist** — harder to obtain than mine torch; add to Shamus's stock once designed. (`gameplay design.md`)
 - [ ] **Opening Roundabout experience** — May's first interaction, Quest Board introduction, tutorial moment. (`gameplay design.md`)
-
----
-
-## Items
-
-- [x] **Armor items** — all slots filled: Enchanted Glasses (head), Ivanaar's Tunic (chest), Boots (legs), Apprentice's Gloves (hands), Heart Necklace (neck), One Ring (ring). (`mechanics.md`)
 
 ---
 

@@ -1,6 +1,6 @@
 # Enchanted Realms: One Ring — Items
 
-Authoritative item reference. Every item: room description, inventory description, location found, quest use, consumable/missable flags, weight (TBD).
+Authoritative item reference. Every item: room description, inventory description, location found, quest use, consumable/missable flags, weight. Weight scale in `mechanics.md` — Weight System section.
 Update this file immediately when any item detail is designed or changed.
 
 ---

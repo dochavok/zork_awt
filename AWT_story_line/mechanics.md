@@ -410,7 +410,7 @@ Located in The Bar of the Tale and Ale. Described in the room text. `LOOK AT BOA
 - Quest 38 (discovered via Collapsed Gallery)
 - Quest 41 (discovered organically at The Old Oak)
 
-Full cascade design — which quests unlock new postings — TBD. See `todo.md`.
+Full cascade design — which quests unlock new postings — confirmed above.
 
 ---
 

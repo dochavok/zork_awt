@@ -740,7 +740,7 @@ South of Portcullis Corridor. A small carved stone room, older than surrounding 
 
 ### Rickety Bridge
 **XP: 1**
-Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 shortcut exits here from the west. **Weight mechanic:** Carry weight limit (exact TBD). If inventory exceeds limit, bridge groans and movement south is blocked — player cannot proceed until carry weight is at or under limit. Must drop items on this side, cross, then return for them. Always crossable at or under limit.
+Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 shortcut exits here from the west. **Weight mechanic:** Carry weight limit: 12. If inventory exceeds limit, bridge groans and movement south is blocked — player cannot proceed until carry weight is at or under limit. Must drop items on this side, cross, then return for them. Always crossable at or under limit.
 
 **Room description (default):** *A narrow stone bridge over a gap in the dungeon floor. The bridge is old — the stones have shifted slightly in their mortar, the edges worn. It looks crossable. It probably is. The far side leads south to a heavy iron door.*
 

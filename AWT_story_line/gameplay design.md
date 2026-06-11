@@ -11,7 +11,7 @@ A Zork-style text adventure RPG. The player explores a rich world, uncovers hidd
 **Planned Versions:**
 
 - *One Ring* — This document. Centers on the corruption ring quest.
-- *Two Towers* — Potential sequel, TBD.
+- *Two Towers* — Theme for the next game in the series.
 
 -----
 

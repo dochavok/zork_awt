@@ -269,7 +269,7 @@ Challenge trigger (`TALK TO LYNDS` or `CHALLENGE LYNDS`):
 
 Runs the Cargo dice game (Ship, Captain, and Crew). Full mechanic in `mechanics.md` — Ty's Casino Corner.
 
-`TALK TO TY` or `PLAY CARGO` to start a round. Zenni ante TBD.
+`TALK TO TY` or `PLAY CARGO` to start a round. Zenni ante is player-set; Ty matches up to his 30 Zenni bankroll. Full mechanic in `mechanics.md`.
 
 ---
 
