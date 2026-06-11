@@ -18,8 +18,5 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## Narrative & Writing
 
-- [x] **Treasure achievement system** — 7 tiers (0/1–59/60–119/120–179/180–239/240–299/300); titles from Empty-Handed to Calder Finch. Shown at end-game alongside player level. (`mechanics.md`, `items.md`)
 - [ ] **Tip Journal** — design display verb, visual format of quest entries, completed quest handling. (`gameplay design.md`, `mechanics.md`)
-- [ ] **Tone & Voice** — game voice not formally documented; needs dedicated session. (memory)
-
 ---
