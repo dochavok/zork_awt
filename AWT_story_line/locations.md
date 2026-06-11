@@ -445,7 +445,7 @@ Post-freeing: mirrors no longer repel visible players anywhere in the Chuckle Ho
 *The ground doesn't grow anything. The structures that remain are shells. Whatever happened, it happened thoroughly.*
 *The cause is a matter of some local sensitivity. The prevailing theory among residents involves adventurers, which explains why no one wants to discuss it in detail.*
 *To the east, a volcano rises against the sky — large, dark, and entirely convincing.*
-East of Main East. Single room. Quest hooks TBD.
+East of Main East. Single room.
 
 ### The Volcano
 **XP: 1**

@@ -41,7 +41,7 @@ Will asks: *"Are you up for an adventure?"*
    - **Warrior:** *"A Warrior. Yes. I can see it now, actually." He seems mildly embarrassed to have missed it. "Good. You'll need that in you before this is done."*
    - **Mage:** *"A Mage. Yes — I almost had it." He says this as though he's been working on a puzzle and just found the missing piece. "Good. You'll see things others miss. Pay attention to that instinct."*
    - **Rogue:** *"A Rogue. Yes." He seems to find this amusing in a quiet way. "You know, I should have seen that. Something about the way you looked at the door when you came in." He shakes his head. "Pay attention to everything. You already know how. Just keep doing it."*
-3. **Name entry:** *"And your name?"* Player types name. Used by priority NPCs as familiarity grows: May, Shamus, Raznak, Redcrosse Knight, Vikings. Others TBD.
+3. **Name entry:** *"And your name?"* Player types name. Used by priority NPCs as familiarity grows: May, Shamus, Raznak, Redcrosse Knight, Vikings.
 4. **Ring quest briefing:**
    *"There is a ring in Roundabout. It belongs to no one and everyone, depending on how you look at it — which is part of the problem."*
    He stands and moves to the window.
