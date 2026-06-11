@@ -969,4 +969,75 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 | `LOOK IN CASE` / `EXAMINE CASE` | Trophy Case — lists contents and count; visible through glass whether open or closed |
 | `TAKE <ITEM> FROM CASE` | Trophy Case — always refused: *"That belongs to Roundabout now."* |
 
-Full verb list and synonym handling policy TBD — design pass needed.
+---
+
+### Synonym Policy
+
+1. **Synonyms are free** — registered via `add_verb(canonical, *aliases)` in `vocabulary.py`. No new handler needed; all aliases resolve to the canonical before the parser dispatches.
+2. **New canonical verbs are expensive** — each requires a `SyntaxRule` in `syntax.py` and a handler in `verbs.py`. Only introduce a new canonical when no existing verb can cover the action.
+3. **Multi-word commands** (e.g., `TURN DIAL LEFT`) use `particle=` in `SyntaxRule` — not separate verb registrations.
+4. **Context routing** (e.g., `BUY DRINK` vs `BUY FOOD`) is handler logic dispatching on the object noun, not separate verbs.
+5. **`cast` is its own canonical** — split from `exorcise`. `cast` owns `incant`, `chant`, `spell`. `exorcise` keeps `banish`, `drive`, `begone`.
+6. **`set` ownership** — `set` is removed from `turn` aliases and assigned to `sail` so `SET SAIL` → canonical `sail`. Deliberate collision resolution.
+7. **Numeric arguments** (`TIP MAY 5`) — `tip` is the canonical verb; the handler parses the trailing number from raw input. No vocabulary entry needed for the number token.
+
+---
+
+### Verb Canonical Map (Implementation Reference)
+
+All Roundabout commands mapped to their canonical verb. Use this as the spec for `vocabulary.py`, `syntax.py`, and `verbs.py`.
+
+#### Already Covered by Zork I Base — No Changes Needed
+
+| Roundabout Command | Canonical | Notes |
+|---|---|---|
+| `JUMP ON PLATE` | `jump` | ✓ base verb |
+| `ACTIVATE [ELEMENT] STONE` | `activate` | ✓ base verb |
+| `TALK TO [NPC]` | `talk` | ✓ base verb |
+| `READ SCROLL` / `READ JOURNAL` | `read` | ✓ base verb |
+| `GIVE SCROLL TO WILL` | `give` | ✓ base verb |
+| `TIE ROPE TO BEAM` | `tie` | ✓ base verb |
+| `CLIMB DOWN ROPE` / `CLIMB UP ROPE` / `CLIMB TREE` | `climb` | ✓ base verb |
+| `RUB PAPER ON ENGRAVING` | `rub` | ✓ base verb |
+| `POUR HOLY WATER ON STAKE` / `POUR VIAL IN WATER` | `pour` | ✓ base verb |
+| `LIGHT GUNPOWDER` | `light` | ✓ base verb |
+| `TURN ON LANTERN` / `LIGHT LANTERN` | `turn` / `light` | ✓ base verbs |
+| `OPEN MAILBOX` / `OPEN CASE` / `CLOSE CASE` | `open` / `close` | ✓ base verbs |
+| `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` | `put` / `drop` | ✓ base verbs |
+| `LOOK AT BOARD/STATUE/BANNER` / `LOOK IN CASE` | `look` + prep `at`/`in` | ✓ base verb + prep |
+| `TAKE <ITEM> FROM CASE` | `take` | ✓ base verb |
+| `EXAMINE CASE` | `examine` | ✓ base verb |
+| `DISEMBARK` | `disembark` | ✓ base verb |
+| `DIG` | `dig` | ✓ base verb |
+| `HOLD TORCH NEAR ICE` | `take` (`hold` is already an alias) | ✓ synonym exists |
+
+#### Synonym Addition to Existing Canonical
+
+| Roundabout Command | Canonical | Change |
+|---|---|---|
+| `GET ON SHIP` / `CLIMB ABOARD` / `ENTER SHIP` | `board` | Add `aboard` as synonym of `board`; add `SyntaxRule(verb="climb", particle="aboard")` → `V-BOARD` |
+
+#### New Canonical Verbs Needed
+
+| Roundabout Command | New Canonical | Synonyms | Action |
+|---|---|---|---|
+| `SAIL` / `SET SAIL` / `SAIL EAST` etc. | `sail` | (remove `set` from `turn`; do not alias `set`→`sail` — parser finds first verb token) | `V-SAIL` + directional particle rules |
+| `DOCK` | `dock` | — | `V-DOCK` |
+| `BUY DRINK` / `ORDER DRINK` / `ORDER FOOD` / `RENT ROOM` / `BUY ROOM` | `buy` | `order`, `purchase`, `rent` | `V-BUY` (handler routes on object) |
+| `TIP MAY [#]` / `TIP MAY [#] ZENNI` | `tip` | — | `V-TIP` (handler reads numeric from raw input) |
+| `FISH` | `fish` | `angle` | `V-FISH` |
+| `DRIVE STAKE INTO WEREWOLF` | `drive` | — | `V-DRIVE-STAKE` |
+| `SWAP IDOL WITH SALT` | `swap` | `trade`, `exchange` | `V-SWAP` |
+| `CLEAR BONES` / `CLEAR DRAIN` | `clear` | — | `V-CLEAR` |
+| `LOAD STONE ONTO CART` | `load` | — | `V-LOAD` |
+| `PRY DOOR` | `pry` | `lever`, `jimmy` | `V-PRY` |
+| `USE PORTCULLIS BAR` | `use` | — | `V-USE` |
+| `CAST LIGHT` / `CAST UNBIND UNDEAD` | `cast` | `incant`, `chant`, `spell` (remove these from `exorcise`) | `V-CAST` |
+
+#### SyntaxRule Addition Only (Canonical Exists, Particle Missing)
+
+| Roundabout Command | Canonical | SyntaxRule to Add |
+|---|---|---|
+| `TURN DIAL LEFT` | `turn` | `SyntaxRule(verb="turn", particle="left", ...)` → `V-TURN-DIAL` |
+| `TURN DIAL RIGHT` | `turn` | `SyntaxRule(verb="turn", particle="right", ...)` → `V-TURN-DIAL` |
+| `LOOK UP` / `LOOK AT CEILING` | `look` | `SyntaxRule(verb="look", particle="up", ...)` → `V-LOOK-UP` |

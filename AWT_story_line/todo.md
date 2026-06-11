@@ -4,4 +4,4 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ---
 
-- [ ] **Full verb list and synonym handling policy** — design pass needed. (`mechanics.md`)
+- [x] **Full verb list and synonym handling policy** — resolved. Synonym Policy and full Verb Canonical Map written to `mechanics.md` (Synonym Policy + Verb Canonical Map sections). Implementation spec deferred to Python phase (`vocabulary.py`, `syntax.py`, `verbs.py`).
