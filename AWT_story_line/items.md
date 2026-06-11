@@ -82,7 +82,16 @@ Found in a carved niche in the Prayer Alcove — perception check reveals the al
 **Location:** Dropped by The Warden (Combat Room / Creature Den, Dungeon Upper Tier)
 **Quest use:** Required to dispel magical darkness in the Dark Room (lower tier). Quest 34 sub-chain gated behind it.
 
-`TURN ON LANTERN` or `LIGHT LANTERN` both work. Flickers but does not light anywhere except the Dark Room. Hangs permanently on wall hook in Dark Room once lit there — not takeable after.
+`TURN ON LANTERN` or `LIGHT LANTERN` both work. Flickers but does not light anywhere except the Dark Room — it is not a substitute for a torch or Light spell in ordinary dark rooms. In the Dark Room, it collapses magical darkness instantly and opens the passage south. Hangs permanently on wall hook in Dark Room once lit there — not takeable after.
+
+---
+
+### Torch
+**Weight:** 2
+**Location:** Purchased from Shamus (Kitchen, Tale and Ale) — 3 Zenni
+**Quest use:** None — primary early-game light source for dungeon and Secret Tunnels.
+
+Always lit from purchase. Timer starts on first dark room entry (not on purchase). 100-turn burnout — game over on expiry. One torch at a time in inventory; Shamus swaps at 69 turns remaining or below. Full mechanic in `mechanics.md` — Lighting System section.
 
 ---
 
@@ -399,10 +408,10 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 
 ---
 
-### Mine Torch
+### Flint and Steel
 **Weight:** 2
 **Location:** Torch sconces in Mine Tunnels
-**Quest use:** Pie Rat Ship heist light source. Immediately begins 40-turn burnout timer on pickup — burnout is a fail state. Take last before lighting gunpowder.
+**Quest use:** Pie Rat Ship heist — used to light the gunpowder fuse (`LIGHT GUNPOWDER`). Not a light source. Immediately begins a 40-turn burnout timer on pickup — burnout is a fail state for the heist sequence. Take last, just before lighting the fuse.
 
 ---
 

@@ -262,6 +262,26 @@ Sells hints for Zenni (tiered — see hint system in `mechanics.md`). Manages Qu
 
 *She picks the glass back up and goes back to work. The conversation is over when she decides it is.*
 
+**BUY DRINK (Bar only):** 2 Zenni, restores 1 heart.
+*May sets a glass on the bar and fills it without being asked what you want. Two Zenni.*
+
+**BUY FOOD (Bar only):** 2 Zenni, restores 1 heart.
+*May calls back to the kitchen and a plate appears shortly after. She sets it in front of you. "Two Zenni."*
+
+**RENT ROOM (Bar only):** 5 Zenni, full heal. Player teleported to randomly assigned Guest Room (1, 2, or 3); wakes refreshed.
+*"Five Zenni," May says, and slides a key across the bar. "Sleep well."*
+
+**At full hearts — BUY DRINK or BUY FOOD:**
+*May glances at you and sets the glass back down. "You don't need it. Come back when you do."* No charge.
+
+**At full hearts — RENT ROOM:**
+*May stops halfway to the key. "You're fine. Come back when you're not."* No charge.
+
+**Insufficient Zenni (any purchase):**
+*May looks at you evenly. "You're short." She goes back to work.*
+
+**Hints:** `TIP MAY [#]` or `TIP MAY [#] ZENNI` — see hint system in `mechanics.md` for full tier responses.
+
 ---
 
 ### Shamus

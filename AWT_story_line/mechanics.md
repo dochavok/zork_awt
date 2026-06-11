@@ -47,6 +47,7 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 | Fishing Rod | 8 Zenni |
 | Tip Journal | 5 Zenni |
 | Thin paper | 2 Zenni |
+| Torch | 3 Zenni |
 
 **Zenni sources:**
 - Will Passion opening gift: 10 Zenni
@@ -279,8 +280,6 @@ Spells learned permanently once acquired.
 
 **Duration:** Number of turns effect lasts. Independent of reuse timer.
 
-**Two light sources** (any combo of torch and/or Light spell) function the same as one — no stacking bonus, just redundancy.
-
 **Spell scrolls vs. use-item scrolls:** Spell scrolls teach a spell permanently (Light, Unbind Undead, Fireball). Use-item scrolls are consumed on use without teaching anything (incantation scroll — Quest 28/34 speaking door). The resistance mechanic below applies to spell scrolls only; use-item scrolls work for all classes.
 
 **Warrior/Rogue scroll resistance:** `READ SCROLL` on a spell scroll returns:
@@ -291,7 +290,7 @@ Scroll is not consumed. Player retains it. Bringing the scroll to Will Passion i
 
 | Spell | Effect | Duration | Reuse Timer | Source |
 |-------|--------|----------|-------------|--------|
-| Light | Creates light source | 10 turns | 20 turns | Quest 12 — music box key in Bog-NW |
+| Light | Creates light in darkness — see Lighting System | Continuous while in dark | None | Quest 12 — music box key in Bog-NW |
 | Unbind Undead | Releases a bound spirit | Instant | 20 turns | Lighthouse — scroll on Silas Bryne's desk |
 | REST | Recovers 1 heart | Instant | 50 turns | Granted at Level 6 — no scroll required, no XP awarded |
 | Fireball | Guaranteed 1 heart damage — no roll required | Instant | 10 turns | Quest 7 reward — Pyronicus |
@@ -392,7 +391,98 @@ May only offers hints for quests that are discovered AND incomplete. She won't h
 
 ---
 
-## Tip Journal
+## Lighting System
+
+### Dark Rooms
+
+The following areas are dark and require a light source to enter:
+- **Dungeon** — all rooms (Upper, Middle, and Lower Tier)
+- **Secret Tunnels** — all rooms (abandoned, unmaintained, genuinely lightless)
+- **The Crypt and Mausoleum** — cold, unlit stone
+
+**Naturally lit areas (no light source required):**
+Overworld, town, mine (active, torches on walls), Dankhaus, bog, beach, sea.
+
+**Dark room behavior:** Darkness is a hard block — the player cannot enter without a light source. No navigation in the dark, no death-by-darkness, just a wall.
+
+---
+
+### Light Sources
+
+Three distinct light sources, each with a separate role:
+
+| Source | Works in dark rooms | Works in Dark Room (magical darkness) | Notes |
+|--------|--------------------|-----------------------------------------|-------|
+| Torch | Yes | No | Vendor item, 100-turn burnout, early game |
+| Light spell | Yes | No | Permanent once cast, Quest 12 unlock |
+| Guardian's Lantern | Yes | Yes | One-time Dark Room solution, stays on wall |
+
+The Dark Room (lower tier) is immune to both torch and Light spell — *"This is not like being in the dark. This is something the dark is doing on purpose."* The Guardian's Lantern is the only answer there.
+
+---
+
+### Torch
+
+Purchased from Shamus (Kitchen, Tale and Ale) for 3 Zenni. Weight: 2.
+
+- Always lit from the moment of purchase — no `LIGHT TORCH` verb required.
+- **Timer starts on first dark room entry**, not on purchase. A player who buys a torch and spends time in town loses nothing.
+- **One torch at a time** in inventory. Shamus will swap a torch at any point depending on life remaining — see swap tiers below.
+- **Ignition message (fires once per torch, on first dark room entry):**
+  *The torch catches the dark and pushes it back. Good thinking, getting one of these.*
+
+**Warning messages (by turns remaining):**
+
+| Turns remaining | Message |
+|----------------|---------|
+| 50 | *The torch burns a little lower than it did.* |
+| 30 | *The torch is noticeably dimmer now. It won't last forever.* |
+| 15 | *The torch gutters. You don't have much time left on it.* |
+| 0 | Burnout — see below |
+
+**Torch burnout (turn 0):** Game over.
+*The torch goes out. In the dark, something shifts. You never find out what.*
+
+**Shamus swap tiers (player brings torch to Shamus):**
+
+| Turns remaining | Shamus response |
+|----------------|-----------------|
+| 100–70 | *Shamus glances at the torch. "That one's got plenty of life left." He hands it back. "Come see me when it's lower."* — no swap |
+| 69–30 | *Shamus glances at the torch. "Getting there." He hands you a fresh one. "Three Zenni."* |
+| 29–15 | *Shamus glances at the torch. "That one's running short." He hands you a fresh one. "Three Zenni."* |
+| 14–0 | *Shamus glances at the torch. "That one's had it." He hands you a fresh one. "Three Zenni."* |
+
+Swapped torches reset the timer to 100. The ignition message fires again on next dark room entry.
+
+---
+
+### Light Spell
+
+Learned permanently via Quest 12 (Light scroll, music box in Will's Tower).
+
+- Cast once on entering darkness. Runs continuously while the player remains in dark rooms. Extinguishes automatically on returning to naturally lit areas, resets silently, ready to cast again.
+- No duration limit. No reuse timer.
+- Does not work in the Dark Room (lower tier) — magical darkness is immune to natural light sources.
+
+**Cast message:**
+*The darkness pulls back. The spell settles into a steady glow — patient, reliable, yours for as long as you're down here.*
+
+The Light spell replaces the torch as the primary light source once Quest 12 is complete. Players carrying a torch can drop it to free carry weight (useful on the Rickety Bridge weight limit).
+
+---
+
+### No Light Source — Will's Messages
+
+Fires when the player attempts to enter a dark room without any light source (no torch, Light spell not active). Selected randomly from the pool below. Fires once per dark room attempt — not repeated on subsequent attempts in the same session.
+
+The message does **not** fire if the player has the Light spell but hasn't cast it — they have a solution available.
+
+1. *Will Passion materializes in your thoughts, uninvited. "You can't see anything. Somewhere above you, Shamus has torches for sale. I'm just going to leave that there."*
+2. *It's completely dark. Will Passion's voice surfaces somewhere in the back of your mind: "Shamus. Kitchen. Three Zenni. You're welcome."*
+3. *You can't see anything. Will Passion, uninvited: "I believe Shamus has torches. In the kitchen. Above you. For sale. I want to be very clear that I am not judging you."*
+4. *The dark is complete. Will Passion materializes in your thoughts. "You are aware, I assume, that Shamus sells torches. You have been made aware of this in a way you perhaps weren't before. That's all I have."*
+
+---
 
 Purchasable from Shamus (Tale and Ale Kitchen) for 5 Zenni. Available to the player on request at any time.
 
@@ -667,7 +757,7 @@ Multi-step quest chain that grants access to the Pie Rat Ship.
 
 1. Find Pie Rat disguise in The Rat's Nest (mine).
 2. Buy gunpowder from Shamus (5 Zenni).
-3. Take a torch from mine sconces — 40-turn burnout timer starts immediately. Take last — grabbing it early wastes it.
+3. Take the flint and steel from mine sconces — 40-turn burnout timer starts immediately. Take last — grabbing it early wastes it.
 4. `DROP GUNPOWDER` at structural weak point in mine (perception check to locate).
 5. `LIGHT GUNPOWDER` — fuse catches; narrative implies leave immediately.
 6. Exit mine before explosion. Failure = death/fail state.
@@ -836,13 +926,18 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 |------|---------|
 | `OPEN MAILBOX` | White House / Tale and Ale — portal to Will's Tower |
 | `DIG` | Shovel required; three confirmed uses plus beach flavor |
-| `LIGHT GUNPOWDER` | Pie Rat heist |
+| `LIGHT GUNPOWDER` | Pie Rat heist — requires flint and steel in inventory |
+| `CAST LIGHT` | Light spell — runs continuously while in darkness, no reuse timer |
 | `FISH` | Roundabout Pond; requires fishing rod |
 | `TURN DIAL LEFT` / `TURN DIAL RIGHT` | Church of All altar — cycles through 7 religions |
 | `BOARD SHIP` / `GET ON SHIP` / `CLIMB ABOARD` / `ENTER SHIP` | Boarding Pie Rat Ship (all synonyms) |
 | `SET SAIL` / `SAIL` | Begin sailing from Docks; directional movement (`GO EAST`, `SAIL EAST`) once underway |
 | `DOCK` | Returning ship to harbor |
 | `TALK TO [NPC]` | Standard NPC interaction verb |
+| `BUY DRINK` / `ORDER DRINK` | The Bar only — 2 Zenni, restores 1 heart; May refuses at full hearts |
+| `BUY FOOD` / `ORDER FOOD` | The Bar only — 2 Zenni, restores 1 heart; May refuses at full hearts |
+| `RENT ROOM` / `BUY ROOM` | The Bar only — 5 Zenni, full heal; May refuses at full hearts |
+| `TIP MAY [#]` / `TIP MAY [#] ZENNI` | The Bar only — hint purchase; May determines tier by amount |
 | `LOOK AT BOARD` | Quest Board in The Bar |
 | `LOOK AT STATUE` | Town Square statue — reveals seam (no roll) |
 | `LOOK AT BANNER` | Viking Encampment — reveals elemental runes (Trial 2 clue) |
