@@ -8,26 +8,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 - [ ] **2–3 quests requiring ring invisibility** — Chuckle House confirmed; need 1–2 more. (`mechanics.md`)
 - [ ] **Full verb list and synonym handling policy** — design pass needed. (`mechanics.md`)
-- [ ] **Trap detection → disarm flow** — needs consistent mechanic: does a successful perception check auto-attempt disarm, or does the player need to act intentionally? Leaning toward intentional (player must `DISARM TRAP` or equivalent verb after spotting it). (`mechanics.md`, `traps.md`)
+- [x] **Trap detection → disarm flow** — automatic: perception roll fires on entry; on success, disarm roll fires immediately. Fail perception: trap springs normally. Pass perception + fail disarm: discovery text then trap springs. Pass both: disarm text, trap neutralized. Descriptors added to all active traps in `traps.md`. (`mechanics.md`, `traps.md`)
 
 ---
 
 ## Locations
 
-- [ ] **Dankhaus ward — ring invisibility bypass** — leaning no; revisit if more ring corruption moments are needed. (`locations.md`, `mechanics.md`)
-
----
-
-## NPCs
-
-- [x] **Player name use** — reviewed all NPC dialogue. Name use added: Raznak (post-training visits), Redcrosse Knight (fight initiation + win), Ivanaar (Quest 42 reward), Lynds (subsequent challenge), Will Passion (final scene only), May (Tier 3 hint response + mugger free drink). Shamus deferred — no quest reward interaction written yet. (`npcs.md`, `quests.md`, `locations.md`, `ring-rituals.md`, `mechanics.md`)
+- [x] **Dankhaus ward — ring invisibility bypass** — Litlock goes quiet while invisible; removes ring triggers "There you are." Ward-bypass (uninvited): ejected immediately after, faint "...and there you go." Ward-cleared (invited): no ejection, resumes normally. (`npcs.md`)
 
 ---
 
 ## Quests & Economy
 
 - [ ] **Alternate light sources for mine heist** — harder to obtain than mine torch; add to Shamus's stock once designed. (`gameplay design.md`)
-- [ ] **Opening Roundabout experience** — May's first interaction, Quest Board introduction, tutorial moment. (`gameplay design.md`)
+- [x] **Opening Roundabout experience** — Arrival via painting transition text. May introduces herself on first Bar visit (name, drinks, inn, hints, Shamus). Quest Board self-evident. No tutorial. (`npcs.md`)
 
 ---
 

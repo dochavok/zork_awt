@@ -112,6 +112,14 @@ A 2×2×2 dialogue-tree puzzle. One path per tier succeeds; the other fails and 
 
 ---
 
+**Invisible entry — wards not cleared (ring bypassed ward):**
+*Litlock is here. He glances toward you — or toward where you are — with the unhurried attention of someone who has seen stranger things. Then he waits. He does not speak.*
+On ring removal: *"There you are," Litlock says, as though you'd simply stepped in from outside.* Wards re-engage immediately — player is ejected. From within, faintly: *"...and there you go."*
+
+**Invisible entry — wards cleared (Lynds's invitation):**
+*Litlock is here. He glances toward you — or toward where you are — with the unhurried attention of someone who has seen stranger things. Then he waits. He does not speak.*
+On ring removal: *"There you are," Litlock says, as though you'd simply stepped in from outside.* No ejection. Resumes normally — inciting moment fires as usual if not yet triggered.
+
 **Inciting moment (first visit after ward removal):**
 
 *Litlock looks up from whatever he's doing with the particular alertness of someone who has been waiting for company without admitting it to himself. He takes you in. Then he grins — wide, genuine, the kind that arrives before the person decides to smile.*
@@ -242,7 +250,17 @@ Role is ring retrieval and Pale Blade forging only. No additional quest hooks.
 
 Sells hints for Zenni (tiered — see hint system in `mechanics.md`). Manages Quest Board postings. Uses player's name once familiarity is established.
 
-**First visit to the Bar (unprompted, fires once):** *"Shamus is in the kitchen if you need supplies. He keeps more than recipes back there."*
+**First visit to the Bar (unprompted, fires once):**
+
+*A woman behind the bar glances up as you come in — shoulder-length red hair, appraisal done in about a second, apparently satisfactory.*
+
+*"New face," she says, not unkindly. "I'm May. Drinks are two Zenni, food's the same — keeps you on your feet longer than you'd think. Rooms are upstairs if you need to sleep it off properly."*
+
+*She sets a glass down and leans one hand on the bar.*
+
+*"If you get stuck on something and want a nudge in the right direction, money talks. Shamus is in the kitchen if you need supplies — he keeps more than recipes back there."*
+
+*She picks the glass back up and goes back to work. The conversation is over when she decides it is.*
 
 ---
 

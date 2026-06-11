@@ -75,6 +75,16 @@ All checks are dice-based and hidden from the player. Players see outcomes only,
 - **Strength** — forcing doors, breaking locks, prying, physical feats (arm wrestling, rope snare escape, portcullis lift, timber clearing, Boggart strongbox, magnetic chest recovery). Class bonus: Warriors.
 - **Agility** — dodging hazards (Archery Range arrow dodge before Viking trust earned). No class bonus.
 - **Trap disarm** — disabling a detected trap without triggering it. Class bonus: Rogues.
+
+**Trap detection and disarm flow:**
+Both rolls fire automatically on room entry. The player issues no verb — the mechanic is fully hidden.
+
+1. **Perception roll fires.** On failure: trap not seen, springs normally with its standard consequence text.
+2. **On perception success: disarm roll fires immediately.**
+   - **Disarm success:** *"You spot [descriptor] and are able to disarm it, neutralizing it."* Trap does not fire.
+   - **Disarm failure:** *"You see [descriptor], but your attempt to disarm it fails miserably."* Trap fires — standard consequence text follows immediately after.
+
+Each trap entry in `traps.md` includes a `descriptor` field used in the above messages.
 - **Fishing** — `FISH` at Roundabout Pond; success retrieves the bottle (Quest 12). Class bonus: Rogues.
 
 **Perception mechanic:**

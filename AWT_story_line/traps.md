@@ -6,18 +6,21 @@
 Atmospheric only. The blade has already fired — it hangs motionless from the ceiling of the Lower Crypt, dried blood on the edge, the Keeper's skeleton beneath it. Pressure plate still depressed under the skeleton's weight. No longer a threat; no perception check; no mechanical interaction.
 
 **8. Rope Snare — Ankle**
+**Descriptor:** a loop of fine cord hidden under the dirt
 A loop of fine cord hidden under loose dirt on a cave floor.
 Triggering it yanks the player off their feet (no damage) and suspends them upside down from a ceiling hook for several turns unless they cut the rope or pass a strength check to pull free.
 *(Quest 7 — The Bone Flute: Trap 8 guards the crawlspace off the Inscription Chamber in the mid-tier dungeon. Triggering it or spotting it with a perception check reveals the crawlspace entrance to the Cave Creature's Lair.)*
 
 
 **15. Magnetic Chest**
+**Descriptor:** a lodestone embedded in the chest's lid, the latch ringed with metallic filings
 A chest in the dungeon is rigged so opening it without disarming triggers a powerful magnetic pulse.
 Any metal items in the player's inventory are yanked toward the chest and stuck to it — including equipped armor and weapons — requiring a strength check to pry each one loose, costing a turn per item.
 Perception spots unusual metallic filings arranged in a ring around the chest's latch; disarming means removing a lodestone embedded in the lid's underside.
 *(Magnetic Vault, mid-tier key side.)*
 
 **16. Mirror Shatter Trap**
+**Descriptor:** a firing pin behind the mirror's frame, a crossbow cocked and ready
 A mirror rigged with a crossbow behind the frame. Fires at any player passing through — visible or invisible.
 Perception check spots the firing pin and disarms it before it fires; otherwise the crossbow fires once and is spent.
 Either way, the trap is no longer a factor on the way out or on return visits.
@@ -25,6 +28,7 @@ The mirror also repels visible players until the Chuckle House ghost is freed.
 *(Chuckle House — The Shatter Trap Mirror.)*
 
 **17. Smoke Bomb Cache**
+**Descriptor:** an unstable arrangement of clay pots, one of them the trigger
 A shelf of old clay pots in the dungeon supply room appears harmless. The smoke jar (Quest 24) is hidden among them.
 Disturbing the shelf without disarming triggers one pot to smash, dealing 1 heart of **smoke damage** — and revealing the smoke jar, now visible among the wreckage.
 Perception spots the unstable arrangement and identifies which pot is the trigger; disarming means carefully removing the trigger pot first, after which the smoke jar can be safely retrieved.
@@ -32,6 +36,7 @@ Either way the smoke jar is obtainable — the trap just makes it costly.
 *(Supply Room, upper tier.)*
 
 **19. Electrified Portcullis**
+**Descriptor:** an arcane charge running through the portcullis, the discharge mechanism set into the wall beside it
 A metal portcullis blocks a dungeon corridor, carrying an arcane charge — touching it without disarming deals 1 heart of **lightning damage** and stuns the player for one turn.
 Three ways to pass:
 (1) **Perception check** to spot the charge and locate the discharge mechanism in the wall.
@@ -43,6 +48,7 @@ Without the bar, the portcullis drops when released.
 *(Portcullis Corridor, upper tier.)*
 
 **29. Pressure Plate — Bell**
+**Descriptor:** a pressure plate set into the corridor floor
 A pressure plate in a corridor triggers a bell in an adjacent room, alerting whatever is inside.
 No direct damage, but the alerted enemy initiates combat when the player enters.
 Perception spots the plate; disarming means pressing it slowly from the side to wedge it down without triggering it.
@@ -59,6 +65,7 @@ The idol is treasure — not required for the ring quest.
 *(Idol Room, upper tier.)*
 
 **36. Bone Crunch Floor**
+**Descriptor:** a floor carpeted in dry bones, arranged to crack at the first step
 A section of floor outside the skeleton room in the dungeon lower tier is covered with dry bones arranged so they crunch loudly when walked on.
 The bones are plainly visible — no perception check required.
 The room text warns explicitly: *"The sound is coming from beyond that doorway — bone grinding on stone, steady and unhurried. You get the distinct impression that silence is not optional here."*
@@ -69,6 +76,7 @@ The skeleton room beyond is a full room of undead skeletons, a dead end with not
 *(Antechamber → Skeleton Room, lower tier.)*
 
 **41. Pressure Plate — Flooding**
+**Descriptor:** a suspiciously clean pressure plate set into the cave floor
 In a low-lying upper tier cave room, a pressure plate opens a sluice and begins flooding the room.
 Three levers on the wall — Left, Middle, Right — control the sluice. The player has exactly **two turns** to pull the correct lever before the room fills.
 **Left lever:** stuck on pull — "The lever grinds but won't move."
@@ -85,6 +93,7 @@ The mid tier return path is via Quest 50 (Bog-NW exit) — there is no climbing 
 **Perception check** before entry spots the suspiciously clean pressure plate; **disarming** jams the plate before the sluice opens — avoiding the trap entirely. *(Flooding Room, upper tier.)*
 
 **45. Invisible Thread — Ink**
+**Descriptor:** a near-invisible thread strung at chest height across the corridor
 A thread at chest height across a dungeon corridor is tied to an ink bladder above.
 Triggering it douses the player in black ink — no heart damage, but the player's appearance changes until they bathe.
 **Bathing:** Included with inn rest at 5 Zenni.
