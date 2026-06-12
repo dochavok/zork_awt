@@ -50,25 +50,4 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass.
 
----
-
-## Weapons System
-
-**Status:** Design complete — implementation in progress
-
-Three weapons sold by Shamus: Dagger (+2, 5Z), Mace (+4, 25Z), Battle Axe (+6, 100Z). Flat roll bonus model. Auto-select best usable weapon on bare `KILL X`. Weapon Use skill required (Warriors always; Mages/Rogues after Quest 54). Knight delivers Shamus referral after Quest 54 training. Design recorded in `mechanics.md`, `items.md`, `quests.md`.
-
-**Work required (in order):**
-
-1. ~~**Design:** Decide how weapons work mechanically.~~ **Done.**
-
-2. ~~**Update design docs:** Record the decisions in `mechanics.md`, `items.md`, `quests.md`.~~ **Done.**
-
-3. **Update `objects.py`:** Add dagger, mace, battle-axe objects with TAKEBIT/WEAPONBIT flags, starting location in Shamus's kitchen, and weapon bonus metadata.
-
-4. **Update `char_create.py`:** Warriors no longer start with a sword — remove the `world.objects.get("sword")` call. No starting weapon for any class (warriors buy from Shamus).
-
-5. **Update `verbs.py` / `combat.py`:** Wire weapon bonuses into the combat roll. Auto-select best usable weapon on bare `KILL X`. Skill gate for Mages/Rogues without Weapon Use.
-
-6. **Update tests:** Add weapon-specific combat tests to `test_combat.py`.
 
