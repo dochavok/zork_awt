@@ -571,7 +571,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 3. Combat runs until one side reaches 1 heart. The Knight stops the fight before the killing blow in either direction.
    - **Player loses (reaches 1 heart):** *"He steps back and lowers his weapon. 'You fought well enough to keep your feet. That's not nothing.' He studies you for a moment. 'Come back. I'll be here.'"* Quest remains open — retryable.
    - **Player wins (Knight reaches 1 heart):** *"He holds still for a moment after you land the deciding blow. Then something in his posture shifts — subtle, but real. 'Good, [Name],' he says. Just that. He sheathes his weapon and nods toward an open space in the square. 'Again — this time I'll show you what you did right.'"*
-4. Pay 3 Zenni. Melee weapon skill unlocked permanently.
+4. Pay 3 Zenni. Melee weapon skill unlocked permanently. The Knight adds: *"Shamus, at the inn, keeps weapons in the back. Tell him I sent you."*
 
 **Reward:** Melee weapon skill. 8 XP. 5 Zenni.
 

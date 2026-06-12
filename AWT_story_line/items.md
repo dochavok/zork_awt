@@ -66,6 +66,45 @@ Permanently adds one heart to player's maximum heart count.
 
 ---
 
+### Dagger
+**Slot:** None (carried)
+**Weight:** 1
+**Location:** Purchased from Shamus (Kitchen, Tale and Ale) — 5 Zenni
+**Quest use:** None — combat weapon.
+**Skill required:** Weapon Use (Warriors always; Mages/Rogues after Quest 54)
+
+Combat bonus: +2 to melee roll. Without Weapon Use skill, carries in inventory but provides no bonus.
+
+**Inventory description:** "A short blade, plain-handled and well-balanced. Nothing fancy about it."
+
+---
+
+### Mace
+**Slot:** None (carried)
+**Weight:** 2
+**Location:** Purchased from Shamus (Kitchen, Tale and Ale) — 25 Zenni
+**Quest use:** None — combat weapon.
+**Skill required:** Weapon Use (Warriors always; Mages/Rogues after Quest 54)
+
+Combat bonus: +4 to melee roll. Without Weapon Use skill, carries in inventory but provides no bonus.
+
+**Inventory description:** "A heavy flanged mace, solid iron head, leather-wrapped grip. It has the look of something that settles arguments."
+
+---
+
+### Battle Axe
+**Slot:** None (carried)
+**Weight:** 3
+**Location:** Purchased from Shamus (Kitchen, Tale and Ale) — 100 Zenni
+**Quest use:** None — combat weapon.
+**Skill required:** Weapon Use (Warriors always; Mages/Rogues after Quest 54)
+
+Combat bonus: +6 to melee roll. Without Weapon Use skill, carries in inventory but provides no bonus.
+
+**Inventory description:** "A broad-headed battle axe, balanced for a two-handed swing. Shamus keeps it behind the counter. It is not subtle."
+
+---
+
 ### Crowbar
 **Slot:** None (carried)
 **Weight:** 3

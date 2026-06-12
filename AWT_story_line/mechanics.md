@@ -45,6 +45,9 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 | Spell training (Will) | 3 Zenni |
 | Gunpowder | 5 Zenni |
 | Fishing Rod | 8 Zenni |
+| Dagger | 5 Zenni |
+| Mace | 25 Zenni |
+| Battle Axe | 100 Zenni |
 | Tip Journal | 5 Zenni |
 | Thin paper | 2 Zenni |
 | Torch | 3 Zenni |
@@ -134,13 +137,15 @@ Perception check locations and difficulty ratings are annotated inline in `locat
 
 Dice-based, scales with player level. Warriors start proficient with melee; Rogues with bows; Mages with spells. Cross-class skills acquirable via trainers and quests.
 
-**Round structure:** Turn-based. Player issues an attack command each round (`KILL X WITH SWORD`, `SHOOT X WITH BOW`, `CAST FIREBALL AT X`). Player and enemy roll simultaneously. Higher roll wins the right to deal damage — 1 heart per hit. On a tie, both deal 1 heart damage simultaneously.
+**Round structure:** Turn-based. Player issues an attack command each round (`KILL X WITH MACE`, `SHOOT X WITH BOW`, `CAST FIREBALL AT X`). Player and enemy roll simultaneously. Higher roll wins the right to deal damage — 1 heart per hit. On a tie, both deal 1 heart damage simultaneously.
 
 **Fleeing:** Player may flee by leaving the room. Enemy resets to full hearts.
 
 **Bow — first round bonus:** +5 to the attack roll on the opening bow attack of any combat. No bonus on subsequent rounds.
 
 **Fireball:** Guaranteed 1 heart damage — no roll required. 10-turn reuse timer. Effectively once per combat encounter.
+
+**Melee weapons:** Warriors may use melee weapons from the start. Mages and Rogues require the Weapon Use skill (Quest 54) before any weapon provides a bonus — without it, `KILL X` defaults to unarmed (+0) regardless of inventory. Three weapons are sold by Shamus (Kitchen, Tale and Ale): Dagger (+2, 5 Zenni), Mace (+4, 25 Zenni), Battle Axe (+6, 100 Zenni). The combat roll for a melee attack is the player's base roll plus the weapon bonus. `KILL X` auto-selects the best usable weapon in inventory. `KILL X WITH DAGGER` forces a specific weapon.
 
 **Confirmed enemy stats:**
 
