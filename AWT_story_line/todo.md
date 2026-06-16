@@ -4,7 +4,26 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ---
 
-## Narrative-Driven Test Rewrite
+## TODO #1 — Walkthrough / Design Doc Alignment
+
+**Status:** In progress
+
+**Goal:** Ensure both walkthrough files (`walkthrough_ring.txt`, `walkthrough_fullscore.txt`) match the design docs exactly before any test code is written.
+
+**Process:**
+1. Go through each walkthrough section by section.
+2. For each section, confirm every direction and command matches the design docs.
+3. If something doesn't match, ask ONE specific clarifying question before changing anything.
+4. Update the design doc first, then update both walkthroughs.
+5. No code changes except where descriptions in code directly contradict established cardinals (as an explicit exception).
+
+**Current position:** Section H of `walkthrough_ring.txt` — tunnel navigation fixed, Town Hall / Records Room navigation next.
+
+**Remaining sections:** H (Town Hall), I through U of `walkthrough_ring.txt`, all sections of `walkthrough_fullscore.txt` (unreviewed as a standalone pass).
+
+---
+
+## TODO #2 — Narrative-Driven Test Rewrite
 
 **Status:** Not started — see implementation plan at `C:\Users\docha\.claude\plans\we-ve-completed-requirements-for-effervescent-rainbow.md`
 
@@ -49,5 +68,22 @@ Consolidated from all source files. Update this file when items are resolved; re
 4. **Delete the old walkthrough tests** once the new ones pass.
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass.
+
+---
+
+## TODO #3 — Stored Room / Rope Soft-Lock Design
+
+**Status:** Open
+
+**Problem:** The player must tie the rope to the beam (`TIE ROPE TO BEAM`) before digging the Stored Room floor, or they will be permanently trapped in the lower tier with no way back up. The rope is found at the Docks; the beam is exposed by the dig. If the player digs first without the rope, the hole is permanent and the only exit (Pile of Rubble → Up → Stored Room) requires the rope.
+
+**The connection chain this affects:** Mine Passage → east → Stored Room → down → Pile of Rubble (lower tier). Before the dig, Stored Room also connects south to Inscription Chamber — so the dig is not required to progress through the key side. The soft-lock only occurs if the player digs without the rope and then descends.
+
+**Options to resolve:**
+1. Require rope to be tied before `DIG` is allowed — parser returns "You'd need a way back up before doing that."
+2. Allow dig without rope but warn explicitly — "The floor collapses. There is no way back up." and block descent.
+3. Allow full soft-lock as intentional consequence — player must restore a save.
+
+**Decision needed:** Which behavior is correct? Update `mechanics.md` and `rooms.py` once resolved.
 
 

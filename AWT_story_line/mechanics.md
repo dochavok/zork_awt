@@ -120,7 +120,7 @@ Perception check locations and difficulty ratings are annotated inline in `locat
 | Physical | Combat (all enemies), mugger, bee swarm (Swarm Tree), errant arrow (Archery Range), Bone Crunch Floor (Trap 36), Skeleton Room (instant death) |
 | Smoke | Trap 17 (Supply Room clay pot) |
 | Lightning | Trap 19 (Electrified Portcullis) |
-| Arcane | Quest 34 Mid Room pool (magical dark water) |
+| Arcane | The Flooded Passage pool (magical dark water) |
 | Poison | Gradual drain over turns — no confirmed source yet |
 | Fire | Heat and flame — no confirmed source yet |
 | Fall | Drops and pits — no confirmed source yet |
@@ -608,7 +608,7 @@ Ink Corridor, Supply Room, Narrow Passageway, Idol Room, Storage Area, Collapsed
 Key Door Landing, Stored Room, Inscription Chamber, Cave Creature's Lair, Echo Alcove, Magnetic Vault, Deep Lock Door, The Spillway and Trap Side rooms (5)
 
 *Dungeon — Lower Tier:*
-Lower Crypt, The Encampment, Thermal Vent Room, The Junction, The Narrow Pass, The Still Den, Tool Alcove, Quest 34 Mid Room, Quest 34 Fountain Room, Spirit Room, Burial Chamber
+Lower Crypt, The Encampment, Thermal Vent Room, The Lower Crossing, The Narrow Pass, The Still Den, Tool Alcove, The Flooded Passage, The Fountain Room, Spirit Room, Burial Chamber
 
 **Excluded rooms (not eligible):**
 All four Bog rooms, all Sea / Open Ocean squares, Desert Island, Kevry's Island, Pie Rat Ship Hold, Flooding Room, Dream Corridor, Dark Room, Hole to Below / Pile of Rubble, Rickety Bridge, all Chuckle House rooms (Entrance, Rejection Mirror, Shatter Trap Mirror, Ghost's Room), Mine Passage, The Crevice (has dedicated treasure — gold pocket watch), Skeleton Room (instant death on entry)

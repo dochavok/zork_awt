@@ -600,7 +600,7 @@ Lighthouse keeper. **Unmet NPC — never appears in game.** Referenced only in M
 ---
 
 ### The Soldier (Quest 34)
-Encased in magical ice in the Quest 34 Fountain Room (dungeon lower tier). Thawed by Ivory Torch over two turns. Hands over the Forgotten Blade without ceremony. Wanders off dazed. Reappears in town as a minor NPC offering free weapon training sessions. Intentionally unnamed — referred to only as "the soldier."
+Encased in magical ice in The Fountain Room (dungeon lower tier). Thawed by Ivory Torch over two turns. Hands over the Forgotten Blade without ceremony. Wanders off dazed. Reappears in town as a minor NPC offering free weapon training sessions. Intentionally unnamed — referred to only as "the soldier."
 
 **Town dialogue (after Quest 34 complete — fires once, before Tool Alcove door is opened in current playthrough):** *"There's a room down there that talked to me once. I never figured out what it said."* — passive ambient line; no `TALK TO` required.
 

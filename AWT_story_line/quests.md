@@ -310,13 +310,13 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 **Prerequisites:** Incantation scroll (Quest 28 reward) + Ivory Torch (The Still Den, lower tier).
 
 **Steps:**
-1. Find Tool Alcove (lower tier, north of The Junction) — perception check reveals speaking door disguised as back wall.
+1. Find Tool Alcove (lower tier, north of The Lower Crossing) — perception check reveals speaking door disguised as back wall.
 2. Door speaks in unknown language — clearly a question; cannot be understood.
 3. `READ SCROLL` (incantation scroll) → door opens; scroll consumed. (*"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."*)
-4. Pass through Quest 34 Mid Room — dark pool wall to wall.
+4. Pass through The Flooded Passage — dark pool wall to wall.
    - Swimming: 1 heart arcane damage, returned to doorway.
    - Solution: `POUR VIAL IN WATER` (vial of glacier melt, Prayer Alcove, upper tier) → pool freezes; player crosses freely.
-5. Enter Quest 34 Fountain Room — soldier encased in magical ice.
+5. Enter The Fountain Room — soldier encased in magical ice.
 6. `HOLD TORCH NEAR ICE` (turn 1) → ice begins to thaw.
 7. `HOLD TORCH NEAR ICE` (turn 2) → soldier freed.
 8. Soldier gives the Forgotten Blade and wanders off.

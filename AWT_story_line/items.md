@@ -567,7 +567,7 @@ All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 
 | Item | Location | Weight | Points | Notes |
 |------|----------|--------|--------|-------|
-| **The Forgotten Blade** | Quest 34 Fountain Room, Dungeon Lower Tier | 3 | 60 | Most valuable treasure in game; not a combat weapon, ceremonial only |
+| **The Forgotten Blade** | The Fountain Room, Dungeon Lower Tier | 3 | 60 | Most valuable treasure in game; not a combat weapon, ceremonial only |
 | **Diamond Brooch** | Magnetic Vault, Dungeon Mid-Tier | 1 | 45 | Second most valuable treasure in game |
 | **Funeral Mask of Hammered Gold** | Burial Chamber, Dungeon Lower Tier | 3 | 36 | Spirits do not react to taking it |
 | **Golden Dragon Scale** | Reward from returning dragon-nip to Will | 1 | 36 | Dragon-nip hidden under nightstand in Will's Bedroom |
