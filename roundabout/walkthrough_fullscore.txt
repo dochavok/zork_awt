@@ -137,8 +137,7 @@ fishing rod. Buy it now while we're here.
 
 Navigate to the mine via the forest.
 
-> WEST                        [Main West]
-> EAST                        [Town Square]
+> WEST                        [Town Square]
 > EAST                        [Main East]
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
@@ -854,6 +853,7 @@ heavy items we dropped.
 
 Talk to Rowan Finch (Council Chamber):
 
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
@@ -880,6 +880,7 @@ Perception check auto-passes — gravestone visible face-down in mud.
 > SOUTH                       [Church Nave]
 > SOUTH                       [Graveyard]
 > DROP CART                   [gravestone placed]
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]

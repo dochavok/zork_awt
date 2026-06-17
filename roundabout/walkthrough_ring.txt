@@ -859,11 +859,13 @@ Fetch the cart:
 > EAST                        [Roundabout Pond]
 > EAST                        [Archery Range]
 > EAST                        [Main West]
+> EAST                        [Town Square]
 > SOUTH                       [Tale and Ale]
 > SOUTH                       [Bar]
 > SOUTH                       [Kitchen]
 > NORTH                       [Bar]
 > NORTH                       [Main Room]
+> WEST                        [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church Nave]
 > SOUTH                       [Graveyard]
@@ -890,6 +892,7 @@ back to the cemetery.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > WEST                        [Main West]
@@ -911,6 +914,7 @@ Push the cart back to the Graveyard (cemetery).
 
 Return to Rowan Finch for the key.
 
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
