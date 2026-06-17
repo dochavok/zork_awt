@@ -968,7 +968,7 @@ for Quest 28 archivist rubbing in the full walkthrough; harmless here)
 and silver dust (perception check — auto-pass). Silver dust is needed
 for Quest 4 (Whispering Jar) in the full walkthrough.
 
-> SOUTH                       [Stored Room]
+> EAST                        [Stored Room]
 
 The Stored Room has deliberate rubble fill hiding a hole. One DIG
 collapses the floor permanently → Hole to Below. The rope from the
@@ -983,7 +983,7 @@ Actually — we should have taken the rope from the Docks when we boarded
 the ship. Let's insert that step: go to the Docks, grab the rope, then
 come back. The Docks are east of Roundabout Beach.
 
-> NORTH                       [Mine Passage]
+> WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
 > NORTH                       [Rickety Bridge]
@@ -1002,6 +1002,7 @@ come back. The Docks are east of Roundabout Beach.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]

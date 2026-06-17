@@ -1080,10 +1080,11 @@ Glasses silver dust auto-found (Quest 4).
 > TAKE SILVER DUST            [silver dust]
 > OPEN CHEST WITH LOCKPICKS   [chest]
 > TAKE ZENNI                  [20 Zenni]
-> SOUTH                       [Stored Room]
 
-Before digging: visit The Crevice east to get the Gold Pocket Watch.
+Stored Room is east of Mine Passage. Visit The Crevice before digging
+to get the Gold Pocket Watch (missable after collapse).
 
+> EAST                        [Stored Room]
 > EAST                        [Crevice]
 > TAKE WATCH                  [gold pocket watch]
 > WEST                        [Stored Room]
@@ -1093,9 +1094,10 @@ Before digging: visit The Crevice east to get the Gold Pocket Watch.
 =============================================================================
 Z) Quest 28 — Complete: Inscription Chamber Rubbing
 =============================================================================
-Inscription Chamber is the next room south (past the Stored Room).
-Make the rubbing while we're on this level.
+Inscription Chamber is south of Mine Passage — not south of Stored Room.
+Return west to Mine Passage, then go south.
 
+> WEST                        [Mine Passage]
 > SOUTH                       [Inscription Chamber]
 
 Actually Enchanted Glasses auto-reveal the crawlspace in the east wall
@@ -1107,27 +1109,8 @@ Actually Enchanted Glasses auto-reveal the crawlspace in the east wall
 > WEST                        [Inscription Chamber]
 > RUB PAPER ON ENGRAVING      [rubbing]
 > TAKE RUBBING                [rubbing]
-> NORTH                       [Stored Room]
-
-Surface and deliver the rubbing to the Archivist.
-
-> UP                          [Lower Tier — no, Stored Room]
-
-Wait — DIG collapsed the Stored Room floor into the Hole to Below.
-Going UP takes us to the mid-tier Stored Room where the rope is tied.
-Going DOWN takes us to Pile of Rubble in the lower tier.
-
-The Inscription Chamber is south of the Stored Room on the key side.
-Let's go down to the lower tier, do lower-tier quests, then come back
-to the Inscription Chamber after returning up through the rope.
-
-Actually, Inscription Chamber is accessible directly — it is south of
-the Stored Room. We can access it before descending through the Hole.
-Let me re-map: Stored Room is the room with the Hole. The Inscription
-Chamber is SOUTH of the Stored Room, still on the mid-tier key side.
-So we can go south to the Inscription Chamber without descending.
-
-(Already done above — rubbing taken, rune stone taken, bone flute taken.)
+> NORTH                       [Mine Passage]
+> EAST                        [Stored Room]
 
 Now descend to the lower tier.
 
@@ -1207,7 +1190,7 @@ Surface, use Keeper's keys at Keeper's Chamber (Church of All).
 
 > SOUTH                       [Pile of Rubble]
 > UP                          [Stored Room]
-> NORTH                       [Mine Passage]
+> WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
 > NORTH                       [Rickety Bridge]
@@ -1328,7 +1311,7 @@ Return to The Still Den with the consecrated silver stake.
 > SOUTH                       [Mid-Tier Key Door]
 > SOUTH                       [Key Door Landing]
 > SOUTH                       [Mine Passage]
-> SOUTH                       [Stored Room]
+> EAST                        [Stored Room]
 > DOWN                        [Pile of Rubble]
 > NORTH                       [Lower Crypt]
 > NORTH                       [Encampment]
@@ -1417,7 +1400,7 @@ From Junction (lower), go west:
 > WEST                        [Encampment]
 > SOUTH                       [Pile of Rubble]
 > UP                          [Stored Room]
-> NORTH                       [Mine Passage]
+> WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
 > NORTH                       [Rickety Bridge]
@@ -1690,14 +1673,7 @@ We haven't retrieved it yet. Let's do that now and return.
 > SOUTH                       [Mid-Tier Key Door]
 > SOUTH                       [Key Door Landing]
 > SOUTH                       [Mine Passage]
-> SOUTH                       [Stored Room]
 > SOUTH                       [Inscription Chamber]
-> SOUTH                       [Echo Alcove — wait]
-
-Actually the layout: from Stored Room, the key side continues: south to
-Inscription Chamber, then the Echo Alcove, then Magnetic Vault, then
-Deep Lock Door.
-
 > SOUTH                       [Echo Alcove]
 > SOUTH                       [Magnetic Vault]
 
@@ -1708,10 +1684,12 @@ chest lid. Disarm it, then open the chest.
 > OPEN CHEST                  [diamond brooch]
 > TAKE BROOCH                 [Diamond Brooch]
 
-Return to the surface.
+Return to the surface via the south branch of the key side.
+Magnetic Vault is south of Echo Alcove, south of Inscription Chamber,
+south of Mine Passage — Stored Room is not on this path.
 
+> NORTH                       [Echo Alcove]
 > NORTH                       [Inscription Chamber]
-> NORTH                       [Stored Room]
 > NORTH                       [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
@@ -1731,6 +1709,7 @@ Return to the surface.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
