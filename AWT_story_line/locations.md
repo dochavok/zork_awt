@@ -1413,24 +1413,26 @@ Worked cave section, old support timbers and rusting tools. Contains: charcoal (
 #### Stored Room
 **XP: 1**
 **NPCs:** None
-**Items:** None (shovel required to dig; collapse reveals Hole to Below; rope from Docks required for bidirectional travel)
+**Items:** None (shovel required to dig; collapse reveals Hole to Below; rope from Docks required for safe descent)
 **Quest Hooks:** None (critical path to lower tier)
-**Connections:** West → Mine Passage. East → The Crevice (inaccessible after collapse). Down → Pile of Rubble (after dig; rope required to return).
-Deliberate rubble fill hiding a hole. Spur east to The Crevice.
+**Connections:** West → Mine Passage. East → The Crevice (permanently inaccessible after dig — hole too wide to cross). Down → Pile of Rubble (after dig; rope required).
+Deliberate rubble fill hiding a hole. Spur east to The Crevice. After digging, this room becomes the Hole to Below.
 
 **Before digging:** *The floor is packed tight with rubble — not the chaotic scatter of a cave-in, but deliberate, careful fill. Someone put this here on purpose.*
 
-One `DIG` (shovel required) collapses floor permanently → Hole to Below; spur east buried permanently. Beam exposed by collapse — `TIE ROPE TO BEAM` (rope from Docks) enables bidirectional travel. `DOWN`, `UP`, `CLIMB DOWN ROPE`, `CLIMB UP ROPE` once rope tied.
+**DIG response:** *The shovel bites into the packed rubble and the floor gives way — the fill cascades into the darkness below. You scramble back from the edge. A gaping hole now separates you from the eastern passage.*
 
-**After digging:** *Apparently the "something" being covered was a giant hole. The floor is gone — caved into the darkness below where the rubble gave way.* [Rope detail once rope tied off.]
+**After digging:** *Apparently the "something" being covered was a giant hole. The floor is gone — caved into the darkness below where the rubble gave way.*
+
+East exit blocked post-dig — hole cannot be crossed. `DOWN` / `CLIMB DOWN` blocked without rope: *The drop is serious. You'd need something to climb down on.* `JUMP` / `JUMP DOWN`: death — *It occurs to you, as you fall, that this may not have been a good decision. You die.* `TIE ROPE TO BEAM` (rope from Docks) enables safe bidirectional travel: `DOWN`, `UP`, `CLIMB DOWN ROPE`, `CLIMB UP ROPE`.
 
 #### The Crevice
 **XP: 1**
 **NPCs:** None
-**Items:** Gold pocket watch (treasure; on skeleton's outstretched finger — missable; inaccessible after Stored Room collapses)
+**Items:** Gold pocket watch (treasure; on skeleton's outstretched finger — missable; permanently inaccessible after Stored Room dig)
 **Quest Hooks:** None (treasure item — missable)
-**Connections:** West → Stored Room (inaccessible after Stored Room collapses).
-Dead-end spur east of Stored Room. Inaccessible after Stored Room collapses. A skeleton is wedged in a narrow crack — tried to squeeze through and failed. Gold pocket watch hangs from one outstretched finger. `TAKE WATCH` (Trophy Case treasure). Permanently inaccessible after Stored Room collapses — **missable**.
+**Connections:** West → Stored Room (permanently inaccessible after dig).
+Dead-end spur east of Stored Room. Must be visited before digging — permanently inaccessible once the floor collapses. A skeleton is wedged in a narrow crack — tried to squeeze through and failed. Gold pocket watch hangs from one outstretched finger. `TAKE WATCH` (Trophy Case treasure). **Missable.**
 
 #### Inscription Chamber
 **XP: 1**
@@ -1540,7 +1542,7 @@ Lowest point on trap side. Shallow pool. No confirmed items.
 
 ## Dungeon — Lower Tier (17 rooms, FINALIZED 2026-06-04)
 
-**Entry:** Hole to Below (rope required to return). Deep Lock Door — permanently sealed, no entry from mid tier.
+**Entry:** Stored Room post-dig (rope required to return). Deep Lock Door — permanently sealed, no entry from mid tier.
 
 ### Layout
 
@@ -1585,7 +1587,7 @@ Lowest point on trap side. Shallow pool. No confirmed items.
 **NPCs:** None
 **Items:** None (rope anchor point for return to mid tier)
 **Quest Hooks:** None
-**Connections:** Up → Stored Room (rope required; see TODO #3). North → Lower Crypt. East → Antechamber. South → The Encampment.
+**Connections:** Up → Stored Room (rope required). North → Lower Crypt. East → Antechamber. South → The Encampment.
 Bottom of Hole to Below. Rope anchor point for return to mid tier.
 
 *The ceiling is a jagged wound — stone and packed earth hanging at the edge where the floor above used to be. Below that: the rubble that was the floor, now a rough-graded pile you're standing on. The air smells of disturbed earth and something older underneath it. Passages lead north, east, and south.*

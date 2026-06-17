@@ -71,19 +71,17 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ---
 
-## TODO #3 — Stored Room / Rope Soft-Lock Design
+## TODO #3 — Stored Room / Rope Mechanics
 
-**Status:** Open
+**Status:** Resolved — written to `mechanics.md` and `locations.md` (2026-06-16)
 
-**Problem:** The player must tie the rope to the beam (`TIE ROPE TO BEAM`) before digging the Stored Room floor, or they will be permanently trapped in the lower tier with no way back up. The rope is found at the Docks; the beam is exposed by the dig. If the player digs first without the rope, the hole is permanent and the only exit (Pile of Rubble → Up → Stored Room) requires the rope.
-
-**The connection chain this affects:** Mine Passage → east → Stored Room → down → Pile of Rubble (lower tier). Before the dig, Stored Room also connects south to Inscription Chamber — so the dig is not required to progress through the key side. The soft-lock only occurs if the player digs without the rope and then descends.
-
-**Options to resolve:**
-1. Require rope to be tied before `DIG` is allowed — parser returns "You'd need a way back up before doing that."
-2. Allow dig without rope but warn explicitly — "The floor collapses. There is no way back up." and block descent.
-3. Allow full soft-lock as intentional consequence — player must restore a save.
-
-**Decision needed:** Which behavior is correct? Update `mechanics.md` and `rooms.py` once resolved.
+**Final mechanic:**
+- `DIG` (shovel required): floor collapses permanently, beam exposed, east spur to The Crevice severed. Player does not fall. DIG message: *"The shovel bites into the packed rubble and the floor gives way — the fill cascades into the darkness below. You scramble back from the edge. A gaping hole now separates you from the eastern passage."*
+- East exit permanently blocked post-dig — hole too wide to cross. No swing mechanic.
+- The Crevice and gold pocket watch permanently missable after dig.
+- `DOWN` / `CLIMB DOWN` without rope: *"The drop is serious. You'd need something to climb down on."*
+- `JUMP` / `JUMP DOWN`: death — *"It occurs to you, as you fall, that this may not have been a good decision. You die."*
+- `TIE ROPE TO BEAM` (rope from Docks): enables safe bidirectional `DOWN`, `UP`, `CLIMB DOWN ROPE`, `CLIMB UP ROPE`.
+- Post-dig, the Stored Room becomes the Hole to Below in all but name. All doc references to "Hole to Below" refer to this room.
 
 

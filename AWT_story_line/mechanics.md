@@ -633,15 +633,23 @@ All mirrors in the Chuckle House repel visible players — stepping in front of 
 
 ### The Stored Room / Hole to Below
 
-Two-state room in the dungeon mid-tier.
+Two-state room in the dungeon mid-tier. After digging, this room effectively becomes the Hole to Below — all references to "Hole to Below" refer to the Stored Room post-dig.
 
 **Before digging:** *The floor is packed tight with rubble — not the chaotic scatter of a cave-in, but deliberate, careful fill. Someone put this here on purpose.*
 
-One `DIG` (shovel required) collapses floor permanently → Hole to Below. Spur east (The Crevice) buried permanently and inaccessible.
+**DIG action (shovel required):** One `DIG` collapses the floor permanently. The east spur to The Crevice is severed — the hole is too wide to cross. The Crevice and its gold pocket watch are permanently inaccessible. Beam exposed by collapse.
+
+**DIG response message:** *The shovel bites into the packed rubble and the floor gives way — the fill cascades into the darkness below. You scramble back from the edge. A gaping hole now separates you from the eastern passage.*
 
 **After digging:** *Apparently the "something" being covered was a giant hole. The floor is gone — caved into the darkness below where the rubble gave way.*
 
-Beam exposed by collapse. `TIE ROPE TO BEAM` (rope from Docks, one item in world) enables bidirectional travel: `DOWN`, `UP`, `CLIMB DOWN ROPE`, `CLIMB UP ROPE`.
+**East exit (post-dig):** Blocked regardless of rope state. The hole cannot be crossed.
+
+**DOWN / CLIMB DOWN without rope:** *The drop is serious. You'd need something to climb down on.*
+
+**JUMP / JUMP DOWN (post-dig):** Death. *It occurs to you, as you fall, that this may not have been a good decision. You die.*
+
+**TIE ROPE TO BEAM:** Rope from Docks (one item in world) tied to exposed beam enables safe bidirectional travel: `DOWN`, `UP`, `CLIMB DOWN ROPE`, `CLIMB UP ROPE`. No fall mechanic — player never falls involuntarily.
 
 ---
 
