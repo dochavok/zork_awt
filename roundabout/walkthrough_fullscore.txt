@@ -55,8 +55,8 @@ Any command except OPEN MAILBOX returns the Zork joke. Opening the
 mailbox triggers Will's appearance and character creation.
 
 > OPEN MAILBOX                [mailbox opens]
-> warrior                     [You have chosen: Warrior]
-> Tester                      [Welcome, Tester]
+(input: warrior)             [You have chosen: Warrior]
+(input: Tester)              [Welcome, Tester]
 
 Will delivers the ring briefing, hands over 10 Zenni, and asks us to
 examine the painting to travel to the Tale and Ale.

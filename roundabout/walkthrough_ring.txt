@@ -27,8 +27,8 @@ and character creation. After class and name, examining the painting
 teleports the player to the Tale and Ale.
 
 > OPEN MAILBOX                [mailbox opens]
-> warrior                     [You have chosen: Warrior]
-> Tester                      [Welcome, Tester]
+(input: warrior)             [You have chosen: Warrior]
+(input: Tester)              [Welcome, Tester]
 
 Will hands over 10 Zenni and the ring briefing fires. The painting on
 the wall is the exit. Examining it teleports us to the Tale and Ale.
