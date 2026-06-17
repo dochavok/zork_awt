@@ -5,6 +5,7 @@ Built incrementally — rooms added as walkthrough sections require them.
 """
 
 from __future__ import annotations
+import random
 from engine.world import Room, Exit, ONBIT, RLANDBIT
 
 
@@ -12,6 +13,10 @@ def make_rooms(world) -> None:
     _make_opening(world)
     _make_tower(world)
     _make_tale_and_ale(world)
+    _make_town(world)
+    _make_mine(world)
+    _make_beach_and_sea(world)
+    _make_kevrys_island(world)
 
 
 # ---------------------------------------------------------------------------
@@ -108,7 +113,7 @@ def _make_tower(world) -> None:
 # ---------------------------------------------------------------------------
 
 def _make_tale_and_ale(world) -> None:
-    r = Room(
+    main = Room(
         name="TALE-AND-ALE",
         desc="Tale and Ale — Main Room",
         ldesc=(
@@ -121,7 +126,497 @@ def _make_tale_and_ale(world) -> None:
         ),
         value=1,
     )
-    r.set_flag(ONBIT)
-    r.set_flag(RLANDBIT)
-    r.global_objects = ["MAILBOX-TOWER"]
-    world.register_room(r)
+    main.set_flag(ONBIT)
+    main.set_flag(RLANDBIT)
+    main.global_objects = ["MAILBOX-TOWER"]
+    world.register_room(main)
+
+    bar = Room(
+        name="BAR",
+        desc="Bar",
+        ldesc=(
+            "The bar runs the length of the south wall — solid oak, worn smooth "
+            "at the elbows. Bottles line the shelf behind it in an arrangement "
+            "that suggests a system only May understands.\n"
+            "She works the bar with the efficiency of someone who has answered "
+            "every question before and will answer them all again without complaint.\n"
+            "A board on the wall to one side holds notices. The kitchen is further south."
+        ),
+        value=1,
+    )
+    bar.set_flag(ONBIT)
+    world.register_room(bar)
+
+    kitchen = Room(
+        name="KITCHEN",
+        desc="Kitchen",
+        ldesc=(
+            "The kitchen is warm and loud in the way that working kitchens are — "
+            "pots, fire, the particular authority of someone who knows exactly what "
+            "they're doing.\n"
+            "Shamus moves through it without wasted motion, cooking and selling in "
+            "equal measure — if you need something, he's worth asking.\n"
+            "Dried herbs hang from the ceiling in loose bundles."
+        ),
+        value=1,
+    )
+    kitchen.set_flag(ONBIT)
+    world.register_room(kitchen)
+
+    pipe_room = Room(
+        name="PIPE-ROOM",
+        desc="Pipe Room",
+        ldesc=(
+            "The pipe room is quieter than the rest of the tavern, which appears "
+            "to be the point.\n"
+            "A few low chairs, a side table, the particular haze of an evening's "
+            "worth of smoke that has nowhere urgent to be."
+        ),
+        value=1,
+    )
+    pipe_room.set_flag(ONBIT)
+    world.register_room(pipe_room)
+
+    # Wire exits after all rooms registered
+    main.exits["south"] = Exit(destination="BAR")
+    main.exits["east"]  = Exit(destination="PIPE-ROOM")
+    bar.exits["north"]  = Exit(destination="TALE-AND-ALE")
+    bar.exits["south"]  = Exit(destination="KITCHEN")
+    kitchen.exits["north"] = Exit(destination="BAR")
+    pipe_room.exits["west"] = Exit(destination="TALE-AND-ALE")
+
+
+# ---------------------------------------------------------------------------
+# Town — overworld from Tale and Ale to Docks
+# ---------------------------------------------------------------------------
+
+def _make_town(world) -> None:
+    town_sq = Room(
+        name="TOWN-SQUARE",
+        desc="Roundabout Town Square",
+        ldesc=(
+            "The square is the kind of place a town organizes itself around "
+            "without quite deciding to. Cobblestones, worn smooth at the center.\n"
+            "The Town Hall anchors the north end with the authority of a building "
+            "that has never doubted its own importance. The tavern faces it from "
+            "the south, which seems about right.\n"
+            "A fountain stands in the middle — dry, the basin cracked at one edge, "
+            "the stonework patient in the way of things that have been waiting a "
+            "long time.\n"
+            "A stone statue stands to one side — a civic figure of some kind, the "
+            "plaque below it worn to illegibility."
+        ),
+        value=1,
+    )
+    town_sq.set_flag(ONBIT)
+    town_sq.set_flag(RLANDBIT)
+    world.register_room(town_sq)
+
+    main_east = Room(
+        name="MAIN-EAST",
+        desc="Main East",
+        ldesc=(
+            "Main Street ends here, or nearly does. The buildings thin out toward "
+            "the east — a few shuttered fronts, a sign that's lost its lettering, "
+            "the church standing apart to the south as though it chose its distance "
+            "deliberately. The wasteland begins where the cobblestones stop."
+        ),
+        value=1,
+    )
+    main_east.set_flag(ONBIT)
+    main_east.set_flag(RLANDBIT)
+    world.register_room(main_east)
+
+    wasteland = Room(
+        name="ROUNDABOUT-WASTELAND",
+        desc="Roundabout Wasteland",
+        ldesc=(
+            "The wasteland sits at the edge of Roundabout like an embarrassing "
+            "relative. Something went very wrong here, and not recently.\n"
+            "The ground doesn't grow anything. The structures that remain are shells. "
+            "Whatever happened, it happened thoroughly.\n"
+            "To the south, a volcano rises against the sky — large, dark, and "
+            "entirely convincing."
+        ),
+        value=1,
+    )
+    wasteland.set_flag(ONBIT)
+    wasteland.set_flag(RLANDBIT)
+    world.register_room(wasteland)
+
+    beach_road = Room(
+        name="BEACH-ROAD",
+        desc="Beach Road",
+        ldesc=(
+            "A road that forks — south toward Roundabout Beach, north toward "
+            "Roundabout Forest via The Old Oak."
+        ),
+        value=1,
+    )
+    beach_road.set_flag(ONBIT)
+    beach_road.set_flag(RLANDBIT)
+    world.register_room(beach_road)
+
+    old_oak = Room(
+        name="OLD-OAK",
+        desc="The Old Oak",
+        ldesc=(
+            "A large oak stands here, old enough to have opinions about it. "
+            "The forest begins to the north. Beach Road lies south."
+        ),
+        value=1,
+    )
+    old_oak.set_flag(ONBIT)
+    old_oak.set_flag(RLANDBIT)
+    world.register_room(old_oak)
+
+    r_forest = Room(
+        name="ROUNDABOUT-FOREST",
+        desc="Roundabout Forest",
+        ldesc=(
+            "You wouldn't know, walking through here, that the ground beneath you "
+            "is hollow. The forest is peaceful — birdsong, dappled light, the smell "
+            "of pine.\n"
+            "The mine entrance sits somewhere among the roots and undergrowth, easy "
+            "to miss if you don't know to look."
+        ),
+        value=1,
+    )
+    r_forest.set_flag(ONBIT)
+    r_forest.set_flag(RLANDBIT)
+    world.register_room(r_forest)
+
+    roundabout_beach = Room(
+        name="ROUNDABOUT-BEACH",
+        desc="Roundabout Beach",
+        ldesc=(
+            "Roundabout Beach opens up as the town falls behind you — a generous "
+            "sweep of sand, the water catching whatever light the sky offers. The "
+            "docks stretch east to where the Pie Rat Ship is moored, close enough "
+            "to read the name on its hull."
+        ),
+        value=1,
+    )
+    roundabout_beach.set_flag(ONBIT)
+    roundabout_beach.set_flag(RLANDBIT)
+    world.register_room(roundabout_beach)
+
+    docks = Room(
+        name="DOCKS",
+        desc="The Docks",
+        ldesc=(
+            "The boards flex slightly underfoot, worn smooth by years of boots "
+            "and cargo. Bollards thick with rope line the edge. A coil of rope "
+            "sits loose on the nearest bollard. The Pie Rat Ship sits in her "
+            "berth like she owns it."
+        ),
+        value=1,
+    )
+    docks.set_flag(ONBIT)
+    docks.set_flag(RLANDBIT)
+    world.register_room(docks)
+
+    # Wire town exits
+    # Town Square: south→Tale and Ale, east→Main East, west→Main West (not yet built)
+    town_sq.exits["south"] = Exit(destination="TALE-AND-ALE")
+    town_sq.exits["east"]  = Exit(destination="MAIN-EAST")
+    main_east.exits["west"] = Exit(destination="TOWN-SQUARE")
+    main_east.exits["east"] = Exit(destination="ROUNDABOUT-WASTELAND")
+    wasteland.exits["west"] = Exit(destination="MAIN-EAST")
+    wasteland.exits["east"] = Exit(destination="BEACH-ROAD")
+    beach_road.exits["west"]  = Exit(destination="ROUNDABOUT-WASTELAND")
+    beach_road.exits["south"] = Exit(destination="ROUNDABOUT-BEACH")
+    beach_road.exits["north"] = Exit(destination="OLD-OAK")
+    old_oak.exits["south"] = Exit(destination="BEACH-ROAD")
+    old_oak.exits["north"] = Exit(destination="ROUNDABOUT-FOREST")
+    r_forest.exits["south"] = Exit(destination="OLD-OAK")
+    roundabout_beach.exits["north"] = Exit(destination="BEACH-ROAD")
+    roundabout_beach.exits["east"]  = Exit(destination="DOCKS")
+    docks.exits["west"] = Exit(destination="ROUNDABOUT-BEACH")
+
+    # Tale and Ale: west→Town Square (east→Pipe Room already wired in _make_tale_and_ale)
+    world.rooms["TALE-AND-ALE"].exits["west"] = Exit(destination="TOWN-SQUARE")
+
+
+# ---------------------------------------------------------------------------
+# Mine — Pie Rats Mining Inc.
+# ---------------------------------------------------------------------------
+
+def _make_mine(world) -> None:
+    mine_entrance = Room(
+        name="MINE-ENTRANCE",
+        desc="Mine Entrance",
+        ldesc=(
+            "The entrance to Pie Rats Mining Inc. is a ragged wound in the earth, "
+            "shored up with timber and optimism. A sign above the opening reads: "
+            "PIE RATS MINING INC. — AUTHORIZED PERSONNEL ONLY."
+        ),
+        value=1,
+    )
+    mine_entrance.set_flag(ONBIT)
+    world.register_room(mine_entrance)
+
+    main_shaft = Room(
+        name="MAIN-SHAFT",
+        desc="Main Shaft",
+        ldesc=(
+            "The main shaft drops away from the entrance in a single rough-cut "
+            "passage, wide enough for two men and a cart. Timber supports run at "
+            "intervals. The smell of rock dust and old torchsmoke is thick here."
+        ),
+        value=1,
+    )
+    main_shaft.set_flag(ONBIT)
+    world.register_room(main_shaft)
+
+    assay_room = Room(
+        name="ASSAY-ROOM",
+        desc="Assay Room",
+        ldesc=(
+            "A side room off the main shaft, fitted out for testing ore samples. "
+            "A long workbench runs the length of one wall, scarred with acid burns "
+            "and impact marks. The far wall has a gap in it that doesn't look "
+            "entirely accidental."
+        ),
+        value=1,
+    )
+    assay_room.set_flag(ONBIT)
+    world.register_room(assay_room)
+
+    mine_tunnels = Room(
+        name="MINE-TUNNELS",
+        desc="Mine Tunnels",
+        ldesc=(
+            "The working tunnels branch off the main shaft. Torch sconces are fixed "
+            "to the walls at intervals — the torches in them are real and lit. "
+            "The floor is rutted with cart tracks."
+        ),
+        value=1,
+    )
+    mine_tunnels.set_flag(ONBIT)
+    world.register_room(mine_tunnels)
+
+    rats_nest = Room(
+        name="RATS-NEST",
+        desc="The Rat's Nest",
+        ldesc=(
+            "A widening in the tunnel that someone has decided is a room. Crates "
+            "and barrels are stacked with more care than the surroundings suggest — "
+            "this is storage, not clutter. The Pie Rats keep their surplus here."
+        ),
+        value=1,
+    )
+    rats_nest.set_flag(ONBIT)
+    world.register_room(rats_nest)
+
+    # Wire mine exits
+    world.rooms["ROUNDABOUT-FOREST"].exits["down"] = Exit(destination="MINE-ENTRANCE")
+    mine_entrance.exits["up"]   = Exit(destination="ROUNDABOUT-FOREST")
+    mine_entrance.exits["down"] = Exit(destination="MAIN-SHAFT")
+    main_shaft.exits["up"]    = Exit(destination="MINE-ENTRANCE")
+    main_shaft.exits["south"] = Exit(destination="ASSAY-ROOM")
+    main_shaft.exits["down"]  = Exit(destination="MINE-TUNNELS")
+    assay_room.exits["north"] = Exit(destination="MAIN-SHAFT")
+    mine_tunnels.exits["up"]    = Exit(destination="MAIN-SHAFT")
+    mine_tunnels.exits["north"] = Exit(destination="RATS-NEST")
+    rats_nest.exits["south"] = Exit(destination="MINE-TUNNELS")
+
+    # Cave-in fires on entry to Mine Entrance or Forest after fuse is lit
+    from engine.game import M_NOT_HANDLED, M_ENTER
+
+    def _cave_in_check(w, msg=M_NOT_HANDLED):
+        if msg == M_ENTER:
+            from content.verbs import _check_mine_cave_in
+            _check_mine_cave_in(w)
+        return M_NOT_HANDLED
+
+    mine_entrance.action = _cave_in_check
+    world.rooms["ROUNDABOUT-FOREST"].action = _cave_in_check
+
+
+# ---------------------------------------------------------------------------
+# Beach, sea, and Kevry's island
+# ---------------------------------------------------------------------------
+
+def _make_beach_and_sea(world) -> None:
+    # Pie Rat Ship Deck
+    ship_deck = Room(
+        name="SHIP-DECK",
+        desc="Pie Rat Ship — Deck",
+        ldesc=(
+            "The deck is cluttered in the way of a working vessel — coils of line, "
+            "barrels lashed to the rail, a general smell of fish and salt and "
+            "something that has been at sea too long. This is a ship that wants to move."
+        ),
+        value=1,
+    )
+    ship_deck.set_flag(ONBIT)
+    world.register_room(ship_deck)
+
+    # Sea rooms
+    sea_west = Room(
+        name="SEA-WEST",
+        desc="Western Roundabout Sea",
+        ldesc=(
+            "The smell of the town still reaches you here — smoke and bread "
+            "underneath the salt. The beach stretches behind you, the lighthouse "
+            "standing watch to the north. The water is choppier than it looked "
+            "from shore."
+        ),
+        value=1,
+    )
+    sea_west.set_flag(ONBIT)
+    world.register_room(sea_west)
+
+    sea_mid = Room(
+        name="SEA-MID",
+        desc="Roundabout Sea",
+        ldesc=(
+            "The coast is gone. There is nothing in any direction but open water "
+            "and sky. The sea moves in long slow swells that lift and drop the hull "
+            "with a steady indifference. You are very small out here."
+        ),
+        value=1,
+    )
+    sea_mid.set_flag(ONBIT)
+    world.register_room(sea_mid)
+
+    sea_east = Room(
+        name="SEA-EAST",
+        desc="Eastern Roundabout Sea",
+        ldesc=(
+            "Is that — yes. An island. Small, tree-lined, a beach curving around "
+            "the side facing you. The water around it is shallow and clear. East "
+            "of it, the sea continues without comment."
+        ),
+        value=1,
+    )
+    sea_east.set_flag(ONBIT)
+    world.register_room(sea_east)
+
+    # 69 Open Ocean rooms
+    _OCEAN_DESCS = [
+        "Open ocean in every direction. Nothing else.",
+        "The ocean does not vary its presentation.",
+        "No land. No landmarks. Just the creak of the hull and the indifferent sea.",
+        "The ocean offers nothing in any direction. It does not apologize for this.",
+        "Sea. Sky. Nothing else to report.",
+    ]
+
+    ocean_rooms = []
+    for i in range(1, 70):
+        oc = Room(
+            name=f"OPEN-OCEAN-{i}",
+            desc="Open Ocean",
+            ldesc=_OCEAN_DESCS[(i - 1) % len(_OCEAN_DESCS)],
+            value=0,
+        )
+        oc.set_flag(ONBIT)
+        world.register_room(oc)
+        ocean_rooms.append(oc)
+
+    # Desert Island (spur south of sea_east, not on main east axis)
+    desert_island = Room(
+        name="DESERT-ISLAND",
+        desc="Desert Island",
+        ldesc=(
+            "The sand on the beach is undisturbed. That fact, for some reason, "
+            "does not comfort you.\n"
+            "Nothing here is threatening and nothing here is welcoming. The island "
+            "feels like a place that has been waiting — not for you specifically, "
+            "but for someone."
+        ),
+        value=1,
+    )
+    desert_island.set_flag(ONBIT)
+    desert_island.set_flag(RLANDBIT)
+    world.register_room(desert_island)
+
+    # Wire ship and sea exits
+    world.rooms["DOCKS"].exits["east"] = Exit(destination="SHIP-DECK")
+    ship_deck.exits["west"] = Exit(destination="DOCKS")
+    ship_deck.exits["east"] = Exit(destination="SEA-WEST")
+
+    sea_west.exits["west"] = Exit(destination="SHIP-DECK")
+    sea_west.exits["east"] = Exit(destination="SEA-MID")
+    sea_mid.exits["west"]  = Exit(destination="SEA-WEST")
+    sea_mid.exits["east"]  = Exit(destination="SEA-EAST")
+    sea_east.exits["west"] = Exit(destination="SEA-MID")
+    sea_east.exits["east"] = Exit(destination="OPEN-OCEAN-1")
+    sea_east.exits["south"] = Exit(destination="DESERT-ISLAND")
+    desert_island.exits["north"] = Exit(destination="SEA-EAST")
+
+    # Chain ocean rooms east/west
+    for idx, oc in enumerate(ocean_rooms):
+        if idx == 0:
+            oc.exits["west"] = Exit(destination="SEA-EAST")
+        else:
+            oc.exits["west"] = Exit(destination=ocean_rooms[idx - 1].name)
+        if idx < len(ocean_rooms) - 1:
+            oc.exits["east"] = Exit(destination=ocean_rooms[idx + 1].name)
+        # Square 69 east exit → Land, Ho! (wired after that room is registered)
+
+
+def _make_kevrys_island(world) -> None:
+    land_ho = Room(
+        name="LAND-HO",
+        desc="Land, Ho!",
+        ldesc=(
+            "The island resolves out of the horizon slowly, then all at once. "
+            "Sand, trees, solid ground. You've earned this. The beach curves "
+            "invitingly ahead."
+        ),
+        value=5,
+    )
+    land_ho.set_flag(ONBIT)
+    land_ho.set_flag(RLANDBIT)
+    world.register_room(land_ho)
+
+    empty_beach = Room(
+        name="EMPTY-BEACH",
+        desc="Empty Beach",
+        ldesc=(
+            "The beach is long and quiet, the sand unmarked. A line of scrubby "
+            "trees runs along the inland edge. Somewhere beyond them, half-hidden, "
+            "a small structure."
+        ),
+        value=5,
+    )
+    empty_beach.set_flag(ONBIT)
+    empty_beach.set_flag(RLANDBIT)
+    world.register_room(empty_beach)
+
+    kevry_house = Room(
+        name="KEVRYS-HOUSE",
+        desc="A House",
+        ldesc=(
+            "The interior is cluttered in the way that only makes sense to its "
+            "owner. Charts pinned to every surface, ropes coiled with obsessive "
+            "care, a hammock in the corner."
+        ),
+        value=5,
+    )
+    kevry_house.set_flag(ONBIT)
+    world.register_room(kevry_house)
+
+    captains_quarters = Room(
+        name="CAPTAINS-QUARTERS",
+        desc="Captain's Quarters",
+        ldesc=(
+            "A small back room, all table and charts and the smell of ink. "
+            "A weathered man sits hunched over a map, muttering."
+        ),
+        value=5,
+    )
+    captains_quarters.set_flag(ONBIT)
+    world.register_room(captains_quarters)
+
+    # Wire Kevry's island exits
+    world.rooms["OPEN-OCEAN-69"].exits["east"] = Exit(destination="LAND-HO")
+    land_ho.exits["west"]  = Exit(destination="OPEN-OCEAN-69")
+    land_ho.exits["east"]  = Exit(destination="EMPTY-BEACH")
+    empty_beach.exits["west"] = Exit(destination="LAND-HO")
+    empty_beach.exits["east"] = Exit(destination="KEVRYS-HOUSE")
+    kevry_house.exits["west"] = Exit(destination="EMPTY-BEACH")
+    kevry_house.exits["east"] = Exit(destination="CAPTAINS-QUARTERS")
+    captains_quarters.exits["west"] = Exit(destination="KEVRYS-HOUSE")

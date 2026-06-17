@@ -69,7 +69,7 @@ Sail from the Tale and Ale back to the overworld. The Docks are east of
 Roundabout Beach.
 
 > EXAMINE PAINTING            [Tale and Ale]
-> EAST                        [Town Square]
+> WEST                        [Town Square]
 > EAST                        [Main East]
 > EAST                        [Roundabout Wasteland]
 > EAST                        [Beach Road]
@@ -82,8 +82,9 @@ flint and steel, blow the mine, then board while the crew is distracted.
 
 The mine is reached through Roundabout Forest (north of Beach Road).
 
+> WEST                        [Roundabout Beach]
+> NORTH                       [Beach Road]
 > NORTH                       [Old Oak]
-> NORTH                       [Roundabout Forest]
 > NORTH                       [Roundabout Forest]
 > DOWN                        [Mine Entrance]
 > DOWN                        [Main Shaft]
@@ -111,7 +112,7 @@ Buy gunpowder from Shamus before lighting anything. Return to town first.
 
 > UP                          [Main Shaft]
 > UP                          [Mine Entrance]
-> SOUTH                       [Roundabout Forest]
+> UP                          [Roundabout Forest]
 > SOUTH                       [Old Oak]
 > SOUTH                       [Beach Road]
 > WEST                        [Roundabout Wasteland]
@@ -133,6 +134,7 @@ Now return to the mine to execute the heist.
 We need to go back to the forest and down.
 
 > WEST                        [Main Room]
+> WEST                        [Town Square]
 > EAST                        [Main East]
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
@@ -268,8 +270,10 @@ Land on Kevry's island and find Kevry in the Captain's Quarters.
 Kevry enchants the glasses. They are now the Actually Enchanted Glasses
 and pass all perception checks automatically for the rest of the game.
 
-Sail back west to Roundabout.
+Walk back to the beach and board the ship.
 
+> WEST                        [house]
+> WEST                        [Empty Beach]
 > BOARD SHIP                  [deck]
 > SET SAIL                    [sail]
 > GO WEST                     [open ocean]

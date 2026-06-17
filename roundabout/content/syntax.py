@@ -159,6 +159,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="board", action="V-BOARD", preaction="PRE-BOARD",
                    obj1=ObjectSpec(find_flag=VEHBIT, locations=_og_ir)),
+        SyntaxRule(verb="board", particle="ship", action="V-BOARD-SHIP"),
         SyntaxRule(verb="board", action="V-BOARD-SHIP"),  # no obj: board the ship
         SyntaxRule(verb="climb", particle="aboard", action="V-BOARD-SHIP"),
         SyntaxRule(verb="enter", particle="ship", action="V-BOARD-SHIP"),
@@ -457,6 +458,9 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         # LIGHT                                                               #
         # ------------------------------------------------------------------ #
+        # BURNBIT rule first — catches gunpowder/fuses before the LAMP-ON rule
+        SyntaxRule(verb="light", action="V-LIGHT",
+                   obj1=ObjectSpec(find_flag=BURNBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="light", action="V-LAMP-ON",
                    obj1=ObjectSpec(find_flag=LIGHTBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="light", action="V-LIGHT",
@@ -782,8 +786,8 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         # TALK / TELL / ASK                                                  #
         # ------------------------------------------------------------------ #
-        SyntaxRule(verb="talk", action="V-TALK",
-                   prep="to",
+        SyntaxRule(verb="talk", particle="to",
+                   action="V-TALK",
                    obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
         SyntaxRule(verb="talk", action="V-TALK",
                    obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
