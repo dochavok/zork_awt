@@ -74,8 +74,7 @@ tower via the Tale and Ale mailbox.
 
 With always-max rolls the Easy perception check passes immediately.
 
-> NORTH                       [bedroom door]
-> ENTER BEDROOM               [nightstand]
+> NORTH                       [nightstand]
 > TAKE GLASSES                [wire-rimmed glasses]
 > WEAR GLASSES                [glasses]
 
@@ -1540,8 +1539,7 @@ the bedroom.
 
 > SOUTH                       [Tale and Ale]
 > OPEN MAILBOX                [tower]
-> NORTH                       [bedroom door]
-> ENTER BEDROOM               [nightstand]
+> NORTH                       [nightstand]
 
 With Actually Enchanted Glasses the dragon-nip is auto-visible.
 
@@ -1559,8 +1557,7 @@ SS) Quest 53 — Will's Glasses (Drop on Nightstand for XP)
 Dropping the Actually Enchanted Glasses on the nightstand in Will's
 Bedroom completes Quest 53 and awards 20 XP.
 
-> NORTH                       [bedroom door]
-> ENTER BEDROOM               [nightstand]
+> NORTH                       [nightstand]
 > DROP GLASSES                [nightstand]
 
 Quest 53 complete. 20 XP awarded.

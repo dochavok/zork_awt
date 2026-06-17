@@ -51,8 +51,7 @@ The bedroom door becomes visible on a successful Easy perception check
 that fires every visit. Since these are integration tests with
 always-max random rolls, the check succeeds immediately.
 
-> NORTH                       [bedroom door]
-> ENTER BEDROOM               [nightstand]
+> NORTH                       [nightstand]
 
 Take the glasses and put them on. The bedroom is safe — Will is not
 present. Equipping them anywhere Will can see you is an instant fail.
