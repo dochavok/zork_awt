@@ -1,0 +1,1774 @@
+ROUNDABOUT: THE GOD-FORSAKEN RING
+Full-Score Walkthrough
+======================
+All active quests, all Trophy Case treasures, all major NPC arcs.
+Sections map one-to-one with design requirements; a failing test section
+identifies exactly which requirement is broken.
+
+Test runner rules:
+  > lines     : feed verbatim to game.do_turn()
+  (input: X)  : fed via patched input() during character creation
+  [fragment]  : required case-insensitive substring in stdout
+  Prose lines : annotation only — ignored by the test runner
+
+This walkthrough uses a Warrior. It gets the Enchanted Glasses in
+section B — as early as possible after the opening — before any sailing,
+so Kevry can enchant them into Actually Enchanted Glasses before the
+rest of the run. Actually Enchanted Glasses pass all perception checks
+automatically, removing randomness from the entire playthrough.
+
+Quest coverage:
+  Q4  The Whispering Jar
+  Q7  The Bone Flute
+  Q12 The Locked Music Box (Light spell)
+  Q17 The Frozen Watch (Charter for Q27)
+  Q19/30 The Hollow Statue / The Undead Warden (Werewolf's Amulet)
+  Q22 The Ruined Aqueduct (fountain prerequisite for Q49)
+  Q24 The Beekeeper's Swarm
+  Q25 The Flooded Cellar (cellar route to Secret Tunnels)
+  Q27 The Toll Bridge Operator
+  Q28 The Archivist's Request (incantation scroll for Q34)
+  Q32 The Missing Gravestone (Middle Tier Key)
+  Q34 The Frozen Soldier
+  Q38 The Collapsed Passage (shortcut)
+  Q40 Shamus's Recipe
+  Q41 The Child's Kite
+  Q42 The Brotherhood Stones (Ivanaar's Tunic)
+  Q49 The Ruined Shrine (Crystal Bowl)
+  Q50 The Lost Apprentice (trap side; Apprentice's Gloves)
+  Q51 The Back Alley Mugger (lockpicks → chest Zenni)
+  Q52 Make Litlock Laugh (Chuckle House visibility)
+  Q53 Will's Glasses (Actually Enchanted Glasses)
+  Q54 Fight the Knight (melee skill unlock — not needed for Warrior)
+  Q55 The Archer's Trial (bow skill)
+  Q56 Will's Teaching (Light spell for Warrior)
+  Q57 The Viking Trust Trials (runed metal)
+  Q58 The Dragon-Nip (Golden Dragon Scale)
+  Q59 Beat Lynds (Heart Necklace + Dankhaus access)
+  Ring quest: three artifact rituals + Will's final "Well done"
+  Trophy Case: all 9 treasures
+
+=============================================================================
+A) Opening — White House & Will's Briefing
+=============================================================================
+Any command except OPEN MAILBOX returns the Zork joke. Opening the
+mailbox triggers Will's appearance and character creation.
+
+> OPEN MAILBOX                [mailbox opens]
+> warrior                     [You have chosen: Warrior]
+> Tester                      [Welcome, Tester]
+
+Will delivers the ring briefing, hands over 10 Zenni, and asks us to
+examine the painting to travel to the Tale and Ale.
+
+> EXAMINE PAINTING            [Tale and Ale]
+
+=============================================================================
+B) Quest 53 — Will's Glasses (Enchanted Glasses)
+=============================================================================
+Will's Bedroom is hidden behind a door in the tower Main Room — revealed
+by a silent Easy perception check that fires every visit. Return to the
+tower via the Tale and Ale mailbox.
+
+> OPEN MAILBOX                [tower]
+
+With always-max rolls the Easy perception check passes immediately.
+
+> NORTH                       [bedroom door]
+> ENTER BEDROOM               [nightstand]
+> TAKE GLASSES                [wire-rimmed glasses]
+> WEAR GLASSES                [glasses]
+
+The glasses are now equipped in the head slot. We will sail to Kevry's
+island in section D to have him enchant them. For now, back to the
+Tale and Ale to continue setup.
+
+> EXAMINE PAINTING            [Tale and Ale]
+
+=============================================================================
+C) Quest 51 — The Back Alley Mugger
+=============================================================================
+The Back Alley is south of The Alley, which is southwest of Town Square.
+The mugger fires a perception check on every visit — with Actually
+Enchanted Glasses he will be visible on the first visit once glasses are
+enchanted, but we have only regular Enchanted Glasses right now and the
+always-max mock ensures the check passes.
+
+> SOUTH                       [Town Square]
+> SOUTHWEST                   [Alley]
+> SOUTH                       [Back Alley]
+
+Perception check passes — mugger visible. Fight to the death.
+
+> KILL MUGGER                 [mugger]
+
+The mugger drops lockpicks. These open the large iron chest in the Mine
+Passage (20 Zenni). May's free drink reward is waiting at the Bar.
+
+> TAKE LOCKPICKS              [lockpicks]
+> NORTH                       [Alley]
+> NORTHEAST                   [Town Square]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> TALK TO MAY                 [free drink]
+> ORDER DRINK                 [drink]
+
+=============================================================================
+D) Sailing — Kevry's Island (Glasses Enchantment) & Shovel
+=============================================================================
+Before the Pie Rat heist we need to visit the mine for the disguise,
+buy gunpowder, then blow the mine. The shovel is on the ship deck —
+take it immediately after boarding. Then sail 69 east to Kevry's island,
+get the glasses enchanted (Actually Enchanted Glasses), and sail back.
+
+First: buy what we need from Shamus.
+
+> SOUTH                       [Kitchen]
+> TALK TO SHAMUS              [Shamus]
+> BUY TORCH                   [torch]
+> BUY GUNPOWDER               [gunpowder]
+> BUY FISHING ROD             [fishing rod]
+
+The Roundabout Pond bottle (Ship-in-a-Bottle treasure) needs the
+fishing rod. Buy it now while we're here.
+
+> NORTH                       [Bar]
+> NORTH                       [Main Room]
+
+Navigate to the mine via the forest.
+
+> WEST                        [Main West]
+> EAST                        [Town Square]
+> EAST                        [Main East]
+> EAST                        [Wasteland]
+> EAST                        [Beach Road]
+> NORTH                       [Old Oak]
+
+The child's kite is tangled in the Old Oak. Quest 41.
+
+> CLIMB TREE                  [kite]
+> TAKE RUNE STONE             [rune stone]
+> GIVE KITE TO CHILD          [kite]
+
+Quest 41 complete. Rune stone (Old Oak) acquired. Continue north.
+
+> NORTH                       [Roundabout Forest]
+
+The Verdant Circle shrine is visible — crumbled bowl pieces scattered.
+One bowl piece is near the shrine. Take it.
+
+> TAKE BOWL PIECE             [bowl piece]
+> DOWN                        [Mine Entrance]
+> DOWN                        [Main Shaft]
+> TAKE PICKAXE                [pickaxe]
+> SOUTH                       [Assay Room]
+> NORTH                       [Main Shaft]
+> DOWN                        [Mine Tunnels]
+> NORTH                       [Rat's Nest]
+> TAKE DISGUISE               [Pie Rat disguise]
+> SOUTH                       [Mine Tunnels]
+
+Find the structural weak point (perception check auto-passes with
+Enchanted Glasses). Drop gunpowder there.
+
+> DROP GUNPOWDER              [gunpowder]
+
+Take the flint and steel last — 40-turn burnout starts immediately.
+
+> TAKE FLINT                  [flint and steel]
+> LIGHT GUNPOWDER             [fuse]
+
+Exit before the explosion.
+
+> UP                          [Main Shaft]
+> UP                          [Mine Entrance]
+> UP                          [Roundabout Forest]
+
+Mine entrance sealed. Pie Rats investigate. Board the ship.
+
+> SOUTH                       [Old Oak]
+> SOUTH                       [Beach Road]
+> SOUTH                       [Roundabout Beach]
+> EAST                        [Docks]
+> TAKE ROPE                   [rope]
+> BOARD SHIP                  [deck]
+> TAKE SHOVEL                 [shovel]
+
+The treasure map is aboard — perception check fires every turn. With
+actual Enchanted Glasses (not Actually Enchanted yet) the always-max
+mock handles this.
+
+> LOOK AROUND                 [treasure map]
+> TAKE MAP                    [treasure map]
+
+Sail east. Glasses must be equipped on arrival at Kevry's island.
+
+> SET SAIL                    [sail]
+> GO EAST                     [Western Roundabout Sea]
+> GO EAST                     [Roundabout Sea]
+> GO EAST                     [Eastern Roundabout Sea]
+
+Desert Island is a spur here. Sail past it — Kevry's island is 69
+squares into the Open Ocean.
+
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+
+Land on Kevry's island, find him in the Captain's Quarters.
+
+> LAND                        [Land, Ho!]
+> EAST                        [Empty Beach]
+> EAST                        [house]
+> EAST                        [Captain's Quarters]
+> TALK TO KEVRY               [enchanted]
+
+Glasses upgraded to Actually Enchanted Glasses — all perception checks
+pass automatically for the rest of the game.
+
+Sail back west to Roundabout. Stop at Desert Island on the way to dig
+up the buried chest (treasure map guarantees first-try success).
+
+> BOARD SHIP                  [deck]
+> SET SAIL                    [sail]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+
+We are now at Eastern Roundabout Sea. Dock at Desert Island.
+
+> LAND                        [Desert Island]
+> DIG                         [chest]
+> TAKE ZENNI                  [Zenni]
+
+Pie Rat Coin: the Pie Rats flip us a coin after we return the ship.
+Return the ship to the Docks.
+
+> BOARD SHIP                  [deck]
+> SAIL WEST                   [Roundabout Sea]
+> SAIL WEST                   [Western Roundabout Sea]
+> DOCK                        [Docks]
+
+A Pie Rat flips us the Pie Rat Coin (treasure item).
+
+> TAKE PIE RAT COIN           [Pie Rat Coin]
+
+=============================================================================
+E) Roundabout Pond — Ship-in-a-Bottle (Treasure)
+=============================================================================
+The fishing rod and a successful Fishing challenge roll retrieves the
+Ship-in-a-Bottle from the pond. With always-max rolls, the Rogue class
+bonus doesn't matter — Warrior succeeds too.
+
+> WEST                        [Roundabout Wasteland]
+> WEST                        [Main East]
+> WEST                        [Main West]
+> WEST                        [Archery Range]
+> NORTH                       [Roundabout Pond]
+> FISH                        [bottle]
+> TAKE BOTTLE                 [Ship-in-a-Bottle]
+
+=============================================================================
+F) Quest 59 — Beat Lynds (Heart Necklace + Dankhaus Access)
+=============================================================================
+Lynds is in the Tale and Ale. Arm wrestling: single contested strength
+roll. Always-max: Warrior wins immediately.
+
+> SOUTH                       [Archery Range]
+> EAST                        [Main West]
+> EAST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> CHALLENGE LYNDS             [arm wrestling]
+> WIN                         [Heart Necklace]
+> WEAR NECKLACE               [necklace]
+
+Lynds sets the Dankhaus invitation flag. Dankhaus wards are now cleared.
+
+=============================================================================
+G) Quest 52 — Make Litlock Laugh (Chuckle House Visibility)
+=============================================================================
+The Dankhaus is hidden in Bog-SE. With Actually Enchanted Glasses the
+path is auto-revealed. Navigate to the bog.
+
+> NORTH                       [Main West]
+> WEST                        [Archery Range]
+> NORTH                       [Roundabout Pond]
+> WEST                        [Bog-SE]
+> ENTER DANKHAUS              [Common Room]
+
+Make Litlock laugh. Successful path: B (physical) → B2 (ridiculous) →
+C1 (push further).
+
+> TALK TO LITLOCK             [Entertain me]
+> DO SOMETHING PHYSICAL       [watches]
+> SIT ON FLOOR                [why are you on the floor]
+> I FIND IT CLARIFYING        [bonk]
+
+Litlock bonks the player on the head. The Chuckle House is now visible
+west of the Graveyard.
+
+=============================================================================
+H) Quest 42 — Brotherhood Stones (Part 1: Bog Rune Stone)
+=============================================================================
+While in the bog, collect the Bog-NE rune stone (Quest 42 is discovered
+after the Viking trust trials, but the stone can be picked up now).
+Also: Bog-NW contains the music box key (Quest 12).
+
+> NORTH                       [Bog-NE]
+
+Actually Enchanted Glasses auto-pass perception: rune stone visible.
+
+> TAKE RUNE STONE             [rune stone]
+> WEST                        [Bog-NW]
+
+Hollow log — actually enchanted glasses reveal it.
+
+> TAKE KEY                    [music box key]
+
+Also: Bog-SW has bog thyme (Quest 40) and a bowl piece (Quest 49).
+
+> SOUTH                       [Bog-SW]
+> TAKE BOG THYME              [bog thyme]
+> TAKE BOWL PIECE             [bowl piece]
+
+=============================================================================
+I) Quest 12 — The Locked Music Box (Light Spell)
+=============================================================================
+The music box is in Will's Wizard Tower. The key was just collected in
+Bog-NW. For Warriors, the Light scroll must be taken to Will to learn.
+
+> EAST                        [Bog-SE]
+> EAST                        [Roundabout Pond]
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> SOUTH                       [Tale and Ale]
+> OPEN MAILBOX                [tower]
+> LOOK AT MUSIC BOX           [music box]
+> OPEN MUSIC BOX WITH KEY     [scroll]
+> TAKE SCROLL                 [scroll]
+
+Warriors cannot read spell scrolls directly. Remove glasses (Will
+refuses to teach while they are worn), then give the scroll to Will.
+
+> REMOVE GLASSES              [glasses removed]
+> GIVE SCROLL TO WILL         [Light spell]
+> WEAR GLASSES                [glasses]
+
+Light spell learned permanently. Now we can safely enter all dark rooms
+without a torch burning down.
+
+=============================================================================
+J) Quest 40 — Shamus's Recipe
+=============================================================================
+Shamus needs bog thyme and the small clay pot from the Supply Room.
+The small clay pot is only available after reaching the Supply Room in
+the dungeon. We'll collect it in section N (dungeon run) and return.
+For now, note the quest is discovered by talking to Shamus.
+
+> EXAMINE PAINTING            [Tale and Ale]
+> SOUTH                       [Bar]
+> SOUTH                       [Kitchen]
+> TALK TO SHAMUS              [recipe]
+
+Quest 40 discovered. We'll complete it after getting the clay pot from
+the Supply Room.
+
+=============================================================================
+K) Quest 24 — The Beekeeper's Swarm (Part 1: Discovery)
+=============================================================================
+The Beekeeper's Cottage is west of The Old Oak, at the forest edge.
+
+> NORTH                       [Bar]
+> NORTH                       [Main Room]
+> WEST                        [Main West]
+> EAST                        [Town Square]
+> EAST                        [Main East]
+> EAST                        [Wasteland]
+> EAST                        [Beach Road]
+> NORTH                       [Old Oak]
+> WEST                        [Beekeeper's Cottage]
+> TALK TO BEEKEEPER           [swarm]
+
+Quest 24 discovered. The beekeeper explains the swarm is in a hollow
+tree at the forest edge and her smoke equipment is in the tunnels below.
+That smoke jar is in the Supply Room (dungeon). Collect it during the
+dungeon run.
+
+=============================================================================
+L) Quest 57 — Viking Trust Trials (Pale Blade chain)
+=============================================================================
+West of the Archery Range. Three trials: Riddle Stone → Ritual Circle
+→ Drinking Challenge.
+
+> EAST                        [Old Oak]
+> SOUTH                       [Beach Road]
+> WEST                        [Wasteland]
+> WEST                        [Main East]
+> WEST                        [Town Square]
+> WEST                        [Main West]
+> WEST                        [Archery Range]
+> WEST                        [Viking Encampment]
+> TALK TO IVANAAR             [Haalvar]
+
+Trial 1 — Riddle Stone:
+
+> NORTH                       [Haalvar's Hut]
+> TALK TO HAALVAR             [riddle]
+> SEA                         [satisfied]
+> SOUTH                       [Viking Encampment]
+> TALK TO IVANAAR             [Ritual Circle]
+
+Trial 2 — Ritual Circle:
+
+> SOUTH                       [Ritual Circle]
+> LOOK AT BANNER              [Earth]
+> ACTIVATE EARTH STONE        [Earth]
+> ACTIVATE AIR STONE          [Air]
+> ACTIVATE FIRE STONE         [Fire]
+> ACTIVATE WATER STONE        [Water]
+> ACTIVATE HEART STONE        [Heart]
+> NORTH                       [Viking Encampment]
+> TALK TO IVANAAR             [Fire Pit]
+
+Trial 3 — Drinking Challenge:
+
+> WEST                        [Fire Pit]
+> TALK TO AYLORA              [Thornbrew]
+> DRINK                       [Aylora passes out]
+> TAKE AYLORA                 [drag]
+> EAST                        [Viking Encampment]
+> TALK TO IVANAAR             [runed metal]
+> TAKE RUNED METAL            [runed metal]
+
+Quest 57 complete. Runed metal acquired. Ivanaar introduces Quest 42
+(Brotherhood Stones) — we already have two of the three rune stones
+(Bog-NE and Old Oak). The third is in the Inscription Chamber (mid-tier
+dungeon). Raznak now invites Warriors and Mages for archery training.
+
+=============================================================================
+M) Quest 55 — The Archer's Trial (Bow Skill, Warrior)
+=============================================================================
+Raznak is at the Archery Range, which is now safe (arrow hazard
+silently disabled after all three trust trials complete).
+
+> EAST                        [Archery Range]
+> TALK TO RAZNAK              [archery]
+> PAY 3 ZENNI                 [bow skill]
+
+Archery skill unlocked. Raznak hands over the bow.
+
+> TAKE BOW                    [bow]
+> WEST                        [Viking Encampment]
+
+=============================================================================
+N) Ring Retrieval — Pyronicus
+=============================================================================
+Before the dungeon run, get the ring and trigger Will's second briefing.
+
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> EAST                        [Town Square]
+> EAST                        [Main East]
+> EAST                        [Wasteland]
+> SOUTH                       [Volcano]
+> DOWN                        [Pyronicus's Forge]
+> TALK TO PYRONICUS           [ring]
+> TAKE RING                   [God-Forsaken Ring]
+
+Quest 7 (Bone Flute) is posted 20 turns after first meeting Pyronicus.
+It will appear on the Quest Board by the time we return to town.
+
+Forge the Pale Blade while we're here:
+
+> GIVE METAL TO PYRONICUS     [Pale Blade]
+> TAKE PALE BLADE             [pale blade]
+
+Return to Will for the second briefing (three faiths, Church of All).
+
+> UP                          [Volcano]
+> NORTH                       [Roundabout Wasteland]
+> WEST                        [Main East]
+> WEST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> OPEN MAILBOX                [tower]
+> GIVE RING TO WILL           [three faiths]
+
+Second briefing fires. Quest 17 (Frozen Watch) is now posted on the
+Quest Board by the Records Room Worker.
+
+=============================================================================
+O) Quest 17 — The Frozen Watch (Charter for Q27)
+=============================================================================
+The Unbind Undead scroll is on Silas Bryne's desk at the Lighthouse.
+Warriors must bring it to Will. The Chuckle House requires the ring for
+invisibility.
+
+> EXAMINE PAINTING            [Tale and Ale]
+> EAST                        [Main East]
+> EAST                        [Wasteland]
+> EAST                        [Beach Road]
+> SOUTH                       [Roundabout Beach]
+> NORTH                       [Lighthouse]
+> TAKE SCROLL                 [Unbind Undead]
+> SOUTH                       [Roundabout Beach]
+> WEST                        [Beach Road]
+> WEST                        [Wasteland]
+> WEST                        [Main East]
+> WEST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> OPEN MAILBOX                [tower]
+> REMOVE GLASSES              [glasses removed]
+> GIVE SCROLL TO WILL         [Unbind Undead]
+> WEAR GLASSES                [glasses]
+
+Unbind Undead spell learned. Navigate to the Chuckle House (west of
+the Graveyard, now visible after Litlock's bonk).
+
+Equip the ring for invisibility before entering the Chuckle House.
+Corruption ticks while wearing it — remove it as soon as possible after.
+
+> EXAMINE PAINTING            [Tale and Ale]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+
+Equip the ring just before entering the Chuckle House.
+
+> WEAR RING                   [ring]
+> WEST                        [Chuckle House Entrance]
+> NORTH                       [Rejection Mirror]
+> NORTH                       [Shatter Trap Mirror]
+> NORTH                       [Ghost's Room]
+> CAST UNBIND UNDEAD          [Thank you]
+> TAKE WATCH                  [pocket watch]
+> SOUTH                       [Shatter Trap Mirror]
+> SOUTH                       [Rejection Mirror]
+> SOUTH                       [Chuckle House Entrance]
+> EAST                        [Graveyard]
+> REMOVE RING                 [ring removed]
+
+Deliver the watch to the Records Room Worker.
+
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> NORTH                       [Town Hall Exterior]
+> NORTH                       [Upper Hall]
+
+While in Town Hall, grab the wax seal from the display cabinet
+(Quest 4 — The Whispering Jar).
+
+> OPEN CABINET                [wax seal]
+> TAKE SEAL                   [wax seal]
+
+> WEST                        [Records Room]
+> GIVE WATCH TO WORKER        [town charter]
+
+Charter acquired. Quest 17 complete. Quest 24 (Beekeeper's Swarm) is
+now posted on the Quest Board.
+
+=============================================================================
+P) Quest 27 — The Toll Bridge Operator
+=============================================================================
+Navigate to the Toll Bridge via the Graveyard Crypt path. The Cellar
+path also works (after Quest 25), but Crypt is available now.
+
+> EAST                        [Upper Hall]
+> DOWN                        [Town Hall Exterior]
+> SOUTH                       [Town Square]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+
+The Crypt is dark — cast Light spell.
+
+> CAST LIGHT                  [light]
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+
+Perception check auto-passes — faded official seal visible. Quest 27
+discovered.
+
+> GIVE CHARTER TO BOGGART     [bridge free]
+
+Boggart reads the charter, vacates, drops the strongbox. Strength check
+auto-passes.
+
+> OPEN STRONGBOX              [Zenni]
+> TAKE ZENNI                  [Zenni]
+
+=============================================================================
+Q) Quest 32 — The Missing Gravestone (Middle Tier Key)
+=============================================================================
+The Mid-Tier Key Door triggers Quest 32 when first encountered. Rowan
+Finch is in the Council Chamber. The gravestone is face-down in the bog.
+The hand cart to move it is in the Storage Area (east of Ink Corridor).
+
+First: discover the door.
+
+> SOUTH                       [Dungeon Entrance]
+> SOUTH                       [Ink Corridor]
+> SOUTH                       [Narrow Passageway]
+
+Wait — we haven't been through Idol Room yet. Before going to the Idol
+Room we need the sack of salt from the Supply Room (west branch off Ink
+Corridor), or the Idol Room door traps us. The Supply Room also has:
+smoke jar (Quest 24), portcullis bar (Trap 19), and small clay pot
+(Quest 40). Let's clear the Supply Room first.
+
+> NORTH                       [Ink Corridor]
+
+With Actually Enchanted Glasses the Ink Corridor trip cord is
+auto-detected and disarmed.
+
+> WEST                        [Supply Room]
+
+Trap 17 (unstable shelf) is auto-detected and disarmed. Smoke jar and
+small clay pot are visible in wreckage either way.
+
+> TAKE SALT                   [sack of salt]
+> TAKE PORTCULLIS BAR         [portcullis bar]
+> TAKE SMOKE JAR              [smoke jar]
+> TAKE CLAY POT               [small clay pot]
+> EAST                        [Ink Corridor]
+> EAST                        [Storage Area]
+
+The hand cart and support beam are here.
+
+> TAKE CART                   [hand cart]
+> TAKE SUPPORT BEAM           [support beam]
+> WEST                        [Ink Corridor]
+> SOUTH                       [Narrow Passageway]
+> SOUTH                       [Idol Room]
+
+Swap the idol safely with the sack of salt.
+
+> SWAP IDOL WITH SALT         [safe]
+> TAKE IDOL                   [Chachapoyan Fertility Idol]
+> SOUTH                       [Combat Room]
+
+With Actually Enchanted Glasses the pressure plate before the Combat
+Room is auto-detected. The Warden fight is unavoidable.
+
+> KILL WARDEN WITH SWORD      [Warden]
+> TAKE LANTERN                [Guardian's Lantern]
+
+Side trip east to the Flooding Room. With Actually Enchanted Glasses the
+pressure plate that controls the sluice is auto-detected and jammed
+before entering — Quest 50's board posting is NOT removed (the disarm
+only removes it when disarmed, per the design doc: "removed if Flooding
+Room trap disarmed"). Let's check: per quests.md Q50: "Quest Board
+posting is removed permanently if the player disarms the Flooding Room
+trap." So disarming removes the quest. We want to complete Q50 (Lost
+Apprentice / Apprentice's Gloves). Therefore we must NOT disarm the
+Flooding Room — we let ourselves be swept through.
+
+We'll intentionally trigger the Flooding Room in the correct sequence.
+For now: skip it. Continue south.
+
+> SOUTH                       [Prayer Alcove]
+
+With Actually Enchanted Glasses the full depth of the alcove is revealed.
+
+> TAKE CROWBAR                [crowbar]
+> TAKE VIAL                   [vial of glacier melt]
+> SOUTH                       [Portcullis Corridor]
+> USE PORTCULLIS BAR          [portcullis propped]
+> SOUTH                       [Shrine Room]
+
+Bowl piece 3 (Shrine Room, dungeon upper tier) — auto-pass.
+
+> TAKE BOWL PIECE             [bowl piece]
+
+> SOUTH                       [Rickety Bridge]
+
+Weight check. Current heavy items: pickaxe(3), idol(4), sack of
+salt(4), support beam(4), hand cart(5). Weight limit: 12. We're way
+over. Drop heavy items to cross, retrieve them after.
+
+> DROP PICKAXE                [pickaxe]
+> DROP SALT                   [sack of salt]
+> DROP SUPPORT BEAM           [support beam]
+> DROP CART                   [hand cart]
+> SOUTH                       [Mid-Tier Key Door]
+
+Quest 32 discovered. The door is locked — we need the Middle Tier Key
+from Rowan Finch. Return north, get the key. But first: retrieve the
+heavy items we dropped.
+
+> NORTH                       [Rickety Bridge]
+> TAKE PICKAXE                [pickaxe]
+> TAKE SALT                   [sack of salt]
+> TAKE SUPPORT BEAM           [support beam]
+> TAKE CART                   [hand cart]
+> NORTH                       [Shrine Room]
+> NORTH                       [Portcullis Corridor]
+> NORTH                       [Prayer Alcove]
+> NORTH                       [Combat Room]
+> NORTH                       [Idol Room]
+> NORTH                       [Narrow Passageway]
+> NORTH                       [Supply Room]
+> NORTH                       [Ink Corridor]
+> NORTH                       [Dungeon Entrance]
+> NORTH                       [Toll Bridge]
+> NORTH                       [Junction]
+> WEST                        [Bone Passage]
+> SOUTH                       [Charnel Walk]
+> UP                          [Crypt]
+> UP                          [Mausoleum]
+> NORTH                       [Graveyard]
+
+Talk to Rowan Finch (Council Chamber):
+
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> NORTH                       [Town Hall Exterior]
+> EAST                        [Council Chamber]
+> TALK TO ROWAN               [gravestone]
+> WEST                        [Town Hall Exterior]
+> SOUTH                       [Town Square]
+
+The gravestone is in the bog. Navigate there with the hand cart.
+
+> WEST                        [Main West]
+> WEST                        [Archery Range]
+> NORTH                       [Roundabout Pond]
+> WEST                        [Bog-SE]
+
+Perception check auto-passes — gravestone visible face-down in mud.
+
+> LOAD STONE ONTO CART        [loaded]
+> EAST                        [Roundabout Pond]
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> EAST                        [Town Square]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> DROP CART                   [gravestone placed]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> NORTH                       [Town Hall Exterior]
+> EAST                        [Council Chamber]
+> TALK TO ROWAN               [Middle Tier Key]
+> TAKE KEY                    [Middle Tier Key]
+
+Quest 32 complete.
+
+=============================================================================
+R) Quest 19/30 — Silver Stake from Town Square Statue
+=============================================================================
+The silver stake is in the hollow base of the statue. Crowbar required.
+
+> WEST                        [Town Hall Exterior]
+> SOUTH                       [Town Square]
+> LOOK AT STATUE              [seam]
+> USE CROWBAR ON STATUE       [silver stake]
+> TAKE STAKE                  [silver stake]
+> TAKE NOTE                   [emerald seal]
+
+=============================================================================
+S) Quest 22 — The Ruined Aqueduct (Fountain prerequisite for Q49)
+=============================================================================
+The aqueduct is in the Dungeon Upper Tier. Mortar from the Supply Room
+is needed to seal the joints. The stone blocks and gap are located in
+the dungeon upper tier.
+
+Navigate back to the dungeon.
+
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+> SOUTH                       [Dungeon Entrance]
+> SOUTH                       [Ink Corridor]
+> WEST                        [Supply Room]
+> TAKE MORTAR                 [mortar compound]
+> EAST                        [Ink Corridor]
+> LOOK AT AQUEDUCT            [collapsed]
+> CARRY BLOCKS                [stone blocks]
+> SEAL JOINTS WITH MORTAR     [aqueduct restored]
+
+Quest 22 complete. Town Square fountain now flows.
+
+=============================================================================
+T) Quest 38 — The Collapsed Passage (Dungeon Shortcut)
+=============================================================================
+The Collapsed Gallery is east of the Storage Area (east branch off Ink
+Corridor). Pickaxe required; three strength checks clear the timbers;
+support beam props the shortcut permanently.
+
+> EAST                        [Storage Area]
+> SOUTH                       [Collapsed Gallery]
+> USE PICKAXE ON TIMBER       [first timber]
+> USE PICKAXE ON TIMBER       [second timber]
+> USE PICKAXE ON TIMBER       [third timber]
+> USE SUPPORT BEAM            [shortcut open]
+
+Quest 38 complete. Passage now exits at the Rickety Bridge — this
+shortcut bypasses everything above Shrine Room on future runs.
+
+=============================================================================
+U) Quest 25 — The Flooded Cellar
+=============================================================================
+The cellar drain is below the kitchen. Bartender holds the cellar key.
+Crowbar required to remove drain cover.
+
+> WEST                        [Ink Corridor]
+> NORTH                       [Dungeon Entrance]
+> NORTH                       [Toll Bridge]
+> NORTH                       [Junction]
+> WEST                        [Bone Passage]
+> SOUTH                       [Charnel Walk]
+> UP                          [Crypt]
+> UP                          [Mausoleum]
+> NORTH                       [Graveyard]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> TALK TO BARTENDER           [cellar key]
+> TAKE KEY                    [cellar key]
+> SOUTH                       [Kitchen]
+> UNLOCK CELLAR DOOR          [cellar door]
+> DOWN                        [Cellar]
+> REMOVE DRAIN COVER          [crowbar]
+> CLEAR DRAIN                 [drain clear]
+
+Cellar drains. Secret Tunnel door revealed. Bartender gives Bartender's
+Boots (leg slot, +3 trap disarm).
+
+> UP                          [Kitchen]
+> TALK TO BARTENDER           [boots]
+> TAKE BOOTS                  [Bartender's Boots]
+> WEAR BOOTS                  [boots]
+
+Quest 25 complete.
+
+=============================================================================
+V) Quest 40 — Shamus's Recipe
+=============================================================================
+We have bog thyme and the small clay pot. Deliver both to Shamus.
+
+> SOUTH                       [Kitchen]
+> GIVE BOG THYME TO SHAMUS    [thyme]
+> GIVE CLAY POT TO SHAMUS     [stew]
+
+Quest 40 complete. Hearty stew (2 hearts) now available for 2 Zenni.
+
+=============================================================================
+W) Quest 4 — The Whispering Jar
+=============================================================================
+The Whispering Jar is in the inn's back room. We have the wax seal from
+the Town Hall display cabinet. We need silver dust from the Mine Passage
+(mid-tier dungeon). Complete the jar restoration after descending to
+the mid-tier.
+
+For now, locate the jar and learn the restoration method.
+
+> NORTH                       [Bar]
+> EXAMINE JAR                 [hums]
+
+Quest 4 discovered. We'll complete it after reaching the Mine Passage.
+
+=============================================================================
+X) Quest 28 — The Archivist's Request
+=============================================================================
+The Archivist in the library needs a rubbing from the Inscription Chamber
+(mid-tier dungeon). We need thin paper (2 Zenni from vendor) and charcoal
+(Mine Passage, no perception check). Buy the paper from Shamus.
+
+> SOUTH                       [Kitchen]
+> TALK TO SHAMUS              [paper]
+> BUY THIN PAPER              [thin paper]
+> NORTH                       [Bar]
+> NORTH                       [Main Room]
+> WEST                        [Main West]
+> NORTH                       [Library Main Hall]
+> EAST                        [Stacks]
+> TALK TO ARCHIVIST           [engraving]
+
+Quest 28 discovered.
+
+=============================================================================
+Y) Dungeon Mid-Tier — Key Side (Keeper's Keys, Crevice Watch, Hole to Below)
+=============================================================================
+Descend through the dungeon. Use the Middle Tier Key at the Mid-Tier Key
+Door. Before digging the Hole to Below, visit The Crevice for the Gold
+Pocket Watch (missable after collapse).
+
+Navigate from the Library.
+
+> SOUTH                       [Main Hall]
+> EAST                        [Main West]
+> EAST                        [Town Square]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+> SOUTH                       [Dungeon Entrance]
+> SOUTH                       [Ink Corridor]
+> SOUTH                       [Narrow Passageway]
+> SOUTH                       [Idol Room]
+> SOUTH                       [Combat Room]
+> SOUTH                       [Prayer Alcove]
+> SOUTH                       [Portcullis Corridor]
+> SOUTH                       [Shrine Room]
+> SOUTH                       [Rickety Bridge]
+
+Drop heavy items to cross (idol weight 4 + cart weight 5 alone exceeds
+limit). Critical items across the bridge: rope(3), lantern(2), stake(2),
+vial(1), key(1) = 9, under the 12 limit. Drop the idol, salt, cart here.
+
+> DROP IDOL                   [idol]
+> DROP SALT                   [sack of salt]
+> DROP CART                   [hand cart]
+> SOUTH                       [Mid-Tier Key Door]
+> UNLOCK DOOR WITH KEY        [door unlocked]
+> SOUTH                       [Key Door Landing]
+> SOUTH                       [Mine Passage]
+
+Take charcoal (Quest 28, no perception check). With Actually Enchanted
+Glasses silver dust auto-found (Quest 4).
+
+> TAKE CHARCOAL               [charcoal]
+> TAKE SILVER DUST            [silver dust]
+> OPEN CHEST WITH LOCKPICKS   [chest]
+> TAKE ZENNI                  [20 Zenni]
+> SOUTH                       [Stored Room]
+
+Before digging: visit The Crevice east to get the Gold Pocket Watch.
+
+> EAST                        [Crevice]
+> TAKE WATCH                  [gold pocket watch]
+> WEST                        [Stored Room]
+> DIG                         [Hole to Below]
+> TIE ROPE TO BEAM            [rope tied]
+
+=============================================================================
+Z) Quest 28 — Complete: Inscription Chamber Rubbing
+=============================================================================
+Inscription Chamber is the next room south (past the Stored Room).
+Make the rubbing while we're on this level.
+
+> SOUTH                       [Inscription Chamber]
+
+Actually Enchanted Glasses auto-reveal the crawlspace in the east wall
+(Cave Creature's Lair, Quest 7). Rune stone (Quest 42) also auto-found.
+
+> TAKE RUNE STONE             [rune stone]
+> EAST                        [Cave Creature's Lair]
+> TAKE BONE FLUTE             [bone flute]
+> WEST                        [Inscription Chamber]
+> RUB PAPER ON ENGRAVING      [rubbing]
+> TAKE RUBBING                [rubbing]
+> NORTH                       [Stored Room]
+
+Surface and deliver the rubbing to the Archivist.
+
+> UP                          [Lower Tier — no, Stored Room]
+
+Wait — DIG collapsed the Stored Room floor into the Hole to Below.
+Going UP takes us to the mid-tier Stored Room where the rope is tied.
+Going DOWN takes us to Pile of Rubble in the lower tier.
+
+The Inscription Chamber is south of the Stored Room on the key side.
+Let's go down to the lower tier, do lower-tier quests, then come back
+to the Inscription Chamber after returning up through the rope.
+
+Actually, Inscription Chamber is accessible directly — it is south of
+the Stored Room. We can access it before descending through the Hole.
+Let me re-map: Stored Room is the room with the Hole. The Inscription
+Chamber is SOUTH of the Stored Room, still on the mid-tier key side.
+So we can go south to the Inscription Chamber without descending.
+
+(Already done above — rubbing taken, rune stone taken, bone flute taken.)
+
+Now descend to the lower tier.
+
+> DOWN                        [Pile of Rubble]
+
+=============================================================================
+AA) Quest 4 — Whispering Jar: Silver Dust Collected
+=============================================================================
+Silver dust collected in Mine Passage above. We can restore the
+Whispering Jar when we surface. For now, continue through the lower tier.
+
+=============================================================================
+BB) Quest 19/30 — Keeper's Keys (Lower Crypt)
+=============================================================================
+> NORTH                       [Lower Crypt]
+> TAKE KEYS                   [key ring]
+
+Emerald seal matches the statue note.
+
+=============================================================================
+CC) Quest 34 — Frozen Soldier (setup: Tool Alcove & Mid Room)
+=============================================================================
+The Tool Alcove is north of The Junction in the lower tier. The speaking
+door there requires the incantation scroll (Quest 28 reward — not yet in
+hand). The Ivory Torch is in The Still Den — take it before attempting
+Quest 34. Proceed east through the lower tier first.
+
+> NORTH                       [Encampment]
+> EAST                        [Antechamber]
+> CLEAR BONES                 [disarmed]
+
+The antechamber bone crunch floor must be cleared before passing.
+
+> EAST                        [Junction — lower]
+> NORTH                       [Tool Alcove]
+
+Actually Enchanted Glasses auto-reveal the speaking door. But we don't
+have the incantation scroll yet. Return from archivist visit will
+complete this. Note the discovery and move on.
+
+> SOUTH                       [Junction — lower]
+> EAST                        [Narrow Pass]
+> EAST                        [Still Den]
+> KILL WEREWOLF               [no effect]
+
+Without the consecrated silver stake we can't harm the werewolf.
+Take the Ivory Torch from the wall before combat begins.
+
+> TAKE IVORY TORCH            [ivory torch]
+
+We'll need to come back once the stake is consecrated.
+
+> WEST                        [Narrow Pass]
+> WEST                        [Junction — lower]
+
+=============================================================================
+DD) Quest 49 — Crystal Bowl: Fire Clay (Thermal Vent Room)
+=============================================================================
+> WEST                        [Encampment]
+> WEST                        [Lower Crypt]
+> NORTH                       [Thermal Vent Room — wait, incorrect]
+
+Lower tier layout: from Lower Crypt, west goes to Thermal Vent Room
+(dead-end spur). Actually: from Pile of Rubble, north is Lower Crypt,
+north from Lower Crypt is The Encampment, west from Encampment is
+Thermal Vent Room.
+
+> WEST                        [Thermal Vent Room]
+> LOOK UP                     [fire clay]
+> TAKE CLAY                   [fire clay]
+> EAST                        [Encampment]
+
+=============================================================================
+EE) Quest 19/30 — Holy Water & Consecration (surface, Keeper's Chamber)
+=============================================================================
+Surface, use Keeper's keys at Keeper's Chamber (Church of All).
+
+> SOUTH                       [Pile of Rubble]
+> UP                          [Stored Room]
+> NORTH                       [Mine Passage]
+> NORTH                       [Key Door Landing]
+> NORTH                       [Mid-Tier Key Door]
+> NORTH                       [Rickety Bridge]
+> NORTH                       [Shrine Room]
+> NORTH                       [Portcullis Corridor]
+> NORTH                       [Prayer Alcove]
+> NORTH                       [Combat Room]
+> NORTH                       [Idol Room]
+> NORTH                       [Narrow Passageway]
+> NORTH                       [Supply Room]
+> NORTH                       [Ink Corridor]
+> NORTH                       [Dungeon Entrance]
+> NORTH                       [Toll Bridge]
+> NORTH                       [Junction]
+> WEST                        [Bone Passage]
+> SOUTH                       [Charnel Walk]
+> UP                          [Crypt]
+> UP                          [Mausoleum]
+> NORTH                       [Graveyard]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> SOUTH                       [Church Nave]
+> EAST                        [Keeper's Chamber door]
+> UNLOCK DOOR WITH KEYS       [Keeper's Chamber]
+> TAKE HOLY WATER             [holy water]
+> POUR HOLY WATER ON STAKE    [consecrated silver stake]
+
+Also: restore the Whispering Jar. Return to the inn for that.
+
+=============================================================================
+FF) Quest 4 — The Whispering Jar (Complete)
+=============================================================================
+The inn's back room has the jar. We have wax seal, silver dust, and can
+read the incantation etched on the base.
+
+> WEST                        [Church Nave]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> ENTER BACK ROOM             [Whispering Jar]
+> PRESS SEAL                  [seal]
+> DUST JAR                    [dust]
+> READ INCANTATION            [incantation]
+> LISTEN                      [thermal vent]
+
+Jar whispers: "The ceiling of the thermal vent holds a secret." Quest 4
+complete. (We already retrieved the fire clay — the jar confirmed what
+we found.)
+
+=============================================================================
+GG) Quest 28 — The Archivist's Request (Complete)
+=============================================================================
+Return the rubbing to the Archivist in the library.
+
+> NORTH                       [Main Room]
+> NORTH                       [Main West]
+> NORTH                       [Library Main Hall]
+> EAST                        [Stacks]
+> GIVE RUBBING TO ARCHIVIST   [incantation scroll]
+> TAKE SCROLL                 [incantation scroll]
+
+Quest 28 complete. Incantation scroll received — needed for Quest 34.
+
+=============================================================================
+HH) Quest 7 — The Bone Flute (Complete)
+=============================================================================
+We collected the bone flute from the Cave Creature's Lair. Return it to
+Pyronicus for the Fireball scroll.
+
+> WEST                        [Library Main Hall]
+> SOUTH                       [Main West]
+> EAST                        [Town Square]
+> EAST                        [Main East]
+> EAST                        [Wasteland]
+> SOUTH                       [Volcano]
+> DOWN                        [Pyronicus's Forge]
+> GIVE FLUTE TO PYRONICUS     [fireball]
+> TAKE FIREBALL SCROLL        [fireball scroll]
+
+Warriors cannot read spell scrolls directly — take it to Will.
+
+> UP                          [Volcano]
+> NORTH                       [Wasteland]
+> WEST                        [Main East]
+> WEST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> OPEN MAILBOX                [tower]
+> REMOVE GLASSES              [glasses removed]
+> GIVE SCROLL TO WILL         [Fireball]
+> WEAR GLASSES                [glasses]
+
+Quest 7 complete. Fireball spell learned.
+
+=============================================================================
+II) Quest 19/30 — Kill the Undead Werewolf
+=============================================================================
+Return to The Still Den with the consecrated silver stake.
+
+> EXAMINE PAINTING            [Tale and Ale]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+> SOUTH                       [Dungeon Entrance]
+> SOUTH                       [Ink Corridor]
+> SOUTH                       [Narrow Passageway]
+> SOUTH                       [Idol Room]
+> SOUTH                       [Combat Room]
+> SOUTH                       [Prayer Alcove]
+> SOUTH                       [Portcullis Corridor]
+> SOUTH                       [Shrine Room]
+> SOUTH                       [Rickety Bridge]
+> SOUTH                       [Mid-Tier Key Door]
+> SOUTH                       [Key Door Landing]
+> SOUTH                       [Mine Passage]
+> SOUTH                       [Stored Room]
+> DOWN                        [Pile of Rubble]
+> NORTH                       [Lower Crypt]
+> NORTH                       [Encampment]
+> EAST                        [Antechamber]
+> EAST                        [Junction — lower]
+> EAST                        [Narrow Pass]
+> EAST                        [Still Den]
+> DRIVE STAKE INTO WEREWOLF   [werewolf destroyed]
+> TAKE AMULET                 [Werewolf's Amulet]
+
+Quest 19/30 complete. Werewolf's Amulet acquired (ring ritual artifact).
+
+=============================================================================
+JJ) Quest 34 — The Frozen Soldier (Incantation scroll + Ivory Torch)
+=============================================================================
+Return north in the lower tier to the Tool Alcove. We now have the
+incantation scroll from the Archivist and the Ivory Torch from The
+Still Den.
+
+> WEST                        [Narrow Pass]
+> WEST                        [Junction — lower]
+> NORTH                       [Tool Alcove]
+> READ SCROLL                 [door opens]
+
+Incantation scroll consumed. Passage north opens permanently.
+
+> NORTH                       [Quest 34 Mid Room]
+
+Dark pool fills the room wall to wall — swimming is 1 heart arcane
+damage, returned to doorway. Freeze it with the vial of glacier melt.
+
+> POUR VIAL IN WATER          [pool freezes]
+> NORTH                       [Quest 34 Fountain Room]
+
+A soldier is encased in magical ice. Thaw him over two turns with the
+Ivory Torch.
+
+> HOLD TORCH NEAR ICE         [crack]
+> HOLD TORCH NEAR ICE         [freed]
+
+The soldier hands over the Forgotten Blade (most valuable treasure,
+60 pts) and wanders off toward town.
+
+> TAKE FORGOTTEN BLADE        [Forgotten Blade]
+
+Quest 34 complete.
+
+=============================================================================
+KK) Lower Tier — Dark Room, Spirit Room, Burial Chamber
+=============================================================================
+The Dark Room is a spur south of The Junction. Guardian's Lantern
+required to dispel magical darkness.
+
+> SOUTH                       [Junction — lower]
+> SOUTH                       [Dark Room]
+> LIGHT LANTERN               [darkness collapses]
+> SOUTH                       [Spirit Room]
+
+Spirits block passage while visible. Equip the ring for invisibility.
+
+> WEAR RING                   [ring]
+> SOUTH                       [Burial Chamber]
+
+Funeral Mask of Hammered Gold on the central plinth — spirits do not
+react to taking it.
+
+> TAKE MASK                   [Funeral Mask]
+> NORTH                       [Spirit Room]
+> NORTH                       [Dark Room]
+> NORTH                       [Junction — lower]
+> REMOVE RING                 [ring removed]
+
+=============================================================================
+LL) Quest 50 — The Lost Apprentice (Trap Side)
+=============================================================================
+Quest 50 requires being swept through the Flooding Room (Trap 41) —
+the ONLY way to reach the trap side of the mid-tier. We must NOT disarm
+the Flooding Room or the quest posting is removed permanently.
+
+Return up through the Hole to Below and navigate to the Flooding Room.
+
+> SOUTH                       [Pile of Rubble — wait, we are in lower tier]
+
+From Junction (lower), go west:
+
+> WEST                        [Encampment]
+> SOUTH                       [Pile of Rubble]
+> UP                          [Stored Room]
+> NORTH                       [Mine Passage]
+> NORTH                       [Key Door Landing]
+> NORTH                       [Mid-Tier Key Door]
+> NORTH                       [Rickety Bridge]
+> NORTH                       [Shrine Room]
+> NORTH                       [Portcullis Corridor]
+> NORTH                       [Prayer Alcove]
+> NORTH                       [Combat Room]
+> EAST                        [Flooding Room — via Creature Den]
+
+The Flooding Room: entering triggers the sluice sequence. Three levers:
+Left (stuck/spent), Right (breaks/spent), Middle (correct — closes
+sluice). On a wrong pull, the room floods. If we pull wrong on turn 1,
+we get the warning ("water is at your knees"). Wrong on turn 2 sweeps us
+through to the Spillway — which is what we want. Let's pull Left first.
+
+> PULL LEFT LEVER             [stuck]
+> PULL RIGHT LEVER            [water rising]
+> WAIT                        [swept through]
+
+We are swept through the sluice to The Spillway (mid-tier trap side).
+
+=============================================================================
+LL.1) Dream Corridor — Lost Apprentice's Cell
+=============================================================================
+Navigate through the Dream Corridor to reach the Lost Apprentice's Cell.
+The Dream Corridor is a 2×3×2 decision tree. Successful path: B (go
+another way) → B3 (feel — vibration in the floor) → step onto stone.
+
+> SOUTH                       [Dream Corridor]
+> GO ANOTHER WAY              [instinct vs caution — B path]
+> FEEL VIBRATION              [floor hums]
+> STEP ONTO STONE             [through]
+
+We are through. Arrive in the Lost Apprentice's Cell.
+
+> NORTH                       [Lost Apprentice's Cell]
+> KILL APPRENTICE             [breaks affliction]
+
+The apprentice comes around. Finish the hole to Bog-NW with the shovel.
+
+> USE SHOVEL                  [hole to bog]
+
+The apprentice follows us out. Quest completes on bog exit.
+
+> NORTH                       [Bog-NW]
+
+Quest 50 complete. Apprentice's Gloves received.
+
+> TAKE GLOVES                 [Apprentice's Gloves]
+> WEAR GLOVES                 [gloves]
+
+=============================================================================
+MM) Supply Cache — Gold Nugget (Trap Side)
+=============================================================================
+The Supply Cache is partially collapsed — Gold Nugget buried in rubble.
+With Actually Enchanted Glasses auto-pass.
+
+Return south through the bog exit back into the trap side.
+
+> SOUTH                       [Lost Apprentice's Cell]
+> SOUTH                       [Flood Sump area]
+
+Actually: Supply Cache is off the trap side path. From the Spillway:
+Spillway → Dream Corridor → Lost Apprentice's Cell → Supply Cache →
+Flood Sump. The Supply Cache is north of Flood Sump.
+
+> SOUTH                       [Supply Cache]
+> TAKE NUGGET                 [gold nugget]
+
+=============================================================================
+NN) Quest 42 — Brotherhood Stones (Complete)
+=============================================================================
+We have all three rune stones: Bog-NE, Old Oak, Inscription Chamber.
+Surface and deliver them to Ivanaar.
+
+Return to the surface via the bog hole exit (Bog-NW).
+
+> NORTH                       [Lost Apprentice's Cell]
+> NORTH                       [Bog-NW]
+> EAST                        [Bog-NE]
+> EAST                        [Bog-SE]
+> EAST                        [Roundabout Pond]
+> EAST                        [Archery Range]
+> WEST                        [Viking Encampment]
+> GIVE STONES TO IVANAAR      [tunic]
+> TAKE TUNIC                  [Ivanaar's Tunic]
+> WEAR TUNIC                  [tunic]
+
+Quest 42 complete. Ivanaar's Tunic (chest slot, damage avoidance)
+acquired.
+
+=============================================================================
+OO) Quest 49 — Crystal Bowl: Assemble at Fountain
+=============================================================================
+We have all three bowl pieces and the fire clay. The Town Square fountain
+is running (Quest 22 complete). Mix fire clay with fountain water to
+make clay adhesive and assemble the bowl.
+
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> EAST                        [Town Square]
+> MIX CLAY WITH WATER         [clay adhesive]
+> ASSEMBLE BOWL               [repaired bowl]
+
+Navigate to the shrine in Roundabout Forest.
+
+> EAST                        [Main East]
+> EAST                        [Wasteland]
+> EAST                        [Beach Road]
+> NORTH                       [Old Oak]
+> NORTH                       [Roundabout Forest]
+> PUT BOWL ON PEDESTAL        [bowl placed]
+> PUT COIN ON PEDESTAL        [crystal bowl]
+
+Crystal Bowl (ring ritual artifact) acquired.
+
+=============================================================================
+PP) Quest 24 — The Beekeeper's Swarm (Complete)
+=============================================================================
+We have the smoke jar from the Supply Room. Navigate to the swarm tree
+(east of The Old Oak).
+
+> SOUTH                       [Old Oak]
+> EAST                        [Swarm Tree]
+> USE SMOKE JAR               [bees settle]
+> TAKE VIAL                   [queen vial]
+> WEST                        [Old Oak]
+> WEST                        [Beekeeper's Cottage]
+> GIVE VIAL TO BEEKEEPER      [enchanted honey]
+> TAKE HONEY                  [enchanted honey]
+
+Quest 24 complete. Enchanted honey (restores 2 hearts) received.
+
+=============================================================================
+QQ) Quest 54 — Fight the Knight (Melee Skill — Not Needed for Warrior)
+=============================================================================
+The Redcrosse Knight is in Town Square. Quest 54 is for Mages and Rogues
+only — Warriors already have melee skill. For a Warrior walkthrough,
+speak to the Knight to verify his presence and dialogue, but the trial
+and melee unlock are class-gated.
+
+> EAST                        [Main West]
+> EAST                        [Town Square]
+> TALK TO KNIGHT              [Knight of Faith]
+
+The Knight greets the player. As a Warrior, the quest does not trigger.
+
+=============================================================================
+RR) Quest 58 — The Dragon-Nip (Golden Dragon Scale)
+=============================================================================
+Dragon-nip is hidden under the nightstand in Will's Bedroom — Hard
+perception check, but Actually Enchanted Glasses auto-pass. Return to
+the bedroom.
+
+> SOUTH                       [Tale and Ale]
+> OPEN MAILBOX                [tower]
+> NORTH                       [bedroom door]
+> ENTER BEDROOM               [nightstand]
+
+With Actually Enchanted Glasses the dragon-nip is auto-visible.
+
+> TAKE DRAGON-NIP             [dragon-nip]
+> EXAMINE PAINTING            [Tale and Ale]
+> OPEN MAILBOX                [tower]
+> GIVE DRAGON-NIP TO WILL     [Golden Dragon Scale]
+> TAKE SCALE                  [Golden Dragon Scale]
+
+Quest 58 complete. Golden Dragon Scale (treasure, 36 pts) acquired.
+
+=============================================================================
+SS) Quest 53 — Will's Glasses (Drop on Nightstand for XP)
+=============================================================================
+Dropping the Actually Enchanted Glasses on the nightstand in Will's
+Bedroom completes Quest 53 and awards 20 XP.
+
+> NORTH                       [bedroom door]
+> ENTER BEDROOM               [nightstand]
+> DROP GLASSES                [nightstand]
+
+Quest 53 complete. 20 XP awarded.
+
+=============================================================================
+TT) Ring Binding Ritual — Church of All Altar
+=============================================================================
+All three ring ritual artifacts: Pale Blade (Brotherhood of the Pale
+Blade), Werewolf's Amulet (Veil of the Arcane), Crystal Bowl (Verdant
+Circle). Navigate to the Church of All altar.
+
+> EXAMINE PAINTING            [Tale and Ale]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> EAST                        [Altar]
+
+Place all three artifacts and attune the dial for each. Default
+attunement is The Keepers of the Lantern (position 6 in the 7-religion
+dial). Brotherhood of the Pale Blade is position 3 — turn left three
+times. Veil of the Arcane is position 2 — turn right one time from
+position 3. Verdant Circle is position 1 — turn right one time from
+position 2.
+
+Place the Pale Blade first:
+
+> PUT PALE BLADE ON ALTAR     [blade placed]
+> TURN DIAL LEFT              [dial]
+> TURN DIAL LEFT              [dial]
+> TURN DIAL LEFT              [white]
+
+The Pale Blade glows white. Place the Werewolf's Amulet:
+
+> PUT AMULET ON ALTAR         [amulet placed]
+> TURN DIAL RIGHT             [dial]
+> TURN DIAL RIGHT             [red]
+
+The Werewolf's Amulet glows red. Place the Crystal Bowl:
+
+> PUT BOWL ON ALTAR           [bowl placed]
+> TURN DIAL RIGHT             [green]
+
+The Crystal Bowl glows green. All three artifacts glowing. Place the
+ring:
+
+> WEAR RING                   [ring]
+> PUT RING ON ALTAR           [binding]
+
+Binding ceremony fires. All three artifacts consumed. Ring bound.
+
+> TAKE RING                   [bound ring]
+> REMOVE RING                 [ring won't go on]
+
+=============================================================================
+UU) Trophy Case — Deposit All Treasures
+=============================================================================
+Nine treasures to deposit. The Tower is on the second floor of Town Hall.
+Open the case before placing items.
+
+> WEST                        [Church Nave]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> NORTH                       [Town Hall Exterior]
+> NORTH                       [Upper Hall]
+> NORTH                       [Tower]
+> OPEN CASE                   [case open]
+> PUT FORGOTTEN BLADE IN CASE         [Forgotten Blade]
+> PUT DIAMOND BROOCH IN CASE          [Diamond Brooch]
+
+Wait — the Diamond Brooch is in the Magnetic Vault (mid-tier dungeon).
+We haven't retrieved it yet. Let's do that now and return.
+
+> DOWN                        [Upper Hall]
+> DOWN                        [Town Hall Exterior]
+> SOUTH                       [Town Square]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+> SOUTH                       [Dungeon Entrance]
+> SOUTH                       [Ink Corridor]
+> SOUTH                       [Narrow Passageway]
+> SOUTH                       [Idol Room]
+> SOUTH                       [Combat Room]
+> SOUTH                       [Prayer Alcove]
+> SOUTH                       [Portcullis Corridor]
+> SOUTH                       [Shrine Room]
+> SOUTH                       [Rickety Bridge]
+> SOUTH                       [Mid-Tier Key Door]
+> SOUTH                       [Key Door Landing]
+> SOUTH                       [Mine Passage]
+> SOUTH                       [Stored Room]
+> SOUTH                       [Inscription Chamber]
+> SOUTH                       [Echo Alcove — wait]
+
+Actually the layout: from Stored Room, the key side continues: south to
+Inscription Chamber, then the Echo Alcove, then Magnetic Vault, then
+Deep Lock Door.
+
+> SOUTH                       [Echo Alcove]
+> SOUTH                       [Magnetic Vault]
+
+Actually Enchanted Glasses auto-detect the magnetic lodestone in the
+chest lid. Disarm it, then open the chest.
+
+> DISARM LODESTONE            [lodestone removed]
+> OPEN CHEST                  [diamond brooch]
+> TAKE BROOCH                 [Diamond Brooch]
+
+Return to the surface.
+
+> NORTH                       [Inscription Chamber]
+> NORTH                       [Stored Room]
+> NORTH                       [Mine Passage]
+> NORTH                       [Key Door Landing]
+> NORTH                       [Mid-Tier Key Door]
+> NORTH                       [Rickety Bridge]
+> NORTH                       [Shrine Room]
+> NORTH                       [Portcullis Corridor]
+> NORTH                       [Prayer Alcove]
+> NORTH                       [Combat Room]
+> NORTH                       [Idol Room]
+> NORTH                       [Narrow Passageway]
+> NORTH                       [Supply Room]
+> NORTH                       [Ink Corridor]
+> NORTH                       [Dungeon Entrance]
+> NORTH                       [Toll Bridge]
+> NORTH                       [Junction]
+> WEST                        [Bone Passage]
+> SOUTH                       [Charnel Walk]
+> UP                          [Crypt]
+> UP                          [Mausoleum]
+> NORTH                       [Graveyard]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> NORTH                       [Town Hall Exterior]
+> NORTH                       [Upper Hall]
+> NORTH                       [Tower]
+> OPEN CASE                   [case open]
+
+Deposit all nine treasures:
+
+> PUT FORGOTTEN BLADE IN CASE          [Forgotten Blade]
+> PUT DIAMOND BROOCH IN CASE           [Diamond Brooch]
+> PUT FUNERAL MASK IN CASE             [Funeral Mask]
+> PUT GOLDEN DRAGON SCALE IN CASE      [Golden Dragon Scale]
+> PUT FERTILITY IDOL IN CASE           [Fertility Idol]
+> PUT GOLD POCKET WATCH IN CASE        [Pocket Watch]
+> PUT SHIP IN BOTTLE IN CASE           [Ship-in-a-Bottle]
+> PUT GOLD NUGGET IN CASE              [Gold Nugget]
+> PUT PIE RAT COIN IN CASE             [Pie Rat Coin]
+> LOOK IN CASE                         [9 of 9]
+
+All nine treasures deposited. Trophy Case win condition fires.
+
+=============================================================================
+VV) Return Ring to Will — Quest Complete
+=============================================================================
+Return the bound ring to Will Passion.
+
+> DOWN                        [Upper Hall]
+> DOWN                        [Town Hall Exterior]
+> SOUTH                       [Town Square]
+> SOUTH                       [Tale and Ale]
+> OPEN MAILBOX                [tower]
+> GIVE RING TO WILL           [Well done]
+
+Will takes the ring, listens for something, sets it on the desk. "Well
+done, [Name]." Ring quest complete. Game over — victory.
+
+=============================================================================
+END OF FULL-SCORE WALKTHROUGH
+=============================================================================

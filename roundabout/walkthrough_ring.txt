@@ -1,0 +1,1425 @@
+ROUNDABOUT: THE GOD-FORSAKEN RING
+Minimal Ring Quest Walkthrough
+================================
+Fewest commands to complete the three binding rituals and hear Will's
+"Well done." Sections map one-to-one with design requirements; a failing
+test section identifies exactly which requirement is broken.
+
+Test runner rules:
+  > lines     : feed verbatim to game.do_turn()
+  (input: X)  : fed via patched input() during character creation
+  [fragment]  : required case-insensitive substring in stdout
+  Prose lines : annotation only — ignored by the test runner
+
+Because this is a Warrior walkthrough, the Warrior starts with melee
+skill. Enchanted Glasses are retrieved in section B (Will's Bedroom) —
+as early as possible, before sailing, so Kevry can enchant them on the
+way to the Pale Blade chain and before the ring is retrieved from
+Pyronicus. Actually Enchanted Glasses pass all perception checks,
+removing randomness from the rest of the walkthrough.
+
+=============================================================================
+A) Opening — White House & Will's Briefing
+=============================================================================
+The game starts west of the white house. Any command except OPEN MAILBOX
+returns the Zork joke. Opening the mailbox triggers Will's appearance
+and character creation. After class and name, examining the painting
+teleports the player to the Tale and Ale.
+
+> OPEN MAILBOX                [mailbox opens]
+> warrior                     [You have chosen: Warrior]
+> Tester                      [Welcome, Tester]
+
+Will hands over 10 Zenni and the ring briefing fires. The painting on
+the wall is the exit. Examining it teleports us to the Tale and Ale.
+
+> EXAMINE PAINTING            [Tale and Ale]
+
+=============================================================================
+B) Enchanted Glasses — Will's Bedroom
+=============================================================================
+The hidden bedroom inside the tower is gated by a silent perception
+check. To avoid relying on that random check we go back to the tower via
+the mailbox in the tavern Main Room and wait for the check to succeed.
+We need the glasses before sailing so Kevry can enchant them on the way.
+
+Return to the tower:
+
+> OPEN MAILBOX                [tower]
+
+The bedroom door becomes visible on a successful Easy perception check
+that fires every visit. Since these are integration tests with
+always-max random rolls, the check succeeds immediately.
+
+> NORTH                       [bedroom door]
+> ENTER BEDROOM               [nightstand]
+
+Take the glasses and put them on. The bedroom is safe — Will is not
+present. Equipping them anywhere Will can see you is an instant fail.
+
+> TAKE GLASSES                [wire-rimmed glasses]
+> WEAR GLASSES                [glasses]
+
+=============================================================================
+C) Sailing to Kevry's Island — Glasses Enchantment
+=============================================================================
+We sail 69 squares east through the Open Ocean to Kevry's island.
+Glasses must be equipped (head slot) on arrival for Kevry to enchant.
+
+Sail from the Tale and Ale back to the overworld. The Docks are east of
+Roundabout Beach.
+
+> EXAMINE PAINTING            [Tale and Ale]
+> EAST                        [Town Square]
+> EAST                        [Main East]
+> EAST                        [Roundabout Wasteland]
+> EAST                        [Beach Road]
+> SOUTH                       [Roundabout Beach]
+> EAST                        [Docks]
+
+Before boarding we need the Pie Rat disguise to get past the crew. The
+heist is required: get the disguise from the mine, buy gunpowder, use
+flint and steel, blow the mine, then board while the crew is distracted.
+
+The mine is reached through Roundabout Forest (north of Beach Road).
+
+> NORTH                       [Old Oak]
+> NORTH                       [Roundabout Forest]
+> NORTH                       [Roundabout Forest]
+> DOWN                        [Mine Entrance]
+> DOWN                        [Main Shaft]
+
+The pickaxe is visible in the Main Shaft. We will need it later for
+the Collapsed Gallery shortcut, so take it now.
+
+> TAKE PICKAXE                [pickaxe]
+> SOUTH                       [Assay Room]
+> NORTH                       [Main Shaft]
+
+The disguise is in The Rat's Nest, off the Mine Tunnels.
+
+> DOWN                        [Mine Tunnels]
+
+The flint and steel is in the torch sconces. Take it LAST — a 40-turn
+burnout timer starts immediately on pickup and failure is a fail state.
+First find the disguise and the structural weak point.
+
+> NORTH                       [Rat's Nest]
+> TAKE DISGUISE               [Pie Rat disguise]
+> SOUTH                       [Mine Tunnels]
+
+Buy gunpowder from Shamus before lighting anything. Return to town first.
+
+> UP                          [Main Shaft]
+> UP                          [Mine Entrance]
+> SOUTH                       [Roundabout Forest]
+> SOUTH                       [Old Oak]
+> SOUTH                       [Beach Road]
+> WEST                        [Roundabout Wasteland]
+> WEST                        [Main East]
+> WEST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> SOUTH                       [Kitchen]
+> TALK TO SHAMUS              [Shamus]
+> BUY GUNPOWDER               [gunpowder]
+> BUY TORCH                   [torch]
+
+Now return to the mine to execute the heist.
+
+> NORTH                       [Bar]
+> NORTH                       [Main Room]
+> EAST                        [Pipe Room]
+
+We need to go back to the forest and down.
+
+> WEST                        [Main Room]
+> EAST                        [Main East]
+> EAST                        [Wasteland]
+> EAST                        [Beach Road]
+> NORTH                       [Old Oak]
+> NORTH                       [Roundabout Forest]
+> DOWN                        [Mine Entrance]
+> DOWN                        [Main Shaft]
+> DOWN                        [Mine Tunnels]
+
+Find the structural weak point (perception check — auto-pass with
+Actually Enchanted Glasses; but we only have regular Enchanted Glasses
+here, so the always-max mock handles it).
+
+> DROP GUNPOWDER              [gunpowder]
+
+Now take the flint and steel — this starts the 40-turn burnout timer.
+Light the fuse immediately.
+
+> TAKE FLINT                  [flint and steel]
+> LIGHT GUNPOWDER             [fuse]
+
+Exit the mine before the explosion.
+
+> UP                          [Main Shaft]
+> UP                          [Mine Entrance]
+> UP                          [Roundabout Forest]
+
+The explosion seals the main entrance. The Pie Rats rush to investigate.
+Board the ship while they are distracted.
+
+> SOUTH                       [Old Oak]
+> SOUTH                       [Beach Road]
+> SOUTH                       [Roundabout Beach]
+> EAST                        [Docks]
+
+The shovel is lashed to the ship's rail — take it now (needed later for
+the Hole to Below).
+
+> BOARD SHIP                  [deck]
+> TAKE SHOVEL                 [shovel]
+
+Sail 69 squares east through the Open Ocean. Navigation: SET SAIL, then
+GO EAST repeatedly until we reach Kevry's island.
+
+> SET SAIL                    [sail]
+> GO EAST                     [Western Roundabout Sea]
+> GO EAST                     [Roundabout Sea]
+> GO EAST                     [Eastern Roundabout Sea]
+
+Now we are in the Open Ocean. 69 east to Kevry's island. The test runner
+must issue GO EAST 69 times here; annotated as a block for clarity.
+
+[69 × GO EAST — Open Ocean traversal to Kevry's island]
+
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+> GO EAST                     [open ocean]
+
+Land on Kevry's island and find Kevry in the Captain's Quarters.
+
+> LAND                        [Land, Ho!]
+> EAST                        [Empty Beach]
+> EAST                        [house]
+> EAST                        [Captain's Quarters]
+> TALK TO KEVRY               [enchanted]
+
+Kevry enchants the glasses. They are now the Actually Enchanted Glasses
+and pass all perception checks automatically for the rest of the game.
+
+Sail back west to Roundabout.
+
+> BOARD SHIP                  [deck]
+> SET SAIL                    [sail]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> GO WEST                     [open ocean]
+> DOCK                        [Docks]
+
+=============================================================================
+D) Ring Retrieval — Pyronicus's Forge
+=============================================================================
+Pyronicus is in his forge below the illusory volcano, east of town
+through the Wasteland. The volcano requires a perception check to see
+the entrance — auto-pass with Actually Enchanted Glasses. We need a
+torch to enter dark areas (the forge itself is naturally lit, but the
+path through the Secret Tunnels will need light later).
+
+We already bought a torch from Shamus. Let's head east.
+
+> WEST                        [Roundabout Beach]
+> WEST                        [Beach Road]
+> WEST                        [Roundabout Wasteland]
+> SOUTH                       [Volcano]
+> DOWN                        [Pyronicus's Forge]
+> TALK TO PYRONICUS           [ring]
+
+Pyronicus hands over the ring willingly and gives the briefing. The
+ring is now in inventory.
+
+> TAKE RING                   [God-Forsaken Ring]
+
+Return to Will with the ring for the second briefing (Church of All,
+three faiths, three artifacts).
+
+> UP                          [Volcano]
+> NORTH                       [Roundabout Wasteland]
+> WEST                        [Main East]
+
+Return to Will's tower via the Tale and Ale mailbox.
+
+> WEST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> OPEN MAILBOX                [tower]
+> GIVE RING TO WILL           [three faiths]
+
+Will explains the Church of All altar, the dial, and that three
+religions are needed. He does not name which three. The second briefing
+also posts Quest 17 (The Frozen Watch) on the Quest Board.
+
+=============================================================================
+E) Pale Blade — Viking Trust Trials (Quest 57)
+=============================================================================
+The Pale Blade is forged from runed metal earned after completing all
+three Viking trust trials. The Viking Encampment is west of the Archery
+Range (reached by going west from Main West).
+
+We need the torch for the dungeon later but the overworld is naturally
+lit. Head to the encampment.
+
+> EXAMINE PAINTING            [Tale and Ale]
+> EAST                        [Pipe Room]
+
+We are in the Pipe Room. We need to go west past Main West to the
+Archery Range then west again to the Viking Encampment. First navigate
+from the Pipe Room back west.
+
+> WEST                        [Main Room]
+> WEST                        [Town Square]
+> WEST                        [Main West]
+> WEST                        [Archery Range]
+> WEST                        [Viking Encampment]
+> TALK TO IVANAAR             [Haalvar]
+
+Ivanaar points us north to Haalvar for Trial 1.
+
+Trial 1 — The Riddle Stone (Haalvar's Hut, north):
+
+> NORTH                       [Haalvar's Hut]
+> TALK TO HAALVAR             [riddle]
+> SEA                         [satisfied]
+> SOUTH                       [Viking Encampment]
+
+Trial 2 — The Ritual Circle (south of encampment):
+
+> SOUTH                       [Ritual Circle]
+> LOOK AT BANNER              [Earth]
+> ACTIVATE EARTH STONE        [Earth]
+> ACTIVATE AIR STONE          [Air]
+> ACTIVATE FIRE STONE         [Fire]
+> ACTIVATE WATER STONE        [Water]
+> ACTIVATE HEART STONE        [Heart]
+> NORTH                       [Viking Encampment]
+
+Trial 3 — The Drinking Challenge (Fire Pit, west):
+Always-max random rolls means the player beats Aylora on the first roll.
+
+> WEST                        [Fire Pit]
+> TALK TO AYLORA              [Thornbrew]
+> DRINK                       [Aylora passes out]
+> TAKE AYLORA                 [drag]
+> EAST                        [Viking Encampment]
+
+Ivanaar witnesses Aylora returned and awards the runed metal.
+
+> TALK TO IVANAAR             [runed metal]
+> TAKE RUNED METAL            [runed metal]
+
+=============================================================================
+F) Pale Blade — Forging at Pyronicus's Forge
+=============================================================================
+Ivanaar's hint: "a blacksmith who knows what he is looking at." That's
+Pyronicus. Bring the runed metal to his forge.
+
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> EAST                        [Town Square]
+> EAST                        [Main East]
+> EAST                        [Roundabout Wasteland]
+> SOUTH                       [Volcano]
+> DOWN                        [Pyronicus's Forge]
+> GIVE METAL TO PYRONICUS     [Pale Blade]
+
+Pyronicus forges the runed metal into the Pale Blade. He holds it out
+pommel first: "It will go willingly. When the time comes."
+
+> TAKE PALE BLADE             [pale blade]
+
+=============================================================================
+G) Werewolf's Amulet — Silver Stake from Town Square Statue
+=============================================================================
+The undead werewolf in the lower dungeon drops the Werewolf's Amulet.
+To kill it we need a consecrated silver stake: silver stake (statue
+base) + holy water (Keeper's Chamber) + crowbar (Prayer Alcove, dungeon
+upper tier). We'll collect items in the order they appear on the path.
+
+First: the silver stake lives in the hollow base of the Town Square
+statue. The seam is visible to anyone who examines it — no perception
+check. A crowbar is required to pry it open.
+
+Return to town:
+
+> UP                          [Volcano]
+> NORTH                       [Roundabout Wasteland]
+> WEST                        [Main East]
+> WEST                        [Town Square]
+> LOOK AT STATUE              [seam]
+
+We need the crowbar first (it's in the Prayer Alcove, dungeon upper
+tier). We'll come back to the statue after getting the crowbar.
+
+=============================================================================
+H) Werewolf's Amulet — Dungeon Upper Tier (Crowbar & Dungeon Access)
+=============================================================================
+To reach the dungeon we need to clear the Toll Bridge Boggart via the
+town charter, which requires completing Quest 17 (Frozen Watch). But
+the minimal ring walkthrough skips optional quests, so we need a
+different path.
+
+Actually, the Toll Bridge (Quest 27) is the only route through the
+Secret Tunnels to the Dungeon Entrance. To get the charter we must
+complete Quest 17 (Frozen Watch) — this is mandatory for dungeon access.
+
+Steps:
+1. Get the Unbind Undead scroll from the Lighthouse.
+2. Navigate the Chuckle House (ring required — invisibility).
+3. Free the ghost, get the pocket watch.
+4. Give watch to Records Room Worker, get town charter.
+5. Give charter to Boggart at the Toll Bridge.
+
+First: the Lighthouse is north of Roundabout Beach.
+
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> SOUTH                       [Kitchen]
+
+Buy a second torch from Shamus in case the first runs low. We will
+be in the dungeon for a while.
+
+> TALK TO SHAMUS              [Shamus]
+> BUY TORCH                   [torch]
+> NORTH                       [Bar]
+> NORTH                       [Main Room]
+> WEST                        [Town Square]
+> EAST                        [Main East]
+> EAST                        [Wasteland]
+> EAST                        [Beach Road]
+> SOUTH                       [Roundabout Beach]
+> NORTH                       [Lighthouse]
+> TAKE SCROLL                 [Unbind Undead]
+> SOUTH                       [Roundabout Beach]
+
+Warriors cannot read spell scrolls directly. Bring the Unbind Undead
+scroll to Will Passion to learn it. The glasses must be REMOVED in
+Will's presence or he refuses to teach.
+
+> WEST                        [Beach Road]
+> WEST                        [Roundabout Wasteland]
+> WEST                        [Main East]
+> WEST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> OPEN MAILBOX                [tower]
+> REMOVE GLASSES              [glasses removed]
+> GIVE SCROLL TO WILL         [Unbind Undead]
+> WEAR GLASSES                [glasses]
+
+Now navigate the Chuckle House. It is west of the Graveyard, but it is
+not visible yet — Litlock's bonk is the only way to make it appear. For
+the minimal ring walkthrough, we need Litlock's quest (Quest 52) first.
+However, Quest 52 requires Dankhaus access, which requires beating Lynds
+(Quest 59), which requires finding the Dankhaus, which requires finding
+Litlock's home in the bog.
+
+Actually Enchanted Glasses auto-reveal the Dankhaus path in Bog-SE.
+
+> EXAMINE PAINTING            [Tale and Ale]
+> SOUTH                       [Bar]
+> SOUTH                       [Kitchen]
+> DOWN                        [Cellar]
+
+Wait — the cellar is flooded. We need the crowbar to clear the drain
+(Quest 25). But the crowbar is in the dungeon. And we need the dungeon
+for the crowbar. And the dungeon needs the Toll Bridge cleared. And the
+Toll Bridge needs the charter. And the charter needs the ghost freed.
+And the ghost is in the Chuckle House. And the Chuckle House needs
+Litlock's bonk.
+
+Shortest path: get dungeon access through the Secret Tunnels via the
+Graveyard Crypt path. That path goes:
+Graveyard → Mausoleum → Crypt → Charnel Walk → Bone Passage → Junction
+→ Toll Bridge.
+
+No cellar drain required for that route. The Crypt path is a valid
+alternate entry to the Secret Tunnels. Let's use that.
+
+> NORTH                       [Bar]
+> NORTH                       [Main Room]
+> WEST                        [Town Square]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+
+The Crypt is a dark room — light the torch on entry.
+
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+
+The Boggart blocks the bridge. We don't have the charter yet. But we
+can observe the quest trigger (perception check auto-passes — faded
+official seal visible) and note the Quest 27 discovery.
+
+Actually, without the charter we cannot pass the Boggart. We must
+complete the Frozen Watch / charter chain first.
+
+Let's go earn the Chuckle House visibility via Litlock/Lynds. The bog
+is accessible from the Roundabout Pond area.
+
+> NORTH                       [Junction]
+> WEST                        [Bone Passage]
+> SOUTH                       [Charnel Walk]
+> UP                          [Crypt]
+> UP                          [Mausoleum]
+> NORTH                       [Graveyard]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> WEST                        [Main West]
+> WEST                        [Archery Range]
+> NORTH                       [Roundabout Pond]
+> WEST                        [Bog-SE]
+
+Actually Enchanted Glasses auto-reveal the Dankhaus path here.
+
+> WEST                        [Bog-SW]
+> EAST                        [Bog-SE]
+
+The Dankhaus path is now visible. But wards block entry without Lynds's
+invitation. Go to the Tale and Ale to find Lynds.
+
+> EAST                        [Roundabout Pond]
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> EAST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+
+Find Lynds in the Tale and Ale Main Room.
+
+> CHALLENGE LYNDS             [arm wrestling]
+
+Always-max rolls: Warrior player beats Lynds in a single roll.
+
+> WIN                         [Heart Necklace]
+
+Lynds gives the Heart Necklace and sets the Dankhaus invitation flag.
+
+> WEAR NECKLACE               [necklace]
+
+Now return to Bog-SE and enter the Dankhaus.
+
+> WEST                        [Town Square]
+> WEST                        [Main West]
+> WEST                        [Archery Range]
+> NORTH                       [Roundabout Pond]
+> WEST                        [Bog-SE]
+> ENTER DANKHAUS              [Common Room]
+
+Find Litlock and make him laugh (Quest 52 — 2×2×2 dialogue tree).
+The successful path: B (physical) → B2 (ridiculous) → C1 (push further).
+
+> TALK TO LITLOCK             [Entertain me]
+> DO SOMETHING PHYSICAL       [watches]
+> SIT ON FLOOR                [why are you on the floor]
+> I FIND IT CLARIFYING        [bonk]
+
+Litlock bonks the player on the head. The Chuckle House is now visible
+west of the Graveyard. Return to town.
+
+> WEST                        [Bog-SE]
+> EAST                        [Roundabout Pond]
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> SOUTH                       [Tale and Ale]
+
+Now navigate to the Chuckle House. Equip the ring for invisibility.
+
+> WEAR RING                   [ring]
+> EAST                        [Town Square]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> WEST                        [Chuckle House Entrance]
+> NORTH                       [Rejection Mirror]
+> NORTH                       [Shatter Trap Mirror]
+> NORTH                       [Ghost's Room]
+> CAST UNBIND UNDEAD          [Thank you]
+
+The ghost is freed and drops the pocket watch.
+
+> TAKE WATCH                  [pocket watch]
+
+The 50% exit-fail mechanic may delay us. With always-max rolls all
+exit attempts succeed.
+
+> SOUTH                       [Shatter Trap Mirror]
+> SOUTH                       [Rejection Mirror]
+> SOUTH                       [Chuckle House Entrance]
+> EAST                        [Graveyard]
+
+Remove the ring to stop corruption ticking.
+
+> REMOVE RING                 [ring removed]
+
+Deliver the watch to the Records Room Worker in Town Hall.
+
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> NORTH                       [Town Hall Exterior]
+> NORTH                       [Upper Hall]
+> WEST                        [Records Room]
+> GIVE WATCH TO WORKER        [town charter]
+
+The worker gives the town charter. Now clear the Toll Bridge.
+
+> EAST                        [Upper Hall]
+> DOWN                        [Town Hall Exterior]
+> SOUTH                       [Town Square]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+> GIVE CHARTER TO BOGGART     [bridge free]
+
+The Boggart reads the charter, grumbles, and vacates. The bridge is
+permanently free. Continue south to the Dungeon Entrance.
+
+> SOUTH                       [Dungeon Entrance]
+
+=============================================================================
+I) Dungeon Upper Tier — Supply Room & Prayer Alcove (Crowbar)
+=============================================================================
+The Ink Corridor is the first dungeon room. A trip cord at chest height
+carries an ink bladder — auto-detected with Actually Enchanted Glasses.
+Disarming it avoids being inked (invisibility lost). Critical path goes
+west to Supply Room, then south through Narrow Passageway.
+
+> SOUTH                       [Ink Corridor]
+> WEST                        [Supply Room]
+
+Supply Room contains sack of salt, mortar compound, portcullis bar, and
+smoke jar (behind Trap 17). With Actually Enchanted Glasses the trap is
+detected and disarmed. Take sack of salt (needed for Idol Room swap) and
+the portcullis bar (needed for Portcullis Corridor).
+
+> TAKE SALT                   [sack of salt]
+> TAKE PORTCULLIS BAR         [portcullis bar]
+> TAKE SMOKE JAR              [smoke jar]
+> EAST                        [Ink Corridor]
+> SOUTH                       [Narrow Passageway]
+> SOUTH                       [Idol Room]
+
+Swap the idol with the sack of salt to disarm the pressure plate safely.
+
+> SWAP IDOL WITH SALT         [safe]
+> TAKE IDOL                   [Chachapoyan Fertility Idol]
+
+Head south to Combat Room. With Actually Enchanted Glasses the pressure
+plate before the Combat Room is auto-detected. The Warden fight is
+unavoidable — defeat him with melee (Warriors start with weapon use).
+
+> SOUTH                       [Combat Room]
+> KILL WARDEN WITH SWORD      [Warden]
+
+Always-max rolls: player wins every combat round. The Warden drops the
+Guardian's Lantern on defeat.
+
+> TAKE LANTERN                [Guardian's Lantern]
+> SOUTH                       [Prayer Alcove]
+
+Prayer Alcove looks like a dead end until examined. With Actually
+Enchanted Glasses it is automatically revealed. Take the crowbar and
+the vial of glacier melt (needed for Quest 34 mid room later).
+
+> TAKE CROWBAR                [crowbar]
+> TAKE VIAL                   [vial of glacier melt]
+
+Continue south through Portcullis Corridor. The portcullis carries an
+arcane charge — touching without disarming deals lightning damage. The
+Portcullis Bar from the Supply Room props it permanently open.
+
+> SOUTH                       [Portcullis Corridor]
+> USE PORTCULLIS BAR          [portcullis propped]
+> SOUTH                       [Shrine Room]
+
+Shrine Room contains one of the three Verdant Circle shrine bowl pieces
+(perception check — auto-pass). Take it.
+
+> TAKE BOWL PIECE             [bowl piece]
+> SOUTH                       [Rickety Bridge]
+> SOUTH                       [Mid-Tier Key Door]
+
+The Mid-Tier Key Door is locked — this triggers Quest 32 discovery.
+We need the Middle Tier Key from Councilman Rowan Finch. That requires
+finding the gravestone in the bog (Quest 32). We'll return here. For
+now, let's get the crowbar working on the statue.
+
+Go back up to town, open the statue, get the stake, then descend to the
+lower tier for the Keeper's keys and holy water.
+
+> NORTH                       [Rickety Bridge]
+> NORTH                       [Shrine Room]
+> NORTH                       [Portcullis Corridor]
+> NORTH                       [Prayer Alcove]
+> NORTH                       [Combat Room]
+> NORTH                       [Idol Room]
+> NORTH                       [Narrow Passageway]
+> NORTH                       [Supply Room]
+> NORTH                       [Ink Corridor]
+> NORTH                       [Dungeon Entrance]
+> NORTH                       [Toll Bridge]
+> NORTH                       [Junction]
+> WEST                        [Bone Passage]
+> SOUTH                       [Charnel Walk]
+> UP                          [Crypt]
+> UP                          [Mausoleum]
+> NORTH                       [Graveyard]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+
+=============================================================================
+J) Werewolf's Amulet — Open Statue, Get Silver Stake
+=============================================================================
+The silver stake is in the hollow base of the Town Square statue. We
+already examined it and saw the seam. Use the crowbar.
+
+> USE CROWBAR ON STATUE       [silver stake]
+> TAKE STAKE                  [silver stake]
+
+Also take the folded note — it bears the Keeper's emerald wax seal, which
+matches the skeleton in the Lower Crypt.
+
+> TAKE NOTE                   [emerald seal]
+
+=============================================================================
+K) Quest 32 — Missing Gravestone (Middle Tier Key)
+=============================================================================
+The Mid-Tier Key Door needs the Middle Tier Key from Councilman Rowan
+Finch (Quest 32). Rowan's grandfather's gravestone was stolen and is
+face-down in the bog. The hand cart to move it is in the Storage Area
+(Dungeon Upper Tier, east of the Ink Corridor).
+
+Talk to Rowan in the Council Chamber first.
+
+> NORTH                       [Town Hall Exterior]
+> EAST                        [Council Chamber]
+> TALK TO ROWAN               [gravestone]
+> WEST                        [Town Hall Exterior]
+> SOUTH                       [Town Square]
+
+The gravestone is in the bog (perception check — auto-pass with glasses).
+Navigate to the bog.
+
+> WEST                        [Main West]
+> WEST                        [Archery Range]
+> NORTH                       [Roundabout Pond]
+> WEST                        [Bog-SE]
+
+Perception check auto-passes — gravestone visible.
+
+> TAKE GRAVESTONE             [need cart]
+
+The gravestone is too heavy to carry alone (weight 10) — load it onto
+the hand cart. The hand cart is in Storage Area (dungeon upper tier).
+
+Fetch the cart:
+
+> EAST                        [Roundabout Pond]
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> SOUTH                       [Kitchen]
+> NORTH                       [Bar]
+> NORTH                       [Main Room]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+> SOUTH                       [Dungeon Entrance]
+> SOUTH                       [Ink Corridor]
+> EAST                        [Storage Area]
+> TAKE CART                   [hand cart]
+
+Now return to the bog with the cart, load the gravestone, and haul it
+back to the cemetery.
+
+> WEST                        [Ink Corridor]
+> NORTH                       [Dungeon Entrance]
+> NORTH                       [Toll Bridge]
+> NORTH                       [Junction]
+> WEST                        [Bone Passage]
+> SOUTH                       [Charnel Walk]
+> UP                          [Crypt]
+> UP                          [Mausoleum]
+> NORTH                       [Graveyard]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> WEST                        [Main West]
+> WEST                        [Archery Range]
+> NORTH                       [Roundabout Pond]
+> WEST                        [Bog-SE]
+> LOAD STONE ONTO CART        [loaded]
+
+Push the cart back to the Graveyard (cemetery).
+
+> EAST                        [Roundabout Pond]
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> EAST                        [Town Square]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> DROP CART                   [gravestone placed]
+
+Return to Rowan Finch for the key.
+
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> NORTH                       [Town Hall Exterior]
+> EAST                        [Council Chamber]
+> TALK TO ROWAN               [Middle Tier Key]
+> TAKE KEY                    [Middle Tier Key]
+
+=============================================================================
+L) Mid-Tier Dungeon — Keeper's Keys & Holy Water
+=============================================================================
+Descend to the Dungeon Upper Tier and use the Middle Tier Key.
+
+> WEST                        [Town Hall Exterior]
+> SOUTH                       [Town Square]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+> SOUTH                       [Dungeon Entrance]
+> SOUTH                       [Ink Corridor]
+> SOUTH                       [Narrow Passageway]
+> SOUTH                       [Idol Room]
+> SOUTH                       [Combat Room]
+> SOUTH                       [Prayer Alcove]
+> SOUTH                       [Portcullis Corridor]
+> SOUTH                       [Shrine Room]
+> SOUTH                       [Rickety Bridge]
+
+Weight check on the Rickety Bridge. Minimum critical load to pass:
+rope(3) + lantern(2) + stake(2) + vial(1) = 8, under the 12 limit.
+Current inventory includes pickaxe(3), idol(4), and portcullis
+bar(3) — total could exceed 12. Drop heavy non-critical items here.
+
+> DROP PICKAXE                [pickaxe]
+> DROP IDOL                   [idol]
+> SOUTH                       [Mid-Tier Key Door]
+> UNLOCK DOOR WITH KEY        [door unlocked]
+> SOUTH                       [Key Door Landing]
+
+We are now in the dungeon mid-tier key side.
+
+> SOUTH                       [Mine Passage]
+
+Mine Passage contains charcoal (no perception check — take it, needed
+for Quest 28 archivist rubbing in the full walkthrough; harmless here)
+and silver dust (perception check — auto-pass). Silver dust is needed
+for Quest 4 (Whispering Jar) in the full walkthrough.
+
+> SOUTH                       [Stored Room]
+
+The Stored Room has deliberate rubble fill hiding a hole. One DIG
+collapses the floor permanently → Hole to Below. The rope from the
+Docks enables bidirectional travel. We need rope first.
+
+The rope is at the Docks. We passed through there earlier. The Hole to
+Below is the only route to the lower tier. Let's get the rope.
+
+Return up through the dungeon to the Docks.
+
+Actually — we should have taken the rope from the Docks when we boarded
+the ship. Let's insert that step: go to the Docks, grab the rope, then
+come back. The Docks are east of Roundabout Beach.
+
+> NORTH                       [Mine Passage]
+> NORTH                       [Key Door Landing]
+> NORTH                       [Mid-Tier Key Door]
+> NORTH                       [Rickety Bridge]
+> NORTH                       [Shrine Room]
+> NORTH                       [Portcullis Corridor]
+> NORTH                       [Prayer Alcove]
+> NORTH                       [Combat Room]
+> NORTH                       [Idol Room]
+> NORTH                       [Narrow Passageway]
+> NORTH                       [Supply Room]
+> NORTH                       [Ink Corridor]
+> NORTH                       [Dungeon Entrance]
+> NORTH                       [Toll Bridge]
+> NORTH                       [Junction]
+> WEST                        [Bone Passage]
+> SOUTH                       [Charnel Walk]
+> UP                          [Crypt]
+> UP                          [Mausoleum]
+> NORTH                       [Graveyard]
+> NORTH                       [Main East]
+> EAST                        [Wasteland]
+> EAST                        [Beach Road]
+> SOUTH                       [Roundabout Beach]
+> EAST                        [Docks]
+> TAKE ROPE                   [rope]
+
+Now return to the Stored Room and dig.
+
+> WEST                        [Roundabout Beach]
+> NORTH                       [Beach Road]
+> WEST                        [Wasteland]
+> WEST                        [Main East]
+> WEST                        [Town Square]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+> SOUTH                       [Dungeon Entrance]
+> SOUTH                       [Ink Corridor]
+> SOUTH                       [Narrow Passageway]
+> SOUTH                       [Idol Room]
+> SOUTH                       [Combat Room]
+> SOUTH                       [Prayer Alcove]
+> SOUTH                       [Portcullis Corridor]
+> SOUTH                       [Shrine Room]
+> SOUTH                       [Rickety Bridge]
+> SOUTH                       [Mid-Tier Key Door]
+> SOUTH                       [Key Door Landing]
+> SOUTH                       [Mine Passage]
+> SOUTH                       [Stored Room]
+
+Before digging, visit The Crevice east of this room to retrieve the
+Gold Pocket Watch (Trophy Case treasure; missable after collapse).
+
+> EAST                        [Crevice]
+> TAKE WATCH                  [gold pocket watch]
+> WEST                        [Stored Room]
+
+Now dig — this collapses the floor into the Hole to Below.
+
+> DIG                         [Hole to Below]
+> TIE ROPE TO BEAM            [rope tied]
+> DOWN                        [Pile of Rubble]
+
+We are now in the Dungeon Lower Tier.
+
+=============================================================================
+M) Dungeon Lower Tier — Keeper's Keys
+=============================================================================
+The Keeper's skeleton is in the Lower Crypt, north of Pile of Rubble.
+
+> NORTH                       [Lower Crypt]
+> TAKE KEYS                   [key ring]
+
+The emerald seal on the skeleton's neck matches the statue note. The
+key ring opens the Keeper's Chamber at the Church of All.
+
+=============================================================================
+N) Werewolf's Amulet — Holy Water & Consecration
+=============================================================================
+Surface through the Hole to Below, return to town, and use the keys at
+the Keeper's Chamber in the Church of All.
+
+> SOUTH                       [Pile of Rubble]
+> UP                          [Stored Room]
+> NORTH                       [Mine Passage]
+> NORTH                       [Key Door Landing]
+> NORTH                       [Mid-Tier Key Door]
+> NORTH                       [Rickety Bridge]
+> NORTH                       [Shrine Room]
+> NORTH                       [Portcullis Corridor]
+> NORTH                       [Prayer Alcove]
+> NORTH                       [Combat Room]
+> NORTH                       [Idol Room]
+> NORTH                       [Narrow Passageway]
+> NORTH                       [Supply Room]
+> NORTH                       [Ink Corridor]
+> NORTH                       [Dungeon Entrance]
+> NORTH                       [Toll Bridge]
+> NORTH                       [Junction]
+> WEST                        [Bone Passage]
+> SOUTH                       [Charnel Walk]
+> UP                          [Crypt]
+> UP                          [Mausoleum]
+> NORTH                       [Graveyard]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> WEST                        [Main West]
+> EAST                        [Town Square]
+> SOUTH                       [Church Nave]
+> EAST                        [Keeper's Chamber — door]
+> UNLOCK DOOR WITH KEYS       [Keeper's Chamber]
+> TAKE HOLY WATER             [holy water]
+> POUR HOLY WATER ON STAKE    [consecrated silver stake]
+
+=============================================================================
+O) Werewolf's Amulet — Kill the Undead Werewolf
+=============================================================================
+Return to the lower tier through the Hole to Below and go east through
+The Narrow Pass to The Still Den.
+
+> WEST                        [Church Nave]
+> NORTH                       [Main East]
+> EAST                        [Wasteland]
+> EAST                        [Beach Road]
+> SOUTH                       [Roundabout Beach]
+
+No wait — the Graveyard path is shorter. Navigate back.
+
+> NORTH                       [Beach Road]
+> WEST                        [Wasteland]
+> WEST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+> SOUTH                       [Dungeon Entrance]
+> SOUTH                       [Ink Corridor]
+> SOUTH                       [Narrow Passageway]
+> SOUTH                       [Idol Room]
+> SOUTH                       [Combat Room]
+> SOUTH                       [Prayer Alcove]
+> SOUTH                       [Portcullis Corridor]
+> SOUTH                       [Shrine Room]
+> SOUTH                       [Rickety Bridge]
+> SOUTH                       [Mid-Tier Key Door]
+> SOUTH                       [Key Door Landing]
+> SOUTH                       [Mine Passage]
+> SOUTH                       [Stored Room]
+> DOWN                        [Pile of Rubble]
+> NORTH                       [Lower Crypt]
+> NORTH                       [Encampment]
+> EAST                        [Antechamber]
+
+The Bone Crunch Floor trap must be cleared before passing.
+
+> CLEAR BONES                 [disarmed]
+> EAST                        [Junction — lower]
+> EAST                        [Narrow Pass]
+> EAST                        [Still Den]
+> DRIVE STAKE INTO WEREWOLF   [werewolf destroyed]
+
+The werewolf drops the Werewolf's Amulet and reverts to scholar form.
+Take the Ivory Torch from the wall — it is required for Quest 34.
+
+> TAKE AMULET                 [Werewolf's Amulet]
+> TAKE IVORY TORCH            [ivory torch]
+
+=============================================================================
+P) Crystal Bowl — Ruined Aqueduct (Quest 22, fountain prerequisite)
+=============================================================================
+The Crystal Bowl requires the Town Square fountain to be running (Quest 22).
+The aqueduct is in the Dungeon Upper Tier. Let's surface and handle it.
+
+Return to the surface via the Hole to Below.
+
+> WEST                        [Junction — lower]
+> WEST                        [Antechamber]
+> WEST                        [Encampment]
+> WEST                        [Lower Crypt]
+> SOUTH                       [Pile of Rubble]
+> UP                          [Stored Room]
+> NORTH                       [Mine Passage]
+> NORTH                       [Key Door Landing]
+> NORTH                       [Mid-Tier Key Door]
+> NORTH                       [Rickety Bridge]
+> NORTH                       [Shrine Room]
+> NORTH                       [Portcullis Corridor]
+> NORTH                       [Prayer Alcove]
+> NORTH                       [Combat Room]
+> NORTH                       [Idol Room]
+> NORTH                       [Narrow Passageway]
+> NORTH                       [Supply Room]
+
+Take the mortar compound from Supply Room (needed for the aqueduct).
+
+> TAKE MORTAR                 [mortar compound]
+> NORTH                       [Ink Corridor]
+> NORTH                       [Dungeon Entrance]
+
+Quest 22 (The Ruined Aqueduct) requires locating the collapsed section
+and carrying stone blocks. The blocks and aqueduct gap are in the dungeon
+upper tier. Locate and repair. (Steps are described in quests.md Q22 —
+the exact rooms are in the dungeon upper tier layout, not separately named
+in locations.md. The test can verify the reward text.)
+
+Actually, Quest 22 references a gap three rooms wide and stone blocks in
+the collapsed gallery. The Supply Room mortar seals the joints. Since all
+rooms are already visited we can proceed:
+
+> LOOK AT AQUEDUCT            [collapsed]
+> CARRY BLOCKS                [blocks]
+> SEAL JOINTS WITH MORTAR     [aqueduct restored]
+> NORTH                       [Dungeon Entrance]
+
+The fountain in Roundabout Town Square now flows.
+
+=============================================================================
+Q) Crystal Bowl — Collect Three Bowl Pieces
+=============================================================================
+Three bowl pieces are needed:
+1. Near the Verdant Circle shrine in Roundabout Forest (perception check)
+2. In the bog (perception check)
+3. Shrine Room, Dungeon Upper Tier (perception check — already visited)
+
+The Shrine Room bowl piece was already taken in section I. Collect the
+remaining two.
+
+Navigate to Roundabout Forest:
+
+> NORTH                       [Toll Bridge]
+> NORTH                       [Junction]
+> WEST                        [Bone Passage]
+> SOUTH                       [Charnel Walk]
+> UP                          [Crypt]
+> UP                          [Mausoleum]
+> NORTH                       [Graveyard]
+> NORTH                       [Main East]
+> EAST                        [Wasteland]
+> EAST                        [Beach Road]
+> NORTH                       [Old Oak]
+> NORTH                       [Roundabout Forest]
+
+The shrine is visible (no perception check required — it's always
+visible once you enter the forest). Take the nearby bowl piece.
+
+> TAKE BOWL PIECE             [bowl piece]
+
+Navigate to the bog for the second piece:
+
+> SOUTH                       [Old Oak]
+> WEST                        [Main West — via paths]
+> WEST                        [Archery Range]
+> NORTH                       [Roundabout Pond]
+> WEST                        [Bog-SE]
+> WEST                        [Bog-SW]
+
+Perception check auto-passes — bog bowl piece found.
+
+> TAKE BOWL PIECE             [bowl piece]
+
+=============================================================================
+R) Crystal Bowl — Fire Clay from Thermal Vent Room
+=============================================================================
+Fire clay is pressed into the ceiling of the Thermal Vent Room in the
+lower tier. LOOK UP to retrieve it. No perception check.
+
+> EAST                        [Bog-SE]
+> EAST                        [Roundabout Pond]
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> SOUTH                       [Town Square]
+> EAST                        [Main East]
+> SOUTH                       [Church Nave]
+> SOUTH                       [Graveyard]
+> SOUTH                       [Mausoleum]
+> DOWN                        [Crypt]
+> DOWN                        [Charnel Walk]
+> NORTH                       [Bone Passage]
+> NORTH                       [Junction]
+> SOUTH                       [Toll Bridge]
+> SOUTH                       [Dungeon Entrance]
+> SOUTH                       [Ink Corridor]
+> SOUTH                       [Narrow Passageway]
+> SOUTH                       [Idol Room]
+> SOUTH                       [Combat Room]
+> SOUTH                       [Prayer Alcove]
+> SOUTH                       [Portcullis Corridor]
+> SOUTH                       [Shrine Room]
+> SOUTH                       [Rickety Bridge]
+> SOUTH                       [Mid-Tier Key Door]
+> SOUTH                       [Key Door Landing]
+> SOUTH                       [Mine Passage]
+> SOUTH                       [Stored Room]
+> DOWN                        [Pile of Rubble]
+> NORTH                       [Lower Crypt]
+> NORTH                       [Encampment]
+> WEST                        [Thermal Vent Room]
+> LOOK UP                     [fire clay]
+> TAKE CLAY                   [fire clay]
+
+=============================================================================
+S) Crystal Bowl — Assemble Bowl at Fountain
+=============================================================================
+Surface, then mix fire clay with fountain water at the Town Square
+fountain. Assemble the bowl, then take it to the shrine.
+
+> EAST                        [Encampment]
+> SOUTH                       [Pile of Rubble]
+> UP                          [Stored Room]
+> NORTH                       [Mine Passage]
+> NORTH                       [Key Door Landing]
+> NORTH                       [Mid-Tier Key Door]
+> NORTH                       [Rickety Bridge]
+> NORTH                       [Shrine Room]
+> NORTH                       [Portcullis Corridor]
+> NORTH                       [Prayer Alcove]
+> NORTH                       [Combat Room]
+> NORTH                       [Idol Room]
+> NORTH                       [Narrow Passageway]
+> NORTH                       [Supply Room]
+> NORTH                       [Ink Corridor]
+> NORTH                       [Dungeon Entrance]
+> NORTH                       [Toll Bridge]
+> NORTH                       [Junction]
+> WEST                        [Bone Passage]
+> SOUTH                       [Charnel Walk]
+> UP                          [Crypt]
+> UP                          [Mausoleum]
+> NORTH                       [Graveyard]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+
+Mix fire clay with fountain water at the now-flowing fountain.
+
+> MIX CLAY WITH WATER         [clay adhesive]
+> ASSEMBLE BOWL               [repaired bowl]
+
+Navigate to the Verdant Circle shrine in Roundabout Forest.
+
+> WEST                        [Main West]
+> EAST                        [Main East]
+> EAST                        [Wasteland]
+> EAST                        [Beach Road]
+> NORTH                       [Old Oak]
+> NORTH                       [Roundabout Forest]
+> PUT BOWL ON PEDESTAL        [bowl placed]
+> PUT COIN ON PEDESTAL        [crystal bowl]
+
+The bowl transforms into the Crystal Bowl (ring ritual artifact, the
+Verdant Circle).
+
+=============================================================================
+T) Ring Binding Ritual — Church of All Altar
+=============================================================================
+All three artifacts are in hand: Pale Blade (Brotherhood of the Pale
+Blade), Werewolf's Amulet (Veil of the Arcane), Crystal Bowl (Verdant
+Circle). Navigate to the Church of All altar.
+
+> SOUTH                       [Old Oak]
+> SOUTH                       [Beach Road]
+> WEST                        [Wasteland]
+> WEST                        [Main East]
+> WEST                        [Town Square]
+> SOUTH                       [Church Nave]
+> EAST                        [Altar]
+
+Place all three artifacts on the altar, attuning the dial for each one.
+Artifacts can be placed in any order. The default attunement is The
+Keepers of the Lantern. Turn the dial to reach each required religion.
+
+Place the Pale Blade and attune to The Brotherhood of the Pale Blade
+(three positions from the default on the dial):
+
+> PUT PALE BLADE ON ALTAR     [blade placed]
+> TURN DIAL RIGHT             [dial]
+> TURN DIAL RIGHT             [dial]
+> TURN DIAL RIGHT             [white]
+
+The Pale Blade glows white.
+
+Place the Werewolf's Amulet and attune to The Veil of the Arcane
+(two positions left from Brotherhood):
+
+> PUT AMULET ON ALTAR         [amulet placed]
+> TURN DIAL LEFT              [dial]
+> TURN DIAL LEFT              [red]
+
+The Werewolf's Amulet glows red.
+
+Place the Crystal Bowl and attune to The Verdant Circle (six positions
+left from Veil of the Arcane — or one right from the Keepers, passing
+through Heart Folk and back to start):
+
+> PUT BOWL ON ALTAR           [bowl placed]
+> TURN DIAL LEFT              [dial]
+> TURN DIAL LEFT              [dial]
+> TURN DIAL LEFT              [dial]
+> TURN DIAL LEFT              [dial]
+> TURN DIAL LEFT              [dial]
+> TURN DIAL LEFT              [green]
+
+The Crystal Bowl glows green. All three artifacts are glowing.
+
+Now place the ring:
+
+> WEAR RING                   [ring]
+> PUT RING ON ALTAR           [binding]
+
+The binding ceremony fires. All three artifacts are consumed. The ring
+is bound — invisibility no longer functions.
+
+> TAKE RING                   [bound ring]
+> REMOVE RING                 [ring won't go on]
+
+=============================================================================
+U) Return Ring to Will — Quest Complete
+=============================================================================
+Return the bound ring to Will Passion.
+
+> WEST                        [Church Nave]
+> NORTH                       [Main East]
+> WEST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> OPEN MAILBOX                [tower]
+> GIVE RING TO WILL           [Well done]
+
+Will takes the ring, listens for something, sets it on the desk. "Well
+done, [Name]." He means it. Ring quest complete.
+
+=============================================================================
+END OF MINIMAL RING QUEST WALKTHROUGH
+=============================================================================
