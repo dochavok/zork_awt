@@ -523,9 +523,9 @@ be in the dungeon for a while.
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
 > SOUTH                       [Roundabout Beach]
-> NORTH                       [Lighthouse]
+> NORTHEAST                   [Lighthouse]
 > TAKE SCROLL                 [Unbind Undead]
-> SOUTH                       [Roundabout Beach]
+> SOUTHWEST                   [Roundabout Beach]
 
 Warriors cannot read spell scrolls directly. Bring the Unbind Undead
 scroll to Will Passion to learn it. The glasses must be REMOVED in
@@ -692,17 +692,16 @@ Remove the ring to stop corruption ticking.
 
 Deliver the watch to the Records Room Worker in Town Hall.
 
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
-> NORTH                       [Upper Hall]
 > WEST                        [Records Room]
 > GIVE WATCH TO WORKER        [town charter]
 
 The worker gives the town charter. Now clear the Toll Bridge.
 
-> EAST                        [Upper Hall]
-> DOWN                        [Town Hall Exterior]
+> EAST                        [Town Hall Exterior]
 > SOUTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church Nave]
@@ -798,7 +797,6 @@ lower tier for the Keeper's keys and holy water.
 > NORTH                       [Combat Room]
 > NORTH                       [Idol Room]
 > NORTH                       [Narrow Passageway]
-> NORTH                       [Supply Room]
 > NORTH                       [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
@@ -991,7 +989,6 @@ come back. The Docks are east of Roundabout Beach.
 > NORTH                       [Combat Room]
 > NORTH                       [Idol Room]
 > NORTH                       [Narrow Passageway]
-> NORTH                       [Supply Room]
 > NORTH                       [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
@@ -1081,7 +1078,6 @@ the Keeper's Chamber in the Church of All.
 > NORTH                       [Combat Room]
 > NORTH                       [Idol Room]
 > NORTH                       [Narrow Passageway]
-> NORTH                       [Supply Room]
 > NORTH                       [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
@@ -1182,12 +1178,13 @@ Return to the surface via the Hole to Below.
 > NORTH                       [Combat Room]
 > NORTH                       [Idol Room]
 > NORTH                       [Narrow Passageway]
-> NORTH                       [Supply Room]
+> NORTH                       [Ink Corridor]
+> WEST                        [Supply Room]
 
 Take the mortar compound from Supply Room (needed for the aqueduct).
 
 > TAKE MORTAR                 [mortar compound]
-> NORTH                       [Ink Corridor]
+> EAST                        [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
 
 Quest 22 (The Ruined Aqueduct) requires locating the collapsed section
@@ -1310,7 +1307,6 @@ fountain. Assemble the bowl, then take it to the shrine.
 > NORTH                       [Combat Room]
 > NORTH                       [Idol Room]
 > NORTH                       [Narrow Passageway]
-> NORTH                       [Supply Room]
 > NORTH                       [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]

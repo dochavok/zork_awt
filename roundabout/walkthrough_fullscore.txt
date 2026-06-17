@@ -639,9 +639,9 @@ invisibility.
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
 > SOUTH                       [Roundabout Beach]
-> NORTH                       [Lighthouse]
+> NORTHEAST                   [Lighthouse]
 > TAKE SCROLL                 [Unbind Undead]
-> SOUTH                       [Roundabout Beach]
+> SOUTHWEST                   [Roundabout Beach]
 > WEST                        [Beach Road]
 > WEST                        [Wasteland]
 > WEST                        [Main East]
@@ -680,10 +680,11 @@ Equip the ring just before entering the Chuckle House.
 
 Deliver the watch to the Records Room Worker.
 
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
-> NORTH                       [Upper Hall]
+> UP                          [Upper Hall]
 
 While in Town Hall, grab the wax seal from the display cabinet
 (Quest 4 — The Whispering Jar).
@@ -691,6 +692,7 @@ While in Town Hall, grab the wax seal from the display cabinet
 > OPEN CABINET                [wax seal]
 > TAKE SEAL                   [wax seal]
 
+> DOWN                        [Town Hall Exterior]
 > WEST                        [Records Room]
 > GIVE WATCH TO WORKER        [town charter]
 
@@ -703,8 +705,7 @@ P) Quest 27 — The Toll Bridge Operator
 Navigate to the Toll Bridge via the Graveyard Crypt path. The Cellar
 path also works (after Quest 25), but Crypt is available now.
 
-> EAST                        [Upper Hall]
-> DOWN                        [Town Hall Exterior]
+> EAST                        [Town Hall Exterior]
 > SOUTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church Nave]
@@ -841,7 +842,6 @@ heavy items we dropped.
 > NORTH                       [Combat Room]
 > NORTH                       [Idol Room]
 > NORTH                       [Narrow Passageway]
-> NORTH                       [Supply Room]
 > NORTH                       [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
@@ -1216,7 +1216,6 @@ Surface, use Keeper's keys at Keeper's Chamber (Church of All).
 > NORTH                       [Combat Room]
 > NORTH                       [Idol Room]
 > NORTH                       [Narrow Passageway]
-> NORTH                       [Supply Room]
 > NORTH                       [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
@@ -1722,7 +1721,6 @@ Return to the surface.
 > NORTH                       [Combat Room]
 > NORTH                       [Idol Room]
 > NORTH                       [Narrow Passageway]
-> NORTH                       [Supply Room]
 > NORTH                       [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
