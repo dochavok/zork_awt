@@ -602,6 +602,7 @@ is accessible from the Roundabout Pond area.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > WEST                        [Main West]
@@ -806,6 +807,7 @@ lower tier for the Keeper's keys and holy water.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 
@@ -1037,7 +1039,7 @@ Now return to the Stored Room and dig.
 > SOUTH                       [Mid-Tier Key Door]
 > SOUTH                       [Key Door Landing]
 > SOUTH                       [Mine Passage]
-> SOUTH                       [Stored Room]
+> EAST                        [Stored Room]
 
 Before digging, visit The Crevice east of this room to retrieve the
 Gold Pocket Watch (Trophy Case treasure; missable after collapse).
@@ -1214,6 +1216,7 @@ Navigate to Roundabout Forest:
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
@@ -1270,11 +1273,10 @@ lower tier. LOOK UP to retrieve it. No perception check.
 > SOUTH                       [Mid-Tier Key Door]
 > SOUTH                       [Key Door Landing]
 > SOUTH                       [Mine Passage]
-> SOUTH                       [Stored Room]
+> EAST                        [Stored Room]
 > DOWN                        [Pile of Rubble]
 > NORTH                       [Lower Crypt]
-> NORTH                       [Encampment]
-> WEST                        [Thermal Vent Room]
+> NORTH                       [Thermal Vent Room]
 > LOOK UP                     [fire clay]
 > TAKE CLAY                   [fire clay]
 
@@ -1284,10 +1286,10 @@ S) Crystal Bowl — Assemble Bowl at Fountain
 Surface, then mix fire clay with fountain water at the Town Square
 fountain. Assemble the bowl, then take it to the shrine.
 
-> EAST                        [Encampment]
+> SOUTH                       [Lower Crypt]
 > SOUTH                       [Pile of Rubble]
 > UP                          [Stored Room]
-> NORTH                       [Mine Passage]
+> WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
 > NORTH                       [Rickety Bridge]
@@ -1306,6 +1308,7 @@ fountain. Assemble the bowl, then take it to the shrine.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 
@@ -1316,7 +1319,6 @@ Mix fire clay with fountain water at the now-flowing fountain.
 
 Navigate to the Verdant Circle shrine in Roundabout Forest.
 
-> WEST                        [Main West]
 > EAST                        [Main East]
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
