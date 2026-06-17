@@ -71,17 +71,3 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ---
 
-## TODO #3 — Stored Room / Rope Mechanics
-
-**Status:** Resolved — written to `mechanics.md` and `locations.md` (2026-06-16)
-
-**Final mechanic:**
-- `DIG` (shovel required): floor collapses permanently, beam exposed, east spur to The Crevice severed. Player does not fall. DIG message: *"The shovel bites into the packed rubble and the floor gives way — the fill cascades into the darkness below. You scramble back from the edge. A gaping hole now separates you from the eastern passage."*
-- East exit permanently blocked post-dig — hole too wide to cross. No swing mechanic.
-- The Crevice and gold pocket watch permanently missable after dig.
-- `DOWN` / `CLIMB DOWN` without rope: *"The drop is serious. You'd need something to climb down on."*
-- `JUMP` / `JUMP DOWN`: death — *"It occurs to you, as you fall, that this may not have been a good decision. You die."*
-- `TIE ROPE TO BEAM` (rope from Docks): enables safe bidirectional `DOWN`, `UP`, `CLIMB DOWN ROPE`, `CLIMB UP ROPE`.
-- Post-dig, the Stored Room becomes the Hole to Below in all but name. All doc references to "Hole to Below" refer to this room.
-
-
