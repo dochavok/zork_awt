@@ -1446,33 +1446,22 @@ Quest 50 complete. Apprentice's Gloves received.
 =============================================================================
 MM) Supply Cache — Gold Nugget (Trap Side)
 =============================================================================
-The Supply Cache is partially collapsed — Gold Nugget buried in rubble.
-With Actually Enchanted Glasses auto-pass.
-
-Return south through the bog exit back into the trap side.
-
-> SOUTH                       [Lost Apprentice's Cell]
-> SOUTH                       [Flood Sump area]
-
-Actually: Supply Cache is off the trap side path. From the Spillway:
-Spillway → Dream Corridor → Lost Apprentice's Cell → Supply Cache →
-Flood Sump. The Supply Cache is north of Flood Sump.
+Supply Cache is south of Lost Apprentice's Cell. Retrieve the Gold Nugget
+before going UP to Bog-NW — the UP exit is one-way.
 
 > SOUTH                       [Supply Cache]
 > TAKE NUGGET                 [gold nugget]
+> NORTH                       [Lost Apprentice's Cell]
 
 =============================================================================
 NN) Quest 42 — Brotherhood Stones (Complete)
 =============================================================================
 We have all three rune stones: Bog-NE, Old Oak, Inscription Chamber.
-Surface and deliver them to Ivanaar.
+Surface via the bog hole exit (Bog-NW), then deliver to Ivanaar.
 
-Return to the surface via the bog hole exit (Bog-NW).
-
-> NORTH                       [Lost Apprentice's Cell]
-> NORTH                       [Bog-NW]
+> UP                          [Bog-NW]
 > EAST                        [Bog-NE]
-> EAST                        [Bog-SE]
+> SOUTH                       [Bog-SE]
 > EAST                        [Roundabout Pond]
 > EAST                        [Archery Range]
 > WEST                        [Viking Encampment]
@@ -1533,8 +1522,11 @@ only — Warriors already have melee skill. For a Warrior walkthrough,
 speak to the Knight to verify his presence and dialogue, but the trial
 and melee unlock are class-gated.
 
-> EAST                        [Main West]
-> EAST                        [Town Square]
+> EAST                        [Old Oak]
+> SOUTH                       [Beach Road]
+> WEST                        [Wasteland]
+> WEST                        [Main East]
+> WEST                        [Town Square]
 > TALK TO KNIGHT              [Knight of Faith]
 
 The Knight greets the player. As a Warrior, the quest does not trigger.
@@ -1631,8 +1623,8 @@ Open the case before placing items.
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
-> NORTH                       [Upper Hall]
-> NORTH                       [Tower]
+> UP                          [Upper Hall]
+> UP                          [Tower]
 > OPEN CASE                   [case open]
 > PUT FORGOTTEN BLADE IN CASE         [Forgotten Blade]
 > PUT DIAMOND BROOCH IN CASE          [Diamond Brooch]
@@ -1704,8 +1696,8 @@ south of Mine Passage — Stored Room is not on this path.
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
-> NORTH                       [Upper Hall]
-> NORTH                       [Tower]
+> UP                          [Upper Hall]
+> UP                          [Tower]
 > OPEN CASE                   [case open]
 
 Deposit all nine treasures:
