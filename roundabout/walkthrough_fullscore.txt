@@ -1138,20 +1138,19 @@ door there requires the incantation scroll (Quest 28 reward — not yet in
 hand). The Ivory Torch is in The Still Den — take it before attempting
 Quest 34. Proceed east through the lower tier first.
 
-> NORTH                       [Encampment]
 > EAST                        [Antechamber]
 > CLEAR BONES                 [disarmed]
 
 The antechamber bone crunch floor must be cleared before passing.
 
-> EAST                        [Junction — lower]
+> EAST                        [Lower Crossing]
 > NORTH                       [Tool Alcove]
 
 Actually Enchanted Glasses auto-reveal the speaking door. But we don't
 have the incantation scroll yet. Return from archivist visit will
 complete this. Note the discovery and move on.
 
-> SOUTH                       [Junction — lower]
+> SOUTH                       [Lower Crossing]
 > EAST                        [Narrow Pass]
 > EAST                        [Still Den]
 > KILL WEREWOLF               [no effect]
@@ -1164,24 +1163,20 @@ Take the Ivory Torch from the wall before combat begins.
 We'll need to come back once the stake is consecrated.
 
 > WEST                        [Narrow Pass]
-> WEST                        [Junction — lower]
+> WEST                        [Lower Crossing]
 
 =============================================================================
 DD) Quest 49 — Crystal Bowl: Fire Clay (Thermal Vent Room)
 =============================================================================
-> WEST                        [Encampment]
-> WEST                        [Lower Crypt]
-> NORTH                       [Thermal Vent Room — wait, incorrect]
-
-Lower tier layout: from Lower Crypt, west goes to Thermal Vent Room
-(dead-end spur). Actually: from Pile of Rubble, north is Lower Crypt,
-north from Lower Crypt is The Encampment, west from Encampment is
-Thermal Vent Room.
-
-> WEST                        [Thermal Vent Room]
+> WEST                        [Lower Crossing]
+> WEST                        [Antechamber]
+> WEST                        [Pile of Rubble]
+> NORTH                       [Lower Crypt]
+> NORTH                       [Thermal Vent Room]
 > LOOK UP                     [fire clay]
 > TAKE CLAY                   [fire clay]
-> EAST                        [Encampment]
+> SOUTH                       [Lower Crypt]
+> SOUTH                       [Pile of Rubble]
 
 =============================================================================
 EE) Quest 19/30 — Holy Water & Consecration (surface, Keeper's Chamber)
@@ -1314,10 +1309,8 @@ Return to The Still Den with the consecrated silver stake.
 > SOUTH                       [Mine Passage]
 > EAST                        [Stored Room]
 > DOWN                        [Pile of Rubble]
-> NORTH                       [Lower Crypt]
-> NORTH                       [Encampment]
 > EAST                        [Antechamber]
-> EAST                        [Junction — lower]
+> EAST                        [Lower Crossing]
 > EAST                        [Narrow Pass]
 > EAST                        [Still Den]
 > DRIVE STAKE INTO WEREWOLF   [werewolf destroyed]
@@ -1333,7 +1326,7 @@ incantation scroll from the Archivist and the Ivory Torch from The
 Still Den.
 
 > WEST                        [Narrow Pass]
-> WEST                        [Junction — lower]
+> WEST                        [Lower Crossing]
 > NORTH                       [Tool Alcove]
 > READ SCROLL                 [door opens]
 
@@ -1366,7 +1359,7 @@ KK) Lower Tier — Dark Room, Spirit Room, Burial Chamber
 The Dark Room is a spur south of The Junction. Guardian's Lantern
 required to dispel magical darkness.
 
-> SOUTH                       [Junction — lower]
+> SOUTH                       [Lower Crossing]
 > SOUTH                       [Dark Room]
 > LIGHT LANTERN               [darkness collapses]
 > SOUTH                       [Spirit Room]
@@ -1382,7 +1375,7 @@ react to taking it.
 > TAKE MASK                   [Funeral Mask]
 > NORTH                       [Spirit Room]
 > NORTH                       [Dark Room]
-> NORTH                       [Junction — lower]
+> NORTH                       [Lower Crossing]
 > REMOVE RING                 [ring removed]
 
 =============================================================================
@@ -1394,12 +1387,8 @@ the Flooding Room or the quest posting is removed permanently.
 
 Return up through the Hole to Below and navigate to the Flooding Room.
 
-> SOUTH                       [Pile of Rubble — wait, we are in lower tier]
-
-From Junction (lower), go west:
-
-> WEST                        [Encampment]
-> SOUTH                       [Pile of Rubble]
+> WEST                        [Antechamber]
+> WEST                        [Pile of Rubble]
 > UP                          [Stored Room]
 > WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]

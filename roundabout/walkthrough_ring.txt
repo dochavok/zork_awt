@@ -1108,17 +1108,6 @@ Return to the lower tier through the Hole to Below and go east through
 The Narrow Pass to The Still Den.
 
 > WEST                        [Church Nave]
-> NORTH                       [Main East]
-> EAST                        [Wasteland]
-> EAST                        [Beach Road]
-> SOUTH                       [Roundabout Beach]
-
-No wait — the Graveyard path is shorter. Navigate back.
-
-> NORTH                       [Beach Road]
-> WEST                        [Wasteland]
-> WEST                        [Main East]
-> SOUTH                       [Church Nave]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
 > DOWN                        [Crypt]
@@ -1138,16 +1127,14 @@ No wait — the Graveyard path is shorter. Navigate back.
 > SOUTH                       [Mid-Tier Key Door]
 > SOUTH                       [Key Door Landing]
 > SOUTH                       [Mine Passage]
-> SOUTH                       [Stored Room]
+> EAST                        [Stored Room]
 > DOWN                        [Pile of Rubble]
-> NORTH                       [Lower Crypt]
-> NORTH                       [Encampment]
 > EAST                        [Antechamber]
 
 The Bone Crunch Floor trap must be cleared before passing.
 
 > CLEAR BONES                 [disarmed]
-> EAST                        [Junction — lower]
+> EAST                        [Lower Crossing]
 > EAST                        [Narrow Pass]
 > EAST                        [Still Den]
 > DRIVE STAKE INTO WEREWOLF   [werewolf destroyed]
@@ -1166,13 +1153,12 @@ The aqueduct is in the Dungeon Upper Tier. Let's surface and handle it.
 
 Return to the surface via the Hole to Below.
 
-> WEST                        [Junction — lower]
+> WEST                        [Narrow Pass]
+> WEST                        [Lower Crossing]
 > WEST                        [Antechamber]
-> WEST                        [Encampment]
-> WEST                        [Lower Crypt]
-> SOUTH                       [Pile of Rubble]
+> WEST                        [Pile of Rubble]
 > UP                          [Stored Room]
-> NORTH                       [Mine Passage]
+> WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
 > NORTH                       [Rickety Bridge]
