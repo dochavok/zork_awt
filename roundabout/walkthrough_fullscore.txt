@@ -1209,6 +1209,7 @@ Surface, use Keeper's keys at Keeper's Chamber (Church of All).
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
+> NORTH                       [Church Nave]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > SOUTH                       [Church Nave]
