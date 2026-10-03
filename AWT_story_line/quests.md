@@ -289,7 +289,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 **Steps:**
 1. Find Mid-Tier Key Door in dungeon upper tier → quest discovered.
 2. Talk to Councilman Rowan Finch in Council Chamber (Town Hall).
-3. Perception check in the bog → gravestone face-down in mud.
+3. Perception check in the bog (Bog-SE) → gravestone face-down in mud.
 4. Find hand cart in Storage Area (Dungeon Upper Tier).
 5. `LOAD STONE ONTO CART` → move gravestone back to cemetery.
 6. Return to Rowan Finch.

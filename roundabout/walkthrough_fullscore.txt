@@ -424,7 +424,8 @@ path is auto-revealed. Navigate to the bog.
 > NORTH                       [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
-> WEST                        [Bog of Eternal Stench]
+> NORTH                       [Bog of Eternal Stench]
+> EAST                        [Bog of Eternal Stench]
 > ENTER DANKHAUS              [Common Room]
 
 Make Litlock laugh. Successful path: B (physical) → B2 (ridiculous) →
@@ -443,8 +444,10 @@ H) Quest 42 — Brotherhood Stones (Part 1: Bog Rune Stone)
 =============================================================================
 While in the bog, collect the Bog-NE rune stone (Quest 42 is discovered
 after the Viking trust trials, but the stone can be picked up now).
-Also: Bog-NW contains the music box key (Quest 12).
+Also: Bog-NW contains the music box key (Quest 12). Out of the Dankhaus
+(west to Bog-SE), then north to Bog-NE.
 
+> WEST                        [Bog of Eternal Stench]
 > NORTH                       [Bog of Eternal Stench]
 
 Actually Enchanted Glasses auto-pass perception: rune stone visible.
@@ -468,8 +471,7 @@ I) Quest 12 — The Locked Music Box (Light Spell)
 The music box is in Will's Wizard Tower. The key was just collected in
 Bog-NW. For Warriors, the Light scroll must be taken to Will to learn.
 
-> EAST                        [Bog of Eternal Stench]
-> EAST                        [Roundabout Pond]
+> SOUTH                       [Roundabout Pond]
 > SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
@@ -871,12 +873,15 @@ The gravestone is in the bog. Navigate there with the hand cart.
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
-> WEST                        [Bog of Eternal Stench]
+> NORTH                       [Bog of Eternal Stench]
+> EAST                        [Bog of Eternal Stench]
 
-Perception check auto-passes — gravestone visible face-down in mud.
+Perception check auto-passes — gravestone visible face-down in mud
+(Bog-SE).
 
 > LOAD STONE ONTO CART        [loaded]
-> EAST                        [Roundabout Pond]
+> WEST                        [Bog of Eternal Stench]
+> SOUTH                       [Roundabout Pond]
 > SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
@@ -1467,9 +1472,8 @@ We have all three rune stones: Bog-NE, Old Oak, Inscription Chamber.
 Surface via the bog hole exit (Bog-NW), then deliver to Ivanaar.
 
 > UP                          [Bog of Eternal Stench]
-> EAST                        [Bog of Eternal Stench]
 > SOUTH                       [Bog of Eternal Stench]
-> EAST                        [Roundabout Pond]
+> SOUTH                       [Roundabout Pond]
 > SOUTH                       [Archery Range]
 > WEST                        [Viking Encampment]
 > GIVE STONES TO IVANAAR      [tunic]

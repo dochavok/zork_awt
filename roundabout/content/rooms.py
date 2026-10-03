@@ -672,14 +672,15 @@ def _make_pond_and_bog(world, archery) -> None:
 
     archery.exits["north"] = Exit(destination="ROUNDABOUT-POND")
     pond.exits["south"] = Exit(destination="ARCHERY-RANGE")
-    pond.exits["west"]  = Exit(destination="BOG-SE")
-    # 2×2 grid, diagonals allowed. Bog-SE south → Dankhaus: built with H2.
-    bog_se.exits.update(east=Exit(destination="ROUNDABOUT-POND"), north=Exit(destination="BOG-NE"),
+    pond.exits["north"] = Exit(destination="BOG-SW")
+    # 2×2 grid, diagonals allowed; Bog-SW is the entry from the Pond.
+    # Bog-SE east → Dankhaus Common Room: built with H2.
+    bog_se.exits.update(north=Exit(destination="BOG-NE"),
                         west=Exit(destination="BOG-SW"), northwest=Exit(destination="BOG-NW"))
     bog_ne.exits.update(south=Exit(destination="BOG-SE"), west=Exit(destination="BOG-NW"),
                         southwest=Exit(destination="BOG-SW"))
-    bog_sw.exits.update(east=Exit(destination="BOG-SE"), north=Exit(destination="BOG-NW"),
-                        northeast=Exit(destination="BOG-NE"))
+    bog_sw.exits.update(south=Exit(destination="ROUNDABOUT-POND"), east=Exit(destination="BOG-SE"),
+                        north=Exit(destination="BOG-NW"), northeast=Exit(destination="BOG-NE"))
     bog_nw.exits.update(east=Exit(destination="BOG-NE"), south=Exit(destination="BOG-SW"),
                         southeast=Exit(destination="BOG-SE"))
 

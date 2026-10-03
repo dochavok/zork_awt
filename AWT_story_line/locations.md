@@ -758,7 +758,7 @@ West of The Encampment. **Aylora** is the Viking champion. Best of five rounds; 
 **NPCs:** None
 **Items:** Bottle (at pond bottom; perception check each visit; retrieved with fishing rod + challenge roll — treasure item)
 **Quest Hooks:** Bottle retrieval — perception-gated discovery; May's hints unlock on discovery
-**Connections:** South → Archery Range. West → Bog-SE.
+**Connections:** South → Archery Range. North → Bog of Eternal Stench (SW).
 Between town and the bog. Two-state room.
 
 **Base description:** *The pond is easy to walk past without noticing. It sits low between the town path and the bog, ringed with reeds and the occasional frog. The water is dark and calm.*
@@ -772,10 +772,10 @@ All four bog rooms display the same room title to the player: **"The Bog of Eter
 ### Bog of Eternal Stench (SE)
 **XP: 1**
 **NPCs:** None
-**Items:** None (Dankhaus path hidden here — perception check)
+**Items:** Calder Finch's gravestone (Quest 32; perception check — face-down in the mud). Dankhaus path hidden here (perception check).
 **Quest Hooks:** Dankhaus discovery (perception-gated; once found, path permanent)
-**Connections:** East → Roundabout Pond. North → Bog of Eternal Stench (NE). West → Bog of Eternal Stench (SW). Northwest → Bog of Eternal Stench (NW). South → Dankhaus Common Room (perception-gated; ward-gated entry).
-Entry point from Roundabout Pond. Dankhaus hidden here — dense brush conceals the path; perception check required each visit until discovered. Once discovered, path is permanently visible.
+**Connections:** North → Bog of Eternal Stench (NE). West → Bog of Eternal Stench (SW). Northwest → Bog of Eternal Stench (NW). East → Dankhaus Common Room (perception-gated; ward-gated entry).
+The Dankhaus is east of here. Dankhaus hidden here — dense brush conceals the path; perception check required each visit until discovered. Once discovered, path is permanently visible.
 
 **Room description:** *The bog stretches in every direction, dark water between clumps of soggy earth. The smell is comprehensive and personal. Reeds crowd the edges of every dry patch. Something is moving just out of sight, or was.*
 
@@ -794,8 +794,8 @@ Contains a rune stone — perception check required.
 **NPCs:** None
 **Items:** Bog thyme (Quest 40; perception check — among the reeds); Verdant Circle shrine bowl piece (Quest 49; Easy perception check, every visit until found — text in items.md)
 **Quest Hooks:** Quest 40
-**Connections:** East → Bog of Eternal Stench (SE). North → Bog of Eternal Stench (NW). Northeast → Bog of Eternal Stench (NE).
-Contains bog thyme — perception check required to spot it among the reeds.
+**Connections:** South → Roundabout Pond. East → Bog of Eternal Stench (SE). North → Bog of Eternal Stench (NW). Northeast → Bog of Eternal Stench (NE).
+Entry point from Roundabout Pond. Contains bog thyme — perception check required to spot it among the reeds.
 
 **Room description:** *A flat expanse of bog, grey-green and indifferent. The water is still except where it isn't. The smell arrived before you did and will be here long after you leave.*
 
@@ -811,6 +811,8 @@ Contains a hollow log — perception check required to find it. Inside: the key 
 
 The Dankhaus — three-bedroom home hidden in the bog behind dense brush. Perception check required to find it (Bog-SE). Litlock's residence; also houses Lynds and Aurix the Kobold child. Appears as a yurt from outside. Magical wards bar uninvited entry — cleared by flag set when player beats Lynds at arm wrestling.
 
+**Layout note:** Rooms aren't strictly one grid square each. Plotted on a grid, Aurix's Room and Lynds's Room fall on the same squares as Town Hall Exterior and the Council Chamber; this is intentional and left as is — nothing about it intrudes on the bog or pond from the player's point of view.
+
 ### Dankhaus Common Room
 **XP: 3**
 **NPCs:** Litlock
@@ -825,7 +827,7 @@ The Dankhaus — three-bedroom home hidden in the bog behind dense brush. Percep
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
-**Connections:** West → Dankhaus Common Room. North → Lynds's Room. East → Garden.
+**Connections:** West → Dankhaus Common Room. South → Lynds's Room. East → Garden.
 
 *A working hearth room — herbs drying overhead, something on the fire, the garden accessible through the east door. It smells like it has always smelled like this.*
 
@@ -861,7 +863,7 @@ The Dankhaus — three-bedroom home hidden in the bog behind dense brush. Percep
 **NPCs:** Lynds (arm wrestling; invitation clears Dankhaus wards)
 **Items:** None
 **Quest Hooks:** Lynds arm wrestling — win for invitation flag that clears magical wards
-**Connections:** South → Dankhaus Hearth Room.
+**Connections:** North → Dankhaus Hearth Room.
 
 *Lynds's room. Large, untidy, comfortable. The furniture has been through some things.*
 

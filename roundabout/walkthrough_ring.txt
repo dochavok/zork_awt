@@ -455,8 +455,7 @@ Detour north through the Pond into the bog for the second bowl piece
 the Dankhaus path in Bog-SE as we pass — we'll need it in H2.
 
 > NORTH                       [Roundabout Pond]
-> WEST                        [Bog of Eternal Stench]
-> WEST                        [Bog of Eternal Stench]
+> NORTH                       [Bog of Eternal Stench]
 > TAKE BOWL PIECE             [You take the bowl piece]
 
 OPTIONAL — not required to complete the ring. Done for XP so the
@@ -468,7 +467,8 @@ Bog-NE adds their exploration XP without backtracking.
 > NORTH                       [Bog of Eternal Stench]
 > EAST                        [Bog of Eternal Stench]
 > SOUTH                       [Bog of Eternal Stench]
-> EAST                        [Roundabout Pond]
+> WEST                        [Bog of Eternal Stench]
+> SOUTH                       [Roundabout Pond]
 > SOUTH                       [Archery Range]
 > WEST                        [Viking Encampment]
 > TALK TO IVANAAR             [Haalvar]
@@ -604,7 +604,8 @@ path on the first visit; Lynds's invitation lets us through the wards.
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
-> WEST                        [Bog of Eternal Stench]
+> NORTH                       [Bog of Eternal Stench]
+> EAST                        [Bog of Eternal Stench]
 > ENTER DANKHAUS              [Common Room]
 
 Make Litlock laugh — a 2×2×2 dialogue tree. The successful path:
@@ -626,7 +627,8 @@ Graveyard, just before entering, and take it off as soon as we're out —
 corruption ticks every turn it's worn.
 
 > WEST                        [Bog of Eternal Stench]
-> EAST                        [Roundabout Pond]
+> WEST                        [Bog of Eternal Stench]
+> SOUTH                       [Roundabout Pond]
 > SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
@@ -820,9 +822,10 @@ Navigate to the bog.
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
-> WEST                        [Bog of Eternal Stench]
+> NORTH                       [Bog of Eternal Stench]
+> EAST                        [Bog of Eternal Stench]
 
-Perception check auto-passes — gravestone visible.
+Perception check auto-passes — gravestone visible (Bog-SE).
 
 > TAKE GRAVESTONE             [need cart]
 
@@ -873,12 +876,14 @@ back to the cemetery.
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
-> WEST                        [Bog of Eternal Stench]
+> NORTH                       [Bog of Eternal Stench]
+> EAST                        [Bog of Eternal Stench]
 > LOAD STONE ONTO CART        [loaded]
 
 Push the cart back to the Graveyard (cemetery).
 
-> EAST                        [Roundabout Pond]
+> WEST                        [Bog of Eternal Stench]
+> SOUTH                       [Roundabout Pond]
 > SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
