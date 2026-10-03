@@ -337,6 +337,11 @@ def v_talk(world: World) -> int:
         print("The child says nothing.")
         return M_HANDLED
 
+    if obj.name == "LITLOCK":
+        from content import dankhaus
+        dankhaus.talk_litlock(world)
+        return M_HANDLED
+
     if obj.name == "LYNDS":
         from content import lynds
         lynds.challenge(world)   # TALK TO LYNDS starts the challenge (npcs.md)
@@ -447,6 +452,20 @@ def v_give(world: World) -> int:
         return M_HANDLED
 
     print(f"{npc.desc} doesn't take the {item.desc}.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-ENTER  (ENTER DANKHAUS / ENTER YURT)
+# ---------------------------------------------------------------------------
+
+def v_enter(world: World) -> int:
+    obj = world.prso
+    if obj is not None and obj.name == "DANKHAUS":
+        from content import dankhaus
+        dankhaus.enter_dankhaus(world)
+        return M_HANDLED
+    print("You can't go in there.")
     return M_HANDLED
 
 
@@ -851,6 +870,9 @@ def register_verbs(game) -> None:
     game.register_verb("V-CLIMB-TREE", v_climb_tree)
     game.register_verb("V-MELEE",      v_melee)
     game.register_verb("V-CHALLENGE",  v_challenge)
+    game.register_verb("V-ENTER",      v_enter)
+    from content.dankhaus import litlock_input_hook
+    game.register_input_hook(litlock_input_hook)
     game.register_verb("V-ACTIVATE",   v_activate)
     game.register_verb("V-DRINK",      v_drink)
     from content.vikings import riddle_input_hook

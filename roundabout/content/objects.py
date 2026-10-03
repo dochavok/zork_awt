@@ -44,6 +44,7 @@ def make_objects(world) -> None:
     _make_bog_objects(world)
     _make_alley_objects(world)
     _make_lynds_objects(world)
+    _make_dankhaus_objects(world)
 
 
 # ---------------------------------------------------------------------------
@@ -471,4 +472,26 @@ def _make_lynds_objects(world) -> None:
         ldesc="A simple cord with a clay charm, worn smooth.",
         synonyms=["necklace", "charm", "cord"], adjectives=["heart", "clay"],
         flags={TAKEBIT, "WEARABLE"},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# The Dankhaus (logic: content/dankhaus.py)
+# ---------------------------------------------------------------------------
+
+def _make_dankhaus_objects(world) -> None:
+    # The yurt seen from Bog-SE — hidden until the path is found
+    world.register_object(GameObject(
+        name="DANKHAUS", desc="yurt", synonyms=["dankhaus", "yurt", "path", "house"],
+        adjectives=["low", "round"], flags={NDESCBIT, SACREDBIT, INVISIBLE},
+    ))
+    # Litlock is described in the Common Room's room description
+    world.register_object(GameObject(
+        name="LITLOCK", desc="Litlock", synonyms=["litlock"], flags={ACTORBIT, NDESCBIT},
+    ))
+    presence = ("A small kobold sits cross-legged among the chalk marks, absorbed "
+                "in something only they can see.")
+    world.register_object(GameObject(
+        name="AURIX", desc="Aurix", fdesc=presence, ldesc=presence,
+        synonyms=["aurix", "kobold", "child"], adjectives=["small"], flags={ACTORBIT},
     ))

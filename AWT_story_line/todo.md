@@ -6,20 +6,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–H1 passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–H2 passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section H2 — Make Litlock Laugh. First failure:
+**Current position:** Section H3 — Quest 17, The Frozen Watch (Chuckle House ghost). First failure:
 
 ```
-SECTION [H2) Quest 52 — Make Litlock Laugh (Chuckle House Visibility)]
-  cmd     : 'ENTER DANKHAUS'
-  missing : 'Common Room'
-  got     : "You can't see any dankhaus here!"
+SECTION [H3) Quest 17 — The Frozen Watch (Chuckle House Ghost)]
+  cmd     : 'SOUTH'
+  missing : 'Church Nave'
+  got     : "You can't go that way."
 ```
 
-Needs the Dankhaus path reveal in Bog-SE (perception), the wards (cleared by Lynds), the Dankhaus rooms, Litlock and the Quest 52 dialogue tree.
+Needs Church Nave, Graveyard, the Chuckle House (4 rooms, mirror mechanic, 50% exit-fail), wearing the ring (invisibility + corruption ticks), CAST UNBIND UNDEAD, the ghost and pocket watch.
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
@@ -34,12 +34,15 @@ Needs the Dankhaus path reveal in Bog-SE (perception), the wards (cleared by Lyn
 - Hidden Zenni rooms (36, seeded at init; tests pin seed 7)
 - Old Oak area (Quest 41 kite, Beekeeper's Cottage, Swarm Tree), forest + bog bowl pieces, Pond and 4 bog rooms
 - SAVE / RESTORE
+- Kevry per design (enchant on arrival if worn; WEAR in front of him if carried; quest-hint line without glasses)
+- Dankhaus path (Medium perception), wards, 7 Dankhaus rooms, Litlock's tree as a numbered menu (Quest 52)
 - Lynds (Quest 59): CHALLENGE / TALK TO, contested roll with tie reroll, 20-turn loss cooldown, Heart Necklace +1 heart while worn
 - INVENTORY marks wearable items (not worn); TAKE prefers objects not already held
 - The Alley, Back Alley, mugger (Medium perception, one combat round per KILL, losing isn't death), May's first visit and Quest 51 free drink
 - Walkthrough cleanup: Q and R removed (bowl pieces in C1/E, fire clay in M), rope taken at end of C2
 
 **Known issues still open:**
+- Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.
 - Class XP bonuses (experience.md — Class XP Adjustments): Warrior +10 per kill is built (Aylora excluded — not a kill). Mage +1 per new dungeon room and Rogue +5 per trap disarmed are not built yet — add when the dungeon and traps are.
 - Full-score walkthrough does the mugger (its section C) before Kevry: a level-1 Warrior with regular glasses maxes at 8 perception < Medium 9, so the mugger is never spotted. Move it after the glasses enchantment or after level 2.
 - Section P (aqueduct) needs cleanup: ends with NORTH [Dungeon Entrance] while already there; aqueduct repair rooms aren't defined in locations.md.

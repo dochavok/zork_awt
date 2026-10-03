@@ -695,6 +695,10 @@ def _make_pond_and_bog(world, archery) -> None:
 
     bog_sw.action = bog_sw_action
 
+    # The Dankhaus, east of Bog-SE (path hidden, warded) — content/dankhaus.py
+    from content import dankhaus
+    dankhaus.make_rooms(world, bog_se)
+
 
 # ---------------------------------------------------------------------------
 # Mine — Pie Rats Mining Inc.

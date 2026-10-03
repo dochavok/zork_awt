@@ -430,10 +430,13 @@ path is auto-revealed. Navigate to the bog.
 Make Litlock laugh. Successful path: B (physical) → B2 (ridiculous) →
 C1 (push further).
 
+
+After each of Litlock's lines, pick from the numbered menu.
+
 > TALK TO LITLOCK             [Entertain me]
-> DO SOMETHING PHYSICAL       [watches]
-> SIT ON FLOOR                [why are you on the floor]
-> I FIND IT CLARIFYING        [bonk]
+> 2                           [watches]
+> 2                           [are you on the floor]
+> 1                           [bonk]
 
 Litlock bonks the player on the head. The Chuckle House is now visible
 west of the Graveyard.

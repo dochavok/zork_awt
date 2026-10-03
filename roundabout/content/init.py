@@ -112,6 +112,9 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["MAY"],    world.rooms["BAR"])
     world.move_object(world.objects["LYNDS"],  world.rooms["TALE-AND-ALE"])
     # HEART-NECKLACE is handed over when Lynds is beaten
+    world.move_object(world.objects["DANKHAUS"], world.rooms["BOG-SE"])
+    world.move_object(world.objects["LITLOCK"],  world.rooms["DANKHAUS-COMMON-ROOM"])
+    world.move_object(world.objects["AURIX"],    world.rooms["AURIX-ROOM"])
     # LOCKPICKS drop when the mugger is slain
     # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus
 

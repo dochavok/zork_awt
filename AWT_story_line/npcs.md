@@ -195,6 +195,8 @@ On ring removal: *"There you are," Litlock says, as though you'd simply stepped 
 *"There," he says. "You'll see things a bit differently now. Don't ask me to explain it."*
 *He picks up whatever he put down and goes back to it, still smiling.*
 
+**After the bonk (`TALK TO LITLOCK`):** *Litlock is still smiling about it.*
+
 **C2 — Explain it** *(FAIL)*
 
 *From A2 path:*

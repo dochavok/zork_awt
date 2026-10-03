@@ -775,7 +775,10 @@ All four bog rooms display the same room title to the player: **"The Bog of Eter
 **Items:** Calder Finch's gravestone (Quest 32; perception check — face-down in the mud). Dankhaus path hidden here (perception check).
 **Quest Hooks:** Dankhaus discovery (perception-gated; once found, path permanent)
 **Connections:** North → Bog of Eternal Stench (NE). West → Bog of Eternal Stench (SW). Northwest → Bog of Eternal Stench (NW). East → Dankhaus Common Room (perception-gated; ward-gated entry).
-The Dankhaus is east of here. Dankhaus hidden here — dense brush conceals the path; perception check required each visit until discovered. Once discovered, path is permanently visible.
+The Dankhaus is east of here. Dankhaus hidden here — dense brush conceals the path; perception check (Medium) required each visit until discovered. Once discovered, path is permanently visible.
+- **Path spotted (first time):** *Off to the east, the brush isn't quite as dense as it should be. Behind it, a path — narrow, deliberate — leads to something low and round. A yurt, improbably dry.*
+- **Added to the room description once found:** *A narrow path leads east through the brush to a low, round yurt.*
+- `EAST` or `ENTER DANKHAUS` / `ENTER YURT` goes in (ward-gated until Lynds's invitation).
 
 **Room description:** *The bog stretches in every direction, dark water between clumps of soggy earth. The smell is comprehensive and personal. Reeds crowd the edges of every dry patch. Something is moving just out of sight, or was.*
 
@@ -875,6 +878,8 @@ The Dankhaus — three-bedroom home hidden in the bog behind dense brush. Percep
 **Connections:** North → Dankhaus Common Room.
 
 *Small bed, small shelf, the accumulated objects of a child who picks things up and keeps them. The chalk marks on the floor have been there long enough that no one is going to do anything about them.*
+
+**Aurix (presence line):** *A small kobold sits cross-legged among the chalk marks, absorbed in something only they can see.*
 
 ---
 

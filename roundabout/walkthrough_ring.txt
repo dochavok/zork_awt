@@ -610,10 +610,13 @@ path on the first visit; Lynds's invitation lets us through the wards.
 Make Litlock laugh — a 2×2×2 dialogue tree. The successful path:
 B (physical) → B2 (ridiculous) → C1 (push further).
 
+
+After each of Litlock's lines, pick from the numbered menu.
+
 > TALK TO LITLOCK             [Entertain me]
-> DO SOMETHING PHYSICAL       [watches]
-> SIT ON FLOOR                [why are you on the floor]
-> I FIND IT CLARIFYING        [bonk]
+> 2                           [watches]
+> 2                           [are you on the floor]
+> 1                           [bonk]
 
 Litlock bonks us on the head. The Chuckle House is now visible west of
 the Graveyard.
