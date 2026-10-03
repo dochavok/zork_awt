@@ -49,7 +49,7 @@ _QUEST_META: dict[str, dict] = {
     "54":  {"name": "Fight the Knight",          "xp": 8,  "zenni": 4},
     "55":  {"name": "The Archer's Trial",        "xp": 6,  "zenni": 3},
     "56":  {"name": "Will's Teaching",           "xp": 4,  "zenni": 2},
-    "57":  {"name": "The Viking Trust Trials",   "xp": 12, "zenni": 6},
+    "57":  {"name": "The Viking Trust Trials",   "xp": 12, "zenni": 5},
     "58":  {"name": "The Dragon-Nip",            "xp": 4,  "zenni": 2},
     "59":  {"name": "Beat Lynds",                "xp": 5,  "zenni": 3},
 }

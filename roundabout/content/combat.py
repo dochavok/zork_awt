@@ -135,7 +135,7 @@ def _handle_death(world: "World") -> None:
             "Someone left a drink on the table. The chair nearest the hearth looks like it was made for exactly this moment.\n\n"
             "You are alive. You are not sure how. You are quite sure you could use a rest."
         )
-        tavern = world.rooms.get("tale-and-ale-main")
+        tavern = world.rooms.get("TALE-AND-ALE")
         if tavern:
             world.move_object(world.winner, tavern)
             world.here = tavern

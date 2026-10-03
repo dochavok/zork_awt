@@ -18,6 +18,8 @@ Content modules populate Vocabulary and supply SyntaxRule lists.
 
 from __future__ import annotations
 
+import contextlib
+import io
 import re
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Callable, Optional
@@ -348,28 +350,58 @@ class Parser:
             print(f"That's not something I know how to {verb}.")
             return None
 
-        # Phase 1 — particle detection.
+        # Phase 1 — particle detection. If reading the first word as a
+        # particle leaves no structurally matching rule ("look AT banner"
+        # vs. "look at ceiling"), retry with the word left in place.
         particle, rest_after = self._detect_particle(rest, rules)
-        particle_rules = [r for r in rules if r.particle == particle]
-        if not particle_rules:
+        candidates = self._structural_matches(rules, particle, rest_after)
+        if not candidates and particle is not None:
+            candidates = self._structural_matches(rules, None, rest)
+        if not candidates:
             print("That sentence isn't one I recognize.")
             return None
 
-        # Phase 2 — split into noun clauses.
-        # Parse the first preposition in rest_after to split nc1 / nc2.
-        nc1_raw, prep, nc2_raw = self._extract_noun_clauses(rest_after)
+        # Phase 4 — object resolution. ZIL FIND flags are preferences, not
+        # requirements: try each structural match in order and take the first
+        # whose object filters accept the named objects. If none do, resolve
+        # with the first match and its FIND flags ignored.
+        for rule, nc1_raw, nc2_raw in candidates:
+            buf = io.StringIO()
+            try:
+                with contextlib.redirect_stdout(buf):
+                    result = self._resolve_rule(rule, nc1_raw, nc2_raw, world, original_words)
+            except _ParseError:
+                continue
+            print(buf.getvalue(), end="")
+            return result
 
-        # Phase 3 — pick the best structurally-matching rule.
-        rule = self._pick_rule(particle_rules, nc1_raw, prep, nc2_raw)
-        if rule is None:
-            print("That sentence isn't one I recognize.")
-            return None
-
-        # Phase 4 — object resolution.
+        rule, nc1_raw, nc2_raw = candidates[0]
+        self._ignore_find_flag = True
         try:
             return self._resolve_rule(rule, nc1_raw, nc2_raw, world, original_words)
         except _ParseError:
             return None
+        finally:
+            self._ignore_find_flag = False
+
+    def _structural_matches(
+        self, rules: list[SyntaxRule], particle: Optional[str], tokens: list[str]
+    ) -> list[tuple[SyntaxRule, list[str], list[str]]]:
+        """Phases 2–3: every rule (in order) whose particle/prep/noun-clause shape fits."""
+        nc1_raw, prep, nc2_raw = self._extract_noun_clauses(tokens)
+        # Preposition before a single object (ZIL "LOOK AT OBJECT"):
+        # "look at banner" splits as nc1=[], prep=at, nc2=[banner].
+        prep_first = (not nc1_raw and prep is not None and bool(nc2_raw))
+        matches = []
+        for rule in rules:
+            if rule.particle != particle:
+                continue
+            if self._pick_rule([rule], nc1_raw, prep, nc2_raw) is not None:
+                matches.append((rule, nc1_raw, nc2_raw))
+            elif (prep_first and rule.prep == prep
+                    and rule.obj1 is not None and rule.obj2 is None):
+                matches.append((rule, nc2_raw, []))
+        return matches
 
     # ------------------------------------------------------------------ #
     # Phase 1: particle detection                                         #
@@ -696,7 +728,7 @@ class Parser:
 
         # Apply find_flag filter.
         # RMUNGBIT is a ZIL parser special case meaning "any object in scope" — no filter.
-        if spec.find_flag and spec.find_flag != "RMUNGBIT":
+        if spec.find_flag and spec.find_flag != "RMUNGBIT"                 and not getattr(self, "_ignore_find_flag", False):
             candidates = [o for o in candidates if o.has_flag(spec.find_flag)]
 
         return candidates

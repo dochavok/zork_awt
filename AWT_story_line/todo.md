@@ -6,29 +6,30 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A, B, C, D passing in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–F passing in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section E — Pale Blade / Viking Trust Trials. First failure:
+**Current position:** Section G — Werewolf's Amulet / Silver Stake from Town Square Statue. First failure:
 
 ```
-SECTION [E) Pale Blade — Viking Trust Trials (Quest 57)]
-  cmd     : 'WEST'
-  missing : 'Main West'
-  got     : "You can't go that way.
-"
+SECTION [G) Werewolf's Amulet — Silver Stake from Town Square Statue]
+  cmd     : 'LOOK AT STATUE'
+  missing : 'seam'
+  got     : "You can't see any statue here!"
 ```
-
-Town Square has no west exit yet. Needs Main West, Archery Range, Viking Encampment and the trial rooms.
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
-- Sections A–D passing (White House opening, tower bedroom, Kevry's island sailing arc, ring retrieval from Pyronicus + Will's second briefing)
-- Engine additions: V-WEAR, V-REMOVE, V-TALK, V-GIVE, V-BUY, V-BOARD-SHIP, V-SAIL, V-DOCK, V-LIGHT, V-DROP, nautical GO EAST/WEST/LAND preaction, cave-in trigger; Shamus, Kevry, Pyronicus, Will NPCs; overworld/mine/sea rooms, Volcano, Pyronicus's Forge
-- Opening rewritten to match npcs.md: Yes/No adventure prompt, class/name in the tower, no ring handed over (ring starts with Pyronicus)
+- Sections A–F passing (opening, tower bedroom, Kevry's island, ring retrieval + Will's second briefing, Viking trust trials, Pale Blade forging)
+- Engine additions: V-WEAR, V-REMOVE, V-TALK, V-GIVE, V-PUT-ON, V-ACTIVATE, V-DRINK, V-BUY, V-BOARD-SHIP, V-SAIL, V-DOCK, V-LIGHT, V-DROP, nautical walk preaction, cave-in trigger, raw-input hook (riddle answers); NPCs Shamus, Kevry, Pyronicus, Will, Raznak, Ivanaar, Haalvar, child, Aylora; rooms through the Viking Encampment
+- Parser: FIND flags are preferences (try each structurally matching rule in order, fall back to the first with FIND ignored); particle retry; preposition-before-object rules (`LOOK AT X`)
+- Opening rewritten to match npcs.md
 
 **Known issues still open:**
+- Viking trials are not enforced in order (design says Riddle → Circle → Fire Pit). Needs refusal text for out-of-order attempts.
+- Raznak only has State 1 (trust not earned). States 2A/2B/3 and PAY are Quest 55 (full-score walkthrough).
+- No INVENTORY verb yet.
 - Section T has `REMOVE RING [ring won't go on]`. items.md says that message belongs to `WEAR RING` on the bound ring. Check before implementing.
 - Glasses instant-fail in Will's presence is not implemented. Walkthroughs remove glasses before talking to Will and put them back on after leaving through the painting.
 - The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").

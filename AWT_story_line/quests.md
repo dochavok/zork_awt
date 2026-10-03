@@ -620,7 +620,8 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 1. Enter the Viking Encampment. Ivanaar greets the player and points them north to Haalvar.
 2. **Trial 1 — The Riddle Stone** (Haalvar's Hut, north): Answer Haalvar's riddle. *"I have no legs but travel far. I have no mouth but swallow ships. I have no hands but I will take everything you own if you let me. What am I?"* Correct answer: `SEA`. Retryable on wrong answer.
 3. **Trial 2 — The Ritual Circle** (south of Encampment): Activate five elemental stones in correct order — Earth → Air → Fire → Water → Heart. Clue: `LOOK AT BANNER` in the Encampment reveals the first four. Heart stone is always last. Resets on wrong order.
-4. **Trial 3 — The Drinking Challenge** (The Fire Pit, west): Best of five rounds of Thornbrew drinking against Aylora — strength-based challenge rolls. Warriors get a class bonus. Player wins when Aylora passes out; drag her back to the Encampment to trigger Ivanaar's reaction.
+   Trials 1 and 2 may be done in either order.
+4. **Trial 3 — The Drinking Challenge** (The Fire Pit, west): Must be last — Aylora won't start until Trials 1 and 2 are done. Best of five rounds of Thornbrew drinking against Aylora — strength-based challenge rolls. Warriors get a class bonus. Player wins when Aylora passes out; drag her back to the Encampment to trigger Ivanaar's reaction.
    - **Player loses:** Wakes in the Encampment two turns later. Retryable.
 5. Ivanaar awards the runed metal after witnessing Aylora returned.
 

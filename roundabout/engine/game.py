@@ -83,6 +83,9 @@ class Game:
 
         # action name -> preaction handler (runs before default handler)
         self._preaction_handlers: dict[str, Callable[[World], int]] = {}
+        # raw-input hooks: fn(world, text) -> True if the line was consumed
+        # (free-text answers such as riddles that the parser can't express)
+        self._input_hooks: list[Callable[[World, str], bool]] = []
 
         self.desc_mode: int = BRIEF
         self._running:  bool = False
@@ -108,6 +111,10 @@ class Game:
     ) -> None:
         """Register a preaction handler that runs before the verb handler."""
         self._preaction_handlers[action] = handler
+
+    def register_input_hook(self, hook: Callable[[World, str], bool]) -> None:
+        """Register a hook that may consume a raw input line before parsing."""
+        self._input_hooks.append(hook)
 
     # ------------------------------------------------------------------ #
     # Main loop                                                            #
@@ -135,6 +142,12 @@ class Game:
         then advances the clock.  Returns the PERFORM result.
         """
         w = self.world
+
+        for hook in self._input_hooks:
+            if hook(w, input_text):
+                self.clock.tick(w, command_parsed=True)
+                return M_HANDLED
+
         result = self.parser.parse(input_text, w)
         command_parsed = result is not None
 
@@ -388,7 +401,7 @@ class Game:
 
         show_long = (self.desc_mode == VERBOSE) or (
             self.desc_mode == BRIEF and not room.visited
-        )
+        ) or getattr(self, "desc_mode_override", False)   # explicit LOOK
         if show_long:
             if room.ldesc:
                 print(room.ldesc)

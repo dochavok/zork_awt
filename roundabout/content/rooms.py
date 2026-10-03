@@ -15,6 +15,7 @@ def make_rooms(world) -> None:
     _make_tale_and_ale(world)
     _make_town(world)
     _make_volcano(world)
+    _make_west_town(world)
     _make_mine(world)
     _make_beach_and_sea(world)
     _make_kevrys_island(world)
@@ -409,6 +410,85 @@ def _make_volcano(world) -> None:
         return M_NOT_HANDLED
 
     volcano.action = volcano_action
+
+
+# ---------------------------------------------------------------------------
+# Main West, Archery Range & Viking Encampment
+# Trial logic lives in content/vikings.py.
+# ---------------------------------------------------------------------------
+
+def _make_west_town(world) -> None:
+    from content import vikings
+
+    def room(name, desc, ldesc, value=1):
+        r = Room(name=name, desc=desc, ldesc=ldesc, value=value)
+        r.set_flag(ONBIT)
+        r.set_flag(RLANDBIT)
+        world.register_room(r)
+        return r
+
+    main_west = room(
+        "MAIN-WEST", "Main West",
+        "Main Street narrows toward the west end, the buildings pulling back "
+        "slightly as if making room for something that never arrived. The "
+        "library stands to the north, solid and unhurried. The road continues "
+        "west toward the archery range. To the southeast, a gap between "
+        "buildings leads into the alley.",
+    )
+    archery = room(
+        "ARCHERY-RANGE", "Archery Range",
+        "Straw targets line the far end of a long cleared field, bristling "
+        "with arrows. The range is well-used.\n"
+        "The Vikings from the encampment to the west use it freely — and "
+        "apparently consider the entire field fair game, including the parts "
+        "you're standing in.",
+    )
+    encampment = room(
+        "VIKING-ENCAMPMENT", "Viking Encampment",
+        "Longhouses ring a wide clearing, smoke rising from their roof-holes. "
+        "A banner hangs from a pole near the largest one, its runes stitched "
+        "in thread gone dark with weather.\n"
+        "Vikings go about their business — mending, sharpening, arguing — and "
+        "keep half an eye on you while they do it. Paths lead north to a hut, "
+        "south to a ring of stones, and west toward the glow of a fire pit.",
+    )
+    hut = room(
+        "HAALVARS-HUT", "Haalvar's Hut",
+        "The hut is close and warm and smells of tallow. In the center sits a "
+        "stone carved with runes — solid to the touch, but its surface moves "
+        "like dark water, as if something underneath is breathing.",
+    )
+    circle = room(
+        "RITUAL-CIRCLE", "The Ritual Circle",
+        "Five rune stones stand in a ring around a carved symbol in the earth: "
+        "Earth, Air, Fire, Water, and one marked with a heart. The ground "
+        "inside the ring is swept clean.",
+    )
+    fire_pit = room(
+        "FIRE-PIT", "The Fire Pit",
+        "A great fire burns in a stone-lined pit, benches drawn up close "
+        "around it. Cups, a barrel, and a smell that could strip paint. This "
+        "is where the encampment settles its arguments.",
+    )
+
+    # Main West: north → Library, southeast → The Alley (not yet built)
+    world.rooms["TOWN-SQUARE"].exits["west"] = Exit(destination="MAIN-WEST")
+    main_west.exits["east"] = Exit(destination="TOWN-SQUARE")
+    main_west.exits["west"] = Exit(destination="ARCHERY-RANGE")
+    # Archery Range: north → Roundabout Pond (not yet built)
+    archery.exits["east"] = Exit(destination="MAIN-WEST")
+    archery.exits["west"] = Exit(destination="VIKING-ENCAMPMENT")
+    encampment.exits["east"]  = Exit(destination="ARCHERY-RANGE")
+    encampment.exits["north"] = Exit(destination="HAALVARS-HUT")
+    encampment.exits["south"] = Exit(destination="RITUAL-CIRCLE")
+    encampment.exits["west"]  = Exit(destination="FIRE-PIT")
+    hut.exits["south"]      = Exit(destination="VIKING-ENCAMPMENT")
+    circle.exits["north"]   = Exit(destination="VIKING-ENCAMPMENT")
+    fire_pit.exits["east"]  = Exit(destination="VIKING-ENCAMPMENT")
+
+    archery.action    = vikings.archery_action
+    encampment.action = vikings.encampment_action
+    hut.action        = vikings.hut_action
 
 
 # ---------------------------------------------------------------------------

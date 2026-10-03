@@ -76,8 +76,8 @@ All checks are dice-based and hidden from the player. Players see outcomes only,
 
 **Roll types:**
 - **Perception** — finding hidden things, noticing details, spotting traps. Class bonus: Mages and Rogues.
-- **Strength** — forcing doors, breaking locks, prying, physical feats (arm wrestling, rope snare escape, portcullis lift, timber clearing, Boggart strongbox, magnetic chest recovery). Class bonus: Warriors.
-- **Agility** — dodging hazards (Archery Range arrow dodge before Viking trust earned). No class bonus.
+- **Strength** — forcing doors, breaking locks, prying, physical feats (arm wrestling, rope snare escape, portcullis lift, timber clearing, Boggart strongbox, magnetic chest recovery, Thornbrew drinking contest — contested vs. Aylora's 1d6 + 2, see locations.md Fire Pit). Class bonus: Warriors.
+- **Agility** — dodging hazards (Archery Range arrow dodge before Viking trust earned; Easy, 5). No class bonus.
 - **Trap disarm** — disabling a detected trap without triggering it. Class bonus: Rogues.
 
 **Trap detection and disarm flow:**

@@ -616,6 +616,9 @@ Single room.
 *Straw targets line the far end of a long cleared field, bristling with arrows. The range is well-used.*
 *The Vikings from the encampment to the west use it freely — and apparently consider the entire field fair game, including the parts you're standing in.*
 Hazardous — agility challenge roll each time the player passes through to avoid being hit by an errant arrow; failure deals 1 heart physical damage.
+**Arrow hazard roll:** Agility, Easy (5). No class bonus.
+- **Dodge:** *An arrow hisses past, close enough to hear the fletching.*
+- **Hit:** *An arrow from the far end of the range catches you. Someone shouts an apology in a language you don't speak.*
 Permanently safe once all three Viking trust trials are complete (silent mechanic, no acknowledgment).
 **Raznak** found here.
 
@@ -625,15 +628,21 @@ Permanently safe once all three Viking trust trials are complete (silent mechani
 **Items:** Runed metal (given by Ivanaar after Trial 3); Ivanaar's Tunic (Quest 42 reward)
 **Quest Hooks:** Viking trust trial chain (Trials 1–3); Quest 42 — return three rune stones to Ivanaar
 **Connections:** East → Archery Range. North → Haalvar's Hut (Trial 1). South → The Ritual Circle (Trial 2). West → The Fire Pit (Trial 3).
-West of the Archery Range. Followers of The Brotherhood of the Pale Blade. Three trust trials must be completed in order: Riddle Stone (Trial 1) → Ritual Circle (Trial 2) → Fire Pit (Trial 3).
+West of the Archery Range. Followers of The Brotherhood of the Pale Blade. Three trust trials: Riddle Stone (Trial 1), Ritual Circle (Trial 2), Fire Pit (Trial 3).
+**Trial order:** Trials 1 and 2 (Riddle Stone, Ritual Circle) may be done in either order. Trial 3 (Fire Pit) must be last — Aylora won't start the drinking contest until the first two are done. Her trial is the one that triggers the runed metal, so without this gate the player could skip the other two.
 
 Central hub. Fire pit, longhouses, Vikings going about their business.
 
+**Room description:**
+*Longhouses ring a wide clearing, smoke rising from their roof-holes. A banner hangs from a pole near the largest one, its runes stitched in thread gone dark with weather.*
+*Vikings go about their business — mending, sharpening, arguing — and keep half an eye on you while they do it. Paths lead north to a hut, south to a ring of stones, and west toward the glow of a fire pit.*
+
 **Banner:** `LOOK AT BANNER` reveals four elemental rune symbols in order: Earth, Air, Fire, Water (clue for Ritual Circle Trial 2).
+*Four runes are stitched along the banner, left to right: Earth, Air, Fire, Water.*
 
 **Ivanaar Stormbringer states:**
 - 0 trials: *"You want something from us. They always want something. Prove yourself. Talk to Haalvar — north. If you can satisfy him, come back."*
-- 1 trial: *"Haalvar speaks well of you. That's not nothing. The circle is south."*
+- 1 trial: *"Haalvar speaks well of you. That's not nothing. The circle is south."* (Riddle done, circle not. If only the circle is done, Ivanaar still gives the 0-trial line pointing to Haalvar.)
 - 2 trials: *"Two down. The fire pit is west. Don't embarrass yourself."*
 - 3 trials (runed metal handoff): See below.
 
@@ -685,11 +694,14 @@ Central hub. Fire pit, longhouses, Vikings going about their business.
 **Items:** Riddle Stone (in-room puzzle object; not takeable)
 **Quest Hooks:** Viking Trial 1 — answer the riddle correctly (SEA) to advance to Trial 2
 **Connections:** South → Viking Encampment.
+**Room description:** *The hut is close and warm and smells of tallow. In the center sits a stone carved with runes — solid to the touch, but its surface moves like dark water, as if something underneath is breathing.*
+
 North of The Encampment. **Haalvar** administers the trial. The hut contains a stone with runic carvings and a fluid-like appearance — solid to the touch, its surface moves like dark water. On entry, Haalvar delivers the riddle: *"I have no legs but travel far. I have no mouth but swallow ships. I have no hands but I will take everything you own if you let me. What am I?"*
 
 - **Correct answer:** `SEA` — stone glows; Haalvar: *"The stone is satisfied. I am also satisfied, which happens less often. Go south — there is a circle there that will want your attention next."* Trial 1 complete.
+- **Correct answer, circle already done:** stone glows; Haalvar: *"The stone is satisfied. I am also satisfied, which happens less often. The circle has already had its look at you, I hear — so that leaves Aylora, at the fire pit. Try not to drown."* Trial 1 complete.
 - **Wrong answer:** *"Impressive. Wrong, but impressive in its wrongness."* Retryable.
-- **Actually Enchanted Glasses:** Kevry's voice whispers the answer.
+- **Actually Enchanted Glasses:** Kevry's voice whispers the answer: *Kevry's voice, faint and amused, somewhere behind your ear: "Sea."*
 
 ### The Ritual Circle (Trial 2)
 **XP: 1**
@@ -697,14 +709,17 @@ North of The Encampment. **Haalvar** administers the trial. The hut contains a s
 **Items:** Five rune stones (Earth, Air, Fire, Water, Heart — in-room puzzle objects; not takeable)
 **Quest Hooks:** Viking Trial 2 — activate stones in correct order (Earth→Air→Fire→Water→Heart) to advance to Trial 3
 **Connections:** North → Viking Encampment.
+**Room description:** *Five rune stones stand in a ring around a carved symbol in the earth: Earth, Air, Fire, Water, and one marked with a heart. The ground inside the ring is swept clean.*
+
 South of The Encampment. An unnamed child administers the trial — he does not speak. Five rune stones arranged around a carved symbol: Earth, Air, Fire, Water, Heart.
 
 **Correct order:** Earth → Air → Fire → Water → Heart. First four from the banner; Heart stone always last.
 
 **Commands:** `ACTIVATE EARTH STONE`, `ACTIVATE AIR STONE`, `ACTIVATE FIRE STONE`, `ACTIVATE WATER STONE`, `ACTIVATE HEART STONE` (also accepts `ACTIVATE LOVE STONE` and `ACTIVATE LIFE STONE`).
 
+- **Each correct stone:** *The [Earth] stone hums and lights from within.* (stone name substituted)
 - **Wrong order:** *"The child looks disappointed in you."* Resets all five.
-- **Correct completion:** Child points back toward the encampment. Trial 2 complete.
+- **Correct completion:** *The fifth stone lights, and all five hum together for a moment. The child looks at you, then points back toward the encampment.* Trial 2 complete.
 
 ### The Fire Pit (Trial 3 — The Drinking Challenge)
 **XP: 1**
@@ -712,7 +727,19 @@ South of The Encampment. An unnamed child administers the trial — he does not 
 **Items:** None (Thornbrew is consumed during the challenge)
 **Quest Hooks:** Viking Trial 3 — beat Aylora (best of five strength rolls); drag her back to encampment to trigger runed metal handoff
 **Connections:** East → Viking Encampment.
+**Room description:** *A great fire burns in a stone-lined pit, benches drawn up close around it. Cups, a barrel, and a smell that could strip paint. This is where the encampment settles its arguments.*
+
 West of The Encampment. **Aylora** is the Viking champion. Best of five rounds; each round is a strength-based challenge roll. Warriors get a class bonus; Rogues and Mages roll straight. The drink: Thornbrew.
+
+**Gate:** Aylora won't start the contest (`TALK TO AYLORA` or `DRINK`) until Trials 1 and 2 are both done. Refusal line: *Aylora looks you over and doesn't reach for the barrel. "Haalvar's stone and the circle first," she says. "I don't waste Thornbrew on strangers."*
+
+**Contest rules:** Each round is contested — the player's strength roll (with class bonus) against Aylora's 1d6 + 2. Ties go to Aylora (she's the champion). First to win 3 rounds wins the contest. The whole contest resolves on one `DRINK` command.
+
+- **`TALK TO AYLORA`:** *Aylora sets two cups on the bench and fills them from the barrel. "Thornbrew," she says. "Five cups. Last one standing." She pushes one toward you.*
+- **Round won:** *You drain the cup. Aylora matches you, but slower.*
+- **Round lost:** *Aylora drains hers without blinking. Yours fights back.*
+- **Contest won:** *Aylora sets down her cup with great care, looks at it, and slides gently off the bench. Aylora passes out.*
+- **`TAKE AYLORA` (drag):** *You get her under the arms and start to drag.* Aylora then follows the player.
 
 - **Player wins:** Aylora passes out. Player drags her back to the encampment → triggers Ivanaar's runed metal handoff.
 - **Player loses:** Player passes out. Wakes up in the encampment two turns later. A nearby Viking: *"Ha! Aylora strikes again. Don't feel bad — she's been doing this since she could reach the cup."* Retryable.

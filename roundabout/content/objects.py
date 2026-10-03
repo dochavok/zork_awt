@@ -34,6 +34,7 @@ def make_objects(world) -> None:
     _make_mine_objects(world)
     _make_sea_objects(world)
     _make_npcs(world)
+    _make_viking_objects(world)
 
 
 # ---------------------------------------------------------------------------
@@ -250,3 +251,85 @@ def _make_sea_objects(world) -> None:
         flags={TAKEBIT},
     )
     world.register_object(rope)
+
+
+# ---------------------------------------------------------------------------
+# Archery Range & Viking Encampment (locations.md, npcs.md)
+# ---------------------------------------------------------------------------
+
+def _make_viking_objects(world) -> None:
+    def npc(name, desc, presence, synonyms, adjectives=()):
+        o = GameObject(
+            name=name, desc=desc, fdesc=presence, ldesc=presence,
+            synonyms=list(synonyms), adjectives=list(adjectives),
+            flags={ACTORBIT},
+        )
+        world.register_object(o)
+        return o
+
+    npc("RAZNAK", "Raznak",
+        "Raznak stands at the near end of the range, watching the targets.",
+        ["raznak", "viking", "archer"])
+    npc("IVANAAR", "Ivanaar Stormbringer",
+        "Ivanaar Stormbringer sits by the central fire, watching you with the "
+        "patience of someone who expects to be impressed or disappointed, and "
+        "has not decided which.",
+        ["ivanaar", "stormbringer", "viking"], ["ivanaar"])
+    npc("HAALVAR", "Haalvar",
+        "Haalvar lounges beside the stone, looking pleased with himself.",
+        ["haalvar", "viking"])
+    npc("CHILD", "child",
+        "A child stands at the edge of the circle, watching you without a word.",
+        ["child", "kid", "boy"], ["unnamed", "silent"])
+    npc("AYLORA", "Aylora",
+        "Aylora sits by the fire, a cup in hand.",
+        ["aylora", "champion", "viking"])
+
+    banner = GameObject(
+        name="BANNER", desc="banner",
+        ldesc="Four runes are stitched along the banner, left to right: "
+              "Earth, Air, Fire, Water.",
+        synonyms=["banner", "flag", "pole", "runes"],
+        flags={NDESCBIT, SACREDBIT},
+    )
+    world.register_object(banner)
+
+    riddle_stone = GameObject(
+        name="RIDDLE-STONE", desc="riddle stone",
+        ldesc="The stone is carved with runes — solid to the touch, but its "
+              "surface moves like dark water.",
+        synonyms=["stone", "rock"], adjectives=["riddle", "runic", "carved"],
+        flags={NDESCBIT, SACREDBIT},
+    )
+    world.register_object(riddle_stone)
+
+    # Ritual Circle stones — order Earth, Air, Fire, Water, Heart
+    for key, extra in (("EARTH", []), ("AIR", []), ("FIRE", []),
+                       ("WATER", []), ("HEART", ["love", "life"])):
+        stone = GameObject(
+            name=f"{key}-STONE", desc=f"{key.lower()} stone",
+            synonyms=["stone", "rune"],
+            adjectives=[key.lower(), *extra],
+            flags={NDESCBIT, SACREDBIT},
+        )
+        world.register_object(stone)
+
+    world.register_object(GameObject(
+        name="RUNED-METAL", desc="runed metal",
+        ldesc="A length of dark metal — dense, rune-carved, warm to the touch "
+              "even in the open air.",
+        synonyms=["metal", "runes"], adjectives=["runed", "dark", "brotherhood"],
+        flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="PALE-BLADE", desc="Pale Blade",
+        ldesc="The blade is pale, almost white, and thin in the way of "
+              "something that doesn't need to be heavy to do what it does.",
+        synonyms=["blade", "sword"], adjectives=["pale", "white"],
+        flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="FORGE", desc="forge",
+        synonyms=["forge", "fire"], adjectives=["ancient", "enormous"],
+        flags={NDESCBIT, SACREDBIT},
+    ))

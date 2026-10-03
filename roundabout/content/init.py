@@ -74,6 +74,24 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["KEVRY"],  world.rooms["CAPTAINS-QUARTERS"])
     world.move_object(world.objects["PYRONICUS"], world.rooms["PYRONICUS-FORGE"])
     world.move_object(world.objects["WILL"],   world.rooms["WIZARDS-TOWER"])
+    world.move_object(world.objects["FORGE"],  world.rooms["PYRONICUS-FORGE"])
+    # Archery Range & Viking Encampment
+    for obj, room in (
+        ("RAZNAK",       "ARCHERY-RANGE"),
+        ("IVANAAR",      "VIKING-ENCAMPMENT"),
+        ("BANNER",       "VIKING-ENCAMPMENT"),
+        ("HAALVAR",      "HAALVARS-HUT"),
+        ("RIDDLE-STONE", "HAALVARS-HUT"),
+        ("CHILD",        "RITUAL-CIRCLE"),
+        ("EARTH-STONE",  "RITUAL-CIRCLE"),
+        ("AIR-STONE",    "RITUAL-CIRCLE"),
+        ("FIRE-STONE",   "RITUAL-CIRCLE"),
+        ("WATER-STONE",  "RITUAL-CIRCLE"),
+        ("HEART-STONE",  "RITUAL-CIRCLE"),
+        ("AYLORA",       "FIRE-PIT"),
+    ):
+        world.move_object(world.objects[obj], world.rooms[room])
+    # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus
 
 
 def _wire_whitehouse_action(world, game) -> None:

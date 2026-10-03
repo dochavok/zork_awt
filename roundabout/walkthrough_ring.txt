@@ -408,14 +408,15 @@ Ivanaar points us north to Haalvar for Trial 1.
 Trial 1 — The Riddle Stone (Haalvar's Hut, north):
 
 > NORTH                       [Haalvar's Hut]
-> TALK TO HAALVAR             [riddle]
+> TALK TO HAALVAR             [What am I]
 > SEA                         [satisfied]
 > SOUTH                       [Viking Encampment]
 
-Trial 2 — The Ritual Circle (south of encampment):
+Trial 2 — The Ritual Circle (south of encampment). The banner here
+in the Encampment gives the order of the first four stones:
 
-> SOUTH                       [Ritual Circle]
 > LOOK AT BANNER              [Earth]
+> SOUTH                       [Ritual Circle]
 > ACTIVATE EARTH STONE        [Earth]
 > ACTIVATE AIR STONE          [Air]
 > ACTIVATE FIRE STONE         [Fire]
@@ -424,18 +425,16 @@ Trial 2 — The Ritual Circle (south of encampment):
 > NORTH                       [Viking Encampment]
 
 Trial 3 — The Drinking Challenge (Fire Pit, west):
-Always-max random rolls means the player beats Aylora on the first roll.
+Always-max random rolls means the player wins three straight rounds.
 
 > WEST                        [Fire Pit]
 > TALK TO AYLORA              [Thornbrew]
 > DRINK                       [Aylora passes out]
 > TAKE AYLORA                 [drag]
-> EAST                        [Viking Encampment]
+> EAST                        [Runed Metal added to inventory]
 
-Ivanaar witnesses Aylora returned and awards the runed metal.
-
-> TALK TO IVANAAR             [runed metal]
-> TAKE RUNED METAL            [runed metal]
+Ivanaar witnesses Aylora returned and places the runed metal in our
+hands.
 
 =============================================================================
 F) Pale Blade — Forging at Pyronicus's Forge
@@ -450,12 +449,10 @@ Pyronicus. Bring the runed metal to his forge.
 > EAST                        [Roundabout Wasteland]
 > SOUTH                       [Volcano]
 > DOWN                        [Pyronicus's Forge]
-> GIVE METAL TO PYRONICUS     [Pale Blade]
+> GIVE METAL TO PYRONICUS     [Pale Blade added to inventory]
 
 Pyronicus forges the runed metal into the Pale Blade. He holds it out
 pommel first: "It will go willingly. When the time comes."
-
-> TAKE PALE BLADE             [pale blade]
 
 =============================================================================
 G) Werewolf's Amulet — Silver Stake from Town Square Statue

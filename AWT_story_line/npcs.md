@@ -349,6 +349,7 @@ Runs the Cargo dice game (Ship, Captain, and Crew). Full mechanic in `mechanics.
 
 ### Raznak
 **Location:** Archery Range (west edge of town).
+**Presence line (room listing):** *Raznak stands at the near end of the range, watching the targets.*
 **Personality:** Viking. Economical with words. Respects competence and earned trust above all.
 
 Viking trust trials must be completed before Raznak will engage with any class — including Rogues. Trust is the gate, not skill.
@@ -446,6 +447,7 @@ Full combat dialogue in `quests.md` — Quest 54.
 
 ### Ivanaar Stormbringer
 **Location:** The Encampment (hub).
+**Presence line (room listing):** *Ivanaar Stormbringer sits by the central fire, watching you with the patience of someone who expects to be impressed or disappointed, and has not decided which.*
 **Personality:** Gruff, softens after each trial. Formal and warm simultaneously.
 
 Four states — see full dialogue in `locations.md` (Viking Encampment section). Awards runed metal after all three trials. Surprised by Aylora being dragged back unconscious.
@@ -454,6 +456,7 @@ Four states — see full dialogue in `locations.md` (Viking Encampment section).
 
 ### Haalvar
 **Location:** Haalvar's Hut, north of The Encampment.
+**Presence line (room listing):** *Haalvar lounges beside the stone, looking pleased with himself.*
 **Personality:** Smarmy, self-satisfied.
 
 Administers Trial 1 (Riddle Stone). Full dialogue in `locations.md`.
@@ -462,6 +465,7 @@ Administers Trial 1 (Riddle Stone). Full dialogue in `locations.md`.
 
 ### Aylora
 **Location:** The Fire Pit, west of The Encampment.
+**Presence line (room listing):** *Aylora sits by the fire, a cup in hand.* After losing the contest: *Aylora is slumped on the bench, snoring.*
 **Personality:** Viking drinking champion.
 
 Administers Trial 3 (Thornbrew drinking challenge). Passes out if player wins. Full dialogue in `locations.md`.
@@ -470,6 +474,7 @@ Administers Trial 3 (Thornbrew drinking challenge). Passes out if player wins. F
 
 ### Unnamed Child
 **Location:** The Ritual Circle, south of The Encampment.
+**Presence line (room listing):** *A child stands at the edge of the circle, watching you without a word.*
 
 Does not speak. Administers Trial 2 by pointing. Looks disappointed on wrong order. Points back toward encampment on completion.
 

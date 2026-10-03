@@ -111,6 +111,26 @@ def v_look(world: World) -> int:
 
 
 # ---------------------------------------------------------------------------
+# V-INVENTORY  (INVENTORY / I)
+# Item names are the items.md "inventory description" (obj.desc).
+# ---------------------------------------------------------------------------
+
+def v_inventory(world: World) -> int:
+    from engine.world import WEARBIT
+    player = world.player
+    items = [o for o in (player.contents if player else []) if o is not player]
+    if not items:
+        print("You are empty-handed.")
+        return M_HANDLED
+
+    print("You are carrying:")
+    for obj in items:
+        worn = " (being worn)" if obj.has_flag(WEARBIT) else ""
+        print(f"  {obj.desc[:1].upper()}{obj.desc[1:]}{worn}")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
 # V-TAKE
 # ---------------------------------------------------------------------------
 
@@ -118,6 +138,11 @@ def v_take(world: World) -> int:
     obj = world.prso
     if obj is None:
         return M_NOT_HANDLED
+
+    if obj.name == "AYLORA":
+        from content import vikings
+        vikings.take_aylora(world)
+        return M_HANDLED
 
     from engine.world import TAKEBIT, SACREDBIT
     if not obj.has_flag(TAKEBIT):
@@ -272,6 +297,19 @@ def v_talk(world: World) -> int:
             )
         return M_HANDLED
 
+    _VIKING_TALK = {
+        "IVANAAR": "talk_ivanaar", "HAALVAR": "talk_haalvar",
+        "AYLORA": "talk_aylora", "RAZNAK": "talk_raznak",
+    }
+    if obj.name in _VIKING_TALK:
+        from content import vikings
+        getattr(vikings, _VIKING_TALK[obj.name])(world)
+        return M_HANDLED
+
+    if obj.name == "CHILD":
+        print("The child says nothing.")
+        return M_HANDLED
+
     if obj.name == "PYRONICUS":
         ring   = world.objects.get("RING")
         player = world.player
@@ -347,7 +385,62 @@ def v_give(world: World) -> int:
         world.set_global("SECOND-BRIEFING-DONE", True)
         return M_HANDLED
 
+    # Runed metal to Pyronicus — forges the Pale Blade
+    if npc.name == "PYRONICUS" and item.name == "RUNED-METAL":
+        from content import vikings
+        vikings.forge_pale_blade(world)
+        return M_HANDLED
+
     print(f"{npc.desc} doesn't take the {item.desc}.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-PUT-ON  (PUT METAL ON FORGE)
+# ---------------------------------------------------------------------------
+
+def v_put_on(world: World) -> int:
+    item, target = world.prso, world.prsi
+    if item is None or target is None:
+        return M_NOT_HANDLED
+
+    player = world.player
+    if player is None or item not in player.contents:
+        print(f"You aren't carrying the {item.desc}.")
+        return M_HANDLED
+
+    if item.name == "RUNED-METAL" and target.name == "FORGE":
+        from content import vikings
+        vikings.forge_pale_blade(world)
+        return M_HANDLED
+
+    print(f"You can't put the {item.desc} on the {target.desc}.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-ACTIVATE  (ACTIVATE EARTH STONE)
+# ---------------------------------------------------------------------------
+
+def v_activate(world: World) -> int:
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    from content import vikings
+    if not vikings.activate_stone(world, obj):
+        print(f"Nothing happens.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-DRINK  (bare DRINK at the Fire Pit)
+# ---------------------------------------------------------------------------
+
+def v_drink(world: World) -> int:
+    from content import vikings
+    if vikings.drink_contest(world):
+        return M_HANDLED
+    print("There's nothing here to drink.")
     return M_HANDLED
 
 
@@ -600,6 +693,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-OPEN",       v_open)
     game.register_verb("V-EXAMINE",    v_examine)
     game.register_verb("V-LOOK",       v_look)
+    game.register_verb("V-INVENTORY",  v_inventory)
     game.register_verb("V-TAKE",       v_take)
     game.register_verb("V-WEAR",       v_wear)
     game.register_verb("V-REMOVE",     v_remove)
@@ -611,5 +705,10 @@ def register_verbs(game) -> None:
     game.register_verb("V-DOCK",       v_dock)
     game.register_verb("V-SAIL",       v_sail)
     game.register_verb("V-LIGHT",      v_light)
+    game.register_verb("V-PUT-ON",     v_put_on)
+    game.register_verb("V-ACTIVATE",   v_activate)
+    game.register_verb("V-DRINK",      v_drink)
+    from content.vikings import riddle_input_hook
+    game.register_input_hook(riddle_input_hook)
     # Preaction intercepts GO EAST/WEST and LAND while at sea
     game.register_preaction("V-WALK",  _pre_walk_at_sea)

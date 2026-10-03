@@ -546,15 +546,15 @@ West of the Archery Range. Three trials: Riddle Stone → Ritual Circle
 Trial 1 — Riddle Stone:
 
 > NORTH                       [Haalvar's Hut]
-> TALK TO HAALVAR             [riddle]
+> TALK TO HAALVAR             [What am I]
 > SEA                         [satisfied]
 > SOUTH                       [Viking Encampment]
 > TALK TO IVANAAR             [Ritual Circle]
+> LOOK AT BANNER              [Earth]
 
 Trial 2 — Ritual Circle:
 
 > SOUTH                       [Ritual Circle]
-> LOOK AT BANNER              [Earth]
 > ACTIVATE EARTH STONE        [Earth]
 > ACTIVATE AIR STONE          [Air]
 > ACTIVATE FIRE STONE         [Fire]
@@ -569,9 +569,7 @@ Trial 3 — Drinking Challenge:
 > TALK TO AYLORA              [Thornbrew]
 > DRINK                       [Aylora passes out]
 > TAKE AYLORA                 [drag]
-> EAST                        [Viking Encampment]
-> TALK TO IVANAAR             [runed metal]
-> TAKE RUNED METAL            [runed metal]
+> EAST                        [Runed Metal added to inventory]
 
 Quest 57 complete. Runed metal acquired. Ivanaar introduces Quest 42
 (Brotherhood Stones) — we already have two of the three rune stones
@@ -612,8 +610,7 @@ It will appear on the Quest Board by the time we return to town.
 
 Forge the Pale Blade while we're here:
 
-> GIVE METAL TO PYRONICUS     [Pale Blade]
-> TAKE PALE BLADE             [pale blade]
+> GIVE METAL TO PYRONICUS     [Pale Blade added to inventory]
 
 Return to Will for the second briefing (three faiths, Church of All).
 

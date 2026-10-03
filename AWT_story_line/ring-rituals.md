@@ -124,7 +124,7 @@ Located in The Altar sub-room of the Church of All.
 ### Quest Chain
 
 **Step 1 — Viking Trust Trials**
-The Viking Encampment (west of Archery Range) follows The Brotherhood of the Pale Blade. Three trust trials must be completed in order:
+The Viking Encampment (west of Archery Range) follows The Brotherhood of the Pale Blade. Three trust trials (1 and 2 in either order; 3 must be last — Aylora won't start until 1 and 2 are done):
 1. Riddle Stone (Haalvar's Hut) — answer: `SEA`
 2. Ritual Circle (The Ritual Circle) — correct order: Earth → Air → Fire → Water → Heart
 3. Drinking Challenge (The Fire Pit) — beat Aylora at Thornbrew; drag her back to camp
