@@ -100,7 +100,8 @@ always-max mock ensures the check passes.
 
 Perception check passes — mugger visible. Fight to the death.
 
-> KILL MUGGER                 [mugger]
+> KILL MUGGER                 [solid blow]
+> KILL MUGGER                 [lockpicks]
 
 The mugger drops lockpicks. These open the large iron chest in the Mine
 Passage (20 Zenni). May's free drink reward is waiting at the Bar.
@@ -110,8 +111,7 @@ Passage (20 Zenni). May's free drink reward is waiting at the Bar.
 > NORTHEAST                   [Town Square]
 > SOUTH                       [Tale and Ale]
 > SOUTH                       [Bar]
-> TALK TO MAY                 [free drink]
-> ORDER DRINK                 [drink]
+> TALK TO MAY                 [on the house]
 
 =============================================================================
 D) Sailing — Kevry's Island (Glasses Enchantment) & Shovel

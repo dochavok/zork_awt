@@ -325,6 +325,8 @@ def drink_contest(w: World) -> bool:
 
     if mine == 3:
         print(_CONTEST_WON)
+        from content.combat import award_combat_xp
+        award_combat_xp(w, "aylora", kill=False)   # 2 XP; she passes out — not a kill
         w.set_global("AYLORA-OUT", True)
         aylora = w.objects["AYLORA"]
         aylora.fdesc = aylora.ldesc = _AYLORA_SNORING

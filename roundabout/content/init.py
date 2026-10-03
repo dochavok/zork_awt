@@ -108,6 +108,9 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["BEEKEEPER"], world.rooms["BEEKEEPERS-COTTAGE"])
     world.move_object(world.objects["BOWL-PIECE-FOREST"], world.rooms["ROUNDABOUT-FOREST"])
     world.move_object(world.objects["BOWL-PIECE-BOG"],    world.rooms["BOG-SW"])
+    world.move_object(world.objects["MUGGER"], world.rooms["BACK-ALLEY"])
+    world.move_object(world.objects["MAY"],    world.rooms["BAR"])
+    # LOCKPICKS drop when the mugger is slain
     # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus
 
 

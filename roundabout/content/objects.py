@@ -42,6 +42,7 @@ def make_objects(world) -> None:
     _make_scrolls(world)
     _make_old_oak_objects(world)
     _make_bog_objects(world)
+    _make_alley_objects(world)
 
 
 # ---------------------------------------------------------------------------
@@ -428,4 +429,29 @@ def _make_bog_objects(world) -> None:
               "faint etched line.",
         synonyms=["piece", "shard", "bowl"], adjectives=["bowl", "curved", "ceramic"],
         flags={TAKEBIT, INVISIBLE},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# The Back Alley & the Bar (logic: content/back_alley.py, content/tavern.py)
+# ---------------------------------------------------------------------------
+
+def _make_alley_objects(world) -> None:
+    from content.back_alley import MUGGER_PRESENCE
+    # Hidden until the Medium perception check spots him
+    world.register_object(GameObject(
+        name="MUGGER", desc="mugger", fdesc=MUGGER_PRESENCE, ldesc=MUGGER_PRESENCE,
+        synonyms=["mugger", "figure", "thief"], adjectives=["shadowy"],
+        flags={ACTORBIT, INVISIBLE},
+    ))
+    world.register_object(GameObject(
+        name="LOCKPICKS", desc="lockpicks",
+        fdesc="A roll of lockpicks lies on the cobbles.",
+        synonyms=["lockpicks", "picks", "roll"], adjectives=["lock"],
+        flags={TAKEBIT},
+    ))
+    # May is described in the Bar's room description
+    world.register_object(GameObject(
+        name="MAY", desc="May", synonyms=["may", "bartender", "barkeep", "woman"],
+        flags={ACTORBIT, NDESCBIT},
     ))

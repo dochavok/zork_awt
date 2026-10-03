@@ -171,9 +171,13 @@ def enemy_dead(world: "World") -> bool:
     return world.globals.get("enemy_hearts", 1) <= 0
 
 
-def award_combat_xp(world: "World", enemy_key: str) -> None:
-    """Award XP on enemy defeat. Warriors get an extra +10."""
+def award_combat_xp(world: "World", enemy_key: str, kill: bool = True) -> None:
+    """
+    Award XP on enemy defeat (experience.md — Combat). Warriors get +10 per
+    combat kill (experience.md — Class XP Adjustments); kill=False for
+    defeats that aren't kills (Aylora passes out).
+    """
     _, _, _, xp = _ENEMY_STATS.get(enemy_key, (0, 0, 0, 0))
-    if world.globals.get("player_class") == "warrior":
+    if kill and world.globals.get("player_class") == "warrior":
         xp += 10
     award_xp(world, xp)

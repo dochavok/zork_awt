@@ -152,6 +152,8 @@ def _make_tale_and_ale(world) -> None:
     )
     bar.set_flag(ONBIT)
     world.register_room(bar)
+    from content.tavern import bar_action
+    bar.action = bar_action
 
     kitchen = Room(
         name="KITCHEN",
@@ -577,6 +579,32 @@ def _make_west_town(world) -> None:
     world.rooms["TOWN-SQUARE"].exits["west"] = Exit(destination="MAIN-WEST")
     main_west.exits["east"] = Exit(destination="TOWN-SQUARE")
     main_west.exits["west"] = Exit(destination="ARCHERY-RANGE")
+
+    # The Alley & Back Alley (locations.md). Alley exits go back the way the
+    # player came: northeast to Town Square, northwest to Main West.
+    alley = room(
+        "ALLEY", "The Alley",
+        "The gap between buildings is narrow enough that the sky above is just "
+        "a strip. Cobblestones give way to packed dirt underfoot. The tavern's "
+        "back wall runs along the south side. It smells like kitchen waste and "
+        "something less identifiable. Further south, the alley deepens.",
+    )
+    back_alley = room(
+        "BACK-ALLEY", "The Back Alley",
+        "Darker than the alley, smaller, and considerably less welcoming. The "
+        "tavern's back wall seals the south end. Broken crates and barrels have "
+        "accumulated here the way things do when no one is watching. The ground "
+        "is stained. The air is close. This is where things happen that don't "
+        "happen on Main Street.",
+    )
+    world.rooms["TOWN-SQUARE"].exits["southwest"] = Exit(destination="ALLEY")
+    main_west.exits["southeast"] = Exit(destination="ALLEY")
+    alley.exits["northeast"] = Exit(destination="TOWN-SQUARE")
+    alley.exits["northwest"] = Exit(destination="MAIN-WEST")
+    alley.exits["south"]     = Exit(destination="BACK-ALLEY")
+    back_alley.exits["north"] = Exit(destination="ALLEY")
+    from content.back_alley import back_alley_action
+    back_alley.action = back_alley_action
     # Archery Range: north → Roundabout Pond (not yet built)
     archery.exits["east"] = Exit(destination="MAIN-WEST")
     archery.exits["west"] = Exit(destination="VIKING-ENCAMPMENT")

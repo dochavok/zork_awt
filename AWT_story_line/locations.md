@@ -127,7 +127,12 @@ Accessible from Roundabout Town Square (southwest) and Main West (southeast). Ex
 **Connections:** North → The Alley. (Dead end — tavern back wall seals south)
 *Darker than the alley, smaller, and considerably less welcoming. The tavern's back wall seals the south end. Broken crates and barrels have accumulated here the way things do when no one is watching. The ground is stained. The air is close. This is where things happen that don't happen on Main Street.* Dead end behind the tavern.
 
-**Mugger mechanic:** A shadowy figure lurks here. Perception check fires every visit until the mugger is spotted and slain.
+**Mugger mechanic:** A shadowy figure lurks here. Perception check (**Medium, 9**) fires every visit until the mugger is spotted and slain. Combat is one round per `KILL MUGGER` (mugger 1d6, 2 hearts); leaving mid-fight resets him to full hearts.
+- **Spotted (presence line):** *A figure waits in the shadow of the crates, very still, weight on the balls of their feet. They've seen you see them.*
+- **Mugged:** *Something hits you from behind. The alley tilts, then goes away.* → one turn later: *You come to in the Back Alley, lighter in the pocket and sore in the head.* (Hearts never drop below 1 from a mugging — being knocked out isn't dying. A very low-level player can stumble on the mugger without knowing what happened; it shouldn't kill them.)
+- **Round won / lost / tie:** *You land a solid blow. The mugger staggers.* / *The mugger gets through your guard. You take a hit.* / *You trade blows. Both of you feel it.*
+- **Mugger slain:** *The mugger goes down and doesn't get up. Something clatters to the cobbles beside them — a roll of lockpicks.* Lockpicks listing: *A roll of lockpicks lies on the cobbles.*
+- **Fight lost (not death):** *You come to on the cobbles. The mugger is gone, and so is most of your strength. The inn has beds.* Wake with 1 heart; he lies in wait again (fresh perception check next visit).
 On failed perception: player is mugged — loses 1 heart (physical damage) and 2–3 Zenni (random), loses consciousness, wakes in the Back Alley one turn later. If player has no Zenni: still mugged, 1 heart damage, nothing taken.
 On successful perception: mugger is visible — fight to the death.
 Losing the fight: player wakes with 1 heart remaining, text nudges them to rest at the inn.

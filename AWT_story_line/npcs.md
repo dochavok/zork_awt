@@ -283,6 +283,8 @@ Sells hints for Zenni (tiered — see hint system in `mechanics.md`). Manages Qu
 **Insufficient Zenni (any purchase):**
 *May looks at you evenly. "You're short." She goes back to work.*
 
+**Quest 51 reward (`TALK TO MAY` after the mugger is slain):** *May glances up. "Heard the back alley's gone quiet." She sets a glass on the bar. "That one's on the house."* Free drink, 1 heart. Quest 51 itself completes when the mugger dies (6 XP, 3 Zenni).
+
 **Hints:** `TIP MAY [#]` or `TIP MAY [#] ZENNI` — see hint system in `mechanics.md` for full tier responses.
 
 ---

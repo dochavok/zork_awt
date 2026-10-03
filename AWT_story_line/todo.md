@@ -6,20 +6,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–G passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–G2 passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section G2 — optional Quest 51, The Back Alley Mugger. First failure:
+**Current position:** Section H1 — Beat Lynds. First failure:
 
 ```
-SECTION [G2) Optional — Quest 51, The Back Alley Mugger (XP)]
-  cmd     : 'SOUTHWEST'
-  missing : 'Alley'
-  got     : "You can't go that way."
+SECTION [H1) Quest 59 — Beat Lynds (Heart Necklace, Dankhaus Access)]
+  cmd     : 'CHALLENGE LYNDS'
+  missing : 'Heart Necklace'
+  got     : 'I don't know the word "challenge".'
 ```
 
-Needs the Alley, Back Alley, the mugger (perception + first real combat), and May's reward. G2 and the other optional XP steps (Quest 41 kite in C1, the bog loop in E) get the player to level 4 (~92 XP est.) before Lynds in H1 — always-max dice can't beat Lynds at level 3.
+Player arrives at H1 with 94 XP, level 4 (max strength 26 vs Lynds 23). Needs Lynds (dialogue in npcs.md), CHALLENGE verb, contested roll with tie reroll and 20-turn loss cooldown, Heart Necklace (+1 heart).
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
@@ -34,9 +34,12 @@ Needs the Alley, Back Alley, the mugger (perception + first real combat), and Ma
 - Hidden Zenni rooms (36, seeded at init; tests pin seed 7)
 - Old Oak area (Quest 41 kite, Beekeeper's Cottage, Swarm Tree), forest + bog bowl pieces, Pond and 4 bog rooms
 - SAVE / RESTORE
+- The Alley, Back Alley, mugger (Medium perception, one combat round per KILL, losing isn't death), May's first visit and Quest 51 free drink
 - Walkthrough cleanup: Q and R removed (bowl pieces in C1/E, fire clay in M), rope taken at end of C2
 
 **Known issues still open:**
+- Class XP bonuses (experience.md — Class XP Adjustments): Warrior +10 per kill is built (Aylora excluded — not a kill). Mage +1 per new dungeon room and Rogue +5 per trap disarmed are not built yet — add when the dungeon and traps are.
+- Full-score walkthrough does the mugger (its section C) before Kevry: a level-1 Warrior with regular glasses maxes at 8 perception < Medium 9, so the mugger is never spotted. Move it after the glasses enchantment or after level 2.
 - Section P (aqueduct) needs cleanup: ends with NORTH [Dungeon Entrance] while already there; aqueduct repair rooms aren't defined in locations.md.
 - Raznak only has State 1 (trust not earned). States 2A/2B/3 and PAY are Quest 55 (full-score walkthrough).
 - Section T has `REMOVE RING [ring won't go on]`. items.md says that message belongs to `WEAR RING` on the bound ring. Check before implementing.

@@ -560,12 +560,17 @@ reward at the Bar (6 XP, 3 Zenni, a free drink).
 
 > SOUTHWEST                   [Alley]
 > SOUTH                       [Back Alley]
-> KILL MUGGER                 [mugger]
+
+One round per KILL. The mugger has 2 hearts; always-max rolls win both
+rounds.
+
+> KILL MUGGER                 [solid blow]
+> KILL MUGGER                 [lockpicks]
 > NORTH                       [Alley]
 > NORTHEAST                   [Town Square]
 > SOUTH                       [Tale and Ale]
 > SOUTH                       [Bar]
-> TALK TO MAY                 [free drink]
+> TALK TO MAY                 [on the house]
 > NORTH                       [Main Room]
 
 =============================================================================

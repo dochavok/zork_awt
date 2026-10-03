@@ -351,6 +351,11 @@ def v_talk(world: World) -> int:
         print("The child says nothing.")
         return M_HANDLED
 
+    if obj.name == "MAY":
+        from content import tavern
+        tavern.talk_may(world)
+        return M_HANDLED
+
     if obj.name in ("OAK-CHILD", "BEEKEEPER"):
         from content import old_oak
         (old_oak.talk_child if obj.name == "OAK-CHILD" else old_oak.talk_beekeeper)(world)
@@ -451,6 +456,22 @@ def v_give(world: World) -> int:
         return M_HANDLED
 
     print(f"{npc.desc} doesn't take the {item.desc}.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-MELEE  (KILL / ATTACK X) — one combat round per command (mechanics.md)
+# ---------------------------------------------------------------------------
+
+def v_melee(world: World) -> int:
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    if obj.name == "MUGGER":
+        from content import back_alley
+        back_alley.fight_round(world)
+        return M_HANDLED
+    print(f"You can't fight the {obj.desc}.")
     return M_HANDLED
 
 
@@ -821,6 +842,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-READ",       v_read)
     game.register_verb("V-CLIMB",      v_climb)
     game.register_verb("V-CLIMB-TREE", v_climb_tree)
+    game.register_verb("V-MELEE",      v_melee)
     game.register_verb("V-ACTIVATE",   v_activate)
     game.register_verb("V-DRINK",      v_drink)
     from content.vikings import riddle_input_hook
