@@ -111,6 +111,7 @@ Combat bonus: +6 to melee roll. Without Weapon Use skill, carries in inventory b
 ### Crowbar
 **Slot:** None (carried)
 **Weight:** 3
+**Examine:** *A heavy iron crowbar, one end flattened to a lip. Made for getting into things.*
 **Location:** Prayer Alcove, Dungeon Upper Tier
 **Quest use:** Quest 25 (flooded cellar drain cover), Quests 19&30 (statue base), Trap 33 escape (Idol Room stone door)
 
@@ -119,6 +120,8 @@ Found in a carved niche in the Prayer Alcove — perception check reveals the al
 ---
 
 ### Guardian's Lantern
+**Room description (dropped):** *An old lantern lies on the floor, its glass faintly green.*
+**Examine:** *A guard's lantern, heavy brass, the glass tinted a faint green. It flickers when you lift it, as if it wants to light and can't decide where.*
 **Slot:** None (carried)
 **Weight:** 2
 **Location:** Dropped by The Warden in the Combat Room (Dungeon Upper Tier)
@@ -264,6 +267,7 @@ Left by Calder Finch. *"He left a key. Said it led to a lower level — wouldn't
 ---
 
 ### Vial of Glacier Melt
+**Examine:** *A stoppered vial of water so cold the glass has frosted. It doesn't warm in your hand.*
 **Weight:** 1
 **Location:** Prayer Alcove, Dungeon Upper Tier (alongside crowbar)
 **Quest use:** Quest 34 mid room — `POUR VIAL IN WATER` freezes the pool, player crosses freely.
@@ -388,6 +392,7 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 ---
 
 ### Hand Cart
+**Examine:** *A sturdy two-wheeled cart, the handles worn smooth. Built to carry more than a person could.*
 **Weight:** 5
 **Location:** Storage Area, Dungeon Upper Tier
 **Quest use:** Quest 32 — needed to move Calder Finch's heavy gravestone from the bog back to the cemetery.
@@ -423,6 +428,7 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 ---
 
 ### Sack of Salt
+**Examine:** *It looks like it weighs as much as a Chachapoyan Fertility Idol.*
 **Weight:** 4
 **Location:** Supply Room, Dungeon Upper Tier
 **Quest use:** `SWAP IDOL WITH SALT` — safe weight swap for Chachapoyan Fertility Idol pedestal (Trap 33).
@@ -430,6 +436,7 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 ---
 
 ### Portcullis Bar
+**Examine:** *A length of iron as thick as your wrist, notched at one end. Heavy, and built to take weight.*
 **Weight:** 3
 **Location:** Supply Room, Dungeon Upper Tier
 **Quest use:** Props the Portcullis Corridor gate permanently open (Trap 19).
@@ -437,6 +444,7 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 ---
 
 ### Mortar Compound
+**Examine:** *A tub of grey mortar compound, still workable under the lid. Someone meant to fix something down here.*
 **Weight:** 2
 **Location:** Supply Room, Dungeon Upper Tier
 **Quest use:** Quest 22 (The Ruined Aqueduct) — seals the stone blocks in the gap.
@@ -444,6 +452,7 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 ---
 
 ### Support Beam
+**Examine:** *A heavy timber beam, squared and solid. Something meant to hold up a ceiling.*
 **Weight:** 4
 **Location:** Storage Area, Dungeon Upper Tier
 **Quest use:** Quest 38 — props the cleared passage in Collapsed Gallery, makes shortcut permanent.

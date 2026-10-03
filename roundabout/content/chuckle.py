@@ -80,7 +80,8 @@ _GHOST_FREED = '"Thank you. I can rest now."'
 
 
 def _visible(w: World) -> bool:
-    return not w.globals.get("ring_worn")
+    """Invisible only with the ring on — and ink (Trap 45) cancels that."""
+    return not w.globals.get("ring_worn") or bool(w.get_global("INKED"))
 
 
 class _MirrorExit(Exit):
@@ -167,7 +168,7 @@ def update_ghost_visibility(w: World) -> None:
     ghost = w.objects.get("GHOST")
     if ghost is None:
         return
-    if w.globals.get("ring_worn") and not w.get_global("GHOST-FREED"):
+    if not _visible(w) and not w.get_global("GHOST-FREED"):
         ghost.clear_flag("INVISIBLE")
     else:
         ghost.set_flag("INVISIBLE")

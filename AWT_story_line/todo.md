@@ -6,17 +6,17 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–H5 passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–I2 passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section I — Dungeon Upper Tier. First failure:
+**Current position:** Section J — open the statue, get the silver stake. First failure:
 
 ```
-SECTION [I) Dungeon Upper Tier — Supply Room & Prayer Alcove (Crowbar)]
-  cmd     : 'SOUTH'
-  missing : 'Ink Corridor'
-  got     : "You can't go that way."
+SECTION [J) Werewolf's Amulet — Open Statue, Get Silver Stake]
+  cmd     : 'USE CROWBAR ON STATUE'
+  missing : 'silver stake'
+  got     : "Nothing happens."
 ```
 
 **Torch budget:** the torch lights at the Mausoleum (H5) and runs 100 turns, every turn. With no swaps it dies around turn 100 (section L). Plan: do Quest 25 (Flooded Cellar) in K while in town with the crowbar, swap the torch at Shamus there, then use the Bone Passage → cellar → kitchen shortcut for a second swap around N/O. Place swaps exactly once L–P are built.
@@ -34,6 +34,7 @@ SECTION [I) Dungeon Upper Tier — Supply Room & Prayer Alcove (Crowbar)]
 - Hidden Zenni rooms (36, seeded at init; tests pin seed 7)
 - Old Oak area (Quest 41 kite, Beekeeper's Cottage, Swarm Tree), forest + bog bowl pieces, Pond and 4 bog rooms
 - SAVE / RESTORE
+- Dungeon upper tier I1/I2: ink trap (Trap 45, inked flag), Supply Room items, Storage Area/hand cart, Combat Room + Warden + plate-operated Den door (Trap 29), Creature Den, Prayer Alcove niche, Portcullis (Trap 19, LIFT + bar), Shrine Room piece, Rickety Bridge weight limit, Key Door (locked); death is GAME OVER
 - Lighting: dark rooms hard-block without light; torch lit on purchase, 100-turn timer from first dark room, warnings, burnout fatal only when stranded in the dark
 - Crypt (visit-based descriptions), Secret Tunnels, Toll Bridge (seal, Boggart, 200 toll, charter, strongbox — Quest 27), Dungeon Entrance; Mausoleum now dark
 - Town Hall (one room: exterior + foyer), Records Room worker and charter (Quest 17 completes), Council Chamber / Upper Hall / Tower rooms
@@ -46,6 +47,8 @@ SECTION [I) Dungeon Upper Tier — Supply Room & Prayer Alcove (Crowbar)]
 - Walkthrough cleanup: Q and R removed (bowl pieces in C1/E, fire clay in M), rope taken at end of C2
 
 **Known issues still open:**
+- Deferred from I1: Flooding Room (north of the Creature Den; Trap 41 — exit blocked until built); Trap 17 (Supply Room smoke-pot shelf — smoke jar, small clay pot; the room uses its default description until then), Trap 33 (idol — fixed in place until then).
+- Inked state (Trap 45): flag built and cancels ring invisibility; NPC refusals and the inn bath still to build.
 - Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.
 - Class XP bonuses (experience.md — Class XP Adjustments): Warrior +10 per kill is built (Aylora excluded — not a kill). Mage +1 per new dungeon room and Rogue +5 per trap disarmed are not built yet — add when the dungeon and traps are.
 - Full-score walkthrough does the mugger (its section C) before Kevry: a level-1 Warrior with regular glasses maxes at 8 perception < Medium 9, so the mugger is never spotted. Move it after the glasses enchantment or after level 2.

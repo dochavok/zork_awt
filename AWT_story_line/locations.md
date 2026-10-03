@@ -1286,7 +1286,8 @@ Threshold between Secret Tunnels and Dungeon Upper Tier.
 **Items:** None
 **Quest Hooks:** None
 **Connections:** North → Dungeon Entrance. West → Supply Room. East → Storage Area. South → Narrow Passageway.
-First room past the Dungeon Entrance. A thin cord stretched at chest height carries an ink bladder — triggering it douses the player in ink (negates invisibility). No warning; cord invisible until hit. Splits west to Supply Room, east to Storage Area. (Trap 45)
+First room past the Dungeon Entrance. A thin cord stretched at chest height carries an ink bladder — triggering it douses the player in ink (negates invisibility). No warning; cord invisible until hit. Splits west to Supply Room, east to Storage Area, south to the Narrow Passageway. (Trap 45 — Medium perception, Medium disarm)
+**Inked:** *Something snags across your chest — a thread, there and gone. Above you, something bursts. Ink comes down in a cold black sheet and doesn't stop until you're wearing all of it.*
 
 **Room description (default):** *The corridor is narrow and plain — bare stone, low ceiling, torch brackets empty. It feels like an entrance to something, which it is. The passage splits ahead — west, east, and on to the south.*
 
@@ -1300,6 +1301,7 @@ First room past the Dungeon Entrance. A thin cord stretched at chest height carr
 **Connections:** East → Ink Corridor.
 West branch off Ink Corridor. Shelves of old stores.
 Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility Idol"), mortar compound (Quest 18/22), portcullis bar (Quest 19), smoke jar (Quest 24 — guarded by Trap 17).
+**Item listings:** portcullis bar — *A heavy iron bar leans in the corner, notched at one end — the kind of thing made to hold something open.* Mortar — *A sealed tub of mortar compound sits on a low shelf.* Salt — *A fat sack of salt slumps against the shelves.*
 **Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar and small clay pot (Quest 40) visible in wreckage either way. Perception spots the unstable arrangement.
 The small clay pot is the one intact pot that survives the collapse.
 The sack of salt is what makes the Idol Room swap safe (`SWAP IDOL WITH SALT`); taking the idol without it triggers Trap 33. Nothing forces a visit first — the Supply Room is a dead end west of the Ink Corridor, and the Idol Room is reachable without it.
@@ -1364,6 +1366,8 @@ South of Storage Area. Timbers wedged across it blocking a secondary exit (Quest
 **Items:** None (the Warden's Guardian's Lantern drops where he's defeated — the Combat Room)
 **Quest Hooks:** None (combat encounter; lantern is critical path item)
 **Connections:** West → Combat Room (door — opens when the Trap 29 plate fires; stays open after the Warden is defeated). North → Flooding Room.
+**Room description:** *A low den that stinks of old straw and older meat. Bones are piled in one corner with a care that's somehow worse than if they'd been scattered. A passage leads on to the north.*
+**Insignia (examine):** *Pinned to the wall, almost lost under the grime: a faded insignia and the rags of a uniform. This was a guard post once.*
 East of the Combat Room — the only way in is through the Combat Room's door. Lair of **The Warden** — permanently empty after defeat. On examination post-fight: remnants of a uniform/insignia mark this as an official post. The Warden drops the **Guardian's Lantern** on defeat.
 
 ### Combat Room
@@ -1372,7 +1376,15 @@ East of the Combat Room — the only way in is through the Combat Room's door. L
 **Items:** Guardian's Lantern (dropped by The Warden on defeat; required for Dark Room in lower tier)
 **Quest Hooks:** None (Trap 29 — pressure plate rings bell in Creature Den)
 **Connections:** North → Idol Room. East → Creature Den (door — closed until the plate fires). South → Prayer Alcove.
-South of Idol Room. Two squares wide on the map — the Creature Den is off its east end. A pressure plate in the corridor before this room rings a bell in the Creature Den — player hears the sound before entering.
+South of Idol Room. Two squares wide on the map — the Creature Den is off its east end.
+
+**Room description:** *A long, low room, wider than it is deep, the floor scarred and the walls pocked with old damage. At the east end a heavy door is set into the stone, shut. Whatever happened in here happened more than once.* (Once the door is open: *…At the east end the heavy door stands open.*)
+**Plate:** at the north entrance; arriving unawares steps on it. Medium perception spots it — *Just inside the doorway, one flagstone sits a fraction higher than the rest — a pressure plate.* With Actually Enchanted Glasses it's revealed and the player chooses (`JUMP ON PLATE` / `DISARM PLATE`, Medium disarm); otherwise spotting it rolls the disarm automatically. Disarm: 3 XP.
+**Bell:** *Somewhere behind the heavy door, a bell rings — once, flat and loud. Something on the other side moves.*
+**The Warden emerges:** *The door at the east end grinds open. The thing that comes through it was a guard once — the scraps of a uniform still hang off it — but whatever it is now is mostly reach, teeth, and intent. The Warden.*
+**Warden (presence):** *The Warden stands between you and the open door, swaying, waiting for you to move.* One round per `KILL WARDEN` (2d10, 5 hearts); fleeing resets him to full hearts.
+**Rounds:** won — *You land a solid blow. The Warden staggers, and comes on anyway.* Lost — *The Warden's reach finds you. You take a hit.* Tie — *You trade blows. Both of you feel it.*
+**Warden dies:** *The Warden goes down hard and doesn't get up. Something rolls from its grip and clatters across the floor — a lantern, unlit, its glass faintly green.* A pressure plate in the corridor before this room rings a bell in the Creature Den — player hears the sound before entering.
 **The Warden** emerges: completely monstrous in appearance; standard combat; one-time fight.
 **Trap interaction:** Perception check spots the plate; disarming it avoids the ambush but leaves the Den door shut; `JUMP ON PLATE` triggers it deliberately. Enchanted Glasses auto-reveal the plate and let the player choose.
 **Den door:** The door from the Combat Room east to the Creature Den is closed and opens only when the Trap 29 plate fires — stepping on it unawares, or `JUMP ON PLATE` on purpose. The bell rings, the door opens, and the Warden comes out to fight in the Combat Room. If the plate has been disarmed, the door stays shut until the player jumps on it. Once the Warden is defeated the door stays open, giving access to the Creature Den and the Flooding Room beyond it.
@@ -1399,7 +1411,11 @@ Perception check *before entry* spots the suspiciously clean pressure plate; dis
 **Items:** Crowbar (Quests 19, 25, 30; Trap 33 escape); vial of glacier melt (Quest 34 — freezes pool in Mid Room)
 **Quest Hooks:** Quest 19, 25, 30, 34 — items sourced here
 **Connections:** North → Combat Room. South → Portcullis Corridor.
-South of Combat Room. A low stone alcove — looks like a dead end until examined. Carved niche in the back wall. Contains: **crowbar** (Quests 19&30, 25; Trap 33 escape); **vial of glacier melt** (Quest 34 mid room freeze). Perception check reveals full depth. Connects south to Portcullis Corridor.
+South of Combat Room. A low stone alcove — looks like a dead end until examined. Carved niche in the back wall. Contains: **crowbar** (Quests 19&30, 25; Trap 33 escape); **vial of glacier melt** (Quest 34 mid room freeze). Perception check (Easy, once per visit) reveals full depth. Connects south to Portcullis Corridor.
+
+**Room description:** *A low stone alcove, barely deep enough to stand in. A carved niche is set into the back wall, its edges worn smooth by hands. It looks like a dead end.*
+**Niche found:** *The niche goes back further than it looks. Behind the carved lip there's a gap — and inside it, things that were put there on purpose.*
+**Listings:** crowbar — *A crowbar lies in the recess, one end flattened from use.* Vial — *A small stoppered vial sits beside it, the glass frosted despite the damp.*
 
 ### Portcullis Corridor
 **XP: 1**
@@ -1410,7 +1426,12 @@ South of Combat Room. A low stone alcove — looks like a dead end until examine
 South of Prayer Alcove. A metal portcullis blocks the corridor, carrying an arcane charge.
 Touching without disarming: 1 heart lightning damage, stunned one turn.
 Three ways through: (1) perception spots charge and discharge mechanism; (2) disarm check discharges safely; (3) strength check lifts — only after discharge.
-Portcullis Bar from Supply Room props it permanently open. Without the bar it drops when released. (Trap 19)
+Portcullis Bar from Supply Room props it permanently open. Without the bar it drops when released. (Trap 19 — Medium perception, Medium disarm; `LIFT PORTCULLIS` Medium strength; the next command must be `USE PORTCULLIS BAR` or it drops)
+
+**Room description:** *A straight corridor, closed off halfway along by an iron portcullis. The air around the bars has a faint, dry crackle, and the hairs on your arms stand up as you get close.* (Discharged: without the crackle sentence. Propped: *…The portcullis is propped open with an iron bar.*)
+- **Shock** (touching/lifting while charged — 1 heart, lose a turn): *Your hands close on the bars and the charge goes through you — a white snap, a smell like a struck match. When you can think again, you're on the floor.*
+- **Lift:** *You get under the portcullis and heave. It rises, grinding, until it's head-high — and stays there only as long as you hold it.* Fails: *You strain against the portcullis. It shifts an inch and settles back.*
+- **Let go:** *You let go. The portcullis slams back down.* **Propped:** *You wedge the iron bar under the portcullis. It takes the weight with a groan and holds. The way south is open.* **Blocked:** *The portcullis is down.*
 
 ### Shrine Room
 **XP: 1**
@@ -1418,7 +1439,7 @@ Portcullis Bar from Supply Room props it permanently open. Without the bar it dr
 **Items:** Verdant Circle shrine bowl piece (Quest 49; perception check — near base of plinth)
 **Quest Hooks:** Quest 49 (The Ruined Shrine) — one of three bowl pieces found here
 **Connections:** North → Portcullis Corridor. South → Rickety Bridge.
-South of Portcullis Corridor. A small carved stone room, older than surrounding dungeon stonework. Contains one of three Verdant Circle shrine bowl pieces (Quest 49) — visible on a perception check. Connects south into the Rickety Bridge.
+South of Portcullis Corridor. A small carved stone room, older than surrounding dungeon stonework. Contains one of three Verdant Circle shrine bowl pieces (Quest 49) — visible on a perception check (Easy). Connects south into the Rickety Bridge.
 
 **Room description (default):** *The room is older than the dungeon around it — the stonework finer, the walls carved rather than cut. Someone built this with intention. A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time.*
 
@@ -1433,7 +1454,7 @@ South of Portcullis Corridor. A small carved stone room, older than surrounding 
 **Items:** None
 **Quest Hooks:** None (weight limit mechanic blocks overloaded players)
 **Connections:** North → Shrine Room. West → Collapsed Gallery (quest-gated; cleared by Quest 38). South → Mid-Tier Key Door.
-Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 shortcut exits here from the west. **Weight mechanic:** Carry weight limit: 12. If inventory exceeds limit, bridge groans and movement south is blocked — player cannot proceed until carry weight is at or under limit. Must drop items on this side, cross, then return for them. Always crossable at or under limit.
+Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 shortcut exits here from the west. The iron door is in sight from the bridge — reaching the bridge discovers Quest 32 (silently). **Weight mechanic:** Carry weight limit: 12. If inventory exceeds limit, bridge groans and movement south is blocked — player cannot proceed until carry weight is at or under limit. Must drop items on this side, cross, then return for them. Always crossable at or under limit.
 
 **Room description (default):** *A narrow stone bridge over a gap in the dungeon floor. The bridge is old — the stones have shifted slightly in their mortar, the edges worn. It looks crossable. It probably is. The far side leads south to a heavy iron door.*
 
@@ -1445,7 +1466,7 @@ Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 sho
 **Items:** None (Middle Tier Key from Quest 32 reward is the only way through)
 **Quest Hooks:** Quest 32 — finding this door triggers quest discovery; Middle Tier Key required
 **Connections:** North → Rickety Bridge. South → Key Door Landing.
-South end of Rickety Bridge. Heavy iron door. *The door is iron, set deep into the stone. The lock is substantial — no amount of forcing will open this. It wants a key.* Lockpick attempt returns: "This lock can't be picked." Finding this door triggers Quest 32 discovery and unlocks May's three-tier hints. Middle Tier Key (Quest 32 reward) is the only way through.
+South end of Rickety Bridge. Heavy iron door. *The door is iron, set deep into the stone. The lock is substantial — no amount of forcing will open this. It wants a key.* Lockpick attempt returns: "This lock can't be picked." Seeing this door (from the Rickety Bridge) triggers Quest 32 discovery and unlocks May's three-tier hints. Middle Tier Key (Quest 32 reward) is the only way through.
 
 ---
 

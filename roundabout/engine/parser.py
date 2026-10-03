@@ -672,6 +672,13 @@ class Parser:
                 print("It's too dark to see!")
             raise _ParseError()
 
+        # A word used as an object's noun beats the same word used only as
+        # another object's adjective ("portcullis" vs "portcullis bar").
+        if len(matched) > 1 and words:
+            by_noun = [o for o in matched if words[-1] in o.synonyms]
+            if by_noun:
+                matched = by_noun
+
         # TAKE looks on the ground first (ZIL: TAKE OBJECT (ON-GROUND IN-ROOM)):
         # if some matches are already held and others aren't, take the others.
         if (len(matched) > 1 and getattr(self, "_current_action", None) == "V-TAKE"

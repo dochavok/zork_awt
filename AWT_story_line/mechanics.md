@@ -368,6 +368,8 @@ Granted silently at Level 7. The player is never told this ability exists — no
 - The ability is intentionally invisible — players who trigger it will wonder; players who never trigger it will never know it existed.
 - After firing, subsequent reduction to 0 hearts is permanent death as normal.
 
+**Death (0 hearts, no Nobu's Favor):** GAME OVER — *Your last heart gives out. The dark closes in, and this time it keeps you.* (Exceptions: the Back Alley mugger and its fight knock the player out instead.)
+
 ---
 
 ## Hint System (May)

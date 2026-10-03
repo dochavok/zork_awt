@@ -698,7 +698,7 @@ permanently free. Continue south to the Dungeon Entrance.
 > SOUTH                       [Dungeon Entrance]
 
 =============================================================================
-I) Dungeon Upper Tier — Supply Room & Prayer Alcove (Crowbar)
+I1) Dungeon Upper Tier — Down to the Mid-Tier Key Door (Crowbar)
 =============================================================================
 The Ink Corridor is the first dungeon room. A trip cord at chest height
 carries an ink bladder — auto-detected with Actually Enchanted Glasses.
@@ -723,6 +723,11 @@ also not needed.
 Leave the idol on its pedestal — taking it is what springs Trap 33.
 Head south to the Combat Room.
 
+SAVE before going into the next room. The fight there can be lost —
+death is GAME OVER — and a save lets a player who loses RESTORE and
+try again.
+
+> SAVE                        [Saved]
 > SOUTH                       [Combat Room]
 
 With Actually Enchanted Glasses the pressure plate at the Combat Room's
@@ -737,7 +742,7 @@ hearts and always-max rolls win every round.
 > KILL WARDEN                 [Warden]
 > KILL WARDEN                 [Warden]
 > KILL WARDEN                 [Warden]
-> KILL WARDEN                 [Guardian's Lantern]
+> KILL WARDEN                 [lantern]
 > TAKE LANTERN                [Guardian's Lantern]
 > SOUTH                       [Prayer Alcove]
 
@@ -747,11 +752,14 @@ Enchanted Glasses it is automatically revealed. Take the crowbar.
 > TAKE CROWBAR                [crowbar]
 
 Continue south through Portcullis Corridor. The portcullis carries an
-arcane charge — touching without disarming deals lightning damage. The
-Portcullis Bar from the Supply Room props it permanently open.
+arcane charge — touching without disarming deals lightning damage. With
+Actually Enchanted Glasses the charge is spotted and discharged. Lift
+the portcullis, then prop it permanently open with the Portcullis Bar
+from the Supply Room.
 
 > SOUTH                       [Portcullis Corridor]
-> USE PORTCULLIS BAR          [portcullis propped]
+> LIFT PORTCULLIS             [heave]
+> USE PORTCULLIS BAR          [holds]
 > SOUTH                       [Shrine Room]
 
 Shrine Room contains one of the three Verdant Circle shrine bowl pieces
@@ -759,17 +767,20 @@ Shrine Room contains one of the three Verdant Circle shrine bowl pieces
 
 > TAKE BOWL PIECE             [You take the bowl piece]
 > SOUTH                       [Rickety Bridge]
-> SOUTH                       [Mid-Tier Key Door]
 
-The Mid-Tier Key Door is locked — this triggers Quest 32 discovery.
+From the bridge, the heavy iron door to the south is in plain sight —
+that's enough to discover Quest 32. No need to cross: the bridge's 12
+weight limit would stop us with a full pack anyway.
 We need the Middle Tier Key from Councilman Rowan Finch. That requires
 finding the gravestone in the bog (Quest 32). We'll return here. For
 now, let's get the crowbar working on the statue.
 
+=============================================================================
+I2) Back to Town — Hand Cart on the Way Out
+=============================================================================
 Go back up to town, open the statue, get the stake, then descend to the
 lower tier for the Keeper's keys and holy water.
 
-> NORTH                       [Rickety Bridge]
 > NORTH                       [Shrine Room]
 > NORTH                       [Portcullis Corridor]
 > NORTH                       [Prayer Alcove]
@@ -817,7 +828,7 @@ K) Quest 32 — Missing Gravestone (Middle Tier Key)
 The Mid-Tier Key Door needs the Middle Tier Key from Councilman Rowan
 Finch (Quest 32). His grandfather Calder's gravestone was stolen and lies
 face-down in the bog (Bog-SE). We already have the hand cart from the
-Storage Area (section I).
+Storage Area (section I2).
 
 Talk to Rowan in the Council Chamber, just north of the square.
 
@@ -1077,7 +1088,7 @@ S) Crystal Bowl — Assemble Bowl at Fountain
 =============================================================================
 Surface, then mix fire clay with fountain water at the Town Square
 fountain. Assemble the bowl, then take it to the shrine. The clay (M)
-and all three bowl pieces (C1, E, I) are already in hand.
+and all three bowl pieces (C1, E, I1) are already in hand.
 
 > NORTH                       [Toll Bridge]
 > NORTH                       [Junction]

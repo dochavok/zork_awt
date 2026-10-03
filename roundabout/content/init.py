@@ -129,6 +129,13 @@ def _place_objects(world) -> None:
     # TOWN-CHARTER is handed over for the pocket watch
     world.move_object(world.objects["BOGGART"], world.rooms["TOLL-BRIDGE"])
     # STRONGBOX is dropped when the Boggart leaves
+    for obj, room in (("PORTCULLIS-BAR", "SUPPLY-ROOM"), ("MORTAR", "SUPPLY-ROOM"),
+                      ("SACK-OF-SALT", "SUPPLY-ROOM"), ("HAND-CART", "STORAGE-AREA"),
+                      ("SUPPORT-BEAM", "STORAGE-AREA"), ("IDOL", "IDOL-ROOM"),
+                      ("PRESSURE-PLATE", "COMBAT-ROOM"), ("INSIGNIA", "CREATURE-DEN"),
+                      ("CROWBAR", "PRAYER-ALCOVE"), ("GLACIER-MELT", "PRAYER-ALCOVE"),
+                      ("BOWL-PIECE-SHRINE", "SHRINE-ROOM"), ("PORTCULLIS", "PORTCULLIS-CORRIDOR")):
+        world.move_object(world.objects[obj], world.rooms[room])
 
     # LOCKPICKS drop when the mugger is slain
     # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus

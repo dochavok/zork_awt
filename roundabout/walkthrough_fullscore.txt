@@ -787,6 +787,11 @@ Swap the idol safely with the sack of salt.
 
 > SWAP IDOL WITH SALT         [safe]
 > TAKE IDOL                   [Chachapoyan Fertility Idol]
+SAVE before going into the next room. The fight there can be lost —
+death is GAME OVER — and a save lets a player who loses RESTORE and
+try again.
+
+> SAVE                        [Saved]
 > SOUTH                       [Combat Room]
 
 With Actually Enchanted Glasses the pressure plate at the Combat Room's
@@ -801,7 +806,7 @@ hearts and always-max rolls win every round.
 > KILL WARDEN                 [Warden]
 > KILL WARDEN                 [Warden]
 > KILL WARDEN                 [Warden]
-> KILL WARDEN                 [Guardian's Lantern]
+> KILL WARDEN                 [lantern]
 > TAKE LANTERN                [Guardian's Lantern]
 
 Side trip through the Creature Den (east) to the Flooding Room (north of it). With Actually Enchanted Glasses the

@@ -278,7 +278,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ## Quest 32 — The Missing Gravestone
 
-**Discovery:** Finding the Mid-Tier Key Door in the dungeon triggers quest discovery and unlocks May's three-tier hints. Councilman Rowan Finch approaches the player — his grandfather Calder Finch's gravestone was stolen from the cemetery. No Quest Board posting.
+**Discovery:** Seeing the Mid-Tier Key Door (it's in sight from the Rickety Bridge) triggers quest discovery silently and unlocks May's three-tier hints. Councilman Rowan Finch raises it when the player next talks to him in the Council Chamber — his grandfather Calder Finch's gravestone was stolen from the cemetery. No Quest Board posting.
 
 **May's hints:**
 - Tier 1: *"There's a locked door down in the tunnels, they say. Heavy thing — needs a proper key. Word is someone in town might know something about it."*
@@ -287,7 +287,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 - Gravestone hint (one tier only): *"I've heard carts are good for moving heavy things. Stones, for instance."*
 
 **Steps:**
-1. Find Mid-Tier Key Door in dungeon upper tier → quest discovered.
+1. See the Mid-Tier Key Door from the Rickety Bridge (dungeon upper tier) → quest discovered.
 2. Talk to Councilman Rowan Finch in Council Chamber (Town Hall).
 3. Perception check in the bog (Bog-SE) → gravestone face-down in mud.
 4. Find hand cart in Storage Area (Dungeon Upper Tier).

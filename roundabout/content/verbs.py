@@ -116,7 +116,7 @@ def v_examine(world: World) -> int:
         return M_HANDLED
 
     # Generic examine: show ldesc or fdesc
-    desc = obj.ldesc or obj.fdesc or obj.desc
+    desc = obj.ldesc or obj.fdesc
     if desc:
         print(desc)
         obj.touched = True
@@ -513,6 +513,46 @@ def v_enter(world: World) -> int:
 
 
 # ---------------------------------------------------------------------------
+# V-RAISE (LIFT PORTCULLIS) / V-USE (USE PORTCULLIS BAR)
+# ---------------------------------------------------------------------------
+
+def v_raise(world: World) -> int:
+    obj = world.prso
+    if obj is not None and obj.name == "PORTCULLIS":
+        from content import shrine_path
+        shrine_path.lift(world)
+        return M_HANDLED
+    print("Nothing happens.")
+    return M_HANDLED
+
+
+def v_use(world: World) -> int:
+    obj = world.prso
+    if obj is not None and obj.name == "PORTCULLIS-BAR":
+        from content import shrine_path
+        if shrine_path.use_bar(world):
+            return M_HANDLED
+    print("Nothing happens.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-JUMP-ON / V-DISARM  (Trap 29 plate in the Combat Room)
+# ---------------------------------------------------------------------------
+
+def v_jump_on(world: World) -> int:
+    from content import combat_room
+    combat_room.jump_on_plate(world)
+    return M_HANDLED
+
+
+def v_disarm(world: World) -> int:
+    from content import combat_room
+    combat_room.disarm_plate(world)
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
 # V-PAY  (PAY BOGGART)
 # ---------------------------------------------------------------------------
 
@@ -554,6 +594,10 @@ def v_melee(world: World) -> int:
     if obj.name == "MUGGER":
         from content import back_alley
         back_alley.fight_round(world)
+        return M_HANDLED
+    if obj.name == "WARDEN":
+        from content import combat_room
+        combat_room.fight_round(world)
         return M_HANDLED
     print(f"You can't fight the {obj.desc}.")
     return M_HANDLED
@@ -932,6 +976,10 @@ def register_verbs(game) -> None:
     game.register_verb("V-MELEE",      v_melee)
     game.register_verb("V-CHALLENGE",  v_challenge)
     game.register_verb("V-PAY",        v_pay)
+    game.register_verb("V-JUMP-ON",    v_jump_on)
+    game.register_verb("V-DISARM",     v_disarm)
+    game.register_verb("V-RAISE",      v_raise)
+    game.register_verb("V-USE",        v_use)
     game.register_verb("V-ENTER",      v_enter)
     from content.dankhaus import litlock_input_hook
     game.register_input_hook(litlock_input_hook)

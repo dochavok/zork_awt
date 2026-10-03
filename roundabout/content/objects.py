@@ -48,6 +48,10 @@ def make_objects(world) -> None:
     _make_chuckle_objects(world)
     _make_town_hall_objects(world)
     _make_tunnel_objects(world)
+    _make_upper_tier_objects(world)
+    _make_combat_room_objects(world)
+    _make_shrine_path_objects(world)
+    _set_weights(world)
 
 
 # ---------------------------------------------------------------------------
@@ -575,3 +579,118 @@ def _make_tunnel_objects(world) -> None:
         name="STRONGBOX", desc="strongbox", synonyms=["strongbox", "box", "lid"],
         adjectives=["battered"], flags={NDESCBIT, SACREDBIT, CONTBIT},
     ))
+
+
+# ---------------------------------------------------------------------------
+# Dungeon upper tier (logic: content/upper_tier.py). Sizes are items.md weights.
+# ---------------------------------------------------------------------------
+
+def _make_upper_tier_objects(world) -> None:
+    def item(name, desc, fdesc, ldesc, synonyms, adjectives, size, flags=None):
+        world.register_object(GameObject(
+            name=name, desc=desc, fdesc=fdesc, ldesc=ldesc, synonyms=synonyms,
+            adjectives=adjectives, size=size, flags=flags or {TAKEBIT},
+        ))
+    item("PORTCULLIS-BAR", "portcullis bar",
+         "A heavy iron bar leans in the corner, notched at one end — the kind of "
+         "thing made to hold something open.",
+         "A length of iron as thick as your wrist, notched at one end. Heavy, and "
+         "built to take weight.", ["bar"], ["portcullis", "iron", "heavy"], 3)
+    item("MORTAR", "mortar compound",
+         "A sealed tub of mortar compound sits on a low shelf.",
+         "A tub of grey mortar compound, still workable under the lid. Someone "
+         "meant to fix something down here.", ["mortar", "compound", "tub"], ["grey"], 2)
+    item("SACK-OF-SALT", "sack of salt",
+         "A fat sack of salt slumps against the shelves.",
+         "It looks like it weighs as much as a Chachapoyan Fertility Idol.",
+         ["sack", "salt"], [], 4)
+    # The Storage Area's description mentions both; examine text only
+    item("HAND-CART", "hand cart", "",
+         "A sturdy two-wheeled cart, the handles worn smooth. Built to carry more "
+         "than a person could.", ["cart"], ["hand", "two-wheeled"], 5, {TAKEBIT, NDESCBIT})
+    item("SUPPORT-BEAM", "support beam", "",
+         "A heavy timber beam, squared and solid. Something meant to hold up a "
+         "ceiling.", ["beam", "timber"], ["support", "heavy"], 4, {TAKEBIT, NDESCBIT})
+    # Trap 33 deferred: the idol stays on its pedestal for now
+    world.register_object(GameObject(
+        name="IDOL", desc="figurine", synonyms=["idol", "figurine", "pedestal"],
+        adjectives=["chachapoyan", "fertility", "stone"], flags={NDESCBIT, SACREDBIT},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# Combat Room & Creature Den (logic: content/combat_room.py)
+# ---------------------------------------------------------------------------
+
+def _make_combat_room_objects(world) -> None:
+    from content.combat_room import WARDEN_PRESENCE
+    world.register_object(GameObject(
+        name="WARDEN", desc="Warden", fdesc=WARDEN_PRESENCE, ldesc=WARDEN_PRESENCE,
+        synonyms=["warden", "guard", "thing"], flags={ACTORBIT},
+    ))
+    world.register_object(GameObject(
+        name="PRESSURE-PLATE", desc="pressure plate", synonyms=["plate", "flagstone"],
+        adjectives=["pressure"], flags={NDESCBIT, SACREDBIT, INVISIBLE},
+    ))
+    world.register_object(GameObject(
+        name="GUARDIANS-LANTERN", desc="Guardian's Lantern",
+        fdesc="An old lantern lies on the floor, its glass faintly green.",
+        ldesc="A guard's lantern, heavy brass, the glass tinted a faint green. It "
+              "flickers when you lift it, as if it wants to light and can't decide where.",
+        synonyms=["lantern"], adjectives=["guardian's", "guardians", "old", "brass"],
+        size=2, flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="INSIGNIA", desc="insignia",
+        ldesc="Pinned to the wall, almost lost under the grime: a faded insignia and "
+              "the rags of a uniform. This was a guard post once.",
+        synonyms=["insignia", "uniform", "rags"], adjectives=["faded"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# Prayer Alcove → Mid-Tier Key Door (logic: content/shrine_path.py)
+# ---------------------------------------------------------------------------
+
+def _make_shrine_path_objects(world) -> None:
+    from content.shrine_path import SHRINE_PIECE
+    world.register_object(GameObject(
+        name="CROWBAR", desc="crowbar",
+        fdesc="A crowbar lies in the recess, one end flattened from use.",
+        ldesc="A heavy iron crowbar, one end flattened to a lip. Made for getting into things.",
+        synonyms=["crowbar", "bar"], adjectives=["iron", "heavy"], size=3,
+        flags={TAKEBIT, INVISIBLE},
+    ))
+    world.register_object(GameObject(
+        name="GLACIER-MELT", desc="vial of glacier melt",
+        fdesc="A small stoppered vial sits beside it, the glass frosted despite the damp.",
+        ldesc="A stoppered vial of water so cold the glass has frosted. It doesn't warm in your hand.",
+        synonyms=["vial", "melt"], adjectives=["glacier", "frosted", "stoppered"], size=1,
+        flags={TAKEBIT, INVISIBLE},
+    ))
+    world.register_object(GameObject(
+        name="BOWL-PIECE-SHRINE", desc="bowl piece", fdesc=SHRINE_PIECE,
+        synonyms=["piece", "shard", "fragment", "bowl"], adjectives=["bowl", "curved", "stone"],
+        size=1, flags={TAKEBIT, INVISIBLE},
+    ))
+    world.register_object(GameObject(
+        name="PORTCULLIS", desc="portcullis", synonyms=["portcullis", "gate", "bars"],
+        adjectives=["iron"], flags={NDESCBIT, SACREDBIT},
+    ))
+
+
+# items.md weights — used by the Rickety Bridge (limit 12). Engine default is 5.
+_WEIGHTS = {
+    "RING": 1, "ENCHANTED-GLASSES": 1, "HEART-NECKLACE": 1, "TORCH": 2, "PICKAXE": 3,
+    "PIE-RAT-DISGUISE": 1, "GUNPOWDER": 2, "FLINT-AND-STEEL": 2, "SHOVEL": 3, "ROPE": 3,
+    "KITE": 1, "OLD-OAK-RUNE-STONE": 2, "SCROLL-UNBIND-UNDEAD": 1, "BOWL-PIECE-FOREST": 1,
+    "BOWL-PIECE-BOG": 1, "RUNED-METAL": 3, "PALE-BLADE": 3, "TOWN-CHARTER": 1,
+    "POCKET-WATCH": 1, "LOCKPICKS": 1, "GUARDIANS-LANTERN": 2, "HAND-CART": 5,
+    "SUPPORT-BEAM": 4, "PORTCULLIS-BAR": 3, "MORTAR": 2, "SACK-OF-SALT": 4,
+}
+
+
+def _set_weights(world) -> None:
+    for name, weight in _WEIGHTS.items():
+        world.objects[name].size = weight

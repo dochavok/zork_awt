@@ -796,6 +796,8 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         # TALK / TELL / ASK                                                  #
         # ------------------------------------------------------------------ #
+        SyntaxRule(verb="disarm", action="V-DISARM",
+                   obj1=ObjectSpec(locations=_og_ir)),
         SyntaxRule(verb="pay", action="V-PAY",
                    obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
         SyntaxRule(verb="pay", action="V-PAY"),

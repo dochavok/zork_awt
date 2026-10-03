@@ -142,7 +142,10 @@ def _handle_death(world: "World") -> None:
             world.game.describe_room()
         return
 
-    world.game.jigs_up("You have run out of hearts.")
+    print("Your last heart gives out. The dark closes in, and this time it keeps you.\n\n"
+          "*** GAME OVER ***")
+    world.set_global("GAME-OVER", True)   # permanent death (mechanics.md)
+    world.game.quit()
 
 
 def _check_finishing_move(world: "World") -> bool:
