@@ -984,7 +984,7 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 | `CLEAR BONES` | Trap 36 — disarms Bone Crunch Floor Room |
 | `CLEAR DRAIN` | Quest 25 — unclogs cellar drain after cover removed |
 | `LOAD STONE ONTO CART` | Quest 32 — loads gravestone onto hand cart |
-| `JUMP ON PLATE` | Trap 29 — intentionally triggers Warden bell |
+| `JUMP ON PLATE` | Trap 29 — intentionally triggers Warden bell; opens the Creature Den door |
 | `PRY DOOR` | Trap 33 escape — crowbar + strength check |
 | `USE PORTCULLIS BAR` | Trap 19 — props portcullis open permanently |
 | `CLIMB TREE` | The Old Oak — retrieves kite + rune stone |

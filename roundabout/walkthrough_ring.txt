@@ -688,7 +688,7 @@ dark room.
 > DOWN                        [Crypt]
 > DOWN                        [Charnel Walk]
 > NORTH                       [Bone Passage]
-> NORTH                       [Junction]
+> WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
 > GIVE CHARTER TO BOGGART     [bridge free]
 
@@ -710,40 +710,41 @@ west to Supply Room, then south through Narrow Passageway.
 
 Supply Room contains sack of salt, mortar compound, portcullis bar, and
 smoke jar (behind Trap 17). With Actually Enchanted Glasses the trap is
-detected and disarmed. Take sack of salt (needed for Idol Room swap) and
-the portcullis bar (needed for Portcullis Corridor).
+detected and disarmed. Take the portcullis bar (needed for Portcullis
+Corridor). The salt is only for the idol swap — the idol is a treasure,
+not needed for the ring, so leave both. The smoke jar is for Quest 24,
+also not needed.
 
-> TAKE SALT                   [sack of salt]
 > TAKE PORTCULLIS BAR         [portcullis bar]
-> TAKE SMOKE JAR              [smoke jar]
 > EAST                        [Ink Corridor]
 > SOUTH                       [Narrow Passageway]
 > SOUTH                       [Idol Room]
 
-Swap the idol with the sack of salt to disarm the pressure plate safely.
-
-> SWAP IDOL WITH SALT         [safe]
-> TAKE IDOL                   [Chachapoyan Fertility Idol]
-
-Head south to Combat Room. With Actually Enchanted Glasses the pressure
-plate before the Combat Room is auto-detected. The Warden fight is
-unavoidable — defeat him with melee (Warriors start with weapon use).
+Leave the idol on its pedestal — taking it is what springs Trap 33.
+Head south to the Combat Room.
 
 > SOUTH                       [Combat Room]
-> KILL WARDEN WITH SWORD      [Warden]
 
-Always-max rolls: player wins every combat round. The Warden drops the
-Guardian's Lantern on defeat.
+With Actually Enchanted Glasses the pressure plate at the Combat Room's
+threshold is revealed, and we get to choose. The Warden has the
+Guardian's Lantern (needed for the Dark Room), and his door to the
+Creature Den only opens when the plate fires — so jump on it. The bell
+rings, the door opens, and he comes out. One round per KILL; he has 5
+hearts and always-max rolls win every round.
 
+> JUMP ON PLATE               [bell]
+> KILL WARDEN                 [Warden]
+> KILL WARDEN                 [Warden]
+> KILL WARDEN                 [Warden]
+> KILL WARDEN                 [Warden]
+> KILL WARDEN                 [Guardian's Lantern]
 > TAKE LANTERN                [Guardian's Lantern]
 > SOUTH                       [Prayer Alcove]
 
 Prayer Alcove looks like a dead end until examined. With Actually
-Enchanted Glasses it is automatically revealed. Take the crowbar and
-the vial of glacier melt (needed for Quest 34 mid room later).
+Enchanted Glasses it is automatically revealed. Take the crowbar.
 
 > TAKE CROWBAR                [crowbar]
-> TAKE VIAL                   [vial of glacier melt]
 
 Continue south through Portcullis Corridor. The portcullis carries an
 arcane charge — touching without disarming deals lightning damage. The
@@ -776,10 +777,18 @@ lower tier for the Keeper's keys and holy water.
 > NORTH                       [Idol Room]
 > NORTH                       [Narrow Passageway]
 > NORTH                       [Ink Corridor]
+
+On the way out, step east into the Storage Area for the hand cart —
+Quest 32's gravestone is too heavy to carry (weight 10). The cart
+(weight 5) never has to cross the Rickety Bridge this way.
+
+> EAST                        [Storage Area]
+> TAKE CART                   [hand cart]
+> WEST                        [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
 > NORTH                       [Junction]
-> WEST                        [Bone Passage]
+> EAST                        [Bone Passage]
 > SOUTH                       [Charnel Walk]
 > UP                          [Crypt]
 > UP                          [Mausoleum]
@@ -806,11 +815,11 @@ matches the skeleton in the Lower Crypt.
 K) Quest 32 — Missing Gravestone (Middle Tier Key)
 =============================================================================
 The Mid-Tier Key Door needs the Middle Tier Key from Councilman Rowan
-Finch (Quest 32). Rowan's grandfather's gravestone was stolen and is
-face-down in the bog. The hand cart to move it is in the Storage Area
-(Dungeon Upper Tier, east of the Ink Corridor).
+Finch (Quest 32). His grandfather Calder's gravestone was stolen and lies
+face-down in the bog (Bog-SE). We already have the hand cart from the
+Storage Area (section I).
 
-Talk to Rowan in the Council Chamber first.
+Talk to Rowan in the Council Chamber, just north of the square.
 
 > NORTH                       [Town Hall]
 > EAST                        [Council Chamber]
@@ -818,63 +827,9 @@ Talk to Rowan in the Council Chamber first.
 > WEST                        [Town Hall]
 > SOUTH                       [Town Square]
 
-The gravestone is in the bog (perception check — auto-pass with glasses).
-Navigate to the bog.
+To the bog. The gravestone is in Bog-SE (perception check — auto-pass
+with glasses).
 
-> WEST                        [Main West]
-> WEST                        [Archery Range]
-> NORTH                       [Roundabout Pond]
-> NORTH                       [Bog of Eternal Stench]
-> EAST                        [Bog of Eternal Stench]
-
-Perception check auto-passes — gravestone visible (Bog-SE).
-
-> TAKE GRAVESTONE             [need cart]
-
-The gravestone is too heavy to carry alone (weight 10) — load it onto
-the hand cart. The hand cart is in Storage Area (dungeon upper tier).
-
-Fetch the cart:
-
-> EAST                        [Roundabout Pond]
-> SOUTH                       [Archery Range]
-> EAST                        [Main West]
-> EAST                        [Town Square]
-> SOUTH                       [Tale and Ale]
-> SOUTH                       [Bar]
-> SOUTH                       [Kitchen]
-> NORTH                       [Bar]
-> NORTH                       [Main Room]
-> NORTH                       [Town Square]
-> EAST                        [Main East]
-> SOUTH                       [Church of All]
-> SOUTH                       [Graveyard]
-> SOUTH                       [Mausoleum]
-> DOWN                        [Crypt]
-> DOWN                        [Charnel Walk]
-> NORTH                       [Bone Passage]
-> NORTH                       [Junction]
-> SOUTH                       [Toll Bridge]
-> SOUTH                       [Dungeon Entrance]
-> SOUTH                       [Ink Corridor]
-> EAST                        [Storage Area]
-> TAKE CART                   [hand cart]
-
-Now return to the bog with the cart, load the gravestone, and haul it
-back to the cemetery.
-
-> WEST                        [Ink Corridor]
-> NORTH                       [Dungeon Entrance]
-> NORTH                       [Toll Bridge]
-> NORTH                       [Junction]
-> WEST                        [Bone Passage]
-> SOUTH                       [Charnel Walk]
-> UP                          [Crypt]
-> UP                          [Mausoleum]
-> NORTH                       [Graveyard]
-> NORTH                       [Church of All]
-> NORTH                       [Main East]
-> WEST                        [Town Square]
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
@@ -918,7 +873,7 @@ Descend to the Dungeon Upper Tier and use the Middle Tier Key.
 > DOWN                        [Crypt]
 > DOWN                        [Charnel Walk]
 > NORTH                       [Bone Passage]
-> NORTH                       [Junction]
+> WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
 > SOUTH                       [Dungeon Entrance]
 > SOUTH                       [Ink Corridor]
@@ -931,12 +886,11 @@ Descend to the Dungeon Upper Tier and use the Middle Tier Key.
 > SOUTH                       [Rickety Bridge]
 
 Weight check on the Rickety Bridge. Minimum critical load to pass:
-rope(3) + lantern(2) + stake(2) + vial(1) = 8, under the 12 limit.
-Current inventory includes pickaxe(3), idol(4), and portcullis
-bar(3) — total could exceed 12. Drop heavy non-critical items here.
+rope(3) + lantern(2) + stake(2) = 7, under the 12 limit.
+Current inventory includes pickaxe(3) and portcullis bar(3) — the
+total could exceed 12. Drop the pickaxe here.
 
 > DROP PICKAXE                [pickaxe]
-> DROP IDOL                   [idol]
 > SOUTH                       [Mid-Tier Key Door]
 > UNLOCK DOOR WITH KEY        [door unlocked]
 > SOUTH                       [Key Door Landing]
@@ -1013,7 +967,7 @@ the Keeper's Chamber in the Church of All.
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
 > NORTH                       [Junction]
-> WEST                        [Bone Passage]
+> EAST                        [Bone Passage]
 > SOUTH                       [Charnel Walk]
 > UP                          [Crypt]
 > UP                          [Mausoleum]
@@ -1039,7 +993,7 @@ The Narrow Pass to The Still Den.
 > DOWN                        [Crypt]
 > DOWN                        [Charnel Walk]
 > NORTH                       [Bone Passage]
-> NORTH                       [Junction]
+> WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
 > SOUTH                       [Dungeon Entrance]
 > SOUTH                       [Ink Corridor]
@@ -1066,10 +1020,8 @@ The Bone Crunch Floor trap must be cleared before passing.
 > DRIVE STAKE INTO WEREWOLF   [werewolf destroyed]
 
 The werewolf drops the Werewolf's Amulet and reverts to scholar form.
-Take the Ivory Torch from the wall — it is required for Quest 34.
 
 > TAKE AMULET                 [Werewolf's Amulet]
-> TAKE IVORY TORCH            [ivory torch]
 
 =============================================================================
 P) Crystal Bowl — Ruined Aqueduct (Quest 22, fountain prerequisite)
@@ -1129,7 +1081,7 @@ and all three bowl pieces (C1, E, I) are already in hand.
 
 > NORTH                       [Toll Bridge]
 > NORTH                       [Junction]
-> WEST                        [Bone Passage]
+> EAST                        [Bone Passage]
 > SOUTH                       [Charnel Walk]
 > UP                          [Crypt]
 > UP                          [Mausoleum]

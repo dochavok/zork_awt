@@ -121,7 +121,7 @@ Found in a carved niche in the Prayer Alcove — perception check reveals the al
 ### Guardian's Lantern
 **Slot:** None (carried)
 **Weight:** 2
-**Location:** Dropped by The Warden (Combat Room / Creature Den, Dungeon Upper Tier)
+**Location:** Dropped by The Warden in the Combat Room (Dungeon Upper Tier)
 **Quest use:** Required to dispel magical darkness in the Dark Room (lower tier). Quest 34 sub-chain gated behind it.
 
 `TURN ON LANTERN` or `LIGHT LANTERN` both work. Flickers but does not light anywhere except the Dark Room — it is not a substitute for a torch or Light spell in ordinary dark rooms. In the Dark Room, it collapses magical darkness instantly and opens the passage south. Hangs permanently on wall hook in Dark Room once lit there — not takeable after.

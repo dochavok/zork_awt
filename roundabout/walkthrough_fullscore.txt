@@ -725,7 +725,7 @@ The Crypt is dark — cast Light spell.
 > CAST LIGHT                  [light]
 > DOWN                        [Charnel Walk]
 > NORTH                       [Bone Passage]
-> NORTH                       [Junction]
+> WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
 
 Perception check auto-passes — faded official seal visible. Quest 27
@@ -789,13 +789,22 @@ Swap the idol safely with the sack of salt.
 > TAKE IDOL                   [Chachapoyan Fertility Idol]
 > SOUTH                       [Combat Room]
 
-With Actually Enchanted Glasses the pressure plate before the Combat
-Room is auto-detected. The Warden fight is unavoidable.
+With Actually Enchanted Glasses the pressure plate at the Combat Room's
+threshold is revealed, and we get to choose. The Warden has the
+Guardian's Lantern (needed for the Dark Room), and his door to the
+Creature Den only opens when the plate fires — so jump on it. The bell
+rings, the door opens, and he comes out. One round per KILL; he has 5
+hearts and always-max rolls win every round.
 
-> KILL WARDEN WITH SWORD      [Warden]
+> JUMP ON PLATE               [bell]
+> KILL WARDEN                 [Warden]
+> KILL WARDEN                 [Warden]
+> KILL WARDEN                 [Warden]
+> KILL WARDEN                 [Warden]
+> KILL WARDEN                 [Guardian's Lantern]
 > TAKE LANTERN                [Guardian's Lantern]
 
-Side trip east to the Flooding Room. With Actually Enchanted Glasses the
+Side trip through the Creature Den (east) to the Flooding Room (north of it). With Actually Enchanted Glasses the
 pressure plate that controls the sluice is auto-detected and jammed
 before entering — Quest 50's board posting is NOT removed (the disarm
 only removes it when disarmed, per the design doc: "removed if Flooding
@@ -853,7 +862,7 @@ heavy items we dropped.
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
 > NORTH                       [Junction]
-> WEST                        [Bone Passage]
+> EAST                        [Bone Passage]
 > SOUTH                       [Charnel Walk]
 > UP                          [Crypt]
 > UP                          [Mausoleum]
@@ -929,7 +938,7 @@ Navigate back to the dungeon.
 > DOWN                        [Crypt]
 > DOWN                        [Charnel Walk]
 > NORTH                       [Bone Passage]
-> NORTH                       [Junction]
+> WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
 > SOUTH                       [Dungeon Entrance]
 > SOUTH                       [Ink Corridor]
@@ -969,7 +978,7 @@ Crowbar required to remove drain cover.
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
 > NORTH                       [Junction]
-> WEST                        [Bone Passage]
+> EAST                        [Bone Passage]
 > SOUTH                       [Charnel Walk]
 > UP                          [Crypt]
 > UP                          [Mausoleum]
@@ -1062,7 +1071,7 @@ Navigate from the Library.
 > DOWN                        [Crypt]
 > DOWN                        [Charnel Walk]
 > NORTH                       [Bone Passage]
-> NORTH                       [Junction]
+> WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
 > SOUTH                       [Dungeon Entrance]
 > SOUTH                       [Ink Corridor]
@@ -1212,7 +1221,7 @@ Surface, use Keeper's keys at Keeper's Chamber (Church of All).
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
 > NORTH                       [Junction]
-> WEST                        [Bone Passage]
+> EAST                        [Bone Passage]
 > SOUTH                       [Charnel Walk]
 > UP                          [Crypt]
 > UP                          [Mausoleum]
@@ -1308,7 +1317,7 @@ Return to The Still Den with the consecrated silver stake.
 > DOWN                        [Crypt]
 > DOWN                        [Charnel Walk]
 > NORTH                       [Bone Passage]
-> NORTH                       [Junction]
+> WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
 > SOUTH                       [Dungeon Entrance]
 > SOUTH                       [Ink Corridor]
@@ -1413,7 +1422,8 @@ Return up through the Hole to Below and navigate to the Flooding Room.
 > NORTH                       [Portcullis Corridor]
 > NORTH                       [Prayer Alcove]
 > NORTH                       [Combat Room]
-> EAST                        [Flooding Room — via Creature Den]
+> EAST                        [Creature Den]
+> NORTH                       [Flooding Room]
 
 The Flooding Room: entering triggers the sluice sequence. Three levers:
 Left (stuck/spent), Right (breaks/spent), Middle (correct — closes
@@ -1660,7 +1670,7 @@ We haven't retrieved it yet. Let's do that now and return.
 > DOWN                        [Crypt]
 > DOWN                        [Charnel Walk]
 > NORTH                       [Bone Passage]
-> NORTH                       [Junction]
+> WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
 > SOUTH                       [Dungeon Entrance]
 > SOUTH                       [Ink Corridor]
@@ -1705,7 +1715,7 @@ south of Mine Passage — Stored Room is not on this path.
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
 > NORTH                       [Junction]
-> WEST                        [Bone Passage]
+> EAST                        [Bone Passage]
 > SOUTH                       [Charnel Walk]
 > UP                          [Crypt]
 > UP                          [Mausoleum]

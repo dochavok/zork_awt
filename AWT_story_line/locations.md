@@ -346,7 +346,7 @@ One of three guest rooms off the Upstairs Hall. Assigned randomly by May when th
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None (access point to Secret Tunnels via tunnel door once drained)
-**Connections:** Up (cellar door) → Kitchen. West (tunnel door) → The Junction (Secret Tunnels). **Pre-drain:** tunnel door exists and is openable from The Junction side — opening it before the cellar is drained triggers instant drowning fail state. Post-drain: bidirectional travel freely available.
+**Connections:** Up (cellar door) → Kitchen. West (tunnel door) → The Bone Passage (Secret Tunnels). **Pre-drain:** tunnel door exists and is openable from the Bone Passage side — opening it before the cellar is drained triggers instant drowning fail state. Post-drain: bidirectional travel freely available.
 Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds the key.
 Starts flooded — drain must be unclogged (crowbar required) before the room is usable.
 Once drained, reveals a door to the Secret Tunnel. Tunnel door stays in whatever state the player leaves it. Travel bidirectional once drained.
@@ -1192,10 +1192,10 @@ Underground pre-dungeon level connecting the Tavern Cellar, the mine, the Gravey
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
-**Connections:** East → Tavern Cellar. North → Undercroft. West → Bone Passage. South → Toll Bridge.
-First room off the Tavern Cellar. Hub — branches toward mine (north via Undercroft), Graveyard Crypt (west via Bone Passage and Charnel Walk), and dungeon (south via Toll Bridge).
+**Connections:** East → Bone Passage. North → Undercroft. South → Toll Bridge.
+Hub — branches toward the mine (north via Undercroft), the Bone Passage (east — Tavern Cellar and Graveyard Crypt beyond it), and the dungeon (south via Toll Bridge).
 
-*The tunnel opens up here — not much, but enough to feel like a decision point. Rough stone walls, a ceiling low enough to notice. Passages branch in four directions. The one behind you leads east, back to the cellar. The air is damp and smells of old earth and something faintly mineral. Down here, sound doesn't carry the way it should.*
+*The tunnel opens up here — not much, but enough to feel like a decision point. Rough stone walls, a ceiling low enough to notice. Passages branch three ways. The one to the east runs back toward the cellar. The air is damp and smells of old earth and something faintly mineral. Down here, sound doesn't carry the way it should.*
 
 ### The Undercroft
 **XP: 1**
@@ -1222,8 +1222,8 @@ Narrowing abandoned passage.
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
-**Connections:** North → The Junction. South → Charnel Walk.
-Crypt branch off the Junction. Older stonework.
+**Connections:** West → The Junction. East → Tavern Cellar (tunnel door). South → Charnel Walk.
+Crossroads east of the Junction: Tavern Cellar to the east, the Graveyard Crypt branch (Charnel Walk) to the south. Older stonework.
 
 *The stonework here is older than the rest of the tunnels — rougher cut, the joints wider, the walls slightly damp to the touch. The passage runs south. Whatever built this part didn't build it at the same time as the rest. The name feels earned.*
 
@@ -1284,9 +1284,9 @@ Threshold between Secret Tunnels and Dungeon Upper Tier.
 **Connections:** North → Dungeon Entrance. West → Supply Room. East → Storage Area. South → Narrow Passageway.
 First room past the Dungeon Entrance. A thin cord stretched at chest height carries an ink bladder — triggering it douses the player in ink (negates invisibility). No warning; cord invisible until hit. Splits west to Supply Room, east to Storage Area. (Trap 45)
 
-**Room description (default):** *The corridor is narrow and plain — bare stone, low ceiling, torch brackets empty. It feels like an entrance to something, which it is. The passage splits ahead, west and east.*
+**Room description (default):** *The corridor is narrow and plain — bare stone, low ceiling, torch brackets empty. It feels like an entrance to something, which it is. The passage splits ahead — west, east, and on to the south.*
 
-**Room description (perception check passed):** *The corridor is narrow and plain — bare stone, low ceiling, torch brackets empty. It feels like an entrance to something, which it is. The passage splits ahead, west and east. A thin cord stretches across the passage at chest height — easy to miss. Something is attached to it.*
+**Room description (perception check passed):** *The corridor is narrow and plain — bare stone, low ceiling, torch brackets empty. It feels like an entrance to something, which it is. The passage splits ahead — west, east, and on to the south. A thin cord stretches across the passage at chest height — easy to miss. Something is attached to it.*
 
 ### Supply Room
 **XP: 1**
@@ -1298,7 +1298,7 @@ West branch off Ink Corridor. Shelves of old stores.
 Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility Idol"), mortar compound (Quest 18/22), portcullis bar (Quest 19), smoke jar (Quest 24 — guarded by Trap 17).
 **Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar and small clay pot (Quest 40) visible in wreckage either way. Perception spots the unstable arrangement.
 The small clay pot is the one intact pot that survives the collapse.
-Must be reached before Idol Room — sack of salt required for safe idol swap.
+The sack of salt is what makes the Idol Room swap safe (`SWAP IDOL WITH SALT`); taking the idol without it triggers Trap 33. Nothing forces a visit first — the Supply Room is a dead end west of the Ink Corridor, and the Idol Room is reachable without it.
 
 **Room description (default):** *A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned. The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath.*
 
@@ -1313,7 +1313,7 @@ Must be reached before Idol Room — sack of salt required for safe idol swap.
 **Items:** None
 **Quest Hooks:** None
 **Connections:** North → Ink Corridor. South → Idol Room.
-Short connecting passage between Supply Room and Idol Room. Enforces item-first ordering.
+Short connecting passage between the Ink Corridor and the Idol Room.
 
 **Room description:** *A short passage, plain stone, lower-ceilinged than the corridor behind you. It goes south and ends at a doorway. The kind of passage that exists to connect two places and has no opinion about either of them.*
 
@@ -1322,7 +1322,7 @@ Short connecting passage between Supply Room and Idol Room. Enforces item-first 
 **NPCs:** None
 **Items:** Chachapoyan Fertility Idol (treasure; on pressure-sensitive pedestal — safe swap with sack of salt)
 **Quest Hooks:** None (treasure item; Trap 33 mechanic)
-**Connections:** North → Narrow Passageway. East → Creature Den. South → Combat Room.
+**Connections:** North → Narrow Passageway. South → Combat Room.
 South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a pressure-sensitive pedestal. Removing without replacing with equal weight slams a stone door — no exit without crowbar (`PRY DOOR`, strength check). Safe swap: `SWAP IDOL WITH SALT` with sack of salt. Idol is treasure. Connects south to Combat Room. (Trap 33)
 
 **Room description (default):** *The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level. At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake.*
@@ -1357,21 +1357,22 @@ South of Storage Area. Timbers wedged across it blocking a secondary exit (Quest
 ### Creature Den
 **XP: 1**
 **NPCs:** The Warden (hostile; one-time fight; permanently empty after defeat)
-**Items:** Guardian's Lantern (dropped by The Warden on defeat; required for Dark Room in lower tier)
+**Items:** None (the Warden's Guardian's Lantern drops where he's defeated — the Combat Room)
 **Quest Hooks:** None (combat encounter; lantern is critical path item)
-**Connections:** West → Idol Room. East → Flooding Room.
-East of Idol Room, adjacent to Combat Room. Lair of **The Warden** — permanently empty after defeat. On examination post-fight: remnants of a uniform/insignia mark this as an official post. The Warden drops the **Guardian's Lantern** on defeat.
+**Connections:** West → Combat Room (door — opens when the Trap 29 plate fires; stays open after the Warden is defeated). North → Flooding Room.
+East of the Combat Room — the only way in is through the Combat Room's door. Lair of **The Warden** — permanently empty after defeat. On examination post-fight: remnants of a uniform/insignia mark this as an official post. The Warden drops the **Guardian's Lantern** on defeat.
 
 ### Combat Room
 **XP: 1**
 **NPCs:** None (The Warden emerges from Creature Den via pressure plate bell)
-**Items:** None
+**Items:** Guardian's Lantern (dropped by The Warden on defeat; required for Dark Room in lower tier)
 **Quest Hooks:** None (Trap 29 — pressure plate rings bell in Creature Den)
-**Connections:** North → Idol Room. East → Creature Den. South → Prayer Alcove.
-South of Idol Room. A pressure plate in the corridor before this room rings a bell in the Creature Den — player hears the sound before entering.
+**Connections:** North → Idol Room. East → Creature Den (door — closed until the plate fires). South → Prayer Alcove.
+South of Idol Room. Two squares wide on the map — the Creature Den is off its east end. A pressure plate in the corridor before this room rings a bell in the Creature Den — player hears the sound before entering.
 **The Warden** emerges: completely monstrous in appearance; standard combat; one-time fight.
-**Trap interaction:** Perception check spots the plate; disarming bypasses the fight; `JUMP ON PLATE` triggers deliberately. Enchanted Glasses auto-reveal the plate.
-Spur east leads to Flooding Room. Connects south to Prayer Alcove. (Trap 29)
+**Trap interaction:** Perception check spots the plate; disarming it avoids the ambush but leaves the Den door shut; `JUMP ON PLATE` triggers it deliberately. Enchanted Glasses auto-reveal the plate and let the player choose.
+**Den door:** The door from the Combat Room east to the Creature Den is closed and opens only when the Trap 29 plate fires — stepping on it unawares, or `JUMP ON PLATE` on purpose. The bell rings, the door opens, and the Warden comes out to fight in the Combat Room. If the plate has been disarmed, the door stays shut until the player jumps on it. Once the Warden is defeated the door stays open, giving access to the Creature Den and the Flooding Room beyond it.
+East to the Creature Den (Flooding Room beyond it, to the north). Connects south to Prayer Alcove. (Trap 29)
 
 ### The Warden's Drop
 **Guardian's Lantern** — magical lantern. `TURN ON LANTERN` or `LIGHT LANTERN` both work. Flickers but does not light anywhere except the Dark Room in the lower tier, where it cuts through magical darkness and opens passage forward.
@@ -1381,8 +1382,8 @@ Spur east leads to Flooding Room. Connects south to Prayer Alcove. (Trap 29)
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None (Trap 41 — wrong lever floods room; failure sweeps player one-way to mid tier Spillway)
-**Connections:** West → Creature Den. Down → Spillway (one-way; flood failure only).
-Spur east off Combat Room, through/past Creature Den. Low-lying cave.
+**Connections:** South → Creature Den. Down → Spillway (one-way; flood failure only).
+North of the Creature Den — reachable only once the Den door is open (Trap 29 plate; the Warden fight). Low-lying cave.
 Pressure plate opens a sluice — floods the room in two turns. Three levers: Left (stuck, permanently spent), Right (breaks off, permanently spent), Middle (correct, closes sluice).
 No warning on entry. After a wrong pull on turn 1: explicit warning *"The water is at your knees. One turn left."*
 Failure sweeps player through sluice into mid tier directly below — one-way, no damage.
@@ -1497,7 +1498,7 @@ East exit blocked post-dig — hole cannot be crossed. `DOWN` / `CLIMB DOWN` blo
 **Items:** Gold pocket watch (treasure; on skeleton's outstretched finger — missable; permanently inaccessible after Stored Room dig)
 **Quest Hooks:** None (treasure item — missable)
 **Connections:** West → Stored Room (permanently inaccessible after dig).
-Dead-end spur east of Stored Room. Must be visited before digging — permanently inaccessible once the floor collapses. A skeleton is wedged in a narrow crack — tried to squeeze through and failed. Gold pocket watch hangs from one outstretched finger. `TAKE WATCH` (Trophy Case treasure). **Missable.**
+Dead-end spur east of Stored Room. Permanently inaccessible once the Stored Room floor collapses (`DIG`) — a player who digs first loses the watch. A skeleton is wedged in a narrow crack — tried to squeeze through and failed. Gold pocket watch hangs from one outstretched finger. `TAKE WATCH` (Trophy Case treasure). **Missable.**
 
 #### Inscription Chamber
 **XP: 1**

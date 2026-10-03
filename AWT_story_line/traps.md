@@ -55,6 +55,7 @@ A pressure plate in a corridor triggers a bell in an adjacent room, alerting wha
 No direct damage, but the alerted enemy initiates combat when the player enters.
 Perception spots the plate; disarming means pressing it slowly from the side to wedge it down without triggering it.
 **Intentional trigger:** `JUMP ON PLATE` fires the bell deliberately — for cases where the player needs to initiate the fight on their own terms.
+**Den door:** The plate firing (by accident or `JUMP ON PLATE`) is the only thing that opens the door between the Combat Room and the Creature Den — the Warden comes out through it. A disarmed plate leaves the door shut until the player jumps on it; after the Warden is defeated the door stays open.
 **Enchanted Glasses:** Wearing the glasses auto-reveals the plate without a perception roll, allowing the player to choose between disarming and triggering.
 *(Combat Room / Warden encounter, upper tier.)*
 
