@@ -25,11 +25,11 @@ SECTION [G) Werewolf's Amulet — Silver Stake from Town Square Statue]
 - Engine additions: V-WEAR, V-REMOVE, V-TALK, V-GIVE, V-PUT-ON, V-ACTIVATE, V-DRINK, V-BUY, V-BOARD-SHIP, V-SAIL, V-DOCK, V-LIGHT, V-DROP, nautical walk preaction, cave-in trigger, raw-input hook (riddle answers); NPCs Shamus, Kevry, Pyronicus, Will, Raznak, Ivanaar, Haalvar, child, Aylora; rooms through the Viking Encampment
 - Parser: FIND flags are preferences (try each structurally matching rule in order, fall back to the first with FIND ignored); particle retry; preposition-before-object rules (`LOOK AT X`)
 - Opening rewritten to match npcs.md
+- Viking trial order: 1 and 2 in either order, Aylora (3) gated until both done
+- INVENTORY verb
 
 **Known issues still open:**
-- Viking trials are not enforced in order (design says Riddle → Circle → Fire Pit). Needs refusal text for out-of-order attempts.
 - Raznak only has State 1 (trust not earned). States 2A/2B/3 and PAY are Quest 55 (full-score walkthrough).
-- No INVENTORY verb yet.
 - Section T has `REMOVE RING [ring won't go on]`. items.md says that message belongs to `WEAR RING` on the bound ring. Check before implementing.
 - Glasses instant-fail in Will's presence is not implemented. Walkthroughs remove glasses before talking to Will and put them back on after leaving through the painting.
 - The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").
