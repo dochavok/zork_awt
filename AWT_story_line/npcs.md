@@ -299,6 +299,7 @@ Vendor: sells gunpowder (5Z), torch (3Z), Tip Journal (5Z), Fishing Rod (8Z). `T
 
 ### Lynds
 **Location:** Tale and Ale (regular).
+**Presence line (room listing):** *Lynds sits at a corner table, a drink in front of him and an elbow's worth of space cleared beside it.*
 **Personality:** Renowned for strength. Arm wrestles anyone.
 
 **Quest 59 — Beat Lynds**

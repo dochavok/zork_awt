@@ -169,8 +169,13 @@ def v_inventory(world: World) -> int:
 
     print("You are carrying:")
     for obj in items:
-        worn = " (being worn)" if obj.has_flag(WEARBIT) else ""
-        print(f"  {obj.desc[:1].upper()}{obj.desc[1:]}{worn}")
+        if obj.has_flag(WEARBIT):
+            note = " (being worn)"
+        elif obj.has_flag("WEARABLE"):
+            note = " (not worn)"
+        else:
+            note = ""
+        print(f"  {obj.desc[:1].upper()}{obj.desc[1:]}{note}")
     return M_HANDLED
 
 
@@ -228,10 +233,16 @@ def v_wear(world: World) -> int:
         world.move_object(obj, player)
 
     from engine.world import WEARBIT
+    if obj.has_flag(WEARBIT):
+        print(f"You're already wearing the {obj.desc}.")
+        return M_HANDLED
     obj.set_flag(WEARBIT)
     if obj.name == "ENCHANTED-GLASSES":
         _set_glasses_state(world)
     print(f"You put on the {obj.desc}.")
+    if obj.name == "HEART-NECKLACE":
+        from content.lynds import necklace_worn
+        necklace_worn(world, True)
     return M_HANDLED
 
 
@@ -253,6 +264,9 @@ def v_remove(world: World) -> int:
     obj.clear_flag(WEARBIT)
     if obj.name == "ENCHANTED-GLASSES":
         _set_glasses_state(world)
+    if obj.name == "HEART-NECKLACE":
+        from content.lynds import necklace_worn
+        necklace_worn(world, False)
     print(f"{obj.desc[0].upper()}{obj.desc[1:]} removed.")
     return M_HANDLED
 
@@ -349,6 +363,11 @@ def v_talk(world: World) -> int:
 
     if obj.name == "CHILD":
         print("The child says nothing.")
+        return M_HANDLED
+
+    if obj.name == "LYNDS":
+        from content import lynds
+        lynds.challenge(world)   # TALK TO LYNDS starts the challenge (npcs.md)
         return M_HANDLED
 
     if obj.name == "MAY":
@@ -456,6 +475,22 @@ def v_give(world: World) -> int:
         return M_HANDLED
 
     print(f"{npc.desc} doesn't take the {item.desc}.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-CHALLENGE  (CHALLENGE LYNDS)
+# ---------------------------------------------------------------------------
+
+def v_challenge(world: World) -> int:
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    if obj.name == "LYNDS":
+        from content import lynds
+        lynds.challenge(world)
+        return M_HANDLED
+    print(f"The {obj.desc} doesn't seem interested.")
     return M_HANDLED
 
 
@@ -843,6 +878,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-CLIMB",      v_climb)
     game.register_verb("V-CLIMB-TREE", v_climb_tree)
     game.register_verb("V-MELEE",      v_melee)
+    game.register_verb("V-CHALLENGE",  v_challenge)
     game.register_verb("V-ACTIVATE",   v_activate)
     game.register_verb("V-DRINK",      v_drink)
     from content.vikings import riddle_input_hook

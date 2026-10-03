@@ -60,11 +60,12 @@ Required to make ranged (bow) attacks in combat. Must be carried in inventory.
 
 ### Heart Necklace
 **Slot:** Neck
+**Examine:** *A simple cord with a clay charm, worn smooth.*
 **Weight:** 1
 **Location:** Awarded by beating Lynds at arm wrestling (Tale and Ale)
 **Quest use:** None — permanent stat bonus.
 
-Permanently adds one heart to player's maximum heart count.
+Adds one heart to the player's maximum heart count **while worn** (neck slot). Removing it takes the heart away again.
 
 ---
 

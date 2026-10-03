@@ -70,6 +70,10 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 
 ---
 
+### Inventory Display
+
+`INVENTORY` / `I` lists carried items by their inventory description (items.md). Worn items show **(being worn)**; wearable items carried but not worn show **(not worn)**. Nothing carried: *"You are empty-handed."*
+
 ### Dice & Roll System
 
 All checks are dice-based and hidden from the player. Players see outcomes only, never numbers.

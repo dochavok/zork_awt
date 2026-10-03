@@ -156,7 +156,7 @@ Quest 41 complete. Rune stone (Old Oak) acquired. Continue north.
 The Verdant Circle shrine is visible — crumbled bowl pieces scattered.
 One bowl piece is near the shrine. Take it.
 
-> TAKE BOWL PIECE             [bowl piece]
+> TAKE BOWL PIECE             [You take the bowl piece]
 > DOWN                        [Mine Entrance]
 > DOWN                        [Main Shaft]
 > TAKE PICKAXE                [pickaxe]
@@ -460,7 +460,7 @@ Also: Bog-SW has bog thyme (Quest 40) and a bowl piece (Quest 49).
 
 > SOUTH                       [Bog of Eternal Stench]
 > TAKE BOG THYME              [bog thyme]
-> TAKE BOWL PIECE             [bowl piece]
+> TAKE BOWL PIECE             [You take the bowl piece]
 
 =============================================================================
 I) Quest 12 — The Locked Music Box (Light Spell)
@@ -816,7 +816,7 @@ With Actually Enchanted Glasses the full depth of the alcove is revealed.
 
 Bowl piece 3 (Shrine Room, dungeon upper tier) — auto-pass.
 
-> TAKE BOWL PIECE             [bowl piece]
+> TAKE BOWL PIECE             [You take the bowl piece]
 
 > SOUTH                       [Rickety Bridge]
 

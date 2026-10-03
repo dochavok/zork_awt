@@ -43,6 +43,7 @@ def make_objects(world) -> None:
     _make_old_oak_objects(world)
     _make_bog_objects(world)
     _make_alley_objects(world)
+    _make_lynds_objects(world)
 
 
 # ---------------------------------------------------------------------------
@@ -119,7 +120,7 @@ def _make_tower_objects(world) -> None:
         ldesc="A plain dark ring.",
         synonyms=["ring"],
         adjectives=["plain", "dark", "god-forsaken"],
-        flags={TAKEBIT},
+        flags={TAKEBIT, "WEARABLE"},
     )
     world.register_object(ring)
 
@@ -454,4 +455,22 @@ def _make_alley_objects(world) -> None:
     world.register_object(GameObject(
         name="MAY", desc="May", synonyms=["may", "bartender", "barkeep", "woman"],
         flags={ACTORBIT, NDESCBIT},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# Lynds & the Heart Necklace (logic: content/lynds.py)
+# ---------------------------------------------------------------------------
+
+def _make_lynds_objects(world) -> None:
+    from content.lynds import LYNDS_PRESENCE
+    world.register_object(GameObject(
+        name="LYNDS", desc="Lynds", fdesc=LYNDS_PRESENCE, ldesc=LYNDS_PRESENCE,
+        synonyms=["lynds"], flags={ACTORBIT},
+    ))
+    world.register_object(GameObject(
+        name="HEART-NECKLACE", desc="heart necklace",
+        ldesc="A simple cord with a clay charm, worn smooth.",
+        synonyms=["necklace", "charm", "cord"], adjectives=["heart", "clay"],
+        flags={TAKEBIT, "WEARABLE"},
     ))

@@ -515,6 +515,7 @@ class Parser:
         original_words: list[str],
     ) -> Optional[ParseResult]:
         """Resolve the actual game objects for a structurally-matched rule."""
+        self._current_action = rule.action
         nc1_words = [t for t in nc1_raw if not self._vocab.is_buzz(t)]
         nc2_words = [t for t in nc2_raw if not self._vocab.is_buzz(t)]
 
@@ -670,6 +671,14 @@ class Parser:
             else:
                 print("It's too dark to see!")
             raise _ParseError()
+
+        # TAKE looks on the ground first (ZIL: TAKE OBJECT (ON-GROUND IN-ROOM)):
+        # if some matches are already held and others aren't, take the others.
+        if (len(matched) > 1 and getattr(self, "_current_action", None) == "V-TAKE"
+                and world.player is not None):
+            not_held = [o for o in matched if o not in world.player.contents]
+            if not_held:
+                matched = not_held
 
         if len(matched) > 1:
             noun = words[-1] if words else "object"
