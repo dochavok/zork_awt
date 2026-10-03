@@ -690,7 +690,7 @@ Deliver the watch to the Records Room Worker.
 > NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
-> NORTH                       [Town Hall Exterior]
+> NORTH                       [Town Hall]
 > UP                          [Upper Hall]
 
 While in Town Hall, grab the wax seal from the display cabinet
@@ -699,7 +699,7 @@ While in Town Hall, grab the wax seal from the display cabinet
 > OPEN CABINET                [wax seal]
 > TAKE SEAL                   [wax seal]
 
-> DOWN                        [Town Hall Exterior]
+> DOWN                        [Town Hall]
 > WEST                        [Records Room]
 > GIVE WATCH TO WORKER        [town charter]
 
@@ -712,7 +712,7 @@ P) Quest 27 — The Toll Bridge Operator
 Navigate to the Toll Bridge via the Graveyard Crypt path. The Cellar
 path also works (after Quest 25), but Crypt is available now.
 
-> EAST                        [Town Hall Exterior]
+> EAST                        [Town Hall]
 > SOUTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church of All]
@@ -864,10 +864,10 @@ Talk to Rowan Finch (Council Chamber):
 > NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
-> NORTH                       [Town Hall Exterior]
+> NORTH                       [Town Hall]
 > EAST                        [Council Chamber]
 > TALK TO ROWAN               [gravestone]
-> WEST                        [Town Hall Exterior]
+> WEST                        [Town Hall]
 > SOUTH                       [Town Square]
 
 The gravestone is in the bog. Navigate there with the hand cart.
@@ -894,7 +894,7 @@ Perception check auto-passes — gravestone visible face-down in mud
 > NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
-> NORTH                       [Town Hall Exterior]
+> NORTH                       [Town Hall]
 > EAST                        [Council Chamber]
 > TALK TO ROWAN               [Middle Tier Key]
 > TAKE KEY                    [Middle Tier Key]
@@ -906,7 +906,7 @@ R) Quest 19/30 — Silver Stake from Town Square Statue
 =============================================================================
 The silver stake is in the hollow base of the statue. Crowbar required.
 
-> WEST                        [Town Hall Exterior]
+> WEST                        [Town Hall]
 > SOUTH                       [Town Square]
 > LOOK AT STATUE              [seam]
 > USE CROWBAR ON STATUE       [silver stake]
@@ -1640,7 +1640,7 @@ Open the case before placing items.
 > WEST                        [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
-> NORTH                       [Town Hall Exterior]
+> NORTH                       [Town Hall]
 > UP                          [Upper Hall]
 > UP                          [Tower]
 > OPEN CASE                   [case open]
@@ -1651,7 +1651,7 @@ Wait — the Diamond Brooch is in the Magnetic Vault (mid-tier dungeon).
 We haven't retrieved it yet. Let's do that now and return.
 
 > DOWN                        [Upper Hall]
-> DOWN                        [Town Hall Exterior]
+> DOWN                        [Town Hall]
 > SOUTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church of All]
@@ -1713,7 +1713,7 @@ south of Mine Passage — Stored Room is not on this path.
 > NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
-> NORTH                       [Town Hall Exterior]
+> NORTH                       [Town Hall]
 > UP                          [Upper Hall]
 > UP                          [Tower]
 > OPEN CASE                   [case open]
@@ -1739,7 +1739,7 @@ VV) Return Ring to Will — Quest Complete
 Return the bound ring to Will Passion.
 
 > DOWN                        [Upper Hall]
-> DOWN                        [Town Hall Exterior]
+> DOWN                        [Town Hall]
 > SOUTH                       [Town Square]
 > SOUTH                       [Tale and Ale]
 > OPEN MAILBOX                [tower]

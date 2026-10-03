@@ -353,6 +353,11 @@ def v_talk(world: World) -> int:
         print("The child says nothing.")
         return M_HANDLED
 
+    if obj.name == "RECORDS-WORKER":
+        from content import town_hall
+        town_hall.talk_worker(world)
+        return M_HANDLED
+
     if obj.name == "LITLOCK":
         from content import dankhaus
         dankhaus.talk_litlock(world)
@@ -454,6 +459,12 @@ def v_give(world: World) -> int:
         if item.name in will.SPELL_SCROLLS:
             will.teach(world, item)
             return M_HANDLED
+
+    # Pocket watch to the Records Room clerk — Quest 17 → town charter
+    if npc.name == "RECORDS-WORKER" and item.name == "POCKET-WATCH":
+        from content import town_hall
+        town_hall.give_watch(world)
+        return M_HANDLED
 
     # Kite back to the child — Quest 41
     if npc.name == "OAK-CHILD" and item.name == "KITE":

@@ -46,6 +46,7 @@ def make_objects(world) -> None:
     _make_lynds_objects(world)
     _make_dankhaus_objects(world)
     _make_chuckle_objects(world)
+    _make_town_hall_objects(world)
 
 
 # ---------------------------------------------------------------------------
@@ -532,4 +533,28 @@ def _make_chuckle_objects(world) -> None:
         ldesc="A plain silver pocket watch, stopped. The inside of the lid is "
               "engraved, but too worn to read.",
         synonyms=["watch"], adjectives=["pocket", "silver"], flags={TAKEBIT},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# Town Hall (logic: content/town_hall.py)
+# ---------------------------------------------------------------------------
+
+def _make_town_hall_objects(world) -> None:
+    # Both are described in their room descriptions
+    world.register_object(GameObject(
+        name="RECORDS-WORKER", desc="clerk", synonyms=["clerk", "worker"],
+        adjectives=["records", "room"], flags={ACTORBIT, NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="ROWAN-FINCH", desc="Councilman Rowan Finch",
+        synonyms=["rowan", "finch", "councilman", "man"], adjectives=["councilman"],
+        flags={ACTORBIT, NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="TOWN-CHARTER", desc="town charter",
+        ldesc="A rolled document tied with faded ribbon. The town seal is pressed "
+              "into the wax at the bottom, and the handwriting is the careful kind "
+              "that expects to be read for a long time.",
+        synonyms=["charter", "document"], adjectives=["town", "rolled"], flags={TAKEBIT},
     ))

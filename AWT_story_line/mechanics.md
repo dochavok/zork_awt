@@ -603,7 +603,7 @@ Beach `DIG`: succeeds up to 5 times with flavor text (nothing but wet sand); 6th
 *Overworld & Town:*
 White House, Will's Wizard Tower (Main Room), Will's Bedroom,
 Main West, Town Square, Main East, The Alley, Back Alley,
-Town Hall Exterior, Council Chamber, Records Room, Upper Hall, The Tower,
+Town Hall, Council Chamber, Records Room, Upper Hall, The Tower,
 Tale & Ale Main Room, Bar, Ty's Casino Corner, Pipe Room, Kitchen, Upstairs Hall, Guest Rooms 1/2/3, Cellar/Storeroom,
 Library Main Hall, The Stacks,
 Church Nave, The Altar, Keeper's Chamber,

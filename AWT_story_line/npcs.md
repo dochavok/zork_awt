@@ -624,7 +624,19 @@ He is already working when the player arrives.
 ### Records Room Worker
 **Location:** Records Room, Town Hall.
 
-Refuses to hand over the town charter until the player returns the pocket watch from the Chuckle House ghost. The watch belonged to his missing relative (the ghost). The connection between the watch and his family is a surprise to him. Charter is required for Quest 27.
+Refuses to hand over the town charter until the player returns the pocket watch from the Chuckle House ghost. The watch belonged to his missing relative (the ghost — his uncle). The connection between the watch and his family is a surprise to him. Charter is required for Quest 27.
+
+Described in the Records Room description ("A clerk sits at a desk near the window…").
+
+**`TALK TO WORKER` (before the watch):** *The clerk doesn't put down his pen. "If you're here about the charter, the answer is no. It's the town's only copy, and the town isn't in the habit of lending it to strangers." He goes back to his ledger.*
+
+**`GIVE WATCH TO WORKER`:**
+*The clerk takes the watch without much interest — then turns it over, and stops. He opens the lid and looks at the worn engraving for a long time, his thumb moving across it as if he can read it by touch.*
+*"This was my uncle's," he says quietly. "He went into that place by the graveyard. We never—" He stops. Closes the lid. Holds it a moment longer.*
+*Then he stands, goes to a shelf without looking, and comes back with a rolled document tied in faded ribbon. He puts it in your hands. "The charter. Take it. Whatever you need it for."*
+**[Town Charter added to inventory.]** Quest 17 completes.
+
+**`TALK TO WORKER` (after):** *The clerk is turning the pocket watch over in his hands. He nods to you, but doesn't say anything.*
 
 ---
 

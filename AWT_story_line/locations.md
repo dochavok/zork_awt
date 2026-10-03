@@ -82,7 +82,7 @@ Western end of Main Street.
 **NPCs:** None
 **Items:** Fountain water (available after Quest 22); silver stake + folded note (inside statue base, crowbar required)
 **Quest Hooks:** Quest 22 (The Ruined Aqueduct) — fountain restored; Quest 49 (The Ruined Shrine) — fountain water required; silver stake leads into werewolf critical path
-**Connections:** North → Town Hall Exterior. South → Tale and Ale (Main Room). East → Main East. West → Main West. Southwest → The Alley.
+**Connections:** North → Town Hall. South → Tale and Ale (Main Room). East → Main East. West → Main West. Southwest → The Alley.
 Center of town. Contains a **fountain** — dry until Quest 22 (The Ruined Aqueduct) is completed. Once flowing, fountain water is required for Quest 49 (The Ruined Shrine) clay adhesive.
 
 **Room description (default — fountain dry, statue unexamined):**
@@ -146,13 +146,15 @@ Winning: mugger is slain permanently, Back Alley is safe.
 
 ## Town Hall
 
-### Town Hall (Exterior / Main Entrance)
+### Town Hall
 **XP: 1**
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
 **Connections:** South → Town Square. East → Council Chamber. West → Records Room. Up → Upper Hall.
-*The Town Hall in Roundabout dominates the northern side of the town square. It is a massive brick building with two floors, a broad sloped roof, and a tower with a conical roof in the center. The double doors are solid oak and very heavy.* North of Roundabout Town Square. Two floors plus tower.
+*The Town Hall in Roundabout dominates the northern side of the town square. It is a massive brick building with two floors, a broad sloped roof, and a tower with a conical roof in the center. The double doors are solid oak and very heavy.*
+*Inside, the foyer is wide and echoing, the floor worn smooth in a path from the doors to the stairs. The Council Chamber opens to the east, the Records Room to the west, and a staircase climbs to the floor above.*
+North of Roundabout Town Square. Two floors plus tower. One room: the exterior view and the foyer together (player-facing title: "Town Hall").
 
 Ground floor entry. Grand foyer. Stairs lead up to the Upper Hall. Council Chamber to one side, Records Room to the other.
 
@@ -161,7 +163,7 @@ Ground floor entry. Grand foyer. Stairs lead up to the Upper Hall. Council Chamb
 **NPCs:** Councilman Rowan Finch (grandson of Calder Finch; Quest 32 giver)
 **Items:** Calder's Middle Tier Key (Quest 32 reward, given by Rowan on completion)
 **Quest Hooks:** Quest 32 — discovered here; Calder's Middle Tier Key reward
-**Connections:** West → Town Hall (Exterior / Main Entrance).
+**Connections:** West → Town Hall.
 Ground floor, off the Main Entrance. Where town business is conducted. **Councilman Rowan Finch** is found here — grandson of Calder Finch, a noted dungeon explorer. Quest 32 giver. Rewards the player with Calder's Middle Tier Key upon quest completion.
 
 **Room description:**
@@ -174,7 +176,7 @@ Ground floor, off the Main Entrance. Where town business is conducted. **Council
 **NPCs:** Records Room Worker (initially refuses to hand over charter; gives it after pocket watch returned)
 **Items:** Town charter (Quest 27; given by worker after Quest 17 pocket watch return)
 **Quest Hooks:** Quest 27 (Toll Bridge charter); Quest 17 (pocket watch return unlocks charter)
-**Connections:** East → Town Hall (Exterior / Main Entrance).
+**Connections:** East → Town Hall.
 Ground floor, off the Main Entrance. Dusty and bureaucratic. Contains the **town charter** — required for Quest 27. The Records Room Worker initially refuses to hand over the charter. After the player returns the pocket watch (from the Chuckle House ghost quest), he gives up the charter as thanks — the watch belonged to his family. Charter is a quest item.
 
 **Room description:**
@@ -187,7 +189,7 @@ Ground floor, off the Main Entrance. Dusty and bureaucratic. Contains the **town
 **NPCs:** None
 **Items:** Wax seal (Quest 4; in display cabinet, no perception check required)
 **Quest Hooks:** Quest 4 — wax seal found here
-**Connections:** Down → Town Hall (Exterior / Main Entrance). Up → The Tower.
+**Connections:** Down → Town Hall. Up → The Tower.
 Second floor, top of the stairs. Connects to the Tower. Contains a display cabinet of old town documents and civic artifacts — unlocked, accessible from the start. `OPEN CABINET` reveals contents. The **wax seal** (Quest 4) is inside — `TAKE SEAL` picks it up. No perception check required.
 
 **Room description:**
@@ -827,7 +829,7 @@ Contains a hollow log — perception check required to find it. Inside: the key 
 
 The Dankhaus — three-bedroom home hidden in the bog behind dense brush. Perception check required to find it (Bog-SE). Litlock's residence; also houses Lynds and Aurix the Kobold child. Appears as a yurt from outside. Magical wards bar uninvited entry — cleared by flag set when player beats Lynds at arm wrestling.
 
-**Layout note:** Rooms aren't strictly one grid square each. Plotted on a grid, Aurix's Room and Lynds's Room fall on the same squares as Town Hall Exterior and the Council Chamber; this is intentional and left as is — nothing about it intrudes on the bog or pond from the player's point of view.
+**Layout note:** Rooms aren't strictly one grid square each. Plotted on a grid, Aurix's Room and Lynds's Room fall on the same squares as Town Hall and the Council Chamber; this is intentional and left as is — nothing about it intrudes on the bog or pond from the player's point of view.
 
 ### Dankhaus Common Room
 **XP: 3**

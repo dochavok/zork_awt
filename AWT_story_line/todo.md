@@ -6,20 +6,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–H3 passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–H4 passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section H4 — Town Charter (Records Room Worker). First failure:
+**Current position:** Section H5 — Quest 27, the Toll Bridge. First failure:
 
 ```
-SECTION [H4) Town Charter — Records Room Worker]
-  cmd     : 'NORTH'
-  missing : 'Town Hall Exterior'
+SECTION [H5) Quest 27 — The Toll Bridge (Dungeon Access)]
+  cmd     : 'DOWN'
+  missing : 'Crypt'
   got     : "You can't go that way."
 ```
 
-Needs Town Hall Exterior, Records Room, the Records Room Worker and the watch → charter exchange (Quest 17 completes: 17 XP, 8 Zenni).
+Needs the Crypt (dark; torch), Charnel Walk, Bone Passage, the Junction, the Toll Bridge and the Boggart (charter), and the Dungeon Entrance.
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
@@ -34,6 +34,7 @@ Needs Town Hall Exterior, Records Room, the Records Room Worker and the watch �
 - Hidden Zenni rooms (36, seeded at init; tests pin seed 7)
 - Old Oak area (Quest 41 kite, Beekeeper's Cottage, Swarm Tree), forest + bog bowl pieces, Pond and 4 bog rooms
 - SAVE / RESTORE
+- Town Hall (one room: exterior + foyer), Records Room worker and charter (Quest 17 completes), Council Chamber / Upper Hall / Tower rooms
 - Church Nave, Graveyard (pre/post bonk), Mausoleum, Chuckle House (mirrors, Trap 16, ghost, 50% exits), WEAR/REMOVE RING with corruption, CAST UNBIND UNDEAD; full corruption is GAME OVER
 - Kevry per design (enchant on arrival if worn; WEAR in front of him if carried; quest-hint line without glasses)
 - Dankhaus path (Medium perception), wards, 7 Dankhaus rooms, Litlock's tree as a numbered menu (Quest 52)

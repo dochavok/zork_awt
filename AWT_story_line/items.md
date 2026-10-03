@@ -253,6 +253,7 @@ Left by Calder Finch. *"He left a key. Said it led to a lower level — wouldn't
 ### Town Charter
 **Weight:** 1
 **Location:** Records Room, Town Hall — awarded by Records Room Worker after returning the pocket watch
+**Examine:** *A rolled document tied with faded ribbon. The town seal is pressed into the wax at the bottom, and the handwriting is the careful kind that expects to be read for a long time.*
 **Quest use:** Required for Quest 27 (The Toll Bridge Operator). `GIVE CHARTER TO BOGGART` clears the bridge to the dungeon.
 
 ---

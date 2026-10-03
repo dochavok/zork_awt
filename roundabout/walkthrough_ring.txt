@@ -666,7 +666,7 @@ pocket watch.
 > NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
-> NORTH                       [Town Hall Exterior]
+> NORTH                       [Town Hall]
 > WEST                        [Records Room]
 > GIVE WATCH TO WORKER        [town charter]
 
@@ -679,7 +679,7 @@ Graveyard → Mausoleum → Crypt → Charnel Walk → Bone Passage → Junction
 → Toll Bridge. The torch is always lit; it starts burning on the first
 dark room.
 
-> EAST                        [Town Hall Exterior]
+> EAST                        [Town Hall]
 > SOUTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church of All]
@@ -812,10 +812,10 @@ face-down in the bog. The hand cart to move it is in the Storage Area
 
 Talk to Rowan in the Council Chamber first.
 
-> NORTH                       [Town Hall Exterior]
+> NORTH                       [Town Hall]
 > EAST                        [Council Chamber]
 > TALK TO ROWAN               [gravestone]
-> WEST                        [Town Hall Exterior]
+> WEST                        [Town Hall]
 > SOUTH                       [Town Square]
 
 The gravestone is in the bog (perception check — auto-pass with glasses).
@@ -899,7 +899,7 @@ Return to Rowan Finch for the key.
 > NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
-> NORTH                       [Town Hall Exterior]
+> NORTH                       [Town Hall]
 > EAST                        [Council Chamber]
 > TALK TO ROWAN               [Middle Tier Key]
 > TAKE KEY                    [Middle Tier Key]
@@ -909,7 +909,7 @@ L) Mid-Tier Dungeon — Keeper's Keys & Holy Water
 =============================================================================
 Descend to the Dungeon Upper Tier and use the Middle Tier Key.
 
-> WEST                        [Town Hall Exterior]
+> WEST                        [Town Hall]
 > SOUTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church of All]
