@@ -45,15 +45,15 @@ The buried chest doesn't have its own item entry in items.md — it's only refer
 The gap is in items.md — the buried chest needs its own entry that specifies it as a container with CONTBIT/OPENBIT, requiring OPEN before TAKE ZENNI. Add that entry to items.md, then fix the fullscore walkthrough to include OPEN CHEST between DIG and TAKE ZENNI.
 
 ---
-## TODO #3 — Reconcile game-state key names (text vs. class systems)
+## TODO #3 — Reconcile game-state key names — RESOLVED 2026-10-03
 
-Two naming schemes for the same player state don't see each other:
-- Older systems modules (`content/player.py`, `combat.py`, `corruption.py`, `experience.py`, `quests.py`) and their unit tests read/write lowercase keys: `player_class`, `zenni`, `hearts`, `level`, `ring_worn`, `enchanted_glasses_worn`, `actually_enchanted_glasses_worn`.
-- Walkthrough-driven content (`char_create.py`, `verbs.py`) writes uppercase keys: `PLAYER-CLASS`, `ZENNI`, `PLAYER-HEARTS`, `ENCHANTED-GLASSES-WORN`, `GLASSES-ENCHANTED`.
+**Resolution:** Player stats use lowercase keys everywhere; story/world flags keep UPPERCASE-HYPHEN keys (no conflicts there).
+- `char_create.py` writes `player_name`, `player_class`, `hearts`, `max_hearts`, `zenni`, and `skill_<starting skill> = True` (skills stay True/False flags so a player can hold several).
+- `init.py` `_init_player_state` sets defaults before character creation.
+- `verbs.py`: V-BUY uses `zenni`; glasses worn state comes from the object's WEARBIT, and `_set_glasses_state` sets `enchanted_glasses_worn` / `actually_enchanted_glasses_worn`. The `<OBJ>-WORN` globals are gone.
+- First room visit now awards the room's value as XP (`award_xp`) as well as Zork score. Room values match locations.md XP for every room built so far.
 
-Effects: class bonuses never apply to rolls, quest Zenni/XP rewards don't reach the Zenni the player spends, hearts are tracked twice. Only the glasses are bridged so far (`verbs._sync_glasses`).
-
-Fix: pick one scheme, migrate both sides and the unit tests, remove the bridge. Note: 15 unit tests in test_combat/test_corruption/test_quests were already failing before this was found (2026-10-03).
+Remaining unit-test failures (14) are unrelated: test_world expects rooms/objects not yet rebuilt, and test_combat imports weapon functions removed in the content wipe.
 
 ---
 ## TODO #4 — Full-score walkthrough must visit every room

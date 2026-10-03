@@ -14,6 +14,7 @@ def initialize_world(world, game) -> None:
     make_rooms(world)
     make_objects(world)
     _make_player(world)
+    _init_player_state(world)
     _place_objects(world)
     _wire_whitehouse_action(world, game)
     register_verbs(game)
@@ -31,6 +32,25 @@ def _make_player(world) -> None:
     world.register_object(player)
     world.player = player
     world.winner = player
+
+
+def _init_player_state(world) -> None:
+    """
+    Player stats use lowercase keys (content/player.py, combat.py, experience.py,
+    corruption.py, quests.py). Story/world flags use UPPERCASE-HYPHEN keys.
+    Class-dependent values (hearts, skill_*) are set by char_create.
+    """
+    world.globals.update({
+        "hearts": 5,
+        "max_hearts": 5,
+        "zenni": 0,
+        "xp": 0,
+        "level": 1,
+        "ring_corruption": 0,
+        "ring_worn": False,
+        "enchanted_glasses_worn": False,
+        "actually_enchanted_glasses_worn": False,
+    })
 
 
 def _place_objects(world) -> None:

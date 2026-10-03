@@ -14,11 +14,14 @@ if TYPE_CHECKING:
 
 # ---------------------------------------------------------------------------
 # Score helper (called by game.enter_room on first visit)
+# Room value is the room's exploration XP (locations.md **XP:**).
 # ---------------------------------------------------------------------------
 
 def _score_upd(world: World, amount: int) -> None:
     world.score += amount
     world.set_global("SCORE", world.score)
+    from content.experience import award_xp
+    award_xp(world, amount)
 
 
 # ---------------------------------------------------------------------------
@@ -160,9 +163,8 @@ def v_wear(world: World) -> int:
 
     from engine.world import WEARBIT
     obj.set_flag(WEARBIT)
-    world.set_global(f"{obj.name}-WORN", True)
     if obj.name == "ENCHANTED-GLASSES":
-        _sync_glasses(world)
+        _set_glasses_state(world)
     print(f"You put on the {obj.desc}.")
     return M_HANDLED
 
@@ -183,16 +185,17 @@ def v_remove(world: World) -> int:
         return M_HANDLED
 
     obj.clear_flag(WEARBIT)
-    world.set_global(f"{obj.name}-WORN", False)
     if obj.name == "ENCHANTED-GLASSES":
-        _sync_glasses(world)
+        _set_glasses_state(world)
     print(f"{obj.desc[0].upper()}{obj.desc[1:]} removed.")
     return M_HANDLED
 
 
-def _sync_glasses(world: World) -> None:
-    """Publish glasses state under the keys content/player.py perception reads."""
-    worn = bool(world.get_global("ENCHANTED-GLASSES-WORN"))
+def _set_glasses_state(world: World) -> None:
+    """Set the perception stats (content/player.py) from the glasses' worn/enchanted state."""
+    from engine.world import WEARBIT
+    glasses = world.objects.get("ENCHANTED-GLASSES")
+    worn = bool(glasses and glasses.has_flag(WEARBIT))
     actually = worn and bool(world.get_global("GLASSES-ENCHANTED"))
     world.globals["enchanted_glasses_worn"] = worn and not actually
     world.globals["actually_enchanted_glasses_worn"] = actually
@@ -261,7 +264,7 @@ def v_talk(world: World) -> int:
                 "wire-rimmed", "enchanted", "actually", "slightly", "glowing",
             ]
             world.set_global("GLASSES-ENCHANTED", True)
-            _sync_glasses(world)
+            _set_glasses_state(world)
         else:
             print(
                 'Kevry looks up from his charts, takes you in with a measured '
@@ -362,7 +365,7 @@ def v_buy(world: World) -> int:
         print("There's no one here to sell you that.")
         return M_HANDLED
 
-    zenni = world.get_global("ZENNI") or 0
+    zenni = world.globals.get("zenni", 0)
     price = 5
 
     if zenni < price:
@@ -373,7 +376,7 @@ def v_buy(world: World) -> int:
     if player is None:
         return M_NOT_HANDLED
 
-    world.set_global("ZENNI", zenni - price)
+    world.globals["zenni"] = zenni - price
     world.move_object(obj, player)
     print(
         f'Shamus takes the Zenni and slides the {obj.desc} across the counter. '

@@ -161,11 +161,12 @@ def run_opening(world: World, game: Game) -> None:
     player = world.player
     if player is not None:
         player.desc = name
-        world.set_global("PLAYER-NAME", name)
-        world.set_global("PLAYER-CLASS", choice)
-        world.set_global("PLAYER-HEARTS", cls["hearts"])
-        world.set_global("PLAYER-HEARTS-MAX", cls["hearts"])
-        world.set_global("PLAYER-SKILL", cls["skill"])
+        g = world.globals
+        g["player_name"]  = name
+        g["player_class"] = choice
+        g["hearts"]       = cls["hearts"]
+        g["max_hearts"]   = cls["hearts"]
+        g[f"skill_{cls['skill']}"] = True
 
     print(f"\nWelcome, {name}.")
     _pause()
@@ -176,7 +177,7 @@ def run_opening(world: World, game: Game) -> None:
 
     # Step 5 — Zenni handoff
     print(_ZENNI_TEXT)
-    world.set_global("ZENNI", 10)
+    world.globals["zenni"] = world.globals.get("zenni", 0) + 10
     _pause()
 
     # Step 6 — Send-off. Step 7 (trailing warning) and step 8 (transition)
