@@ -88,6 +88,8 @@ class Game:
         self._input_hooks: list[Callable[[World, str], bool]] = []
         # enter hooks: fn(world, room) after a room is entered and described
         self._enter_hooks: list[Callable[[World, Room], None]] = []
+        # walk checks: fn(world, destination) -> message to block the move, or None
+        self._walk_checks: list[Callable[[World, Room], Optional[str]]] = []
 
         self.desc_mode: int = BRIEF
         self._running:  bool = False
@@ -113,6 +115,10 @@ class Game:
     ) -> None:
         """Register a preaction handler that runs before the verb handler."""
         self._preaction_handlers[action] = handler
+
+    def register_walk_check(self, check: Callable[[World, Room], Optional[str]]) -> None:
+        """Register a check that may refuse a move (e.g. into a dark room)."""
+        self._walk_checks.append(check)
 
     def register_enter_hook(self, hook: Callable[[World, Room], None]) -> None:
         """Register a hook run after every room entry (after the description)."""
@@ -353,6 +359,12 @@ class Game:
             print(msg)
         if room is None:
             return M_HANDLED
+
+        for check in self._walk_checks:
+            refusal = check(w, room)
+            if refusal:
+                print(refusal)
+                return M_HANDLED
 
         self.enter_room(room)
         return M_HANDLED

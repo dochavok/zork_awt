@@ -690,7 +690,7 @@ dark room.
 > NORTH                       [Bone Passage]
 > WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
-> GIVE CHARTER TO BOGGART     [bridge free]
+> GIVE CHARTER TO BOGGART     [Public property]
 
 The Boggart reads the charter, grumbles, and vacates. The bridge is
 permanently free. Continue south to the Dungeon Entrance.

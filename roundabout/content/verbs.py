@@ -52,6 +52,11 @@ def v_open(world: World) -> int:
             world.game.enter_room(tower)
         return M_HANDLED
 
+    if obj.name == "STRONGBOX":
+        from content import tunnels
+        tunnels.open_strongbox(world)
+        return M_HANDLED
+
     # Statue base — crowbar required (opening with the crowbar: Section J)
     if obj.name == "STATUE":
         print("The base is sealed tight. Something with leverage could pry it open.")
@@ -353,6 +358,11 @@ def v_talk(world: World) -> int:
         print("The child says nothing.")
         return M_HANDLED
 
+    if obj.name == "BOGGART":
+        from content import tunnels
+        tunnels.talk_boggart(world)
+        return M_HANDLED
+
     if obj.name == "RECORDS-WORKER":
         from content import town_hall
         town_hall.talk_worker(world)
@@ -460,6 +470,12 @@ def v_give(world: World) -> int:
             will.teach(world, item)
             return M_HANDLED
 
+    # Town charter to the Boggart — Quest 27, the bridge is public property
+    if npc.name == "BOGGART" and item.name == "TOWN-CHARTER":
+        from content import tunnels
+        tunnels.give_charter(world)
+        return M_HANDLED
+
     # Pocket watch to the Records Room clerk — Quest 17 → town charter
     if npc.name == "RECORDS-WORKER" and item.name == "POCKET-WATCH":
         from content import town_hall
@@ -493,6 +509,21 @@ def v_enter(world: World) -> int:
         dankhaus.enter_dankhaus(world)
         return M_HANDLED
     print("You can't go in there.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-PAY  (PAY BOGGART)
+# ---------------------------------------------------------------------------
+
+def v_pay(world: World) -> int:
+    obj = world.prso
+    boggart = world.objects.get("BOGGART")
+    if (obj is None or obj.name == "BOGGART") and boggart is not None             and boggart.location is world.here:
+        from content import tunnels
+        tunnels.pay_boggart(world)
+        return M_HANDLED
+    print("There's no one here to pay.")
     return M_HANDLED
 
 
@@ -655,6 +686,9 @@ def v_buy(world: World) -> int:
 
     world.globals["zenni"] = zenni - price
     world.move_object(obj, player)
+    if obj.name == "TORCH":
+        from content import light
+        light.light_torch(world)   # lit from the moment of purchase
     print(
         f'Shamus takes the Zenni and slides the {obj.desc} across the counter. '
         f'"Anything else?"'
@@ -897,6 +931,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-CLIMB-TREE", v_climb_tree)
     game.register_verb("V-MELEE",      v_melee)
     game.register_verb("V-CHALLENGE",  v_challenge)
+    game.register_verb("V-PAY",        v_pay)
     game.register_verb("V-ENTER",      v_enter)
     from content.dankhaus import litlock_input_hook
     game.register_input_hook(litlock_input_hook)

@@ -1244,8 +1244,12 @@ Final room before Graveyard Crypt entrance.
 **Quest Hooks:** Quest 27 — GIVE CHARTER TO BOGGART forces him out; perception check reveals faded official seal triggering quest discovery
 **Connections:** North → The Junction. South → Dungeon Entrance.
 A **Boggart** has claimed squatter's rights and charges an extortionate toll.
-Perception check reveals faded official seal — public property — triggering Quest 27 discovery and unlocking May's hint.
-`GIVE CHARTER TO BOGGART` forces him out; drops strongbox (strength check to open, several turns' worth of Zenni). Bridge permanently free after. (Quest 27)
+Perception check (Medium; automatic with Actually Enchanted Glasses) reveals faded official seal — public property — triggering Quest 27 discovery and unlocking May's hint. Seal text: *Carved into the bridge's keystone, half worn away: the town's crest, and beneath it, PUBLIC PROPERTY.* If the player already has the town charter, it's followed by: *"You remember something about a bridge in the town charter."*
+`GIVE CHARTER TO BOGGART` forces him out; drops strongbox (Medium strength check to open; 10 Zenni). Bridge permanently free after. (Quest 27)
+The toll is 200 Zenni and can't actually be paid — the charter is the only way past him.
+- **Trying to pass him:** *The Boggart doesn't move. Neither, it turns out, can you.*
+- **Strongbox opened:** *You get your fingers under the lid and heave. It gives with a shriek of rusted hinges. Inside: 10 Zenni. You pocket them.*
+- **Strongbox stuck:** *The lid doesn't budge. Whatever's holding it shut is stronger than you are, for now.*
 
 **Room description (Boggart present):**
 *A narrow stone bridge spans a ravine in the tunnel floor — the drop below is deep enough that the bottom isn't visible. The bridge looks solid.*

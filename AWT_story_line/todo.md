@@ -6,20 +6,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–H4 passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–H5 passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section H5 — Quest 27, the Toll Bridge. First failure:
+**Current position:** Section I — Dungeon Upper Tier. First failure:
 
 ```
-SECTION [H5) Quest 27 — The Toll Bridge (Dungeon Access)]
-  cmd     : 'DOWN'
-  missing : 'Crypt'
+SECTION [I) Dungeon Upper Tier — Supply Room & Prayer Alcove (Crowbar)]
+  cmd     : 'SOUTH'
+  missing : 'Ink Corridor'
   got     : "You can't go that way."
 ```
 
-Needs the Crypt (dark; torch), Charnel Walk, Bone Passage, the Junction, the Toll Bridge and the Boggart (charter), and the Dungeon Entrance.
+**Torch budget:** the torch lights at the Mausoleum (H5) and runs 100 turns, every turn. With no swaps it dies around turn 100 (section L). Plan: do Quest 25 (Flooded Cellar) in K while in town with the crowbar, swap the torch at Shamus there, then use the Bone Passage → cellar → kitchen shortcut for a second swap around N/O. Place swaps exactly once L–P are built.
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
@@ -34,6 +34,8 @@ Needs the Crypt (dark; torch), Charnel Walk, Bone Passage, the Junction, the Tol
 - Hidden Zenni rooms (36, seeded at init; tests pin seed 7)
 - Old Oak area (Quest 41 kite, Beekeeper's Cottage, Swarm Tree), forest + bog bowl pieces, Pond and 4 bog rooms
 - SAVE / RESTORE
+- Lighting: dark rooms hard-block without light; torch lit on purchase, 100-turn timer from first dark room, warnings, burnout fatal only when stranded in the dark
+- Crypt (visit-based descriptions), Secret Tunnels, Toll Bridge (seal, Boggart, 200 toll, charter, strongbox — Quest 27), Dungeon Entrance; Mausoleum now dark
 - Town Hall (one room: exterior + foyer), Records Room worker and charter (Quest 17 completes), Council Chamber / Upper Hall / Tower rooms
 - Church Nave, Graveyard (pre/post bonk), Mausoleum, Chuckle House (mirrors, Trap 16, ghost, 50% exits), WEAR/REMOVE RING with corruption, CAST UNBIND UNDEAD; full corruption is GAME OVER
 - Kevry per design (enchant on arrival if worn; WEAR in front of him if carried; quest-hint line without glasses)

@@ -47,6 +47,7 @@ def make_objects(world) -> None:
     _make_dankhaus_objects(world)
     _make_chuckle_objects(world)
     _make_town_hall_objects(world)
+    _make_tunnel_objects(world)
 
 
 # ---------------------------------------------------------------------------
@@ -557,4 +558,20 @@ def _make_town_hall_objects(world) -> None:
               "into the wax at the bottom, and the handwriting is the careful kind "
               "that expects to be read for a long time.",
         synonyms=["charter", "document"], adjectives=["town", "rolled"], flags={TAKEBIT},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# Secret Tunnels (logic: content/tunnels.py)
+# ---------------------------------------------------------------------------
+
+def _make_tunnel_objects(world) -> None:
+    # Both described by the Toll Bridge's stateful room description
+    world.register_object(GameObject(
+        name="BOGGART", desc="Boggart", synonyms=["boggart", "figure", "squatter"],
+        adjectives=["small", "dense"], flags={ACTORBIT, NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="STRONGBOX", desc="strongbox", synonyms=["strongbox", "box", "lid"],
+        adjectives=["battered"], flags={NDESCBIT, SACREDBIT, CONTBIT},
     ))

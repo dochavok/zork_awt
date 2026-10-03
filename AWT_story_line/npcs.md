@@ -661,6 +661,13 @@ Encased in magical ice in The Fountain Room (dungeon lower tier). Thawed by Ivor
 **Location:** The Toll Bridge, Secret Tunnels.
 
 Claims squatter's rights on the bridge to the Dungeon Entrance. Charges extortionate toll. Gives no hints about what would satisfy him — gruff, legally creative, immovable. `GIVE CHARTER TO BOGGART` forces him out. Drops strongbox as he leaves. Permanently vacates after.
+Described in the Toll Bridge's room description (no separate presence line).
+
+**`TALK TO BOGGART`:** *"Toll," the Boggart says, holding out a hand without looking at it. "Two hundred Zenni. Each way. Non-negotiable." He doesn't explain how he arrived at the figure, and you get the impression he's never had to.* The toll can't actually be paid.
+
+**`PAY BOGGART` (any attempt to pay):** *He doesn't want your money. Whatever he wants 200 of, you don't have it.*
+
+**`GIVE CHARTER TO BOGGART`:** *The Boggart takes the charter, unrolls it, and reads. His lips move. He reads a particular clause twice. Then he rolls it back up with great dignity, hands it back, and gets off the bridge. "Public property," he mutters. "Should've been told." He stomps off into the tunnels, leaving behind a battered strongbox where he was sitting.* The player keeps the charter.
 
 ---
 

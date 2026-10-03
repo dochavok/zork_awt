@@ -731,7 +731,7 @@ The Crypt is dark — cast Light spell.
 Perception check auto-passes — faded official seal visible. Quest 27
 discovered.
 
-> GIVE CHARTER TO BOGGART     [bridge free]
+> GIVE CHARTER TO BOGGART     [Public property]
 
 Boggart reads the charter, vacates, drops the strongbox. Strength check
 auto-passes.

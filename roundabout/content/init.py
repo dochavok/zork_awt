@@ -28,6 +28,11 @@ def initialize_world(world, game, seed=None) -> None:
     zenni_rooms.assign(world, random.Random(seed))
     game.register_enter_hook(zenni_rooms.on_enter)
 
+    # Lighting: dark rooms block entry without a light; torch timer
+    from content import light
+    game.register_walk_check(light.dark_block)
+    game.register_enter_hook(light.on_enter)
+
     # Start in the White House
     world.here = world.rooms["WHITE-HOUSE"]
 
@@ -122,6 +127,9 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["RECORDS-WORKER"], world.rooms["RECORDS-ROOM"])
     world.move_object(world.objects["ROWAN-FINCH"],    world.rooms["COUNCIL-CHAMBER"])
     # TOWN-CHARTER is handed over for the pocket watch
+    world.move_object(world.objects["BOGGART"], world.rooms["TOLL-BRIDGE"])
+    # STRONGBOX is dropped when the Boggart leaves
+
     # LOCKPICKS drop when the mugger is slain
     # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus
 

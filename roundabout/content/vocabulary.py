@@ -96,6 +96,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("clear")                             # CLEAR BONES / CLEAR DRAIN
     v.add_verb("climb", "sit")
     v.add_verb("challenge", "wrestle")              # CHALLENGE LYNDS
+    v.add_verb("pay")                               # PAY BOGGART
     v.add_verb("close")
     v.add_verb("command")
     v.add_verb("count")

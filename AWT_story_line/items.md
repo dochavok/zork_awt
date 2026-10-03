@@ -131,6 +131,7 @@ Found in a carved niche in the Prayer Alcove — perception check reveals the al
 ### Torch
 **Weight:** 2
 **Location:** Purchased from Shamus (Kitchen, Tale and Ale) — 3 Zenni
+**After burnout:** inventory name *burnt-out torch*; examine *A burnt-out torch, cold and black at the end.*
 **Quest use:** None — primary early-game light source for dungeon and Secret Tunnels.
 
 Always lit from purchase. Timer starts on first dark room entry (not on purchase). 100-turn burnout — game over on expiry. One torch at a time in inventory; Shamus swaps at 69 turns remaining or below. Full mechanic in `mechanics.md` — Lighting System section.

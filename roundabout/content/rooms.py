@@ -703,6 +703,10 @@ def _make_pond_and_bog(world, archery) -> None:
     from content import chuckle
     chuckle.make_rooms(world)
 
+    # The Crypt and the Secret Tunnels to the Dungeon Entrance — content/tunnels.py
+    from content import tunnels
+    tunnels.make_rooms(world)
+
     # Town Hall — content/town_hall.py
     from content import town_hall
     town_hall.make_rooms(world)

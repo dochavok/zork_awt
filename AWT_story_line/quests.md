@@ -246,7 +246,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 1. Find Toll Bridge — Boggart charges extortionate toll, gives no hints about what would satisfy him.
 2. Obtain town charter (via Quest 17 chain).
 3. `GIVE CHARTER TO BOGGART` → Boggart reads it, grumbles, vacates. Drops strongbox.
-4. Strength check to open strongbox → several turns' worth of Zenni.
+4. Strength check (Medium) to open strongbox → 10 Zenni.
 
 **Reward:** Bridge permanently free. Dungeon Entrance accessible. 3 Zenni.
 

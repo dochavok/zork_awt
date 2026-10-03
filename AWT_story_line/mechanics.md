@@ -55,7 +55,7 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 **Zenni sources:**
 - Will Passion opening gift: 10 Zenni
 - Hidden room Zenni: 36 rooms randomized per new game; 18 Easy / 10 Medium / 2 Hard pay 1–3 Zenni each; 6 Very Hard pay 5 Zenni each (~74 Zenni total if all found); Actually Enchanted Glasses pass all checks and find all rooms automatically
-- Desert Island buried chest: 50 Zenni
+- Desert Island buried chest: 30 Zenni
 - Vendor buyback: half price, own items only; no buyback for treasure
 - Quest rewards: ~133 Zenni across all 27 active quests (3–10 Zenni per quest, mirroring XP tiers)
 
@@ -419,7 +419,7 @@ The following areas are dark and require a light source to enter:
 **Naturally lit areas (no light source required):**
 Overworld, town, mine (active, torches on walls), Dankhaus, bog, beach, sea.
 
-**Dark room behavior:** Darkness is a hard block — the player cannot enter without a light source. No navigation in the dark, no death-by-darkness, just a wall.
+**Dark room behavior:** Darkness is a hard block — the player cannot enter without a light source. No navigation in the dark, no death-by-darkness, just a wall: *"It's too dark to go any further without a light."*
 
 ---
 
@@ -456,8 +456,9 @@ Purchased from Shamus (Kitchen, Tale and Ale) for 3 Zenni. Weight: 2.
 | 15 | *The torch gutters. You don't have much time left on it.* |
 | 0 | Burnout — see below |
 
-**Torch burnout (turn 0):** Game over.
-*The torch goes out. In the dark, something shifts. You never find out what.*
+**Torch burnout (turn 0):** Once lit, the torch can't be put out — the timer runs every turn after the first dark room entry.
+- **Game over** only if the player is in a dark room **and** no exit from it leads straight to a lit room: *The torch goes out. In the dark, something shifts. You never find out what.*
+- **Otherwise** (in a lit area, or one move from one) the torch just goes out: *The torch gutters and goes out.* The player can walk back to the light.
 
 **Shamus swap tiers (player brings torch to Shamus):**
 
@@ -771,7 +772,7 @@ Hidden aboard the Pie Rat Ship in the hold.
 
 Each turn aboard fires a silent perception check. On success: map found and added to inventory. Actually Enchanted Glasses pass all checks — map found on first turn.
 
-Without the map: each `DIG` on Desert Island has a 10% chance of finding the buried chest (contains 50 Zenni). Player can keep trying indefinitely.
+Without the map: each `DIG` on Desert Island has a 10% chance of finding the buried chest (contains 30 Zenni). Player can keep trying indefinitely.
 
 Carrying the map guarantees `DIG` success on Desert Island on first attempt.
 
