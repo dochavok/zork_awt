@@ -126,15 +126,10 @@ Buy gunpowder from Shamus before lighting anything. Return to town first.
 > BUY GUNPOWDER               [gunpowder]
 > BUY TORCH                   [torch]
 
-Now return to the mine to execute the heist.
+Now return to the mine through the forest to execute the heist.
 
 > NORTH                       [Bar]
 > NORTH                       [Main Room]
-> EAST                        [Pipe Room]
-
-We need to go back to the forest and down.
-
-> WEST                        [Main Room]
 > NORTH                       [Town Square]
 > EAST                        [Main East]
 > EAST                        [Wasteland]
@@ -397,17 +392,11 @@ three Viking trust trials. The Viking Encampment is west of the Archery
 Range (reached by going west from Main West).
 
 We need the torch for the dungeon later but the overworld is naturally
-lit. Head to the encampment.
+lit. Head to the encampment: north to Town Square, west through Main
+West to the Archery Range, then west again to the Viking Encampment.
 
 > EXAMINE PAINTING            [Tale and Ale]
 > WEAR GLASSES                [glasses]
-> EAST                        [Pipe Room]
-
-We are in the Pipe Room. We need to go west past Main West to the
-Archery Range then west again to the Viking Encampment. First navigate
-from the Pipe Room back west.
-
-> WEST                        [Main Room]
 > NORTH                       [Town Square]
 > WEST                        [Main West]
 > WEST                        [Archery Range]
