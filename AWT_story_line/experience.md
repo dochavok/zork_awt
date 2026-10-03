@@ -10,7 +10,9 @@ Update this file immediately when any XP value or level detail is designed or ch
 ### Exploration (passive, automatic)
 Each room has a defined XP value awarded the first time it is discovered. Most rooms award 1 XP. Significant destinations award more. Ocean traversal squares award 0 XP. Perception-gated rooms (hidden behind a perception check to discover) generally award double their base value; critical path rooms are set individually. All room XP values are defined in `locations.md`.
 
-**Exploration total (all confirmed rooms): 133 XP**
+Guest Rooms 1–3 award 0 XP: they are reached only by paid rest with a random room assignment, not by exploration.
+
+**Exploration total (all confirmed rooms): 130 XP**
 
 ---
 
@@ -93,11 +95,11 @@ XP scales with enemy difficulty. Named/boss enemies award toward the higher end.
 
 | Source | XP |
 |--------|----|
-| Exploration | 133 |
+| Exploration | 130 |
 | Quests | 254–264 |
 | Traps (disarm) | 39 |
 | Combat | 42 |
-| **Confirmed base total** | **478–488 XP** |
+| **Confirmed base total** | **475–485 XP** |
 | Class bonus (Warrior) | +40 XP |
 | Class bonus (Mage) | +46 XP |
 | Class bonus (Rogue) | +50 XP |

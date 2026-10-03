@@ -55,3 +55,20 @@ Effects: class bonuses never apply to rolls, quest Zenni/XP rewards don't reach 
 
 Fix: pick one scheme, migrate both sides and the unit tests, remove the bridge. Note: 15 unit tests in test_combat/test_corruption/test_quests were already failing before this was found (2026-10-03).
 
+---
+## TODO #4 — Full-score walkthrough must visit every room
+
+`walkthrough_fullscore.txt` was scoped to quests, treasures and NPC arcs, not exploration. These rooms (all with XP in locations.md) are never entered:
+
+- **Tale and Ale:** Pipe Room, Ty's Casino Corner, Upstairs Hall
+- **Dankhaus:** Hearth Room, Garden, Litlock's Room, Litlock's Study, Lynds's Room, Aurix's Room, Hidden Secondary Entrance
+- **Tunnels / dungeon:** The Undercroft, The Forgotten Shaft, Skeleton Room (Room 6), The Flooded Passage (Room 11)
+
+Also confirm Key Side / Trap Side sub-rooms are all entered — the walkthrough labels these areas loosely.
+
+For each room: check access requirements in locations.md, then add the visit where the route already passes nearby. Once TODO #3 connects XP, assert total exploration XP at the end of the run.
+
+**Total is unresolved:** experience.md says 130 (was 133 before guest rooms went to 0), but the `**XP:**` values in locations.md sum to 173 across 131 entries (2026-10-03). Reconcile before using either number as the test target.
+
+Guest Rooms 1–3 are excluded: set to 0 XP (rest-only, random assignment) on 2026-10-03 — see locations.md and experience.md.
+

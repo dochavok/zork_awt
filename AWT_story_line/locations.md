@@ -299,7 +299,7 @@ Connects the three guest rooms. Accessed via staircase from Main Room. Guest roo
 **Room description:** *The upstairs hall is narrow and low-ceilinged, the floorboards announcing every step. Three doors lead off it — the guest rooms. A window at the far end looks out over the alley below. The stairs down creak in a specific sequence that regular guests have learned to navigate quietly.*
 
 ### Guest Room 1
-**XP: 1**
+**XP: 0** (rest-only room — entered via May's random assignment, not exploration)
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
@@ -311,7 +311,7 @@ One of three guest rooms off the Upstairs Hall. Assigned randomly by May when th
 **Wake-up description:** *You come around slowly. The bed is better than it had any reason to be. Light comes through the window — enough to know you slept. You feel considerably more capable than you did.*
 
 ### Guest Room 2
-**XP: 1**
+**XP: 0** (rest-only room — entered via May's random assignment, not exploration)
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
@@ -323,7 +323,7 @@ One of three guest rooms off the Upstairs Hall. Assigned randomly by May when th
 **Wake-up description:** *The wardrobe door has drifted open in the night. You close it out of habit. Whatever was wrong with you yesterday, sleep has addressed most of it.*
 
 ### Guest Room 3
-**XP: 1**
+**XP: 0** (rest-only room — entered via May's random assignment, not exploration)
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
