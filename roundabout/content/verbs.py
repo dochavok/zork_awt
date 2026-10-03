@@ -52,6 +52,11 @@ def v_open(world: World) -> int:
             world.game.enter_room(tower)
         return M_HANDLED
 
+    # Statue base — crowbar required (opening with the crowbar: Section J)
+    if obj.name == "STATUE":
+        print("The base is sealed tight. Something with leverage could pry it open.")
+        return M_HANDLED
+
     print("You can't open that.")
     return M_HANDLED
 
@@ -82,6 +87,22 @@ def v_examine(world: World) -> int:
         tavern = world.rooms.get("TALE-AND-ALE")
         if tavern is not None:
             world.game.enter_room(tavern)
+        return M_HANDLED
+
+    # Town Square statue — seam visible to anyone who looks (locations.md)
+    if obj.name == "STATUE":
+        world.set_global("STATUE-EXAMINED", True)
+        if world.get_global("STATUE-LOOTED"):
+            print(
+                "The statue stands to one side, its base pried open and empty. "
+                "Whatever was inside is gone."
+            )
+        else:
+            print(
+                "The plaque below it is worn to illegibility, but the base has "
+                "a seam around it — visible now that you're looking. Something "
+                "with leverage could open it."
+            )
         return M_HANDLED
 
     if obj.name == "WILL":

@@ -35,6 +35,7 @@ def make_objects(world) -> None:
     _make_sea_objects(world)
     _make_npcs(world)
     _make_viking_objects(world)
+    _make_town_objects(world)
 
 
 # ---------------------------------------------------------------------------
@@ -331,5 +332,20 @@ def _make_viking_objects(world) -> None:
     world.register_object(GameObject(
         name="FORGE", desc="forge",
         synonyms=["forge", "fire"], adjectives=["ancient", "enormous"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# Town Square
+# ---------------------------------------------------------------------------
+
+def _make_town_objects(world) -> None:
+    # Hollow base: seam visible on LOOK AT STATUE (no perception check);
+    # crowbar opens it (Quests 19 & 30). Text in content/verbs.py.
+    world.register_object(GameObject(
+        name="STATUE", desc="statue",
+        synonyms=["statue", "base", "seam", "plaque", "figure"],
+        adjectives=["stone", "civic", "hollow"],
         flags={NDESCBIT, SACREDBIT},
     ))

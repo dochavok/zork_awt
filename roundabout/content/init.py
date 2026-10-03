@@ -91,6 +91,7 @@ def _place_objects(world) -> None:
         ("AYLORA",       "FIRE-PIT"),
     ):
         world.move_object(world.objects[obj], world.rooms[room])
+    world.move_object(world.objects["STATUE"], world.rooms["TOWN-SQUARE"])
     # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus
 
 

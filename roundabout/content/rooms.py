@@ -196,23 +196,62 @@ def _make_town(world) -> None:
     town_sq = Room(
         name="TOWN-SQUARE",
         desc="Roundabout Town Square",
-        ldesc=(
-            "The square is the kind of place a town organizes itself around "
-            "without quite deciding to. Cobblestones, worn smooth at the center.\n"
-            "The Town Hall anchors the north end with the authority of a building "
-            "that has never doubted its own importance. The tavern faces it from "
-            "the south, which seems about right.\n"
-            "A fountain stands in the middle — dry, the basin cracked at one edge, "
-            "the stonework patient in the way of things that have been waiting a "
-            "long time.\n"
-            "A stone statue stands to one side — a civic figure of some kind, the "
-            "plaque below it worn to illegibility."
-        ),
+        ldesc="",   # stateful — see town_square_action
         value=1,
     )
     town_sq.set_flag(ONBIT)
     town_sq.set_flag(RLANDBIT)
     world.register_room(town_sq)
+
+    # locations.md — Town Square: fountain and statue states are independent
+    _SQUARE_BASE = (
+        "The square is the kind of place a town organizes itself around "
+        "without quite deciding to. Cobblestones, worn smooth at the center.\n"
+        "The Town Hall anchors the north end with the authority of a building "
+        "that has never doubted its own importance. The tavern faces it from "
+        "the south, which seems about right."
+    )
+    _FOUNTAIN_DRY = (
+        "A fountain stands in the middle — dry, the basin cracked at one edge, "
+        "the stonework patient in the way of things that have been waiting a "
+        "long time."
+    )
+    _FOUNTAIN_RUNNING = (
+        "The fountain has been running long enough now that people have "
+        "stopped remarking on it. The square sounds different with water in it."
+    )
+    _STATUE = {
+        "unexamined": (
+            "A stone statue stands to one side — a civic figure of some kind, "
+            "the plaque below it worn to illegibility."
+        ),
+        "examined": (
+            "A stone statue stands to one side. The plaque below it is worn to "
+            "illegibility, but the base has a seam around it — visible now that "
+            "you're looking. Something with leverage could open it."
+        ),
+        "looted": (
+            "The statue stands to one side, its base pried open and empty. "
+            "Whatever was inside is gone."
+        ),
+    }
+
+    from engine.game import M_NOT_HANDLED, M_HANDLED, M_LOOK
+
+    def town_square_action(w, msg=M_NOT_HANDLED):
+        if msg != M_LOOK:
+            return M_NOT_HANDLED
+        print(_SQUARE_BASE)
+        print(_FOUNTAIN_RUNNING if w.get_global("FOUNTAIN-RUNNING") else _FOUNTAIN_DRY)
+        if w.get_global("STATUE-LOOTED"):
+            print(_STATUE["looted"])
+        elif w.get_global("STATUE-EXAMINED"):
+            print(_STATUE["examined"])
+        else:
+            print(_STATUE["unexamined"])
+        return M_HANDLED
+
+    town_sq.action = town_square_action
 
     main_east = Room(
         name="MAIN-EAST",
