@@ -52,6 +52,7 @@ Required to make ranged (bow) attacks in combat. Must be carried in inventory.
 - Actually Enchanted Glasses: pass all perception checks automatically — no roll required.
 - Upgraded by **Kevry Talborn** — only if already equipped (head slot) when player arrives at his island.
 - **Warning:** Equipping in Will's presence triggers an instant fail state — Will attacks, no recovery. The bedroom is safe only because Will is not there.
+- **Fail text:** *Will looks up from his desk. His eyes go to the glasses on your face and stay there. For a moment nothing in the room moves. Then he is out of his chair, and whatever happens next, you don't see it coming.* — then GAME OVER. Fires when the player arrives in the tower wearing them or puts them on there.
 - **End-game return:** Dropping in Will's Bedroom at end-game earns XP — double if Actually Enchanted.
 - Missable only if player never finds Will's hidden bedroom.
 
@@ -275,6 +276,8 @@ Left by Calder Finch. *"He left a key. Said it led to a lower level — wouldn't
 
 ### Unbind Undead Scroll
 **Weight:** 1
+**Room description (on the desk):** *A scroll lies on the desk, weighted at one corner with a smooth stone.*
+**Inventory description:** *A spell scroll headed Unbind Undead, in a cramped, careful hand.*
 **Location:** Silas Bryne's desk at the Lighthouse (Roundabout Beach)
 **Quest use:** Quest 17 — `CAST UNBIND UNDEAD` releases the ghost in the Chuckle House.
 

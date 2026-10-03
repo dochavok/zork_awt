@@ -78,7 +78,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 2. Search Bog-NW — perception check reveals hollow log. Inside: music box key.
 3. Return to tower → open music box with key → plays short melody → scroll inside.
 4. **Mages:** Read scroll directly (consumed) → Light spell learned.
-5. **Warriors/Rogues:** Take scroll to Will (cannot wear Enchanted Glasses in Will's presence) → scroll consumed, Light spell learned.
+5. **Warriors/Rogues:** Take scroll to Will (wearing Enchanted Glasses in Will's presence is an instant fail state) → scroll consumed, Light spell learned.
 
 **Reward:** Light spell — 10 turns duration, 20 turns reuse timer. 5 Zenni.
 
@@ -607,7 +607,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 4. Pay 3 Zenni per spell taught.
 
 **Reward:** Spell learned permanently. 4 XP per spell. 3 Zenni per spell.
-**Note:** Cannot wear Enchanted Glasses in Will's presence during teaching — Will notices and refuses.
+**Note:** Wearing the Enchanted Glasses in Will's presence is an instant fail state (Will attacks, no recovery) — see items.md. Remove them before entering the tower.
 
 ---
 
@@ -633,12 +633,12 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 **Discovery:** Organic only — silent perception check (Hard difficulty) fires on every visit to Will's Bedroom.
 On success: *"Something small glows faintly under the nightstand — easy to miss, impossible to unsee once noticed. A sprig of something, tucked against the baseboard as if it rolled there and was forgotten."*
-Players returning with Actually Enchanted Glasses equipped auto-succeed. No Quest Board posting. No May hints.
+Actually Enchanted Glasses auto-succeed. They can't be worn through the tower's main room (wearing them in Will's presence is an instant fail), so the player removes them before the mailbox and puts them back on in the bedroom — putting them on in the bedroom fires the check too. No Quest Board posting. No May hints.
 **Prerequisites:** Access to Will's Bedroom (hidden door revealed via Quest 53 perception check).
 **Missability:** Extremely high. Hard perception check, no hints anywhere, no cascade from any other quest except the glasses connection.
 
 **Steps:**
-1. Pass perception check in Will's Bedroom (Hard; auto-pass with Actually Enchanted Glasses equipped).
+1. Pass perception check in Will's Bedroom (Hard; auto-pass with Actually Enchanted Glasses — put them on once inside the bedroom).
 2. `TAKE DRAGON-NIP` or `TAKE SPRIG` — item added to inventory.
 3. Bring dragon-nip to Will Passion in the tower. `GIVE DRAGON-NIP TO WILL` or `SHOW DRAGON-NIP TO WILL`.
 4. Will takes it. Produces a Golden Dragon Scale. Quest complete.

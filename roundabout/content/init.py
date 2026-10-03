@@ -10,7 +10,11 @@ from content.objects import make_objects
 from content.verbs import register_verbs
 
 
-def initialize_world(world, game) -> None:
+def initialize_world(world, game, seed=None) -> None:
+    """
+    seed: fixes this playthrough's random setup (Zenni rooms). None = random.
+    Tests pass a fixed seed so the setup is randomized once and stays put.
+    """
     make_rooms(world)
     make_objects(world)
     _make_player(world)
@@ -18,6 +22,11 @@ def initialize_world(world, game) -> None:
     _place_objects(world)
     _wire_whitehouse_action(world, game)
     register_verbs(game)
+
+    import random
+    from content import zenni_rooms
+    zenni_rooms.assign(world, random.Random(seed))
+    game.register_enter_hook(zenni_rooms.on_enter)
 
     # Start in the White House
     world.here = world.rooms["WHITE-HOUSE"]
@@ -92,6 +101,7 @@ def _place_objects(world) -> None:
     ):
         world.move_object(world.objects[obj], world.rooms[room])
     world.move_object(world.objects["STATUE"], world.rooms["TOWN-SQUARE"])
+    world.move_object(world.objects["SCROLL-UNBIND-UNDEAD"], world.rooms["LIGHTHOUSE"])
     # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus
 
 

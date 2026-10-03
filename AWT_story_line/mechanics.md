@@ -178,7 +178,7 @@ Each class starts with one combat skill. The other two can be acquired through q
 **Spell training (Quest 56)** — Will Passion, Wizard Tower.
 Warriors and Rogues cannot read spell scrolls directly — resistance message points them to Will.
 Bring any spell scroll; Will teaches it aloud; scroll consumed, spell learned permanently. Repeatable for each new scroll.
-Cost: 3 Zenni per spell. Cannot wear Enchanted Glasses in Will's presence during teaching.
+Cost: 3 Zenni per spell. Wearing the Enchanted Glasses in Will's presence is an instant fail state (Will attacks, no recovery) — see items.md. Remove them before entering the tower.
 Classes: Warrior, Rogue only.
 
 ---
@@ -271,7 +271,7 @@ Two versions:
 
 Upgrade path: equip glasses (head slot) before reaching Kevry Talborn's island (69 squares east in Open Ocean) → Kevry enchants them.
 
-Warning: equipping outside Will's Bedroom triggers instant fail state. Equipping inside permitted.
+Warning: wearing them in Will's presence triggers an instant fail state (Will attacks, no recovery). Equipping inside the bedroom is safe — Will is not there.
 
 End-game return: dropping in Will's Bedroom earns XP (double if Actually Enchanted).
 
@@ -292,6 +292,8 @@ Spells learned permanently once acquired.
 *"The words are legible. The meaning is not. Whatever is written here was meant for someone with a different kind of mind — or a different kind of training. Will Passion, in his tower, has been known to translate this sort of thing for people like you."*
 
 Scroll is not consumed. Player retains it. Bringing the scroll to Will Passion in the Wizard Tower triggers the teaching interaction via either `READ SCROLL` (in his presence) or `GIVE SCROLL TO WILL` — Will takes it, reads it aloud, scroll consumed, spell learned permanently.
+
+**Mage reads a spell scroll:** *You read the scroll through once, and the words settle into you as if they had always meant to. The scroll crumbles to dust in your hands.* Spell learned, scroll consumed.
 
 | Spell | Effect | Duration | Reuse Timer | Source |
 |-------|--------|----------|-------------|--------|
@@ -576,6 +578,8 @@ Beach `DIG`: succeeds up to 5 times with flavor text (nothing but wet sand); 6th
 ## Zenni Rooms
 
 36 rooms across the world contain hidden Zenni, discoverable via silent perception check. Rooms are selected randomly at game initialization and fixed for that playthrough. Actually Enchanted Glasses pass all perception checks — all 36 rooms found automatically.
+
+**Found message:** *Something catches your eye, tucked out of sight: [N] Zenni. You pocket them.* ("pocket it" for 1 Zenni.) The check repeats on every visit until that room's Zenni is found.
 
 **Difficulty distribution (assigned at game init):**
 | Tier | Count | Target | Zenni |

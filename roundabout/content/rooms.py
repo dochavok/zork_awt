@@ -94,10 +94,14 @@ def _make_tower(world) -> None:
         message="You push open the bedroom door and step inside.",
     )
 
-    from engine.game import M_NOT_HANDLED, M_ENTER
+    from engine.game import M_NOT_HANDLED, M_ENTER, M_END
     from content.perception import EASY
 
     def tower_action(w, msg=M_NOT_HANDLED):
+        if msg == M_END:
+            from content.will import glasses_seen
+            glasses_seen(w)
+            return M_NOT_HANDLED
         if msg == M_ENTER:
             # Silent Easy perception check fires every visit until bedroom found
             if not w.get_global("BEDROOM-DOOR-VISIBLE"):
@@ -357,6 +361,22 @@ def _make_town(world) -> None:
     docks.set_flag(RLANDBIT)
     world.register_room(docks)
 
+    lighthouse = Room(
+        name="LIGHTHOUSE",
+        desc="The Lighthouse",
+        ldesc=(
+            "The keeper's room is small and round, the walls curving with the "
+            "tower. A narrow stair spirals up toward the lamp. A desk sits under "
+            "the one window, papers stacked with more care than anything else in "
+            "the room — whoever works here left in the middle of something and "
+            "meant to come back."
+        ),
+        value=1,
+    )
+    lighthouse.set_flag(ONBIT)
+    lighthouse.set_flag(RLANDBIT)
+    world.register_room(lighthouse)
+
     # Wire town exits
     # Town Square: south→Tale and Ale, east→Main East, west→Main West (not yet built)
     town_sq.exits["south"] = Exit(destination="TALE-AND-ALE")
@@ -373,6 +393,8 @@ def _make_town(world) -> None:
     r_forest.exits["south"] = Exit(destination="OLD-OAK")
     roundabout_beach.exits["north"] = Exit(destination="BEACH-ROAD")
     roundabout_beach.exits["east"]  = Exit(destination="DOCKS")
+    roundabout_beach.exits["northeast"] = Exit(destination="LIGHTHOUSE")
+    lighthouse.exits["southwest"] = Exit(destination="ROUNDABOUT-BEACH")
     docks.exits["west"] = Exit(destination="ROUNDABOUT-BEACH")
 
     # Tale and Ale: north→Town Square (east→Pipe Room already wired in _make_tale_and_ale)

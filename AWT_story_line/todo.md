@@ -6,18 +6,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–F passing in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–G passing in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section G — Werewolf's Amulet / Silver Stake from Town Square Statue. First failure:
+**Current position:** Section H1 — Beat Lynds. First failure:
 
 ```
-SECTION [G) Werewolf's Amulet — Silver Stake from Town Square Statue]
-  cmd     : 'LOOK AT STATUE'
-  missing : 'seam'
-  got     : "You can't see any statue here!"
+SECTION [H1) Quest 59 — Beat Lynds (Heart Necklace, Dankhaus Access)]
+  cmd     : 'CHALLENGE LYNDS'
+  missing : 'Heart Necklace'
+  got     : 'I don't know the word "challenge".'
 ```
+
+Old section H was split into H1–H5 (Lynds → Litlock → Chuckle House ghost → charter → Toll Bridge). Watch Lynds's level-4 dice (2d10+3) vs. the player's level at that point.
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
@@ -27,11 +29,13 @@ SECTION [G) Werewolf's Amulet — Silver Stake from Town Square Statue]
 - Opening rewritten to match npcs.md
 - Viking trial order: 1 and 2 in either order, Aylora (3) gated until both done
 - INVENTORY verb
+- Unbind Undead scroll picked up in C (Lighthouse), taught by Will in D (3 Zenni)
+- Glasses instant-fail in Will's presence; GAME OVER ends input
+- Hidden Zenni rooms (36, seeded at init; tests pin seed 7)
 
 **Known issues still open:**
 - Raznak only has State 1 (trust not earned). States 2A/2B/3 and PAY are Quest 55 (full-score walkthrough).
 - Section T has `REMOVE RING [ring won't go on]`. items.md says that message belongs to `WEAR RING` on the bound ring. Check before implementing.
-- Glasses instant-fail in Will's presence is not implemented. Walkthroughs remove glasses before talking to Will and put them back on after leaving through the painting.
 - The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.

@@ -474,15 +474,16 @@ Bog-NW. For Warriors, the Light scroll must be taken to Will to learn.
 > EAST                        [Main West]
 > EAST                        [Town Square]
 > SOUTH                       [Tale and Ale]
+> REMOVE GLASSES              [glasses removed]
 > OPEN MAILBOX                [tower]
 > LOOK AT MUSIC BOX           [music box]
 > OPEN MUSIC BOX WITH KEY     [scroll]
 > TAKE SCROLL                 [scroll]
 
-Warriors cannot read spell scrolls directly. Remove glasses (Will
-refuses to teach while they are worn), then give the scroll to Will.
+Warriors cannot read spell scrolls directly. The glasses came off before
+the mailbox (wearing them in Will's presence is an instant fail), so
+give the scroll to Will.
 
-> REMOVE GLASSES              [glasses removed]
 > GIVE SCROLL TO WILL         [Light spell]
 
 Light spell learned permanently. Now we can safely enter all dark rooms
@@ -619,8 +620,8 @@ Return to Will for the second briefing (three faiths, Church of All).
 > WEST                        [Main East]
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
-> OPEN MAILBOX                [tower]
 > REMOVE GLASSES              [glasses removed]
+> OPEN MAILBOX                [tower]
 > GIVE RING TO WILL           [three faiths]
 
 Second briefing fires. Quest 17 (Frozen Watch) is now posted on the
@@ -648,8 +649,8 @@ invisibility.
 > WEST                        [Main East]
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
-> OPEN MAILBOX                [tower]
 > REMOVE GLASSES              [glasses removed]
+> OPEN MAILBOX                [tower]
 > GIVE SCROLL TO WILL         [Unbind Undead]
 
 Unbind Undead spell learned. Navigate to the Chuckle House (west of
@@ -1279,8 +1280,8 @@ Warriors cannot read spell scrolls directly — take it to Will.
 > WEST                        [Main East]
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
-> OPEN MAILBOX                [tower]
 > REMOVE GLASSES              [glasses removed]
+> OPEN MAILBOX                [tower]
 > GIVE SCROLL TO WILL         [Fireball]
 
 Quest 7 complete. Fireball spell learned.
@@ -1545,15 +1546,20 @@ perception check, but Actually Enchanted Glasses auto-pass. Return to
 the bedroom.
 
 > SOUTH                       [Tale and Ale]
+> REMOVE GLASSES              [glasses removed]
 > OPEN MAILBOX                [tower]
 > NORTH                       [nightstand]
 
-With Actually Enchanted Glasses the dragon-nip is auto-visible.
+The glasses can't be worn past Will. The bedroom is safe: put them back
+on here and the dragon-nip is auto-visible.
 
+> WEAR GLASSES                [dragon-nip]
 > TAKE DRAGON-NIP             [dragon-nip]
-> EXAMINE PAINTING            [Tale and Ale]
-> OPEN MAILBOX                [tower]
+
+Take them off again before going back through to Will.
+
 > REMOVE GLASSES              [glasses removed]
+> SOUTH                       [Wizard Tower]
 > GIVE DRAGON-NIP TO WILL     [Golden Dragon Scale]
 > TAKE SCALE                  [Golden Dragon Scale]
 

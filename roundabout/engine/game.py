@@ -86,6 +86,8 @@ class Game:
         # raw-input hooks: fn(world, text) -> True if the line was consumed
         # (free-text answers such as riddles that the parser can't express)
         self._input_hooks: list[Callable[[World, str], bool]] = []
+        # enter hooks: fn(world, room) after a room is entered and described
+        self._enter_hooks: list[Callable[[World, Room], None]] = []
 
         self.desc_mode: int = BRIEF
         self._running:  bool = False
@@ -111,6 +113,10 @@ class Game:
     ) -> None:
         """Register a preaction handler that runs before the verb handler."""
         self._preaction_handlers[action] = handler
+
+    def register_enter_hook(self, hook: Callable[[World, Room], None]) -> None:
+        """Register a hook run after every room entry (after the description)."""
+        self._enter_hooks.append(hook)
 
     def register_input_hook(self, hook: Callable[[World, str], bool]) -> None:
         """Register a hook that may consume a raw input line before parsing."""
@@ -142,6 +148,12 @@ class Game:
         then advances the clock.  Returns the PERFORM result.
         """
         w = self.world
+
+        # A fail state (e.g. GAME OVER from content) ends the game: refuse
+        # further input rather than letting play continue.
+        if w.get_global("GAME-OVER"):
+            print("The game is over.")
+            return M_FATAL
 
         for hook in self._input_hooks:
             if hook(w, input_text):
@@ -381,6 +393,8 @@ class Game:
 
         self.describe_room()
         room.visited = True
+        for hook in self._enter_hooks:
+            hook(w, room)
         return M_HANDLED
 
     def describe_room(self) -> None:

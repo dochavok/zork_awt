@@ -75,6 +75,14 @@ Roundabout Beach.
 > EAST                        [Roundabout Wasteland]
 > EAST                        [Beach Road]
 > SOUTH                       [Roundabout Beach]
+
+While we're at the beach, pick up the Unbind Undead scroll from Silas
+Bryne's desk in the Lighthouse (northeast). It isn't needed until the
+Chuckle House ghost; Will teaches it to us in section D.
+
+> NORTHEAST                   [Lighthouse]
+> TAKE SCROLL                 [Unbind Undead]
+> SOUTHWEST                   [Roundabout Beach]
 > EAST                        [Docks]
 
 Before boarding we need the Pie Rat disguise to get past the crew. The
@@ -376,13 +384,20 @@ Return to Will's tower via the Tale and Ale mailbox.
 
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
-> OPEN MAILBOX                [tower]
 > REMOVE GLASSES              [glasses removed]
+> OPEN MAILBOX                [tower]
 > GIVE RING TO WILL           [three faiths]
 
 Will explains the Church of All altar, the dial, and that three
 religions are needed. He does not name which three. The second briefing
 also posts Quest 17 (The Frozen Watch) on the Quest Board.
+
+Warriors can't read spell scrolls alone. Reading the Unbind Undead
+scroll in Will's presence has him teach it (the glasses came off
+before the mailbox — wearing them in front of Will is an instant fail). The scroll
+is consumed; the spell is ours for the Chuckle House ghost later.
+
+> READ SCROLL                 [The knowing, I mean]
 
 =============================================================================
 E) Pale Blade — Viking Trust Trials (Quest 57)
@@ -478,189 +493,62 @@ We need the crowbar first (it's in the Prayer Alcove, dungeon upper
 tier). We'll come back to the statue after getting the crowbar.
 
 =============================================================================
-H) Werewolf's Amulet — Dungeon Upper Tier (Crowbar & Dungeon Access)
+H1) Quest 59 — Beat Lynds (Heart Necklace, Dankhaus Access)
 =============================================================================
-To reach the dungeon we need to clear the Toll Bridge Boggart via the
-town charter, which requires completing Quest 17 (Frozen Watch). But
-the minimal ring walkthrough skips optional quests, so we need a
-different path.
+The Chuckle House holds the ghost whose pocket watch earns the town
+charter, and the charter clears the Toll Bridge into the dungeon. The
+Chuckle House only becomes visible after Litlock's bonk, and Litlock's
+home (the Dankhaus) is warded until Lynds invites us. So the chain
+starts with Lynds, in the Tale and Ale just south of the square.
 
-Actually, the Toll Bridge (Quest 27) is the only route through the
-Secret Tunnels to the Dungeon Entrance. To get the charter we must
-complete Quest 17 (Frozen Watch) — this is mandatory for dungeon access.
-
-Steps:
-1. Get the Unbind Undead scroll from the Lighthouse.
-2. Navigate the Chuckle House (ring required — invisibility).
-3. Free the ghost, get the pocket watch.
-4. Give watch to Records Room Worker, get town charter.
-5. Give charter to Boggart at the Toll Bridge.
-
-First: the Lighthouse is northeast of Roundabout Beach.
+Arm wrestling is a single contested strength roll.
 
 > SOUTH                       [Tale and Ale]
-> SOUTH                       [Bar]
-> SOUTH                       [Kitchen]
-
-Buy a second torch from Shamus in case the first runs low. We will
-be in the dungeon for a while.
-
-> TALK TO SHAMUS              [Shamus]
-> BUY TORCH                   [torch]
-> NORTH                       [Bar]
-> NORTH                       [Main Room]
-> NORTH                       [Town Square]
-> EAST                        [Main East]
-> EAST                        [Wasteland]
-> EAST                        [Beach Road]
-> SOUTH                       [Roundabout Beach]
-> NORTHEAST                   [Lighthouse]
-> TAKE SCROLL                 [Unbind Undead]
-> SOUTHWEST                   [Roundabout Beach]
-
-Warriors cannot read spell scrolls directly. Bring the Unbind Undead
-scroll to Will Passion to learn it. The glasses must be REMOVED in
-Will's presence or he refuses to teach.
-
-> NORTH                       [Beach Road]
-> WEST                        [Roundabout Wasteland]
-> WEST                        [Main East]
-> WEST                        [Town Square]
-> SOUTH                       [Tale and Ale]
-> OPEN MAILBOX                [tower]
-> REMOVE GLASSES              [glasses removed]
-> GIVE SCROLL TO WILL         [Unbind Undead]
-
-Now navigate the Chuckle House. It is west of the Graveyard, but it is
-not visible yet — Litlock's bonk is the only way to make it appear. For
-the minimal ring walkthrough, we need Litlock's quest (Quest 52) first.
-However, Quest 52 requires Dankhaus access, which requires beating Lynds
-(Quest 59), which requires finding the Dankhaus, which requires finding
-Litlock's home in the bog.
-
-Actually Enchanted Glasses auto-reveal the Dankhaus path in Bog-SE.
-
-> EXAMINE PAINTING            [Tale and Ale]
-> WEAR GLASSES                [glasses]
-> SOUTH                       [Bar]
-> SOUTH                       [Kitchen]
-> DOWN                        [Cellar]
-
-Wait — the cellar is flooded. We need the crowbar to clear the drain
-(Quest 25). But the crowbar is in the dungeon. And we need the dungeon
-for the crowbar. And the dungeon needs the Toll Bridge cleared. And the
-Toll Bridge needs the charter. And the charter needs the ghost freed.
-And the ghost is in the Chuckle House. And the Chuckle House needs
-Litlock's bonk.
-
-Shortest path: get dungeon access through the Secret Tunnels via the
-Graveyard Crypt path. That path goes:
-Graveyard → Mausoleum → Crypt → Charnel Walk → Bone Passage → Junction
-→ Toll Bridge.
-
-No cellar drain required for that route. The Crypt path is a valid
-alternate entry to the Secret Tunnels. Let's use that.
-
-> NORTH                       [Bar]
-> NORTH                       [Main Room]
-> NORTH                       [Town Square]
-> EAST                        [Main East]
-> SOUTH                       [Church Nave]
-> SOUTH                       [Graveyard]
-> SOUTH                       [Mausoleum]
-> DOWN                        [Crypt]
-
-The Crypt is a dark room — light the torch on entry.
-
-> DOWN                        [Charnel Walk]
-> NORTH                       [Bone Passage]
-> NORTH                       [Junction]
-> SOUTH                       [Toll Bridge]
-
-The Boggart blocks the bridge. We don't have the charter yet. But we
-can observe the quest trigger (perception check auto-passes — faded
-official seal visible) and note the Quest 27 discovery.
-
-Actually, without the charter we cannot pass the Boggart. We must
-complete the Frozen Watch / charter chain first.
-
-Let's go earn the Chuckle House visibility via Litlock/Lynds. The bog
-is accessible from the Roundabout Pond area.
-
-> NORTH                       [Junction]
-> WEST                        [Bone Passage]
-> SOUTH                       [Charnel Walk]
-> UP                          [Crypt]
-> UP                          [Mausoleum]
-> NORTH                       [Graveyard]
-> NORTH                       [Church Nave]
-> NORTH                       [Main East]
-> WEST                        [Town Square]
-> WEST                        [Main West]
-> WEST                        [Archery Range]
-> NORTH                       [Roundabout Pond]
-> WEST                        [Bog-SE]
-
-Actually Enchanted Glasses auto-reveal the Dankhaus path here.
-
-> WEST                        [Bog-SW]
-> EAST                        [Bog-SE]
-
-The Dankhaus path is now visible. But wards block entry without Lynds's
-invitation. Go to the Tale and Ale to find Lynds.
-
-> EAST                        [Roundabout Pond]
-> SOUTH                       [Archery Range]
-> EAST                        [Main West]
-> EAST                        [Town Square]
-> SOUTH                       [Tale and Ale]
-
-Find Lynds in the Tale and Ale Main Room.
-
-> CHALLENGE LYNDS             [arm wrestling]
-
-Always-max rolls: Warrior player beats Lynds in a single roll.
-
-> WIN                         [Heart Necklace]
-
-Lynds gives the Heart Necklace and sets the Dankhaus invitation flag.
-
+> CHALLENGE LYNDS             [Heart Necklace]
 > WEAR NECKLACE               [necklace]
 
-Now return to Bog-SE and enter the Dankhaus.
+Lynds's invitation clears the Dankhaus wards.
 
-> WEST                        [Town Square]
+=============================================================================
+H2) Quest 52 — Make Litlock Laugh (Chuckle House Visibility)
+=============================================================================
+The Dankhaus is hidden in Bog-SE. Actually Enchanted Glasses reveal the
+path on the first visit; Lynds's invitation lets us through the wards.
+
+> NORTH                       [Town Square]
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
 > WEST                        [Bog-SE]
 > ENTER DANKHAUS              [Common Room]
 
-Find Litlock and make him laugh (Quest 52 — 2×2×2 dialogue tree).
-The successful path: B (physical) → B2 (ridiculous) → C1 (push further).
+Make Litlock laugh — a 2×2×2 dialogue tree. The successful path:
+B (physical) → B2 (ridiculous) → C1 (push further).
 
 > TALK TO LITLOCK             [Entertain me]
 > DO SOMETHING PHYSICAL       [watches]
 > SIT ON FLOOR                [why are you on the floor]
 > I FIND IT CLARIFYING        [bonk]
 
-Litlock bonks the player on the head. The Chuckle House is now visible
-west of the Graveyard. Return to town.
+Litlock bonks us on the head. The Chuckle House is now visible west of
+the Graveyard.
+
+=============================================================================
+H3) Quest 17 — The Frozen Watch (Chuckle House Ghost)
+=============================================================================
+The Chuckle House requires the ring's invisibility. Put it on at the
+Graveyard, just before entering, and take it off as soon as we're out —
+corruption ticks every turn it's worn.
 
 > WEST                        [Bog-SE]
 > EAST                        [Roundabout Pond]
 > SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
-> SOUTH                       [Tale and Ale]
-
-Now navigate to the Chuckle House. Equip the ring for invisibility.
-
-> WEAR RING                   [ring]
-> EAST                        [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church Nave]
 > SOUTH                       [Graveyard]
+> WEAR RING                   [ring]
 > WEST                        [Chuckle House Entrance]
 > NORTH                       [Rejection Mirror]
 > NORTH                       [Shatter Trap Mirror]
@@ -678,12 +566,13 @@ exit attempts succeed.
 > SOUTH                       [Rejection Mirror]
 > SOUTH                       [Chuckle House Entrance]
 > EAST                        [Graveyard]
-
-Remove the ring to stop corruption ticking.
-
 > REMOVE RING                 [ring removed]
 
-Deliver the watch to the Records Room Worker in Town Hall.
+=============================================================================
+H4) Town Charter — Records Room Worker
+=============================================================================
+The Records Room Worker in Town Hall trades the town charter for the
+pocket watch.
 
 > NORTH                       [Church Nave]
 > NORTH                       [Main East]
@@ -692,7 +581,14 @@ Deliver the watch to the Records Room Worker in Town Hall.
 > WEST                        [Records Room]
 > GIVE WATCH TO WORKER        [town charter]
 
-The worker gives the town charter. Now clear the Toll Bridge.
+=============================================================================
+H5) Quest 27 — The Toll Bridge (Dungeon Access)
+=============================================================================
+The Toll Bridge is reached through the Secret Tunnels. The Graveyard
+crypt path gets there without the flooded cellar:
+Graveyard → Mausoleum → Crypt → Charnel Walk → Bone Passage → Junction
+→ Toll Bridge. The torch is always lit; it starts burning on the first
+dark room.
 
 > EAST                        [Town Hall Exterior]
 > SOUTH                       [Town Square]
@@ -1394,8 +1290,8 @@ Return the bound ring to Will Passion.
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
-> OPEN MAILBOX                [tower]
 > REMOVE GLASSES              [glasses removed]
+> OPEN MAILBOX                [tower]
 > GIVE RING TO WILL           [Well done]
 
 Will takes the ring, listens for something, sets it on the desk. "Well

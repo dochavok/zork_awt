@@ -36,6 +36,7 @@ def make_objects(world) -> None:
     _make_npcs(world)
     _make_viking_objects(world)
     _make_town_objects(world)
+    _make_scrolls(world)
 
 
 # ---------------------------------------------------------------------------
@@ -348,4 +349,18 @@ def _make_town_objects(world) -> None:
         synonyms=["statue", "base", "seam", "plaque", "figure"],
         adjectives=["stone", "civic", "hollow"],
         flags={NDESCBIT, SACREDBIT},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# Spell scrolls (items.md — Unbind Undead Scroll). Teaching: content/will.py
+# ---------------------------------------------------------------------------
+
+def _make_scrolls(world) -> None:
+    world.register_object(GameObject(
+        name="SCROLL-UNBIND-UNDEAD", desc="Unbind Undead scroll",
+        fdesc="A scroll lies on the desk, weighted at one corner with a smooth stone.",
+        ldesc="A spell scroll headed Unbind Undead, in a cramped, careful hand.",
+        synonyms=["scroll", "spell"], adjectives=["unbind", "undead", "spell"],
+        flags={TAKEBIT},
     ))

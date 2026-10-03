@@ -1010,6 +1010,8 @@ Players carrying a shovel will likely attempt to dig. `DIG` succeeds up to 5 tim
 **Items:** Unbind Undead spell scroll (on desk; required for Quest 17 ghost)
 **Quest Hooks:** Quest 17 — scroll needed to cast UNBIND UNDEAD on ghost in Chuckle House
 **Connections:** Southwest → Roundabout Beach.
+**Room description:** *The keeper's room is small and round, the walls curving with the tower. A narrow stair spirals up toward the lamp. A desk sits under the one window, papers stacked with more care than anything else in the room — whoever works here left in the middle of something and meant to come back.*
+
 Dead-end room off Roundabout Beach to the northeast. Open, unattended. A desk holds a scroll — the **Unbind Undead spell**, left by Silas Bryne (unmet NPC, referenced only in May's Quest 17 hints). No quest assigned beyond the scroll. Quests 14 and 23 both retired.
 
 ### The Docks

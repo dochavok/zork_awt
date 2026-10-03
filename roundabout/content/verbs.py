@@ -278,7 +278,7 @@ def v_talk(world: World) -> int:
     if obj.name == "SHAMUS":
         print(
             'Shamus wipes his hands on his apron. "What can I do for you? '
-            'Got gunpowder, torches. Five Zenni each."'
+            'Gunpowder\'s five Zenni. Torches, three."'
         )
         return M_HANDLED
 
@@ -406,6 +406,13 @@ def v_give(world: World) -> int:
         world.set_global("SECOND-BRIEFING-DONE", True)
         return M_HANDLED
 
+    # Spell scroll to Will — teaching (mechanics.md, Quest 56)
+    if npc.name == "WILL":
+        from content import will
+        if item.name in will.SPELL_SCROLLS:
+            will.teach(world, item)
+            return M_HANDLED
+
     # Runed metal to Pyronicus — forges the Pale Blade
     if npc.name == "PYRONICUS" and item.name == "RUNED-METAL":
         from content import vikings
@@ -413,6 +420,24 @@ def v_give(world: World) -> int:
         return M_HANDLED
 
     print(f"{npc.desc} doesn't take the {item.desc}.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-READ  (READ SCROLL)
+# ---------------------------------------------------------------------------
+
+def v_read(world: World) -> int:
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    from content import will
+    if will.read_scroll(world, obj):
+        return M_HANDLED
+    if obj.text:
+        print(obj.text)
+    else:
+        print(f"There's nothing written on the {obj.desc}.")
     return M_HANDLED
 
 
@@ -469,6 +494,10 @@ def v_drink(world: World) -> int:
 # V-BUY
 # ---------------------------------------------------------------------------
 
+# mechanics.md — Economy baseline / Torch
+_SHAMUS_PRICES = {"GUNPOWDER": 5, "TORCH": 3}
+
+
 def v_buy(world: World) -> int:
     obj = world.prso
     if obj is None:
@@ -480,7 +509,10 @@ def v_buy(world: World) -> int:
         return M_HANDLED
 
     zenni = world.globals.get("zenni", 0)
-    price = 5
+    price = _SHAMUS_PRICES.get(obj.name)
+    if price is None:
+        print('Shamus shakes his head. "Don\'t sell that."')
+        return M_HANDLED
 
     if zenni < price:
         print(f"You don't have enough Zenni. (Need {price}, have {zenni}.)")
@@ -727,6 +759,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-SAIL",       v_sail)
     game.register_verb("V-LIGHT",      v_light)
     game.register_verb("V-PUT-ON",     v_put_on)
+    game.register_verb("V-READ",       v_read)
     game.register_verb("V-ACTIVATE",   v_activate)
     game.register_verb("V-DRINK",      v_drink)
     from content.vikings import riddle_input_hook

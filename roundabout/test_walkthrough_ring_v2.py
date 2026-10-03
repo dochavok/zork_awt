@@ -48,6 +48,11 @@ def _make_input_feed():
     return _feed
 
 
+# Random setup (Zenni rooms) is randomized once and fixed for the tests.
+# Seed 7 is on the lean side: 8 Zenni by Will's teaching in section D.
+_SEED = 7
+
+
 def _always_max(a, b):
     return b
 
@@ -151,7 +156,7 @@ def _make_game():
     p = Parser(make_vocabulary(), make_syntax_rules())
     c = Clock()
     g = Game(w, p, c)
-    initialize_world(w, g)
+    initialize_world(w, g, seed=_SEED)
     return g, w
 
 
