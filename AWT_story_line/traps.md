@@ -24,7 +24,7 @@ Perception spots unusual metallic filings arranged in a ring around the chest's 
 **16. Mirror Shatter Trap**
 **Descriptor:** a firing pin behind the mirror's frame, a crossbow cocked and ready
 A mirror rigged with a crossbow behind the frame. Fires at any player passing through — visible or invisible.
-Perception check spots the firing pin and disarms it before it fires; otherwise the crossbow fires once and is spent.
+Perception check (Medium) spots the firing pin; disarm roll (Medium, trap skill) disarms it before it fires; otherwise the crossbow fires once and is spent — 1 heart physical damage: *Something clicks behind the frame. A bolt cracks out of the dark and catches you before you can move.*
 Either way, the trap is no longer a factor on the way out or on return visits.
 The mirror also repels visible players until the Chuckle House ghost is freed.
 *(Chuckle House — The Shatter Trap Mirror.)*

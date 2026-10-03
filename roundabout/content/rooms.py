@@ -699,6 +699,10 @@ def _make_pond_and_bog(world, archery) -> None:
     from content import dankhaus
     dankhaus.make_rooms(world, bog_se)
 
+    # Church, Graveyard, Mausoleum, Chuckle House — content/chuckle.py
+    from content import chuckle
+    chuckle.make_rooms(world)
+
 
 # ---------------------------------------------------------------------------
 # Mine — Pie Rats Mining Inc.

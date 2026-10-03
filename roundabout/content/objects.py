@@ -45,6 +45,7 @@ def make_objects(world) -> None:
     _make_alley_objects(world)
     _make_lynds_objects(world)
     _make_dankhaus_objects(world)
+    _make_chuckle_objects(world)
 
 
 # ---------------------------------------------------------------------------
@@ -494,4 +495,41 @@ def _make_dankhaus_objects(world) -> None:
     world.register_object(GameObject(
         name="AURIX", desc="Aurix", fdesc=presence, ldesc=presence,
         synonyms=["aurix", "kobold", "child"], adjectives=["small"], flags={ACTORBIT},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# The Chuckle House (logic: content/chuckle.py)
+# ---------------------------------------------------------------------------
+
+def _make_chuckle_objects(world) -> None:
+    from content.chuckle import GHOST_PRESENCE
+    world.register_object(GameObject(
+        name="TICKET-BOOTH", desc="ticket booth",
+        ldesc="The ticket window is cracked but intact. A small wooden sign on the "
+              "ledge reads: ADMISSION. Below it, in smaller text: EVERYONE GETS IN. "
+              "The booth is empty. Whoever collected the tickets isn't collecting "
+              "anymore.",
+        synonyms=["booth", "window", "sign"], adjectives=["ticket"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="CHUCKLE-HOOKS", desc="hooks",
+        ldesc="Empty brackets where something square once hung — the right shape "
+              "for mirrors, though whatever was here is long gone. The hooks in the "
+              "deeper rooms still have their tenants.",
+        synonyms=["hooks", "brackets"], flags={NDESCBIT, SACREDBIT},
+    ))
+    # Seen only while the ring is worn — hostility is atmosphere only
+    world.register_object(GameObject(
+        name="GHOST", desc="ghost", fdesc=GHOST_PRESENCE, ldesc=GHOST_PRESENCE,
+        synonyms=["ghost", "spirit", "figure"], adjectives=["grey"],
+        flags={ACTORBIT, INVISIBLE},
+    ))
+    world.register_object(GameObject(
+        name="POCKET-WATCH", desc="pocket watch",
+        fdesc="A pocket watch lies on the floor where the ghost stood.",
+        ldesc="A plain silver pocket watch, stopped. The inside of the lid is "
+              "engraved, but too worn to read.",
+        synonyms=["watch"], adjectives=["pocket", "silver"], flags={TAKEBIT},
     ))

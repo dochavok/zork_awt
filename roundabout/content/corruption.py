@@ -65,9 +65,11 @@ def _full_corruption(world: "World") -> None:
     print(
         "You reach for the ring. Your hand doesn't move. "
         "You watch it not move. The ring is warm and patient and it has been waiting "
-        "for exactly this. You are not going to take it off."
+        "for exactly this. You are not going to take it off.\n\n"
+        "*** GAME OVER ***"
     )
-    world.game.jigs_up("Full corruption.")
+    world.set_global("GAME-OVER", True)   # fail condition — no resurrection
+    world.game.quit()
 
 
 def try_remove_ring(world: "World") -> bool:

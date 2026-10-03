@@ -6,20 +6,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–H2 passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–H3 passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section H3 — Quest 17, The Frozen Watch (Chuckle House ghost). First failure:
+**Current position:** Section H4 — Town Charter (Records Room Worker). First failure:
 
 ```
-SECTION [H3) Quest 17 — The Frozen Watch (Chuckle House Ghost)]
-  cmd     : 'SOUTH'
-  missing : 'Church Nave'
+SECTION [H4) Town Charter — Records Room Worker]
+  cmd     : 'NORTH'
+  missing : 'Town Hall Exterior'
   got     : "You can't go that way."
 ```
 
-Needs Church Nave, Graveyard, the Chuckle House (4 rooms, mirror mechanic, 50% exit-fail), wearing the ring (invisibility + corruption ticks), CAST UNBIND UNDEAD, the ghost and pocket watch.
+Needs Town Hall Exterior, Records Room, the Records Room Worker and the watch → charter exchange (Quest 17 completes: 17 XP, 8 Zenni).
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
@@ -34,6 +34,7 @@ Needs Church Nave, Graveyard, the Chuckle House (4 rooms, mirror mechanic, 50% e
 - Hidden Zenni rooms (36, seeded at init; tests pin seed 7)
 - Old Oak area (Quest 41 kite, Beekeeper's Cottage, Swarm Tree), forest + bog bowl pieces, Pond and 4 bog rooms
 - SAVE / RESTORE
+- Church Nave, Graveyard (pre/post bonk), Mausoleum, Chuckle House (mirrors, Trap 16, ghost, 50% exits), WEAR/REMOVE RING with corruption, CAST UNBIND UNDEAD; full corruption is GAME OVER
 - Kevry per design (enchant on arrival if worn; WEAR in front of him if carried; quest-hint line without glasses)
 - Dankhaus path (Medium perception), wards, 7 Dankhaus rooms, Litlock's tree as a numbered menu (Quest 52)
 - Lynds (Quest 59): CHALLENGE / TALK TO, contested roll with tie reroll, 20-turn loss cooldown, Heart Necklace +1 heart while worn

@@ -220,7 +220,7 @@ When the enemy wins a combat round and would deal 1 heart damage, the tunic fire
 
 ## The God-Forsaken Ring
 
-- Grants invisibility while worn.
+- Grants invisibility while worn. `WEAR RING`: *You slip the ring on. When you look down, your hand is still there — but only because you know where to look.*
 - Corruption timer advances each turn worn. Pauses on removal; resumes on re-equip. Never resets.
 - **Total ticks to full corruption: 50.**
 - Altar use at Church of All does NOT tick corruption — the ring is being used for its purpose, not personal gain.
@@ -261,7 +261,7 @@ When the enemy wins a combat round and would deal 1 heart damage, the tunic fire
 - **Near-miss success:** *The ring comes off. It didn't want to. You're not sure you could have held out another moment.*
 - **Failure:** *You try to take the ring off. Your fingers find it. They don't do what you ask.*
 
-**Game over message (tick 50):** *You reach for the ring. Your hand doesn't move. You watch it not move. The ring is warm and patient and it has been waiting for exactly this. You are not going to take it off.*
+**Game over message (tick 50) — a fail condition, no resurrection:** *You reach for the ring. Your hand doesn't move. You watch it not move. The ring is warm and patient and it has been waiting for exactly this. You are not going to take it off.*
 
 **Corruption is sacred:** Ring corruption must never be reduced, slowed, or mitigated by any mechanic, item, or quest reward. This is a hard design constraint.
 
@@ -288,6 +288,11 @@ Spells learned permanently once acquired.
 **Reuse timers:** Number of turns before spell can be cast again. Starts when cast — independent of duration.
 
 **Duration:** Number of turns effect lasts. Independent of reuse timer.
+
+**Casting (`CAST <spell>`):**
+- Nothing to affect: *"Nothing here answers the spell."* — the reuse timer does not start.
+- Reuse timer still running: *"You reach for the spell and find it isn't ready yet."*
+- Spell not learned: *"You don't know that spell."*
 
 **Spell scrolls vs. use-item scrolls:** Spell scrolls teach a spell permanently (Light, Unbind Undead, Fireball). Use-item scrolls are consumed on use without teaching anything (incantation scroll — Quest 28/34 speaking door). The resistance mechanic below applies to spell scrolls only; use-item scrolls work for all classes.
 

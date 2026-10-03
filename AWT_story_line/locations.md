@@ -540,6 +540,10 @@ No mirrors in this room — mirror mechanic begins in the Rejection Mirror. The 
 **Connections:** North → The Entrance. South → The Shatter Trap Mirror.
 A mirror that repels visible players — stepping in front of it while visible sends the player back to the Entrance. Passing while invisible (ring worn) proceeds normally. No ghost here — ghost is in the last room.
 
+**Room description:** *A narrow room with a single tall mirror filling the far wall, its frame carved with grinning faces. The glass is old and silvered at the edges. The doorway to the south is beside it — you'd have to pass right in front of it to get there.*
+
+**Mirror repels (visible player, any Chuckle House mirror):** *The mirror finds you. Your reflection looks back at you with an expression you aren't making — and then you are back where you started, with no memory of turning around.*
+
 ### The Shatter Trap Mirror
 **XP: 1**
 **NPCs:** None
@@ -548,15 +552,22 @@ A mirror that repels visible players — stepping in front of it while visible s
 **Connections:** North → The Rejection Mirror. South → Ghost's Room.
 A mirror that repels visible players. Also rigged with a crossbow behind the frame (Trap 16). Fires at any player passing through — visible or invisible. Perception check spots the firing pin and disarms it before it fires; otherwise the crossbow fires once and is spent. Mirror still repels visible players until the ghost is freed.
 
+**Room description (no hint of the trap):** *Another mirror, another frame of carved smiles. This one is larger than the last, the glass faintly rippled with age, so your reflection wavers as you move. The way on is past it, to the south.*
+
 ### Ghost's Room
 **XP: 1**
 **NPCs:** Ghost (Records Room Worker's relative; hostile; freed by CAST UNBIND UNDEAD)
 **Items:** Pocket watch (dropped by ghost on freeing; Quest 17 / Quest 27)
 **Quest Hooks:** Quest 17 — free the ghost, recover pocket watch; pocket watch returned to Records Room Worker unlocks town charter (Quest 27)
 **Connections:** North → The Shatter Trap Mirror. (Dead end — 50% chance exit attempt fails each turn)
-Mirrors on all sides. The ghost of the Records Room Worker's missing relative haunts this room — hostile.
+Mirrors on all sides. The ghost of the Records Room Worker's missing relative haunts this room — hostile (atmosphere only: no attacks).
+
+**Room description:** *Mirrors on every wall, angled at each other so the room goes on in every direction at once. Your reflections are wrong by a fraction — a beat late, or a beat early. It is very cold.*
+**Ghost (presence, ring worn):** *A figure stands among the reflections, grey and thin and turned toward you — the only thing in the room that isn't repeated.*
+**Pocket watch (after freeing):** listing *A pocket watch lies on the floor where the ghost stood.* Examine: *A plain silver pocket watch, stopped. The inside of the lid is engraved, but too worn to read.*
 Ghost visible only while wearing the ring. `CAST UNBIND UNDEAD` releases the ghost; he says *"Thank you. I can rest now."* and drops the pocket watch.
 **Exit mechanic:** 50% chance each attempt to leave fails — player returned to same room with a disorientation message. Permanent — does not end when ghost is freed.
+**Disorientation:** *You head for the door. The mirrors turn you around somewhere along the way, and you find yourself back in the middle of the room.*
 Post-freeing: mirrors no longer repel visible players anywhere in the Chuckle House.
 
 **May's hints — Ghost/Watch quest:**

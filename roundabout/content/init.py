@@ -115,6 +115,10 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["DANKHAUS"], world.rooms["BOG-SE"])
     world.move_object(world.objects["LITLOCK"],  world.rooms["DANKHAUS-COMMON-ROOM"])
     world.move_object(world.objects["AURIX"],    world.rooms["AURIX-ROOM"])
+    world.move_object(world.objects["TICKET-BOOTH"],  world.rooms["CHUCKLE-ENTRANCE"])
+    world.move_object(world.objects["CHUCKLE-HOOKS"], world.rooms["CHUCKLE-ENTRANCE"])
+    world.move_object(world.objects["GHOST"],         world.rooms["GHOSTS-ROOM"])
+    # POCKET-WATCH is dropped when the ghost is freed
     # LOCKPICKS drop when the mugger is slain
     # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus
 

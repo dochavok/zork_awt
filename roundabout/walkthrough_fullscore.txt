@@ -667,13 +667,13 @@ Corruption ticks while wearing it — remove it as soon as possible after.
 > WEAR GLASSES                [glasses]
 > NORTH                       [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 
 Equip the ring just before entering the Chuckle House.
 
 > WEAR RING                   [ring]
-> EAST                        [Chuckle House Entrance]
+> EAST                        [The Entrance]
 > SOUTH                       [Rejection Mirror]
 > SOUTH                       [Shatter Trap Mirror]
 > SOUTH                       [Ghost's Room]
@@ -681,13 +681,13 @@ Equip the ring just before entering the Chuckle House.
 > TAKE WATCH                  [pocket watch]
 > NORTH                       [Shatter Trap Mirror]
 > NORTH                       [Rejection Mirror]
-> NORTH                       [Chuckle House Entrance]
+> NORTH                       [The Entrance]
 > WEST                        [Graveyard]
 > REMOVE RING                 [ring removed]
 
 Deliver the watch to the Records Room Worker.
 
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
@@ -715,7 +715,7 @@ path also works (after Quest 25), but Crypt is available now.
 > EAST                        [Town Hall Exterior]
 > SOUTH                       [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
 > DOWN                        [Crypt]
@@ -861,7 +861,7 @@ heavy items we dropped.
 
 Talk to Rowan Finch (Council Chamber):
 
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
@@ -888,10 +888,10 @@ Perception check auto-passes — gravestone visible face-down in mud
 > EAST                        [Main West]
 > EAST                        [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > DROP CART                   [gravestone placed]
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
@@ -923,7 +923,7 @@ the dungeon upper tier.
 Navigate back to the dungeon.
 
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
 > DOWN                        [Crypt]
@@ -974,7 +974,7 @@ Crowbar required to remove drain cover.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
@@ -1056,7 +1056,7 @@ Navigate from the Library.
 > EAST                        [Main West]
 > EAST                        [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
 > DOWN                        [Crypt]
@@ -1217,10 +1217,10 @@ Surface, use Keeper's keys at Keeper's Chamber (Church of All).
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > EAST                        [Keeper's Chamber door]
 > UNLOCK DOOR WITH KEYS       [Keeper's Chamber]
 > TAKE HOLY WATER             [holy water]
@@ -1234,7 +1234,7 @@ FF) Quest 4 — The Whispering Jar (Complete)
 The inn's back room has the jar. We have wax seal, silver dust, and can
 read the incantation etched on the base.
 
-> WEST                        [Church Nave]
+> WEST                        [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
@@ -1302,7 +1302,7 @@ Return to The Still Den with the consecrated silver stake.
 > WEAR GLASSES                [glasses]
 > NORTH                       [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
 > DOWN                        [Crypt]
@@ -1592,7 +1592,7 @@ Circle). Navigate to the Church of All altar.
 > EXAMINE PAINTING            [Tale and Ale]
 > NORTH                       [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > EAST                        [Altar]
 
 Place all three artifacts and attune the dial for each. Default
@@ -1637,7 +1637,7 @@ UU) Trophy Case — Deposit All Treasures
 Nine treasures to deposit. The Tower is on the second floor of Town Hall.
 Open the case before placing items.
 
-> WEST                        [Church Nave]
+> WEST                        [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
@@ -1654,7 +1654,7 @@ We haven't retrieved it yet. Let's do that now and return.
 > DOWN                        [Town Hall Exterior]
 > SOUTH                       [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
 > DOWN                        [Crypt]
@@ -1710,7 +1710,7 @@ south of Mine Passage — Stored Room is not on this path.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]

@@ -236,6 +236,16 @@ def v_wear(world: World) -> int:
     if obj.has_flag(WEARBIT):
         print(f"You're already wearing the {obj.desc}.")
         return M_HANDLED
+    if obj.name == "RING":
+        from content import corruption, chuckle
+        corruption.wear_ring(world)
+        if not world.globals.get("ring_worn"):
+            return M_HANDLED   # bound / fully corrupted: it won't go on
+        obj.set_flag(WEARBIT)
+        print("You slip the ring on. When you look down, your hand is still "
+              "there — but only because you know where to look.")
+        chuckle.update_ghost_visibility(world)
+        return M_HANDLED
     obj.set_flag(WEARBIT)
     if obj.name == "ENCHANTED-GLASSES":
         _set_glasses_state(world)
@@ -263,6 +273,12 @@ def v_remove(world: World) -> int:
     if player is None or obj not in player.contents or not obj.has_flag(WEARBIT):
         print(f"You aren't wearing the {obj.desc}.")
         return M_HANDLED
+
+    if obj.name == "RING":
+        from content import corruption, chuckle
+        if not corruption.try_remove_ring(world):
+            return M_HANDLED   # late-stage roll failed; the ring stays on
+        chuckle.update_ghost_visibility(world)
 
     obj.clear_flag(WEARBIT)
     if obj.name == "ENCHANTED-GLASSES":
@@ -873,6 +889,8 @@ def register_verbs(game) -> None:
     game.register_verb("V-ENTER",      v_enter)
     from content.dankhaus import litlock_input_hook
     game.register_input_hook(litlock_input_hook)
+    from content.spells import cast_input_hook
+    game.register_input_hook(cast_input_hook)
     game.register_verb("V-ACTIVATE",   v_activate)
     game.register_verb("V-DRINK",      v_drink)
     from content.vikings import riddle_input_hook

@@ -635,10 +635,10 @@ corruption ticks every turn it's worn.
 > EAST                        [Main West]
 > EAST                        [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > WEAR RING                   [ring]
-> EAST                        [Chuckle House Entrance]
+> EAST                        [The Entrance]
 > SOUTH                       [Rejection Mirror]
 > SOUTH                       [Shatter Trap Mirror]
 > SOUTH                       [Ghost's Room]
@@ -653,7 +653,7 @@ exit attempts succeed.
 
 > NORTH                       [Shatter Trap Mirror]
 > NORTH                       [Rejection Mirror]
-> NORTH                       [Chuckle House Entrance]
+> NORTH                       [The Entrance]
 > WEST                        [Graveyard]
 > REMOVE RING                 [ring removed]
 
@@ -663,7 +663,7 @@ H4) Town Charter — Records Room Worker
 The Records Room Worker in Town Hall trades the town charter for the
 pocket watch.
 
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
@@ -682,7 +682,7 @@ dark room.
 > EAST                        [Town Hall Exterior]
 > SOUTH                       [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
 > DOWN                        [Crypt]
@@ -784,7 +784,7 @@ lower tier for the Keeper's keys and holy water.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 
@@ -847,7 +847,7 @@ Fetch the cart:
 > NORTH                       [Main Room]
 > NORTH                       [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
 > DOWN                        [Crypt]
@@ -872,7 +872,7 @@ back to the cemetery.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > WEST                        [Main West]
@@ -890,13 +890,13 @@ Push the cart back to the Graveyard (cemetery).
 > EAST                        [Main West]
 > EAST                        [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > DROP CART                   [gravestone placed]
 
 Return to Rowan Finch for the key.
 
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall Exterior]
@@ -912,7 +912,7 @@ Descend to the Dungeon Upper Tier and use the Middle Tier Key.
 > WEST                        [Town Hall Exterior]
 > SOUTH                       [Town Square]
 > EAST                        [Main East]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
 > DOWN                        [Crypt]
@@ -1018,10 +1018,10 @@ the Keeper's Chamber in the Church of All.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > EAST                        [Keeper's Chamber — door]
 > UNLOCK DOOR WITH KEYS       [Keeper's Chamber]
 > TAKE HOLY WATER             [holy water]
@@ -1033,7 +1033,7 @@ O) Werewolf's Amulet — Kill the Undead Werewolf
 Return to the lower tier through the Hole to Below and go east through
 The Narrow Pass to The Still Den.
 
-> WEST                        [Church Nave]
+> WEST                        [Church of All]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
 > DOWN                        [Crypt]
@@ -1134,7 +1134,7 @@ and all three bowl pieces (C1, E, I) are already in hand.
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
-> NORTH                       [Church Nave]
+> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 
@@ -1168,7 +1168,7 @@ Circle). Navigate to the Church of All altar.
 > WEST                        [Wasteland]
 > WEST                        [Main East]
 > WEST                        [Town Square]
-> SOUTH                       [Church Nave]
+> SOUTH                       [Church of All]
 > EAST                        [Altar]
 
 Place all three artifacts on the altar, attuning the dial for each one.
@@ -1224,7 +1224,7 @@ U) Return Ring to Will — Quest Complete
 =============================================================================
 Return the bound ring to Will Passion.
 
-> WEST                        [Church Nave]
+> WEST                        [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
