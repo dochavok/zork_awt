@@ -132,6 +132,29 @@ def v_look(world: World) -> int:
 
 
 # ---------------------------------------------------------------------------
+# V-SAVE / V-RESTORE  (engine/savegame.py)
+# ---------------------------------------------------------------------------
+
+def v_save(world: World) -> int:
+    from engine import savegame
+    savegame.save(world.game)
+    print("Saved.")
+    return M_HANDLED
+
+
+def v_restore(world: World) -> int:
+    from engine import savegame
+    if not savegame.restore(world.game):
+        print("There's no saved game to restore.")
+        return M_HANDLED
+    print("Restored.")
+    world.game.desc_mode_override = True
+    world.game.describe_room()
+    world.game.desc_mode_override = False
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
 # V-INVENTORY  (INVENTORY / I)
 # Item names are the items.md "inventory description" (obj.desc).
 # ---------------------------------------------------------------------------
@@ -178,16 +201,13 @@ def v_take(world: World) -> int:
     if player is None:
         return M_NOT_HANDLED
 
-    obj.touched = True
-    desc = obj.ldesc or obj.desc
-
     if obj in player.contents:
-        # Auto-take already moved it; just confirm with description
-        print(f"Taken. {desc}" if desc else "Taken.")
+        print(f"You already have the {obj.desc}.")
         return M_HANDLED
 
+    obj.touched = True
     world.move_object(obj, player)
-    print(f"Taken. {desc}" if desc else "Taken.")
+    print(f"You take the {obj.desc}.")
     return M_HANDLED
 
 
@@ -331,6 +351,11 @@ def v_talk(world: World) -> int:
         print("The child says nothing.")
         return M_HANDLED
 
+    if obj.name in ("OAK-CHILD", "BEEKEEPER"):
+        from content import old_oak
+        (old_oak.talk_child if obj.name == "OAK-CHILD" else old_oak.talk_beekeeper)(world)
+        return M_HANDLED
+
     if obj.name == "PYRONICUS":
         ring   = world.objects.get("RING")
         player = world.player
@@ -413,6 +438,12 @@ def v_give(world: World) -> int:
             will.teach(world, item)
             return M_HANDLED
 
+    # Kite back to the child — Quest 41
+    if npc.name == "OAK-CHILD" and item.name == "KITE":
+        from content import old_oak
+        old_oak.give_kite(world)
+        return M_HANDLED
+
     # Runed metal to Pyronicus — forges the Pale Blade
     if npc.name == "PYRONICUS" and item.name == "RUNED-METAL":
         from content import vikings
@@ -420,6 +451,32 @@ def v_give(world: World) -> int:
         return M_HANDLED
 
     print(f"{npc.desc} doesn't take the {item.desc}.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-CLIMB  (CLIMB TREE)
+# ---------------------------------------------------------------------------
+
+def v_climb_tree(world: World) -> int:
+    """CLIMB TREE parses as its own verb (particle "tree")."""
+    if world.here is not None and world.here.name == "OLD-OAK":
+        from content import old_oak
+        old_oak.climb_tree(world)
+    else:
+        print("There's no tree here worth climbing.")
+    return M_HANDLED
+
+
+def v_climb(world: World) -> int:
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    if obj.name == "OAK-TREE":
+        from content import old_oak
+        old_oak.climb_tree(world)
+        return M_HANDLED
+    print(f"You can't climb the {obj.desc}.")
     return M_HANDLED
 
 
@@ -747,6 +804,8 @@ def register_verbs(game) -> None:
     game.register_verb("V-EXAMINE",    v_examine)
     game.register_verb("V-LOOK",       v_look)
     game.register_verb("V-INVENTORY",  v_inventory)
+    game.register_verb("V-SAVE",       v_save)
+    game.register_verb("V-RESTORE",    v_restore)
     game.register_verb("V-TAKE",       v_take)
     game.register_verb("V-WEAR",       v_wear)
     game.register_verb("V-REMOVE",     v_remove)
@@ -760,6 +819,8 @@ def register_verbs(game) -> None:
     game.register_verb("V-LIGHT",      v_light)
     game.register_verb("V-PUT-ON",     v_put_on)
     game.register_verb("V-READ",       v_read)
+    game.register_verb("V-CLIMB",      v_climb)
+    game.register_verb("V-CLIMB-TREE", v_climb_tree)
     game.register_verb("V-ACTIVATE",   v_activate)
     game.register_verb("V-DRINK",      v_drink)
     from content.vikings import riddle_input_hook

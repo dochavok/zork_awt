@@ -787,7 +787,7 @@ Contains a rune stone — perception check required.
 ### Bog of Eternal Stench (SW)
 **XP: 1**
 **NPCs:** None
-**Items:** Bog thyme (Quest 40; perception check — among the reeds)
+**Items:** Bog thyme (Quest 40; perception check — among the reeds); Verdant Circle shrine bowl piece (Quest 49; Easy perception check, every visit until found — text in items.md)
 **Quest Hooks:** Quest 40
 **Connections:** East → Bog of Eternal Stench (SE). North → Bog of Eternal Stench (NW). Northeast → Bog of Eternal Stench (NE).
 Contains bog thyme — perception check required to spot it among the reeds.
@@ -887,6 +887,9 @@ East of the Wasteland. A road that forks — south toward Roundabout Beach, nort
 **Items:** Rune stone (threaded on cord; falls free when kite retrieved via CLIMB TREE — Quest 42)
 **Quest Hooks:** Quest 41 — retrieve kite, give to child; Quest 42 — rune stone found here
 **Connections:** South → Beach Road. North → Roundabout Forest. West → Beekeeper's Cottage. East → Swarm Tree.
+**Room description (kite stuck):** *A large oak dominates the clearing, old enough to have opinions. A kite is tangled in its upper branches. The forest begins to the north; Beach Road runs south. A cottage sits off to the west, and to the east a broad old tree hums faintly.*
+**Room description (kite retrieved):** same, without the kite sentence.
+
 Between Beach Road and Roundabout Forest. A large oak dominates this spot. A child stands here — a kite is tangled in the upper branches. `CLIMB TREE` retrieves the kite; a rune stone threaded on a cord falls free. `GIVE KITE TO CHILD` completes Quest 41. The rune stone is one of three needed for Quest 42.
 
 ### Beekeeper's Cottage
@@ -925,6 +928,8 @@ The crumbled Verdant Circle shrine is visible on entry — no perception check r
 *A stone shrine stands at the edge of the trees — old enough that the forest has started to take it back. A carved pedestal, still solid.*
 *On it, the remains of a ceramic bowl, smashed at some point and not recently. Three or four pieces visible here; others have clearly gone elsewhere.*
 *The symbol on the pedestal is a sprouting seed inside a circle of leaves.*
+
+**Bowl piece (Easy perception check, every visit until found):** room listing *Among the shards on the pedestal, one piece is larger than the rest — a curved section of the rim, still whole.*
 
 Pie Rats Mining Inc. — underground beneath Roundabout Forest. Legitimate mining facade; actually a smuggling front for the Pie Rats pirate faction.
 

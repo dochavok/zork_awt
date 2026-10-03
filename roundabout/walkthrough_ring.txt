@@ -61,12 +61,13 @@ present. Equipping them anywhere Will can see you is an instant fail.
 > WEAR GLASSES                [glasses]
 
 =============================================================================
-C) Sailing to Kevry's Island — Glasses Enchantment
+C1) Before Sailing — Scroll, Kite & the Pie Rat Heist
 =============================================================================
-We sail 69 squares east through the Open Ocean to Kevry's island.
-Glasses must be equipped (head slot) on arrival for Kevry to enchant.
+Kevry's island is 69 squares east across the Open Ocean, and the Pie
+Rats won't let us aboard their ship without a disguise. This section
+gets everything needed to board, picking up a few things on the way.
 
-Sail from the Tale and Ale back to the overworld. The Docks are east of
+Head from the Tale and Ale out to the overworld. The Docks are east of
 Roundabout Beach.
 
 > EXAMINE PAINTING            [Tale and Ale]
@@ -94,7 +95,31 @@ The mine is reached through Roundabout Forest (north of Beach Road).
 > WEST                        [Roundabout Beach]
 > NORTH                       [Beach Road]
 > NORTH                       [Old Oak]
+
+OPTIONAL — not required to complete the ring. Done for XP so the
+player reaches level 4 before arm wrestling Lynds in H1.
+
+Quest 41 — The Child's Kite: the kite is tangled in the oak. Climbing
+the tree frees it; giving it back to the child completes the quest
+(4 XP).
+
+> CLIMB TREE                  [kite]
+> GIVE KITE TO CHILD          [kite]
+
+The rooms off the Old Oak are worth a visit for exploration XP. The
+Swarm Tree's bees drive us straight back out (1 heart) — that's fine,
+the visit still counts.
+
+> WEST                        [Beekeeper's Cottage]
+> EAST                        [Old Oak]
+> EAST                        [You retreat]
 > NORTH                       [Roundabout Forest]
+
+The crumbled Verdant Circle shrine is here. One of the three bowl
+pieces for the Crystal Bowl (Quest 49) lies near it — an easy
+perception check. It isn't needed until much later.
+
+> TAKE BOWL PIECE             [bowl piece]
 > DOWN                        [Mine Entrance]
 > DOWN                        [Main Shaft]
 
@@ -180,8 +205,12 @@ the Hole to Below).
 > BOARD SHIP                  [deck]
 > TAKE SHOVEL                 [shovel]
 
+=============================================================================
+C2) Set Sail — Kevry's Island & the Glasses Enchantment
+=============================================================================
 Sail 69 squares east through the Open Ocean. Navigation: SET SAIL, then
-GO EAST repeatedly until we reach Kevry's island.
+GO EAST repeatedly until we reach Kevry's island. Glasses must be
+equipped (head slot) on arrival for Kevry to enchant them.
 
 > SET SAIL                    [sail]
 > GO EAST                     [Western Roundabout Sea]
@@ -351,6 +380,11 @@ Walk back to the beach and board the ship.
 > GO WEST                     [open ocean]
 > DOCK                        [Docks]
 
+The coil of rope on the bollard is needed much later, to tie off the
+Hole to Below in the dungeon (section L). Take it now.
+
+> TAKE ROPE                   [rope]
+
 =============================================================================
 D) Ring Retrieval — Pyronicus's Forge
 =============================================================================
@@ -415,6 +449,27 @@ West to the Archery Range, then west again to the Viking Encampment.
 > NORTH                       [Town Square]
 > WEST                        [Main West]
 > WEST                        [Archery Range]
+
+Detour north through the Pond into the bog for the second bowl piece
+(Bog-SW, perception check). The Actually Enchanted Glasses also reveal
+the Dankhaus path in Bog-SE as we pass — we'll need it in H2.
+
+> NORTH                       [Roundabout Pond]
+> WEST                        [Bog of Eternal Stench]
+> WEST                        [Bog of Eternal Stench]
+> TAKE BOWL PIECE             [bowl piece]
+
+OPTIONAL — not required to complete the ring. Done for XP so the
+player reaches level 4 before arm wrestling Lynds in H1.
+
+The bog's four rooms form a loop. Finishing it through Bog-NW and
+Bog-NE adds their exploration XP without backtracking.
+
+> NORTH                       [Bog of Eternal Stench]
+> EAST                        [Bog of Eternal Stench]
+> SOUTH                       [Bog of Eternal Stench]
+> EAST                        [Roundabout Pond]
+> SOUTH                       [Archery Range]
 > WEST                        [Viking Encampment]
 > TALK TO IVANAAR             [Haalvar]
 
@@ -493,17 +548,42 @@ We need the crowbar first (it's in the Prayer Alcove, dungeon upper
 tier). We'll come back to the statue after getting the crowbar.
 
 =============================================================================
+G2) Optional — Quest 51, The Back Alley Mugger (XP)
+=============================================================================
+OPTIONAL — not required to complete the ring. Done for XP so the
+player reaches level 4 before arm wrestling Lynds in H1.
+
+The Back Alley is south of The Alley, southwest of Town Square. The
+mugger's perception check auto-passes with Actually Enchanted Glasses,
+so he's visible on the first visit — fight to the death. May pays the
+reward at the Bar (6 XP, 3 Zenni, a free drink).
+
+> SOUTHWEST                   [Alley]
+> SOUTH                       [Back Alley]
+> KILL MUGGER                 [mugger]
+> NORTH                       [Alley]
+> NORTHEAST                   [Town Square]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> TALK TO MAY                 [free drink]
+> NORTH                       [Main Room]
+
+=============================================================================
 H1) Quest 59 — Beat Lynds (Heart Necklace, Dankhaus Access)
 =============================================================================
 The Chuckle House holds the ghost whose pocket watch earns the town
 charter, and the charter clears the Toll Bridge into the dungeon. The
 Chuckle House only becomes visible after Litlock's bonk, and Litlock's
 home (the Dankhaus) is warded until Lynds invites us. So the chain
-starts with Lynds, in the Tale and Ale just south of the square.
+starts with Lynds, here in the Tale and Ale Main Room.
 
-Arm wrestling is a single contested strength roll.
+Arm wrestling is a single contested strength roll (ties reroll). At
+level 4 a Warrior wins about 77% of the time; always-max rolls win.
 
-> SOUTH                       [Tale and Ale]
+SAVE first. A loss means a 20-turn wait before Lynds will go again —
+on a ring-only run, RESTORE and challenge him again instead.
+
+> SAVE                        [Saved]
 > CHALLENGE LYNDS             [Heart Necklace]
 > WEAR NECKLACE               [necklace]
 
@@ -519,7 +599,7 @@ path on the first visit; Lynds's invitation lets us through the wards.
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
-> WEST                        [Bog-SE]
+> WEST                        [Bog of Eternal Stench]
 > ENTER DANKHAUS              [Common Room]
 
 Make Litlock laugh — a 2×2×2 dialogue tree. The successful path:
@@ -540,7 +620,7 @@ The Chuckle House requires the ring's invisibility. Put it on at the
 Graveyard, just before entering, and take it off as soon as we're out —
 corruption ticks every turn it's worn.
 
-> WEST                        [Bog-SE]
+> WEST                        [Bog of Eternal Stench]
 > EAST                        [Roundabout Pond]
 > SOUTH                       [Archery Range]
 > EAST                        [Main West]
@@ -735,7 +815,7 @@ Navigate to the bog.
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
-> WEST                        [Bog-SE]
+> WEST                        [Bog of Eternal Stench]
 
 Perception check auto-passes — gravestone visible.
 
@@ -788,7 +868,7 @@ back to the cemetery.
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
-> WEST                        [Bog-SE]
+> WEST                        [Bog of Eternal Stench]
 > LOAD STONE ONTO CART        [loaded]
 
 Push the cart back to the Graveyard (cemetery).
@@ -861,73 +941,8 @@ for Quest 4 (Whispering Jar) in the full walkthrough.
 > EAST                        [Stored Room]
 
 The Stored Room has deliberate rubble fill hiding a hole. One DIG
-collapses the floor permanently → Hole to Below. The rope from the
-Docks enables bidirectional travel. We need rope first.
-
-The rope is at the Docks. We passed through there earlier. The Hole to
-Below is the only route to the lower tier. Let's get the rope.
-
-Return up through the dungeon to the Docks.
-
-Actually — we should have taken the rope from the Docks when we boarded
-the ship. Let's insert that step: go to the Docks, grab the rope, then
-come back. The Docks are east of Roundabout Beach.
-
-> WEST                        [Mine Passage]
-> NORTH                       [Key Door Landing]
-> NORTH                       [Mid-Tier Key Door]
-> NORTH                       [Rickety Bridge]
-> NORTH                       [Shrine Room]
-> NORTH                       [Portcullis Corridor]
-> NORTH                       [Prayer Alcove]
-> NORTH                       [Combat Room]
-> NORTH                       [Idol Room]
-> NORTH                       [Narrow Passageway]
-> NORTH                       [Ink Corridor]
-> NORTH                       [Dungeon Entrance]
-> NORTH                       [Toll Bridge]
-> NORTH                       [Junction]
-> WEST                        [Bone Passage]
-> SOUTH                       [Charnel Walk]
-> UP                          [Crypt]
-> UP                          [Mausoleum]
-> NORTH                       [Graveyard]
-> NORTH                       [Church Nave]
-> NORTH                       [Main East]
-> EAST                        [Wasteland]
-> EAST                        [Beach Road]
-> SOUTH                       [Roundabout Beach]
-> EAST                        [Docks]
-> TAKE ROPE                   [rope]
-
-Now return to the Stored Room and dig.
-
-> WEST                        [Roundabout Beach]
-> NORTH                       [Beach Road]
-> WEST                        [Wasteland]
-> WEST                        [Main East]
-> WEST                        [Town Square]
-> SOUTH                       [Church Nave]
-> SOUTH                       [Graveyard]
-> SOUTH                       [Mausoleum]
-> DOWN                        [Crypt]
-> DOWN                        [Charnel Walk]
-> NORTH                       [Bone Passage]
-> NORTH                       [Junction]
-> SOUTH                       [Toll Bridge]
-> SOUTH                       [Dungeon Entrance]
-> SOUTH                       [Ink Corridor]
-> SOUTH                       [Narrow Passageway]
-> SOUTH                       [Idol Room]
-> SOUTH                       [Combat Room]
-> SOUTH                       [Prayer Alcove]
-> SOUTH                       [Portcullis Corridor]
-> SOUTH                       [Shrine Room]
-> SOUTH                       [Rickety Bridge]
-> SOUTH                       [Mid-Tier Key Door]
-> SOUTH                       [Key Door Landing]
-> SOUTH                       [Mine Passage]
-> EAST                        [Stored Room]
+collapses the floor permanently → Hole to Below. The rope (taken at the
+Docks at the end of section C2) enables bidirectional travel.
 
 Before digging, visit The Crevice east of this room to retrieve the
 Gold Pocket Watch (Trophy Case treasure; missable after collapse).
@@ -954,6 +969,15 @@ The Keeper's skeleton is in the Lower Crypt, north of Pile of Rubble.
 
 The emerald seal on the skeleton's neck matches the statue note. The
 key ring opens the Keeper's Chamber at the Church of All.
+
+While we're here: the Thermal Vent Room is just north. Fire clay for
+the Crystal Bowl (Quest 49) is pressed into its ceiling — LOOK UP to
+find it. No perception check. It isn't needed until section S.
+
+> NORTH                       [Thermal Vent Room]
+> LOOK UP                     [fire clay]
+> TAKE CLAY                   [fire clay]
+> SOUTH                       [Lower Crypt]
 
 =============================================================================
 N) Werewolf's Amulet — Holy Water & Consecration
@@ -1085,110 +1109,12 @@ rooms are already visited we can proceed:
 The fountain in Roundabout Town Square now flows.
 
 =============================================================================
-Q) Crystal Bowl — Collect Three Bowl Pieces
-=============================================================================
-Three bowl pieces are needed:
-1. Near the Verdant Circle shrine in Roundabout Forest (perception check)
-2. In the bog (perception check)
-3. Shrine Room, Dungeon Upper Tier (perception check — already visited)
-
-The Shrine Room bowl piece was already taken in section I. Collect the
-remaining two.
-
-Navigate to Roundabout Forest:
-
-> NORTH                       [Toll Bridge]
-> NORTH                       [Junction]
-> WEST                        [Bone Passage]
-> SOUTH                       [Charnel Walk]
-> UP                          [Crypt]
-> UP                          [Mausoleum]
-> NORTH                       [Graveyard]
-> NORTH                       [Church Nave]
-> NORTH                       [Main East]
-> EAST                        [Wasteland]
-> EAST                        [Beach Road]
-> NORTH                       [Old Oak]
-> NORTH                       [Roundabout Forest]
-
-The shrine is visible (no perception check required — it's always
-visible once you enter the forest). Take the nearby bowl piece.
-
-> TAKE BOWL PIECE             [bowl piece]
-
-Navigate to the bog for the second piece:
-
-> SOUTH                       [Old Oak]
-> WEST                        [Main West — via paths]
-> WEST                        [Archery Range]
-> NORTH                       [Roundabout Pond]
-> WEST                        [Bog-SE]
-> WEST                        [Bog-SW]
-
-Perception check auto-passes — bog bowl piece found.
-
-> TAKE BOWL PIECE             [bowl piece]
-
-=============================================================================
-R) Crystal Bowl — Fire Clay from Thermal Vent Room
-=============================================================================
-Fire clay is pressed into the ceiling of the Thermal Vent Room in the
-lower tier. LOOK UP to retrieve it. No perception check.
-
-> EAST                        [Bog-SE]
-> EAST                        [Roundabout Pond]
-> SOUTH                       [Archery Range]
-> EAST                        [Main West]
-> SOUTH                       [Town Square]
-> EAST                        [Main East]
-> SOUTH                       [Church Nave]
-> SOUTH                       [Graveyard]
-> SOUTH                       [Mausoleum]
-> DOWN                        [Crypt]
-> DOWN                        [Charnel Walk]
-> NORTH                       [Bone Passage]
-> NORTH                       [Junction]
-> SOUTH                       [Toll Bridge]
-> SOUTH                       [Dungeon Entrance]
-> SOUTH                       [Ink Corridor]
-> SOUTH                       [Narrow Passageway]
-> SOUTH                       [Idol Room]
-> SOUTH                       [Combat Room]
-> SOUTH                       [Prayer Alcove]
-> SOUTH                       [Portcullis Corridor]
-> SOUTH                       [Shrine Room]
-> SOUTH                       [Rickety Bridge]
-> SOUTH                       [Mid-Tier Key Door]
-> SOUTH                       [Key Door Landing]
-> SOUTH                       [Mine Passage]
-> EAST                        [Stored Room]
-> DOWN                        [Pile of Rubble]
-> NORTH                       [Lower Crypt]
-> NORTH                       [Thermal Vent Room]
-> LOOK UP                     [fire clay]
-> TAKE CLAY                   [fire clay]
-
-=============================================================================
 S) Crystal Bowl — Assemble Bowl at Fountain
 =============================================================================
 Surface, then mix fire clay with fountain water at the Town Square
-fountain. Assemble the bowl, then take it to the shrine.
+fountain. Assemble the bowl, then take it to the shrine. The clay (M)
+and all three bowl pieces (C1, E, I) are already in hand.
 
-> SOUTH                       [Lower Crypt]
-> SOUTH                       [Pile of Rubble]
-> UP                          [Stored Room]
-> WEST                        [Mine Passage]
-> NORTH                       [Key Door Landing]
-> NORTH                       [Mid-Tier Key Door]
-> NORTH                       [Rickety Bridge]
-> NORTH                       [Shrine Room]
-> NORTH                       [Portcullis Corridor]
-> NORTH                       [Prayer Alcove]
-> NORTH                       [Combat Room]
-> NORTH                       [Idol Room]
-> NORTH                       [Narrow Passageway]
-> NORTH                       [Ink Corridor]
-> NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
 > NORTH                       [Junction]
 > WEST                        [Bone Passage]

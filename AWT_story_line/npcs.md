@@ -472,6 +472,24 @@ Administers Trial 3 (Thornbrew drinking challenge). Passes out if player wins. F
 
 ---
 
+### Beekeeper
+**Location:** Beekeeper's Cottage (west of The Old Oak). Mentioned in her room description, so no separate presence line.
+**Quest:** Quest 24 — The Beekeeper's Swarm (discovered on first visit).
+**First visit / `TALK TO BEEKEEPER`:** *"You'll want to keep clear of the tree east of the oak," she says, before you've said anything. "Swarm got loose and nested in a hollow there. I'd fetch them back, but my smoke kit's gone — somewhere in the tunnels under town, last I knew." She shrugs. "If you come across it."*
+
+---
+
+### Child at the Old Oak
+**Location:** The Old Oak.
+**Quest:** Quest 41 — The Child's Kite.
+**Presence line (kite stuck):** *A child stands under the oak, staring up at the kite with the patience of someone who has been at it a while.*
+**Presence line (kite returned):** *The child is flying the kite in the clearing, badly and happily.*
+**`TALK TO CHILD`:** *"It's stuck," the child says, pointing up. As if you might not have noticed.*
+**`CLIMB TREE`:** *You haul yourself up through the branches and work the kite loose. Something comes free with it — a small flat stone on a cord, tangled in the line. It drops into the grass below.*
+**`GIVE KITE TO CHILD`:** *The child takes the kite in both hands, inspects it for damage, finds none worth mentioning, and runs off to try again.*
+
+---
+
 ### Unnamed Child
 **Location:** The Ritual Circle, south of The Encampment.
 **Presence line (room listing):** *A child stands at the edge of the circle, watching you without a word.*

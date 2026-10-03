@@ -207,7 +207,9 @@ class Game:
         # Auto-take: ZIL ITAKE-CHECK — if syntax has TAKE and prso is not
         # directly held, silently move it to inventory and print "(Taken)".
         # Only applies when the object has TAKEBIT but not TRYTAKEBIT.
+        # Not for TAKE itself — the verb does its own taking and reporting.
         if (prso is not None
+                and result.action != "V-TAKE"
                 and result.syntax is not None
                 and result.syntax.obj1 is not None
                 and result.syntax.obj1.auto_take

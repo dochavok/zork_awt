@@ -85,6 +85,8 @@ def teach(w: World, scroll) -> None:
     w.globals["zenni"] = zenni - TEACHING_COST
     print(_TEACHING)
     _learn(w, scroll)
+    from content.experience import award_xp
+    award_xp(w, 4)   # Quest 56 — Will's Teaching: 4 XP per spell (experience.md)
 
 
 def _learn(w: World, scroll) -> None:

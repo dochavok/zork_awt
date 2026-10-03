@@ -6,20 +6,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–G passing in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–G passing (C split into C1/C2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section H1 — Beat Lynds. First failure:
+**Current position:** Section G2 — optional Quest 51, The Back Alley Mugger. First failure:
 
 ```
-SECTION [H1) Quest 59 — Beat Lynds (Heart Necklace, Dankhaus Access)]
-  cmd     : 'CHALLENGE LYNDS'
-  missing : 'Heart Necklace'
-  got     : 'I don't know the word "challenge".'
+SECTION [G2) Optional — Quest 51, The Back Alley Mugger (XP)]
+  cmd     : 'SOUTHWEST'
+  missing : 'Alley'
+  got     : "You can't go that way."
 ```
 
-Old section H was split into H1–H5 (Lynds → Litlock → Chuckle House ghost → charter → Toll Bridge). Watch Lynds's level-4 dice (2d10+3) vs. the player's level at that point.
+Needs the Alley, Back Alley, the mugger (perception + first real combat), and May's reward. G2 and the other optional XP steps (Quest 41 kite in C1, the bog loop in E) get the player to level 4 (~92 XP est.) before Lynds in H1 — always-max dice can't beat Lynds at level 3.
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
@@ -32,8 +32,12 @@ Old section H was split into H1–H5 (Lynds → Litlock → Chuckle House ghost 
 - Unbind Undead scroll picked up in C (Lighthouse), taught by Will in D (3 Zenni)
 - Glasses instant-fail in Will's presence; GAME OVER ends input
 - Hidden Zenni rooms (36, seeded at init; tests pin seed 7)
+- Old Oak area (Quest 41 kite, Beekeeper's Cottage, Swarm Tree), forest + bog bowl pieces, Pond and 4 bog rooms
+- SAVE / RESTORE
+- Walkthrough cleanup: Q and R removed (bowl pieces in C1/E, fire clay in M), rope taken at end of C2
 
 **Known issues still open:**
+- Section P (aqueduct) needs cleanup: ends with NORTH [Dungeon Entrance] while already there; aqueduct repair rooms aren't defined in locations.md.
 - Raznak only has State 1 (trust not earned). States 2A/2B/3 and PAY are Quest 55 (full-score walkthrough).
 - Section T has `REMOVE RING [ring won't go on]`. items.md says that message belongs to `WEAR RING` on the bound ring. Check before implementing.
 - The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").

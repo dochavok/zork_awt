@@ -5,7 +5,10 @@ Built incrementally — objects added as walkthrough sections require them.
 """
 
 from __future__ import annotations
-from engine.world import GameObject, TAKEBIT, CONTBIT, OPENBIT, NDESCBIT, SACREDBIT, ACTORBIT, BURNBIT
+from engine.world import (
+    GameObject, TAKEBIT, CONTBIT, OPENBIT, NDESCBIT, SACREDBIT, ACTORBIT, BURNBIT,
+    CLIMBBIT, INVISIBLE,
+)
 
 
 # npcs.md — Will Passion: Appearance. Shown on EXAMINE WILL.
@@ -37,6 +40,8 @@ def make_objects(world) -> None:
     _make_viking_objects(world)
     _make_town_objects(world)
     _make_scrolls(world)
+    _make_old_oak_objects(world)
+    _make_bog_objects(world)
 
 
 # ---------------------------------------------------------------------------
@@ -363,4 +368,64 @@ def _make_scrolls(world) -> None:
         ldesc="A spell scroll headed Unbind Undead, in a cramped, careful hand.",
         synonyms=["scroll", "spell"], adjectives=["unbind", "undead", "spell"],
         flags={TAKEBIT},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# The Old Oak area (locations.md, npcs.md, items.md). Logic: content/old_oak.py
+# ---------------------------------------------------------------------------
+
+def _make_old_oak_objects(world) -> None:
+    from content.old_oak import CHILD_WAITING
+    world.register_object(GameObject(
+        name="OAK-CHILD", desc="child", fdesc=CHILD_WAITING, ldesc=CHILD_WAITING,
+        synonyms=["child", "kid"], flags={ACTORBIT},
+    ))
+    world.register_object(GameObject(
+        name="OAK-TREE", desc="oak", synonyms=["oak", "tree", "branches"],
+        adjectives=["old", "large"], flags={CLIMBBIT, NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="KITE", desc="kite",
+        synonyms=["kite"], flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="OLD-OAK-RUNE-STONE", desc="rune stone",
+        fdesc="A small flat stone on a cord lies in the grass.",
+        ldesc="A small flat stone, dark and smooth, threaded on a cord. Mineral "
+              "veins run through it in a pattern that looks almost intentional.",
+        synonyms=["stone", "rune", "cord"], adjectives=["rune", "flat", "small"],
+        flags={TAKEBIT},
+    ))
+    # Beekeeper is described in the cottage's room description
+    world.register_object(GameObject(
+        name="BEEKEEPER", desc="beekeeper", synonyms=["beekeeper", "woman", "keeper"],
+        adjectives=["broad"], flags={ACTORBIT, NDESCBIT},
+    ))
+    # Forest bowl piece — hidden until an Easy perception check finds it
+    world.register_object(GameObject(
+        name="BOWL-PIECE-FOREST", desc="bowl piece",
+        fdesc="Among the shards on the pedestal, one piece is larger than the "
+              "rest — a curved section of the rim, still whole.",
+        ldesc="A curved piece of ceramic from the shrine bowl, part of the rim. "
+              "A faint etched line runs along its edge.",
+        synonyms=["piece", "shard", "bowl"], adjectives=["bowl", "curved", "ceramic"],
+        flags={TAKEBIT, INVISIBLE},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# Bog of Eternal Stench
+# ---------------------------------------------------------------------------
+
+def _make_bog_objects(world) -> None:
+    # Bog-SW shrine bowl piece — hidden until an Easy perception check finds it
+    world.register_object(GameObject(
+        name="BOWL-PIECE-BOG", desc="bowl piece",
+        fdesc="Half-sunk in the mud at the edge of the reeds, a curved shard of "
+              "pale ceramic catches what light there is.",
+        ldesc="A piece of the shrine bowl, caked with bog mud. Under the mud, a "
+              "faint etched line.",
+        synonyms=["piece", "shard", "bowl"], adjectives=["bowl", "curved", "ceramic"],
+        flags={TAKEBIT, INVISIBLE},
     ))

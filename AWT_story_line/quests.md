@@ -433,7 +433,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 **Bowl pieces (3):**
 1. Near the shrine in Roundabout Forest (perception check — should be easy; set difficulty once perception mechanic is defined)
-2. In the bog (perception check — should be easy; set difficulty once perception mechanic is defined)
+2. Bog of Eternal Stench (SW) (perception check — should be easy; set difficulty once perception mechanic is defined)
 3. Dungeon Upper Tier — Shrine Room (perception check — should be easy; set difficulty once perception mechanic is defined)
 
 **Steps:**
@@ -661,7 +661,8 @@ Actually Enchanted Glasses auto-succeed. They can't be worn through the tower's 
 1. `TALK TO LYNDS` or `CHALLENGE LYNDS` in the Tale and Ale. Lynds greets the challenge without ceremony.
    Full dialogue in `npcs.md` — Lynds entry.
 
-2. Arm wrestling is a single contested strength roll — player vs. Lynds (Level 4 dice: 2d10+3). Retryable after a 20-turn cooldown on loss.
+2. Arm wrestling is a single contested strength roll — player vs. Lynds (Level 4 dice: 2d10+3). On a tie, reroll. Retryable after a 20-turn cooldown on loss.
+   Win odds (exact, ties rerolled): Warrior L3 50.0%, Warrior L4 76.8%, Mage/Rogue L3 27.6%, Mage/Rogue L4 56.7%.
 
 3. Win state → Heart Necklace added to inventory. Invitation flag set (Dankhaus wards cleared).
 

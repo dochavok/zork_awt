@@ -305,10 +305,7 @@ def _make_town(world) -> None:
     old_oak = Room(
         name="OLD-OAK",
         desc="The Old Oak",
-        ldesc=(
-            "A large oak stands here, old enough to have opinions about it. "
-            "The forest begins to the north. Beach Road lies south."
-        ),
+        ldesc="",   # stateful (kite) — content/old_oak.py
         value=1,
     )
     old_oak.set_flag(ONBIT)
@@ -323,7 +320,13 @@ def _make_town(world) -> None:
             "is hollow. The forest is peaceful — birdsong, dappled light, the smell "
             "of pine.\n"
             "The mine entrance sits somewhere among the roots and undergrowth, easy "
-            "to miss if you don't know to look."
+            "to miss if you don't know to look.\n"
+            "A stone shrine stands at the edge of the trees — old enough that the "
+            "forest has started to take it back. A carved pedestal, still solid.\n"
+            "On it, the remains of a ceramic bowl, smashed at some point and not "
+            "recently. Three or four pieces visible here; others have clearly gone "
+            "elsewhere.\n"
+            "The symbol on the pedestal is a sprouting seed inside a circle of leaves."
         ),
         value=1,
     )
@@ -389,6 +392,8 @@ def _make_town(world) -> None:
     beach_road.exits["south"] = Exit(destination="ROUNDABOUT-BEACH")
     beach_road.exits["north"] = Exit(destination="OLD-OAK")
     old_oak.exits["south"] = Exit(destination="BEACH-ROAD")
+    old_oak.exits["west"]  = Exit(destination="BEEKEEPERS-COTTAGE")
+    old_oak.exits["east"]  = Exit(destination="SWARM-TREE")
     old_oak.exits["north"] = Exit(destination="ROUNDABOUT-FOREST")
     r_forest.exits["south"] = Exit(destination="OLD-OAK")
     roundabout_beach.exits["north"] = Exit(destination="BEACH-ROAD")
@@ -396,6 +401,42 @@ def _make_town(world) -> None:
     roundabout_beach.exits["northeast"] = Exit(destination="LIGHTHOUSE")
     lighthouse.exits["southwest"] = Exit(destination="ROUNDABOUT-BEACH")
     docks.exits["west"] = Exit(destination="ROUNDABOUT-BEACH")
+
+    cottage = Room(
+        name="BEEKEEPERS-COTTAGE",
+        desc="Beekeeper's Cottage",
+        ldesc=(
+            "A low wooden cottage sits at the edge of the trees, almost part of "
+            "the forest. Stacked hive boxes line the south wall, painted in fading "
+            "colours. The smell of beeswax and woodsmoke is pleasant in a specific, "
+            "unhurried way. The beekeeper is here — a broad woman with patience in "
+            "her posture and a concerning number of sting marks on her forearms."
+        ),
+        value=1,
+    )
+    swarm_tree = Room(
+        name="SWARM-TREE",
+        desc="Swarm Tree",
+        ldesc=(
+            "A broad-trunked tree at the forest edge, older than the others around "
+            "it. A low drone comes from a dark gap in the bark at chest height. The "
+            "air nearby has a quality that suggests strongly you should not approach "
+            "without a plan."
+        ),
+        value=1,
+    )
+    for r in (cottage, swarm_tree):
+        r.set_flag(ONBIT)
+        r.set_flag(RLANDBIT)
+        world.register_room(r)
+    cottage.exits["east"]    = Exit(destination="OLD-OAK")
+    swarm_tree.exits["west"] = Exit(destination="OLD-OAK")
+
+    from content import old_oak as _oak
+    old_oak.action    = _oak.oak_action
+    cottage.action    = _oak.cottage_action
+    swarm_tree.action = _oak.swarm_action
+    r_forest.action   = _oak.forest_action
 
     # Tale and Ale: north→Town Square (east→Pipe Room already wired in _make_tale_and_ale)
     world.rooms["TALE-AND-ALE"].exits["north"] = Exit(destination="TOWN-SQUARE")
@@ -547,9 +588,83 @@ def _make_west_town(world) -> None:
     circle.exits["north"]   = Exit(destination="VIKING-ENCAMPMENT")
     fire_pit.exits["east"]  = Exit(destination="VIKING-ENCAMPMENT")
 
+    _make_pond_and_bog(world, archery)
+
     archery.action    = vikings.archery_action
     encampment.action = vikings.encampment_action
     hut.action        = vikings.hut_action
+
+
+# ---------------------------------------------------------------------------
+# Roundabout Pond & the Bog of Eternal Stench (locations.md)
+# All four bog rooms share one player-facing title; SE/NE/SW/NW are internal.
+# ---------------------------------------------------------------------------
+
+_BOG_TITLE = "The Bog of Eternal Stench"
+
+
+def _make_pond_and_bog(world, archery) -> None:
+    def room(name, desc, ldesc):
+        r = Room(name=name, desc=desc, ldesc=ldesc, value=1)
+        r.set_flag(ONBIT)
+        r.set_flag(RLANDBIT)
+        world.register_room(r)
+        return r
+
+    pond = room(
+        "ROUNDABOUT-POND", "Roundabout Pond",
+        "The pond is easy to walk past without noticing. It sits low between the "
+        "town path and the bog, ringed with reeds and the occasional frog. The "
+        "water is dark and calm.",
+    )
+    bog_se = room(
+        "BOG-SE", _BOG_TITLE,
+        "The bog stretches in every direction, dark water between clumps of "
+        "soggy earth. The smell is comprehensive and personal. Reeds crowd the "
+        "edges of every dry patch. Something is moving just out of sight, or was.",
+    )
+    bog_ne = room(
+        "BOG-NE", _BOG_TITLE,
+        "The ground here is technically solid. Technically. Dark water pools "
+        "between tufts of coarse grass. The smell has layers. You have stopped "
+        "trying to identify them, and don't really want to.",
+    )
+    bog_sw = room(
+        "BOG-SW", _BOG_TITLE,
+        "A flat expanse of bog, grey-green and indifferent. The water is still "
+        "except where it isn't. The smell arrived before you did and will be "
+        "here long after you leave.",
+    )
+    bog_nw = room(
+        "BOG-NW", _BOG_TITLE,
+        "The reeds are taller here, crowding in from the edges. The water is "
+        "darker. The smell is worse. This part of the bog feels less visited, "
+        "which is saying something.",
+    )
+
+    archery.exits["north"] = Exit(destination="ROUNDABOUT-POND")
+    pond.exits["south"] = Exit(destination="ARCHERY-RANGE")
+    pond.exits["west"]  = Exit(destination="BOG-SE")
+    # 2×2 grid, diagonals allowed. Bog-SE south → Dankhaus: built with H2.
+    bog_se.exits.update(east=Exit(destination="ROUNDABOUT-POND"), north=Exit(destination="BOG-NE"),
+                        west=Exit(destination="BOG-SW"), northwest=Exit(destination="BOG-NW"))
+    bog_ne.exits.update(south=Exit(destination="BOG-SE"), west=Exit(destination="BOG-NW"),
+                        southwest=Exit(destination="BOG-SW"))
+    bog_sw.exits.update(east=Exit(destination="BOG-SE"), north=Exit(destination="BOG-NW"),
+                        northeast=Exit(destination="BOG-NE"))
+    bog_nw.exits.update(east=Exit(destination="BOG-NE"), south=Exit(destination="BOG-SW"),
+                        southeast=Exit(destination="BOG-SE"))
+
+    from engine.game import M_NOT_HANDLED, M_ENTER
+
+    def bog_sw_action(w, msg=M_NOT_HANDLED):
+        if msg == M_ENTER:
+            # Shrine bowl piece — Easy perception, every visit until found
+            from content.perception import EASY, reveal_if_found
+            reveal_if_found(w, "BOWL-PIECE-BOG", EASY)
+        return M_NOT_HANDLED
+
+    bog_sw.action = bog_sw_action
 
 
 # ---------------------------------------------------------------------------
@@ -645,7 +760,7 @@ def _make_mine(world) -> None:
         return M_NOT_HANDLED
 
     mine_entrance.action = _cave_in_check
-    world.rooms["ROUNDABOUT-FOREST"].action = _cave_in_check
+    # Roundabout Forest runs the same check from content/old_oak.forest_action
 
 
 # ---------------------------------------------------------------------------

@@ -424,7 +424,7 @@ path is auto-revealed. Navigate to the bog.
 > NORTH                       [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
-> WEST                        [Bog-SE]
+> WEST                        [Bog of Eternal Stench]
 > ENTER DANKHAUS              [Common Room]
 
 Make Litlock laugh. Successful path: B (physical) → B2 (ridiculous) →
@@ -445,12 +445,12 @@ While in the bog, collect the Bog-NE rune stone (Quest 42 is discovered
 after the Viking trust trials, but the stone can be picked up now).
 Also: Bog-NW contains the music box key (Quest 12).
 
-> NORTH                       [Bog-NE]
+> NORTH                       [Bog of Eternal Stench]
 
 Actually Enchanted Glasses auto-pass perception: rune stone visible.
 
 > TAKE RUNE STONE             [rune stone]
-> WEST                        [Bog-NW]
+> WEST                        [Bog of Eternal Stench]
 
 Hollow log — actually enchanted glasses reveal it.
 
@@ -458,7 +458,7 @@ Hollow log — actually enchanted glasses reveal it.
 
 Also: Bog-SW has bog thyme (Quest 40) and a bowl piece (Quest 49).
 
-> SOUTH                       [Bog-SW]
+> SOUTH                       [Bog of Eternal Stench]
 > TAKE BOG THYME              [bog thyme]
 > TAKE BOWL PIECE             [bowl piece]
 
@@ -468,7 +468,7 @@ I) Quest 12 — The Locked Music Box (Light Spell)
 The music box is in Will's Wizard Tower. The key was just collected in
 Bog-NW. For Warriors, the Light scroll must be taken to Will to learn.
 
-> EAST                        [Bog-SE]
+> EAST                        [Bog of Eternal Stench]
 > EAST                        [Roundabout Pond]
 > SOUTH                       [Archery Range]
 > EAST                        [Main West]
@@ -871,7 +871,7 @@ The gravestone is in the bog. Navigate there with the hand cart.
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
-> WEST                        [Bog-SE]
+> WEST                        [Bog of Eternal Stench]
 
 Perception check auto-passes — gravestone visible face-down in mud.
 
@@ -1443,7 +1443,7 @@ The apprentice comes around. Finish the hole to Bog-NW with the shovel.
 
 The apprentice follows us out. Quest completes on bog exit.
 
-> NORTH                       [Bog-NW]
+> NORTH                       [Bog of Eternal Stench]
 
 Quest 50 complete. Apprentice's Gloves received.
 
@@ -1466,9 +1466,9 @@ NN) Quest 42 — Brotherhood Stones (Complete)
 We have all three rune stones: Bog-NE, Old Oak, Inscription Chamber.
 Surface via the bog hole exit (Bog-NW), then deliver to Ivanaar.
 
-> UP                          [Bog-NW]
-> EAST                        [Bog-NE]
-> SOUTH                       [Bog-SE]
+> UP                          [Bog of Eternal Stench]
+> EAST                        [Bog of Eternal Stench]
+> SOUTH                       [Bog of Eternal Stench]
 > EAST                        [Roundabout Pond]
 > SOUTH                       [Archery Range]
 > WEST                        [Viking Encampment]

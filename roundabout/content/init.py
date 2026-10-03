@@ -102,6 +102,12 @@ def _place_objects(world) -> None:
         world.move_object(world.objects[obj], world.rooms[room])
     world.move_object(world.objects["STATUE"], world.rooms["TOWN-SQUARE"])
     world.move_object(world.objects["SCROLL-UNBIND-UNDEAD"], world.rooms["LIGHTHOUSE"])
+    # Old Oak area (KITE and OLD-OAK-RUNE-STONE appear on CLIMB TREE)
+    world.move_object(world.objects["OAK-CHILD"], world.rooms["OLD-OAK"])
+    world.move_object(world.objects["OAK-TREE"],  world.rooms["OLD-OAK"])
+    world.move_object(world.objects["BEEKEEPER"], world.rooms["BEEKEEPERS-COTTAGE"])
+    world.move_object(world.objects["BOWL-PIECE-FOREST"], world.rooms["ROUNDABOUT-FOREST"])
+    world.move_object(world.objects["BOWL-PIECE-BOG"],    world.rooms["BOG-SW"])
     # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus
 
 

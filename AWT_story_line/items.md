@@ -491,9 +491,11 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 
 ### Verdant Circle Shrine Bowl (3 pieces)
 **Weight:** 1 each
+**Examine (forest piece):** *A curved piece of ceramic from the shrine bowl, part of the rim. A faint etched line runs along its edge.*
+**Bog piece (Bog-SW):** room listing *Half-sunk in the mud at the edge of the reeds, a curved shard of pale ceramic catches what light there is.* Examine: *A piece of the shrine bowl, caked with bog mud. Under the mud, a faint etched line.*
 **Locations:**
 1. Near the shrine in Roundabout Forest (perception check)
-2. In the bog (perception check)
+2. Bog of Eternal Stench (SW) (perception check)
 3. Dungeon Upper Tier — Shrine Room (perception check)
 **Quest use:** Quest 49 — assemble with fire clay + fountain water → Repaired Bowl.
 
@@ -513,12 +515,20 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 
 ---
 
+### Kite
+**Weight:** 1
+**Location:** Tangled in The Old Oak — `CLIMB TREE` retrieves it (Quest 41).
+**Quest use:** Quest 41 — `GIVE KITE TO CHILD`.
+The Old Oak rune stone falls free when the kite comes down — see Rune Stones.
+
+---
+
 ### Rune Stones (3)
 **Weight:** 2 each
 **Locations:**
 1. **Bog rune stone:** Bog-NE (perception check) — *A grey stone, heavy for its size, one face worn flat by water. Faint lines are etched across the surface in no pattern you recognize.*
 2. **Dungeon rune stone:** Inscription Chamber, mid-tier (perception check) — *A pale stone, roughly square, with deep natural veins of darker mineral running through it like old script.*
-3. **Old Oak rune stone:** Reward from Quest 41 (The Child's Kite) — *A small flat stone, dark and smooth, threaded on a cord. Mineral veins run through it in a pattern that looks almost intentional.*
+3. **Old Oak rune stone:** Falls into the grass when the kite comes down (Quest 41). Room listing: *A small flat stone on a cord lies in the grass.* Examine: *A small flat stone, dark and smooth, threaded on a cord. Mineral veins run through it in a pattern that looks almost intentional.*
 **Quest use:** Quest 42 (The Brotherhood Stones) — deliver all three to Ivanaar at the Viking Encampment.
 
 ---

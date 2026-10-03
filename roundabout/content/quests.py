@@ -39,7 +39,7 @@ _QUEST_META: dict[str, dict] = {
     "34":  {"name": "The Frozen Soldier",        "xp": 17, "zenni": 8},
     "38":  {"name": "The Collapsed Passage",     "xp": 8,  "zenni": 4},
     "40":  {"name": "Shamus's Recipe",           "xp": 6,  "zenni": 3},
-    "41":  {"name": "The Child's Kite",          "xp": 4,  "zenni": 2},
+    "41":  {"name": "The Child's Kite",          "xp": 4,  "zenni": 3},
     "42":  {"name": "The Brotherhood Stones",    "xp": 12, "zenni": 6},
     "49":  {"name": "The Ruined Shrine",         "xp": 17, "zenni": 8},
     "50":  {"name": "The Lost Apprentice",       "xp": 12, "zenni": 6},
