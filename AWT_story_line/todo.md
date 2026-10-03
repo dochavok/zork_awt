@@ -6,31 +6,52 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A, B, C passing in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A, B, C, D passing in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section D — Ring Retrieval / Pyronicus's Forge. First failure:
+**Current position:** Section E — Pale Blade / Viking Trust Trials. First failure:
 
 ```
-SECTION [D) Ring Retrieval — Pyronicus's Forge]
+SECTION [E) Pale Blade — Viking Trust Trials (Quest 57)]
   cmd     : 'WEST'
-  missing : 'Beach Road'
-  got     : "You can't go that way.\n"
+  missing : 'Main West'
+  got     : "You can't go that way.
+"
 ```
 
-Player lands at Roundabout Beach after DOCK. Needs: Roundabout Wasteland → Beach Road westward exit (already exists), then SOUTH to Volcano, DOWN to Pyronicus's Forge. Rooms and NPC not yet implemented.
+Town Square has no west exit yet. Needs Main West, Archery Range, Viking Encampment and the trial rooms.
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
-- Sections A, B, C passing (White House opening, tower bedroom, full Kevry's island sailing arc)
-- Engine additions: V-WEAR, V-TALK, V-BUY, V-BOARD-SHIP, V-SAIL, V-DOCK, V-LIGHT, V-DROP, nautical GO EAST/WEST/LAND preaction, cave-in trigger, Shamus/Kevry NPCs, all overworld/mine/sea rooms
+- Sections A–D passing (White House opening, tower bedroom, Kevry's island sailing arc, ring retrieval from Pyronicus + Will's second briefing)
+- Engine additions: V-WEAR, V-REMOVE, V-TALK, V-GIVE, V-BUY, V-BOARD-SHIP, V-SAIL, V-DOCK, V-LIGHT, V-DROP, nautical GO EAST/WEST/LAND preaction, cave-in trigger; Shamus, Kevry, Pyronicus, Will NPCs; overworld/mine/sea rooms, Volcano, Pyronicus's Forge
+- Opening rewritten to match npcs.md: Yes/No adventure prompt, class/name in the tower, no ring handed over (ring starts with Pyronicus)
 
-**Next session — implement Section D rooms and verbs:**
-- Rooms needed: Volcano (perception-gated DOWN exit), Pyronicus's Forge
-- NPC: Pyronicus (TALK TO → ring handover dialogue, Pale Blade forging)
-- Verb: possibly V-GIVE (ring to Pyronicus) or handle via V-TALK
+**Known issues still open:**
+- Section T has `REMOVE RING [ring won't go on]`. items.md says that message belongs to `WEAR RING` on the bound ring. Check before implementing.
+- Glasses instant-fail in Will's presence is not implemented. Walkthroughs remove glasses before talking to Will and put them back on after leaving through the painting.
+- The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 
 ---
+## TODO #2 - Fix chest in section D
+
+When the user digs to find the chest in section D, it would be closed.  It's a container, and would need to be OPENed for the user to then take the zenni inside.  Is this not clear in the design document?
+
+The buried chest doesn't have its own item entry in items.md — it's only referenced as a destination for the treasure map and shovel. There's no explicit definition of its flags (CONTBIT, OPENBIT, etc.) or whether DIG exposes a closed container that then requires OPEN.
+
+The gap is in items.md — the buried chest needs its own entry that specifies it as a container with CONTBIT/OPENBIT, requiring OPEN before TAKE ZENNI. Add that entry to items.md, then fix the fullscore walkthrough to include OPEN CHEST between DIG and TAKE ZENNI.
+
+---
+## TODO #3 — Reconcile game-state key names (text vs. class systems)
+
+Two naming schemes for the same player state don't see each other:
+- Older systems modules (`content/player.py`, `combat.py`, `corruption.py`, `experience.py`, `quests.py`) and their unit tests read/write lowercase keys: `player_class`, `zenni`, `hearts`, `level`, `ring_worn`, `enchanted_glasses_worn`, `actually_enchanted_glasses_worn`.
+- Walkthrough-driven content (`char_create.py`, `verbs.py`) writes uppercase keys: `PLAYER-CLASS`, `ZENNI`, `PLAYER-HEARTS`, `ENCHANTED-GLASSES-WORN`, `GLASSES-ENCHANTED`.
+
+Effects: class bonuses never apply to rolls, quest Zenni/XP rewards don't reach the Zenni the player spends, hearts are tracked twice. Only the glasses are bridged so far (`verbs._sync_glasses`).
+
+Fix: pick one scheme, migrate both sides and the unit tests, remove the bridge. Note: 15 unit tests in test_combat/test_corruption/test_quests were already failing before this was found (2026-10-03).
+

@@ -41,6 +41,7 @@ Required to make ranged (bow) attacks in combat. Must be carried in inventory.
 
 ### Enchanted Glasses / Actually Enchanted Glasses
 **Slot:** Head
+**Name vs. description:** "Enchanted Glasses" and "Actually Enchanted Glasses" (after Kevry's enchantment) are the item's names in design docs and walkthroughs. In-game text uses the descriptions below.
 **Weight:** 1
 **Location:** Will Passion's Bedroom (hidden room in the Wizard Tower)
 **Inventory description (regular):** "wire-rimmed glasses"

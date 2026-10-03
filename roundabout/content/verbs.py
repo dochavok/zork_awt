@@ -62,16 +62,28 @@ def v_examine(world: World) -> int:
     if obj is None:
         return M_NOT_HANDLED
 
-    # Painting — teleports to Tale and Ale
+    # Painting — teleports to Tale and Ale (npcs.md: Will, steps 7–8)
     if obj.name == "PAINTING":
+        if not world.get_global("TOWER-WARNING-DONE"):
+            world.set_global("TOWER-WARNING-DONE", True)
+            print(
+                '"One more thing," Will says, rising from his chair. '
+                '"The ring — I should have told you, it—"'
+            )
         print(
-            "The painting shows the Tale and Ale in warm amber light — tables, "
-            "people, the comfortable noise of an evening going well. As you look "
-            "at it the room seems to shift, and then you are there."
+            "The painting is larger than it looked. Or you are smaller. The "
+            "tavern in the frame tilts toward you, and then you are simply "
+            "there — the smell of woodsmoke and ale arriving before anything "
+            "else does."
         )
         tavern = world.rooms.get("TALE-AND-ALE")
         if tavern is not None:
             world.game.enter_room(tavern)
+        return M_HANDLED
+
+    if obj.name == "WILL":
+        from content.objects import WILL_APPEARANCE
+        print(WILL_APPEARANCE)
         return M_HANDLED
 
     # Generic examine: show ldesc or fdesc
@@ -149,8 +161,41 @@ def v_wear(world: World) -> int:
     from engine.world import WEARBIT
     obj.set_flag(WEARBIT)
     world.set_global(f"{obj.name}-WORN", True)
+    if obj.name == "ENCHANTED-GLASSES":
+        _sync_glasses(world)
     print(f"You put on the {obj.desc}.")
     return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-REMOVE  (REMOVE <worn item>)
+# ---------------------------------------------------------------------------
+
+def v_remove(world: World) -> int:
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+
+    from engine.world import WEARBIT
+    player = world.player
+    if player is None or obj not in player.contents or not obj.has_flag(WEARBIT):
+        print(f"You aren't wearing the {obj.desc}.")
+        return M_HANDLED
+
+    obj.clear_flag(WEARBIT)
+    world.set_global(f"{obj.name}-WORN", False)
+    if obj.name == "ENCHANTED-GLASSES":
+        _sync_glasses(world)
+    print(f"{obj.desc[0].upper()}{obj.desc[1:]} removed.")
+    return M_HANDLED
+
+
+def _sync_glasses(world: World) -> None:
+    """Publish glasses state under the keys content/player.py perception reads."""
+    worn = bool(world.get_global("ENCHANTED-GLASSES-WORN"))
+    actually = worn and bool(world.get_global("GLASSES-ENCHANTED"))
+    world.globals["enchanted_glasses_worn"] = worn and not actually
+    world.globals["actually_enchanted_glasses_worn"] = actually
 
 
 # ---------------------------------------------------------------------------
@@ -205,10 +250,18 @@ def v_talk(world: World) -> int:
                 '"Actually enchanted," he says. "There\'s a difference. '
                 'You\'ll see."'
             )
-            glasses.desc = "actually enchanted glasses"
-            glasses.ldesc = "The wire-rimmed glasses have a faint amber quality now."
-            glasses.adjectives = ["wire-rimmed", "enchanted", "actually", "amber"]
+            # Name: Actually Enchanted Glasses. Description (items.md):
+            # "slightly glowing wire-rimmed glasses".
+            glasses.desc = "slightly glowing wire-rimmed glasses"
+            glasses.ldesc = (
+                "A pair of slightly glowing wire-rimmed glasses rests on the "
+                "nightstand."
+            )
+            glasses.adjectives = [
+                "wire-rimmed", "enchanted", "actually", "slightly", "glowing",
+            ]
             world.set_global("GLASSES-ENCHANTED", True)
+            _sync_glasses(world)
         else:
             print(
                 'Kevry looks up from his charts, takes you in with a measured '
@@ -216,7 +269,82 @@ def v_talk(world: World) -> int:
             )
         return M_HANDLED
 
+    if obj.name == "PYRONICUS":
+        ring   = world.objects.get("RING")
+        player = world.player
+        if ring is not None and player is not None and ring.location is obj:
+            print(
+                'Pyronicus sets down his work and regards you with calm, '
+                'unhurried eyes. "Will\'s errand," he says. "Yes."\n'
+                'He moves to a workbench and returns with the ring, placing it '
+                'in your hand with the care of someone returning something that '
+                'was never theirs.\n'
+                '"It fell through my ceiling," he says. "Rings don\'t do that by '
+                'accident."\n'
+                'He pauses. "Will told you what you need to know, I assume."\n'
+                'He goes back to what he was doing. The conversation, '
+                'apparently, is over.'
+            )
+            world.move_object(ring, player)
+            world.set_global("RING-RETRIEVED", True)
+        else:
+            print(
+                "He goes back to what he was doing. The conversation, "
+                "apparently, is over."
+            )
+        return M_HANDLED
+
     print(f"There's no response from the {obj.desc}.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-GIVE  (GIVE <item> TO <npc>)
+# ---------------------------------------------------------------------------
+
+# ring-rituals.md — Will Passion's Briefing Structure: Second briefing
+_SECOND_BRIEFING = (
+    "Will sets down his pen when he sees the ring. He doesn't reach for it.\n"
+    '"Good," he says. "Sit down."\n'
+    "He doesn't wait to see if you do.\n"
+    '"The ring can\'t be destroyed. I want to be clear about that — not by '
+    "force, not by fire, not by anything one person or one faith could bring "
+    "to bear. What's inside it is older than the methods we have for ending "
+    'things."\n'
+    "He moves to the window.\n"
+    '"But three faiths together — three distinct sources of power, each '
+    "contributing something the others cannot — that's another matter. There "
+    "is a Church in Roundabout. The Church of All. You'll find an altar there "
+    'with a dial. Seven religions. Three of them are what you need."\n'
+    "He turns back.\n"
+    '"I won\'t tell you which three. You\'ll know them when you find them. The '
+    'things they ask of you will make it obvious."\n'
+    "He picks up his pen.\n"
+    '"When it\'s done, bring it back."'
+)
+
+
+def v_give(world: World) -> int:
+    item, npc = world.prso, world.prsi
+    if item is None:
+        return M_NOT_HANDLED
+    if npc is None:
+        print(f"Who do you want to give the {item.desc} to?")
+        return M_HANDLED
+
+    player = world.player
+    if player is None or item not in player.contents:
+        print(f"You aren't carrying the {item.desc}.")
+        return M_HANDLED
+
+    # Ring to Will — second briefing. He doesn't take it; the player keeps it.
+    if npc.name == "WILL" and item.name == "RING" \
+            and not world.get_global("SECOND-BRIEFING-DONE"):
+        print(_SECOND_BRIEFING)
+        world.set_global("SECOND-BRIEFING-DONE", True)
+        return M_HANDLED
+
+    print(f"{npc.desc} doesn't take the {item.desc}.")
     return M_HANDLED
 
 
@@ -471,8 +599,10 @@ def register_verbs(game) -> None:
     game.register_verb("V-LOOK",       v_look)
     game.register_verb("V-TAKE",       v_take)
     game.register_verb("V-WEAR",       v_wear)
+    game.register_verb("V-REMOVE",     v_remove)
     game.register_verb("V-DROP",       v_drop)
     game.register_verb("V-TALK",       v_talk)
+    game.register_verb("V-GIVE",       v_give)
     game.register_verb("V-BUY",        v_buy)
     game.register_verb("V-BOARD-SHIP", v_board_ship)
     game.register_verb("V-DOCK",       v_dock)

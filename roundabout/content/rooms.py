@@ -14,6 +14,7 @@ def make_rooms(world) -> None:
     _make_tower(world)
     _make_tale_and_ale(world)
     _make_town(world)
+    _make_volcano(world)
     _make_mine(world)
     _make_beach_and_sea(world)
     _make_kevrys_island(world)
@@ -334,8 +335,80 @@ def _make_town(world) -> None:
     roundabout_beach.exits["east"]  = Exit(destination="DOCKS")
     docks.exits["west"] = Exit(destination="ROUNDABOUT-BEACH")
 
-    # Tale and Ale: west→Town Square (east→Pipe Room already wired in _make_tale_and_ale)
-    world.rooms["TALE-AND-ALE"].exits["west"] = Exit(destination="TOWN-SQUARE")
+    # Tale and Ale: north→Town Square (east→Pipe Room already wired in _make_tale_and_ale)
+    world.rooms["TALE-AND-ALE"].exits["north"] = Exit(destination="TOWN-SQUARE")
+
+
+# ---------------------------------------------------------------------------
+# Volcano & Pyronicus's Forge
+# ---------------------------------------------------------------------------
+
+_VOLCANO_LDESC = (
+    "The volcano fills the sky above you — black rock streaked with old flows, "
+    "a thread of smoke rising from the summit, heat rolling down the slope in "
+    "slow waves. It is large, dark, and entirely convincing. There is no way in "
+    "that you can see."
+)
+
+_VOLCANO_STAIRS = (
+    "Something about the heat is wrong — it rises, but it doesn't burn. Where "
+    "the rock meets the ground, an uneven staircase leads down into the dark."
+)
+
+
+def _make_volcano(world) -> None:
+    from engine.game import M_NOT_HANDLED, M_HANDLED, M_ENTER, M_LOOK
+    from content.perception import HARD, reveal_exit_if_found
+
+    volcano = Room(name="VOLCANO", desc="The Volcano", ldesc="", value=1)
+    volcano.set_flag(ONBIT)
+    volcano.set_flag(RLANDBIT)
+    world.register_room(volcano)
+
+    forge = Room(
+        name="PYRONICUS-FORGE",
+        desc="Pyronicus's Forge",
+        ldesc=(
+            "The room is large enough that the walls at the far end are "
+            "suggestion rather than certainty.\n"
+            "Obsidian everywhere — floor, walls, ceiling — smooth and black and "
+            "catching the forge light in brief amber before giving it back to "
+            "the dark.\n"
+            "The forge itself dominates the center: enormous, ancient, burning "
+            "with the steady purpose of something that has never been allowed "
+            "to go out.\n"
+            "The heat it produces rises through the rock above, feeding an "
+            "illusion so convincing that even the smoke smells right.\n"
+            "Pyronicus built this room first. The volcano came after."
+        ),
+        value=2,
+    )
+    forge.set_flag(ONBIT)   # lit by the forge
+    world.register_room(forge)
+
+    world.rooms["ROUNDABOUT-WASTELAND"].exits["south"] = Exit(destination="VOLCANO")
+    volcano.exits["north"] = Exit(destination="ROUNDABOUT-WASTELAND")
+    # Down is hidden until a Hard perception check sees through the illusion
+    volcano.exits["down"] = Exit(
+        destination="PYRONICUS-FORGE",
+        condition=lambda w: bool(w.get_global("VOLCANO-STAIRS-FOUND")),
+        fail_message="You can't go that way.",
+    )
+    forge.exits["up"] = Exit(destination="VOLCANO")
+
+    def volcano_action(w, msg=M_NOT_HANDLED):
+        if msg == M_ENTER:
+            # Silent check every visit until the staircase is found
+            reveal_exit_if_found(w, "VOLCANO", "down", HARD, "VOLCANO-STAIRS-FOUND")
+            return M_NOT_HANDLED
+        if msg == M_LOOK:
+            print(_VOLCANO_LDESC)
+            if w.get_global("VOLCANO-STAIRS-FOUND"):
+                print(_VOLCANO_STAIRS)
+            return M_HANDLED
+        return M_NOT_HANDLED
+
+    volcano.action = volcano_action
 
 
 # ---------------------------------------------------------------------------

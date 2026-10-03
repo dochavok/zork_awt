@@ -114,10 +114,10 @@ Eastern end of Main Street. Church of All to the south. Roundabout Wasteland to 
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
-**Connections:** North → Town Square. South → The Back Alley.
+**Connections:** Northeast → Town Square. Northwest → Main West. South → The Back Alley.
 *The gap between buildings is narrow enough that the sky above is just a strip. Cobblestones give way to packed dirt underfoot.*
 *The tavern's back wall runs along the south side. It smells like kitchen waste and something less identifiable. Further south, the alley deepens.*
-Accessible from Roundabout Town Square (southwest) and Main West (southeast). Exits north to Roundabout Town Square only. South leads to The Back Alley.
+Accessible from Roundabout Town Square (southwest) and Main West (southeast). Exits back the way the player came: northeast to Town Square, northwest to Main West. South leads to The Back Alley.
 
 ### The Back Alley
 **XP: 1**
@@ -225,7 +225,7 @@ Accessed from the Upper Hall. Top of the conical tower, overlooking Roundabout T
 **NPCs:** None (gathering space; specific NPCs in sub-rooms)
 **Items:** Mailbox (teleports to Will's Wizard Tower on open)
 **Quest Hooks:** None
-**Connections:** South → Bar. East → Pipe Room. Northwest → Ty's Casino Corner. Up (staircase) → Upstairs Hall. West → Town Square (exit to street).
+**Connections:** South → Bar. East → Pipe Room. Northwest → Ty's Casino Corner. Up (staircase) → Upstairs Hall. North → Town Square (exit to street).
 Central gathering space. Entry point into the inn. Contains a mailbox — completely out of place, acknowledged by no one. `OPEN MAILBOX` teleports player to Will's Wizard Tower.
 
 **Room description:**
@@ -568,7 +568,7 @@ Post-freeing: mirrors no longer repel visible players anywhere in the Chuckle Ho
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
-**Connections:** West → Main East. East → Beach Road. North → Archery Range. South → The Volcano.
+**Connections:** West → Main East. East → Beach Road. South → The Volcano.
 *The wasteland sits at the edge of Roundabout like an embarrassing relative. Something went very wrong here, and not recently.*
 *The ground doesn't grow anything. The structures that remain are shells. Whatever happened, it happened thoroughly.*
 *The cause is a matter of some local sensitivity. The prevailing theory among residents involves adventurers, which explains why no one wants to discuss it in detail.*
@@ -580,7 +580,11 @@ Post-freeing: mirrors no longer repel visible players anywhere in the Chuckle Ho
 **Items:** None
 **Quest Hooks:** None (perception check reveals entrance to Pyronicus's Forge)
 **Connections:** North → Roundabout Wasteland. Down → Pyronicus's Forge (perception check required to reveal entrance).
-The illusory volcano itself. Appears entirely real. Harder perception check required to see through it. On success: uneven staircase DOWN revealed. On failure: player sees only an active volcano with no apparent entrance. **Connections:** North → Roundabout Wasteland. Down → Pyronicus's Forge.
+The illusory volcano itself. Appears entirely real. Hard perception check (silent, every visit until found) required to see through it. On success: uneven staircase DOWN revealed permanently. On failure: player sees only an active volcano with no apparent entrance.
+
+**Room description:** *The volcano fills the sky above you — black rock streaked with old flows, a thread of smoke rising from the summit, heat rolling down the slope in slow waves. It is large, dark, and entirely convincing. There is no way in that you can see.*
+
+**Staircase found (appended to room description):** *Something about the heat is wrong — it rises, but it doesn't burn. Where the rock meets the ground, an uneven staircase leads down into the dark.*
 
 ### Pyronicus's Forge
 **XP: 2**
@@ -608,7 +612,7 @@ Single room.
 **NPCs:** Raznak (found here; full dialogue in npcs.md)
 **Items:** None
 **Quest Hooks:** None (agility hazard; permanently safe after all three Viking trust trials complete)
-**Connections:** East → Main West. West → Viking Encampment. South → Roundabout Wasteland. North → Roundabout Pond.
+**Connections:** East → Main West. West → Viking Encampment. North → Roundabout Pond.
 *Straw targets line the far end of a long cleared field, bristling with arrows. The range is well-used.*
 *The Vikings from the encampment to the west use it freely — and apparently consider the entire field fair game, including the parts you're standing in.*
 Hazardous — agility challenge roll each time the player passes through to avoid being hit by an errant arrow; failure deals 1 heart physical damage.
@@ -722,7 +726,7 @@ West of The Encampment. **Aylora** is the Viking champion. Best of five rounds; 
 **NPCs:** None
 **Items:** Bottle (at pond bottom; perception check each visit; retrieved with fishing rod + challenge roll — treasure item)
 **Quest Hooks:** Bottle retrieval — perception-gated discovery; May's hints unlock on discovery
-**Connections:** East → Archery Range. West → Bog-SE.
+**Connections:** South → Archery Range. West → Bog-SE.
 Between town and the bog. Two-state room.
 
 **Base description:** *The pond is easy to walk past without noticing. It sits low between the town path and the bog, ringed with reeds and the occasional frog. The water is dark and calm.*

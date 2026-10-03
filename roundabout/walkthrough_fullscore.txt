@@ -55,6 +55,7 @@ Any command except OPEN MAILBOX returns the Zork joke. Opening the
 mailbox triggers Will's appearance and character creation.
 
 > OPEN MAILBOX                [mailbox opens]
+(input: yes)                 [Then we begin]
 (input: warrior)             [You have chosen: Warrior]
 (input: Tester)              [Welcome, Tester]
 
@@ -93,7 +94,7 @@ Enchanted Glasses he will be visible on the first visit once glasses are
 enchanted, but we have only regular Enchanted Glasses right now and the
 always-max mock ensures the check passes.
 
-> SOUTH                       [Town Square]
+> NORTH                       [Town Square]
 > SOUTHWEST                   [Alley]
 > SOUTH                       [Back Alley]
 
@@ -136,7 +137,7 @@ fishing rod. Buy it now while we're here.
 
 Navigate to the mine via the forest.
 
-> WEST                        [Town Square]
+> NORTH                       [Town Square]
 > EAST                        [Main East]
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
@@ -391,6 +392,7 @@ bonus doesn't matter — Warrior succeeds too.
 
 > WEST                        [Roundabout Wasteland]
 > WEST                        [Main East]
+> WEST                        [Town Square]
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
@@ -468,8 +470,9 @@ Bog-NW. For Warriors, the Light scroll must be taken to Will to learn.
 
 > EAST                        [Bog-SE]
 > EAST                        [Roundabout Pond]
-> EAST                        [Archery Range]
+> SOUTH                       [Archery Range]
 > EAST                        [Main West]
+> EAST                        [Town Square]
 > SOUTH                       [Tale and Ale]
 > OPEN MAILBOX                [tower]
 > LOOK AT MUSIC BOX           [music box]
@@ -481,7 +484,6 @@ refuses to teach while they are worn), then give the scroll to Will.
 
 > REMOVE GLASSES              [glasses removed]
 > GIVE SCROLL TO WILL         [Light spell]
-> WEAR GLASSES                [glasses]
 
 Light spell learned permanently. Now we can safely enter all dark rooms
 without a torch burning down.
@@ -495,6 +497,7 @@ the dungeon. We'll collect it in section N (dungeon run) and return.
 For now, note the quest is discovered by talking to Shamus.
 
 > EXAMINE PAINTING            [Tale and Ale]
+> WEAR GLASSES                [glasses]
 > SOUTH                       [Bar]
 > SOUTH                       [Kitchen]
 > TALK TO SHAMUS              [recipe]
@@ -509,6 +512,7 @@ The Beekeeper's Cottage is west of The Old Oak, at the forest edge.
 
 > NORTH                       [Bar]
 > NORTH                       [Main Room]
+> NORTH                       [Town Square]
 > WEST                        [Main West]
 > EAST                        [Town Square]
 > EAST                        [Main East]
@@ -602,7 +606,6 @@ Before the dungeon run, get the ring and trigger Will's second briefing.
 > SOUTH                       [Volcano]
 > DOWN                        [Pyronicus's Forge]
 > TALK TO PYRONICUS           [ring]
-> TAKE RING                   [God-Forsaken Ring]
 
 Quest 7 (Bone Flute) is posted 20 turns after first meeting Pyronicus.
 It will appear on the Quest Board by the time we return to town.
@@ -620,6 +623,7 @@ Return to Will for the second briefing (three faiths, Church of All).
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
 > OPEN MAILBOX                [tower]
+> REMOVE GLASSES              [glasses removed]
 > GIVE RING TO WILL           [three faiths]
 
 Second briefing fires. Quest 17 (Frozen Watch) is now posted on the
@@ -633,6 +637,8 @@ Warriors must bring it to Will. The Chuckle House requires the ring for
 invisibility.
 
 > EXAMINE PAINTING            [Tale and Ale]
+> WEAR GLASSES                [glasses]
+> NORTH                       [Town Square]
 > EAST                        [Main East]
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
@@ -640,7 +646,7 @@ invisibility.
 > NORTHEAST                   [Lighthouse]
 > TAKE SCROLL                 [Unbind Undead]
 > SOUTHWEST                   [Roundabout Beach]
-> WEST                        [Beach Road]
+> NORTH                       [Beach Road]
 > WEST                        [Wasteland]
 > WEST                        [Main East]
 > WEST                        [Town Square]
@@ -648,7 +654,6 @@ invisibility.
 > OPEN MAILBOX                [tower]
 > REMOVE GLASSES              [glasses removed]
 > GIVE SCROLL TO WILL         [Unbind Undead]
-> WEAR GLASSES                [glasses]
 
 Unbind Undead spell learned. Navigate to the Chuckle House (west of
 the Graveyard, now visible after Litlock's bonk).
@@ -657,6 +662,8 @@ Equip the ring for invisibility before entering the Chuckle House.
 Corruption ticks while wearing it — remove it as soon as possible after.
 
 > EXAMINE PAINTING            [Tale and Ale]
+> WEAR GLASSES                [glasses]
+> NORTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church Nave]
 > SOUTH                       [Graveyard]
@@ -872,7 +879,7 @@ Perception check auto-passes — gravestone visible face-down in mud.
 
 > LOAD STONE ONTO CART        [loaded]
 > EAST                        [Roundabout Pond]
-> EAST                        [Archery Range]
+> SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
 > EAST                        [Main East]
@@ -1023,6 +1030,7 @@ The Archivist in the library needs a rubbing from the Inscription Chamber
 > BUY THIN PAPER              [thin paper]
 > NORTH                       [Bar]
 > NORTH                       [Main Room]
+> NORTH                       [Town Square]
 > WEST                        [Main West]
 > NORTH                       [Library Main Hall]
 > EAST                        [Stacks]
@@ -1242,7 +1250,8 @@ GG) Quest 28 — The Archivist's Request (Complete)
 Return the rubbing to the Archivist in the library.
 
 > NORTH                       [Main Room]
-> NORTH                       [Main West]
+> NORTH                       [Town Square]
+> WEST                        [Main West]
 > NORTH                       [Library Main Hall]
 > EAST                        [Stacks]
 > GIVE RUBBING TO ARCHIVIST   [incantation scroll]
@@ -1276,7 +1285,6 @@ Warriors cannot read spell scrolls directly — take it to Will.
 > OPEN MAILBOX                [tower]
 > REMOVE GLASSES              [glasses removed]
 > GIVE SCROLL TO WILL         [Fireball]
-> WEAR GLASSES                [glasses]
 
 Quest 7 complete. Fireball spell learned.
 
@@ -1286,6 +1294,8 @@ II) Quest 19/30 — Kill the Undead Werewolf
 Return to The Still Den with the consecrated silver stake.
 
 > EXAMINE PAINTING            [Tale and Ale]
+> WEAR GLASSES                [glasses]
+> NORTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church Nave]
 > SOUTH                       [Graveyard]
@@ -1462,7 +1472,7 @@ Surface via the bog hole exit (Bog-NW), then deliver to Ivanaar.
 > EAST                        [Bog-NE]
 > SOUTH                       [Bog-SE]
 > EAST                        [Roundabout Pond]
-> EAST                        [Archery Range]
+> SOUTH                       [Archery Range]
 > WEST                        [Viking Encampment]
 > GIVE STONES TO IVANAAR      [tunic]
 > TAKE TUNIC                  [Ivanaar's Tunic]
@@ -1546,6 +1556,7 @@ With Actually Enchanted Glasses the dragon-nip is auto-visible.
 > TAKE DRAGON-NIP             [dragon-nip]
 > EXAMINE PAINTING            [Tale and Ale]
 > OPEN MAILBOX                [tower]
+> REMOVE GLASSES              [glasses removed]
 > GIVE DRAGON-NIP TO WILL     [Golden Dragon Scale]
 > TAKE SCALE                  [Golden Dragon Scale]
 
@@ -1570,6 +1581,7 @@ Blade), Werewolf's Amulet (Veil of the Arcane), Crystal Bowl (Verdant
 Circle). Navigate to the Church of All altar.
 
 > EXAMINE PAINTING            [Tale and Ale]
+> NORTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church Nave]
 > EAST                        [Altar]

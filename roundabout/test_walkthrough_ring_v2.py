@@ -26,40 +26,24 @@ _WALKTHROUGH_PATH = os.path.join(os.path.dirname(__file__), "walkthrough_ring.tx
 
 # ---------------------------------------------------------------------------
 # Input feed
-#
-# The opening sequence calls input() multiple times:
-#   _step1_mailbox   -> 1 _pause()  -> ""
-#   _step2_class     -> _prompt_class() -> "warrior"  then 1 _pause() -> ""
-#   _step3_name      -> _prompt_name() -> "Tester"
-#   _step4_briefing  -> 1 _pause()  -> ""
-#   _step5_zenni     -> 1 _pause()  -> ""
-#   _step6_sendoff   -> 1 _pause()  -> ""
-#
-# After that, every _pause() in the game needs a "".  We pad with many
-# empty strings so any unexpected pause doesn't hang the test.
 # ---------------------------------------------------------------------------
 
-_OPENING_INPUTS = [
-    "",         # pause after step 1 mailbox
-    "warrior",  # class selection
-    "",         # pause after class confirm
-    "Tester",   # name entry
-    "",         # pause after ring briefing
-    "",         # pause after zenni handoff
-    "",         # pause after sendoff
+# Answers are chosen by prompt text, so the opening can add or reorder
+# prompts without breaking the feed. Bare pauses (no prompt) get "".
+_PROMPT_ANSWERS = [
+    ("adventure", "yes"),       # Will: "Are you up for an adventure?"
+    ("warrior/mage/rogue", "warrior"),
+    ("your name", "Tester"),
 ]
-
-_EXTRA_PAUSES = [""] * 500   # cover any in-game pauses
 
 
 def _make_input_feed():
-    seq = _OPENING_INPUTS + _EXTRA_PAUSES
-    idx = [0]
-
     def _feed(prompt=""):
-        val = seq[idx[0]] if idx[0] < len(seq) else ""
-        idx[0] += 1
-        return val
+        p = prompt.lower()
+        for key, answer in _PROMPT_ANSWERS:
+            if key in p:
+                return answer
+        return ""
 
     return _feed
 

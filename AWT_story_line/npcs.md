@@ -9,6 +9,7 @@ Update this file immediately when any NPC detail is designed or changed.
 
 ### Will Passion
 **Location:** Will's Wizard Tower (via White House mailbox / Tale and Ale mailbox)
+**Presence line (room listing):** *Will Passion sits at his desk, pen in hand.* (`EXAMINE WILL` shows the Appearance text below.)
 **Personality:** Measured, dry humor, ancient. The weight of centuries is visible in him but not heavy — he's accommodating it rather than bearing it.
 
 **Appearance:**
@@ -224,10 +225,12 @@ Standard easter egg dialogue. No mention of glasses.
 ---
 
 ### Pyronicus
-**Location:** Below the illusory volcano, east of the Roundabout Wasteland.
+**Location:** Below the illusory volcano, south of the Roundabout Wasteland.
 **Personality:** Measured, slightly aloof. Economical with words.
 
 Lives in a single large obsidian room built around an ancient forge. Will told Pyronicus to expect the player — he is unconcerned about being found.
+
+**Presence line (room listing):** *Pyronicus works at the forge, unhurried, as though he has been expecting company and sees no reason to stop for it.*
 
 **Ring handover:**
 *Pyronicus sets down his work and regards you with calm, unhurried eyes. "Will's errand," he says. "Yes."*

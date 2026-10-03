@@ -8,6 +8,26 @@ from __future__ import annotations
 from engine.world import GameObject, TAKEBIT, CONTBIT, OPENBIT, NDESCBIT, SACREDBIT, ACTORBIT, BURNBIT
 
 
+# npcs.md — Will Passion: Appearance. Shown on EXAMINE WILL.
+WILL_APPEARANCE = (
+    "Will Passion sits with the unhurried stillness of a man who has "
+    "seen centuries compressed into a single lifetime.\n"
+    "His long dark robes of deep violet — trimmed in crimson cord that "
+    "winds like a binding spell — hang loosely from broad, weathered "
+    "shoulders.\n"
+    "His hair, dark as a raven's wing but streaked with the silver of "
+    "hard-won wisdom, falls long and untamed past his shoulders.\n"
+    "His beard is full and commanding, the kind that seems to grow with "
+    "intent.\n"
+    "Thin, almost delicate wire-rimmed spectacles rest upon his nose — "
+    "an odd contrast to everything else about him, as if he borrowed "
+    "them from a much more ordinary man.\n"
+    "On his wrist sits a leather cuff, dark and worn.\n"
+    "Around his neck, a crimson cord from which hangs... something. "
+    "You can't quite make it out."
+)
+
+
 def make_objects(world) -> None:
     _make_opening_objects(world)
     _make_tower_objects(world)
@@ -75,7 +95,7 @@ def _make_tower_objects(world) -> None:
             "A pair of wire-rimmed glasses sit on the nightstand. "
             "They look perfectly ordinary."
         ),
-        ldesc="A pair of wire-rimmed glasses sit on the nightstand.",
+        ldesc="A pair of wire-rimmed glasses rests on the nightstand.",
         synonyms=["glasses", "spectacles", "specs"],
         adjectives=["wire-rimmed", "enchanted", "actually"],
         flags={TAKEBIT, _WEARABLE},
@@ -87,7 +107,6 @@ def _make_tower_objects(world) -> None:
     ring = GameObject(
         name="RING",
         desc="plain dark ring",
-        fdesc="A plain dark ring sits on the desk.",
         ldesc="A plain dark ring.",
         synonyms=["ring"],
         adjectives=["plain", "dark", "god-forsaken"],
@@ -180,6 +199,34 @@ def _make_npcs(world) -> None:
         flags={ACTORBIT},
     )
     world.register_object(kevry)
+
+    # Will Passion — in the tower (npcs.md: Will Passion)
+    _WILL_PRESENCE = "Will Passion sits at his desk, pen in hand."
+    will = GameObject(
+        name="WILL",
+        desc="Will Passion",
+        fdesc=_WILL_PRESENCE,
+        ldesc=_WILL_PRESENCE,
+        synonyms=["will", "passion", "wizard"],
+        adjectives=["will"],
+        flags={ACTORBIT},
+    )
+    world.register_object(will)
+
+    # Pyronicus — holds the ring until TALK TO (npcs.md: Pyronicus)
+    _PYRONICUS_PRESENCE = (
+        "Pyronicus works at the forge, unhurried, as though he has been "
+        "expecting company and sees no reason to stop for it."
+    )
+    pyronicus = GameObject(
+        name="PYRONICUS",
+        desc="Pyronicus",
+        fdesc=_PYRONICUS_PRESENCE,
+        ldesc=_PYRONICUS_PRESENCE,
+        synonyms=["pyronicus", "dragon", "smith"],
+        flags={ACTORBIT},
+    )
+    world.register_object(pyronicus)
 
 
 def _make_sea_objects(world) -> None:

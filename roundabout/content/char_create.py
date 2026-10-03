@@ -2,7 +2,8 @@
 Character creation / opening sequence for Roundabout: The God-Forsaken Ring.
 
 run_opening(world, game) is called by the White House mailbox action.
-Places the player in Will's Wizard Tower after class and name selection.
+Text is from AWT_story_line/npcs.md — Will Passion: Opening scene and
+Tower visit sequence. Will does not hand over the ring; Pyronicus has it.
 """
 
 from __future__ import annotations
@@ -20,35 +21,84 @@ _CLASSES = {
 }
 
 _OPENING_TEXT = """\
-A figure appears at the edge of the field — unhurried, as if he’d been\
- there the whole time and you simply hadn’t noticed.
+Will appears without ceremony, straightening his cuffs as though he merely\
+ stepped from one room to another.
 
-He is tall, older, wearing the kind of clothes that suggest someone who\
- stopped caring about appearances a long time ago and is entirely comfortable\
- with that decision. He carries a staff that looks more like a walking stick\
- that got ideas above its station.
+"You opened the mailbox," he says. "I wasn't entirely certain you would."
 
-“Ah,” he says. “Good. I was wondering when you’d show up.”
+He studies you for a moment.
 
-He introduces himself as Will Passion. He has a job for you — a ring needs\
- returning, a wrong needs setting right, and you seem like the sort of person\
- who can manage both without making things significantly worse. Probably.
+"I have a small errand for you. It involves a town called Roundabout, an\
+ object that has a habit of ending up where it doesn't belong, and someone who\
+ is holding it quite innocently and will give it up without a fuss."
 
-The mailbox opens. Inside: a letter. It reads: *Are you up for an adventure?*
+He pauses. "The object itself is another matter."
 """
 
+_DECLINE_TEXT = """\
+Will pauses. "No," he repeats, tasting the word. "Interesting." He waves a\
+ hand, not unkindly. "Off you go, then." And he is gone. The field is quiet.\
+ The mailbox stands closed in the morning light, as though it never opened.\
+ As though none of this happened.
+
+*** GAME OVER ***"""
+
+_ACCEPT_TEXT = """\
+Will straightens to his full height. Something changes in the air — a\
+ pressure, a stillness, the sense of a page turning. "Then we begin," he says.\
+ The field vanishes. The tower arrives around you like a cloak settling onto\
+ broad shoulders.
+"""
+
+_CLASS_PROMPT_TEXT = """\
+"I have read destinies in the lines of a man's palm, in the pattern of stars,\
+ in the way smoke rises from a candle. And yet here you stand, entirely\
+ unreadable." He sighs. "Just tell me — Warrior, Mage, or Rogue?\""""
+
+_CLASS_RESPONSE = {
+    "warrior": (
+        '"A Warrior. Yes. I can see it now, actually." He seems mildly '
+        'embarrassed to have missed it. "Good. You\'ll need that in you '
+        'before this is done."'
+    ),
+    "mage": (
+        '"A Mage. Yes — I almost had it." He says this as though he\'s been '
+        'working on a puzzle and just found the missing piece. "Good. You\'ll '
+        'see things others miss. Pay attention to that instinct."'
+    ),
+    "rogue": (
+        '"A Rogue. Yes." He seems to find this amusing in a quiet way. "You '
+        'know, I should have seen that. Something about the way you looked at '
+        'the door when you came in." He shakes his head. "Pay attention to '
+        'everything. You already know how. Just keep doing it."'
+    ),
+}
+
 _BRIEFING_TEXT = """\
-Will hands you a ring — plain, dark metal, heavier than it looks.
+"There is a ring in Roundabout. It belongs to no one and everyone, depending\
+ on how you look at it — which is part of the problem."
 
-“Don’t wear it,” he says. Then: “Well. Don’t wear it *much*.\
- There are things it can do that will be useful. There are also things it’ll\
- do to you if you let it. The two facts are related. Be sensible.”
+He stands and moves to the window.
 
-He produces ten Zenni from somewhere and sets them on the desk.
+"It fell through the roof of a man named Pyronicus. He's holding it in good\
+ faith, completely unaware of what it is. He'll give it up without a fight."
 
-“For expenses. The painting on the wall is the way out. Come back when you’ve\
- finished, or when you need help, or when something has gone interestingly wrong.\
- I’ll be here.”
+He turns back.
+
+"I need you to retrieve it. Bring it to me, or keep it close — but understand\
+ this: the ring is useful. It is also patient. And patient things have a way\
+ of getting what they want eventually."
+"""
+
+_ZENNI_TEXT = """\
+Almost as an afterthought, Will pulls a small pouch from somewhere in his\
+ robes and holds it out. "Here," he says. "Ten Zenni. Don't spend it all on\
+ drinks."
+"""
+
+_SENDOFF_TEXT = """\
+"When you're ready," Will says, settling back into his chair, "Roundabout\
+ awaits." He picks up his pen. The conversation, it seems, is over.
 """
 
 
@@ -56,42 +106,58 @@ def _pause() -> None:
     input()
 
 
+def _prompt_adventure() -> bool:
+    while True:
+        answer = input('"Are you up for an adventure?" (yes/no) ').strip().lower()
+        if answer in ("yes", "y"):
+            return True
+        if answer in ("no", "n"):
+            return False
+        print("Please answer yes or no.")
+
+
 def _prompt_class() -> str:
-    print("Choose your class:")
-    print("  warrior  — 6 hearts, starts with melee skill")
-    print("  mage     — 4 hearts, starts with spell casting")
-    print("  rogue    — 5 hearts, starts with bow skill")
-    choice = input("Your choice: ").strip().lower()
-    return choice
+    print(_CLASS_PROMPT_TEXT)
+    while True:
+        choice = input("Your choice (warrior/mage/rogue): ").strip().lower()
+        if choice in _CLASSES:
+            return choice
+        print("Please choose warrior, mage, or rogue.")
 
 
 def _prompt_name() -> str:
-    return input("What is your name, adventurer? ").strip()
+    return input('"And your name?" ').strip()
 
 
 def run_opening(world: World, game: Game) -> None:
     """Fire the full opening sequence. Called once when player opens the mailbox."""
+    # Step 0 — West of House: Will appears and asks
     print(_OPENING_TEXT)
+    if not _prompt_adventure():
+        print(_DECLINE_TEXT)
+        world.set_global("GAME-OVER", True)
+        game.quit()
+        return
+
+    print(_ACCEPT_TEXT)
     _pause()
 
-    # Class selection
-    while True:
-        choice = _prompt_class()
-        if choice in _CLASSES:
-            break
-        print("Please choose warrior, mage, or rogue.")
+    # Step 1 — Player arrives: tower first impression
+    tower = world.rooms.get("WIZARDS-TOWER")
+    if tower is not None:
+        game.enter_room(tower)
 
+    # Step 2 — Class selection
+    choice = _prompt_class()
     cls = _CLASSES[choice]
+    print(_CLASS_RESPONSE[choice])
     print(f"\nYou have chosen: {choice.capitalize()}")
     print(f"Hearts: {cls['hearts']}  Starting skill: {cls['skill']}")
     _pause()
 
-    # Name
-    name = _prompt_name()
-    if not name:
-        name = "Adventurer"
+    # Step 3 — Name entry
+    name = _prompt_name() or "Adventurer"
 
-    # Store on player
     player = world.player
     if player is not None:
         player.desc = name
@@ -100,22 +166,20 @@ def run_opening(world: World, game: Game) -> None:
         world.set_global("PLAYER-HEARTS", cls["hearts"])
         world.set_global("PLAYER-HEARTS-MAX", cls["hearts"])
         world.set_global("PLAYER-SKILL", cls["skill"])
-        world.set_global("ZENNI", 10)
 
     print(f"\nWelcome, {name}.")
     _pause()
 
-    # Move player to Tower
-    tower = world.rooms.get("WIZARDS-TOWER")
-    if tower is not None:
-        game.enter_room(tower)
-
+    # Step 4 — Ring quest briefing (no ring handed over; Pyronicus has it)
     print(_BRIEFING_TEXT)
     _pause()
 
-    # Give the ring
-    ring = world.objects.get("RING")
-    if ring is not None and player is not None:
-        world.move_object(ring, player)
+    # Step 5 — Zenni handoff
+    print(_ZENNI_TEXT)
+    world.set_global("ZENNI", 10)
+    _pause()
 
-    _pause()  # sendoff pause
+    # Step 6 — Send-off. Step 7 (trailing warning) and step 8 (transition)
+    # fire on the first EXAMINE PAINTING — see verbs.v_examine.
+    print(_SENDOFF_TEXT)
+    _pause()

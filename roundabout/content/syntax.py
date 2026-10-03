@@ -784,6 +784,16 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj2=ObjectSpec(find_flag=CONTBIT, locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
+        # REMOVE — take off a worn item; REMOVE X FROM Y is a take           #
+        # ------------------------------------------------------------------ #
+        SyntaxRule(verb="remove", action="V-REMOVE",
+                   obj1=ObjectSpec(locations=_held_car_og_ir_take)),
+        SyntaxRule(verb="remove", action="V-TAKE-FROM",
+                   obj1=ObjectSpec(find_flag=TAKEBIT, locations=_held_car_og_ir_take_have_many),
+                   prep="from",
+                   obj2=ObjectSpec(find_flag=CONTBIT, locations=_held_car_og_ir)),
+
+        # ------------------------------------------------------------------ #
         # TALK / TELL / ASK                                                  #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="talk", particle="to",

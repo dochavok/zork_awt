@@ -179,7 +179,8 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("swap", "trade", "exchange")         # SWAP IDOL WITH SALT
     v.add_verb("swim", "bathe", "wade")
     v.add_verb("swing", "thrust")
-    v.add_verb("take", "get", "hold", "carry", "remove", "grab", "catch")
+    v.add_verb("take", "get", "hold", "carry", "grab", "catch")
+    v.add_verb("remove", "doff")                    # REMOVE GLASSES (take off worn item)
     v.add_verb("talk")
     v.add_verb("tell", "ask")
     v.add_verb("throw", "hurl", "chuck", "toss")

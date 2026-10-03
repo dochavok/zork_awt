@@ -27,6 +27,7 @@ and character creation. After class and name, examining the painting
 teleports the player to the Tale and Ale.
 
 > OPEN MAILBOX                [mailbox opens]
+(input: yes)                 [Then we begin]
 (input: warrior)             [You have chosen: Warrior]
 (input: Tester)              [Welcome, Tester]
 
@@ -69,7 +70,7 @@ Sail from the Tale and Ale back to the overworld. The Docks are east of
 Roundabout Beach.
 
 > EXAMINE PAINTING            [Tale and Ale]
-> WEST                        [Town Square]
+> NORTH                       [Town Square]
 > EAST                        [Main East]
 > EAST                        [Roundabout Wasteland]
 > EAST                        [Beach Road]
@@ -134,7 +135,7 @@ Now return to the mine to execute the heist.
 We need to go back to the forest and down.
 
 > WEST                        [Main Room]
-> WEST                        [Town Square]
+> NORTH                       [Town Square]
 > EAST                        [Main East]
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
@@ -359,7 +360,7 @@ path through the Secret Tunnels will need light later).
 We already bought a torch from Shamus. Let's head east.
 
 > WEST                        [Roundabout Beach]
-> WEST                        [Beach Road]
+> NORTH                       [Beach Road]
 > WEST                        [Roundabout Wasteland]
 > SOUTH                       [Volcano]
 > DOWN                        [Pyronicus's Forge]
@@ -368,7 +369,6 @@ We already bought a torch from Shamus. Let's head east.
 Pyronicus hands over the ring willingly and gives the briefing. The
 ring is now in inventory.
 
-> TAKE RING                   [God-Forsaken Ring]
 
 Return to Will with the ring for the second briefing (Church of All,
 three faiths, three artifacts).
@@ -382,6 +382,7 @@ Return to Will's tower via the Tale and Ale mailbox.
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
 > OPEN MAILBOX                [tower]
+> REMOVE GLASSES              [glasses removed]
 > GIVE RING TO WILL           [three faiths]
 
 Will explains the Church of All altar, the dial, and that three
@@ -399,6 +400,7 @@ We need the torch for the dungeon later but the overworld is naturally
 lit. Head to the encampment.
 
 > EXAMINE PAINTING            [Tale and Ale]
+> WEAR GLASSES                [glasses]
 > EAST                        [Pipe Room]
 
 We are in the Pipe Room. We need to go west past Main West to the
@@ -406,7 +408,7 @@ Archery Range then west again to the Viking Encampment. First navigate
 from the Pipe Room back west.
 
 > WEST                        [Main Room]
-> WEST                        [Town Square]
+> NORTH                       [Town Square]
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > WEST                        [Viking Encampment]
@@ -508,7 +510,7 @@ Steps:
 4. Give watch to Records Room Worker, get town charter.
 5. Give charter to Boggart at the Toll Bridge.
 
-First: the Lighthouse is north of Roundabout Beach.
+First: the Lighthouse is northeast of Roundabout Beach.
 
 > SOUTH                       [Tale and Ale]
 > SOUTH                       [Bar]
@@ -521,7 +523,7 @@ be in the dungeon for a while.
 > BUY TORCH                   [torch]
 > NORTH                       [Bar]
 > NORTH                       [Main Room]
-> WEST                        [Town Square]
+> NORTH                       [Town Square]
 > EAST                        [Main East]
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
@@ -534,7 +536,7 @@ Warriors cannot read spell scrolls directly. Bring the Unbind Undead
 scroll to Will Passion to learn it. The glasses must be REMOVED in
 Will's presence or he refuses to teach.
 
-> WEST                        [Beach Road]
+> NORTH                       [Beach Road]
 > WEST                        [Roundabout Wasteland]
 > WEST                        [Main East]
 > WEST                        [Town Square]
@@ -542,7 +544,6 @@ Will's presence or he refuses to teach.
 > OPEN MAILBOX                [tower]
 > REMOVE GLASSES              [glasses removed]
 > GIVE SCROLL TO WILL         [Unbind Undead]
-> WEAR GLASSES                [glasses]
 
 Now navigate the Chuckle House. It is west of the Graveyard, but it is
 not visible yet — Litlock's bonk is the only way to make it appear. For
@@ -554,6 +555,7 @@ Litlock's home in the bog.
 Actually Enchanted Glasses auto-reveal the Dankhaus path in Bog-SE.
 
 > EXAMINE PAINTING            [Tale and Ale]
+> WEAR GLASSES                [glasses]
 > SOUTH                       [Bar]
 > SOUTH                       [Kitchen]
 > DOWN                        [Cellar]
@@ -575,7 +577,7 @@ alternate entry to the Secret Tunnels. Let's use that.
 
 > NORTH                       [Bar]
 > NORTH                       [Main Room]
-> WEST                        [Town Square]
+> NORTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church Nave]
 > SOUTH                       [Graveyard]
@@ -622,7 +624,7 @@ The Dankhaus path is now visible. But wards block entry without Lynds's
 invitation. Go to the Tale and Ale to find Lynds.
 
 > EAST                        [Roundabout Pond]
-> EAST                        [Archery Range]
+> SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
 > SOUTH                       [Tale and Ale]
@@ -661,8 +663,9 @@ west of the Graveyard. Return to town.
 
 > WEST                        [Bog-SE]
 > EAST                        [Roundabout Pond]
-> EAST                        [Archery Range]
+> SOUTH                       [Archery Range]
 > EAST                        [Main West]
+> EAST                        [Town Square]
 > SOUTH                       [Tale and Ale]
 
 Now navigate to the Chuckle House. Equip the ring for invisibility.
@@ -862,7 +865,7 @@ the hand cart. The hand cart is in Storage Area (dungeon upper tier).
 Fetch the cart:
 
 > EAST                        [Roundabout Pond]
-> EAST                        [Archery Range]
+> SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
 > SOUTH                       [Tale and Ale]
@@ -870,7 +873,7 @@ Fetch the cart:
 > SOUTH                       [Kitchen]
 > NORTH                       [Bar]
 > NORTH                       [Main Room]
-> WEST                        [Town Square]
+> NORTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church Nave]
 > SOUTH                       [Graveyard]
@@ -909,7 +912,7 @@ back to the cemetery.
 Push the cart back to the Graveyard (cemetery).
 
 > EAST                        [Roundabout Pond]
-> EAST                        [Archery Range]
+> SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
 > EAST                        [Main East]
@@ -1252,7 +1255,7 @@ lower tier. LOOK UP to retrieve it. No perception check.
 
 > EAST                        [Bog-SE]
 > EAST                        [Roundabout Pond]
-> EAST                        [Archery Range]
+> SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > SOUTH                       [Town Square]
 > EAST                        [Main East]
@@ -1406,6 +1409,7 @@ Return the bound ring to Will Passion.
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
 > OPEN MAILBOX                [tower]
+> REMOVE GLASSES              [glasses removed]
 > GIVE RING TO WILL           [Well done]
 
 Will takes the ring, listens for something, sets it on the desk. "Well

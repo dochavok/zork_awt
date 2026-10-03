@@ -28,27 +28,22 @@ _WALKTHROUGH_PATH = os.path.join(os.path.dirname(__file__), "walkthrough_fullsco
 # Input feed (same logic as ring test)
 # ---------------------------------------------------------------------------
 
-_OPENING_INPUTS = [
-    "",         # pause after step 1 mailbox
-    "warrior",  # class selection
-    "",         # pause after class confirm
-    "Tester",   # name entry
-    "",         # pause after ring briefing
-    "",         # pause after zenni handoff
-    "",         # pause after sendoff
+# Answers are chosen by prompt text, so the opening can add or reorder
+# prompts without breaking the feed. Bare pauses (no prompt) get "".
+_PROMPT_ANSWERS = [
+    ("adventure", "yes"),       # Will: "Are you up for an adventure?"
+    ("warrior/mage/rogue", "warrior"),
+    ("your name", "Tester"),
 ]
-
-_EXTRA_PAUSES = [""] * 500
 
 
 def _make_input_feed():
-    seq = _OPENING_INPUTS + _EXTRA_PAUSES
-    idx = [0]
-
     def _feed(prompt=""):
-        val = seq[idx[0]] if idx[0] < len(seq) else ""
-        idx[0] += 1
-        return val
+        p = prompt.lower()
+        for key, answer in _PROMPT_ANSWERS:
+            if key in p:
+                return answer
+        return ""
 
     return _feed
 
