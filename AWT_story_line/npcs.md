@@ -103,11 +103,13 @@ He turns back to his work.
 **Location:** The Dankhaus, hidden in Bog-SE behind dense brush.
 **Personality:** Jovial. Raises Aurix the Kobold child.
 
-Each time the player passes through Bog-SE, a perception check occurs. On success the path to the Dankhaus is revealed — permanently visible for the rest of the playthrough. Access gated by magical wards — unlocked by Lynds after arm wrestling quest.
+Each time the player passes through Bog-SE, a perception check (Medium, 9) occurs. On success the path to the Dankhaus is revealed — permanently visible for the rest of the playthrough. Access gated by magical wards — unlocked by Lynds after arm wrestling quest.
 
 **Quest 52 — Make Litlock Laugh**
 
-A 2×2×2 dialogue-tree puzzle. One path per tier succeeds; the other fails and loops back to Tier 1. The player must find the correct path through all three tiers to make Litlock laugh fully.
+A 2×2×2 dialogue-tree puzzle. One path per tier succeeds; the other fails and loops back to Tier 1.
+
+**Interface:** after each Litlock line the player picks from a numbered menu (type the number): Tier 1 — 1. Tell a joke / 2. Do something physical; Tier 2A — 1. A pun / 2. An absurd observation; Tier 2B — 1. Something dignified / 2. Something committed and ridiculous; Tier 3 — 1. Push further / 2. Explain it. The player must find the correct path through all three tiers to make Litlock laugh fully.
 
 **Reward:** Litlock bonks the player firmly on the head with two knuckles — a magical side effect that makes the Chuckle House (west of the Graveyard) visible. The building cannot be found by any other means — no perception check, no hint. The bonk is the only way. Litlock offers no explanation.
 
@@ -216,11 +218,17 @@ Optional — not required for completion. **Enchants the Enchanted Glasses** if 
 **Glasses equipped on arrival (Quest 53):**
 *Kevry looks at the glasses, then at you, then at the glasses again. "Will sent you." It isn't a question. He takes them gently. "Interesting that he didn't come himself." He does something brief and private with them that you don't quite follow. When he hands them back they feel different. Lighter, somehow, and more certain. "There. Don't lose them."*
 
-**Glasses in inventory but not equipped on arrival:**
-*"You've got something in there," Kevry says, not looking up. "Did you not bring them?"* No enchantment. Player must equip and return — Kevry enchants on any subsequent visit with glasses equipped.
+Fires automatically on arrival in the Captain's Quarters (after the room description, where he looks up) when the glasses are worn.
 
-**No glasses on arrival:**
-Standard easter egg dialogue. No mention of glasses.
+**Glasses in inventory but not equipped on arrival:**
+*"You've got something in there," Kevry says, not looking up. "I know you brought them."* — the dead giveaway. `WEAR GLASSES` in front of him starts the enchantment (same text as above). `TALK TO KEVRY` repeats the line.
+
+**No glasses (`TALK TO KEVRY`):** hints at the quest without spelling it out.
+*"Hold still." Kevry leans in and studies you — eyes, nose, the bridge of the nose specifically — with the focus of a man reading a chart. Then he sits back. "No. At first I thought you were who Will sent to bring them." He shrugs. "Never mind. Nobody's brought them in years. Doesn't stop me hoping."*
+
+**After enchanting (`TALK TO KEVRY`):** *Kevry glances up from his map. "Don't lose them."*
+
+**Pond hint (Ship-in-a-Bottle):** to be designed — May's hints imply Kevry's ship is the bottle in the pond.
 
 ---
 

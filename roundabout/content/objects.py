@@ -202,11 +202,9 @@ def _make_npcs(world) -> None:
     kevry = GameObject(
         name="KEVRY",
         desc="Kevry",
-        fdesc="A weathered man sits hunched over a map.",
-        ldesc="Kevry — old sea captain, muttering over charts.",
         synonyms=["kevry", "captain", "man"],
         adjectives=["weathered", "old"],
-        flags={ACTORBIT},
+        flags={ACTORBIT, NDESCBIT},   # described in the Captain's Quarters text
     )
     world.register_object(kevry)
 

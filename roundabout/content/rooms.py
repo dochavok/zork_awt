@@ -950,7 +950,8 @@ def _make_kevrys_island(world) -> None:
         ldesc=(
             "The interior is cluttered in the way that only makes sense to its "
             "owner. Charts pinned to every surface, ropes coiled with obsessive "
-            "care, a hammock in the corner."
+            "care, a hammock in the corner. A lantern hangs from a beam. Someone "
+            "has been here a long time and made their peace with it."
         ),
         value=5,
     )
@@ -962,12 +963,17 @@ def _make_kevrys_island(world) -> None:
         desc="Captain's Quarters",
         ldesc=(
             "A small back room, all table and charts and the smell of ink. "
-            "A weathered man sits hunched over a map, muttering."
+            "A weathered man sits hunched over a map, muttering. He doesn't hear "
+            "you come in. When he finally looks up, his face does something "
+            "complicated — surprise, then recognition of the type that doesn't "
+            "require prior acquaintance, then a wide and genuine grin."
         ),
         value=5,
     )
     captains_quarters.set_flag(ONBIT)
     world.register_room(captains_quarters)
+    from content.kevry import quarters_action
+    captains_quarters.action = quarters_action
 
     # Wire Kevry's island exits
     world.rooms["OPEN-OCEAN-69"].exits["east"] = Exit(destination="LAND-HO")

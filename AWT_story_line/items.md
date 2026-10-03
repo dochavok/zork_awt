@@ -50,7 +50,7 @@ Required to make ranged (bow) attacks in combat. Must be carried in inventory.
 
 - Enchanted Glasses: small bonus to perception checks.
 - Actually Enchanted Glasses: pass all perception checks automatically — no roll required.
-- Upgraded by **Kevry Talborn** — only if already equipped (head slot) when player arrives at his island.
+- Upgraded by **Kevry Talborn** — automatically on arrival if worn (head slot); if only carried, putting them on in front of him triggers it.
 - **Warning:** Equipping in Will's presence triggers an instant fail state — Will attacks, no recovery. The bedroom is safe only because Will is not there.
 - **Fail text:** *Will looks up from his desk. His eyes go to the glasses on your face and stay there. For a moment nothing in the room moves. Then he is out of his chair, and whatever happens next, you don't see it coming.* — then GAME OVER. Fires when the player arrives in the tower wearing them or puts them on there.
 - **End-game return:** Dropping in Will's Bedroom at end-game earns XP — double if Actually Enchanted.

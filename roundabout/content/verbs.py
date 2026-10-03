@@ -240,6 +240,9 @@ def v_wear(world: World) -> int:
     if obj.name == "ENCHANTED-GLASSES":
         _set_glasses_state(world)
     print(f"You put on the {obj.desc}.")
+    if obj.name == "ENCHANTED-GLASSES":
+        from content import kevry
+        kevry.on_wear_glasses(world)
     if obj.name == "HEART-NECKLACE":
         from content.lynds import necklace_worn
         necklace_worn(world, True)
@@ -317,39 +320,8 @@ def v_talk(world: World) -> int:
         return M_HANDLED
 
     if obj.name == "KEVRY":
-        glasses = world.objects.get("ENCHANTED-GLASSES")
-        player  = world.player
-        if glasses and player and glasses in player.contents:
-            print(
-                'Kevry looks up from his charts. His eyes go to the glasses '
-                'immediately.\n'
-                '"Those are Will\'s. You\'ve been to the tower." He stands, '
-                'takes the glasses gently, holds them to the lamplight.\n'
-                '"He sent these with someone once before. Never came back to '
-                'collect them."\n'
-                'He breathes on each lens, polishes them with a cloth from '
-                'his pocket, and hands them back. The lenses have a faint '
-                'amber quality now that wasn\'t there before.\n'
-                '"Actually enchanted," he says. "There\'s a difference. '
-                'You\'ll see."'
-            )
-            # Name: Actually Enchanted Glasses. Description (items.md):
-            # "slightly glowing wire-rimmed glasses".
-            glasses.desc = "slightly glowing wire-rimmed glasses"
-            glasses.ldesc = (
-                "A pair of slightly glowing wire-rimmed glasses rests on the "
-                "nightstand."
-            )
-            glasses.adjectives = [
-                "wire-rimmed", "enchanted", "actually", "slightly", "glowing",
-            ]
-            world.set_global("GLASSES-ENCHANTED", True)
-            _set_glasses_state(world)
-        else:
-            print(
-                'Kevry looks up from his charts, takes you in with a measured '
-                'look, and returns to his work. "Come back when you\'re equipped."'
-            )
+        from content import kevry
+        kevry.talk(world)
         return M_HANDLED
 
     _VIKING_TALK = {

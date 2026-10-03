@@ -1157,7 +1157,7 @@ Room name changes to **Kevry's House** after the player enters and interacts wit
 **Items:** None
 **Quest Hooks:** Enchanted Glasses enchantment — bring glasses equipped to Kevry; enables auto-pass on perception checks
 **Connections:** West → A House / Kevry's House.
-Kevry is found here. Enchants the Enchanted Glasses if already equipped in the head slot.
+Kevry is found here. Enchants the Enchanted Glasses automatically on arrival if worn; if only carried, he notices, and `WEAR GLASSES` in front of him starts the enchantment.
 
 *A small back room, all table and charts and the smell of ink. A weathered man sits hunched over a map, muttering. He doesn't hear you come in. When he finally looks up, his face does something complicated — surprise, then recognition of the type that doesn't require prior acquaintance, then a wide and genuine grin.*
 

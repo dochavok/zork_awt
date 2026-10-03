@@ -285,8 +285,7 @@ Land on Kevry's island, find him in the Captain's Quarters.
 > LAND                        [Land, Ho!]
 > EAST                        [Empty Beach]
 > EAST                        [house]
-> EAST                        [Captain's Quarters]
-> TALK TO KEVRY               [enchanted]
+> EAST                        [Don't lose them]
 
 Glasses upgraded to Actually Enchanted Glasses — all perception checks
 pass automatically for the rest of the game.

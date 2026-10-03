@@ -520,9 +520,9 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 3. `TAKE GLASSES` — wire-rimmed glasses added to inventory.
 4. `WEAR GLASSES` or `PUT ON GLASSES` inside the bedroom — safe, because Will is not present. Equipping anywhere Will can see the player triggers an instant fail state (Will attacks, no recovery).
 5. Board the Pie Rat Ship and sail 69 squares east through the Open Ocean to Kevry's island. Glasses must be equipped (head slot) on arrival.
-   - **If glasses in inventory but not equipped on arrival:** *"You've got something in there," Kevry says, not looking up. "Did you not bring them?"* No enchantment. Player must equip and return — Kevry enchants on any subsequent visit with glasses equipped.
-   - **If glasses not in inventory on arrival:** Kevry has his standard easter egg dialogue. No mention of glasses.
-6. `TALK TO KEVRY` with glasses equipped — Kevry enchants them.
+   - **If glasses in inventory but not equipped on arrival:** *"You've got something in there," Kevry says, not looking up. "I know you brought them."* `WEAR GLASSES` in front of him starts the enchantment.
+   - **If glasses not in inventory:** `TALK TO KEVRY` gives a line that hints at the glasses without naming them (npcs.md — Kevry Talborn).
+6. Glasses worn on arrival — Kevry enchants them automatically.
    - *Kevry looks at the glasses, then at you, then at the glasses again. "Will sent you." It isn't a question. He takes them gently. "Interesting that he didn't come himself." He does something brief and private with them that you don't quite follow. When he hands them back they feel different. Lighter, somehow, and more certain. "There. Don't lose them."*
    - Glasses upgrade to Actually Enchanted Glasses — pass all perception checks automatically.
 7. Return to Will's Bedroom. `DROP GLASSES` on the nightstand — quest complete, XP awarded.
