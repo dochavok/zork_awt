@@ -462,15 +462,15 @@ The note reveals that the scholar of The Veil of the Arcane was transformed into
 **NPCs:** None
 **Items:** None (Chuckle House becomes visible to west after Litlock's bonk — Quest 16)
 **Quest Hooks:** Quest 16 (Litlock's bonk reveals Chuckle House); Quest 17 (Chuckle House accessible from here post-bonk)
-**Connections:** North → Church of All (Nave). South → The Mausoleum. West → The Entrance (Chuckle House; post-bonk only).
-West exit to Chuckle House appears only after Litlock's bonk (Quest 16) — absent from description until then.
+**Connections:** North → Church of All (Nave). South → The Mausoleum. East → The Entrance (Chuckle House; post-bonk only).
+East exit to Chuckle House appears only after Litlock's bonk (Quest 52) — absent from description until then.
 
 **Pre-bonk description:** *The graves here are old, most of them. Headstones lean at angles that suggest the ground beneath has shifted, or decided it no longer agrees with what's above it. The church stands to the north. The mausoleum sits at the far end to the south, grey and patient. The air is still in a way that has nothing to do with wind.*
 
 **Post-bonk description:**
 *The graves here are old, most of them. Headstones lean at angles that suggest the ground beneath has shifted, or decided it no longer agrees with what's above it.*
 *The church stands to the north. The mausoleum sits at the far end to the south, grey and patient.*
-*To the west, a low building stands where there was nothing before — and you are not sure how you missed it.*
+*To the east, a low building stands where there was nothing before — and you are not sure how you missed it.*
 *It is a low structure with a painted facade — or was, once. The paint shows something cheerful from a distance: bright colors, broad shapes, a kind of deliberate festivity.*
 *Up close, the colors are gone to grey and the shapes resolve into faces. They are smiling. They have been smiling for a very long time.*
 *The air is still in a way that has nothing to do with wind.*
@@ -504,16 +504,18 @@ May's tier 1 hint (fires only if player has not yet examined the statue): *"Some
 
 ## The Chuckle House
 
-**Location:** West of the Graveyard. Dead-end spur — not visible or accessible until Litlock's quest is complete (bonk on the head mechanic). No perception check can find it; the building is genuinely invisible until the bonk. Once visible, it remains visible for the rest of the playthrough.
+**Location:** East of the Graveyard. Dead-end spur — not visible or accessible until Litlock's quest is complete (bonk on the head mechanic). No perception check can find it; the building is genuinely invisible until the bonk. Once visible, it remains visible for the rest of the playthrough.
 
 Four rooms, linear. Ring (invisibility) required throughout — all mirrors repel visible players. Quest 17 anchor.
+
+**Chuckle House layout:** The Entrance is east of the Graveyard; the other three rooms run south from it in a line (Entrance → Rejection Mirror → Shatter Trap Mirror → Ghost's Room). South, not north, so it doesn't run into the church above.
 
 ### The Entrance
 **XP: 1**
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** Quest 17 (Chuckle House ghost quest — this is the entry point)
-**Connections:** East → Graveyard. North → The Rejection Mirror.
+**Connections:** West → Graveyard. South → The Rejection Mirror.
 No mirrors in this room — mirror mechanic begins in the Rejection Mirror. The building was a funhouse; that history is legible from this room.
 
 **Room description:**
@@ -528,14 +530,14 @@ No mirrors in this room — mirror mechanic begins in the Rejection Mirror. The 
 
 **Hooks on wall (EXAMINE HOOKS / LOOK AT HOOKS):** *Empty brackets where something square once hung — the right shape for mirrors, though whatever was here is long gone. The hooks in the deeper rooms still have their tenants.*
 
-**Exits:** East to Graveyard; north to Rejection Mirror.
+**Exits:** West to Graveyard; south to Rejection Mirror.
 
 ### The Rejection Mirror
 **XP: 1**
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** Quest 17 (ring required to pass — invisibility mechanic)
-**Connections:** South → The Entrance. North → The Shatter Trap Mirror.
+**Connections:** North → The Entrance. South → The Shatter Trap Mirror.
 A mirror that repels visible players — stepping in front of it while visible sends the player back to the Entrance. Passing while invisible (ring worn) proceeds normally. No ghost here — ghost is in the last room.
 
 ### The Shatter Trap Mirror
@@ -543,7 +545,7 @@ A mirror that repels visible players — stepping in front of it while visible s
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** Quest 17 (Trap 16 — crossbow fires on passage; ring required to pass mirror)
-**Connections:** South → The Rejection Mirror. North → Ghost's Room.
+**Connections:** North → The Rejection Mirror. South → Ghost's Room.
 A mirror that repels visible players. Also rigged with a crossbow behind the frame (Trap 16). Fires at any player passing through — visible or invisible. Perception check spots the firing pin and disarms it before it fires; otherwise the crossbow fires once and is spent. Mirror still repels visible players until the ghost is freed.
 
 ### Ghost's Room
@@ -551,7 +553,7 @@ A mirror that repels visible players. Also rigged with a crossbow behind the fra
 **NPCs:** Ghost (Records Room Worker's relative; hostile; freed by CAST UNBIND UNDEAD)
 **Items:** Pocket watch (dropped by ghost on freeing; Quest 17 / Quest 27)
 **Quest Hooks:** Quest 17 — free the ghost, recover pocket watch; pocket watch returned to Records Room Worker unlocks town charter (Quest 27)
-**Connections:** South → The Shatter Trap Mirror. (Dead end — 50% chance exit attempt fails each turn)
+**Connections:** North → The Shatter Trap Mirror. (Dead end — 50% chance exit attempt fails each turn)
 Mirrors on all sides. The ghost of the Records Room Worker's missing relative haunts this room — hostile.
 Ghost visible only while wearing the ring. `CAST UNBIND UNDEAD` releases the ghost; he says *"Thank you. I can rest now."* and drops the pocket watch.
 **Exit mechanic:** 50% chance each attempt to leave fails — player returned to same room with a disorientation message. Permanent — does not end when ghost is freed.

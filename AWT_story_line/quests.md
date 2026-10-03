@@ -505,7 +505,7 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
    - Failures loop back to Tier 1 — no penalty, retryable.
 3. On full success: Litlock bonks the player on the head. *"You'll see things a bit differently now. Don't ask me to explain it."*
 
-**Reward:** Chuckle House becomes visible (west of the Graveyard) — the only way to access it. 6 XP. 3 Zenni.
+**Reward:** Chuckle House becomes visible (east of the Graveyard) — the only way to access it. 6 XP. 3 Zenni.
 
 ---
 

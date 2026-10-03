@@ -111,7 +111,7 @@ A 2×2×2 dialogue-tree puzzle. One path per tier succeeds; the other fails and 
 
 **Interface:** after each Litlock line the player picks from a numbered menu (type the number): Tier 1 — 1. Tell a joke / 2. Do something physical; Tier 2A — 1. A pun / 2. An absurd observation; Tier 2B — 1. Something dignified / 2. Something committed and ridiculous; Tier 3 — 1. Push further / 2. Explain it. The player must find the correct path through all three tiers to make Litlock laugh fully.
 
-**Reward:** Litlock bonks the player firmly on the head with two knuckles — a magical side effect that makes the Chuckle House (west of the Graveyard) visible. The building cannot be found by any other means — no perception check, no hint. The bonk is the only way. Litlock offers no explanation.
+**Reward:** Litlock bonks the player firmly on the head with two knuckles — a magical side effect that makes the Chuckle House (east of the Graveyard) visible. The building cannot be found by any other means — no perception check, no hint. The bonk is the only way. Litlock offers no explanation.
 
 ---
 

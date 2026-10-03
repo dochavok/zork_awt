@@ -618,7 +618,7 @@ After each of Litlock's lines, pick from the numbered menu.
 > 2                           [are you on the floor]
 > 1                           [bonk]
 
-Litlock bonks us on the head. The Chuckle House is now visible west of
+Litlock bonks us on the head. The Chuckle House is now visible east of
 the Graveyard.
 
 =============================================================================
@@ -638,10 +638,10 @@ corruption ticks every turn it's worn.
 > SOUTH                       [Church Nave]
 > SOUTH                       [Graveyard]
 > WEAR RING                   [ring]
-> WEST                        [Chuckle House Entrance]
-> NORTH                       [Rejection Mirror]
-> NORTH                       [Shatter Trap Mirror]
-> NORTH                       [Ghost's Room]
+> EAST                        [Chuckle House Entrance]
+> SOUTH                       [Rejection Mirror]
+> SOUTH                       [Shatter Trap Mirror]
+> SOUTH                       [Ghost's Room]
 > CAST UNBIND UNDEAD          [Thank you]
 
 The ghost is freed and drops the pocket watch.
@@ -651,10 +651,10 @@ The ghost is freed and drops the pocket watch.
 The 50% exit-fail mechanic may delay us. With always-max rolls all
 exit attempts succeed.
 
-> SOUTH                       [Shatter Trap Mirror]
-> SOUTH                       [Rejection Mirror]
-> SOUTH                       [Chuckle House Entrance]
-> EAST                        [Graveyard]
+> NORTH                       [Shatter Trap Mirror]
+> NORTH                       [Rejection Mirror]
+> NORTH                       [Chuckle House Entrance]
+> WEST                        [Graveyard]
 > REMOVE RING                 [ring removed]
 
 =============================================================================

@@ -439,7 +439,7 @@ After each of Litlock's lines, pick from the numbered menu.
 > 1                           [bonk]
 
 Litlock bonks the player on the head. The Chuckle House is now visible
-west of the Graveyard.
+east of the Graveyard.
 
 =============================================================================
 H) Quest 42 — Brotherhood Stones (Part 1: Bog Rune Stone)
@@ -657,7 +657,7 @@ invisibility.
 > OPEN MAILBOX                [tower]
 > GIVE SCROLL TO WILL         [Unbind Undead]
 
-Unbind Undead spell learned. Navigate to the Chuckle House (west of
+Unbind Undead spell learned. Navigate to the Chuckle House (east of
 the Graveyard, now visible after Litlock's bonk).
 
 Equip the ring for invisibility before entering the Chuckle House.
@@ -673,16 +673,16 @@ Corruption ticks while wearing it — remove it as soon as possible after.
 Equip the ring just before entering the Chuckle House.
 
 > WEAR RING                   [ring]
-> WEST                        [Chuckle House Entrance]
-> NORTH                       [Rejection Mirror]
-> NORTH                       [Shatter Trap Mirror]
-> NORTH                       [Ghost's Room]
+> EAST                        [Chuckle House Entrance]
+> SOUTH                       [Rejection Mirror]
+> SOUTH                       [Shatter Trap Mirror]
+> SOUTH                       [Ghost's Room]
 > CAST UNBIND UNDEAD          [Thank you]
 > TAKE WATCH                  [pocket watch]
-> SOUTH                       [Shatter Trap Mirror]
-> SOUTH                       [Rejection Mirror]
-> SOUTH                       [Chuckle House Entrance]
-> EAST                        [Graveyard]
+> NORTH                       [Shatter Trap Mirror]
+> NORTH                       [Rejection Mirror]
+> NORTH                       [Chuckle House Entrance]
+> WEST                        [Graveyard]
 > REMOVE RING                 [ring removed]
 
 Deliver the watch to the Records Room Worker.
