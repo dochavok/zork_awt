@@ -1313,12 +1313,12 @@ Threshold between Secret Tunnels and Dungeon Upper Tier.
 
 ---
 
-## Dungeon — Upper Tier (15 rooms, FINALIZED)
+## Dungeon — Upper Tier (16 rooms, FINALIZED)
 
 **Critical path:** Dungeon Entrance → Ink Corridor → Supply Room → Narrow Passageway → Idol Room → Combat Room → Prayer Alcove → Portcullis Corridor → Shrine Room → Rickety Bridge → Mid-Tier Key Door
 
 **Side branches:**
-- Ink Corridor → east → Storage Area → Collapsed Gallery → Rickety Bridge (Quest 38 shortcut; dead-end until cleared)
+- Ink Corridor → east → Storage Area → south → Collapsed Aqueduct (Quest 22) → south → Collapsed Gallery → east → Rickety Bridge (Quest 38 shortcut; dead-end until both Quest 22 and Quest 38 are complete)
 - Combat Room → east → Creature Den → Flooding Room (spur; Trap 41; always a surprise)
 
 ### Ink Corridor
@@ -1337,11 +1337,11 @@ First room past the Dungeon Entrance. A thin cord stretched at chest height carr
 ### Supply Room
 **XP: 1**
 **NPCs:** None
-**Items:** Sack of salt (idol swap — Trap 33); mortar compound (Quest 18/22); portcullis bar (Quest 19); smoke jar (Quest 24, behind Trap 17); small clay pot (Quest 40)
+**Items:** Sack of salt (idol swap — Trap 33); mortar compound (Quest 22); portcullis bar (Quest 19); smoke jar (Quest 24, behind Trap 17); small clay pot (Quest 40)
 **Quest Hooks:** Quest 18, 19, 22, 24, 40, 49 — multiple items sourced here
 **Connections:** East → Ink Corridor.
 West branch off Ink Corridor. Shelves of old stores.
-Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility Idol"), mortar compound (Quest 18/22), portcullis bar (Quest 19), smoke jar (Quest 24 — guarded by Trap 17).
+Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility Idol"), mortar compound (Quest 22), portcullis bar (Quest 19), smoke jar (Quest 24 — guarded by Trap 17).
 **Item listings:** portcullis bar — *A heavy iron bar leans in the corner, notched at one end — the kind of thing made to hold something open.* Mortar — *A sealed tub of mortar compound sits on a low shelf.* Salt — *A fat sack of salt slumps against the shelves.*
 **Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar and small clay pot (Quest 40) visible in wreckage either way. Perception spots the unstable arrangement.
 The small clay pot is the one intact pot that survives the collapse.
@@ -1384,22 +1384,53 @@ South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a press
 **NPCs:** None
 **Items:** Hand cart (Quest 32); support beam (Quest 38)
 **Quest Hooks:** Quest 32; Quest 38 — support beam props Collapsed Gallery shortcut open permanently
-**Connections:** West → Ink Corridor. South → Collapsed Gallery.
-East branch off Ink Corridor. Wide chamber. Contains: hand cart (Quest 32), support beam (Quest 38). No passage deeper — only forward via Quest 38 shortcut once cleared.
+**Connections:** West → Ink Corridor. South → Collapsed Aqueduct.
+East branch off Ink Corridor. Wide chamber. Contains: hand cart (Quest 32), support beam (Quest 38). South to the Collapsed Aqueduct (Quest 22), then the Collapsed Gallery (Quest 38 shortcut).
 
-**Room description:** *A wide chamber, larger than expected — the dungeon opens up here before closing back down. The walls are rough, the floor uneven. Equipment has been left here: a hand cart against one wall, a heavy support beam laid across the floor. The east wall is solid. The south passage is blocked.*
+**Room description:** *A wide chamber, larger than expected — the dungeon opens up here before closing back down. The walls are rough, the floor uneven. Equipment has been left here: a hand cart against one wall, a heavy support beam laid across the floor. The east wall is solid. A passage leads south, and from somewhere down it comes the sound of water.*
+
+### Collapsed Aqueduct
+**XP: 1**
+**NPCs:** None
+**Items:** Three fallen stone blocks (scenery — never carried; `PLACE BLOCKS`)
+**Quest Hooks:** Quest 22 — the collapsed aqueduct section
+**Connections:** North → Storage Area. South → Collapsed Gallery.
+Split out of the Collapsed Gallery (2026-10-03). The aqueduct channel runs through this room; a section has given way and its three blocks lie on the floor. `PLACE BLOCKS` three times (one Medium strength check each — a failure makes no progress, no damage), then `SEAL JOINTS WITH MORTAR` (mortar used up) → Quest 22 complete; the Town Square fountain flows. Until sealed, the spill runs south and floods the far end of the Collapsed Gallery.
+Not in the Zenni room pool (kept out so the seeded Zenni placement doesn't change).
+
+**Room description (0 blocks placed):** *A stone channel runs through the room at waist height, east to west — an aqueduct, old work and good work, until here. A section of it has given way. Three of its blocks lie tumbled on the floor below the gap, and water spills from the broken end, runs across the stone and away down the passage south.*
+
+The last two sentences change as blocks go in:
+- **1 placed:** *One block sits back in the gap; the other two lie on the floor below it. Water still spills through what's left of the break and away down the passage south.*
+- **2 placed:** *Two blocks sit back in the gap; the last lies on the floor below it. Water still spills through what's left of the break and away down the passage south.*
+- **3 placed, unsealed:** *All three blocks sit back in the gap, but water seeps through every joint and runs away down the passage south.*
+
+**Room description (sealed):** *A stone channel runs through the room at waist height, east to west — an aqueduct, old work and good work, with a mended section in the middle where the mortar is still pale. Water moves through it quietly, on its way to somewhere it's needed.*
+
+- **`PLACE BLOCKS` (1st):** *You get your arms under the first block and heave it up into the gap. It grinds into place. Water finds its way around it, but less of it.*
+- **`PLACE BLOCKS` (2nd):** *The second block is heavier, or you're more tired. It goes in beside the first with a sound like a door shutting.*
+- **`PLACE BLOCKS` (3rd):** *The last block fights you the whole way up. Then it seats, and the gap is closed — though water still beads and runs at every joint.*
+- **Strength check failed:** *The block gets as far as your knees and no further. You set it down before it sets you down.*
+- **`PLACE BLOCKS` with all three in:** *The blocks are all in place. The joints still need sealing.* After the seal: *The aqueduct is whole.*
+- **`TAKE BLOCK`:** *They're far too heavy to carry off. They belong in the channel.*
+- **`SEAL JOINTS WITH MORTAR`** (also `USE MORTAR ON JOINTS` / `BLOCKS` / `AQUEDUCT`): *You work the mortar into every joint, pressing it in with your thumbs until the seeping stops. For a moment the channel is silent. Then the water finds its way through — the whole length of the aqueduct, running toward town.* Quest 22 completes; mortar used up.
+- **Seal before all three are placed:** *There's still a gap. Mortar won't hold back that much water.*
+- **Seal without the mortar:** *You'd need something to seal them with.*
 
 ### Collapsed Gallery
 **XP: 1**
 **NPCs:** None
 **Items:** None
-**Quest Hooks:** Quest 38 — pickaxe + three strength checks clears timbers; support beam makes shortcut permanent; exit opens to Rickety Bridge
-**Connections:** North → Storage Area. South → Rickety Bridge (quest-gated; cleared by Quest 38).
-South of Storage Area. Timbers wedged across it blocking a secondary exit (Quest 38). Pickaxe from mine required; three strength checks clear the timbers; propping with support beam makes shortcut permanent. **Exit opens into the Rickety Bridge** — bypasses everything above Shrine Room.
+**Quest Hooks:** Quest 38 — pickaxe + three strength checks clears timbers; support beam makes shortcut permanent; exit opens to Rickety Bridge (also needs Quest 22 — the flood)
+**Connections:** North → Collapsed Aqueduct. East → Rickety Bridge (gated: needs both Quest 38 — timbers cleared — and Quest 22 — the flood stops once the aqueduct is sealed).
+South of the Collapsed Aqueduct. Timbers wedged across it blocking a secondary exit (Quest 38). Pickaxe from mine required; three strength checks clear the timbers; propping with support beam makes shortcut permanent. **Exit opens into the Rickety Bridge** — bypasses everything above Shrine Room.
 
-**Room description (blocked):** *The passage runs south but doesn't get far. Heavy timbers have come down across it — not from collapse exactly, more like someone wedged them there deliberately. The wood is old but solid. Beyond them, darkness.*
+**Room description (blocked):** *The passage runs east but doesn't get far. Heavy timbers have come down across it — not from collapse exactly, more like someone wedged them there deliberately. The wood is old but solid. Beyond them, darkness.*
 
-**Room description (cleared):** *The passage runs south, clear now. The timbers that blocked it are gone, the support beam holding the way open. The shortcut saves time — significant time.*
+**Room description (cleared):** *The passage runs east, clear now. The timbers that blocked it are gone, the support beam holding the way open. The shortcut saves time — significant time.*
+
+**Flood line (until Quest 22 is complete), added to either description:** *Water from the passage north pools across the floor here and runs on into the dark, deep enough at the far end that there's no telling what's under it.*
+- **`EAST` while flooded (timbers cleared):** *The water's too deep at the far end to wade, and it's moving fast.* While the timbers are up, they block first: *The timbers block the way.*
 
 ### Creature Den
 **XP: 1**
@@ -1494,7 +1525,7 @@ South of Portcullis Corridor. A small carved stone room, older than surrounding 
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None (weight limit mechanic blocks overloaded players)
-**Connections:** North → Shrine Room. West → Collapsed Gallery (quest-gated; cleared by Quest 38). South → Mid-Tier Key Door.
+**Connections:** North → Shrine Room. West → Collapsed Gallery (gated: needs both Quest 38 and Quest 22). South → Mid-Tier Key Door.
 Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 shortcut exits here from the west. The iron door is in sight from the bridge — reaching the bridge discovers Quest 32 (silently).
 
 **Weight mechanic:** Carry weight limit: 12. If inventory exceeds limit, bridge groans and the crossing is blocked in either direction (south from the bridge, or north from the Mid-Tier Key Door) — player cannot proceed until carry weight is at or under limit. Must drop items on the near side, cross, then return for them. Always crossable at or under limit.

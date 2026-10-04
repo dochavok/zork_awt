@@ -1046,10 +1046,12 @@ The werewolf drops the Werewolf's Amulet and reverts to scholar form.
 =============================================================================
 P) Crystal Bowl — Ruined Aqueduct (Quest 22, fountain prerequisite)
 =============================================================================
-The Crystal Bowl requires the Town Square fountain to be running (Quest 22).
-The aqueduct is in the Dungeon Upper Tier. Let's surface and handle it.
+The Crystal Bowl needs water from the Town Square fountain, and the
+fountain is dry until the aqueduct is repaired (Quest 22). The collapsed
+section is in the Dungeon Upper Tier, south of the Storage Area.
 
-Return to the surface via the Hole to Below.
+Back up through the Hole to Below, collecting everything left at the
+Rickety Bridge on the way.
 
 > WEST                        [Narrow Pass]
 > WEST                        [Lower Crossing]
@@ -1060,6 +1062,7 @@ Return to the surface via the Hole to Below.
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
 > NORTH                       [Rickety Bridge]
+> TAKE ALL                    [bowl piece]
 > NORTH                       [Shrine Room]
 > NORTH                       [Portcullis Corridor]
 > NORTH                       [Prayer Alcove]
@@ -1067,30 +1070,24 @@ Return to the surface via the Hole to Below.
 > NORTH                       [Idol Room]
 > NORTH                       [Narrow Passageway]
 > NORTH                       [Ink Corridor]
+
+The mortar compound in the Supply Room seals the repair.
+
 > WEST                        [Supply Room]
-
-Take the mortar compound from Supply Room (needed for the aqueduct).
-
 > TAKE MORTAR                 [mortar compound]
 > EAST                        [Ink Corridor]
+> EAST                        [Storage Area]
+> SOUTH                       [Collapsed Aqueduct]
+> PLACE BLOCKS                [first block]
+> PLACE BLOCKS                [second block]
+> PLACE BLOCKS                [last block]
+> SEAL JOINTS WITH MORTAR     [running toward town]
+
+The Town Square fountain now flows.
+
+> NORTH                       [Storage Area]
+> WEST                        [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
-
-Quest 22 (The Ruined Aqueduct) requires locating the collapsed section
-and carrying stone blocks. The blocks and aqueduct gap are in the dungeon
-upper tier. Locate and repair. (Steps are described in quests.md Q22 —
-the exact rooms are in the dungeon upper tier layout, not separately named
-in locations.md. The test can verify the reward text.)
-
-Actually, Quest 22 references a gap three rooms wide and stone blocks in
-the collapsed gallery. The Supply Room mortar seals the joints. Since all
-rooms are already visited we can proceed:
-
-> LOOK AT AQUEDUCT            [collapsed]
-> CARRY BLOCKS                [blocks]
-> SEAL JOINTS WITH MORTAR     [aqueduct restored]
-> NORTH                       [Dungeon Entrance]
-
-The fountain in Roundabout Town Square now flows.
 
 =============================================================================
 S) Crystal Bowl — Assemble Bowl at Fountain

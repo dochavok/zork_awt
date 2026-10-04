@@ -728,6 +728,9 @@ def _make_pond_and_bog(world, archery) -> None:
     # Lower tier east: Antechamber → The Still Den — content/still_den.py
     from content import still_den
     still_den.make_rooms(world)
+    # Collapsed Aqueduct and Collapsed Gallery, Quest 22 — content/aqueduct.py
+    from content import aqueduct
+    aqueduct.make_rooms(world)
 
     # Town Hall — content/town_hall.py
     from content import town_hall

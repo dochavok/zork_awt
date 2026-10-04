@@ -12,7 +12,7 @@ Each room has a defined XP value awarded the first time it is discovered. Most r
 
 Guest Rooms 1–3 award 0 XP: they are reached only by paid rest with a random room assignment, not by exploration.
 
-**Exploration total (all confirmed rooms): 130 XP**
+**Exploration total (all confirmed rooms): 131 XP**
 
 ---
 
@@ -95,15 +95,15 @@ XP scales with enemy difficulty. Named/boss enemies award toward the higher end.
 
 | Source | XP |
 |--------|----|
-| Exploration | 130 |
+| Exploration | 131 |
 | Quests | 254–264 |
 | Traps (disarm) | 39 |
 | Combat | 42 |
-| **Confirmed base total** | **475–485 XP** |
+| **Confirmed base total** | **476–486 XP** |
 | Class bonus (Warrior) | +40 XP |
-| Class bonus (Mage) | +46 XP |
+| Class bonus (Mage) | +47 XP |
 | Class bonus (Rogue) | +50 XP |
-| **Confirmed total with class bonus** | **518–538 XP** (varies by class and Quest 53 outcome) |
+| **Confirmed total with class bonus** | **519–539 XP** (varies by class and Quest 53 outcome) |
 
 Class bonuses are awarded on top of base XP and vary by class. Quest 53 awards 10 XP (glasses not enchanted) or 20 XP (Actually Enchanted) — a completionist who sails to Kevry earns the higher value. All classes clear the Level 8 threshold of 420 XP comfortably on a completionist run.
 
@@ -158,7 +158,7 @@ Hearts are granted at Levels 3, 5, and 7. The Heart Necklace (Lynds arm wrestlin
 Each class gets a bonus in their natural domain. Class identity feels present in progression without locking any content. Bonuses are calibrated so a completionist run of confirmed content yields approximately 40–50 class bonus XP regardless of class.
 
 - **Warriors** — +10 XP per combat kill (4 confirmed kills = +40 XP; grows naturally as combat design pass adds encounters)
-- **Mages** — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean; 46 reachable rooms = +46 XP)
+- **Mages** — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean; 47 reachable rooms = +47 XP)
 - **Rogues** — +5 XP per trap disarmed (10 disarmable traps = +50 XP)
 
 **Class bonus totals (confirmed content):**
@@ -166,5 +166,5 @@ Each class gets a bonus in their natural domain. Class identity feels present in
 | Class | Bonus | Confirmed events | Bonus XP |
 |-------|-------|-----------------|----------|
 | Warrior | +10/kill | 4 kills | +40 XP |
-| Mage | +1/dungeon room | 46 rooms | +46 XP |
+| Mage | +1/dungeon room | 47 rooms | +47 XP |
 | Rogue | +5/trap disarmed | 10 traps | +50 XP |

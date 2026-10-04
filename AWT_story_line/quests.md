@@ -179,11 +179,11 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 **Prerequisites:** Access to Dungeon Upper Tier.
 
 **Steps:**
-1. Find collapsed aqueduct section in Dungeon Upper Tier — gap three rooms wide.
-2. Locate stone blocks in collapsed gallery nearby.
-3. Carry blocks two at a time to the gap (strength check each transit not to drop).
-4. Place all three blocks.
-5. Seal joints with mortar from Supply Room → aqueduct restored.
+1. Find the Collapsed Aqueduct (Dungeon Upper Tier — south of the Storage Area).
+2. Three fallen stone blocks lie in the room under the gap.
+3. `PLACE BLOCKS` three times — one Medium strength check each (a failure makes no progress, no damage).
+4. Seal joints with mortar from Supply Room (`SEAL JOINTS WITH MORTAR`; mortar used up) → aqueduct restored.
+Until sealed, the spill floods the far end of the Collapsed Gallery — the Quest 38 shortcut to the Rickety Bridge also needs this quest.
 
 **Reward:** Innkeeper permanently lowers Food & Drink cost by 1 Zenni. 5 Zenni.
 **Cascade:** Town Square fountain begins running → water required for Quest 49 (The Ruined Shrine) clay adhesive. Ensures most players complete this naturally before needing the fountain.
@@ -347,10 +347,10 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 ## Quest 38 — The Collapsed Passage
 
 **Discovery:** Organic — player finds the Collapsed Gallery (Dungeon Upper Tier, east branch) blocked by timbers.
-**Prerequisites:** Pickaxe (from mine, not dungeon) + support beam (Storage Area, Dungeon Upper Tier).
+**Prerequisites:** Pickaxe (from mine, not dungeon) + support beam (Storage Area, Dungeon Upper Tier). The shortcut only opens once Quest 22 is also complete — until the aqueduct is sealed, its spill floods the far end of the Gallery. The timbers can be cleared in either order.
 
 **Steps:**
-1. Find Collapsed Gallery (east branch off Ink Corridor, south of Storage Area).
+1. Find Collapsed Gallery (east branch off Ink Corridor — Storage Area → Collapsed Aqueduct → Collapsed Gallery).
 2. Get pickaxe from mine.
 3. Three strength checks — one per main timber. After each success, another loosens.
 4. After clearing all three, prop passage with support beam.

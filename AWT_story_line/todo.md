@@ -6,20 +6,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–O passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–P passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section P — Ruined Aqueduct (Quest 22). First failure:
+**Current position:** Section S — Assemble Bowl at Fountain. First failure:
 
 ```
-SECTION [P) Crystal Bowl — Ruined Aqueduct (Quest 22, fountain prerequisite)]
-  cmd     : 'LOOK AT AQUEDUCT'
-  missing : 'collapsed'
-  got     : "You can't see any aqueduct here!"
+SECTION [S) Crystal Bowl — Assemble Bowl at Fountain]
+  cmd     : 'MIX CLAY WITH WATER'
+  missing : 'clay adhesive'
+  got     : 'I don't know the word "mix".'
 ```
 
-P's route back up to the Dungeon Entrance works. The aqueduct steps need design first — the repair rooms aren't defined in locations.md (see Known issues: Section P).
+MIX and ASSEMBLE aren't built yet (Quest 49 — clay adhesive at the flowing fountain, repaired bowl, then the Verdant Circle shrine).
 
 **Torch budget:** the torch lights at the Mausoleum (H5) and ticks every turn, in town too. K swaps it at Shamus (`BUY TORCH` at 38 left, "Getting there"); the fresh torch lights at the Bone Passage in L. N climbs out through the Crypt and swaps again in the Kitchen after the holy water (about 38 left, "Getting there"). O goes down through the cellar; the fresh torch covers O–S (~55 turns).
 
@@ -56,8 +56,11 @@ P's route back up to the Dungeon Entrance works. The aqueduct steps need design 
 - Section N: TAKE STAKE at the Rickety Bridge, climb out through the Crypt; Nave west door (UNLOCK DOOR WITH KEYS, keys stay in the lock), lit Keeper's Chamber (vial / no-vial descriptions, readable Keeper's note), POUR HOLY WATER ON STAKE (consecrated silver stake); torch swap in the Kitchen after the holy water. O rerouted down through the cellar.
 - Section O: Antechamber (Trap 36 — CLEAR BONES, 3 XP / Rogue +5; EAST or SOUTH before clearing is death, WEST safe), Skeleton Room death, The Lower Crossing, The Narrow Pass, The Still Den (werewolf rises after the entry turn, one 3d10 round per later turn, melee and plain-stake failure lines, consecrated stake kills — stake stays in the body, amulet drops, 15 XP / Warrior +10).
 - Parser (with O): `drive` is its own verb (was mapped to exorcise); DRIVE … INTO matches ("into" is a synonym of "in").
+- Section P: Collapsed Gallery split — new Collapsed Aqueduct (Quest 22) south of the Storage Area, Gallery south of it, Gallery EAST ↔ Rickety Bridge WEST gated on Quests 38 and 22; PLACE BLOCKS ×3 (Medium strength check each), SEAL JOINTS WITH MORTAR / USE MORTAR ON …, fountain runs; flooded Gallery.
+- Section P (cont.): TAKE ALL at the bridge collects the L drop. Parser: second PUT rule for things on the floor (PLACE), SEAL verb.
 
 **Known issues still open:**
+- Deferred from P: Quest 38 (Collapsed Gallery timbers — pickaxe, three strength checks, support beam); the Gallery is built with its descriptions, flood line and a closed east exit. Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: Lower Crossing north (Tool Alcove) and south (Dark Room), the 50/50 pull-back text, the Ivory Torch (Quest 34); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
 - Deferred from L: The Crevice and gold pocket watch (no room description yet — Stored Room east exit closed until built); Mine Passage south exit (Inscription Chamber and beyond); charcoal, silver dust, and the iron chest's lock (Mine Passage keeps its default description; the chest is scenery).
 - Deferred from I1: Flooding Room (north of the Creature Den; Trap 41 — exit blocked until built); Trap 17 (Supply Room smoke-pot shelf — smoke jar, small clay pot; the room uses its default description until then), Trap 33 (idol — fixed in place until then).
@@ -65,7 +68,6 @@ P's route back up to the Dungeon Entrance works. The aqueduct steps need design 
 - Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.
 - Class XP bonuses (experience.md — Class XP Adjustments): Warrior +10 per kill is built (Aylora excluded — not a kill). Mage +1 per new dungeon room and Rogue +5 per trap disarmed are not built yet — add when the dungeon and traps are.
 - Full-score walkthrough does the mugger (its section C) before Kevry: a level-1 Warrior with regular glasses maxes at 8 perception < Medium 9, so the mugger is never spotted. Move it after the glasses enchantment or after level 2.
-- Section P (aqueduct) needs cleanup: ends with NORTH [Dungeon Entrance] while already there; aqueduct repair rooms aren't defined in locations.md.
 - Raznak only has State 1 (trust not earned). States 2A/2B/3 and PAY are Quest 55 (full-score walkthrough).
 - Section T has `REMOVE RING [ring won't go on]`. items.md says that message belongs to `WEAR RING` on the bound ring. Check before implementing.
 - The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").

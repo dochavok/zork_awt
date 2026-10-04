@@ -627,7 +627,7 @@ Key Door Landing, Stored Room, Inscription Chamber, Cave Creature's Lair, Echo A
 Lower Crypt, The Encampment, Thermal Vent Room, The Lower Crossing, The Narrow Pass, The Still Den, Tool Alcove, The Flooded Passage, The Fountain Room, Spirit Room, Burial Chamber
 
 **Excluded rooms (not eligible):**
-All four Bog rooms, all Sea / Open Ocean squares, Desert Island, Kevry's Island, Pie Rat Ship Hold, Flooding Room, Dream Corridor, Dark Room, Hole to Below / Pile of Rubble, Rickety Bridge, all Chuckle House rooms (Entrance, Rejection Mirror, Shatter Trap Mirror, Ghost's Room), Mine Passage, The Crevice (has dedicated treasure — gold pocket watch), Skeleton Room (instant death on entry)
+All four Bog rooms, all Sea / Open Ocean squares, Desert Island, Kevry's Island, Pie Rat Ship Hold, Flooding Room, Dream Corridor, Dark Room, Hole to Below / Pile of Rubble, Rickety Bridge, Collapsed Aqueduct, all Chuckle House rooms (Entrance, Rejection Mirror, Shatter Trap Mirror, Ghost's Room), Mine Passage, The Crevice (has dedicated treasure — gold pocket watch), Skeleton Room (instant death on entry)
 
 ---
 

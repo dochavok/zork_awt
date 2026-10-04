@@ -39,7 +39,10 @@ _STORAGE_BASE = (
 )
 _STORAGE_BOTH = "Equipment has been left here: a hand cart against one wall, a heavy support beam laid across the floor. "
 _STORAGE_BEAM = "Equipment has been left here: a heavy support beam laid across the floor. "
-_STORAGE_END = "The east wall is solid. The south passage is blocked."
+_STORAGE_END = (
+    "The east wall is solid. A passage leads south, and from somewhere down it "
+    "comes the sound of water."
+)
 
 
 def ink_corridor_action(w: World, msg: int = M_NOT_HANDLED) -> int:
@@ -119,7 +122,7 @@ def make_rooms(world) -> None:
     narrow.exits.update(north=Exit(destination="INK-CORRIDOR"), south=Exit(destination="IDOL-ROOM"))
     # Idol Room south → Combat Room comes with batch 2
     idol.exits["north"] = Exit(destination="NARROW-PASSAGEWAY")
-    # Storage Area south → Collapsed Gallery is blocked until Quest 38
+    # Storage Area south → Collapsed Aqueduct is wired in content/aqueduct.py
     storage.exits["west"] = Exit(destination="INK-CORRIDOR")
 
     ink.action = ink_corridor_action

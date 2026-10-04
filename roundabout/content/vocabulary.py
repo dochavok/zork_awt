@@ -168,6 +168,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("sail")                              # SAIL / SAIL EAST / SET SAIL
     v.add_verb("say")
     v.add_verb("search")
+    v.add_verb("seal")                              # SEAL JOINTS WITH MORTAR (Quest 22)
     v.add_verb("shake")
     v.add_verb("skip", "hop")
     v.add_verb("slide")

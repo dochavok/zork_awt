@@ -653,6 +653,10 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj2=ObjectSpec(find_flag=SURFACEBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="put", action="V-DROP", preaction="PRE-DROP",
                    obj1=ObjectSpec(locations=_held_car_many)),
+        # PLACE BLOCKS (Quest 22): "place" is a "put" synonym; things on the
+        # floor fall through to here when the drop rule can't find them held
+        SyntaxRule(verb="put", action="V-PLACE",
+                   obj1=ObjectSpec(locations=_og_ir)),
 
         # ------------------------------------------------------------------ #
         # RAISE                                                               #
@@ -892,6 +896,16 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="untie", action="V-UNTIE",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
+
+        # ------------------------------------------------------------------ #
+        # SEAL — SEAL JOINTS WITH MORTAR (Quest 22)                          #
+        # ------------------------------------------------------------------ #
+        SyntaxRule(verb="seal", action="V-SEAL",
+                   obj1=ObjectSpec(locations=_og_ir),
+                   prep="with",
+                   obj2=ObjectSpec(locations=_held_car_have)),
+        SyntaxRule(verb="seal", action="V-SEAL",
+                   obj1=ObjectSpec(locations=_og_ir)),
 
         # ------------------------------------------------------------------ #
         # USE — USE PORTCULLIS BAR                                           #

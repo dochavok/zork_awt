@@ -802,6 +802,17 @@ def _make_mid_tier_objects(world) -> None:
         synonyms=["amulet"], adjectives=["werewolf's", "werewolfs", "tarnished"],
         size=1, flags={TAKEBIT},
     ))
+    # Collapsed Aqueduct, Quest 22 (logic: content/aqueduct.py)
+    world.register_object(GameObject(
+        name="AQUEDUCT-BLOCKS", desc="stone blocks",
+        synonyms=["blocks", "block", "stones", "stone"], adjectives=["stone", "fallen"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="AQUEDUCT", desc="aqueduct",
+        synonyms=["aqueduct", "channel", "joints", "joint", "gap"], adjectives=["stone"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
     # Over the edge of the hole once the Stored Room floor is dug out
     world.register_object(GameObject(
         name="SUPPORT-TIMBER", desc="support timber", synonyms=["timber", "beam"],

@@ -153,6 +153,22 @@ def v_drive_stake(world: World) -> int:
     return M_HANDLED if still_den.drive_stake(world) else M_NOT_HANDLED
 
 
+def v_place(world: World) -> int:
+    if world.prso is not None and world.prso.name == "AQUEDUCT-BLOCKS":
+        from content import aqueduct
+        aqueduct.place_blocks(world)
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
+def v_seal(world: World) -> int:
+    from content import aqueduct
+    if aqueduct.is_aqueduct_part(world.prso):
+        aqueduct.seal(world)
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
 def v_pour(world: World) -> int:
     from content import keeper
     return M_HANDLED if keeper.pour(world) else M_NOT_HANDLED
@@ -593,6 +609,10 @@ def v_use(world: World) -> int:
         from content import shrine_path
         if shrine_path.use_bar(world):
             return M_HANDLED
+    from content import aqueduct
+    if obj is not None and obj.name == "MORTAR" and aqueduct.is_aqueduct_part(world.prsi):
+        aqueduct.seal(world)
+        return M_HANDLED
     print("Nothing happens.")
     return M_HANDLED
 
@@ -1098,6 +1118,8 @@ def register_verbs(game) -> None:
     game.register_verb("V-LOOK",       v_look)
     game.register_verb("V-LOOK-UP",    v_look_up)
     game.register_verb("V-POUR",       v_pour)
+    game.register_verb("V-PLACE",      v_place)
+    game.register_verb("V-SEAL",       v_seal)
     game.register_verb("V-DRIVE-STAKE", v_drive_stake)
     game.register_verb("V-INVENTORY",  v_inventory)
     game.register_verb("V-SAVE",       v_save)
