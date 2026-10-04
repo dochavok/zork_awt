@@ -376,3 +376,22 @@ def make_rooms(world) -> None:
     chamber.action = chamber_action
     vault.action = vault_action
     deep.action = deep_lock_action
+
+
+# Quest 7 — the bone flute back to Pyronicus (npcs.md — Pyronicus)
+_FLUTE_TO_PYRONICUS = (
+    "Pyronicus takes the flute and turns it once in the forge light. \"Not the "
+    "creature's,\" he says. \"Someone played this for it.\" He sets it on the "
+    "workbench with more care than you expected, then hands you a scroll sealed with "
+    "a dab of black wax. \"Fire. You'll want it below.\"\n"
+    "[Fireball scroll added to inventory.]"
+)
+
+
+def give_flute(w: World) -> None:
+    """GIVE FLUTE TO PYRONICUS — Quest 7 completes whether or not it's been posted."""
+    from content import quests
+    w.move_object(w.objects["BONE-FLUTE"], None)
+    print(_FLUTE_TO_PYRONICUS)
+    w.move_object(w.objects["FIREBALL-SCROLL"], w.player)
+    quests.complete(w, "7")     # 3 Zenni, paid silently

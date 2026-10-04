@@ -10,20 +10,28 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section HH — Quest 7, the Bone Flute. Sections A–GG pass (AA folded into Z, DD into II). First failure:
+**Current position:** Full-score walkthrough, Section JJ — Quest 34, the Frozen Soldier. Sections A–II pass (AA folded into Z, DD into II, NN into OO). First failure:
 
 ```
-SECTION [HH) Quest 7 — The Bone Flute (Complete)]
-  cmd     : 'GIVE FLUTE TO PYRONICUS'
-  missing : 'fireball'
-  got     : "Pyronicus doesn't take the bone flute."
+SECTION [JJ) Quest 34 — The Frozen Soldier (Incantation scroll + Ivory Torch)]
+  cmd     : 'READ SCROLL'
+  missing : 'door opens'
+  got     : "You read the words under your breath. Nothing answers. ..."
 ```
 
-The flute-for-Fireball trade isn't built. 159 full-score steps still fail.
+Opening the Tool Alcove's speaking door was deferred to JJ. 116 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
 Trophy Case: deposit treasures as they're collected (O: Ship-in-a-Bottle, Pie Rat Coin; EE: gold watch, diamond brooch, idol).
+
+Surface-items plan (2026-10-04, built for EE, HH2, II; OO and TT pickups still to write) — II's bridge crossing was 21 against 12:
+- Quest 42 moves to right after HH: all three rune stones go to Ivanaar (tunic worn, 1). NN shrinks to the bog-exit route.
+- EE drops the Pale Blade in the Church of All (TT picks it up there) and the three bowl pieces and smoke jar in the Bone Passage.
+- II's crossing is then 11: worn 4 + tunic 1 + stake 2 + incantation scroll 1 + vial 1 + lantern 2.
+- OO goes down through the Tale and Ale cellar to the Bone Passage, takes the bowl pieces and smoke jar, then detours Junction → Undercroft → Forgotten Shaft → Hidden Secondary Entrance → Assay Room and back for the room XP (the three connecting rooms are designed, not built; from the tunnel side the gap is found automatically). Back up the cellar to the Town Square fountain, then the Forest shrine. The mine can't be entered from the Forest — the Mine Entrance is sealed after Section C's explosion.
+- Full-score section letters: HH → HH1 (Quest 7) + HH2 (Quest 42), LL → LL1 + LL2 (LL.1 never parsed as its own section — the harness only matches letters and digits), NN removed (its bog-exit route opens OO). **When the full-score walkthrough passes, clean up the section letter order.**
+- LL: pick up the shovel in the Hole to Below; LL's northbound crossing will be heavy (amulet, Ivory Torch, fire clay, Funeral Mask, Forgotten Blade).
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
 - Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.
@@ -103,6 +111,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Bowl pieces and rune stones have distinct names (large / muddy / stone bowl piece; flat / grey / pale rune stone); fragments updated in both walkthroughs.
 - Section FF: Whispering Jar restoration (PRESS SEAL → 5 Zenni in the jar, DUST JAR, READ INSCRIPTION — Medium perception, whisper repeats on re-read; LISTEN hum / quiet; seal and dust used up). Jar's READ word is INSCRIPTION (GG brings the incantation scroll). Parser: DUST / LISTEN TO prefer what isn't carried; PUT / SPRINKLE / PRESS … ON targets prefer what isn't carried. GG starts WEST from the Pipe Room.
 - Section GG: GIVE RUBBING TO ARCHIVIST (or TALK TO him carrying it) → his line, [Incantation scroll added to inventory.], Quest 28 (3 Zenni silent). Incantation scroll object; READ SCROLL away from the door has its own line; the scroll is never used up (can be left behind after Quest 34). GIVE refusals say 'The' for titled / common-noun NPCs. [Main Hall] fragments in GG and HH; TAKE SCROLL dropped.
+- Section HH1: GIVE FLUTE TO PYRONICUS → his line, [Fireball scroll added to inventory.], Quest 7 (3 Zenni silent); Fireball scroll joins Will's spell scrolls; GIVE prefers items meant for whoever is present. Section HH2: Quest 42 moved before II — GIVE STONES (any stone stands for the set; fewer than three handed back), tunic object + WEAR line, combat checks the tunic is worn; Quest 42 Zenni 6 → 5 per quests.md. II: CAST LIGHT in the Mausoleum, [creature drops] as in the ring walkthrough. EE drops the bowl pieces and smoke jar in the Bone Passage, the Pale Blade in the church.
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -116,6 +125,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - UU's `LOOK IN CASE [9 of 9]` fragment conflicts with the design (no denominator during play) — decide at UU.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: Lower Crossing south (Dark Room); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
+- Quest 7's Quest Board posting (20 turns after meeting Pyronicus) isn't built — giving the flute completes it regardless.
 - LISTEN has no default handler — prints nothing outside the Tool Alcove and the Pipe Room.
 - V-PULL has no default handler — PULL on an ordinary object prints nothing.
 - Magnetic Vault: the default description ("Dust has settled in a faint ring around the latch") returns after the lodestone is out.

@@ -472,6 +472,14 @@ def _make_scrolls(world) -> None:
         synonyms=["scroll", "spell"], adjectives=["light", "spell", "folded"],
         flags={TAKEBIT, INVISIBLE},
     ))
+    # Quest 7 — Pyronicus's reward for the bone flute (content/inscription.py)
+    world.register_object(GameObject(
+        name="FIREBALL-SCROLL", desc="Fireball scroll",
+        examine="A spell scroll headed Fireball, in a heavy, slanted hand. The paper "
+                "is warm to the touch.",
+        synonyms=["scroll", "spell"], adjectives=["fireball", "spell"],
+        size=1, flags={TAKEBIT},
+    ))
     from content.music_box import BOX_LOCKED_LISTING
     world.register_object(GameObject(
         name="MUSIC-BOX", desc="music box",
@@ -504,7 +512,7 @@ def _make_old_oak_objects(world) -> None:
         fdesc="A small flat stone on a cord lies in the grass.",
         examine="A small flat stone, dark and smooth, threaded on a cord. Mineral "
               "veins run through it in a pattern that looks almost intentional.",
-        synonyms=["stone", "rune", "cord"], adjectives=["rune", "flat", "small"],
+        synonyms=["stone", "stones", "rune", "cord"], adjectives=["rune", "flat", "small"],
         flags={TAKEBIT},
     ))
     # Beekeeper is described in the cottage's room description
@@ -545,7 +553,7 @@ def _make_bog_objects(world) -> None:
         fdesc="A grey stone sits at the water's edge, one face worn flat.",
         examine="A grey stone, heavy for its size, one face worn flat by water. Faint "
               "lines are etched across the surface in no pattern you recognize.",
-        synonyms=["stone", "rune"], adjectives=["rune", "grey", "gray", "heavy"],
+        synonyms=["stone", "stones", "rune"], adjectives=["rune", "grey", "gray", "heavy"],
         flags={TAKEBIT, INVISIBLE},
     ))
     from content.bog import LOG_WITH_KEY, LOG_EXAMINE_KEY
@@ -958,7 +966,7 @@ def _make_mid_tier_objects(world) -> None:
               "etched with faint lines.",
         examine="A pale stone, roughly square, with deep natural veins of darker "
               "mineral running through it like old script.",
-        synonyms=["stone", "rune", "runestone"], adjectives=["rune", "pale"],
+        synonyms=["stone", "stones", "rune", "runestone"], adjectives=["rune", "pale"],
         size=2, flags={TAKEBIT, INVISIBLE},
     ))
     world.register_object(GameObject(
@@ -1221,6 +1229,14 @@ def _make_cellar_objects(world) -> None:
         synonyms=["cashbox", "box", "cache"], adjectives=["rusted", "tin", "cash"],
         flags={SACREDBIT, INVISIBLE},
     ))
+    world.register_object(GameObject(
+        name="IVANAAR-TUNIC", desc="Ivanaar's Tunic",
+        examine="A tunic of Brotherhood weave, old but not worn. The runes along the "
+                "hem and collar glow faintly, restored.",
+        synonyms=["tunic"], adjectives=["ivanaar's", "brotherhood"],
+        size=1, flags={TAKEBIT, "WEARABLE"},
+    ))
+    # Quest 42 reward (content/vikings.py — give_stones)
     world.register_object(GameObject(
         name="BARTENDERS-BOOTS", desc="Bartender's Boots",
         examine="Tall leather boots, salt-stained, soft at the ankle. Someone wore these "

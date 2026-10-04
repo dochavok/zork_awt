@@ -724,6 +724,22 @@ class Parser:
             if not_held:
                 matched = not_held
 
+        # GIVE <thing>: if some matches are meant for someone who is here
+        # (give_to, set by content), use those — GIVE SCROLL in Will's tower means
+        # a spell scroll, not the incantation scroll.
+        if (len(matched) > 1
+                and getattr(self, "_current_action", None) == "V-GIVE"
+                and getattr(world, "here", None) is not None):
+            meant = [o for o in matched
+                     if getattr(o, "give_to", None) in world.objects
+                     and world.objects[o.give_to].location is world.here]
+            if meant:
+                matched = meant
+            # A set handed over together (give_as_set — the three rune stones to
+            # Ivanaar): any one of them stands for the set.
+            if len(matched) > 1 and all(getattr(o, "give_as_set", False) for o in matched):
+                matched = matched[:1]
+
         # UNLOCK / OPEN <thing> WITH KEY: if only one of the matching keys fits
         # that thing (its key_name, set by content), use it without asking.
         target = getattr(self, "_current_prso", None)

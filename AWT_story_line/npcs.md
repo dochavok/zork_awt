@@ -251,7 +251,9 @@ Lives in a single large obsidian room built around an ancient forge. Will told P
 
 **Pale Blade forging:** When player brings runed metal from the Viking Encampment, Pyronicus forges it into the Pale Blade. Full forge scene confirmed — see `ring-rituals.md` (Artifact 1, Step 3).
 
-Role is ring retrieval and Pale Blade forging only. No additional quest hooks.
+**Quest 7 — bone flute returned (`GIVE FLUTE TO PYRONICUS`):** *Pyronicus takes the flute and turns it once in the forge light. "Not the creature's," he says. "Someone played this for it." He sets it on the workbench with more care than you expected, then hands you a scroll sealed with a dab of black wax. "Fire. You'll want it below."* *[Fireball scroll added to inventory.]* Quest 7 completes whether or not it's been posted (3 Zenni, silent).
+
+Role is ring retrieval, Pale Blade forging and Quest 7 (the bone flute). No other quest hooks.
 
 ---
 

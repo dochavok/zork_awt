@@ -20,6 +20,7 @@ if TYPE_CHECKING:
 SPELL_SCROLLS = {
     "SCROLL-UNBIND-UNDEAD": "spell_unbind_undead",
     "SCROLL-LIGHT": "spell_light",
+    "FIREBALL-SCROLL": "spell_fireball",
 }
 
 TEACHING_COST = 3

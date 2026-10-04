@@ -1281,11 +1281,23 @@ three bowl pieces, the other two rune stones and the smoke jar.
 > NORTH                       [Toll Bridge]
 > NORTH                       [Junction]
 > EAST                        [Bone Passage]
+
+The bowl pieces and the smoke jar aren't needed below. They wait here
+until OO.
+
+> DROP LARGE BOWL PIECE       [You drop the large bowl piece]
+> DROP MUDDY BOWL PIECE       [You drop the muddy bowl piece]
+> DROP STONE BOWL PIECE       [You drop the stone bowl piece]
+> DROP SMOKE JAR              [You drop the smoke jar]
 > SOUTH                       [Charnel Walk]
 > UP                          [Crypt]
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
 > NORTH                       [Church of All]
+
+The Pale Blade stays in the church until the ritual (TT).
+
+> DROP PALE BLADE             [You drop the Pale Blade]
 > UNLOCK DOOR WITH KEYS       [third key]
 > WEST                        [Keeper's Chamber]
 > TAKE HOLY WATER             [holy water]
@@ -1340,7 +1352,7 @@ Return the rubbing to the Archivist in the library.
 Quest 28 complete. Incantation scroll received — needed for Quest 34.
 
 =============================================================================
-HH) Quest 7 — The Bone Flute (Complete)
+HH1) Quest 7 — The Bone Flute (Complete)
 =============================================================================
 We collected the bone flute from the Cave Creature's Lair. Return it to
 Pyronicus for the Fireball scroll.
@@ -1352,8 +1364,7 @@ Pyronicus for the Fireball scroll.
 > EAST                        [Wasteland]
 > SOUTH                       [Volcano]
 > DOWN                        [Pyronicus's Forge]
-> GIVE FLUTE TO PYRONICUS     [fireball]
-> TAKE FIREBALL SCROLL        [fireball scroll]
+> GIVE FLUTE TO PYRONICUS     [Fireball scroll added to inventory]
 
 Warriors cannot read spell scrolls directly — take it to Will.
 
@@ -1364,22 +1375,44 @@ Warriors cannot read spell scrolls directly — take it to Will.
 > SOUTH                       [Tale and Ale]
 > REMOVE GLASSES              [glasses removed]
 > OPEN MAILBOX                [tower]
-> GIVE SCROLL TO WILL         [Fireball]
+> GIVE SCROLL TO WILL         [The knowing, I mean]
 
 Quest 7 complete. Fireball spell learned.
+
+=============================================================================
+HH2) Quest 42 — The Brotherhood Stones (Complete)
+=============================================================================
+We have all three rune stones: Bog-NE, Old Oak, Inscription Chamber.
+Deliver them to Ivanaar at the Viking Encampment.
+
+> EXAMINE PAINTING            [Tale and Ale]
+> WEAR GLASSES                [glasses]
+> NORTH                       [Town Square]
+> WEST                        [Main West]
+> WEST                        [Archery Range]
+> WEST                        [Viking Encampment]
+> GIVE STONES TO IVANAAR      [Ivanaar's Tunic added to inventory]
+> WEAR TUNIC                  [weave settles across your shoulders]
+
+Quest 42 complete. Ivanaar's Tunic (chest slot, damage avoidance)
+acquired.
 
 =============================================================================
 II) Quest 19/30 — Kill the Undead Werewolf
 =============================================================================
 Return to The Still Den with the consecrated silver stake.
 
-> EXAMINE PAINTING            [Tale and Ale]
-> WEAR GLASSES                [glasses]
-> NORTH                       [Town Square]
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> EAST                        [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
-> SOUTH                       [Mausoleum]
+
+The Mausoleum is dark — step in and cast Light.
+
+> SOUTH                       [pitch black]
+> CAST LIGHT                  [darkness pulls back]
 > DOWN                        [Crypt]
 > DOWN                        [Charnel Walk]
 > NORTH                       [Bone Passage]
@@ -1413,7 +1446,7 @@ Vent Room is north, past the Lower Crypt.
 > EAST                        [Lower Crossing]
 > EAST                        [Narrow Pass]
 > EAST                        [Still Den]
-> DRIVE STAKE INTO WEREWOLF   [werewolf destroyed]
+> DRIVE STAKE INTO WEREWOLF   [creature drops]
 > TAKE AMULET                 [Werewolf's Amulet]
 
 The Ivory Torch on the wall is needed for Quest 34.
@@ -1483,7 +1516,7 @@ react to taking it.
 > REMOVE RING                 [ring removed]
 
 =============================================================================
-LL) Quest 50 — The Lost Apprentice (Trap Side)
+LL1) Quest 50 — The Lost Apprentice (Trap Side)
 =============================================================================
 Quest 50 requires being swept through the Flooding Room (Trap 41) —
 the ONLY way to reach the trap side of the mid-tier. We must NOT disarm
@@ -1518,7 +1551,7 @@ through to the Spillway — which is what we want. Let's pull Left first.
 We are swept through the sluice to The Spillway (mid-tier trap side).
 
 =============================================================================
-LL.1) Dream Corridor — Lost Apprentice's Cell
+LL2) Dream Corridor — Lost Apprentice's Cell
 =============================================================================
 Navigate through the Dream Corridor to reach the Lost Apprentice's Cell.
 The Dream Corridor is a 2×3×2 decision tree. Successful path: B (go
@@ -1558,31 +1591,18 @@ before going UP to Bog-NW — the UP exit is one-way.
 > NORTH                       [Lost Apprentice's Cell]
 
 =============================================================================
-NN) Quest 42 — Brotherhood Stones (Complete)
-=============================================================================
-We have all three rune stones: Bog-NE, Old Oak, Inscription Chamber.
-Surface via the bog hole exit (Bog-NW), then deliver to Ivanaar.
-
-> UP                          [Bog of Eternal Stench]
-> SOUTH                       [Bog of Eternal Stench]
-> SOUTH                       [Roundabout Pond]
-> SOUTH                       [Archery Range]
-> WEST                        [Viking Encampment]
-> GIVE STONES TO IVANAAR      [tunic]
-> TAKE TUNIC                  [Ivanaar's Tunic]
-> WEAR TUNIC                  [tunic]
-
-Quest 42 complete. Ivanaar's Tunic (chest slot, damage avoidance)
-acquired.
-
-=============================================================================
 OO) Quest 49 — Crystal Bowl: Assemble at Fountain
 =============================================================================
 We have all three bowl pieces and the fire clay. The Town Square fountain
 is running (Quest 22 complete). Mix fire clay with fountain water to
 make clay adhesive and assemble the bowl.
 
-> EAST                        [Archery Range]
+Surface via the bog hole exit (Bog-NW).
+
+> UP                          [Bog of Eternal Stench]
+> SOUTH                       [Bog of Eternal Stench]
+> SOUTH                       [Roundabout Pond]
+> SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
 > MIX CLAY WITH WATER         [clay adhesive]

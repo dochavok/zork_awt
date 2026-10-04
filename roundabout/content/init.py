@@ -225,6 +225,17 @@ def _place_objects(world) -> None:
                       ("KEEPER-DOOR", "KEY-RING"), ("MUSIC-BOX", "MUSIC-BOX-KEY")):
         world.objects[lock].key_name = key
 
+    # Who an item is meant for — the parser uses this when several carried items
+    # match (GIVE SCROLL TO WILL means a spell scroll, not the incantation scroll)
+    from content.will import SPELL_SCROLLS
+    from content.vikings import RUNE_STONES
+    for scroll in SPELL_SCROLLS:
+        world.objects[scroll].give_to = "WILL"
+    # GIVE STONES / GIVE STONE TO IVANAAR hands over all three (Quest 42)
+    for stone in RUNE_STONES:
+        world.objects[stone].give_to = "IVANAAR"
+        world.objects[stone].give_as_set = True
+
     # LOCKPICKS drop when the mugger is slain
     # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus
 

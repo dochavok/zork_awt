@@ -344,8 +344,9 @@ Mages read scroll directly (consumed). Warriors/Rogues bring to Will (consumed, 
 
 ### Fireball Scroll
 **Weight:** 1
-**Location:** Reward from Quest 7 (The Bone Flute) — given by Pyronicus
-**Quest use:** Castable in combat.
+**Location:** Reward from Quest 7 (The Bone Flute) — given by Pyronicus, straight to the inventory.
+**Examine:** *A spell scroll headed Fireball, in a heavy, slanted hand. The paper is warm to the touch.*
+**Quest use:** Spell scroll — teaches Fireball (castable in combat). Warriors and Rogues take it to Will (resistance and teaching rules in mechanics.md).
 
 ---
 
@@ -698,6 +699,8 @@ The Old Oak rune stone falls free when the kite comes down — see Rune Stones.
 **Weight:** 1
 **Location:** Reward from Quest 42 (The Brotherhood Stones) — Ivanaar restores the runes and gives the tunic on delivery of all three stones.
 **Quest use:** None — combat bonus.
+**Examine:** *A tunic of Brotherhood weave, old but not worn. The runes along the hem and collar glow faintly, restored.*
+**`WEAR TUNIC`:** *You pull the tunic on. The weave settles across your shoulders, lighter than it looks.* Damage avoidance applies only while it's worn.
 
 Brotherhood weave, old but not worn. The runes along the hem and collar are faint until the stones are delivered — restored by Ivanaar on completion.
 

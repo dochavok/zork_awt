@@ -14,6 +14,8 @@ State (story flags):
     AYLORA-OUT       Aylora lost the drinking contest
     AYLORA-DRAGGED   player is dragging Aylora back to the encampment
     VIKING-TRUST     runed metal handed over; arrow hazard disabled
+
+Quest 42: GIVE STONES TO IVANAAR (all three rune stones) → Ivanaar's Tunic.
 """
 
 from __future__ import annotations
@@ -475,3 +477,47 @@ def forge_pale_blade(w: World) -> None:
     print(_FORGING)
     w.move_object(w.objects["PALE-BLADE"], w.player)
     w.set_global("PALE-BLADE-FORGED", True)
+
+
+# ---------------------------------------------------------------------------
+# Quest 42 — The Brotherhood Stones (locations.md — Viking Encampment, Stone return)
+# ---------------------------------------------------------------------------
+
+RUNE_STONES = ("OLD-OAK-RUNE-STONE", "BOG-RUNE-STONE", "DUNGEON-RUNE-STONE")
+
+_NOT_ALL_STONES = (
+    "Ivanaar turns the stone over once and hands it back. \"Three,\" he says, and "
+    "returns to his fire."
+)
+
+
+def _stones_returned(w: World) -> str:
+    name = w.globals.get("player_name", "")
+    return (
+        "Ivanaar turns the stones over in his hands, one by one. He doesn't speak for "
+        "a long moment.\n"
+        "When he looks up, something has settled in his expression that wasn't there "
+        "before.\n"
+        f"\"{name}.\"\n"
+        "He says it the way you'd say the name of someone you've decided to trust. He "
+        "sets the stones down and disappears into the longhouse.\n"
+        "He returns with a folded tunic — Brotherhood weave, the runes along the hem "
+        "faintly lit now.\n"
+        "\"Wear it,\" he says, and hands it over.\n"
+        "He returns to his fire.\n"
+        "[Ivanaar's Tunic added to inventory.]"
+    )
+
+
+def give_stones(w: World) -> None:
+    """GIVE STONE(S) TO IVANAAR — all three, or he hands it back."""
+    from content import quests
+    stones = [w.objects[n] for n in RUNE_STONES]
+    if not all(s in w.player.contents for s in stones):
+        print(_NOT_ALL_STONES)
+        return
+    for s in stones:
+        w.move_object(s, None)
+    print(_stones_returned(w))
+    w.move_object(w.objects["IVANAAR-TUNIC"], w.player)
+    quests.complete(w, "42")     # 5 Zenni, paid silently

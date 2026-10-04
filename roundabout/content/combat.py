@@ -96,7 +96,9 @@ def _take_damage(world: "World", amount: int) -> None:
     g = world.globals
 
     # Ivanaar's Tunic: 40% chance to negate damage (1d10 ≥ 7)
-    if g.get("ivaanars_tunic_worn"):
+    tunic = world.objects.get("IVANAAR-TUNIC")
+    if (tunic is not None and tunic.has_flag("WEARBIT")
+            and world.player is not None and tunic in world.player.contents):
         roll_val = random.randint(1, 10)
         if roll_val >= 7:
             _tunic_message(world)

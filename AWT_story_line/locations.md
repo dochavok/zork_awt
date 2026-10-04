@@ -754,6 +754,8 @@ Central hub. Fire pit, longhouses, Vikings going about their business.
 
 **[Ivanaar's Tunic added to inventory.]**
 
+**Built (2026-10-04):** `GIVE STONES TO IVANAAR` — or `GIVE STONE` / `GIVE GREY STONE` etc.: any one rune stone stands for the set — hands over all three. Missing any of the three: *Ivanaar turns the stone over once and hands it back. "Three," he says, and returns to his fire.* (He keeps nothing.) Quest 42 completes on the hand-over (5 Zenni, silent).
+
 ### Haalvar's Hut (Trial 1 — The Riddle Stone)
 **XP: 1**
 **NPCs:** Haalvar (Trial 1 administrator)

@@ -389,6 +389,10 @@ def v_wear(world: World) -> int:
     obj.set_flag(WEARBIT)
     if obj.name == "ENCHANTED-GLASSES":
         _set_glasses_state(world)
+    if obj.name == "IVANAAR-TUNIC":   # items.md — Ivanaar's Tunic
+        print("You pull the tunic on. The weave settles across your shoulders, "
+              "lighter than it looks.")
+        return M_HANDLED
     print(f"You put on the {obj.desc}.")
     if obj.name == "ENCHANTED-GLASSES":
         from content import kevry
@@ -711,6 +715,19 @@ def v_give(world: World) -> int:
     if npc.name == "PYRONICUS" and item.name == "RUNED-METAL":
         from content import vikings
         vikings.forge_pale_blade(world)
+        return M_HANDLED
+
+    # Rune stones to Ivanaar — Quest 42 → Ivanaar's Tunic
+    if npc.name == "IVANAAR" and item.name in ("OLD-OAK-RUNE-STONE", "BOG-RUNE-STONE",
+                                               "DUNGEON-RUNE-STONE"):
+        from content import vikings
+        vikings.give_stones(world)
+        return M_HANDLED
+
+    # Bone flute to Pyronicus — Quest 7 → Fireball scroll
+    if npc.name == "PYRONICUS" and item.name == "BONE-FLUTE":
+        from content import inscription
+        inscription.give_flute(world)
         return M_HANDLED
 
     # Rubbing to the Archivist — Quest 28 → incantation scroll

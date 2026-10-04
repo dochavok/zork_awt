@@ -45,9 +45,9 @@ Update this file immediately when any quest detail is designed or changed.
 1. Find crawlspace off Inscription Chamber — revealed by Trap 8 (Rope Snare) trigger or perception check.
 2. Enter Cave Creature's Lair (creature absent, never encountered).
 3. Take bone flute from floor.
-4. Return flute to Pyronicus.
+4. Return flute to Pyronicus (`GIVE FLUTE TO PYRONICUS`; his line in npcs.md). Completes whether or not the notice has been posted yet.
 
-**Reward:** Fireball spell scroll — castable in combat. 3 Zenni.
+**Reward:** Fireball spell scroll — castable in combat. 3 Zenni (silent).
 
 ---
 
@@ -409,9 +409,9 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 
 **Steps:**
 1. Collect all three rune stones.
-2. Return to Ivanaar at the Viking Encampment — `GIVE STONES TO IVANAAR`.
+2. Return to Ivanaar at the Viking Encampment — `GIVE STONES TO IVANAAR` (any one stone stands for the set; with fewer than three he hands it back — text in locations.md, Viking Encampment).
 
-**Reward:** Ivanaar's Tunic — chest slot armor. Brotherhood weave with restored runes. Grants a damage avoidance roll during combat — a second roll during the combat phase that can negate damage that would otherwise be taken. **Note: include damage avoidance mechanic in combat system design.** 5 Zenni.
+**Reward:** Ivanaar's Tunic — chest slot armor. Brotherhood weave with restored runes. Grants a damage avoidance roll during combat — a second roll during the combat phase that can negate damage that would otherwise be taken. **Note: include damage avoidance mechanic in combat system design.** 5 Zenni (silent).
 
 **May's hint (one tier only):** *"Rushing through a place and knowing a place aren't the same thing. I've learned that much."*
 
