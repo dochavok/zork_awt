@@ -312,6 +312,30 @@ def _make_sea_objects(world) -> None:
         synonyms=["bottle", "ship", "ship-in-a-bottle"], adjectives=["green", "glass", "tiny"],
         flags={INVISIBLE},
     ))
+    # Shamus sells it too (2 Zenni) — Quest 28 rubbing
+    world.register_object(GameObject(
+        name="THIN-PAPER", desc="thin paper",
+        examine="A few sheets of thin, almost translucent paper — the kind that takes "
+                "a rubbing.",
+        synonyms=["paper", "sheets", "sheet"], adjectives=["thin", "translucent"],
+        flags={TAKEBIT},
+    ))
+    # Quest 4 — the Whispering Jar, Pipe Room (restoration comes later)
+    world.register_object(GameObject(
+        name="WHISPERING-JAR", desc="ceramic jar",
+        fdesc="A cracked ceramic jar sits on the side table, humming faintly to itself.",
+        examine="A ceramic jar, glazed blue-grey, a crack running from lip to base. It "
+                "hums — a low, steady note you feel more than hear. Letters are etched "
+                "around its base, worn almost smooth.",
+        synonyms=["jar"], adjectives=["ceramic", "cracked", "whispering", "blue-grey"],
+        flags={SACREDBIT},
+    ))
+    # Described in their rooms' descriptions
+    for name, desc, syns in (("TY", "Ty", ["ty", "host", "gambler"]),
+                             ("LIBRARIAN", "librarian", ["librarian", "woman", "kenku"]),
+                             ("ARCHIVIST", "Archivist", ["archivist", "man", "scholar"])):
+        world.register_object(GameObject(name=name, desc=desc, synonyms=syns,
+                                         flags={ACTORBIT, NDESCBIT}))
     # Shamus sells it (npcs.md — 8 Zenni)
     world.register_object(GameObject(
         name="FISHING-ROD", desc="fishing rod",
@@ -1026,7 +1050,7 @@ _WEIGHTS = {
     "POCKET-WATCH": 1, "LOCKPICKS": 1, "BOW": 1, "WAX-SEAL": 1, "GUARDIANS-LANTERN": 2, "HAND-CART": 5,
     "SUPPORT-BEAM": 4, "PORTCULLIS-BAR": 3, "MORTAR": 2, "SACK-OF-SALT": 4,
     "IDOL": 4, "SMOKE-JAR": 2, "SMALL-CLAY-POT": 1,
-    "SCROLL-LIGHT": 1, "TREASURE-MAP": 1, "PIE-RAT-COIN": 1, "FISHING-ROD": 2, "SHIP-IN-A-BOTTLE": 2,
+    "SCROLL-LIGHT": 1, "THIN-PAPER": 1, "TREASURE-MAP": 1, "PIE-RAT-COIN": 1, "FISHING-ROD": 2, "SHIP-IN-A-BOTTLE": 2,
     "BOG-RUNE-STONE": 2, "MUSIC-BOX-KEY": 1, "BOG-THYME": 1,
 }
 

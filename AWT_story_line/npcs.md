@@ -309,7 +309,7 @@ Sells hints for Zenni (tiered — see hint system in `mechanics.md`). Manages Qu
 **Location:** Kitchen, Tale and Ale Tavern.
 **Personality:** Short, wide, shaved head, untrimmed grey beard, efficient mover. "The kind of man you'd go to if you needed something that wasn't on any official list."
 
-Vendor: sells gunpowder (5Z), torch (3Z), Tip Journal (5Z), Fishing Rod (8Z). `TALK TO SHAMUS`: *"What can I do for you? Gunpowder's five Zenni. Torches, three."* Buyback at half price for his items only. `TALK TO SHAMUS` to buy or sell.
+Vendor: sells gunpowder (5Z), torch (3Z), Tip Journal (5Z), Fishing Rod (8Z), thin paper (2Z — Quest 28). `TALK TO SHAMUS`: *"What can I do for you? Gunpowder's five Zenni. Torches, three."* Buyback at half price for his items only. `TALK TO SHAMUS` to buy or sell.
 
 **Quest 40 (until it's complete):** `TALK TO SHAMUS` adds, after the greeting: *He glances at the pot on the fire and frowns at it. "There's a stew recipe I haven't made in years. Needs bog thyme, and a pot that isn't cracked. All of mine are."* The first time discovers Quest 40.
 

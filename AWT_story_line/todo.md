@@ -10,23 +10,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section W — Quest 4, The Whispering Jar. Sections A–V pass. First failure:
+**Current position:** Full-score walkthrough, Section Y — Dungeon Mid-Tier, Key Side. Sections A–X pass. First failure:
 
 ```
-SECTION [W) Quest 4 — The Whispering Jar]
-  cmd     : 'EXAMINE JAR'
-  missing : 'hums'
-  got     : "A squat glass jar, stoppered with wax. Something grey and dense shifts inside it."
+SECTION [Y) Dungeon Mid-Tier — Key Side (Keeper's Keys, Crevice Watch, Hole to Below)]
+  cmd     : 'SOUTH'
+  missing : 'Main Hall'
 ```
-
-The Whispering Jar isn't built — EXAMINE JAR finds the smoke jar instead.
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
 - Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.
 - Lynds after the Viking trials: always-max can't win at level 3 (21 vs his 23); level 4 comes during J. Litlock follows Lynds (needs the invitation).
 - Routes between all of C–M connect.
 
-The full-score walkthrough fails at 349 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
+The full-score walkthrough fails at 342 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
 
 **XP note:** in the ring walkthrough the player is level 6 by the end of K (Quest 32 reward) and finishes at level 6 with 307 XP. Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
 
@@ -86,9 +83,14 @@ The full-score walkthrough fails at 349 steps in total; much of it predates the 
 - Section T: Quest 38 — three Hard strength checks with the pickaxe (retries), support beam props the passage (only then does the way east open); HIT / CHOP / BREAK TIMBER, PROP PASSAGE WITH BEAM, PUT BEAM. "timber" is now an adjective for the support beam. Quest 38 reward fixed to 5 Zenni. T rerouted from the Collapsed Aqueduct and tries the shortcut.
 - Section L: walks every Dankhaus room after Litlock's bonk (TODO #4). Lynds's Room is empty — Lynds is always in the Tale and Ale (locations.md corrected).
 - Section U: rewritten on the ring's K cellar sequence (TALK TO MAY, UNLOCK DOOR WITH KEY, OPEN DOOR, USE CROWBAR ON DRAIN, CLEAR DRAIN — no going down into the water), plus the cashbox and May's boots. Parser: UNLOCK / OPEN … WITH KEY uses the one carried key that fits.
-- Section V: Quest 40 delivery — thyme and pot to Shamus in either order; the second completes the quest (hearty stew flag, 3 Zenni). Between deliveries Shamus says which item he still needs.
+- Section V: Quest 40 delivery — thyme and pot to Shamus in either order; the second completes the quest (hearty stew flag, 3 Zenni). Between deliveries Shamus says which item he still needs. V also buys the thin paper (Shamus, 2 Zenni).
+- Section W: Whispering Jar in the Pipe Room (EXAMINE JAR discovers Quest 4); Ty's Casino Corner and the Upstairs Hall built and visited. Parser: EXAMINE prefers what isn't in the pack.
+- Section X: Library — Main Hall and The Stacks, the Librarian (three states), the Archivist (four states; first talk discovers Quest 28).
 
 **Known issues still open:**
+- Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
+- The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.
+- Thin paper "destroyed if player gets wet": no wetting events are defined yet.
 - Full-score plan: the torch is allowed to burn out in the full run; no repurchase once Light is learned (F). Check P onward against that.
 - `TAKE ALL` also tries items already in inventory ("You already have the …" for each). Predates this session.
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
@@ -132,7 +134,7 @@ Remaining unit-test failures (14) are unrelated: test_world expects rooms/object
 
 `walkthrough_fullscore.txt` was scoped to quests, treasures and NPC arcs, not exploration. These rooms (all with XP in locations.md) are never entered:
 
-- **Tale and Ale:** Pipe Room, Ty's Casino Corner, Upstairs Hall
+- **Tale and Ale:** Pipe Room, Ty's Casino Corner, Upstairs Hall — visited in Section W (2026-10-04)
 - **Dankhaus:** Hearth Room, Garden, Litlock's Room, Litlock's Study, Lynds's Room, Aurix's Room — visited in Section L (2026-10-04)
 - **Tunnels / dungeon:** Hidden Secondary Entrance (mine — Assay Room gap), The Undercroft, The Forgotten Shaft, Skeleton Room (Room 6), The Flooded Passage (Room 11)
 

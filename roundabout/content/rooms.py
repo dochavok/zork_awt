@@ -19,6 +19,8 @@ def make_rooms(world) -> None:
     _make_mine(world)
     _make_beach_and_sea(world)
     _make_kevrys_island(world)
+    from content import library
+    library.make_rooms(world)        # Library — Main Hall, The Stacks (off Main West)
 
 
 # ---------------------------------------------------------------------------
@@ -185,6 +187,39 @@ def _make_tale_and_ale(world) -> None:
     pipe_room.set_flag(ONBIT)
     world.register_room(pipe_room)
 
+    casino = Room(
+        name="CASINO-CORNER",
+        desc="Ty's Casino Corner",
+        ldesc=(
+            "The northwest corner of the tavern has been claimed so thoroughly it "
+            "might as well be a different establishment.\n"
+            "A large round table dominates the space, ringed with mismatched chairs. "
+            "Ty sits at the head of it — or what he has decided is the head — "
+            "presiding over the dice with the calm of a man who has never once "
+            "worried about the outcome.\n"
+            "The noise from the main room reaches here as a comfortable murmur. The "
+            "game is Cargo: Ship, Captain, and Crew. The stakes are in Zenni."
+        ),
+        value=1,
+    )
+    casino.set_flag(ONBIT)
+    world.register_room(casino)
+
+    upstairs = Room(
+        name="UPSTAIRS-HALL",
+        desc="Upstairs Hall",
+        ldesc=(
+            "The upstairs hall is narrow and low-ceilinged, the floorboards "
+            "announcing every step. Three doors lead off it — the guest rooms. A "
+            "window at the far end looks out over the alley below. The stairs down "
+            "creak in a specific sequence that regular guests have learned to "
+            "navigate quietly."
+        ),
+        value=1,
+    )
+    upstairs.set_flag(ONBIT)
+    world.register_room(upstairs)
+
     # Wire exits after all rooms registered
     main.exits["south"] = Exit(destination="BAR")
     main.exits["east"]  = Exit(destination="PIPE-ROOM")
@@ -192,6 +227,10 @@ def _make_tale_and_ale(world) -> None:
     bar.exits["south"]  = Exit(destination="KITCHEN")
     kitchen.exits["north"] = Exit(destination="BAR")
     pipe_room.exits["west"] = Exit(destination="TALE-AND-ALE")
+    main.exits["northwest"] = Exit(destination="CASINO-CORNER")
+    main.exits["up"] = Exit(destination="UPSTAIRS-HALL")
+    casino.exits["southeast"] = Exit(destination="TALE-AND-ALE")
+    upstairs.exits["down"] = Exit(destination="TALE-AND-ALE")
 
 
 # ---------------------------------------------------------------------------

@@ -275,8 +275,8 @@ Gambling area inside the tavern. Cargo game (Ship, Captain, Crew dice game). Pla
 ### Pipe Room
 **XP: 1**
 **NPCs:** None
-**Items:** None
-**Quest Hooks:** None
+**Items:** The Whispering Jar (Quest 4) — *A cracked ceramic jar sits on the side table, humming faintly to itself.* (Examine text in items.md.)
+**Quest Hooks:** Quest 4 — the inn's "back room" where the jar sits; `EXAMINE JAR` discovers the quest
 **Connections:** West → Main Room.
 Smoking parlor. Atmospheric; natural gathering spot for Rogues and shady deals.
 

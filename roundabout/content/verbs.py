@@ -160,6 +160,12 @@ def v_examine(world: World) -> int:
         music_box.examine(world)
         return M_HANDLED
 
+    if obj.name == "WHISPERING-JAR":      # Quest 4 — discovered on a look
+        from content import quests
+        print(obj.examine)
+        quests.discover(world, "4")
+        return M_HANDLED
+
     # Generic examine: the examine text, else the room line. Looking at an
     # object doesn't touch it — its room listing stays the same.
     desc = obj.examine or obj.ldesc or obj.fdesc
@@ -509,6 +515,11 @@ def v_talk(world: World) -> int:
 
     if obj.name == "CHILD":
         print("The child says nothing.")
+        return M_HANDLED
+
+    if obj.name in ("LIBRARIAN", "ARCHIVIST"):
+        from content import library
+        (library.talk_librarian if obj.name == "LIBRARIAN" else library.talk_archivist)(world)
         return M_HANDLED
 
     if obj.name == "BOGGART":
@@ -941,7 +952,7 @@ def v_drink(world: World) -> int:
 # ---------------------------------------------------------------------------
 
 # mechanics.md — Economy baseline / Torch
-_SHAMUS_PRICES = {"GUNPOWDER": 5, "TORCH": 3, "FISHING-ROD": 8}
+_SHAMUS_PRICES = {"GUNPOWDER": 5, "TORCH": 3, "FISHING-ROD": 8, "THIN-PAPER": 2}
 
 
 def v_buy(world: World) -> int:

@@ -109,6 +109,11 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["GUNPOWDER"], world.rooms["KITCHEN"])
     world.move_object(world.objects["TORCH"],     world.rooms["KITCHEN"])
     world.move_object(world.objects["FISHING-ROD"], world.rooms["KITCHEN"])
+    world.move_object(world.objects["THIN-PAPER"],  world.rooms["KITCHEN"])
+    world.move_object(world.objects["WHISPERING-JAR"], world.rooms["PIPE-ROOM"])
+    world.move_object(world.objects["TY"],        world.rooms["CASINO-CORNER"])
+    world.move_object(world.objects["LIBRARIAN"], world.rooms["LIBRARY"])
+    world.move_object(world.objects["ARCHIVIST"], world.rooms["STACKS"])
     # TREASURE-MAP is found aboard; PIE-RAT-COIN is flipped when the ship comes back
     world.move_object(world.objects["BURIED-CHEST"], world.rooms["DESERT-ISLAND"])
     world.move_object(world.objects["SHIP-IN-A-BOTTLE"], world.rooms["ROUNDABOUT-POND"])

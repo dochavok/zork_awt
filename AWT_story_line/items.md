@@ -365,6 +365,14 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 
 ---
 
+### The Whispering Jar
+**Location:** Pipe Room, Tale and Ale (fixed in place).
+**Room description:** *A cracked ceramic jar sits on the side table, humming faintly to itself.*
+**Examine:** *A ceramic jar, glazed blue-grey, a crack running from lip to base. It hums — a low, steady note you feel more than hear. Letters are etched around its base, worn almost smooth.* (First look discovers Quest 4.)
+**Quest use:** Quest 4 — restored with the wax seal, silver dust and the incantation etched on its base.
+
+---
+
 ### Wax Seal
 **Weight:** 1
 **Location:** Display cabinet, Town Hall Upper Hall — `OPEN CABINET`, `TAKE SEAL`. No perception check. (Cabinet text in locations.md — Upper Hall.)
@@ -468,7 +476,8 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 
 ### Thin Paper
 **Weight:** 1
-**Location:** Purchased from vendor (2 Zenni). Destroyed if player gets wet — reappears for sale.
+**Location:** Purchased from Shamus (2 Zenni). Destroyed if player gets wet — reappears for sale.
+**Examine:** *A few sheets of thin, almost translucent paper — the kind that takes a rubbing.*
 **Quest use:** Quest 28 — `RUB PAPER ON ENGRAVING` in Inscription Chamber with charcoal → produces rubbing for archivist.
 
 ---

@@ -17,7 +17,7 @@ Update this file immediately when any quest detail is designed or changed.
 
 ## Quest 4 — The Whispering Jar
 
-**Discovery:** Inn's back room — a cracked ceramic jar hums faintly. Innkeeper mentions it used to call out warnings.
+**Discovery:** Inn's back room (the Pipe Room) — a cracked ceramic jar hums faintly; `EXAMINE JAR` discovers the quest. Innkeeper mentions it used to call out warnings (May's hint).
 **Prerequisites:** Wax seal (Town Hall Upper Hall) + silver dust (Mine Passage, dungeon mid-tier, perception check) + restoration phrase (etched into base of jar — readable with perception check or Enchanted Glasses).
 **Steps:**
 1. `OPEN CABINET` in Town Hall Upper Hall → `TAKE SEAL` (no perception check)

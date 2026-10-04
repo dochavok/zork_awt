@@ -1044,36 +1044,49 @@ We have bog thyme and the small clay pot. Deliver both to Shamus.
 
 Quest 40 complete. Hearty stew (2 hearts) now available for 2 Zenni.
 
+While we're here, buy the thin paper (2 Zenni) — it's for the
+Archivist's rubbing (Quest 28, next sections).
+
+> BUY THIN PAPER              [thin paper]
+
 =============================================================================
 W) Quest 4 — The Whispering Jar
 =============================================================================
-The Whispering Jar is in the inn's back room. We have the wax seal from
-the Town Hall display cabinet. We need silver dust from the Mine Passage
-(mid-tier dungeon). Complete the jar restoration after descending to
-the mid-tier.
-
-For now, locate the jar and learn the restoration method.
+The Whispering Jar is in the inn's Pipe Room, east of the Main Room. We
+have the wax seal from the Town Hall display cabinet; the silver dust is
+in the Mine Passage (mid-tier dungeon). The restoration comes later.
 
 > NORTH                       [Bar]
+> NORTH                       [Main Room]
+> EAST                        [Pipe Room]
 > EXAMINE JAR                 [hums]
 
-Quest 4 discovered. We'll complete it after reaching the Mine Passage.
+Quest 4 discovered. While we're in the inn, look in on the rest of it:
+Ty's dice table in the northwest corner and the guest rooms' hall
+upstairs. (The guest rooms themselves are only reached by renting one
+from May.)
+
+> WEST                        [Main Room]
+> NORTHWEST                   [Ty's Casino Corner]
+> SOUTHEAST                   [Main Room]
+> UP                          [Upstairs Hall]
+> DOWN                        [Main Room]
 
 =============================================================================
 X) Quest 28 — The Archivist's Request
 =============================================================================
 The Archivist in the library needs a rubbing from the Inscription Chamber
-(mid-tier dungeon). We need thin paper (2 Zenni from vendor) and charcoal
-(Mine Passage, no perception check). Buy the paper from Shamus.
+(mid-tier dungeon). We have the thin paper; the charcoal is in the Mine
+Passage (no perception check). The library is north of Main West.
 
-> SOUTH                       [Kitchen]
-> TALK TO SHAMUS              [paper]
-> BUY THIN PAPER              [thin paper]
-> NORTH                       [Bar]
-> NORTH                       [Main Room]
 > NORTH                       [Town Square]
 > WEST                        [Main West]
-> NORTH                       [Library Main Hall]
+> NORTH                       [Main Hall]
+
+The Librarian has been waiting for someone to ask about the scholar who
+stopped coming.
+
+> TALK TO LIBRARIAN           [Veil of the Arcane]
 > EAST                        [Stacks]
 > TALK TO ARCHIVIST           [engraving]
 
