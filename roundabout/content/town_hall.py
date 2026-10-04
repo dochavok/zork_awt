@@ -7,7 +7,8 @@ The Tower), npcs.md (Records Room Worker), quests.md (Quest 17).
 - GIVE WATCH TO WORKER: he recognises it as his family's, hands over the
   charter, and Quest 17 completes (17 XP, 8 Zenni).
 - Council Chamber (Rowan Finch, Quest 32), the Upper Hall cabinet (Quest 4)
-  and the Trophy Case in the Tower come with their own sections.
+  and the Trophy Case in the Tower (content/trophy_case.py) come with their own
+  sections.
 
 State: CHARTER-GIVEN
 """

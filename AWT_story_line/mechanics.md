@@ -937,6 +937,8 @@ Fixed container in The Tower (Town Hall). Treasure items are placed here permane
 - `TAKE <ITEM> FROM CASE` — always returns: *"That belongs to Roundabout now."*
 - `LOOK IN CASE` / `EXAMINE CASE` — lists contents and count whether open or closed (glass panels visible either way).
 - **Count display:** *"[N] treasure[s] on display."* No denominator shown during play. Win condition reveals: *"9 of 9 treasures on display."*
+- Treasures can be deposited at any time, as they're collected. Depositing is the only thing that changes the score: each treasure adds its points (items.md — Treasure Items table). Non-treasures are refused. Full text in locations.md — The Tower.
+- The Pie Rat Coin is also the pass for re-boarding the Pie Rat ship; once it's in the case the ship can't be boarded again (no sailing is needed after the Pie Rat business).
 
 ### Score
 

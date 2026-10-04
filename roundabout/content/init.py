@@ -211,6 +211,7 @@ def _place_objects(world) -> None:
                       ("HOLY-WATER", "KEEPERS-CHAMBER"), ("KEEPER-NOTE", "KEEPERS-CHAMBER"),
                       ("BONES", "ANTECHAMBER"), ("WEREWOLF", "STILL-DEN"), ("IVORY-TORCH", "STILL-DEN"),
                       ("ALCOVE-WALL", "TOOL-ALCOVE"),
+                      ("TROPHY-CASE", "TOWN-HALL-TOWER"),
                       ("AQUEDUCT-BLOCKS", "COLLAPSED-AQUEDUCT"), ("AQUEDUCT", "COLLAPSED-AQUEDUCT"),
                       ("FOUNTAIN", "TOWN-SQUARE"), ("SHRINE-PEDESTAL", "ROUNDABOUT-FOREST"),
                       ("ALTAR-STONE", "ALTAR"), ("DIAL", "ALTAR")):

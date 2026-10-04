@@ -723,6 +723,16 @@ While in Town Hall, grab the wax seal from the display cabinet
 > OPEN CABINET                [wax seal]
 > TAKE SEAL                   [wax seal]
 
+The Tower is one floor up. The Ship-in-a-Bottle and the Pie Rat Coin are
+both treasures, and the Trophy Case is the place for them. The coin is
+what lets us back aboard the Pie Rat ship, but our business at sea is
+done.
+
+> UP                          [The Tower]
+> OPEN CASE                   [swings open]
+> PUT BOTTLE IN CASE          [Ship-in-a-Bottle settles into the velvet]
+> PUT COIN IN CASE            [Pie Rat Coin settles into the velvet]
+> DOWN                        [Upper Hall]
 > DOWN                        [Town Hall]
 > WEST                        [Records Room]
 > GIVE WATCH TO WORKER        [town charter]
@@ -1239,7 +1249,7 @@ EE) Quest 19/30 — Holy Water & Consecration (surface, Keeper's Chamber)
 =============================================================================
 Surface, use Keeper's keys at Keeper's Chamber (Church of All).
 
-> UP                          [Stored Room]
+> UP                          [Hole to Below]
 > WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
@@ -1364,7 +1374,7 @@ Return to The Still Den with the consecrated silver stake.
 > SOUTH                       [Mid-Tier Key Door]
 > SOUTH                       [Key Door Landing]
 > SOUTH                       [Mine Passage]
-> EAST                        [Stored Room]
+> EAST                        [Hole to Below]
 > DOWN                        [Pile of Rubble]
 
 The jar said the ceiling of the thermal vent holds a secret. The Thermal
@@ -1460,7 +1470,7 @@ Return up through the Hole to Below and navigate to the Flooding Room.
 
 > WEST                        [Antechamber]
 > WEST                        [Pile of Rubble]
-> UP                          [Stored Room]
+> UP                          [Hole to Below]
 > WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
@@ -1689,9 +1699,10 @@ Binding ceremony fires. All three artifacts consumed. Ring bound.
 > REMOVE RING                 [ring won't go on]
 
 =============================================================================
-UU) Trophy Case — Deposit All Treasures
+UU) Trophy Case — Deposit the Remaining Treasures
 =============================================================================
-Nine treasures to deposit. The Tower is on the second floor of Town Hall.
+The remaining treasures go in the case. The Tower is on the second floor
+of Town Hall.
 Open the case before placing items.
 
 > WEST                        [Church of All]
@@ -1702,7 +1713,7 @@ Open the case before placing items.
 > UP                          [Tower]
 > OPEN CASE                   [case open]
 
-Deposit all nine treasures:
+Deposit the remaining treasures:
 
 > PUT FORGOTTEN BLADE IN CASE          [Forgotten Blade]
 > PUT DIAMOND BROOCH IN CASE           [Diamond Brooch]
@@ -1710,12 +1721,10 @@ Deposit all nine treasures:
 > PUT GOLDEN DRAGON SCALE IN CASE      [Golden Dragon Scale]
 > PUT FERTILITY IDOL IN CASE           [Fertility Idol]
 > PUT GOLD POCKET WATCH IN CASE        [Pocket Watch]
-> PUT SHIP IN BOTTLE IN CASE           [Ship-in-a-Bottle]
 > PUT GOLD NUGGET IN CASE              [Gold Nugget]
-> PUT PIE RAT COIN IN CASE             [Pie Rat Coin]
 > LOOK IN CASE                         [9 of 9]
 
-All nine treasures deposited. Trophy Case win condition fires.
+The remaining treasures are deposited. Trophy Case win condition fires.
 
 =============================================================================
 VV) Return Ring to Will — Quest Complete

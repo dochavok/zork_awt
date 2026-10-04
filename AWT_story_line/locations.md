@@ -227,6 +227,14 @@ Accessed from the Upper Hall. Top of the conical tower, overlooking Roundabout T
 - `LOOK IN CASE` / `EXAMINE CASE` — lists contents and count, whether open or closed (glass panels — visible either way). Count line: *"[N] treasure[s] on display."* During play, total is never revealed. Win condition fires full display: *"9 of 9 treasures on display."*
 - `TAKE <ITEM> FROM CASE` — *"That belongs to Roundabout now."* Not permitted at any time.
 
+**Built (2026-10-04):**
+- **Room description once anything is in the case:** *It is empty.* becomes *Behind the glass: [items].* and *The case has not been added to in some time.* becomes *Someone has been adding to it.*
+- **`EXAMINE CASE` / `LOOK IN CASE` once anything is in it:** the first line (*The case is well-made…*), then *Behind the glass: [items].* and *[N] treasure[s] on display.* (the two empty-case lines are dropped).
+- **`OPEN CASE`:** *The glass door swings open on its brass hinges.* Already open: *It's already open.*
+- **`CLOSE CASE`:** *You close the case.* Already closed: *It's already closed.*
+- **`PUT` a non-treasure `IN CASE`:** *The case is for treasures. That isn't one.*
+- `TAKE` / `TAKE … FROM CASE` / `TAKE ALL` on a deposited treasure: *That belongs to Roundabout now.*
+
 ---
 
 ## Tale and Ale Tavern

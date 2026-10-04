@@ -10,20 +10,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section EE — Holy Water & Consecration. Sections A–CC pass (AA folded into Z, DD into II). First failure:
+**Current position:** Full-score walkthrough, Section EE — Holy Water & Consecration (on hold). Sections A–CC pass (AA folded into Z, DD into II). First failure:
 
 ```
 SECTION [EE) Quest 19/30 — Holy Water & Consecration (surface, Keeper's Chamber)]
-  cmd     : 'UP'
-  missing : 'Stored Room'
-  got     : "Hole to Below\nThere is a shovel here."
+  cmd     : 'SOUTH'
+  missing : 'Church of All'
+  got     : "Tale and Ale — Main Room ..."
 ```
 
-Stale fragment — the Stored Room is renamed Hole to Below after the dig. EE also carries the return-trip bridge load and the first Trophy Case visit. 181 full-score steps still fail.
+EE's town route to the Keeper's Chamber is wrong — mirror the ring's N (Graveyard → Church → UNLOCK DOOR WITH KEYS → WEST), and take the stake at the bridge on the way up. 178 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
-Trophy Case deposits as treasures are collected — build the case on EE's surface trip (EE's return north over the bridge carries ~13: leave the rune stone or similar below).
+Trophy Case: deposit treasures as they're collected. Section O deposits the Ship-in-a-Bottle and Pie Rat Coin; EE's town visit should deposit the gold watch, the diamond brooch and the idol.
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
 - Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.
@@ -98,6 +98,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section Z (cont.): AA folded into Z; UU's brooch detour removed. Lockpicks dropped after the Mine Passage chest. Parser: CUT prefers what isn't carried; STRUGGLE / PULL FREE verbs.
 - Section CC: Tool Alcove (Medium perception, 'notices you' + question lines, also on a return visit; EXAMINE WALL / LISTEN; 50/50 pull-back line once; north waits for READ SCROLL in JJ). Ivory Torch on the Still Den wall — heat, not light (LIGHT refusal).
 - Section CC (cont.): CC is the Quest 34 discovery only (no Still Den visit); DD folded into II (fire clay after the jar's hint); torch taken in II after the kill; EE's first SOUTH removed; FF prose fixed.
+- Trophy Case (The Tower): OPEN / CLOSE CASE, PUT / DROP … IN CASE (treasures only, points from items.md, SCORE reads them), room and EXAMINE / LOOK IN listings, nothing comes back out (deposits are flagged against the implicit take). Section O deposits the Ship-in-a-Bottle and Pie Rat Coin (no sailing after O); UU reworded to 'remaining'. Post-dig [Stored Room] fragments → [Hole to Below] (EE, II, LL).
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -106,7 +107,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Full-score plan: the torch is allowed to burn out in the full run; no repurchase once Light is learned (F). Check P onward against that.
 - `TAKE ALL` also tries items already in inventory ("You already have the …" for each). Predates this session.
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
-- Trophy Case (Town Hall Tower) not built — design in mechanics.md (Trophy Case, Score). Score and treasures read 0 until it is. The full-score walkthrough needs it.
+- UU's `LOOK IN CASE [9 of 9]` fragment conflicts with the design (no denominator during play) — decide at UU.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: Lower Crossing south (Dark Room); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
 - LISTEN has no handler — prints nothing outside the Tool Alcove.

@@ -917,6 +917,11 @@ def _make_mid_tier_objects(world) -> None:
         synonyms=["watch", "chain"], adjectives=["gold", "pocket"], size=1,
         flags={TAKEBIT, NDESCBIT},
     ))
+    # The Trophy Case in The Tower (logic: content/trophy_case.py) — described by the room
+    world.register_object(GameObject(
+        name="TROPHY-CASE", desc="Trophy Case", synonyms=["case", "glass", "velvet", "placard"],
+        adjectives=["trophy", "display", "glass"], flags={NDESCBIT, SACREDBIT, CONTBIT, OPENBIT},
+    ))
     # Quest 34 — Tool Alcove wall and the Ivory Torch (logic: content/tool_alcove.py)
     world.register_object(GameObject(
         name="ALCOVE-WALL", desc="back wall",
