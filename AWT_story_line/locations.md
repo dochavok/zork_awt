@@ -1482,7 +1482,9 @@ South of Portcullis Corridor. A small carved stone room, older than surrounding 
 **Items:** None
 **Quest Hooks:** None (weight limit mechanic blocks overloaded players)
 **Connections:** North → Shrine Room. West → Collapsed Gallery (quest-gated; cleared by Quest 38). South → Mid-Tier Key Door.
-Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 shortcut exits here from the west. The iron door is in sight from the bridge — reaching the bridge discovers Quest 32 (silently). **Weight mechanic:** Carry weight limit: 12. If inventory exceeds limit, bridge groans and movement south is blocked — player cannot proceed until carry weight is at or under limit. Must drop items on this side, cross, then return for them. Always crossable at or under limit.
+Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 shortcut exits here from the west. The iron door is in sight from the bridge — reaching the bridge discovers Quest 32 (silently).
+
+**Weight mechanic:** Carry weight limit: 12. If inventory exceeds limit, bridge groans and the crossing is blocked in either direction (south from the bridge, or north from the Mid-Tier Key Door) — player cannot proceed until carry weight is at or under limit. Must drop items on the near side, cross, then return for them. Always crossable at or under limit.
 
 **Room description (default):** *A narrow stone bridge over a gap in the dungeon floor. The bridge is old — the stones have shifted slightly in their mortar, the edges worn. It looks crossable. It probably is. The far side leads south to a heavy iron door.*
 
@@ -1494,7 +1496,16 @@ Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 sho
 **Items:** None (Middle Tier Key from Quest 32 reward is the only way through)
 **Quest Hooks:** Quest 32 — finding this door triggers quest discovery; Middle Tier Key required
 **Connections:** North → Rickety Bridge. South → Key Door Landing.
-South end of Rickety Bridge. Heavy iron door. *The door is iron, set deep into the stone. The lock is substantial — no amount of forcing will open this. It wants a key.* Lockpick attempt returns: "This lock can't be picked." Seeing this door (from the Rickety Bridge) triggers Quest 32 discovery and unlocks May's three-tier hints. Middle Tier Key (Quest 32 reward) is the only way through.
+South end of Rickety Bridge. Heavy iron door. *The door is iron, set deep into the stone. The lock is substantial — no amount of forcing will open this. It wants a key.*
+
+Lockpick attempt returns: "This lock can't be picked." Seeing this door (from the Rickety Bridge) triggers Quest 32 discovery and unlocks May's three-tier hints. Middle Tier Key (Quest 32 reward) is the only way through.
+
+`UNLOCK DOOR WITH KEY` leaves the key in the lock (like May's cellar key) and the door stays open.
+
+- **`UNLOCK DOOR WITH KEY` (Middle Tier Key):** *The finch key goes in stiffly and turns with a sound like a dropped anvil. The iron door swings inward under its own weight. Beyond it, stone stairs lead down. You leave the key in the lock.*
+- **Room description once unlocked:** *The iron door stands open, the finch key still in its lock. Stone stairs lead down to the south.*
+- **Wrong key:** *That key doesn't fit.*
+- **No key / `SOUTH` while locked:** the door text above (*…It wants a key.*)
 
 ---
 
@@ -1543,7 +1554,18 @@ Deliberate rubble fill hiding a hole. Spur east to The Crevice. After digging, t
 
 **After digging:** *Apparently the "something" being covered was a giant hole. The floor is gone — caved into the darkness below where the rubble gave way.*
 
-East exit blocked post-dig — hole cannot be crossed. `DOWN` / `CLIMB DOWN` blocked without rope: *The drop is serious. You'd need something to climb down on.* `JUMP` / `JUMP DOWN`: death — *It occurs to you, as you fall, that this may not have been a good decision. You die.* `TIE ROPE TO BEAM` (rope from Docks) enables safe bidirectional travel: `DOWN`, `UP`, `CLIMB DOWN ROPE`, `CLIMB UP ROPE`.
+After the dig the room is named **Hole to Below**. A support timber over the edge is the rope's anchor (`TIE ROPE TO BEAM` / `TIMBER`); once tied, the rope stays.
+
+- **After-dig description, added line:** *One of the old support timbers juts out over the edge, still sound.*
+- **Rope tied, added line:** *A rope is knotted around the timber, hanging down into the dark.*
+- **`TIE ROPE TO BEAM` / `TIMBER`:** *You knot the rope around the timber and pay it out over the edge. It goes taut, then slack — the far end is resting on something solid.*
+- **`TIE ROPE` before the dig:** *There's nothing here to tie it to.*
+- **`UNTIE ROPE`:** *You'd like a way back up. The rope stays.*
+- **`DIG` without the shovel:** *The fill is packed too tight to move by hand. You'd need a shovel.*
+- **`DIG` after the collapse:** *The floor is already gone.*
+- **Will's DIG note** (mechanics.md — Shovel & Dig) can follow the DIG response.
+
+ East exit blocked post-dig — hole cannot be crossed. `DOWN` / `CLIMB DOWN` blocked without rope: *The drop is serious. You'd need something to climb down on.* `JUMP` / `JUMP DOWN`: death — *It occurs to you, as you fall, that this may not have been a good decision. You die.* `TIE ROPE TO BEAM` (rope from Docks) enables safe bidirectional travel: `DOWN`, `UP`, `CLIMB DOWN ROPE`, `CLIMB UP ROPE`.
 
 #### The Crevice
 **XP: 1**

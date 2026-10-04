@@ -148,7 +148,9 @@ def _place_objects(world) -> None:
                       ("SUPPORT-BEAM", "STORAGE-AREA"), ("IDOL", "IDOL-ROOM"),
                       ("PRESSURE-PLATE", "COMBAT-ROOM"), ("INSIGNIA", "CREATURE-DEN"),
                       ("CROWBAR", "PRAYER-ALCOVE"), ("GLACIER-MELT", "PRAYER-ALCOVE"),
-                      ("BOWL-PIECE-SHRINE", "SHRINE-ROOM"), ("PORTCULLIS", "PORTCULLIS-CORRIDOR")):
+                      ("BOWL-PIECE-SHRINE", "SHRINE-ROOM"), ("PORTCULLIS", "PORTCULLIS-CORRIDOR"),
+                      ("MID-TIER-DOOR", "MID-TIER-KEY-DOOR"), ("MINE-CHEST", "MINE-PASSAGE"),
+                      ("SUPPORT-TIMBER", "STORED-ROOM")):
         world.move_object(world.objects[obj], world.rooms[room])
 
     # LOCKPICKS drop when the mugger is slain

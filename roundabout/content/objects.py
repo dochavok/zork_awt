@@ -53,6 +53,7 @@ def make_objects(world) -> None:
     _make_shrine_path_objects(world)
     _make_statue_objects(world)
     _make_cellar_objects(world)
+    _make_mid_tier_objects(world)
     _set_weights(world)
 
 
@@ -701,6 +702,26 @@ def _make_shrine_path_objects(world) -> None:
     world.register_object(GameObject(
         name="PORTCULLIS", desc="portcullis", synonyms=["portcullis", "gate", "bars"],
         adjectives=["iron"], flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="MID-TIER-DOOR", desc="iron door", synonyms=["door", "lock"],
+        adjectives=["iron", "heavy"], flags={NDESCBIT, SACREDBIT},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# Dungeon middle tier, key side (logic: content/mid_tier.py)
+# ---------------------------------------------------------------------------
+
+def _make_mid_tier_objects(world) -> None:
+    world.register_object(GameObject(
+        name="MINE-CHEST", desc="iron chest", synonyms=["chest"],
+        adjectives=["large", "iron", "bolted"], flags={NDESCBIT, SACREDBIT},
+    ))
+    # Over the edge of the hole once the Stored Room floor is dug out
+    world.register_object(GameObject(
+        name="SUPPORT-TIMBER", desc="support timber", synonyms=["timber", "beam"],
+        adjectives=["support", "old"], flags={NDESCBIT, SACREDBIT, INVISIBLE},
     ))
 
 

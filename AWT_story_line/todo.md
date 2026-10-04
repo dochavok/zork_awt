@@ -6,22 +6,24 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–K passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–L passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section L — Mid-Tier Dungeon. First failure:
+**Current position:** Section M — Dungeon Lower Tier. First failure:
 
 ```
-SECTION [L) Mid-Tier Dungeon — Keeper's Keys & Holy Water]
-  cmd     : 'SOUTH'
-  missing : 'Mid-Tier Key Door'
-  got     : "The bridge groans under your load …"
+SECTION [M) Dungeon Lower Tier — Keeper's Keys]
+  cmd     : 'NORTH'
+  missing : 'Lower Crypt'
+  got     : "You can't go that way."
 ```
 
-L still uses the Graveyard route; switch it to Kitchen → DOWN → OPEN DOOR → WEST (Bone Passage), and fix the bridge load. The Mid-Tier Key Door unlock isn't built yet.
+The Lower Crypt (Keeper's skeleton, key ring) and the Thermal Vent Room (fire clay) aren't built yet; the Pile of Rubble only has its UP exit.
 
-**Torch budget:** the torch lights at the Mausoleum (H5) and ticks every turn, in town too. K swaps it at Shamus (`BUY TORCH` at 38 left, "Getting there"); the fresh torch waits for the next dark room. With L, M and N routed through the cellar, it's about 50 left back at the Kitchen in N — swap again there, which covers O–S (~55 turns). Section N's route also has a bug: "WEST [Town Square] → SOUTH [Church of All]" — south of the square is the Tale and Ale.
+**Torch budget:** the torch lights at the Mausoleum (H5) and ticks every turn, in town too. K swaps it at Shamus (`BUY TORCH` at 38 left, "Getting there"); the fresh torch lights at the Bone Passage in L and is at 79 at the Pile of Rubble. With M and N routed through the cellar, it's about 53 back at the Kitchen in N — swap again there (`BUY TORCH`, "Getting there"), which covers O–S (~55 turns).
+
+**Section N route bugs:** "WEST [Town Square] → SOUTH [Church of All]" — south of the square is the Tale and Ale; the Church is EAST to Main East, then SOUTH. The Keeper's Chamber is WEST of the Nave (locations.md), not east. N should return via the cellar (Bone Passage → EAST → Cellar → UP → Kitchen) for the torch swap, and TAKE STAKE at the Rickety Bridge on the way north.
 
 **XP note:** the player is level 6 by the end of K (Quest 32 reward). Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
 
@@ -51,8 +53,10 @@ L still uses the Graveyard route; switch it to Kitchen → DOWN → OPEN DOOR �
 - The Alley, Back Alley, mugger (Medium perception, one combat round per KILL, losing isn't death), May's first visit and Quest 51 free drink
 - Walkthrough cleanup: Q and R removed (bowl pieces in C1/E, fire clay in M), rope taken at end of C2
 - Section K: Rowan (start / in progress / reward / after), Bog-SE gravestone (Easy perception), LOAD STONE ONTO CART, loaded cart blocks UP/DOWN, UNLOAD STONE (+ synonyms, SET STONE input hook) — at the Graveyard leaves the cart, Middle Tier Key (TAKE KEY). Quest 25: May's cellar key (needs crowbar), cellar door (key stays in lock), USE CROWBAR ON DRAIN / PRY COVER / REMOVE COVER WITH CROWBAR, CLEAR DRAIN, drowning GAME OVER (stairs, Bone Passage door), lit Cellar with cashbox (10 Zenni), tunnel door to the Bone Passage, Bartender's Boots. Torch exchange via BUY TORCH (swap tiers). Quest 32 reward fixed to 5 Zenni.
+- Section L: cellar route, DROP ALL BUT with comma lists (DROP ALL keeps worn items), bridge weight checked both ways, Mid-Tier Key Door unlock (key stays in lock), Key Door Landing, Mine Passage, Stored Room / Hole to Below (DIG, TIE ROPE TO BEAM, JUMP death), Pile of Rubble, Will's DIG note. N and P climb back up to the Hole to Below.
 
 **Known issues still open:**
+- Deferred from L: The Crevice and gold pocket watch (no room description yet — Stored Room east exit closed until built); Mine Passage south exit (Inscription Chamber and beyond); charcoal, silver dust, and the iron chest's lock (Mine Passage keeps its default description; the chest is scenery).
 - Deferred from I1: Flooding Room (north of the Creature Den; Trap 41 — exit blocked until built); Trap 17 (Supply Room smoke-pot shelf — smoke jar, small clay pot; the room uses its default description until then), Trap 33 (idol — fixed in place until then).
 - Inked state (Trap 45): flag built and cancels ring invisibility; NPC refusals and the inn bath still to build.
 - Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.

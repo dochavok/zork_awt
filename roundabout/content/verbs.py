@@ -1047,6 +1047,10 @@ def v_unlock(world: World) -> int:
         from content import cellar
         cellar.unlock_cellar_door(world)
         return M_HANDLED
+    if obj is not None and obj.name == "MID-TIER-DOOR":
+        from content import shrine_path
+        shrine_path.unlock_key_door(world)
+        return M_HANDLED
     print("You can't unlock that.")
     return M_HANDLED
 

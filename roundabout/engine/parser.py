@@ -295,6 +295,9 @@ class Parser:
 
     @staticmethod
     def _tokenize(text: str) -> list[str]:
+        # A comma separates list items ("drop all but key, torch and rope");
+        # "and" is a buzzword, so this only matters where lists are split.
+        text = text.replace(",", " and ")
         text = _PUNCT_RE.sub(" ", text.strip().lower())
         return [w for w in text.split() if w]
 
@@ -612,7 +615,7 @@ class Parser:
         world: "World",
     ) -> list:
         """Resolve 'all [qualifier] but [exclusions]' to a filtered object list."""
-        candidates = self._scope_objects(spec, world)
+        candidates = self._all_objects(spec, world)
 
         if qualifier:
             candidates = [o for o in candidates
@@ -626,6 +629,13 @@ class Parser:
                         excluded_ids.add(id(o))
 
         return [o for o in candidates if id(o) not in excluded_ids]
+
+    def _all_objects(self, spec: ObjectSpec, world: "World") -> list:
+        """Everything "all" covers. DROP ALL leaves worn items on the player."""
+        candidates = self._scope_objects(spec, world)
+        if getattr(self, "_current_action", None) == "V-DROP":
+            candidates = [o for o in candidates if not o.has_flag("WEARBIT")]
+        return candidates
 
     # ------------------------------------------------------------------ #
     # Object resolution (mirrors GET-OBJECT / THIS-IT? / SEARCH-LIST)    #
@@ -658,7 +668,7 @@ class Parser:
             if not spec.many_allowed:
                 pass  # fall through to normal single-object matching
             else:
-                return self._scope_objects(spec, world)
+                return self._all_objects(spec, world)
 
         # Normal noun phrase.
         candidates = self._scope_objects(spec, world)

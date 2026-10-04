@@ -717,6 +717,9 @@ def _make_pond_and_bog(world, archery) -> None:
     combat_room.make_rooms(world)
     from content import shrine_path
     shrine_path.make_rooms(world)
+    # Dungeon middle tier, key side, and the top of the lower tier — content/mid_tier.py
+    from content import mid_tier
+    mid_tier.make_rooms(world)
 
     # Town Hall — content/town_hall.py
     from content import town_hall

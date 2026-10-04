@@ -56,6 +56,13 @@ _GLASSES_FAIL = (
     "*** GAME OVER ***"
 )
 
+# mechanics.md — Shovel & Dig Mechanic: 1-in-20 after any successful DIG
+DIG_NOTE = (
+    "Will Passion materializes in your thoughts, uninvited. \"Do you know how "
+    "long it takes to dig a six-foot hole?\" You suspect he does. You suspect he "
+    "has timed it."
+)
+
 
 def _will_present(w: World) -> bool:
     will = w.objects.get("WILL")

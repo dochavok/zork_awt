@@ -905,7 +905,7 @@ No commands available in the Echo Alcove.
 
 The Rickety Bridge (between Shrine Room and Mid-Tier Key Door, upper tier) has a carry weight limit of **12**.
 
-If inventory exceeds limit: bridge groans, movement south is blocked. Player must drop items on the north side, cross, then return for them. Always crossable at or under limit. This is a logistical puzzle, not a trap.
+If inventory exceeds limit: bridge groans, and the crossing is blocked in either direction (south to the Key Door, or north back from it — same groan text). Player must drop items on the near side, cross, then return for them. Always crossable at or under limit. This is a logistical puzzle, not a trap.
 
 **Weight scale (1–5, with one exception):**
 - **1** — tiny/negligible: rings, keys, coins, vials, scrolls, glasses, maps, paper, herbs, clothing

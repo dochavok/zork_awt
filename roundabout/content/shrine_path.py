@@ -12,12 +12,14 @@ Rickety Bridge, Mid-Tier Key Door), traps.md (Trap 19), mechanics.md
   a turn). Discharged: LIFT PORTCULLIS (Medium strength) holds it up for one
   turn — USE PORTCULLIS BAR props it open for good, anything else drops it.
 - Shrine Room: the third bowl piece — Easy perception.
-- Rickety Bridge: carry weight over 12 blocks the way south. Seeing the iron
-  door from the bridge discovers Quest 32 (silently).
-- Mid-Tier Key Door: locked until the Middle Tier Key (section L).
+- Rickety Bridge: carry weight over 12 blocks the crossing either way (south
+  from the bridge, north from the Key Door). Seeing the iron door from the
+  bridge discovers Quest 32 (silently).
+- Mid-Tier Key Door: UNLOCK DOOR WITH KEY (Middle Tier Key) — the key stays in
+  the lock and the door stays open.
 
 State: NICHE-FOUND, PORTCULLIS (charged | discharged | propped),
-       PORTCULLIS-HELD (turn lifted), TRAP19-CHECKED
+       PORTCULLIS-HELD (turn lifted), TRAP19-CHECKED, KEY-DOOR-UNLOCKED
 """
 
 from __future__ import annotations
@@ -88,6 +90,16 @@ _KEY_DOOR = (
     "The door is iron, set deep into the stone. The lock is substantial — no "
     "amount of forcing will open this. It wants a key."
 )
+_KEY_DOOR_OPEN = (
+    "The iron door stands open, the finch key still in its lock. Stone stairs "
+    "lead down to the south."
+)
+_KEY_TURNS = (
+    "The finch key goes in stiffly and turns with a sound like a dropped anvil. "
+    "The iron door swings inward under its own weight. Beyond it, stone stairs "
+    "lead down. You leave the key in the lock."
+)
+_WRONG_KEY = "That key doesn't fit."
 
 
 # ---------------------------------------------------------------------------
@@ -233,6 +245,29 @@ def bridge_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     return M_NOT_HANDLED
 
 
+def key_door_action(w: World, msg: int = M_NOT_HANDLED) -> int:
+    if msg == M_LOOK:
+        print(_KEY_DOOR_OPEN if w.get_global("KEY-DOOR-UNLOCKED") else _KEY_DOOR)
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
+def unlock_key_door(w: World) -> None:
+    if w.get_global("KEY-DOOR-UNLOCKED"):
+        print("It's already unlocked. The key is still in the lock.")
+        return
+    key = w.objects["MIDDLE-TIER-KEY"]
+    if w.prsi is not None and w.prsi is not key:
+        print(_WRONG_KEY)
+        return
+    if key not in w.player.contents:
+        print(_KEY_DOOR)
+        return
+    print(_KEY_TURNS)
+    w.set_global("KEY-DOOR-UNLOCKED", True)
+    w.move_object(key, w.objects["MID-TIER-DOOR"])   # stays in the lock
+
+
 class _KeyDoor(Exit):
     def resolve(self, world):
         if not world.get_global("KEY-DOOR-UNLOCKED"):
@@ -259,10 +294,11 @@ def make_rooms(world) -> None:
     shrine.exits.update(north=Exit(destination="PORTCULLIS-CORRIDOR"), south=Exit(destination="RICKETY-BRIDGE"))
     # Rickety Bridge west → Collapsed Gallery is gated by Quest 38
     bridge.exits.update(north=Exit(destination="SHRINE-ROOM"), south=_BridgeExit(destination="MID-TIER-KEY-DOOR"))
-    # Key Door south → Key Door Landing (mid tier) opens with the key, section L
-    door.exits.update(north=Exit(destination="RICKETY-BRIDGE"), south=_KeyDoor(destination="KEY-DOOR-LANDING"))
+    # Key Door north crosses the bridge too; south → Key Door Landing (mid tier, content/mid_tier.py)
+    door.exits.update(north=_BridgeExit(destination="RICKETY-BRIDGE"), south=_KeyDoor(destination="KEY-DOOR-LANDING"))
 
     alcove.action = alcove_action
     port.action = portcullis_action
     shrine.action = shrine_action
     bridge.action = bridge_action
+    door.action = key_door_action

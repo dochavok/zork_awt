@@ -901,19 +901,19 @@ Return to Rowan Finch for the key.
 > TAKE KEY                    [Middle Tier Key]
 
 =============================================================================
-L) Mid-Tier Dungeon — Keeper's Keys & Holy Water
+L) Mid-Tier Dungeon — Key Door & the Hole to Below
 =============================================================================
-Descend to the Dungeon Upper Tier and use the Middle Tier Key.
+Down through the Tale and Ale cellar into the Secret Tunnels, south to the
+Rickety Bridge, through the iron door, and down into the lower tier.
 
 > WEST                        [Town Hall]
 > SOUTH                       [Town Square]
-> EAST                        [Main East]
-> SOUTH                       [Church of All]
-> SOUTH                       [Graveyard]
-> SOUTH                       [Mausoleum]
-> DOWN                        [Crypt]
-> DOWN                        [Charnel Walk]
-> NORTH                       [Bone Passage]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> SOUTH                       [Kitchen]
+> DOWN                        [Cellar]
+> OPEN DOOR                   [dark stone]
+> WEST                        [Bone Passage]
 > WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
 > SOUTH                       [Dungeon Entrance]
@@ -926,42 +926,17 @@ Descend to the Dungeon Upper Tier and use the Middle Tier Key.
 > SOUTH                       [Shrine Room]
 > SOUTH                       [Rickety Bridge]
 
-Weight check on the Rickety Bridge. Minimum critical load to pass:
-rope(3) + lantern(2) + stake(2) = 7, under the 12 limit.
-Current inventory includes pickaxe(3) and portcullis bar(3) — the
-total could exceed 12. Drop the pickaxe here.
+The bridge won't take everything we're carrying. Below it we need only
+the key, the torch, the shovel and the rope; the rest waits here.
 
-> DROP PICKAXE                [pickaxe]
+> DROP ALL BUT RING, KEY, TORCH, SHOVEL AND ROPE   [Dropped]
 > SOUTH                       [Mid-Tier Key Door]
-> UNLOCK DOOR WITH KEY        [door unlocked]
+> UNLOCK DOOR WITH KEY        [swings inward]
 > SOUTH                       [Key Door Landing]
-
-We are now in the dungeon mid-tier key side.
-
 > SOUTH                       [Mine Passage]
-
-Mine Passage contains charcoal (no perception check — take it, needed
-for Quest 28 archivist rubbing in the full walkthrough; harmless here)
-and silver dust (perception check — auto-pass). Silver dust is needed
-for Quest 4 (Whispering Jar) in the full walkthrough.
-
 > EAST                        [Stored Room]
-
-The Stored Room has deliberate rubble fill hiding a hole. One DIG
-collapses the floor permanently → Hole to Below. The rope (taken at the
-Docks at the end of section C2) enables bidirectional travel.
-
-Before digging, visit The Crevice east of this room to retrieve the
-Gold Pocket Watch (Trophy Case treasure; missable after collapse).
-
-> EAST                        [Crevice]
-> TAKE WATCH                  [gold pocket watch]
-> WEST                        [Stored Room]
-
-Now dig — this collapses the floor into the Hole to Below.
-
-> DIG                         [Hole to Below]
-> TIE ROPE TO BEAM            [rope tied]
+> DIG                         [floor gives way]
+> TIE ROPE TO BEAM            [timber]
 > DOWN                        [Pile of Rubble]
 
 We are now in the Dungeon Lower Tier.
@@ -993,7 +968,7 @@ Surface through the Hole to Below, return to town, and use the keys at
 the Keeper's Chamber in the Church of All.
 
 > SOUTH                       [Pile of Rubble]
-> UP                          [Stored Room]
+> UP                          [Hole to Below]
 > WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
@@ -1076,7 +1051,7 @@ Return to the surface via the Hole to Below.
 > WEST                        [Lower Crossing]
 > WEST                        [Antechamber]
 > WEST                        [Pile of Rubble]
-> UP                          [Stored Room]
+> UP                          [Hole to Below]
 > WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
