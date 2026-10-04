@@ -1549,6 +1549,15 @@ No warning on entry. After a wrong pull on turn 1: explicit warning *"The water 
 Failure sweeps player through sluice into mid tier directly below — one-way, no damage.
 Perception check *before entry* spots the suspiciously clean pressure plate; disarming jams it. (Trap 41)
 
+**Room description:** *A low cave, the floor dipping toward the middle and slick with old silt. Three iron levers stand in a row on the north wall — left, middle, right — above a grated sluice mouth. The only way out is back south.*
+
+**Built (2026-10-04):**
+- The plate works like Trap 29's: Medium perception on arrival. Missed — stepped on unawares. Spotted with Actually Enchanted Glasses — *In the middle of the floor, one stone is cleaner than everything around it — no silt, no grime. A pressure plate.* — and the player chooses (`JUMP ON PLATE` / `DISARM PLATE`). Spotted without them — the disarm rolls automatically (Trap 41 descriptor). Once spotted, the player walks around it.
+- **Plate fires:** *Something clicks underfoot. Behind the grate the sluice bangs open, and water comes through fast and cold, spreading across the floor.*
+- Any command counts as a turn. After the first, the warning; after the second: *The water closes over your head and the floor drops away. The current takes you down through the sluice, turning you over in the dark, and lets go.* — then The Spillway.
+- **Middle lever** while flooding: *The middle lever comes down with a heavy clunk. Behind the grate the sluice slams shut, and the water drains away through the floor.* The plate re-arms (`JUMP ON PLATE` floods it again), so closing the sluice doesn't lock the player out of Quest 50. The left and right levers stay spent.
+- Leaving south while it floods closes the sluice too (no extra line).
+
 ### Prayer Alcove
 **XP: 2**
 **NPCs:** None
@@ -1821,6 +1830,14 @@ Liminal branching passage. 2×3×2 decision tree — 12 outcomes (6 success, 6 f
 **Connections:** North → Dream Corridor. South → Supply Cache. Up → Bog of Eternal Stench (NW) (Quest 50; shovel required; one-way).
 Quest 50: combat with afflicted apprentice; post-combat `USE SHOVEL` finishes hole to Bog-NW; apprentice follows player out; Apprentice's Gloves reward (hands slot, +3); quest completes on bog exit.
 
+**Room description:** *A cramped cell cut into the rock, more burrow than room. Scraps of bedding are heaped in one corner. Low in the west wall a tunnel has been dug — clawed, almost — angling steeply up into the dark. Passages lead north and south.*
+
+**Built (2026-10-04):**
+- The tunnel to Bog-NW is in the wall, angling up. Apprentice text and the fight: npcs.md — The Afflicted Apprentice.
+- **`USE SHOVEL`** (also `DIG`, `DIG WITH SHOVEL`, `DIG TUNNEL`), once he's freed: *You climb into the tunnel and dig. The earth is soft and wet and close, and it doesn't take long — a few strokes, then a few more, and the shovel breaks through into grey light and a smell you'd know anywhere. The bog. The apprentice is right behind you.* Before he's freed: *He's not going to let you near it.* No shovel: *You'd need something to dig with.*
+- **`UP` before it's dug:** *The tunnel isn't through. You can see where it ends, a little short of anything.*
+- **`UP` once dug** (one-way): the apprentice's farewell and *[Apprentice's Gloves added to inventory.]* (npcs.md), then Bog-NW. Quest 50 completes (12 XP, 5 Zenni, silent). No hole on the bog side.
+
 #### Supply Cache
 **XP: 2**
 **NPCs:** None
@@ -1828,6 +1845,9 @@ Quest 50: combat with afflicted apprentice; post-combat `USE SHOVEL` finishes ho
 **Quest Hooks:** None (treasure item)
 **Connections:** North → Lost Apprentice's Cell. South → Flood Sump.
 Partially collapsed side room. Contains a **gold nugget** — buried in rubble, treasure item.
+
+**Room description:** *A side room half-buried by a collapse. Broken crates and a toppled shelf poke out of the rubble that fills the far end. Whatever was stored here was stored a long time ago. Passages lead north and south.*
+- **`SEARCH RUBBLE`** (also `DIG IN RUBBLE`, `MOVE RUBBLE`, `DIG`): *You shift the loose stone at the edge of the rubble. Something underneath catches the light — a nugget of gold the size of a thumb joint.* The nugget can't be seen before that. Again: *There's nothing else under there.*
 
 #### Flood Sump
 **XP: 2**

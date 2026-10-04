@@ -681,6 +681,16 @@ Lighthouse keeper. **Unmet NPC — never appears in game.** Referenced only in M
 
 ---
 
+### The Afflicted Apprentice (Quest 50)
+Will's missing apprentice, found in the Lost Apprentice's Cell (mid-tier trap side). Fight: 2d8, 3 hearts, 8 XP — one round per `KILL APPRENTICE`, the Warden's rules (higher roll hits for 1 heart, ties hit both; leaving resets him to full). Fireball works (1 heart). Defeat breaks the affliction — he lives, so it isn't a kill (no Warrior bonus, as Aylora).
+- **First sight:** *A young man crouches at the mouth of the tunnel, dirt to the elbows, scraping at the earth with his bare hands. He turns as you come in. His eyes are wrong — too wide, too fixed — and he comes at you without a word.*
+- **Afflicted (presence):** *The apprentice crouches between you and the tunnel, breathing hard, watching you with eyes that don't blink enough.*
+- **Rounds:** won — *You get a blow in. He staggers, shakes his head, and comes again.* Lost — *He's faster than he looks. His fists find you. You take a hit.* Tie — *You trade blows. Both of you feel it.*
+- **Freed:** *He goes down on one knee and stays there. When he looks up, his eyes are his own again — red-rimmed, frightened, very young. "I was digging," he says. "I was digging for so long." He looks at his hands as if they belong to someone else.*
+- **Freed (presence):** *The apprentice sits against the wall, arms around his knees, looking at the tunnel as if he's not sure he dug it.*
+- **`TALK TO APPRENTICE`, freed:** *"It's nearly through," he says, nodding at the tunnel. "I could hear the bog. I could smell it. I just couldn't—" He stops. "I don't know what I was doing, at the end."*
+- **Surfacing in Bog-NW:** *You haul yourself out into the reeds, and the apprentice climbs out after you, blinking at the sky. He stands there a long moment, breathing the stench like it's fresh air. Then he pulls off his gloves and presses them into your hands. "They were for digging," he says. "I won't be doing that again." He heads off toward town without looking back.* — *[Apprentice's Gloves added to inventory.]*
+
 ### The Soldier (Quest 34)
 Encased in magical ice in The Fountain Room (dungeon lower tier). Thawed by Ivory Torch over two turns. Hands over the Forgotten Blade without ceremony. Wanders off dazed. Reappears in town as a minor NPC offering free weapon training sessions. Intentionally unnamed — referred to only as "the soldier."
 

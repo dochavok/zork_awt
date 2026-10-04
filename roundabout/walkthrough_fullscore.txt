@@ -1536,26 +1536,36 @@ Return up through the Hole to Below and navigate to the Flooding Room.
 > WEST                        [Antechamber]
 > WEST                        [Pile of Rubble]
 > UP                          [Hole to Below]
+> TAKE SHOVEL                 [shovel]
 > WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
+> DROP SHOVEL, FIRE CLAY AND AMULET   [You drop the shovel|You drop the fire clay|Amulet]
 > NORTH                       [Rickety Bridge]
 > NORTH                       [Shrine Room]
+> DROP BLADE AND MASK         [You drop the Forgotten Blade|You drop the Funeral Mask]
+> SOUTH                       [Rickety Bridge]
+> SOUTH                       [Mid-Tier Key Door]
+> TAKE SHOVEL, FIRE CLAY AND AMULET   [You take the shovel|You take the fire clay|Amulet]
+> NORTH                       [Rickety Bridge]
+> NORTH                       [Shrine Room]
+> TAKE BLADE AND MASK         [You take the Forgotten Blade|You take the Funeral Mask]
 > NORTH                       [Portcullis Corridor]
 > NORTH                       [Prayer Alcove]
 > NORTH                       [Combat Room]
 > EAST                        [Creature Den]
 > NORTH                       [Flooding Room]
 
-The Flooding Room: entering triggers the sluice sequence. Three levers:
-Left (stuck/spent), Right (breaks/spent), Middle (correct — closes
-sluice). On a wrong pull, the room floods. If we pull wrong on turn 1,
-we get the warning ("water is at your knees"). Wrong on turn 2 sweeps us
-through to the Spillway — which is what we want. Let's pull Left first.
+The Flooding Room: with the glasses on, we spot the pressure plate on the
+way in. Jump on it to open the sluice. Three levers: Left (stuck/spent),
+Right (breaks/spent), Middle (correct — closes sluice). After the first
+turn we get the warning ("water is at your knees"); after the second
+we're swept through to the Spillway — which is what we want. Pull Left,
+then Right.
 
-> PULL LEFT LEVER             [stuck]
-> PULL RIGHT LEVER            [water rising]
-> WAIT                        [swept through]
+> JUMP ON PLATE               [sluice]
+> PULL LEFT LEVER             [grinds|water is at your knees]
+> PULL RIGHT LEVER            [snaps off|sluice deposits you]
 
 We are swept through the sluice to The Spillway (mid-tier trap side).
 
@@ -1567,37 +1577,37 @@ The Dream Corridor is a 2×3×2 decision tree. Successful path: B (go
 another way) → B3 (feel — vibration in the floor) → step onto stone.
 
 > SOUTH                       [Dream Corridor]
-> GO ANOTHER WAY              [instinct vs caution — B path]
-> FEEL VIBRATION              [floor hums]
-> STEP ONTO STONE             [through]
+> 2                           [You step off the prints]
+> 3                           [The ground hums]
+> 1                           [You are through|Lost Apprentice's Cell]
 
 We are through. Arrive in the Lost Apprentice's Cell.
 
-> NORTH                       [Lost Apprentice's Cell]
-> KILL APPRENTICE             [breaks affliction]
+> KILL APPRENTICE             [You get a blow in]
+> KILL APPRENTICE             [You get a blow in]
+> KILL APPRENTICE             [eyes are his own]
 
-The apprentice comes around. Finish the hole to Bog-NW with the shovel.
-
-> USE SHOVEL                  [hole to bog]
-
-The apprentice follows us out. Quest completes on bog exit.
-
-> NORTH                       [Bog of Eternal Stench]
-
-Quest 50 complete. Apprentice's Gloves received.
-
-> TAKE GLOVES                 [Apprentice's Gloves]
-> WEAR GLOVES                 [gloves]
-
-=============================================================================
-MM) Supply Cache — Gold Nugget (Trap Side)
-=============================================================================
-Supply Cache is south of Lost Apprentice's Cell. Retrieve the Gold Nugget
+The apprentice comes around. Supply Cache is south of Lost Apprentice's Cell. Retrieve the Gold Nugget
 before going UP to Bog-NW — the UP exit is one-way.
 
 > SOUTH                       [Supply Cache]
+> SEARCH RUBBLE               [nugget of gold]
 > TAKE NUGGET                 [gold nugget]
+> SOUTH                       [Flood Sump]
+> NORTH                       [Supply Cache]
 > NORTH                       [Lost Apprentice's Cell]
+
+Finish the hole to Bog-NW with the shovel.
+
+> USE SHOVEL                  [breaks through]
+
+The apprentice follows us out. Quest completes on bog exit.
+
+> UP                          [Apprentice's Gloves added to inventory|Bog of Eternal Stench]
+
+Quest 50 complete. Apprentice's Gloves received.
+
+> WEAR GLOVES                 [gloves]
 
 =============================================================================
 OO) Quest 49 — Crystal Bowl: Assemble at Fountain

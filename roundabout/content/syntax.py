@@ -268,6 +268,10 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="dig", action="V-DIG",
                    prep="with",
                    obj1=ObjectSpec(locations=_held_car_have)),
+        SyntaxRule(verb="dig", action="V-DIG", prep="in",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="dig", action="V-DIG",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="dig", action="V-DIG"),
 
         # ------------------------------------------------------------------ #

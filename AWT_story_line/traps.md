@@ -98,6 +98,7 @@ No clue in the room; trial and error is the intended mechanic.
 **Turn sequencing:** After turn 1 (wrong lever pulled), the game delivers an explicit warning: *"The water is at your knees. One turn left."*
 After turn 2 (room fills), the player is swept through a sluice into the mid tier directly below the flooding room's physical position on the map — one-way.
 No damage on sweep; displacement is the entire consequence.
+Built (2026-10-04) — entry, glasses, re-arm and all room text in locations.md (Flooding Room). Disarm: 5 XP (+5 Rogue, as Trap 29).
 The mid tier return path is via Quest 50 (Bog-NW exit) — there is no climbing back up.
 
 **Perception check** before entry spots the suspiciously clean pressure plate; **disarming** jams the plate before the sluice opens — avoiding the trap entirely. *(Flooding Room, upper tier.)*

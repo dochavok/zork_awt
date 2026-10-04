@@ -42,7 +42,7 @@ _QUEST_META: dict[str, dict] = {
     "41":  {"name": "The Child's Kite",          "xp": 4,  "zenni": 3},
     "42":  {"name": "The Brotherhood Stones",    "xp": 12, "zenni": 5},
     "49":  {"name": "The Ruined Shrine",         "xp": 17, "zenni": 8},
-    "50":  {"name": "The Lost Apprentice",       "xp": 12, "zenni": 6},
+    "50":  {"name": "The Lost Apprentice",       "xp": 12, "zenni": 5},
     "51":  {"name": "The Back Alley Mugger",     "xp": 6,  "zenni": 3},
     "52":  {"name": "Make Litlock Laugh",        "xp": 6,  "zenni": 3},
     "53":  {"name": "Will's Glasses",            "xp": 10, "zenni": 5},  # 20 if enchanted

@@ -12,7 +12,7 @@ mechanics.md (Warden: 2d10, 5 hearts), experience.md (Warden 12 XP; Warriors
 - The plate firing rings the bell and opens the Den door; the Warden comes
   out. One round per KILL WARDEN. A disarmed plate keeps the door shut until
   JUMP ON PLATE. The door stays open after the Warden is dead.
-- The Flooding Room (north of the Den, Trap 41) is deferred.
+- The Flooding Room (north of the Den, Trap 41) is in content/flooding.py.
 
 State: PLATE-SPOTTED, PLATE-STATE (None | "disarmed" | "fired"),
        WARDEN-OUT, WARDEN-HEARTS, WARDEN-DEAD
@@ -209,7 +209,7 @@ def make_rooms(world) -> None:
     # Combat Room south → Prayer Alcove comes with batch 3
     combat.exits.update(north=Exit(destination="IDOL-ROOM"),
                         east=_DenDoor(destination="CREATURE-DEN"))
-    # Creature Den north → Flooding Room (Trap 41) is deferred
+    # Creature Den north → Flooding Room (Trap 41): content/flooding.py
     den.exits["west"] = Exit(destination="COMBAT-ROOM")
 
     combat.action = combat_room_action

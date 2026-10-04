@@ -994,6 +994,42 @@ def _make_mid_tier_objects(world) -> None:
         synonyms=["blade", "sword"], adjectives=["forgotten", "ceremonial"],
         size=3, flags={TAKEBIT},
     ))
+    # Trap side, Quest 50 (content/trap_side.py)
+    from content.trap_side import APPRENTICE_ATTACKS
+    world.register_object(GameObject(
+        name="APPRENTICE", desc="apprentice", ldesc=APPRENTICE_ATTACKS,
+        synonyms=["apprentice", "man", "boy"], adjectives=["young", "afflicted", "lost"],
+        flags={ACTORBIT},
+    ))
+    world.register_object(GameObject(
+        name="APPRENTICE-TUNNEL", desc="tunnel", synonyms=["tunnel", "hole"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="APPRENTICE-GLOVES", desc="Apprentice's Gloves",
+        synonyms=["gloves"], adjectives=["apprentice's", "apprentices"],
+        size=1, flags={TAKEBIT, "WEARABLE"},
+    ))
+    world.register_object(GameObject(
+        name="CACHE-RUBBLE", desc="rubble", synonyms=["rubble", "stone", "crates", "shelf"],
+        adjectives=["loose"], flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="GOLD-NUGGET", desc="gold nugget",
+        examine="A rough nugget of gold, heavy for its size, still gritty with rock dust.",
+        synonyms=["nugget", "gold"], adjectives=["gold", "rough"],
+        size=2, flags={TAKEBIT, INVISIBLE},
+    ))
+    # Flooding Room, Trap 41 (content/flooding.py)
+    world.register_object(GameObject(
+        name="FLOOD-PLATE", desc="pressure plate", synonyms=["plate", "stone"],
+        adjectives=["pressure", "clean"], flags={NDESCBIT, SACREDBIT, INVISIBLE},
+    ))
+    for side in ("left", "middle", "right"):
+        world.register_object(GameObject(
+            name=f"LEVER-{side.upper()}", desc=f"{side} lever", synonyms=["lever"],
+            adjectives=[side, "iron"], flags={NDESCBIT, SACREDBIT},
+        ))
     # Spirit Room and Burial Chamber (content/dark_branch.py)
     world.register_object(GameObject(
         name="SPIRITS", desc="spirits",

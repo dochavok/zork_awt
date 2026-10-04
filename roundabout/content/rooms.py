@@ -773,6 +773,12 @@ def _make_pond_and_bog(world, archery) -> None:
     # North of the Tool Alcove (Quest 34) — content/frozen_soldier.py
     from content import frozen_soldier
     frozen_soldier.make_rooms(world)
+    # Flooding Room (Trap 41) and The Spillway — content/flooding.py
+    from content import flooding
+    flooding.make_rooms(world)
+    # Dream Corridor, Lost Apprentice's Cell, Supply Cache, Flood Sump — content/trap_side.py
+    from content import trap_side
+    trap_side.make_rooms(world)
     # Dark Room, Spirit Room, Burial Chamber south of The Lower Crossing — content/dark_branch.py
     from content import dark_branch
     dark_branch.make_rooms(world)

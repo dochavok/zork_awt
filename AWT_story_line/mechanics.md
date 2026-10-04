@@ -695,15 +695,15 @@ Each sense branches into 2 or 3 actions, each leading to Success or Failure.
 Full tree (paths numbered A1–A3, B1–B3):
 
 **A1 — See (Follow path):** The footprints. Your size. Your stride.
-- Option 1 — Follow them: *SUCCESS* — they lead out.
-- Option 2 — Wait: *FAILURE* — footprints fade; loop restarts.
+- Option 1 — Press hand against the wall: *FAILURE*
+- Option 2 — Step back and look at the full wall: *FAILURE* (both options fail — the prose below)
 
 **A2 — Hear (Follow path):** Narrow passage, sound of moving water below.
 - Option 1 — Follow slope down toward sound: *SUCCESS*
 - Option 2 — Follow draft, go toward air: *FAILURE* — passage opens onto nothing; drop.
 
 **A3 — Smell (Follow path):** Smell gets stronger at a low alcove.
-- Option 1 — Crouch inside and look for source: *FAILURE* — torch goes out.
+- Option 1 — Crouch inside and look for source: *FAILURE* — the light goes out.
 - Option 2 — Ignore it, keep moving forward: *SUCCESS*
 
 **B1 — Feel (Go another way):** Certainty leads to a blank section of wall.
@@ -721,7 +721,7 @@ Full tree (paths numbered A1–A3, B1–B3):
 **Full prose text:**
 
 **Inciting event (repeats on every failure):**
-*The corridor is low and wet. Water drips somewhere behind you. Your torch throws just enough light to see the floor — and the footprints already pressed into the mud. Leading in from the entrance. Your size. Your stride. You haven't been here before.*
+*The corridor is low and wet. Water drips somewhere behind you. Your light throws just enough to see the floor — and the footprints already pressed into the mud. Leading in from the entrance. Your size. Your stride. You haven't been here before.*
 
 **Level 1 — Instinct vs. Caution:**
 - A — Follow them
@@ -738,26 +738,26 @@ Full tree (paths numbered A1–A3, B1–B3):
 *You step off the prints. The corridor looks different from here — longer, maybe, or the walls are closer. Nothing you can point to. Just the feeling that the version of this place you're now standing in is not the one you entered.*
 
 - **B1 — Feel:** *Something pulls at you — not physical, not quite. A certainty about one direction that has no evidence behind it. The kind of knowing that lives below thought. You trust it, or you don't.*
-- **B2 — See:** *Your torch catches the wall of a side tunnel you hadn't noticed — or that wasn't there before. Claw marks run along the stone at shoulder height. Deep, parallel, dragged fast. Whatever made them was large. Whatever made them went that way. You follow anyway.*
+- **B2 — See:** *Your light catches the wall of a side tunnel you hadn't noticed — or that wasn't there before. Claw marks run along the stone at shoulder height. Deep, parallel, dragged fast. Whatever made them was large. Whatever made them went that way. You follow anyway.*
 - **B3 — Feel:** *The ground hums. Low, slow, rhythmic. Like something heavy moving far below, or far ahead — it's impossible to tell. Your boots feel it more than you do. You follow the vibration.*
 
 **Level 3 — Outcomes:**
 
-*A1 — The footprints end at a wall. Not a door — a wall. But the mud at the base is disturbed, smeared, like something passed through it. The torch flickers.*
+*A1 — The footprints end at a wall. Not a door — a wall. But the mud at the base is disturbed, smeared, like something passed through it. The light flickers.*
 - Press hand against wall → FAILURE: *Cold stone. Solid. You press harder, run your fingers along the seam where the smear meets the surface. Nothing gives. It is definitively, completely a wall. You press your forehead against it. You wake up at the entrance. The footprints are there. Your size. Your stride.*
 - Step back and look at the full wall → FAILURE: *Distance doesn't help. It's a wall. Flat, unbroken, mortared tight. Whatever the smear in the mud means, it doesn't mean a door. You stand there long enough to be certain. You wake up at the entrance. The footprints are there. Your size. Your stride.*
 
-*A2 — You turn left. The passage is narrow — barely a shoulder's width. The sound of moving water is clearer now, ahead and below. The passage slopes down. Your torch bends in a draft coming up from somewhere beneath you.*
+*A2 — You turn left. The passage is narrow — barely a shoulder's width. The sound of moving water is clearer now, ahead and below. The passage slopes down. The light gutters in a draft coming up from somewhere beneath you.*
 - Follow slope down toward sound → SUCCESS: *The slope levels. The passage opens. The sound of water is all around you now — a drain somewhere below the floor, pulling the flood somewhere useful. The air is damp but moving. Ahead, a doorway. You walk through it. You are through.*
-- Follow draft — go toward air, not water → FAILURE: *The draft gets stronger. The passage narrows further and then opens without warning — onto nothing. A drop. You can't see the bottom. The torch goes with you. You wake up at the entrance. The footprints are there. Your size. Your stride. Your heart is going very fast and you're not entirely sure why.*
+- Follow draft — go toward air, not water → FAILURE: *The draft gets stronger. The passage narrows further and then opens without warning — onto nothing. A drop. You can't see the bottom. The light goes with you. You wake up at the entrance. The footprints are there. Your size. Your stride. Your heart is going very fast and you're not entirely sure why.*
 
 *A3 — The smell gets stronger as you move. At the end of the corridor a low alcove opens to the right — just wide enough to crouch into. Inside: nothing. No food, no fire, no source. The smell is overwhelming in here. Your stomach responds before your brain does.*
-- Crouch inside and look for the source → FAILURE: *The alcove goes back further than it looked. You crouch deeper, torch first. The smell is everywhere and the source is nowhere. The ceiling gets lower. You keep looking. The torch goes out. You wake up at the entrance. The footprints are there. Your size. Your stride. You are not hungry anymore.*
+- Crouch inside and look for the source → FAILURE: *The alcove goes back further than it looked. You crouch deeper, light first. The smell is everywhere and the source is nowhere. The ceiling gets lower. You keep looking. The light goes out. You wake up at the entrance. The footprints are there. Your size. Your stride. You are not hungry anymore.*
 - Ignore it and keep moving forward → SUCCESS: *You keep walking. The smell fades behind you the way smells do when you stop chasing them. The corridor ends at a doorway. You don't remember the corridor having a doorway. You walk through it. You are through.*
 
-*B1 — The certainty leads you to a section of wall that looks identical to every other section of wall. No seam, no mark, no reason. The feeling is loudest here. Your torch doesn't flicker. The wall doesn't breathe. It just is — and something in you insists this is the place.*
+*B1 — The certainty leads you to a section of wall that looks identical to every other section of wall. No seam, no mark, no reason. The feeling is loudest here. Your light doesn't flicker. The wall doesn't breathe. It just is — and something in you insists this is the place.*
 - Trust it. Press forward into the wall → SUCCESS: *You don't slow down. You don't brace. You walk into it the way you'd walk through a doorway you've used a thousand times. The wall is not there. The room beyond is. You are through it before you've decided what just happened. You are through.*
-- Trust it. Wait. See if something happens → FAILURE: *You wait. The certainty doesn't grow or fade — it just sits there, patient, offering nothing new. The corridor is very quiet. You wait longer. The torch burns. Nothing happens. The feeling eventually becomes indistinguishable from doubt. You wake up at the entrance. The footprints are there. Your size. Your stride. The certainty is gone.*
+- Trust it. Wait. See if something happens → FAILURE: *You wait. The certainty doesn't grow or fade — it just sits there, patient, offering nothing new. The corridor is very quiet. You wait longer. The light holds. Nothing happens. The feeling eventually becomes indistinguishable from doubt. You wake up at the entrance. The footprints are there. Your size. Your stride. The certainty is gone.*
 
 *B2 — The claw marks run the length of the tunnel, shoulder height, deep and continuous. You follow them.*
 *The tunnel is long enough that the entrance is behind you and the far end is still ahead. The marks don't stop or change. They just keep going.*
@@ -773,6 +773,12 @@ Full tree (paths numbered A1–A3, B1–B3):
   *A doorway is there that wasn't before. You stand up and walk through it. You are through.*
 
 **On passing through:** The player arrives in the Lost Apprentice's Cell. No explanation is given for what the corridor was. The dream framing is never named in-game.
+
+**Built (2026-10-04):** "light", not "torch" — by now the player's light may be the spell. Numbered menus, as Litlock's tree:
+- Level 1: 1. Follow them, 2. Go another way. 2A: 1. Look closer at the prints, 2. Listen, 3. Breathe in. 2B: 1. Trust the feeling, 2. Look around, 3. Feel the ground.
+- Level 3: A1 Press your hand against the wall / Step back and look at the full wall; A2 Follow the slope down toward the sound / Follow the draft, toward air; A3 Crouch inside and look for the source / Ignore it and keep moving; B1 Press forward into the wall / Wait and see; B2 Keep walking / Fall back; B3 Step onto the discolored stone / Kneel and press your hand to it.
+- Entering (every time until passed): the inciting event and menu 1. A failure: the outcome, then the inciting event and menu 1 again. A success: the outcome, then the Cell. Other commands work as normal; `NORTH` goes back to the Spillway (the tree starts over); `SOUTH` before passing replays the inciting event and menu.
+- **Once passed:** *A low, wet corridor running north and south. There are footprints in the mud, and they are only yours.*
 
 ---
 
@@ -1055,7 +1061,8 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 4. **Context routing** (e.g., `BUY DRINK` vs `BUY FOOD`) is handler logic dispatching on the object noun, not separate verbs.
 5. **`cast` is its own canonical** — split from `exorcise`. `cast` owns `incant`, `chant`, `spell`. `exorcise` keeps `banish`, `begone`. (`drive` is its own canonical — `DRIVE STAKE INTO WEREWOLF`, see below.)
 6. **`set` ownership** — `set` is removed from `turn` aliases and assigned to `sail` so `SET SAIL` → canonical `sail`. Deliberate collision resolution.
-7. **Numeric arguments** (`TIP MAY 5`) — `tip` is the canonical verb; the handler parses the trailing number from raw input. No vocabulary entry needed for the number token.
+7. **Object lists** — `TAKE BLADE AND MASK`, `DROP SHOVEL, FIRE CLAY AND AMULET`: each item resolved on its own, one line per item (verbs that take several objects). Two words for one thing (`FLINT AND STEEL`) count once.
+8. **Numeric arguments** (`TIP MAY 5`) — `tip` is the canonical verb; the handler parses the trailing number from raw input. No vocabulary entry needed for the number token.
 
 ---
 

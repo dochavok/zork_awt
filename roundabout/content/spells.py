@@ -100,7 +100,9 @@ def _named(obj, words: str) -> bool:
 def _fireball(w: World, target: str) -> bool:
     """CAST FIREBALL [AT X]. True if it hit something (the timer starts)."""
     from engine.game import M_END
-    enemies = [o for o in (_here(w, n) for n in ("MUGGER", "WARDEN", "WEREWOLF")) if o]
+    enemies = [o for o in (_here(w, n) for n in ("MUGGER", "WARDEN", "WEREWOLF", "APPRENTICE")) if o]
+    if w.get_global("APPRENTICE-FREED"):
+        enemies = [o for o in enemies if o.name != "APPRENTICE"]
     ice = _here(w, "ICE-BLOCK")
     if target:
         enemies = [o for o in enemies if _named(o, target)]
@@ -115,6 +117,9 @@ def _fireball(w: World, target: str) -> bool:
             if enemy.name == "MUGGER":
                 from content import back_alley
                 back_alley.fireball_hit(w)
+            elif enemy.name == "APPRENTICE":
+                from content import trap_side
+                trap_side.fireball_hit(w)
             else:
                 from content import combat_room
                 combat_room.fireball_hit(w)

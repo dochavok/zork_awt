@@ -482,7 +482,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 1. Be swept through the Flooding Room (Trap 41) → land on The Spillway (mid-tier).
 2. Navigate Dream Corridor → Lost Apprentice's Cell.
 3. Combat with afflicted apprentice — defeating him breaks the affliction.
-4. Apprentice comes around — disoriented, sad. Hole in cell floor is nearly through to surface.
+4. Apprentice comes around — disoriented, sad. The tunnel he's dug in the cell wall, angling up, is nearly through to the surface.
 5. `USE SHOVEL` → finishes hole to Bog-NW. Permanent exit created.
 6. Apprentice follows player out.
 7. As they surface in Bog-NW, apprentice gives his gloves. Quest completes on bog exit — no return to Will required.

@@ -820,7 +820,10 @@ def v_use(world: World) -> int:
 # ---------------------------------------------------------------------------
 
 def v_jump_on(world: World) -> int:
-    from content import combat_room
+    from content import combat_room, flooding
+    if flooding.handles_plate(world):
+        flooding.jump_on_plate(world)
+        return M_HANDLED
     combat_room.jump_on_plate(world)
     return M_HANDLED
 
@@ -832,7 +835,10 @@ def v_struggle(world: World) -> int:
 
 
 def v_disarm(world: World) -> int:
-    from content import combat_room
+    from content import combat_room, flooding
+    if flooding.handles_plate(world):
+        flooding.disarm_plate(world)
+        return M_HANDLED
     combat_room.disarm_plate(world)
     return M_HANDLED
 
@@ -897,6 +903,10 @@ def v_melee(world: World) -> int:
     if obj.name == "WEREWOLF":
         from content import still_den
         still_den.melee(world)
+        return M_HANDLED
+    if obj.name == "APPRENTICE" and not world.get_global("APPRENTICE-FREED"):
+        from content import trap_side
+        trap_side.fight_round(world)
         return M_HANDLED
     print(f"You can't fight the {obj.desc}.")
     return M_HANDLED

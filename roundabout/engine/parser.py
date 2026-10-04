@@ -544,6 +544,13 @@ class Parser:
                 qualifier, exclusion_groups = all_but
                 prso = self._resolve_all_but(qualifier, exclusion_groups,
                                              rule.obj1, world)
+            elif rule.obj1.many_allowed and ("and" in nc1_raw or "," in nc1_raw):
+                # "take blade and mask" / "drop shovel, clay and amulet": each
+                # item resolved on its own (two words for one thing count once)
+                for group in self._split_on_and(nc1_raw):
+                    for obj in self._resolve_phrase(group, rule.obj1, world):
+                        if obj not in prso:
+                            prso.append(obj)
             elif nc1_words or rule.obj1.many_allowed:
                 prso = self._resolve_phrase(nc1_words, rule.obj1, world)
 

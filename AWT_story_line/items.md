@@ -149,7 +149,7 @@ Always lit from purchase. Timer starts on first dark room entry (not on purchase
 **Location:** Reward from Quest 50 (The Lost Apprentice) — apprentice gives them on Bog-NW exit
 **Quest use:** None — combat bonus.
 
-+3 combat roll bonus. Missable — Quest 50 is inaccessible if Flooding Room trap is disarmed before triggering.
++3 combat roll bonus. Missable — Quest 50 is inaccessible if Flooding Room trap is disarmed before triggering. Straight to the inventory from the apprentice.
 
 ---
 
@@ -757,5 +757,5 @@ All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 | **Chachapoyan Fertility Idol** | Idol Room, Dungeon Upper Tier | 4 | 30 | Safe swap required (sack of salt); same weight as sack of salt. Examine: *A small stone figurine, squat and round-bellied, worn smooth by hands that weren't yours. A Chachapoyan Fertility Idol, if you had to guess.* |
 | **Gold Pocket Watch** | The Crevice, Dungeon Mid-Tier | 1 | 30 | **Missable** — permanently inaccessible after Stored Room collapses |
 | **Ship-in-a-Bottle** | Roundabout Pond (fishing rod + challenge roll) | 2 | 24 | May's hints imply Kevry connection |
-| **Gold Nugget** | Supply Cache, Dungeon Mid-Tier Trap Side | 2 | 21 | Buried in rubble |
+| **Gold Nugget** | Supply Cache, Dungeon Mid-Tier Trap Side | 2 | 21 | Buried in rubble (`SEARCH RUBBLE`). Examine: *A rough nugget of gold, heavy for its size, still gritty with rock dust.* |
 | **Pie Rat Coin** | Flipped by a Pie Rat after returning the stolen ship | 1 | 18 | Unusual currency; pirate provenance |

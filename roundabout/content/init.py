@@ -56,6 +56,8 @@ def initialize_world(world, game, seed=None) -> None:
     game.register_enter_hook(ship.on_enter)
     from content.verbs import make_land_input_hook
     game.register_input_hook(make_land_input_hook)   # MAKE LAND = LAND
+    from content.trap_side import dream_input_hook
+    game.register_input_hook(dream_input_hook)       # Dream Corridor menus
     from content.vikings import give_zenni_input_hook
     game.register_input_hook(give_zenni_input_hook)  # GIVE RAZNAK THREE ZENNI
 
@@ -221,6 +223,12 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["FLOODED-POOL"], world.rooms["FLOODED-PASSAGE"])
     world.move_object(world.objects["ICE-BLOCK"], world.rooms["FOUNTAIN-ROOM"])
     world.move_object(world.objects["SPIRITS"], world.rooms["SPIRIT-ROOM"])
+    for obj, room in (("APPRENTICE", "LOST-APPRENTICES-CELL"),
+                      ("APPRENTICE-TUNNEL", "LOST-APPRENTICES-CELL"),
+                      ("CACHE-RUBBLE", "SUPPLY-CACHE"), ("GOLD-NUGGET", "SUPPLY-CACHE")):
+        world.move_object(world.objects[obj], world.rooms[room])
+    for obj in ("FLOOD-PLATE", "LEVER-LEFT", "LEVER-MIDDLE", "LEVER-RIGHT"):
+        world.move_object(world.objects[obj], world.rooms["FLOODING-ROOM"])
     world.move_object(world.objects["FUNERAL-MASK"], world.rooms["BURIAL-CHAMBER"])
 
     # Which key opens what — the parser uses this to pick the right key when
