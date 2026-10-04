@@ -48,6 +48,8 @@ def initialize_world(world, game, seed=None) -> None:
     game.register_enter_hook(ship.on_enter)
     from content.verbs import make_land_input_hook
     game.register_input_hook(make_land_input_hook)   # MAKE LAND = LAND
+    from content.vikings import give_zenni_input_hook
+    game.register_input_hook(give_zenni_input_hook)  # GIVE RAZNAK THREE ZENNI
 
     # Pie Rat heist: weak point check; the blown entrance stays sealed
     from content import mine
@@ -161,6 +163,8 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["GHOST"],         world.rooms["GHOSTS-ROOM"])
     # POCKET-WATCH is dropped when the ghost is freed
     world.move_object(world.objects["RECORDS-WORKER"], world.rooms["RECORDS-ROOM"])
+    world.move_object(world.objects["DISPLAY-CABINET"], world.rooms["UPPER-HALL"])
+    world.move_object(world.objects["WAX-SEAL"],        world.rooms["UPPER-HALL"])
     world.move_object(world.objects["ROWAN-FINCH"],    world.rooms["COUNCIL-CHAMBER"])
     # Quest 32: MIDDLE-TIER-KEY appears when Rowan holds it out
     world.move_object(world.objects["GRAVESTONE"], world.rooms["BOG-SE"])

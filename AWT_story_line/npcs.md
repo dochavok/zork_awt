@@ -311,6 +311,8 @@ Sells hints for Zenni (tiered — see hint system in `mechanics.md`). Manages Qu
 
 Vendor: sells gunpowder (5Z), torch (3Z), Tip Journal (5Z), Fishing Rod (8Z). `TALK TO SHAMUS`: *"What can I do for you? Gunpowder's five Zenni. Torches, three."* Buyback at half price for his items only. `TALK TO SHAMUS` to buy or sell.
 
+**Quest 40 (until it's complete):** `TALK TO SHAMUS` adds, after the greeting: *He glances at the pot on the fire and frowns at it. "There's a stew recipe I haven't made in years. Needs bog thyme, and a pot that isn't cracked. All of mine are."* The first time discovers Quest 40.
+
 **Torch exchange:** `BUY TORCH` while already carrying a torch is the exchange — the only way to swap. Shamus's response depends on the torch's life (swap tiers in `mechanics.md` — Torch). No `GIVE TORCH TO SHAMUS`.
 - **Short of 3 Zenni (exchange tiers only):** *"Three Zenni," Shamus says, and doesn't let go of the fresh one.*
 
@@ -390,15 +392,17 @@ He turns away. The conversation is over.
 
 **State 2A — Trust earned, Rogue:**
 
-Raznak watches the player cross the range. He doesn't say anything for a moment. His eyes go to the player's hands. Then their stance. Then back to their hands.
+*Raznak watches you cross the range. He doesn't say anything for a moment. His eyes go to your hands. Then your stance. Then back to your hands.*
 
 *"You've done this before."*
 
-It isn't a question. He disappears into the longhouse and returns with a bow — plain, well-maintained, strung and ready.
+*It isn't a question. He disappears into the longhouse and returns with a bow — plain, well-maintained, strung and ready.*
 
 *"Don't embarrass it,"* he says, and hands it over.
 
-That's the entire interaction. He goes back to what he was doing. → Bow added to inventory. Proceeds to State 3.
+*[Bow added to inventory.]*
+
+That's the entire interaction. He goes back to what he was doing. Proceeds to State 3.
 
 ---
 
@@ -406,7 +410,7 @@ That's the entire interaction. He goes back to what he was doing. → Bow added 
 
 *Raznak looks at you differently now — not warm exactly, but the suspicion is gone. "You want to learn the bow," he says. It isn't a question either. "Three Zenni. We start now if you have it."*
 
-`GIVE RAZNAK THREE ZENNI` / `PAY RAZNAK` → archery skill learned. Proceeds to bow handoff and State 3.
+`GIVE RAZNAK THREE ZENNI` / `GIVE 3 ZENNI TO RAZNAK` / `PAY RAZNAK` (or `PAY` at the range) → archery skill learned, Quest 55 complete. Proceeds to bow handoff and State 3. Talking to him again before paying repeats this offer.
 
 If player doesn't have 3 Zenni: *"Come back when you do."*
 
@@ -414,7 +418,7 @@ If player doesn't have 3 Zenni: *"Come back when you do."*
 
 **State 3 — Training complete, bow handoff (Warrior or Mage):**
 
-Raznak watches the player complete the final drill. He is quiet for a moment in the way of someone making a decision they've already made.
+*Raznak watches you complete the final drill. He is quiet for a moment in the way of someone making a decision they've already made.*
 
 *"You're not a natural,"* he says. *"You worked for it. That's better."*
 
@@ -426,7 +430,7 @@ He pauses.
 
 *"Most bows don't. This one does. Pay attention to it."*
 
-→ Bow added to inventory.
+*[Bow added to inventory.]*
 
 ---
 

@@ -336,6 +336,14 @@ def _make_viking_objects(world) -> None:
         world.register_object(o)
         return o
 
+    # Raznak's bow — handed over, never found lying around (items.md — The Bow)
+    world.register_object(GameObject(
+        name="BOW", desc="bow",
+        examine="A bow, plain and well-maintained, strung tight and balanced. It has "
+                "the feeling of something that expects to be used correctly.",
+        synonyms=["bow"], adjectives=["plain"],
+        flags={TAKEBIT},
+    ))
     npc("RAZNAK", "Raznak",
         "Raznak stands at the near end of the range, watching the targets.",
         ["raznak", "viking", "archer"])
@@ -645,6 +653,23 @@ def _make_chuckle_objects(world) -> None:
 # ---------------------------------------------------------------------------
 
 def _make_town_hall_objects(world) -> None:
+    # Upper Hall display cabinet (described in the room) and the wax seal — Quest 4
+    world.register_object(GameObject(
+        name="DISPLAY-CABINET", desc="display cabinet",
+        examine="A display cabinet stands against the wall, unlocked, glass-fronted, "
+                "holding an assortment of old civic documents and artifacts. The kind "
+                "of things a town keeps because no one has decided to throw them away.",
+        synonyms=["cabinet", "case"], adjectives=["display", "glass", "glass-fronted"],
+        flags={NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="WAX-SEAL", desc="wax seal",
+        fdesc="A wax seal sits among the documents in the open cabinet.",
+        examine="A disc of old red wax, still soft enough to press. The town crest is "
+                "stamped into its face.",
+        synonyms=["seal", "wax", "disc"], adjectives=["wax", "red"],
+        flags={TAKEBIT, INVISIBLE},
+    ))
     # Both are described in their room descriptions
     world.register_object(GameObject(
         name="RECORDS-WORKER", desc="clerk", synonyms=["clerk", "worker"],
@@ -966,7 +991,7 @@ _WEIGHTS = {
     "PIE-RAT-DISGUISE": 1, "GUNPOWDER": 2, "FLINT-AND-STEEL": 2, "SHOVEL": 3, "ROPE": 3,
     "KITE": 1, "OLD-OAK-RUNE-STONE": 2, "SCROLL-UNBIND-UNDEAD": 1, "BOWL-PIECE-FOREST": 1,
     "BOWL-PIECE-BOG": 1, "RUNED-METAL": 3, "PALE-BLADE": 3, "TOWN-CHARTER": 1,
-    "POCKET-WATCH": 1, "LOCKPICKS": 1, "GUARDIANS-LANTERN": 2, "HAND-CART": 5,
+    "POCKET-WATCH": 1, "LOCKPICKS": 1, "BOW": 1, "WAX-SEAL": 1, "GUARDIANS-LANTERN": 2, "HAND-CART": 5,
     "SUPPORT-BEAM": 4, "PORTCULLIS-BAR": 3, "MORTAR": 2, "SACK-OF-SALT": 4,
     "SCROLL-LIGHT": 1, "TREASURE-MAP": 1, "PIE-RAT-COIN": 1, "FISHING-ROD": 2, "SHIP-IN-A-BOTTLE": 2,
     "BOG-RUNE-STONE": 2, "MUSIC-BOX-KEY": 1, "BOG-THYME": 1,

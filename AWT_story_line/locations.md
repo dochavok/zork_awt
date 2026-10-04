@@ -193,6 +193,8 @@ Ground floor, off the Main Entrance. Dusty and bureaucratic. Contains the **town
 **Quest Hooks:** Quest 4 — wax seal found here
 **Connections:** Down → Town Hall. Up → The Tower.
 Second floor, top of the stairs. Connects to the Tower. Contains a display cabinet of old town documents and civic artifacts — unlocked, accessible from the start. `OPEN CABINET` reveals contents. The **wax seal** (Quest 4) is inside — `TAKE SEAL` picks it up. No perception check required.
+- **`OPEN CABINET`:** *The glass door swings open on a stiff hinge. Among the yellowed charters and a tarnished civic medal sits a wax seal — a disc of old red wax, stamped with the town crest.* Again: *It's already open.*
+- **Seal in the open cabinet:** *A wax seal sits among the documents in the open cabinet.* `EXAMINE CABINET` uses the room description's cabinet sentence.
 
 **Room description:**
 *The second floor is quieter than the ground floor in the way that second floors always are — the noise of official business doesn't quite reach here.*

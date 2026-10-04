@@ -532,7 +532,7 @@ Trial 1 — Riddle Stone:
 > TALK TO HAALVAR             [What am I]
 > SEA                         [satisfied]
 > SOUTH                       [Viking Encampment]
-> TALK TO IVANAAR             [Ritual Circle]
+> TALK TO IVANAAR             [circle is south]
 > LOOK AT BANNER              [Earth]
 
 Trial 2 — Ritual Circle:
@@ -616,12 +616,12 @@ Out of the Dankhaus and back south through the bog.
 > WEST                        [Bog of Eternal Stench]
 > SOUTH                       [Roundabout Pond]
 > SOUTH                       [Archery Range]
-> TALK TO RAZNAK              [archery]
-> PAY 3 ZENNI                 [bow skill]
+> TALK TO RAZNAK              [learn the bow]
 
-Archery skill unlocked. Raznak hands over the bow.
+Training costs 3 Zenni. Archery skill unlocked, and Raznak hands over
+the bow.
 
-> TAKE BOW                    [bow]
+> PAY RAZNAK                  [This one's yours]
 > WEST                        [Viking Encampment]
 
 =============================================================================
@@ -662,31 +662,12 @@ Quest Board by the Records Room Worker.
 =============================================================================
 O) Quest 17 — The Frozen Watch (Charter for Q27)
 =============================================================================
-The Unbind Undead scroll is on Silas Bryne's desk at the Lighthouse.
-Warriors must bring it to Will. The Chuckle House requires the ring for
-invisibility.
+The Chuckle House ghost holds the pocket watch that earns the town
+charter. We learned Unbind Undead from Will in F; the Chuckle House
+requires the ring for invisibility.
 
-> EXAMINE PAINTING            [Tale and Ale]
-> WEAR GLASSES                [glasses]
-> NORTH                       [Town Square]
-> EAST                        [Main East]
-> EAST                        [Wasteland]
-> EAST                        [Beach Road]
-> SOUTH                       [Roundabout Beach]
-> NORTHEAST                   [Lighthouse]
-> TAKE SCROLL                 [Unbind Undead]
-> SOUTHWEST                   [Roundabout Beach]
-> NORTH                       [Beach Road]
-> WEST                        [Wasteland]
-> WEST                        [Main East]
-> WEST                        [Town Square]
-> SOUTH                       [Tale and Ale]
-> REMOVE GLASSES              [glasses removed]
-> OPEN MAILBOX                [tower]
-> GIVE SCROLL TO WILL         [Unbind Undead]
-
-Unbind Undead spell learned. Navigate to the Chuckle House (east of
-the Graveyard, now visible after Litlock's bonk).
+Navigate to the Chuckle House (east of the Graveyard, now visible after
+Litlock's bonk).
 
 Equip the ring for invisibility before entering the Chuckle House.
 Corruption ticks while wearing it — remove it as soon as possible after.

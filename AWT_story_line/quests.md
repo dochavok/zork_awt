@@ -371,7 +371,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 
 ## Quest 40 — Shamus's Recipe
 
-**Discovery:** Quest Board — posted early, one of the first quests available. Shamus also mentions it wistfully in conversation.
+**Discovery:** Quest Board — posted early, one of the first quests available. Shamus also mentions it wistfully in conversation (`TALK TO SHAMUS` — line in npcs.md, Shamus).
 **Prerequisites:** Bog thyme (Bog-SW, perception check) + small clay pot (Supply Room, Dungeon Upper Tier — visible in Trap 17 wreckage).
 
 **Steps:**
@@ -605,9 +605,9 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 **Steps:**
 1. Complete all three Viking trust trials (Quest 57). Arrow hazard on the Archery Range is silently disabled.
 2. Approach Raznak at the Archery Range. He beckons the player — `TALK TO RAZNAK` to begin.
-3. Pay 3 Zenni. Raznak demonstrates and teaches. Bow/archery skill unlocked permanently.
+3. Pay 3 Zenni (`PAY RAZNAK` / `GIVE RAZNAK THREE ZENNI`). Raznak demonstrates and teaches. Bow/archery skill unlocked permanently; Raznak hands over the bow (npcs.md — Raznak). Quest 55 completes.
 
-**Reward:** Bow/archery skill. 6 XP. 3 Zenni.
+**Reward:** Bow/archery skill. 6 XP. No Zenni — the skill is the reward (the player pays Raznak 3 Zenni for the training).
 
 ---
 

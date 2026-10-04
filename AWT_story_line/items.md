@@ -18,7 +18,7 @@ Required to make ranged (bow) attacks in combat. Must be carried in inventory.
 
 **First round bonus:** The opening bow attack in any combat gains +5 to the roll — advantage of distance and surprise. Subsequent rounds in the same combat have no bonus.
 
-**Inventory description:** "A bow, plain and well-maintained, strung tight and balanced. It has the feeling of something that expects to be used correctly."
+**Inventory description (examine):** "A bow, plain and well-maintained, strung tight and balanced. It has the feeling of something that expects to be used correctly." Handed straight to the player — *[Bow added to inventory.]*
 
 ---
 
@@ -367,7 +367,9 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 
 ### Wax Seal
 **Weight:** 1
-**Location:** Display cabinet, Town Hall Upper Hall — `OPEN CABINET`, `TAKE SEAL`. No perception check.
+**Location:** Display cabinet, Town Hall Upper Hall — `OPEN CABINET`, `TAKE SEAL`. No perception check. (Cabinet text in locations.md — Upper Hall.)
+**Room description (open cabinet):** *A wax seal sits among the documents in the open cabinet.*
+**Examine:** *A disc of old red wax, still soft enough to press. The town crest is stamped into its face.*
 **Quest use:** Quest 4 (The Whispering Jar) — `PRESS SEAL` on the jar as part of the restoration sequence.
 
 ---

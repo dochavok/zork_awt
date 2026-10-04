@@ -10,22 +10,22 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section G — Shamus's Recipe. Sections A–F pass. First failure:
+**Current position:** Full-score walkthrough, Section Q — Quest 32, The Missing Gravestone. Sections A–P pass. First failure:
 
 ```
-SECTION [G) Quest 40 — Shamus's Recipe]
-  cmd     : 'TALK TO SHAMUS'
-  missing : 'recipe'
+SECTION [Q) Quest 32 — The Missing Gravestone (Middle Tier Key)]
+  cmd     : 'TAKE SMOKE JAR'
+  missing : 'smoke jar'
 ```
 
-Shamus's Quest 40 dialogue isn't built.
+Q has 58 failing steps: Trap 17 (smoke jar, clay pot) and Trap 33 (idol swap) aren't built; Q's upper-tier route is out of date (`USE PORTCULLIS BAR` refused, so every later move is off by a room — the ring walkthrough's I1/I2 route works); `TAKE BOWL PIECE` with two pieces present asks "the bowl piece, or the bowl piece?".
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
 - Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.
 - Lynds after the Viking trials: always-max can't win at level 3 (21 vs his 23); level 4 comes during J. Litlock follows Lynds (needs the invitation).
-- Routes between all of C–M connect. Remaining D–M failures are unbuilt content: recipe (G), Ivanaar fragment (J), Raznak states (M).
+- Routes between all of C–M connect.
 
-The full-score walkthrough fails at 473 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
+The full-score walkthrough fails at 466 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
 
 **XP note:** in the ring walkthrough the player is level 6 by the end of K (Quest 32 reward) and finishes at level 6 with 307 XP. Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
 
@@ -77,6 +77,9 @@ The full-score walkthrough fails at 473 steps in total; much of it predates the 
 - Heist (cont.): Mine Tunnels weak point (Easy perception), DROP GUNPOWDER wedges it there, LIGHT needs the flint and the gunpowder placed, 5-turn fuse, death if still in the mine, cave-in seals DOWN from the Mine Entrance (post-cave-in description). Both walkthroughs take the flint in the Assay Room and check the explosion.
 - Section F: music box (Will's three hints, locked / opened with the key, key stays in the lock), Light scroll; Quest 12 completes when the scroll is found. Light spell per mechanics.md (continuous; quests/items/npcs updated): CAST LIGHT, step into the dark from a lit room, goes out in lit rooms. Final F fragment now [The knowing, I mean].
 - Torch burnout with the Light spell: not fatal while Light is lit; known but not lit — two commands to CAST LIGHT, else death. P's CAST LIGHT moved to the Mausoleum (first dark room), fragment [darkness pulls back] — check when P is reached.
+- Section G: TALK TO SHAMUS adds the Quest 40 recipe line until the quest is complete (discovers Quest 40). Section J: Ivanaar fragment now [circle is south] (matches his designed line).
+- Section M: Raznak states 2A (Rogue), 2B (offer), 3 (training + bow, later greeting); PAY RAZNAK / bare PAY / GIVE RAZNAK THREE ZENNI; Bow object; Quest 55 completes on training (Zenni reward dropped). Walkthrough: [learn the bow], PAY RAZNAK [This one's yours], TAKE BOW removed.
+- Section O: Lighthouse scroll trip removed (scroll picked up in C, taught in F); Upper Hall display cabinet and wax seal (Quest 4). P passes as is.
 
 **Known issues still open:**
 - Full-score plan: the torch is allowed to burn out in the full run; no repurchase once Light is learned (F). Check P onward against that.
@@ -91,7 +94,6 @@ The full-score walkthrough fails at 473 steps in total; much of it predates the 
 - Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.
 - Class XP bonuses (experience.md — Class XP Adjustments): Warrior +10 per kill is built (Aylora excluded — not a kill). Mage +1 per new dungeon room and Rogue +5 per trap disarmed are not built yet — add when the dungeon and traps are.
 - Quest 51 bounty notice (May posts it after 100 turns if the mugger lives) isn't built or written. The full-score run is well past 100 turns by the mugger in F, so the notice will be due there.
-- Raznak only has State 1 (trust not earned). States 2A/2B/3 and PAY are Quest 55 (full-score walkthrough).
 - The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
@@ -145,4 +147,13 @@ Build from the design: blind tipping and tier ranges (mechanics.md — Hint Syst
 No ring-path step needs a hint (nothing checks for one), so the ring walkthrough doesn't wait on this. Quest 32 leans on May's hints to point players at Rowan and the bog — nothing else in-game does (decided 2026-10-03: leave it that way).
 
 Open question: quests.md Path A for Quests 19&30 reads "May's tier 1 hint → TALK TO LIBRARIAN reveals…". Confirm the Librarian's scholar dialogue does not depend on the hint having been bought.
+
+---
+## TODO #6 — Build and test the Quest Board and May's tips
+
+Neither walkthrough needs them (no step checks the board or a hint), so the walkthrough tests won't exercise them. They need their own code and their own tests.
+
+- **Quest Board** (Bar — `LOOK AT BOARD` / `READ BOARD`): postings from the design — quests posted at game start, on first visits (e.g. Quest 40 on meeting Shamus) and by cascade (quests.md, mechanics.md — Quest Board), removals (e.g. Quest 50 when Trap 41 is disarmed), the Quest 51 bounty after 100 turns, and how completed quests show.
+- **May's tips:** build per TODO #5 (TIP MAY tiers, blind tipping, conditional hints, hints unlocking on discovery).
+- **Tests:** a dedicated test file (not a walkthrough) that drives game state through do_turn where it can — discover, progress and complete quests — and checks the board text and each tier of May's hints, including conditional and one-tier hints.
 

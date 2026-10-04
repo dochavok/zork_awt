@@ -73,6 +73,17 @@ def v_open(world: World) -> int:
         music_box.open_box(world)
         return M_HANDLED
 
+    if obj.name == "DISPLAY-CABINET":     # Upper Hall — Quest 4 wax seal
+        if world.get_global("CABINET-OPEN"):
+            print("It's already open.")
+        else:
+            world.set_global("CABINET-OPEN", True)
+            world.objects["WAX-SEAL"].clear_flag("INVISIBLE")
+            print("The glass door swings open on a stiff hinge. Among the yellowed "
+                  "charters and a tarnished civic medal sits a wax seal — a disc of "
+                  "old red wax, stamped with the town crest.")
+        return M_HANDLED
+
     if obj.name == "BURIED-CHEST":
         from content import ship
         ship.open_chest(world)
@@ -454,6 +465,15 @@ def v_talk(world: World) -> int:
             'Shamus wipes his hands on his apron. "What can I do for you? '
             'Gunpowder\'s five Zenni. Torches, three."'
         )
+        # Quest 40 — mentioned wistfully until the stew is back on the menu
+        from content import quests
+        if quests.get_state(world, "40") != quests.COMPLETE:
+            print(
+                'He glances at the pot on the fire and frowns at it. "There\'s a '
+                "stew recipe I haven't made in years. Needs bog thyme, and a pot "
+                'that isn\'t cracked. All of mine are."'
+            )
+            quests.discover(world, "40")
         return M_HANDLED
 
     if obj.name == "KEVRY":
@@ -702,6 +722,12 @@ def v_pay(world: World) -> int:
     if (obj is None or obj.name == "BOGGART") and boggart is not None             and boggart.location is world.here:
         from content import tunnels
         tunnels.pay_boggart(world)
+        return M_HANDLED
+    raznak = world.objects.get("RAZNAK")
+    if (obj is None or obj.name == "RAZNAK") and raznak is not None \
+            and raznak.location is world.here:
+        from content import vikings
+        vikings.pay_raznak(world)
         return M_HANDLED
     print("There's no one here to pay.")
     return M_HANDLED

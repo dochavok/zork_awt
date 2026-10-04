@@ -352,14 +352,100 @@ def take_aylora(w: World) -> None:
 # Raznak — State 1 only so far (trust states are Quest 55, full-score path)
 # ---------------------------------------------------------------------------
 
+_RAZNAK_NOT_READY = (
+    "Raznak eyes you the way he'd eye an arrow with a bad fletching — not "
+    "hostile, just certain you're not ready.\n"
+    '"You want something from me, go talk to the encampment first. West '
+    'of here. When they know you, come back."\n'
+    "He turns away. The conversation is over."
+)
+_RAZNAK_ROGUE = (
+    "Raznak watches you cross the range. He doesn't say anything for a moment. "
+    "His eyes go to your hands. Then your stance. Then back to your hands.\n"
+    '"You\'ve done this before."\n'
+    "It isn't a question. He disappears into the longhouse and returns with a "
+    "bow — plain, well-maintained, strung and ready.\n"
+    '"Don\'t embarrass it," he says, and hands it over.\n'
+    "[Bow added to inventory.]"
+)
+_RAZNAK_OFFER = (
+    "Raznak looks at you differently now — not warm exactly, but the suspicion "
+    'is gone. "You want to learn the bow," he says. It isn\'t a question either. '
+    '"Three Zenni. We start now if you have it."'
+)
+_RAZNAK_SHORT = '"Come back when you do."'
+_RAZNAK_TRAINED = (
+    "Raznak watches you complete the final drill. He is quiet for a moment in "
+    "the way of someone making a decision they've already made.\n"
+    '"You\'re not a natural," he says. "You worked for it. That\'s better."\n'
+    "He takes a bow from the rack — slightly better than the practice ones, "
+    "strung tight, balanced.\n"
+    '"This one\'s yours. It\'ll tell you when you\'re doing it wrong."\n'
+    "He pauses.\n"
+    '"Most bows don\'t. This one does. Pay attention to it."\n'
+    "[Bow added to inventory.]"
+)
+TRAINING_COST = 3
+
+
+def _raznak_greeting(w: World) -> str:
+    name = w.globals.get("player_name", "")
+    return (f'Raznak looks up when you enter the range. "{name}," he says, with a '
+            "nod. He goes back to his work. That's the entire greeting, and "
+            "somehow it's enough.")
+
+
 def talk_raznak(w: World) -> None:
-    print(
-        "Raznak eyes you the way he'd eye an arrow with a bad fletching — not "
-        "hostile, just certain you're not ready.\n"
-        '"You want something from me, go talk to the encampment first. West '
-        'of here. When they know you, come back."\n'
-        "He turns away. The conversation is over."
-    )
+    from content import quests
+    if not w.get_global("VIKING-TRUST"):
+        print(_RAZNAK_NOT_READY)
+        return
+    if w.globals.get("skill_bow"):
+        if w.globals.get("player_class") == "rogue" and not w.get_global("RAZNAK-BOW-GIVEN"):
+            print(_RAZNAK_ROGUE)          # State 2A — no training, no Zenni
+            w.set_global("RAZNAK-BOW-GIVEN", True)
+            w.move_object(w.objects["BOW"], w.player)
+        else:
+            print(_raznak_greeting(w))    # State 3 — later visits
+        return
+    print(_RAZNAK_OFFER)                   # State 2B — Warrior or Mage
+    quests.discover(w, "55")
+
+
+def pay_raznak(w: World) -> None:
+    """PAY RAZNAK / GIVE RAZNAK THREE ZENNI — archery training (Quest 55)."""
+    from content import quests
+    if not w.get_global("VIKING-TRUST"):
+        print(_RAZNAK_NOT_READY)
+        return
+    if w.globals.get("skill_bow"):
+        talk_raznak(w)
+        return
+    zenni = w.globals.get("zenni", 0)
+    if zenni < TRAINING_COST:
+        print(_RAZNAK_SHORT)
+        return
+    w.globals["zenni"] = zenni - TRAINING_COST
+    w.globals["skill_bow"] = True
+    w.set_global("RAZNAK-BOW-GIVEN", True)
+    print(_RAZNAK_TRAINED)
+    w.move_object(w.objects["BOW"], w.player)
+    quests.discover(w, "55")
+    quests.complete(w, "55")
+
+
+def give_zenni_input_hook(w: World, text: str) -> bool:
+    """GIVE RAZNAK THREE ZENNI / GIVE 3 ZENNI TO RAZNAK — Zenni isn't an object."""
+    words = [x for x in text.lower().split() if x != "the"]
+    if not words or words[0] not in ("give", "hand", "pay") or "zenni" not in words:
+        return False
+    if "raznak" not in words:
+        return False
+    raznak = w.objects.get("RAZNAK")
+    if raznak is None or raznak.location is not w.here:
+        return False
+    pay_raznak(w)
+    return True
 
 
 # ---------------------------------------------------------------------------
