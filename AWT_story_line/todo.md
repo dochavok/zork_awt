@@ -86,10 +86,9 @@ The full-score walkthrough fails at 349 steps in total; much of it predates the 
 - Section T: Quest 38 — three Hard strength checks with the pickaxe (retries), support beam props the passage (only then does the way east open); HIT / CHOP / BREAK TIMBER, PROP PASSAGE WITH BEAM, PUT BEAM. "timber" is now an adjective for the support beam. Quest 38 reward fixed to 5 Zenni. T rerouted from the Collapsed Aqueduct and tries the shortcut.
 - Section L: walks every Dankhaus room after Litlock's bonk (TODO #4). Lynds's Room is empty — Lynds is always in the Tale and Ale (locations.md corrected).
 - Section U: rewritten on the ring's K cellar sequence (TALK TO MAY, UNLOCK DOOR WITH KEY, OPEN DOOR, USE CROWBAR ON DRAIN, CLEAR DRAIN — no going down into the water), plus the cashbox and May's boots. Parser: UNLOCK / OPEN … WITH KEY uses the one carried key that fits.
-- Section V: Quest 40 delivery — thyme and pot to Shamus in either order; the second completes the quest (hearty stew flag, 3 Zenni).
+- Section V: Quest 40 delivery — thyme and pot to Shamus in either order; the second completes the quest (hearty stew flag, 3 Zenni). Between deliveries Shamus says which item he still needs.
 
 **Known issues still open:**
-- Quest 40: between the two deliveries, TALK TO SHAMUS still gives the full recipe line ("Needs bog thyme, and a pot that isn't cracked") even after one item has been handed over.
 - Full-score plan: the torch is allowed to burn out in the full run; no repurchase once Light is learned (F). Check P onward against that.
 - `TAKE ALL` also tries items already in inventory ("You already have the …" for each). Predates this session.
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).

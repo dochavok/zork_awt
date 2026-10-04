@@ -479,11 +479,17 @@ def v_talk(world: World) -> int:
         # Quest 40 — mentioned wistfully until the stew is back on the menu
         from content import quests
         if quests.get_state(world, "40") != quests.COMPLETE:
-            print(
-                'He glances at the pot on the fire and frowns at it. "There\'s a '
-                "stew recipe I haven't made in years. Needs bog thyme, and a pot "
-                'that isn\'t cracked. All of mine are."'
-            )
+            if world.get_global("SHAMUS-HAS-THYME"):
+                print('He glances at the thyme by the stove, then frowns at the pot '
+                      'on the fire. "Still need a pot that isn\'t cracked."')
+            elif world.get_global("SHAMUS-HAS-POT"):
+                print('He glances at the new pot by the stove. "Still need that bog thyme."')
+            else:
+                print(
+                    'He glances at the pot on the fire and frowns at it. "There\'s a '
+                    "stew recipe I haven't made in years. Needs bog thyme, and a pot "
+                    'that isn\'t cracked. All of mine are."'
+                )
             quests.discover(world, "40")
         return M_HANDLED
 
