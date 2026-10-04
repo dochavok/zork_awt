@@ -124,7 +124,7 @@ Quest 41 complete. Rune stone (Old Oak) acquired. Continue north.
 The Verdant Circle shrine is visible — crumbled bowl pieces scattered.
 One bowl piece is near the shrine. Take it.
 
-> TAKE BOWL PIECE             [You take the bowl piece]
+> TAKE BOWL PIECE             [You take the large bowl piece]
 > DOWN                        [Mine Entrance]
 > DOWN                        [Main Shaft]
 > TAKE PICKAXE                [pickaxe]
@@ -403,7 +403,7 @@ rooms share one name; diagonal moves work between all of them.
 
 Actually Enchanted Glasses auto-pass perception: rune stone visible.
 
-> TAKE RUNE STONE             [You take the rune stone]
+> TAKE RUNE STONE             [You take the grey rune stone]
 > WEST                        [Bog of Eternal Stench]
 
 Hollow log — actually enchanted glasses reveal it.
@@ -414,7 +414,7 @@ Also: Bog-SW has bog thyme (Quest 40) and a bowl piece (Quest 49).
 
 > SOUTH                       [Bog of Eternal Stench]
 > TAKE BOG THYME              [bog thyme]
-> TAKE BOWL PIECE             [You take the bowl piece]
+> TAKE BOWL PIECE             [You take the muddy bowl piece]
 
 =============================================================================
 F) Quest 12 — The Locked Music Box (Light Spell)
@@ -851,7 +851,7 @@ the portcullis bar.
 
 Bowl piece 3 (Shrine Room) — auto-pass.
 
-> TAKE BOWL PIECE             [You take the bowl piece]
+> TAKE BOWL PIECE             [You take the stone bowl piece]
 > SOUTH                       [Rickety Bridge]
 
 From the bridge the heavy iron door to the south is in plain sight —
@@ -1187,7 +1187,7 @@ Return west to Mine Passage, then go south.
 The glasses spot the snare in front of a crawlspace in the east wall
 (Cave Creature's Lair, Quest 7) and a rune stone (Quest 42).
 
-> TAKE RUNE STONE             [You take the rune stone]
+> TAKE RUNE STONE             [You take the pale rune stone]
 > EAST                        [Cave Creature's Lair]
 > TAKE FLUTE                  [You take the bone flute]
 > WEST                        [Inscription Chamber]
@@ -1254,6 +1254,22 @@ Surface, use Keeper's keys at Keeper's Chamber (Church of All).
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
 > NORTH                       [Rickety Bridge]
+
+The silver stake waits in the pile on this side of the bridge, along
+with the idol for the Trophy Case and the wax seal for the Whispering Jar.
+Everything else we'll need above ground comes up too: the Pale Blade, the
+three bowl pieces, the other two rune stones and the smoke jar.
+
+> TAKE STAKE                  [You take the silver stake]
+> TAKE IDOL                   [You take the Chachapoyan Fertility Idol]
+> TAKE SEAL                   [You take the wax seal]
+> TAKE PALE BLADE             [You take the Pale Blade]
+> TAKE LARGE BOWL PIECE       [You take the large bowl piece]
+> TAKE MUDDY BOWL PIECE       [You take the muddy bowl piece]
+> TAKE STONE BOWL PIECE       [You take the stone bowl piece]
+> TAKE FLAT RUNE STONE        [You take the flat rune stone]
+> TAKE GREY RUNE STONE        [You take the grey rune stone]
+> TAKE SMOKE JAR              [You take the smoke jar]
 > NORTH                       [Shrine Room]
 > NORTH                       [Portcullis Corridor]
 > NORTH                       [Prayer Alcove]
@@ -1270,28 +1286,37 @@ Surface, use Keeper's keys at Keeper's Chamber (Church of All).
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
 > NORTH                       [Church of All]
+> UNLOCK DOOR WITH KEYS       [third key]
+> WEST                        [Keeper's Chamber]
+> TAKE HOLY WATER             [holy water]
+> POUR HOLY WATER ON STAKE    [silver drinks it]
+
+On to the Tower. The gold watch, the diamond brooch and the idol go in
+the Trophy Case.
+
+> EAST                        [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
-> SOUTH                       [Church of All]
-> EAST                        [Keeper's Chamber door]
-> UNLOCK DOOR WITH KEYS       [Keeper's Chamber]
-> TAKE HOLY WATER             [holy water]
-> POUR HOLY WATER ON STAKE    [consecrated silver stake]
+> NORTH                       [Town Hall]
+> UP                          [Upper Hall]
+> UP                          [The Tower]
+> PUT WATCH IN CASE           [gold pocket watch settles into the velvet]
+> PUT BROOCH IN CASE          [diamond brooch settles into the velvet]
+> PUT IDOL IN CASE            [Fertility Idol settles into the velvet]
 
 Also: restore the Whispering Jar. Return to the inn for that.
 
 =============================================================================
 FF) Quest 4 — The Whispering Jar (Complete)
 =============================================================================
-The inn's back room has the jar. We have wax seal, silver dust, and can
-read the incantation etched on the base.
+The jar is in the inn's Pipe Room, east of the Main Room. We have wax
+seal, silver dust, and can read the incantation etched on the base.
 
-> WEST                        [Church of All]
-> NORTH                       [Main East]
-> WEST                        [Town Square]
+> DOWN                        [Upper Hall]
+> DOWN                        [Town Hall]
+> SOUTH                       [Town Square]
 > SOUTH                       [Tale and Ale]
-> SOUTH                       [Bar]
-> ENTER BACK ROOM             [Whispering Jar]
+> EAST                        [Pipe Room]
 > PRESS SEAL                  [seal]
 > DUST JAR                    [dust]
 > READ INCANTATION            [incantation]

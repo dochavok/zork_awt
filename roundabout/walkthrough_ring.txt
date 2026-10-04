@@ -117,7 +117,7 @@ The crumbled Verdant Circle shrine is here. One of the three bowl
 pieces for the Crystal Bowl (Quest 49) lies near it — an easy
 perception check. It isn't needed until much later.
 
-> TAKE BOWL PIECE             [You take the bowl piece]
+> TAKE BOWL PIECE             [You take the large bowl piece]
 > DOWN                        [Mine Entrance]
 > DOWN                        [Main Shaft]
 
@@ -451,7 +451,7 @@ the Dankhaus path in Bog-SE as we pass — we'll need it in H2.
 
 > NORTH                       [Roundabout Pond]
 > NORTH                       [Bog of Eternal Stench]
-> TAKE BOWL PIECE             [You take the bowl piece]
+> TAKE BOWL PIECE             [You take the muddy bowl piece]
 
 OPTIONAL — not required to complete the ring. Done for XP so the
 player reaches level 4 before arm wrestling Lynds in H1.
@@ -761,7 +761,7 @@ from the Supply Room.
 Shrine Room contains one of the three Verdant Circle shrine bowl pieces
 (perception check — auto-pass). Take it.
 
-> TAKE BOWL PIECE             [You take the bowl piece]
+> TAKE BOWL PIECE             [You take the stone bowl piece]
 > SOUTH                       [Rickety Bridge]
 
 From the bridge, the heavy iron door to the south is in plain sight —

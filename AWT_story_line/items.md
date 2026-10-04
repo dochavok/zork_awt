@@ -637,6 +637,7 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 
 ### Verdant Circle Shrine Bowl (3 pieces)
 **Weight:** 1 each
+**Names (2026-10-04):** each piece has its own name so the player can say which — forest piece: *large bowl piece*; bog piece: *muddy bowl piece*; Shrine Room piece: *stone bowl piece*. Each answers to its own word (`TAKE LARGE PIECE`) and to "bowl piece" when it's the only one in reach.
 **Examine (forest piece):** *A curved piece of ceramic from the shrine bowl, part of the rim. A faint etched line runs along its edge.*
 **Bog piece (Bog-SW):** room listing *Half-sunk in the mud at the edge of the reeds, a curved shard of pale ceramic catches what light there is.* Examine: *A piece of the shrine bowl, caked with bog mud. Under the mud, a faint etched line.*
 **Locations:**
@@ -671,6 +672,7 @@ The Old Oak rune stone falls free when the kite comes down — see Rune Stones.
 
 ### Rune Stones (3)
 **Weight:** 2 each
+**Names (2026-10-04):** Old Oak stone: *flat rune stone*; bog stone: *grey rune stone*; Inscription Chamber stone: *pale rune stone*. Each answers to its own word (`TAKE GREY STONE`) and to "rune stone" when it's the only one in reach.
 **Locations:**
 1. **Bog rune stone:** Bog-NE (Medium perception check). Room listing: *A grey stone sits at the water's edge, one face worn flat.* Examine: *A grey stone, heavy for its size, one face worn flat by water. Faint lines are etched across the surface in no pattern you recognize.*
 2. **Dungeon rune stone:** Inscription Chamber, mid-tier (perception check) — *A pale stone, roughly square, with deep natural veins of darker mineral running through it like old script.*

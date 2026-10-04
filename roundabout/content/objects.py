@@ -499,7 +499,7 @@ def _make_old_oak_objects(world) -> None:
         synonyms=["kite"], flags={TAKEBIT},
     ))
     world.register_object(GameObject(
-        name="OLD-OAK-RUNE-STONE", desc="rune stone",
+        name="OLD-OAK-RUNE-STONE", desc="flat rune stone",
         fdesc="A small flat stone on a cord lies in the grass.",
         examine="A small flat stone, dark and smooth, threaded on a cord. Mineral "
               "veins run through it in a pattern that looks almost intentional.",
@@ -513,12 +513,12 @@ def _make_old_oak_objects(world) -> None:
     ))
     # Forest bowl piece — hidden until an Easy perception check finds it
     world.register_object(GameObject(
-        name="BOWL-PIECE-FOREST", desc="bowl piece",
+        name="BOWL-PIECE-FOREST", desc="large bowl piece",
         fdesc="Among the shards on the pedestal, one piece is larger than the "
               "rest — a curved section of the rim, still whole.",
         examine="A curved piece of ceramic from the shrine bowl, part of the rim. "
               "A faint etched line runs along its edge.",
-        synonyms=["piece", "shard", "bowl"], adjectives=["bowl", "curved", "ceramic"],
+        synonyms=["piece", "shard", "bowl"], adjectives=["bowl", "large", "rim", "ceramic"],
         flags={TAKEBIT, INVISIBLE},
     ))
 
@@ -530,17 +530,17 @@ def _make_old_oak_objects(world) -> None:
 def _make_bog_objects(world) -> None:
     # Bog-SW shrine bowl piece — hidden until an Easy perception check finds it
     world.register_object(GameObject(
-        name="BOWL-PIECE-BOG", desc="bowl piece",
+        name="BOWL-PIECE-BOG", desc="muddy bowl piece",
         fdesc="Half-sunk in the mud at the edge of the reeds, a curved shard of "
               "pale ceramic catches what light there is.",
         examine="A piece of the shrine bowl, caked with bog mud. Under the mud, a "
               "faint etched line.",
-        synonyms=["piece", "shard", "bowl"], adjectives=["bowl", "curved", "ceramic"],
+        synonyms=["piece", "shard", "bowl"], adjectives=["bowl", "muddy", "ceramic"],
         flags={TAKEBIT, INVISIBLE},
     ))
     # Bog items below: Medium perception, every visit until found (content/bog.py)
     world.register_object(GameObject(
-        name="BOG-RUNE-STONE", desc="rune stone",
+        name="BOG-RUNE-STONE", desc="grey rune stone",
         fdesc="A grey stone sits at the water's edge, one face worn flat.",
         examine="A grey stone, heavy for its size, one face worn flat by water. Faint "
               "lines are etched across the surface in no pattern you recognize.",
@@ -872,8 +872,8 @@ def _make_shrine_path_objects(world) -> None:
         flags={TAKEBIT, INVISIBLE},
     ))
     world.register_object(GameObject(
-        name="BOWL-PIECE-SHRINE", desc="bowl piece", fdesc=SHRINE_PIECE,
-        synonyms=["piece", "shard", "fragment", "bowl"], adjectives=["bowl", "curved", "stone"],
+        name="BOWL-PIECE-SHRINE", desc="stone bowl piece", fdesc=SHRINE_PIECE,
+        synonyms=["piece", "shard", "fragment", "bowl"], adjectives=["bowl", "stone"],
         size=1, flags={TAKEBIT, INVISIBLE},
     ))
     world.register_object(GameObject(
@@ -952,12 +952,12 @@ def _make_mid_tier_objects(world) -> None:
         adjectives=["fine", "snapped"], flags={NDESCBIT, SACREDBIT},
     ))
     world.register_object(GameObject(
-        name="DUNGEON-RUNE-STONE", desc="rune stone",
+        name="DUNGEON-RUNE-STONE", desc="pale rune stone",
         fdesc="A small pale stone near the base of the carved wall catches your eye — "
               "etched with faint lines.",
         examine="A pale stone, roughly square, with deep natural veins of darker "
               "mineral running through it like old script.",
-        synonyms=["stone", "rune", "runestone"], adjectives=["rune", "pale", "small"],
+        synonyms=["stone", "rune", "runestone"], adjectives=["rune", "pale"],
         size=2, flags={TAKEBIT, INVISIBLE},
     ))
     world.register_object(GameObject(

@@ -10,20 +10,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section EE — Holy Water & Consecration (on hold). Sections A–CC pass (AA folded into Z, DD into II). First failure:
+**Current position:** Full-score walkthrough, Section FF — Quest 4, the Whispering Jar. Sections A–EE pass (AA folded into Z, DD into II). First failure:
 
 ```
-SECTION [EE) Quest 19/30 — Holy Water & Consecration (surface, Keeper's Chamber)]
-  cmd     : 'SOUTH'
-  missing : 'Church of All'
-  got     : "Tale and Ale — Main Room ..."
+SECTION [FF) Quest 4 — The Whispering Jar (Complete)]
+  cmd     : 'PRESS SEAL'
+  missing : 'seal'
+  got     : ""
 ```
 
-EE's town route to the Keeper's Chamber is wrong — mirror the ring's N (Graveyard → Church → UNLOCK DOOR WITH KEYS → WEST), and take the stake at the bridge on the way up. 178 full-score steps still fail.
+The jar mechanic isn't built (pressing the seal, dusting the jar, reading the incantation, the whisper). FF's `DUST JAR [dust]` and `READ INCANTATION [incantation]` pass by accident ("I don't know the word \"dust\"", "You can't see any incantation here!"). 187 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
-Trophy Case: deposit treasures as they're collected. Section O deposits the Ship-in-a-Bottle and Pie Rat Coin; EE's town visit should deposit the gold watch, the diamond brooch and the idol.
+Trophy Case: deposit treasures as they're collected (O: Ship-in-a-Bottle, Pie Rat Coin; EE: gold watch, diamond brooch, idol).
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
 - Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.
@@ -99,6 +99,8 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section CC: Tool Alcove (Medium perception, 'notices you' + question lines, also on a return visit; EXAMINE WALL / LISTEN; 50/50 pull-back line once; north waits for READ SCROLL in JJ). Ivory Torch on the Still Den wall — heat, not light (LIGHT refusal).
 - Section CC (cont.): CC is the Quest 34 discovery only (no Still Den visit); DD folded into II (fire clay after the jar's hint); torch taken in II after the kill; EE's first SOUTH removed; FF prose fixed.
 - Trophy Case (The Tower): OPEN / CLOSE CASE, PUT / DROP … IN CASE (treasures only, points from items.md, SCORE reads them), room and EXAMINE / LOOK IN listings, nothing comes back out (deposits are flagged against the implicit take). Section O deposits the Ship-in-a-Bottle and Pie Rat Coin (no sailing after O); UU reworded to 'remaining'. Post-dig [Stored Room] fragments → [Hole to Below] (EE, II, LL).
+- Section EE: bridge pickups (stake, idol, wax seal, Pale Blade, three bowl pieces, two rune stones, smoke jar — the vial and lantern stay for II); ring's N route to the Keeper's Chamber; Tower stop deposits the gold watch, diamond brooch and idol. FF reaches the Pipe Room from the Tower.
+- Bowl pieces and rune stones have distinct names (large / muddy / stone bowl piece; flat / grey / pale rune stone); fragments updated in both walkthroughs.
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -107,6 +109,8 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Full-score plan: the torch is allowed to burn out in the full run; no repurchase once Light is learned (F). Check P onward against that.
 - `TAKE ALL` also tries items already in inventory ("You already have the …" for each). Predates this session.
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
+- II's southbound bridge crossing will be overweight with the surface items (Pale Blade, bowl pieces, rune stones, smoke jar) — stash them in town or hand some in early.
+- OO and TT: `PUT BOWL …` asks which bowl while the pieces are carried.
 - UU's `LOOK IN CASE [9 of 9]` fragment conflicts with the design (no denominator during play) — decide at UU.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: Lower Crossing south (Dark Room); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
