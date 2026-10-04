@@ -782,6 +782,26 @@ def _make_mid_tier_objects(world) -> None:
         synonyms=["note"], adjectives=["keeper's", "keepers", "careful"],
         flags={NDESCBIT, SACREDBIT},
     ))
+    # The Still Den (logic: content/still_den.py)
+    world.register_object(GameObject(
+        name="BONES", desc="bones", synonyms=["bones", "floor"], adjectives=["dry"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="WEREWOLF", desc="werewolf", synonyms=["werewolf", "creature", "wolf"],
+        adjectives=["undead"], flags={ACTORBIT, NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="SCHOLAR", desc="scholar", synonyms=["scholar", "body"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="WEREWOLFS-AMULET", desc="Werewolf's Amulet",
+        fdesc="A tarnished amulet lies beside the scholar, a seven-pointed star on its face.",
+        ldesc="A tarnished amulet bearing the seven-pointed star of The Veil of the Arcane.",
+        synonyms=["amulet"], adjectives=["werewolf's", "werewolfs", "tarnished"],
+        size=1, flags={TAKEBIT},
+    ))
     # Over the edge of the hole once the Stored Room floor is dug out
     world.register_object(GameObject(
         name="SUPPORT-TIMBER", desc="support timber", synonyms=["timber", "beam"],

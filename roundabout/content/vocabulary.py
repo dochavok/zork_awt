@@ -118,7 +118,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("enter")
     v.add_verb("exit")
     v.add_verb("examine", "describe", "what", "whats")
-    v.add_verb("exorcise", "banish", "drive", "begone")
+    v.add_verb("exorcise", "banish", "begone")      # "drive" is its own verb
     v.add_verb("extinguish", "douse")
     v.add_verb("fill")
     v.add_verb("find", "where", "seek", "see")

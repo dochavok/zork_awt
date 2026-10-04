@@ -883,6 +883,8 @@ Chain:
 
 **Attack value:** Level 5 (3d10, EV 16.5). Late-game threat — a player without the stake burns hearts fast.
 
+**Round timing:** no round on the turn the player enters The Still Den. Every later turn there while the werewolf lives is one round; on a loss: *The werewolf's claws find you.* (1 heart). Ties and wins do nothing. An attack command prints its weapon failure message and is that turn's round.
+
 **Weapon failure messages:**
 - **Melee:** *Your blade finds its mark. The creature doesn't notice. It turns toward you with the patience of something that has been waiting a very long time.*
 - **Bow:** *The arrow strikes true and stays there. The werewolf looks at it briefly, then at you. It does not appear concerned.*
@@ -1008,7 +1010,7 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 2. **New canonical verbs are expensive** — each requires a `SyntaxRule` in `syntax.py` and a handler in `verbs.py`. Only introduce a new canonical when no existing verb can cover the action.
 3. **Multi-word commands** (e.g., `TURN DIAL LEFT`) use `particle=` in `SyntaxRule` — not separate verb registrations.
 4. **Context routing** (e.g., `BUY DRINK` vs `BUY FOOD`) is handler logic dispatching on the object noun, not separate verbs.
-5. **`cast` is its own canonical** — split from `exorcise`. `cast` owns `incant`, `chant`, `spell`. `exorcise` keeps `banish`, `drive`, `begone`.
+5. **`cast` is its own canonical** — split from `exorcise`. `cast` owns `incant`, `chant`, `spell`. `exorcise` keeps `banish`, `begone`. (`drive` is its own canonical — `DRIVE STAKE INTO WEREWOLF`, see below.)
 6. **`set` ownership** — `set` is removed from `turn` aliases and assigned to `sail` so `SET SAIL` → canonical `sail`. Deliberate collision resolution.
 7. **Numeric arguments** (`TIP MAY 5`) — `tip` is the canonical verb; the handler parses the trailing number from raw input. No vocabulary entry needed for the number token.
 

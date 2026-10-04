@@ -154,7 +154,8 @@ def _place_objects(world) -> None:
                       ("SKELETON", "LOWER-CRYPT"), ("KEEPER-SEAL", "LOWER-CRYPT"),
                       ("PENDULUM-BLADE", "LOWER-CRYPT"), ("FIRE-CLAY", "THERMAL-VENT-ROOM"),
                       ("VENT-CEILING", "THERMAL-VENT-ROOM"), ("KEEPER-DOOR", "CHURCH-NAVE"),
-                      ("HOLY-WATER", "KEEPERS-CHAMBER"), ("KEEPER-NOTE", "KEEPERS-CHAMBER")):
+                      ("HOLY-WATER", "KEEPERS-CHAMBER"), ("KEEPER-NOTE", "KEEPERS-CHAMBER"),
+                      ("BONES", "ANTECHAMBER"), ("WEREWOLF", "STILL-DEN")):
         world.move_object(world.objects[obj], world.rooms[room])
 
     # LOCKPICKS drop when the mugger is slain

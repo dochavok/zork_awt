@@ -74,6 +74,7 @@ The bones are plainly visible — no perception check required.
 The room text warns explicitly: *"The sound is coming from beyond that doorway — bone grinding on stone, steady and unhurried. You get the distinct impression that silence is not optional here."*
 **Disarm:** `CLEAR BONES` sweeps a silent path through before moving to the next room — the only safe way to proceed.
 **If triggered** (player moves toward the skeleton room without clearing first): the bones crack underfoot, the grinding stops, and the doorway fills. Instant death — no combat round.
+`EAST` or `SOUTH` before clearing triggers it; `WEST` (the way in) is always safe. Room and `CLEAR BONES` text in locations.md (Antechamber).
 The skeleton room beyond is a full room of undead skeletons, a dead end with nothing inside. It is never required to enter.
 **Death text:** *"The bones crack underfoot. The grinding stops. Then the doorway fills."*
 *(Antechamber → Skeleton Room, lower tier.)*

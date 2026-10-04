@@ -148,6 +148,11 @@ def v_examine(world: World) -> int:
 # V-LOOK (bare look — redescribe current room)
 # ---------------------------------------------------------------------------
 
+def v_drive_stake(world: World) -> int:
+    from content import still_den
+    return M_HANDLED if still_den.drive_stake(world) else M_NOT_HANDLED
+
+
 def v_pour(world: World) -> int:
     from content import keeper
     return M_HANDLED if keeper.pour(world) else M_NOT_HANDLED
@@ -655,6 +660,10 @@ def v_melee(world: World) -> int:
         from content import combat_room
         combat_room.fight_round(world)
         return M_HANDLED
+    if obj.name == "WEREWOLF":
+        from content import still_den
+        still_den.melee(world)
+        return M_HANDLED
     print(f"You can't fight the {obj.desc}.")
     return M_HANDLED
 
@@ -1033,6 +1042,10 @@ def v_clear(world: World) -> int:
         from content import cellar
         cellar.clear_drain(world)
         return M_HANDLED
+    if obj is not None and obj.name == "BONES":
+        from content import still_den
+        still_den.clear_bones(world)
+        return M_HANDLED
     print("There's nothing to clear.")
     return M_HANDLED
 
@@ -1085,6 +1098,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-LOOK",       v_look)
     game.register_verb("V-LOOK-UP",    v_look_up)
     game.register_verb("V-POUR",       v_pour)
+    game.register_verb("V-DRIVE-STAKE", v_drive_stake)
     game.register_verb("V-INVENTORY",  v_inventory)
     game.register_verb("V-SAVE",       v_save)
     game.register_verb("V-RESTORE",    v_restore)

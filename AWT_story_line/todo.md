@@ -6,20 +6,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–N passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–O passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section O — Kill the Undead Werewolf. First failure:
+**Current position:** Section P — Ruined Aqueduct (Quest 22). First failure:
 
 ```
-SECTION [O) Werewolf's Amulet — Kill the Undead Werewolf]
-  cmd     : 'EAST'
-  missing : 'Antechamber'
-  got     : "You can't go that way."
+SECTION [P) Crystal Bowl — Ruined Aqueduct (Quest 22, fountain prerequisite)]
+  cmd     : 'LOOK AT AQUEDUCT'
+  missing : 'collapsed'
+  got     : "You can't see any aqueduct here!"
 ```
 
-The Antechamber (Trap 36, CLEAR BONES), Lower Crossing, Narrow Pass and Still Den (werewolf, DRIVE STAKE INTO WEREWOLF, amulet) aren't built yet. The Pile of Rubble has no EAST exit.
+P's route back up to the Dungeon Entrance works. The aqueduct steps need design first — the repair rooms aren't defined in locations.md (see Known issues: Section P).
 
 **Torch budget:** the torch lights at the Mausoleum (H5) and ticks every turn, in town too. K swaps it at Shamus (`BUY TORCH` at 38 left, "Getting there"); the fresh torch lights at the Bone Passage in L. N climbs out through the Crypt and swaps again in the Kitchen after the holy water (about 38 left, "Getting there"). O goes down through the cellar; the fresh torch covers O–S (~55 turns).
 
@@ -54,8 +54,11 @@ The Antechamber (Trap 36, CLEAR BONES), Lower Crossing, Narrow Pass and Still De
 - Section L: cellar route, DROP ALL BUT with comma lists (DROP ALL keeps worn items), bridge weight checked both ways, Mid-Tier Key Door unlock (key stays in lock), Key Door Landing, Mine Passage, Stored Room / Hole to Below (DIG, TIE ROPE TO BEAM, JUMP death), Pile of Rubble, Will's DIG note. N and P climb back up to the Hole to Below.
 - Section M: Lower Crypt (key ring; skeleton, emerald seal, pendulum blade as scenery), Thermal Vent Room (LOOK UP / LOOK AT CEILING reveals fire clay; LOOK UP elsewhere = LOOK), The Encampment. `LOOK UP` fragment → [reddish clay] in both walkthroughs.
 - Section N: TAKE STAKE at the Rickety Bridge, climb out through the Crypt; Nave west door (UNLOCK DOOR WITH KEYS, keys stay in the lock), lit Keeper's Chamber (vial / no-vial descriptions, readable Keeper's note), POUR HOLY WATER ON STAKE (consecrated silver stake); torch swap in the Kitchen after the holy water. O rerouted down through the cellar.
+- Section O: Antechamber (Trap 36 — CLEAR BONES, 3 XP / Rogue +5; EAST or SOUTH before clearing is death, WEST safe), Skeleton Room death, The Lower Crossing, The Narrow Pass, The Still Den (werewolf rises after the entry turn, one 3d10 round per later turn, melee and plain-stake failure lines, consecrated stake kills — stake stays in the body, amulet drops, 15 XP / Warrior +10).
+- Parser (with O): `drive` is its own verb (was mapped to exorcise); DRIVE … INTO matches ("into" is a synonym of "in").
 
 **Known issues still open:**
+- Deferred from O: Lower Crossing north (Tool Alcove) and south (Dark Room), the 50/50 pull-back text, the Ivory Torch (Quest 34); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
 - Deferred from L: The Crevice and gold pocket watch (no room description yet — Stored Room east exit closed until built); Mine Passage south exit (Inscription Chamber and beyond); charcoal, silver dust, and the iron chest's lock (Mine Passage keeps its default description; the chest is scenery).
 - Deferred from I1: Flooding Room (north of the Creature Den; Trap 41 — exit blocked until built); Trap 17 (Supply Room smoke-pot shelf — smoke jar, small clay pot; the room uses its default description until then), Trap 33 (idol — fixed in place until then).
 - Inked state (Trap 45): flag built and cancels ring invisibility; NPC refusals and the inn bath still to build.

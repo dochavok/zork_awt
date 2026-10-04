@@ -292,7 +292,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="drive", action="V-DRIVE-STAKE",
                    obj1=ObjectSpec(locations=_held_car_have),
-                   prep="into",
+                   prep="in",          # "into" is a synonym of "in"
                    obj2=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
         SyntaxRule(verb="drive", action="V-DRIVE-STAKE",
                    obj1=ObjectSpec(locations=_held_car_have)),

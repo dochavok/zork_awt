@@ -1809,6 +1809,15 @@ Trap 36. Dry bones arranged plainly on the floor — no perception check needed.
 
 **Death text:** *"The bones crack underfoot. The grinding stops. Then the doorway fills."*
 
+**Movement:** `EAST` or `SOUTH` before `CLEAR BONES` → the death text above (GAME OVER). `WEST` (back to the Pile of Rubble) is always safe. `SOUTH` after clearing → Skeleton Room (instant death on entry).
+
+**Room description (before clearing):** *A low chamber, its floor carpeted wall to wall in dry bones — not scattered, laid, every one of them placed. Doorways lead east and south; the way you came is west.* Followed by the warning text.
+
+**Room description (after clearing):** the bones line becomes *A narrow path of bare stone runs through the bones, east to west.* The warning text stays.
+
+- **`CLEAR BONES`:** *You crouch and work slowly, lifting the bones aside one at a time and setting each down without a sound, until a narrow path of bare stone runs across the room. Beyond the south doorway, the grinding goes on, unbothered.* Trap 36 disarmed (3 XP; Rogue +5).
+- **`CLEAR BONES` again:** *The path is already clear.*
+
 ### Skeleton Room (Room 6)
 **XP: 0** (instant death on entry — XP unreachable)
 **NPCs:** 6–9 undead skeletons (instant death on entry)
@@ -1816,6 +1825,8 @@ Trap 36. Dry bones arranged plainly on the floor — no perception check needed.
 **Quest Hooks:** None (never required; dead end)
 **Connections:** North → Antechamber (instant death on entry — no return).
 Dead end south of Antechamber. 6–9 undead skeletons. Instant death on entry. Never required — nothing inside.
+
+**Death on entry (GAME OVER):** *You step through and the grinding stops. For one long breath nothing moves. Then all of them move — from the walls, from the floor, from the dark at the back where there were more than you thought. Bony hands find your arms, your coat, your throat. You go down under the weight of them and do not get up.*
 
 ### The Lower Crossing (Room 7)
 **XP: 2**
@@ -1854,6 +1865,13 @@ Undead werewolf — critical path. Cannot be harmed by conventional weapons. Onl
 **Room description (post-combat):** *A wide cave, low but not cramped. The walls are gouged at every height — long parallel marks, overlapping, years of them. The floor is worn smooth in a rough oval, the path of something that has been pacing this space for longer than it can remember. The scholar lies where the creature fell.*
 
 **Death/reversion text:** *The creature drops. Between one moment and the next, it is not the creature anymore. The scholar lies on the floor of the cave he came down here to find.*
+
+**On entry (werewolf alive), after the room description:** *At the far end of the oval, something unfolds from the floor — taller than a man, long in the arm, its fur gone grey and patchy over skin that hasn't been alive in years. It turns its head toward you and starts forward.*
+
+**Combat rounds:** no round on the entry turn. Every later turn in the room while the werewolf lives is one round (mechanics.md — Undead Werewolf Chain); a lost round: *The werewolf's claws find you.* (1 heart). The player can leave west; it doesn't follow.
+
+- **`DRIVE STAKE INTO WEREWOLF` (consecrated):** *You get inside its reach and drive the stake home. The sheen along the silver flares white.* — then the death/reversion text. The stake stays in the body (leaves the inventory). 15 XP (Warrior +10).
+- **Amulet room line (on the floor):** *A tarnished amulet lies beside the scholar, a seven-pointed star on its face.*
 
 ### Tool Alcove (Room 10)
 **XP: 3**

@@ -1033,11 +1033,11 @@ Pass to The Still Den.
 
 The Bone Crunch Floor trap must be cleared before passing.
 
-> CLEAR BONES                 [disarmed]
+> CLEAR BONES                 [narrow path]
 > EAST                        [Lower Crossing]
 > EAST                        [Narrow Pass]
 > EAST                        [Still Den]
-> DRIVE STAKE INTO WEREWOLF   [werewolf destroyed]
+> DRIVE STAKE INTO WEREWOLF   [creature drops]
 
 The werewolf drops the Werewolf's Amulet and reverts to scholar form.
 
