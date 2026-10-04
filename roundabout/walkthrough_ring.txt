@@ -376,6 +376,8 @@ Walk back to the beach and board the ship.
 > GO WEST                     [open ocean]
 > GO WEST                     [open ocean]
 > GO WEST                     [Eastern Roundabout Sea]
+> GO WEST                     [Roundabout Sea]
+> GO WEST                     [Western Roundabout Sea]
 > DOCK                        [Docks]
 
 The coil of rope on the bollard is needed much later, to tie off the

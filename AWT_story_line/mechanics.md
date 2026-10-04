@@ -983,7 +983,7 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 | `TURN DIAL LEFT` / `TURN DIAL RIGHT` | Church of All altar — cycles through 7 religions |
 | `BOARD SHIP` / `GET ON SHIP` / `CLIMB ABOARD` / `ENTER SHIP` | Boarding Pie Rat Ship (all synonyms) |
 | `SET SAIL` / `SAIL` | Begin sailing from Docks; directional movement (`GO EAST`, `SAIL EAST`) once underway |
-| `DOCK` | Returning ship to harbor |
+| `DOCK` | Going ashore — same action as `LAND` / `MOOR` / `MAKE LAND` (locations.md — Pie Rat Ship) |
 | `TALK TO [NPC]` | Standard NPC interaction verb |
 | `BUY DRINK` / `ORDER DRINK` | The Bar only — 2 Zenni, restores 1 heart; May refuses at full hearts |
 | `BUY FOOD` / `ORDER FOOD` | The Bar only — 2 Zenni, restores 1 heart; May refuses at full hearts |
@@ -1075,7 +1075,7 @@ All Roundabout commands mapped to their canonical verb. Use this as the spec for
 | Roundabout Command | New Canonical | Synonyms | Action |
 |---|---|---|---|
 | `SAIL` / `SET SAIL` / `SAIL EAST` etc. | `sail` | (remove `set` from `turn`; do not alias `set`→`sail` — parser finds first verb token) | `V-SAIL` + directional particle rules |
-| `DOCK` | `dock` | — | `V-DOCK` |
+| `DOCK` | `dock` | `moor` | `V-DOCK` |
 | `BUY DRINK` / `ORDER DRINK` / `ORDER FOOD` / `RENT ROOM` / `BUY ROOM` | `buy` | `order`, `purchase`, `rent` | `V-BUY` (handler routes on object) |
 | `TIP MAY [#]` / `TIP MAY [#] ZENNI` | `tip` | — | `V-TIP` (handler reads numeric from raw input) |
 | `FISH` | `fish` | `angle` | `V-FISH` |

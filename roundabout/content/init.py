@@ -46,6 +46,8 @@ def initialize_world(world, game, seed=None) -> None:
     # Pie Rat Ship: treasure map check aboard, ship away from harbor
     from content import ship
     game.register_enter_hook(ship.on_enter)
+    from content.verbs import make_land_input_hook
+    game.register_input_hook(make_land_input_hook)   # MAKE LAND = LAND
 
     # Roundabout Pond: bottle sighting check on each visit
     from content import pond

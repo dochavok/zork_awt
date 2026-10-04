@@ -1111,7 +1111,11 @@ Moored at the Docks. Crewed by Pie Rats until the explosion draws them away. The
 Boarding commands (all synonyms): `BOARD SHIP`, `GET ON SHIP`, `CLIMB ABOARD`, `ENTER SHIP`.
 Sailing commands: `SET SAIL` (primary), `SAIL` (synonym). Directional movement once underway: `GO EAST`, `SAIL EAST`, etc.
 Leaving the ship at sea: *"The ocean offers no opinion on that idea, and neither does your survival instinct."*
-`DOCK` returns ship to Docks; `LAND` / `MOOR` / `MAKE LAND` puts player ashore at Desert Island or Kevry's Island.
+**Going ashore — `DOCK` / `LAND` / `MOOR` / `MAKE LAND` (all four are the same action):** works only where there's land beside the ship.
+- Western Roundabout Sea → The Docks. Eastern Roundabout Sea → Desert Island. Open Ocean square 69 → Land, Ho! (Kevry's Island).
+- On the deck it counts from where the ship is moored: off Desert Island → Desert Island; off Kevry's island → Land, Ho!. In harbor it's "There's no place to land here." (`WEST` steps off onto the Docks.)
+- Anywhere else aboard (Roundabout Sea (Middle), Open Ocean squares 1–68): *There's no place to land here.*
+- Off the ship (including standing on Desert Island or at Land, Ho!): *You're not on a ship.*
 
 **Boarding without disguise:** *A Pie Rat on deck looks you over with the thoroughness of someone whose job is exactly this. "You don't even look like a pirate." He doesn't move. Neither, apparently, will you.*
 
@@ -1128,7 +1132,7 @@ Actually Enchanted Glasses pass automatically — map found on first turn. A pla
 **Moving before casting off:** a sea direction from the deck before `SET SAIL` — *The ship isn't going anywhere until you set sail.* (In harbor, `WEST` simply steps off onto the Docks.)
 **`SAIL <direction>`:** on a moored deck, casts off and moves in one turn (cast-off line, then the new room). Once underway it's the same as `GO <direction>`.
 
-**Returning the ship:** the first time the ship comes back to harbor (`DOCK` from any sea square, or sailing west into the berth):
+**Returning the ship:** the first time the ship comes back to harbor (going ashore from the Western Roundabout Sea, or sailing west into the berth):
 *The Pie Rats are waiting on the dock. Nobody says anything for a while. The biggest of them walks the deck stem to stern and finds nothing wrong with his ship, which seems to annoy him more than damage would have. He snorts, digs in a pocket, and flips you a coin. It rings on the boards at your feet.* The Pie Rat Coin lands in the player's room (items.md).
 **Boarding after the return:** the Pie Rats are back aboard. `BOARD SHIP` works — no disguise needed — only while the player carries the Pie Rat Coin — including after it goes into the Trophy Case (take it back out to sail again).
 Without it: *A Pie Rat blocks the gangplank. "Coin," he says, and holds out a hand, palm up — not to take it, just to see it. You don't have it. He doesn't move.*

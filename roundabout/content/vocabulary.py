@@ -113,7 +113,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("drink", "imbibe", "swallow")
     v.add_verb("drive")                             # DRIVE STAKE INTO WEREWOLF
     v.add_verb("drop")
-    v.add_verb("dock")                              # DOCK (return ship to harbor)
+    v.add_verb("dock", "moor")                      # DOCK / MOOR = LAND (go ashore)
     v.add_verb("eat", "consume", "taste", "bite")
     v.add_verb("enchant")
     v.add_verb("enter")

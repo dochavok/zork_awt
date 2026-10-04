@@ -920,21 +920,11 @@ def v_board_ship(world: World) -> int:
 
 
 # ---------------------------------------------------------------------------
-# V-DOCK  (DOCK — return ship to harbor)
+# V-DOCK  (DOCK / MOOR — same action as LAND: go ashore)
 # ---------------------------------------------------------------------------
 
 def v_dock(world: World) -> int:
-    here = world.here
-    if here is None or here.name not in _SEA_ROOMS:
-        print("You're not at sea.")
-        return M_HANDLED
-
-    world.set_global("AT-SEA", False)
-    docks = world.rooms.get("DOCKS")
-    if docks:
-        world.game.enter_room(docks)
-        from content import ship
-        ship.ship_returned(world)
+    _handle_land(world)
     return M_HANDLED
 
 
@@ -1007,19 +997,20 @@ def _ship_origin(world: World):
 # ---------------------------------------------------------------------------
 
 def _pre_walk_at_sea(world: World) -> int:
+    direction = getattr(world, "walk_dir", None)
+
+    # LAND direction: go ashore (answers everywhere, on the ship or not)
+    if direction == "land":
+        _handle_land(world)
+        return M_HANDLED
+
     if not world.get_global("AT-SEA") and world.here is not None and \
             world.here.name not in _SEA_ROOMS:
         return M_NOT_HANDLED
 
-    direction = getattr(world, "walk_dir", None)
     here = world.here
     if here is None:
         return M_NOT_HANDLED
-
-    # LAND direction: go ashore
-    if direction == "land":
-        _handle_land(world)
-        return M_HANDLED
 
     # Nautical east/west
     if direction in ("east", "west"):
@@ -1057,36 +1048,50 @@ _SEA_ROOMS = frozenset({
 })
 
 
+# Rooms that are aboard the ship (the islands are ashore)
+_ABOARD_ROOMS = frozenset({
+    "SHIP-DECK", "SEA-WEST", "SEA-MID", "SEA-EAST",
+    *(f"OPEN-OCEAN-{i}" for i in range(1, 70)),
+})
+
+# Where the ship is → where going ashore puts you (locations.md — The Sea)
+_ASHORE = {
+    "SEA-WEST": "DOCKS",
+    "SEA-EAST": "DESERT-ISLAND",
+    "OPEN-OCEAN-69": "LAND-HO",
+}
+
+
 def _handle_land(world: World) -> None:
+    """DOCK / LAND / MOOR / MAKE LAND — one action: go ashore where there's
+    land beside the ship."""
     here = world.here
-    if here is None:
+    if here is None or here.name not in _ABOARD_ROOMS:
+        print("You're not on a ship.")
         return
 
-    # Open Ocean square 69 → Land, Ho!
-    if here.name == "OPEN-OCEAN-69":
-        world.set_global("AT-SEA", False)
-        land_ho = world.rooms.get("LAND-HO")
-        if land_ho:
-            world.game.enter_room(land_ho)
+    # On the deck the ship is wherever it's moored (None = in harbor)
+    at = here
+    if here.name == "SHIP-DECK":
+        at = _ship_origin(world)
+    dest = world.rooms.get(_ASHORE.get(at.name, "")) if at is not None else None
+    if dest is None:
+        print("There's no place to land here.")
         return
 
-    # Eastern Roundabout Sea → Desert Island
-    if here.name == "SEA-EAST":
-        desert = world.rooms.get("DESERT-ISLAND")
-        if desert:
-            world.set_global("AT-SEA", False)
-            world.game.enter_room(desert)
-        return
+    world.set_global("AT-SEA", False)
+    world.game.enter_room(dest)
+    if dest.name == "DOCKS":
+        from content import ship
+        ship.ship_returned(world)
 
-    # Desert Island or Land, Ho! → back to ship deck
-    if here.name in ("DESERT-ISLAND", "LAND-HO"):
-        world.set_global("AT-SEA", False)
-        deck = world.rooms.get("SHIP-DECK")
-        if deck:
-            world.game.enter_room(deck)
-        return
 
-    print("There's no place to land here.")
+def make_land_input_hook(world: World, text: str) -> bool:
+    """MAKE LAND — "make" is a parser verb with its own syntax."""
+    if text.lower().split() == ["make", "land"]:
+        _handle_land(world)
+        return True
+    return False
 
 
 # ---------------------------------------------------------------------------
