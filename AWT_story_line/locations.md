@@ -1396,6 +1396,8 @@ Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility
 **Item listings:** portcullis bar — *A heavy iron bar leans in the corner, notched at one end — the kind of thing made to hold something open.* Mortar — *A sealed tub of mortar compound sits on a low shelf.* Salt — *A fat sack of salt slumps against the shelves.*
 **Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar and small clay pot (Quest 40) visible in wreckage either way. Perception spots the unstable arrangement.
 The small clay pot is the one intact pot that survives the collapse.
+- **Trap 17:** fires on first entry; Medium perception, Medium disarm. Fired text in traps.md. The perception-passed room description shows once the trap has been spotted.
+- **Smoke jar listing:** *A squat glass jar sits among the clay pots, stoppered with wax.* **Small clay pot listing:** *One small clay pot sits on the shelf, the only one without a crack.* (Both appear once the trap is resolved, fired or disarmed.)
 The sack of salt is what makes the Idol Room swap safe (`SWAP IDOL WITH SALT`); taking the idol without it triggers Trap 33. Nothing forces a visit first — the Supply Room is a dead end west of the Ink Corridor, and the Idol Room is reachable without it.
 
 **Room description (default):** *A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned. The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath.*
@@ -1421,7 +1423,11 @@ Short connecting passage between the Ink Corridor and the Idol Room.
 **Items:** Chachapoyan Fertility Idol (treasure; on pressure-sensitive pedestal — safe swap with sack of salt)
 **Quest Hooks:** None (treasure item; Trap 33 mechanic)
 **Connections:** North → Narrow Passageway. South → Combat Room.
-South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a pressure-sensitive pedestal. Removing without replacing with equal weight slams a stone door — no exit without crowbar (`PRY DOOR`, strength check). Safe swap: `SWAP IDOL WITH SALT` with sack of salt. Idol is treasure. Connects south to Combat Room. (Trap 33)
+South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a pressure-sensitive pedestal. Removing without replacing with equal weight slams a stone slab over the north doorway; the way south stays open, so the crowbar can be fetched (`PRY DOOR`, Medium strength, retries). Safe swap: `SWAP IDOL WITH SALT` with sack of salt. Idol is treasure. Connects south to Combat Room. (Trap 33)
+- **`SWAP IDOL WITH SALT`:** *You set the sack of salt on the pedestal and lift the idol away in the same motion. The pedestal doesn't so much as twitch.* Without the salt: *You'd need something of the same weight to put in its place.* Afterwards the salt stays on the pedestal (can't be taken back): *A sack of salt sits on the pedestal where the idol was.*
+- **Once the idol is gone** (swapped or taken), the room description's second line reads *At the center stands a stone pedestal.* in place of *At the center, a stone pedestal holds a figurine.*
+- **`TAKE IDOL` unswapped:** *You lift the idol. Somewhere under the pedestal something clicks, and a slab of stone drops into the doorway with a boom you feel in your teeth. The way out is gone.* North while shut: *The stone slab fills the doorway. It isn't moving.*
+- **`PRY DOOR`:** success — *You work the crowbar into the gap and heave. The slab grinds up a hand's width, then enough. You squeeze through before it changes its mind.* Failure — *The crowbar bites, the slab shifts a fraction, and settles back. Not this time.* Without the crowbar — *You can't get any leverage on that.*
 
 **Room description (default):** *The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level. At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake.*
 

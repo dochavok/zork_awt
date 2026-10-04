@@ -303,6 +303,11 @@ def v_take(world: World) -> int:
         gravestone.take_stone(world)
         return M_HANDLED
 
+    if obj.name == "IDOL":                # Trap 33 — off the pedestal unswapped
+        from content import upper_tier
+        if upper_tier.take_idol(world):
+            return M_HANDLED
+
     if obj.name == "GUNPOWDER":
         from content import mine
         if mine.take_refused(world):
@@ -1173,6 +1178,10 @@ def v_pry(world: World) -> int:
         from content import cellar
         cellar.pry_drain(world)
         return M_HANDLED
+    if obj is not None and obj.name == "IDOL-DOOR":
+        from content import upper_tier
+        upper_tier.pry_idol_door(world)
+        return M_HANDLED
     print("You can't get any leverage on that.")
     return M_HANDLED
 
@@ -1188,6 +1197,20 @@ def v_clear(world: World) -> int:
         still_den.clear_bones(world)
         return M_HANDLED
     print("There's nothing to clear.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-SWAP  (SWAP IDOL WITH SALT — Trap 33)
+# ---------------------------------------------------------------------------
+
+def v_swap(world: World) -> int:
+    names = {o.name for o in (world.prso, world.prsi) if o is not None}
+    if "IDOL" in names:
+        from content import upper_tier
+        upper_tier.swap_idol(world)
+        return M_HANDLED
+    print("There's nothing here to swap.")
     return M_HANDLED
 
 
@@ -1275,6 +1298,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-MELEE",      v_melee)
     game.register_verb("V-CHALLENGE",  v_challenge)
     game.register_verb("V-PAY",        v_pay)
+    game.register_verb("V-SWAP",       v_swap)
     game.register_verb("V-JUMP-ON",    v_jump_on)
     game.register_verb("V-DISARM",     v_disarm)
     game.register_verb("V-RAISE",      v_raise)

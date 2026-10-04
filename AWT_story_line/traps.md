@@ -35,6 +35,8 @@ A shelf of old clay pots in the dungeon supply room appears harmless. The smoke 
 Disturbing the shelf without disarming triggers one pot to smash, dealing 1 heart of **smoke damage** — and revealing the smoke jar, now visible among the wreckage.
 Perception spots the unstable arrangement and identifies which pot is the trigger; disarming means carefully removing the trigger pot first, after which the smoke jar can be safely retrieved.
 Either way the smoke jar is obtainable — the trap just makes it costly.
+Fires on the first entry (trip mechanism in the floor). Perception **Medium**, disarm **Medium** (trap roll). Disarm: 3 XP (+5 Rogue).
+Fired: *Your foot catches on something in the floor. On the shelf beside you a clay pot tips, falls and bursts, and the room fills with choking grey smoke. When it clears, your eyes are streaming and your chest aches.* — 1 heart smoke damage.
 *(Supply Room, upper tier.)*
 
 **19. Electrified Portcullis**
@@ -61,7 +63,9 @@ Perception spots the plate; disarming means pressing it slowly from the side to 
 
 **33. Weight-Sensitive Pedestal**
 A **Chachapoyan Fertility Idol** sits on a pressure-sensitive pedestal in the upper tier.
-Removing it without replacing it with something of equal weight triggers a heavy stone door to slam shut behind the player — no exit unless the player has the crowbar (`PRY DOOR`, strength check; not guaranteed).
+Removing it without replacing it with something of equal weight triggers a heavy stone door to slam shut behind the player — the north doorway only. The way south stays open, so the player can go and find the crowbar (Prayer Alcove) and come back: `PRY DOOR` with the crowbar, **Medium** strength check, retries allowed.
+Perception **Medium** (every visit until found) shows the pressure plate in the room description. The safe swap counts as the disarm: 5 XP (+5 Rogue).
+Text in locations.md (Idol Room).
 Safe swap requires placing a **sack of salt** (found in the supply room, described as "looks like it weighs as much as a Chachapoyan Fertility Idol") on the pedestal simultaneously with `SWAP IDOL WITH SALT`.
 The idol is treasure — not required for the ring quest.
 **Layout note:** The idol room is gated behind the supply room — the player must pass through the supply room first, ensuring the sack of salt is findable before the pedestal is encountered.

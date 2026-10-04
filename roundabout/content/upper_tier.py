@@ -18,8 +18,8 @@ State: TRAP45-DONE, INKED, HAND-CART-TAKEN
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from engine.game import M_HANDLED, M_NOT_HANDLED, M_LOOK, M_END
-from engine.world import Room, Exit, RLANDBIT
+from engine.game import M_HANDLED, M_NOT_HANDLED, M_LOOK, M_END, M_ENTER
+from engine.world import Room, Exit, RLANDBIT, NDESCBIT, TAKEBIT
 
 if TYPE_CHECKING:
     from engine.world import World
@@ -78,6 +78,178 @@ def storage_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     return M_NOT_HANDLED
 
 
+# ---------------------------------------------------------------------------
+# Trap 17 — Smoke Bomb Cache (Supply Room): Medium perception, Medium disarm,
+# on the first entry. Fired: 1 heart smoke damage. Either way the smoke jar
+# and the small clay pot are then on the shelf (traps.md, locations.md).
+# ---------------------------------------------------------------------------
+
+_TRAP17 = "an unstable arrangement of clay pots, one of them the trigger"
+_SMOKE = (
+    "Your foot catches on something in the floor. On the shelf beside you a clay "
+    "pot tips, falls and bursts, and the room fills with choking grey smoke. When "
+    "it clears, your eyes are streaming and your chest aches."
+)
+_SUPPLY_BASE = (
+    "A storage room, wide and low. Shelves run along three walls — some collapsed, "
+    "most still holding whatever was left here when this place was abandoned.\n"
+    "The contents are various: tools, containers, materials that suggest someone "
+    "was keeping this dungeon supplied. It smells of old wood and something "
+    "chemical underneath."
+)
+_SUPPLY_SPOTTED = (
+    "One of the shelves near the entrance has a trip mechanism built into the "
+    "floor in front of it — barely visible. Whatever it triggers, it isn't subtle."
+)
+
+
+def supply_action(w: World, msg: int = M_NOT_HANDLED) -> int:
+    if msg == M_LOOK:
+        print(_SUPPLY_BASE)
+        if w.get_global("TRAP17-SPOTTED"):
+            print(_SUPPLY_SPOTTED)
+        return M_HANDLED
+    if msg == M_END and not w.get_global("TRAP17-DONE"):
+        w.set_global("TRAP17-DONE", True)
+        from content.player import check_perception, roll_class_bonus
+        from content.perception import MEDIUM
+        fired = True
+        if check_perception(w, MEDIUM):
+            w.set_global("TRAP17-SPOTTED", True)
+            if roll_class_bonus(w, "trap") >= MEDIUM:
+                print(_TRAP_DISARMED.format(d=_TRAP17))
+                from content.experience import award_xp
+                award_xp(w, 3 + (5 if w.globals.get("player_class") == "rogue" else 0))
+                fired = False
+            else:
+                print(_TRAP_BOTCHED.format(d=_TRAP17))
+        if fired:
+            print(_SMOKE)
+        for name in ("SMOKE-JAR", "SMALL-CLAY-POT"):
+            w.objects[name].clear_flag("INVISIBLE")
+        if fired:
+            from content.combat import _take_damage
+            _take_damage(w, 1)
+    return M_NOT_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# Trap 33 — Weight-Sensitive Pedestal (Idol Room). Medium perception (every
+# visit until found) shows the plate. SWAP IDOL WITH SALT is the safe swap
+# (5 XP). Taking the idol without it seals the north doorway; the way south
+# stays open, so the crowbar can be fetched — PRY DOOR, Medium strength.
+# ---------------------------------------------------------------------------
+
+_IDOL_BASE = (
+    "The room is small and oddly formal — the stonework here is more deliberate "
+    "than the corridors outside, the walls smoothed, the floor level.\n"
+    "{centre} The room has the feeling of something that has been waiting for "
+    "someone to make a mistake."
+)
+_CENTRE_IDOL = "At the center, a stone pedestal holds a figurine."
+_CENTRE_EMPTY = "At the center stands a stone pedestal."
+_IDOL_SPOTTED = (
+    "The pedestal has a pressure plate built into its surface — the figurine's "
+    "weight is the only thing keeping it inactive."
+)
+_SWAPPED = (
+    "You set the sack of salt on the pedestal and lift the idol away in the same "
+    "motion. The pedestal doesn't so much as twitch."
+)
+_NO_SWAP = "You'd need something of the same weight to put in its place."
+SALT_ON_PEDESTAL = "A sack of salt sits on the pedestal where the idol was."
+_SLAM = (
+    "You lift the idol. Somewhere under the pedestal something clicks, and a slab "
+    "of stone drops into the doorway with a boom you feel in your teeth. The way "
+    "out is gone."
+)
+SLAB_BLOCKS = "The stone slab fills the doorway. It isn't moving."
+_PRIED = (
+    "You work the crowbar into the gap and heave. The slab grinds up a hand's "
+    "width, then enough. You squeeze through before it changes its mind."
+)
+_PRY_FAILED = "The crowbar bites, the slab shifts a fraction, and settles back. Not this time."
+
+
+def idol_action(w: World, msg: int = M_NOT_HANDLED) -> int:
+    if msg == M_ENTER and not w.get_global("IDOL-PLATE-SPOTTED"):
+        from content.player import check_perception
+        from content.perception import MEDIUM
+        if check_perception(w, MEDIUM):
+            w.set_global("IDOL-PLATE-SPOTTED", True)
+    if msg == M_LOOK:
+        centre = _CENTRE_IDOL if _idol_on_pedestal(w) else _CENTRE_EMPTY
+        print(_IDOL_BASE.format(centre=centre))
+        if w.get_global("IDOL-PLATE-SPOTTED"):
+            print(_IDOL_SPOTTED)
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
+def _idol_on_pedestal(w: World) -> bool:
+    return w.objects["IDOL"].location is w.rooms["IDOL-ROOM"]
+
+
+def take_idol(w: World) -> bool:
+    """TAKE IDOL. Off the pedestal without a swap: the north doorway seals.
+    Returns True if handled here."""
+    idol = w.objects["IDOL"]
+    if not _idol_on_pedestal(w):
+        return False
+    w.move_object(idol, w.player)
+    idol.clear_flag(NDESCBIT)
+    w.set_global("IDOL-DOOR-SHUT", True)
+    print(_SLAM)
+    return True
+
+
+def swap_idol(w: World) -> None:
+    """SWAP IDOL WITH SALT — the safe swap (Trap 33 disarm, 5 XP)."""
+    idol, salt = w.objects["IDOL"], w.objects["SACK-OF-SALT"]
+    if w.here is None or w.here.name != "IDOL-ROOM" or not _idol_on_pedestal(w):
+        print("There's nothing here to swap.")
+        return
+    if salt not in w.player.contents:
+        print(_NO_SWAP)
+        return
+    w.move_object(salt, w.here)
+    salt.fdesc = SALT_ON_PEDESTAL
+    salt.touched = False
+    salt.clear_flag(TAKEBIT)              # it's holding the pedestal down now
+    w.move_object(idol, w.player)
+    idol.clear_flag(NDESCBIT)
+    w.set_global("IDOL-SWAPPED", True)
+    print(_SWAPPED)
+    from content.experience import award_xp
+    award_xp(w, 5 + (5 if w.globals.get("player_class") == "rogue" else 0))
+
+
+def pry_idol_door(w: World) -> None:
+    """PRY DOOR — the slab over the north doorway; crowbar + Medium strength."""
+    if not w.get_global("IDOL-DOOR-SHUT"):
+        print("You can't get any leverage on that.")
+        return
+    if w.objects["CROWBAR"] not in w.player.contents:
+        print("You can't get any leverage on that.")
+        return
+    from content.player import check_strength
+    from content.perception import MEDIUM
+    if check_strength(w, MEDIUM):
+        w.set_global("IDOL-DOOR-SHUT", False)
+        print(_PRIED)
+    else:
+        print(_PRY_FAILED)
+
+
+class _IdolNorthExit(Exit):
+    """Idol Room north: shut by the slab once Trap 33 fires, until pried."""
+
+    def resolve(self, world):
+        if world.get_global("IDOL-DOOR-SHUT"):
+            return None, SLAB_BLOCKS
+        return super().resolve(world)
+
+
 def make_rooms(world) -> None:
     def room(name, desc, ldesc):
         r = Room(name=name, desc=desc, ldesc=ldesc, value=1)
@@ -121,9 +293,13 @@ def make_rooms(world) -> None:
     supply.exits["east"] = Exit(destination="INK-CORRIDOR")
     narrow.exits.update(north=Exit(destination="INK-CORRIDOR"), south=Exit(destination="IDOL-ROOM"))
     # Idol Room south → Combat Room comes with batch 2
-    idol.exits["north"] = Exit(destination="NARROW-PASSAGEWAY")
+    idol.exits["north"] = _IdolNorthExit(destination="NARROW-PASSAGEWAY")
     # Storage Area south → Collapsed Aqueduct is wired in content/aqueduct.py
     storage.exits["west"] = Exit(destination="INK-CORRIDOR")
 
     ink.action = ink_corridor_action
     storage.action = storage_action
+    supply.action = supply_action
+    idol.action = idol_action
+    supply.ldesc = ""     # supply_action / idol_action (perception variants)
+    idol.ldesc = ""

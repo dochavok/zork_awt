@@ -757,10 +757,35 @@ def _make_upper_tier_objects(world) -> None:
     item("SUPPORT-BEAM", "support beam", "",
          "A heavy timber beam, squared and solid. Something meant to hold up a "
          "ceiling.", ["beam", "timber"], ["support", "heavy"], 4, {TAKEBIT, NDESCBIT})
-    # Trap 33 deferred: the idol stays on its pedestal for now
+    # Trap 33 (content/upper_tier.py): on its pedestal the room description
+    # carries it; SWAP IDOL WITH SALT is the safe way to take it
     world.register_object(GameObject(
-        name="IDOL", desc="figurine", synonyms=["idol", "figurine", "pedestal"],
-        adjectives=["chachapoyan", "fertility", "stone"], flags={NDESCBIT, SACREDBIT},
+        name="IDOL", desc="Chachapoyan Fertility Idol",
+        examine="A small stone figurine, squat and round-bellied, worn smooth by "
+                "hands that weren't yours. A Chachapoyan Fertility Idol, if you had "
+                "to guess.",
+        synonyms=["idol", "figurine", "statuette"],
+        adjectives=["chachapoyan", "fertility", "stone", "small"], flags={NDESCBIT, TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="IDOL-DOOR", desc="stone slab", synonyms=["door", "slab", "doorway"],
+        adjectives=["stone", "heavy"], flags={NDESCBIT},
+    ))
+    # Trap 17 (content/upper_tier.py): on the shelf once the trap is resolved
+    world.register_object(GameObject(
+        name="SMOKE-JAR", desc="smoke jar",
+        fdesc="A squat glass jar sits among the clay pots, stoppered with wax.",
+        examine="A squat glass jar, stoppered with wax. Something grey and dense "
+                "shifts inside it.",
+        synonyms=["jar"], adjectives=["smoke", "squat", "glass"],
+        flags={TAKEBIT, INVISIBLE},
+    ))
+    world.register_object(GameObject(
+        name="SMALL-CLAY-POT", desc="small clay pot",
+        fdesc="One small clay pot sits on the shelf, the only one without a crack.",
+        examine="A small clay pot, plain and sound. Not a crack in it.",
+        synonyms=["pot"], adjectives=["small", "clay", "intact"],
+        flags={TAKEBIT, INVISIBLE},
     ))
 
 
@@ -993,6 +1018,7 @@ _WEIGHTS = {
     "BOWL-PIECE-BOG": 1, "RUNED-METAL": 3, "PALE-BLADE": 3, "TOWN-CHARTER": 1,
     "POCKET-WATCH": 1, "LOCKPICKS": 1, "BOW": 1, "WAX-SEAL": 1, "GUARDIANS-LANTERN": 2, "HAND-CART": 5,
     "SUPPORT-BEAM": 4, "PORTCULLIS-BAR": 3, "MORTAR": 2, "SACK-OF-SALT": 4,
+    "IDOL": 4, "SMOKE-JAR": 2, "SMALL-CLAY-POT": 1,
     "SCROLL-LIGHT": 1, "TREASURE-MAP": 1, "PIE-RAT-COIN": 1, "FISHING-ROD": 2, "SHIP-IN-A-BOTTLE": 2,
     "BOG-RUNE-STONE": 2, "MUSIC-BOX-KEY": 1, "BOG-THYME": 1,
 }

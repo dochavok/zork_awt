@@ -483,6 +483,8 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 ### Smoke Jar
 **Weight:** 2
 **Location:** Supply Room, Dungeon Upper Tier — behind Trap 17 (unstable shelf of clay pots)
+**Room description:** *A squat glass jar sits among the clay pots, stoppered with wax.*
+**Examine:** *A squat glass jar, stoppered with wax. Something grey and dense shifts inside it.*
 **Quest use:** Quest 24 — holding smoke jar pacifies bees in swarm room.
 
 ---
@@ -663,6 +665,8 @@ Brotherhood weave, old but not worn. The runes along the hem and collar are fain
 ### Small Clay Pot
 **Weight:** 1
 **Location:** Supply Room, Dungeon Upper Tier — visible in wreckage of Trap 17 (clay pot shelf) whether trap is triggered or disarmed. The one intact pot that survives the collapse.
+**Room description:** *One small clay pot sits on the shelf, the only one without a crack.*
+**Examine:** *A small clay pot, plain and sound. Not a crack in it.*
 **Quest use:** Quest 40 — Shamus's pots are all cracked; needs this to cook the hearty stew.
 
 ---
@@ -688,7 +692,7 @@ All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 | **Diamond Brooch** | Magnetic Vault, Dungeon Mid-Tier | 1 | 45 | Second most valuable treasure in game |
 | **Funeral Mask of Hammered Gold** | Burial Chamber, Dungeon Lower Tier | 3 | 36 | Spirits do not react to taking it |
 | **Golden Dragon Scale** | Reward from returning dragon-nip to Will | 1 | 36 | Dragon-nip hidden under nightstand in Will's Bedroom |
-| **Chachapoyan Fertility Idol** | Idol Room, Dungeon Upper Tier | 4 | 30 | Safe swap required (sack of salt); same weight as sack of salt |
+| **Chachapoyan Fertility Idol** | Idol Room, Dungeon Upper Tier | 4 | 30 | Safe swap required (sack of salt); same weight as sack of salt. Examine: *A small stone figurine, squat and round-bellied, worn smooth by hands that weren't yours. A Chachapoyan Fertility Idol, if you had to guess.* |
 | **Gold Pocket Watch** | The Crevice, Dungeon Mid-Tier | 1 | 30 | **Missable** — permanently inaccessible after Stored Room collapses |
 | **Ship-in-a-Bottle** | Roundabout Pond (fishing rod + challenge roll) | 2 | 24 | May's hints imply Kevry connection |
 | **Gold Nugget** | Supply Cache, Dungeon Mid-Tier Trap Side | 2 | 21 | Buried in rubble |

@@ -751,51 +751,38 @@ auto-passes.
 =============================================================================
 Q) Quest 32 — The Missing Gravestone (Middle Tier Key)
 =============================================================================
-The Mid-Tier Key Door triggers Quest 32 when first encountered. Rowan
-Finch is in the Council Chamber. The gravestone is face-down in the bog.
-The hand cart to move it is in the Storage Area (east of Ink Corridor).
+The Mid-Tier Key Door is at the far end of the dungeon's upper tier;
+seeing it discovers Quest 32. Rowan Finch, in the Council Chamber, holds
+the key. The gravestone he wants back is face-down in the bog, and the
+hand cart to move it is in the Storage Area (east of the Ink Corridor).
 
-First: discover the door.
+The Supply Room (west of the Ink Corridor) comes first: it has the sack
+of salt for the Idol Room, the portcullis bar, the smoke jar (Quest 24)
+and the small clay pot (Quest 40).
 
 > SOUTH                       [Dungeon Entrance]
 > SOUTH                       [Ink Corridor]
-> SOUTH                       [Narrow Passageway]
-
-Wait — we haven't been through Idol Room yet. Before going to the Idol
-Room we need the sack of salt from the Supply Room (west branch off Ink
-Corridor), or the Idol Room door traps us. The Supply Room also has:
-smoke jar (Quest 24), portcullis bar (Trap 19), and small clay pot
-(Quest 40). Let's clear the Supply Room first.
-
-> NORTH                       [Ink Corridor]
 
 With Actually Enchanted Glasses the Ink Corridor trip cord is
 auto-detected and disarmed.
 
 > WEST                        [Supply Room]
 
-Trap 17 (unstable shelf) is auto-detected and disarmed. Smoke jar and
-small clay pot are visible in wreckage either way.
+Trap 17 (the shelf of clay pots) is spotted and disarmed. The smoke jar
+and the small clay pot are on the shelf either way.
 
 > TAKE SALT                   [sack of salt]
 > TAKE PORTCULLIS BAR         [portcullis bar]
 > TAKE SMOKE JAR              [smoke jar]
 > TAKE CLAY POT               [small clay pot]
 > EAST                        [Ink Corridor]
-> EAST                        [Storage Area]
-
-The hand cart and support beam are here.
-
-> TAKE CART                   [hand cart]
-> TAKE SUPPORT BEAM           [support beam]
-> WEST                        [Ink Corridor]
 > SOUTH                       [Narrow Passageway]
 > SOUTH                       [Idol Room]
 
-Swap the idol safely with the sack of salt.
+Swap the idol for the sack of salt — the pedestal never notices.
 
-> SWAP IDOL WITH SALT         [safe]
-> TAKE IDOL                   [Chachapoyan Fertility Idol]
+> SWAP IDOL WITH SALT         [idol]
+
 SAVE before going into the next room. The fight there can be lost —
 death is GAME OVER — and a save lets a player who loses RESTORE and
 try again.
@@ -818,18 +805,8 @@ hearts and always-max rolls win every round.
 > KILL WARDEN                 [lantern]
 > TAKE LANTERN                [Guardian's Lantern]
 
-Side trip through the Creature Den (east) to the Flooding Room (north of it). With Actually Enchanted Glasses the
-pressure plate that controls the sluice is auto-detected and jammed
-before entering — Quest 50's board posting is NOT removed (the disarm
-only removes it when disarmed, per the design doc: "removed if Flooding
-Room trap disarmed"). Let's check: per quests.md Q50: "Quest Board
-posting is removed permanently if the player disarms the Flooding Room
-trap." So disarming removes the quest. We want to complete Q50 (Lost
-Apprentice / Apprentice's Gloves). Therefore we must NOT disarm the
-Flooding Room — we let ourselves be swept through.
-
-We'll intentionally trigger the Flooding Room in the correct sequence.
-For now: skip it. Continue south.
+We leave the Flooding Room (through the Creature Den) for now — it's
+part of Quest 50 later.
 
 > SOUTH                       [Prayer Alcove]
 
@@ -837,35 +814,26 @@ With Actually Enchanted Glasses the full depth of the alcove is revealed.
 
 > TAKE CROWBAR                [crowbar]
 > TAKE VIAL                   [vial of glacier melt]
+
+The portcullis carries an arcane charge — with Actually Enchanted
+Glasses it's spotted and discharged. Lift it, then prop it open with
+the portcullis bar.
+
 > SOUTH                       [Portcullis Corridor]
-> USE PORTCULLIS BAR          [portcullis propped]
+> LIFT PORTCULLIS             [heave]
+> USE PORTCULLIS BAR          [holds]
 > SOUTH                       [Shrine Room]
 
-Bowl piece 3 (Shrine Room, dungeon upper tier) — auto-pass.
+Bowl piece 3 (Shrine Room) — auto-pass.
 
 > TAKE BOWL PIECE             [You take the bowl piece]
-
 > SOUTH                       [Rickety Bridge]
 
-Weight check. Current heavy items: pickaxe(3), idol(4), sack of
-salt(4), support beam(4), hand cart(5). Weight limit: 12. We're way
-over. Drop heavy items to cross, retrieve them after.
+From the bridge the heavy iron door to the south is in plain sight —
+that's enough to discover Quest 32. No need to cross. Back up to town
+for the key, stepping into the Storage Area for the hand cart on the
+way out: the gravestone is too heavy to carry (weight 10).
 
-> DROP PICKAXE                [pickaxe]
-> DROP SALT                   [sack of salt]
-> DROP SUPPORT BEAM           [support beam]
-> DROP CART                   [hand cart]
-> SOUTH                       [Mid-Tier Key Door]
-
-Quest 32 discovered. The door is locked — we need the Middle Tier Key
-from Rowan Finch. Return north, get the key. But first: retrieve the
-heavy items we dropped.
-
-> NORTH                       [Rickety Bridge]
-> TAKE PICKAXE                [pickaxe]
-> TAKE SALT                   [sack of salt]
-> TAKE SUPPORT BEAM           [support beam]
-> TAKE CART                   [hand cart]
 > NORTH                       [Shrine Room]
 > NORTH                       [Portcullis Corridor]
 > NORTH                       [Prayer Alcove]
@@ -873,6 +841,9 @@ heavy items we dropped.
 > NORTH                       [Idol Room]
 > NORTH                       [Narrow Passageway]
 > NORTH                       [Ink Corridor]
+> EAST                        [Storage Area]
+> TAKE CART                   [hand cart]
+> WEST                        [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
 > NORTH                       [Toll Bridge]
 > NORTH                       [Junction]
@@ -905,6 +876,10 @@ Perception check auto-passes — gravestone visible face-down in mud
 (Bog-SE).
 
 > LOAD STONE ONTO CART        [loaded]
+
+Push the cart back to the Graveyard. Unloading the stone there sets it
+back on the grave and leaves the cart behind — its job is done.
+
 > WEST                        [Bog of Eternal Stench]
 > SOUTH                       [Roundabout Pond]
 > SOUTH                       [Archery Range]
@@ -913,13 +888,13 @@ Perception check auto-passes — gravestone visible face-down in mud
 > EAST                        [Main East]
 > SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
-> DROP CART                   [gravestone placed]
+> UNLOAD STONE                [back into place]
 > NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall]
 > EAST                        [Council Chamber]
-> TALK TO ROWAN               [Middle Tier Key]
+> TALK TO ROWAN               [never meant for me]
 > TAKE KEY                    [Middle Tier Key]
 
 Quest 32 complete.
@@ -934,21 +909,23 @@ The silver stake is in the hollow base of the statue. Crowbar required.
 > LOOK AT STATUE              [seam]
 > USE CROWBAR ON STATUE       [silver stake]
 > TAKE STAKE                  [silver stake]
-> TAKE NOTE                   [emerald seal]
+> TAKE NOTE                   [folded note]
 
 =============================================================================
 S) Quest 22 — The Ruined Aqueduct (Fountain prerequisite for Q49)
 =============================================================================
-The aqueduct is in the Dungeon Upper Tier. Mortar from the Supply Room
-is needed to seal the joints. The stone blocks and gap are located in
-the dungeon upper tier.
+The Town Square fountain is dry until the aqueduct is repaired. The
+collapsed section is in the Dungeon Upper Tier, south of the Storage
+Area; mortar from the Supply Room seals the repair.
 
-Navigate back to the dungeon.
+Back to the dungeon through the Mausoleum. Cast Light on the way in —
+the torch won't last much longer, and Light carries on when it goes.
 
 > EAST                        [Main East]
 > SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
+> CAST LIGHT                  [darkness pulls back]
 > DOWN                        [Crypt]
 > DOWN                        [Charnel Walk]
 > NORTH                       [Bone Passage]
@@ -959,11 +936,14 @@ Navigate back to the dungeon.
 > WEST                        [Supply Room]
 > TAKE MORTAR                 [mortar compound]
 > EAST                        [Ink Corridor]
-> LOOK AT AQUEDUCT            [collapsed]
-> CARRY BLOCKS                [stone blocks]
-> SEAL JOINTS WITH MORTAR     [aqueduct restored]
+> EAST                        [Storage Area]
+> SOUTH                       [Collapsed Aqueduct]
+> PLACE BLOCKS                [first block]
+> PLACE BLOCKS                [second block]
+> PLACE BLOCKS                [last block]
+> SEAL JOINTS WITH MORTAR     [running toward town]
 
-Quest 22 complete. Town Square fountain now flows.
+Quest 22 complete. The Town Square fountain now flows.
 
 =============================================================================
 T) Quest 38 — The Collapsed Passage (Dungeon Shortcut)
