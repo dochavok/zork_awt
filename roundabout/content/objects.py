@@ -811,6 +811,21 @@ def _make_upper_tier_objects(world) -> None:
         name="IDOL-DOOR", desc="stone slab", synonyms=["door", "slab", "doorway"],
         adjectives=["stone", "heavy"], flags={NDESCBIT},
     ))
+    # Quest 24 (content/old_oak.py)
+    world.register_object(GameObject(
+        name="QUEEN-VIAL", desc="queen vial",
+        fdesc="In the hollow, a small glass vial holds a single tagged bee.",
+        examine="A small glass vial, stoppered with cork. Inside, one bee — larger than "
+                "the rest, a dab of blue paint on her back. She seems unbothered.",
+        synonyms=["vial", "queen", "bee"], adjectives=["queen", "glass", "small"],
+        size=1, flags={TAKEBIT, INVISIBLE},
+    ))
+    world.register_object(GameObject(
+        name="ENCHANTED-HONEY", desc="enchanted honey",
+        examine="A small jar of honey, dark gold and faintly warm. It glows a little, as "
+                "if it's thinking about something.",
+        synonyms=["honey"], adjectives=["enchanted"], size=1, flags={TAKEBIT},
+    ))
     # Trap 17 (content/upper_tier.py): on the shelf once the trap is resolved
     world.register_object(GameObject(
         name="SMOKE-JAR", desc="smoke jar",

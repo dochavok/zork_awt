@@ -1000,6 +1000,10 @@ Between Beach Road and Roundabout Forest. A large oak dominates this spot. A chi
 **Without smoke jar:** Walking within reach triggers the swarm — 1 heart damage (physical), player retreats automatically to The Old Oak. *"The swarm boils out of the hollow before you can do anything useful. You retreat."*
 **With smoke jar:** `USE SMOKE JAR` — bees settle. Queen vial visible in hollow. `TAKE VIAL` completes the collection step.
 
+**Built (2026-10-04):**
+- Carrying the smoke jar keeps the swarm in the hollow (no attack, no line); `USE SMOKE JAR` settles them for good, and the jar is used up: *You break the wax and tip the jar toward the hollow. Grey smoke spills out, thick and slow, and pours into the gap in the bark. The drone falters and drops to a low, drowsy hum. The bees settle. Just inside the hollow, something small and glass catches the light.* Elsewhere: *Nothing happens.*
+- **Once settled** (after the room description): *The bees drift in and out of the hollow, slow and drowsy, paying you no mind.*
+
 ### Roundabout Forest
 **XP: 1**
 **NPCs:** None

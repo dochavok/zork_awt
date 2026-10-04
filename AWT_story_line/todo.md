@@ -10,16 +10,16 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section PP — Quest 24, The Beekeeper's Swarm. Sections A–OO pass (AA folded into Z, DD into II, MM into LL2, NN into OO). First failure:
+**Current position:** Full-score walkthrough, Section QQ — Quest 54, Fight the Knight. Sections A–PP pass (AA folded into Z, DD into II, MM into LL2, NN into OO). First failure:
 
 ```
-SECTION [PP) Quest 24 — The Beekeeper's Swarm (Complete)]
-  cmd     : 'USE SMOKE JAR'
-  missing : 'bees settle'
-  got     : "Nothing happens."
+SECTION [QQ) Quest 54 — Fight the Knight (Melee Skill — Not Needed for Warrior)]
+  cmd     : 'TALK TO KNIGHT'
+  missing : 'Knight of Faith'
+  got     : "You can't see any knight here!"
 ```
 
-26 full-score steps still fail.
+20 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
@@ -117,6 +117,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section LL1: Flooding Room (Trap 41 — plate like Trap 29, two-turn sluice, levers, middle lever re-arms, sweep to The Spillway); parser object lists (TAKE BLADE AND MASK).
 - Section LL2 (+MM): Dream Corridor (numbered menus, light not torch), Lost Apprentice's Cell (fight 2d8/3 hearts, Fireball, freed not killed, USE SHOVEL, UP to Bog-NW with the gloves; Quest 50 Zenni 6→5), Supply Cache (SEARCH RUBBLE → gold nugget), Flood Sump.
 - Section OO: Forgotten Shaft and Hidden Secondary Entrance (mine branch; Assay Room gap — Medium perception from the mine side, found from the tunnel side); cellar route with CAST LIGHT twice; bowl ending from the ring walkthrough (PUT ZENNI ON PEDESTAL); Assay Room description restored to the design text.
+- Section PP: Swarm Tree (USE SMOKE JAR settles the bees, the jar is used up, the queen vial appears; carrying the jar holds the swarm off), GIVE VIAL TO BEEKEEPER → enchanted honey straight to inventory (Quest 24), EAT HONEY restores 2 hearts; TAKE HONEY step removed.
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.

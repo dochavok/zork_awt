@@ -543,7 +543,7 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 **Location:** Supply Room, Dungeon Upper Tier — behind Trap 17 (unstable shelf of clay pots)
 **Room description:** *A squat glass jar sits among the clay pots, stoppered with wax.*
 **Examine:** *A squat glass jar, stoppered with wax. Something grey and dense shifts inside it.*
-**Quest use:** Quest 24 — holding smoke jar pacifies bees in swarm room.
+**Quest use:** Quest 24 — carrying it keeps the swarm off; `USE SMOKE JAR` at the Swarm Tree settles the bees (used up).
 
 ---
 
@@ -667,13 +667,17 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 **Weight:** 1
 **Location:** Near the nest in the swarm room (Quest 24)
 **Quest use:** Quest 24 — return to beekeeper for enchanted honey reward.
+**Room description:** *In the hollow, a small glass vial holds a single tagged bee.* (Visible once the bees settle.)
+**Examine:** *A small glass vial, stoppered with cork. Inside, one bee — larger than the rest, a dab of blue paint on her back. She seems unbothered.*
 
 ---
 
 ### Enchanted Honey
 **Weight:** 1
-**Location:** Reward from Quest 24 (The Beekeeper's Swarm)
-**Quest use:** Consumable — restores 2 hearts when consumed.
+**Location:** Reward from Quest 24 (The Beekeeper's Swarm) — straight to the inventory.
+**Quest use:** Consumable — restores 2 hearts when consumed (up to the maximum).
+**Examine:** *A small jar of honey, dark gold and faintly warm. It glows a little, as if it's thinking about something.*
+**`EAT HONEY`:** *You eat the honey. It tastes like summer, with something older underneath, and the warmth spreads out from your chest.*
 
 ---
 

@@ -723,6 +723,10 @@ def v_give(world: World) -> int:
         return M_HANDLED
 
     # Rune stones to Ivanaar — Quest 42 → Ivanaar's Tunic
+    if npc.name == "BEEKEEPER" and item.name == "QUEEN-VIAL":
+        from content import old_oak
+        old_oak.give_queen(world)
+        return M_HANDLED
     if npc.name == "IVANAAR" and item.name in ("OLD-OAK-RUNE-STONE", "BOG-RUNE-STONE",
                                                "DUNGEON-RUNE-STONE"):
         from content import vikings
@@ -999,6 +1003,19 @@ def v_activate(world: World) -> int:
     from content import vikings
     if not vikings.activate_stone(world, obj):
         print(f"Nothing happens.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-EAT  (EAT HONEY — Quest 24's enchanted honey)
+# ---------------------------------------------------------------------------
+
+def v_eat(world: World) -> int:
+    obj = world.prso
+    if obj is None or obj.name != "ENCHANTED-HONEY" or obj not in world.player.contents:
+        return M_NOT_HANDLED
+    from content import old_oak
+    old_oak.eat_honey(world)
     return M_HANDLED
 
 
@@ -1510,6 +1527,7 @@ def register_verbs(game) -> None:
     game.register_input_hook(cast_input_hook)
     game.register_verb("V-ACTIVATE",   v_activate)
     game.register_verb("V-DRINK",      v_drink)
+    game.register_verb("V-EAT",        v_eat)
     from content.vikings import riddle_input_hook
     game.register_input_hook(riddle_input_hook)
     # Preaction intercepts GO EAST/WEST and LAND while at sea

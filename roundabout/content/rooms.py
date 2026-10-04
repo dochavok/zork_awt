@@ -448,12 +448,7 @@ def _make_town(world) -> None:
     swarm_tree = Room(
         name="SWARM-TREE",
         desc="Swarm Tree",
-        ldesc=(
-            "A broad-trunked tree at the forest edge, older than the others around "
-            "it. A low drone comes from a dark gap in the bark at chest height. The "
-            "air nearby has a quality that suggests strongly you should not approach "
-            "without a plan."
-        ),
+        ldesc="",              # content/old_oak.py (M_LOOK)
         value=1,
     )
     for r in (cottage, swarm_tree):

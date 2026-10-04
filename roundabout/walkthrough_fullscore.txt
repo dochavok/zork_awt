@@ -1688,7 +1688,6 @@ We have the smoke jar from the Supply Room. Navigate to the swarm tree
 > WEST                        [Old Oak]
 > WEST                        [Beekeeper's Cottage]
 > GIVE VIAL TO BEEKEEPER      [enchanted honey]
-> TAKE HONEY                  [enchanted honey]
 
 Quest 24 complete. Enchanted honey (restores 2 hearts) received.
 

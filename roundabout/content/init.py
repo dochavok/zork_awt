@@ -225,6 +225,8 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["FLOODED-POOL"], world.rooms["FLOODED-PASSAGE"])
     world.move_object(world.objects["ICE-BLOCK"], world.rooms["FOUNTAIN-ROOM"])
     world.move_object(world.objects["SPIRITS"], world.rooms["SPIRIT-ROOM"])
+    world.move_object(world.objects["QUEEN-VIAL"], world.rooms["SWARM-TREE"])
+    world.objects["QUEEN-VIAL"].give_to = "BEEKEEPER"
     for obj, room in (("APPRENTICE", "LOST-APPRENTICES-CELL"),
                       ("APPRENTICE-TUNNEL", "LOST-APPRENTICES-CELL"),
                       ("CACHE-RUBBLE", "SUPPLY-CACHE"), ("GOLD-NUGGET", "SUPPLY-CACHE")):

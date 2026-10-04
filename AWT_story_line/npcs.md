@@ -510,6 +510,8 @@ Administers Trial 3 (Thornbrew drinking challenge). Passes out if player wins. F
 **Location:** Beekeeper's Cottage (west of The Old Oak). Mentioned in her room description, so no separate presence line.
 **Quest:** Quest 24 — The Beekeeper's Swarm (discovered on first visit).
 **First visit / `TALK TO BEEKEEPER`:** *"You'll want to keep clear of the tree east of the oak," she says, before you've said anything. "Swarm got loose and nested in a hollow there. I'd fetch them back, but my smoke kit's gone — somewhere in the tunnels under town, last I knew." She shrugs. "If you come across it."*
+**`GIVE VIAL TO BEEKEEPER`:** *She takes the vial in both hands and holds it up to the light. "There she is," she says softly, to the bee rather than to you. When she looks up, she's smiling. "The rest will follow her home. Here — you've earned this." She presses a small jar of honey into your hands. It's faintly warm.* — *[Enchanted honey added to inventory.]* Quest 24 completes (Zenni paid silently).
+**`TALK TO BEEKEEPER` afterwards:** *"They're settling back in," she says, nodding toward the hives. "Took them a day to forgive me. Bees hold grudges."*
 
 ---
 

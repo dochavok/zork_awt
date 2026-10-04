@@ -10,6 +10,8 @@ State (story flags):
     KITE-DOWN         kite retrieved from the oak (CLIMB TREE)
     KITE-RETURNED     kite given back to the child (Quest 41 complete)
     BEEKEEPER-MET     beekeeper's first-visit speech given (Quest 24 discovered)
+    SWARM-SETTLED     smoke jar used at the Swarm Tree (the jar is used up)
+    QUEEN-RETURNED    queen vial given back (Quest 24 complete)
 """
 
 from __future__ import annotations
@@ -97,8 +99,42 @@ _BEEKEEPER_SPEECH = (
 )
 
 
+_BEEKEEPER_AFTER = (
+    '"They\'re settling back in," she says, nodding toward the hives. "Took them '
+    'a day to forgive me. Bees hold grudges."'
+)
+_QUEEN_RETURNED = (
+    "She takes the vial in both hands and holds it up to the light. \"There she is,\" "
+    "she says softly, to the bee rather than to you. When she looks up, she's smiling. "
+    "\"The rest will follow her home. Here — you've earned this.\" She presses a small "
+    "jar of honey into your hands. It's faintly warm.\n"
+    "[Enchanted honey added to inventory.]"
+)
+_EAT_HONEY = ("You eat the honey. It tastes like summer, with something older "
+              "underneath, and the warmth spreads out from your chest.")
+HONEY_HEARTS = 2
+
+
 def talk_beekeeper(w: World) -> None:
-    print(_BEEKEEPER_SPEECH)
+    print(_BEEKEEPER_AFTER if w.get_global("QUEEN-RETURNED") else _BEEKEEPER_SPEECH)
+
+
+def give_queen(w: World) -> None:
+    """GIVE VIAL TO BEEKEEPER — honey straight to the inventory, Quest 24."""
+    from content import quests
+    print(_QUEEN_RETURNED)
+    w.move_object(w.objects["QUEEN-VIAL"], None)
+    w.move_object(w.objects["ENCHANTED-HONEY"], w.player)
+    w.set_global("QUEEN-RETURNED", True)
+    quests.complete(w, "24")     # 10 XP, 5 Zenni, silent
+
+
+def eat_honey(w: World) -> None:
+    """EAT HONEY — 2 hearts, up to the maximum; the honey is used up."""
+    g = w.globals
+    print(_EAT_HONEY)
+    w.move_object(w.objects["ENCHANTED-HONEY"], None)
+    g["hearts"] = min(g.get("max_hearts", g.get("hearts", 1)), g.get("hearts", 1) + HONEY_HEARTS)
 
 
 def cottage_action(w: World, msg: int = M_NOT_HANDLED) -> int:
@@ -115,11 +151,39 @@ def cottage_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 # ---------------------------------------------------------------------------
 
 _SWARM = "The swarm boils out of the hollow before you can do anything useful. You retreat."
+_TREE = (
+    "A broad-trunked tree at the forest edge, older than the others around it. A low "
+    "drone comes from a dark gap in the bark at chest height. The air nearby has a "
+    "quality that suggests strongly you should not approach without a plan."
+)
+_SETTLED = "The bees drift in and out of the hollow, slow and drowsy, paying you no mind."
+_SMOKE = (
+    "You break the wax and tip the jar toward the hollow. Grey smoke spills out, thick "
+    "and slow, and pours into the gap in the bark. The drone falters and drops to a low, "
+    "drowsy hum. The bees settle. Just inside the hollow, something small and glass "
+    "catches the light."
+)
 
 
 def swarm_action(w: World, msg: int = M_NOT_HANDLED) -> int:
-    # M_END: after the room has been entered (XP awarded) and described
-    if msg == M_END and not w.get_global("SWARM-SETTLED"):
+    if msg == M_LOOK:
+        print(_TREE)
+        if w.get_global("SWARM-SETTLED"):
+            print(_SETTLED)
+        return M_HANDLED
+    jar = w.objects["SMOKE-JAR"]
+    if msg == M_BEG:
+        if w.prsa == "V-USE" and w.prso is jar and jar in w.player.contents \
+                and not w.get_global("SWARM-SETTLED"):
+            print(_SMOKE)
+            w.move_object(jar, None)                    # used up
+            w.set_global("SWARM-SETTLED", True)
+            w.objects["QUEEN-VIAL"].clear_flag("INVISIBLE")
+            return M_HANDLED
+        return M_NOT_HANDLED
+    # M_END: after the room has been entered (XP awarded) and described.
+    # Carrying the smoke jar keeps the swarm in the hollow.
+    if msg == M_END and not w.get_global("SWARM-SETTLED") and jar not in w.player.contents:
         from content.combat import _take_damage
         print(_SWARM)
         _take_damage(w, 1)

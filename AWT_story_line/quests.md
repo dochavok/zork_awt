@@ -208,7 +208,7 @@ Until sealed, the spill floods the far end of the Collapsed Gallery — the Ques
 
 **Steps:**
 1. Get smoke jar from Supply Room (disarm or trigger Trap 17 — smoke jar visible in wreckage either way).
-2. Hold smoke jar and walk into swarm room → bees pacified.
+2. Carry the smoke jar into the swarm room (the swarm holds off) and `USE SMOKE JAR` → bees settle (locations.md — Swarm Tree).
 3. Take queen (small tagged bee in glass vial near nest).
 4. Return queen to beekeeper.
 
