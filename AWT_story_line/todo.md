@@ -10,13 +10,16 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section Y — Dungeon Mid-Tier, Key Side. Sections A–X pass. First failure:
+**Current position:** Full-score walkthrough, Section Y — Dungeon Mid-Tier, Key Side. Sections A–X pass. Y's opening route is reworked and passes to the Rickety Bridge (library → Tale and Ale cellar → tunnel door → CAST LIGHT in the Bone Passage → Toll Bridge → Ink Corridor → Storage Area → Collapsed Aqueduct → Collapsed Gallery shortcut → Rickety Bridge). First failure:
 
 ```
 SECTION [Y) Dungeon Mid-Tier — Key Side (Keeper's Keys, Crevice Watch, Hole to Below)]
-  cmd     : 'SOUTH'
-  missing : 'Main Hall'
+  cmd     : 'DROP SALT'
+  missing : 'sack of salt'
+  got     : "You can't see any salt here!"
 ```
+
+Y's weight-drop paragraph is out of date: the salt is on the Idol Room pedestal (Q's swap) and the cart was left at the Graveyard (Q). Rework the drops for what the player actually carries (bridge limit 12, checked both ways) — compare the ring walkthrough's L (DROP ALL BUT …) and M.
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
 - Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.

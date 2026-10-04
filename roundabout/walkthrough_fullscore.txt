@@ -1099,29 +1099,32 @@ Descend through the dungeon. Use the Middle Tier Key at the Mid-Tier Key
 Door. Before digging the Hole to Below, visit The Crevice for the Gold
 Pocket Watch (missable after collapse).
 
-Navigate from the Library.
+The quickest way down now: through the drained Tale and Ale cellar into
+the Secret Tunnels, then the Collapsed Gallery shortcut (Quest 38) to
+the Rickety Bridge.
 
-> SOUTH                       [Main Hall]
-> EAST                        [Main West]
+> WEST                        [Main Hall]
+> SOUTH                       [Main West]
 > EAST                        [Town Square]
-> EAST                        [Main East]
-> SOUTH                       [Church of All]
-> SOUTH                       [Graveyard]
-> SOUTH                       [Mausoleum]
-> DOWN                        [Crypt]
-> DOWN                        [Charnel Walk]
-> NORTH                       [Bone Passage]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> SOUTH                       [Kitchen]
+> DOWN                        [Cellar]
+> OPEN DOOR                   [dark stone]
+
+The torch is long gone. The Bone Passage is dark — step in and cast
+Light.
+
+> WEST                        [pitch black]
+> CAST LIGHT                  [darkness pulls back]
 > WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
 > SOUTH                       [Dungeon Entrance]
 > SOUTH                       [Ink Corridor]
-> SOUTH                       [Narrow Passageway]
-> SOUTH                       [Idol Room]
-> SOUTH                       [Combat Room]
-> SOUTH                       [Prayer Alcove]
-> SOUTH                       [Portcullis Corridor]
-> SOUTH                       [Shrine Room]
-> SOUTH                       [Rickety Bridge]
+> EAST                        [Storage Area]
+> SOUTH                       [Collapsed Aqueduct]
+> SOUTH                       [Collapsed Gallery]
+> EAST                        [Rickety Bridge]
 
 Drop heavy items to cross (idol weight 4 + cart weight 5 alone exceeds
 limit). Critical items across the bridge: rope(3), lantern(2), stake(2),
