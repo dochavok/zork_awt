@@ -10,26 +10,26 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section OO — Quest 49, Crystal Bowl. Sections A–LL2 pass (AA folded into Z, DD into II, MM into LL2, NN into OO). First failure:
+**Current position:** Full-score walkthrough, Section PP — Quest 24, The Beekeeper's Swarm. Sections A–OO pass (AA folded into Z, DD into II, MM into LL2, NN into OO). First failure:
 
 ```
-SECTION [OO) Quest 49 — Crystal Bowl: Assemble at Fountain]
-  cmd     : 'UP'
-  missing : 'Bog of Eternal Stench'
-  got     : "You can't go that way."
+SECTION [PP) Quest 24 — The Beekeeper's Swarm (Complete)]
+  cmd     : 'USE SMOKE JAR'
+  missing : 'bees settle'
+  got     : "Nothing happens."
 ```
 
-OO is due for its cellar / Bone Passage rewrite (surface-items plan below). 30 full-score steps still fail.
+26 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
 Trophy Case: deposit treasures as they're collected (O: Ship-in-a-Bottle, Pie Rat Coin; EE: gold watch, diamond brooch, idol).
 
-Surface-items plan (2026-10-04, built for EE, HH2, II; OO and TT pickups still to write) — II's bridge crossing was 21 against 12:
+Surface-items plan (2026-10-04, built for EE, HH2, II, OO; TT pickup still to write) — II's bridge crossing was 21 against 12:
 - Quest 42 moves to right after HH: all three rune stones go to Ivanaar (tunic worn, 1). NN shrinks to the bog-exit route.
 - EE drops the Pale Blade in the Church of All (TT picks it up there) and the three bowl pieces and smoke jar in the Bone Passage.
 - II's crossing is then 11: worn 4 + tunic 1 + stake 2 + incantation scroll 1 + vial 1 + lantern 2.
-- OO goes down through the Tale and Ale cellar to the Bone Passage, takes the bowl pieces and smoke jar, then detours Junction → Undercroft → Forgotten Shaft → Hidden Secondary Entrance → Assay Room and back for the room XP (the three connecting rooms are designed, not built; from the tunnel side the gap is found automatically). Back up the cellar to the Town Square fountain, then the Forest shrine. The mine can't be entered from the Forest — the Mine Entrance is sealed after Section C's explosion.
+- OO went down through the Tale and Ale cellar to the Bone Passage, took the bowl pieces and smoke jar, then detoured Junction → Undercroft → Forgotten Shaft → Hidden Secondary Entrance → Assay Room and back for the room XP (from the tunnel side the gap is found automatically). Back up the cellar to the Town Square fountain, then the Forest shrine. No Trophy Case stop — treasures are deposited at the end. The mine can't be entered from the Forest — the Mine Entrance is sealed after Section C's explosion.
 - Full-score section letters: HH → HH1 (Quest 7) + HH2 (Quest 42), LL → LL1 + LL2 (LL.1 never parsed as its own section — the harness only matches letters and digits), NN removed (its bog-exit route opens OO), MM folded into LL2. **When the full-score walkthrough passes, clean up the section letter order.**
 - LL1 built: shovel taken at the Hole to Below; the bridge is crossed twice (blade and mask first, then shovel, fire clay, amulet).
 
@@ -116,6 +116,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section KK: Dark Room (magical darkness; LIGHT / TURN ON LANTERN reveal, lantern hangs for good; SOUTH and CAST LIGHT lines before it; flicker line elsewhere), Spirit Room (both exits blocked while visible, ink counts; ring-on/off lines; invisible description; spirits examine/attack), Burial Chamber (Funeral Mask, plinth line changes once taken). Prose fixed (south of the Lower Crossing); WEAR RING fragment tightened.
 - Section LL1: Flooding Room (Trap 41 — plate like Trap 29, two-turn sluice, levers, middle lever re-arms, sweep to The Spillway); parser object lists (TAKE BLADE AND MASK).
 - Section LL2 (+MM): Dream Corridor (numbered menus, light not torch), Lost Apprentice's Cell (fight 2d8/3 hearts, Fireball, freed not killed, USE SHOVEL, UP to Bog-NW with the gloves; Quest 50 Zenni 6→5), Supply Cache (SEARCH RUBBLE → gold nugget), Flood Sump.
+- Section OO: Forgotten Shaft and Hidden Secondary Entrance (mine branch; Assay Room gap — Medium perception from the mine side, found from the tunnel side); cellar route with CAST LIGHT twice; bowl ending from the ring walkthrough (PUT ZENNI ON PEDESTAL); Assay Room description restored to the design text.
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -130,6 +131,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: the bow attack on the werewolf (failure line in mechanics.md; the attack doesn't exist yet). Fireball is built.
 - Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
+- TAKE ALL lists "You already have…" for every carried item (Zork skips held items).
 - Combat bonuses from gear aren't applied in the per-encounter fights (mugger, Warden, apprentice roll `player.roll` alone): the Apprentice's Gloves' +3 and the melee weapon bonuses do nothing yet.
 - Quest 50: Will being visibly shaken on the player's next tower visit isn't built.
 - Quest 50's Quest Board posting (Will, anonymous, at game start; removed for good if the Flooding Room plate is disarmed) isn't built.

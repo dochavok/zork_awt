@@ -1065,6 +1065,8 @@ Where ore samples were tested. The far wall has a gap that connects to the tunne
 **Connections:** West → Assay Room. East → Forgotten Shaft.
 Perception check required from mine side; auto-discovered from tunnel side. Coming through from the tunnel side also reveals the gap in the Assay Room wall. Remains accessible after cave-in.
 
+**Built (2026-10-04):** Dark (tunnel network). From the mine side: Medium perception on every Assay Room visit until found (Actually Enchanted Glasses pass it) — *Looking closer, the gap in the far wall goes further back than it should — a rough passage, just wide enough to squeeze through, running east into the dark.* `EAST` before it's found: *It's just a crack in the wall. Nothing you could get through.* Arriving here from the Forgotten Shaft finds it without a line.
+
 *The gap in the assay room wall opens into a rough passage that connects to the tunnel network below. It does not appear on any official plan of the mine. It would not.*
 
 ### Mine Tunnels
@@ -1309,7 +1311,7 @@ Wide rough-hewn passage on the mine branch.
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
-**Connections:** South → The Undercroft. East → Hidden Secondary Entrance.
+**Connections:** South → The Undercroft. West → Hidden Secondary Entrance.
 Narrowing abandoned passage.
 
 *The passage narrows as it goes — not dangerously, but noticeably. The stonework changes here, older and less deliberate, as if this part of the tunnel predates whoever dug the rest. The far wall has a gap in it that doesn't look entirely accidental.*

@@ -213,7 +213,7 @@ def make_rooms(world) -> None:
     bone.exits.update(south=Exit(destination="CHARNEL-WALK"), west=Exit(destination="JUNCTION"))
     junction.exits.update(east=Exit(destination="BONE-PASSAGE"), north=Exit(destination="UNDERCROFT"),
                           south=Exit(destination="TOLL-BRIDGE"))
-    # Undercroft north → Forgotten Shaft comes with the mine branch
+    # Undercroft north → Forgotten Shaft: content/mine_branch.py
     undercroft.exits["south"] = Exit(destination="JUNCTION")
     bridge.exits.update(north=Exit(destination="JUNCTION"),
                         south=_BoggartExit(destination="DUNGEON-ENTRANCE"))

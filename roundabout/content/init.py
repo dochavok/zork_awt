@@ -65,6 +65,8 @@ def initialize_world(world, game, seed=None) -> None:
     from content import mine
     game.register_enter_hook(mine.on_enter)
     game.register_walk_check(mine.sealed_check)
+    from content import mine_branch
+    game.register_enter_hook(mine_branch.on_enter)   # the Assay Room gap
 
     # Roundabout Pond: bottle sighting check on each visit
     from content import pond

@@ -1612,32 +1612,68 @@ Quest 50 complete. Apprentice's Gloves received.
 =============================================================================
 OO) Quest 49 — Crystal Bowl: Assemble at Fountain
 =============================================================================
-We have all three bowl pieces and the fire clay. The Town Square fountain
-is running (Quest 22 complete). Mix fire clay with fountain water to
-make clay adhesive and assemble the bowl.
+We have the fire clay; the three bowl pieces and the smoke jar wait in the
+Bone Passage, where we left them in EE. The Town Square fountain is running
+(Quest 22 complete). Mix fire clay with fountain water to make clay
+adhesive and assemble the bowl.
 
-Surface via the bog hole exit (Bog-NW).
+From the bog, back to town and down through the Tale and Ale cellar.
 
-> UP                          [Bog of Eternal Stench]
 > SOUTH                       [Bog of Eternal Stench]
 > SOUTH                       [Roundabout Pond]
 > SOUTH                       [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
-> MIX CLAY WITH WATER         [clay adhesive]
-> ASSEMBLE BOWL               [repaired bowl]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> SOUTH                       [Kitchen]
+> DOWN                        [Cellar]
+> WEST                        [pitch black]
+> CAST LIGHT                  [darkness pulls back|Bone Passage]
+> TAKE LARGE BOWL PIECE       [You take the large bowl piece]
+> TAKE MUDDY BOWL PIECE       [You take the muddy bowl piece]
+> TAKE STONE BOWL PIECE       [You take the stone bowl piece]
+> TAKE SMOKE JAR              [You take the smoke jar]
 
-Navigate to the shrine in Roundabout Forest.
+Detour up the mine branch to the Assay Room and back for the room XP.
+Coming from the tunnel side, the gap into the Assay Room is found without
+a check. The Assay Room is lit, so the Light spell goes out there.
+
+> WEST                        [Junction]
+> NORTH                       [Undercroft]
+> NORTH                       [Forgotten Shaft]
+> WEST                        [Hidden Secondary Entrance]
+> WEST                        [Assay Room]
+> EAST                        [pitch black]
+> CAST LIGHT                  [darkness pulls back|Hidden Secondary Entrance]
+> EAST                        [Forgotten Shaft]
+> SOUTH                       [Undercroft]
+> SOUTH                       [Junction]
+> EAST                        [Bone Passage]
+> EAST                        [Cellar]
+> UP                          [Kitchen]
+> NORTH                       [Bar]
+> NORTH                       [Tale and Ale]
+> NORTH                       [Town Square]
+
+Mix fire clay with fountain water at the now-flowing fountain.
+
+> MIX CLAY WITH WATER         [clay adhesive]
+> ASSEMBLE BOWL               [bowl again]
+
+Navigate to the Verdant Circle shrine in Roundabout Forest.
 
 > EAST                        [Main East]
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
 > NORTH                       [Old Oak]
 > NORTH                       [Roundabout Forest]
-> PUT BOWL ON PEDESTAL        [bowl placed]
-> PUT COIN ON PEDESTAL        [crystal bowl]
+> PUT BOWL ON PEDESTAL        [bowl is placed]
+> PUT ZENNI ON PEDESTAL       [no longer what you put there]
+> TAKE BOWL                   [Crystal Bowl]
 
-Crystal Bowl (ring ritual artifact) acquired.
+The bowl transforms into the Crystal Bowl (ring ritual artifact, the
+Verdant Circle).
 
 =============================================================================
 PP) Quest 24 — The Beekeeper's Swarm (Complete)

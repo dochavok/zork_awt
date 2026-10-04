@@ -21,6 +21,8 @@ def make_rooms(world) -> None:
     _make_kevrys_island(world)
     from content import library
     library.make_rooms(world)        # Library — Main Hall, The Stacks (off Main West)
+    from content import mine_branch
+    mine_branch.make_rooms(world)    # Undercroft → Forgotten Shaft → Hidden Secondary Entrance → Assay Room
 
 
 # ---------------------------------------------------------------------------
@@ -837,8 +839,10 @@ def _make_mine(world) -> None:
         ldesc=(
             "A side room off the main shaft, fitted out for testing ore samples. "
             "A long workbench runs the length of one wall, scarred with acid burns "
-            "and impact marks. The far wall has a gap in it that doesn't look "
-            "entirely accidental."
+            "and impact marks. Scales, tongs, crucibles — the tools of a working "
+            "assay operation, left mid-use. Whatever the Pie Rats were mining, "
+            "someone was genuinely checking its quality. The far wall has a gap in "
+            "it that doesn't look entirely accidental."
         ),
         value=1,
     )
