@@ -241,6 +241,10 @@ Found alongside a folded note signed with the Keeper's emerald wax seal.
 **Weight:** 2
 **Location:** Created from silver stake + holy water (`POUR HOLY WATER ON STAKE`)
 **Quest use:** Only weapon that destroys the undead werewolf.
+**Examine / inventory:** *A slim stake of solid silver, the point still sharp. It holds a faint, steady sheen that has nothing to do with the light.*
+
+`POUR HOLY WATER ON STAKE` (both carried; works anywhere; the vial is used up): *You unstop the vial and pour it slowly along the stake, end to end. The silver drinks it — there's no other word for it. When the last drop is gone, the metal holds a faint, steady sheen, as if lit from somewhere you can't see.*
+Pouring it without the stake, or onto anything else: *You'd rather not waste it.*
 
 ---
 
@@ -248,6 +252,8 @@ Found alongside a folded note signed with the Keeper's emerald wax seal.
 **Weight:** 1
 **Location:** Vial on writing desk in Keeper's Chamber (Church of All) — Keeper's key ring required to enter
 **Quest use:** Consecrates the silver stake.
+**Examine / inventory:** *A small glass vial of clear water, stoppered and sealed with a dab of green wax.*
+On the desk, the Keeper's Chamber room description covers it.
 
 ---
 

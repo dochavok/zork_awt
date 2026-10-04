@@ -423,6 +423,14 @@ Appears as a normal medieval church from the outside. Near the Graveyard. Contai
 *The church is plain inside — stone floor, wooden pews worn smooth, light coming through narrow windows in thin bars. It could belong to any faith. That appears to be the point.*
 *At the far end, where an altar would normally hold a single symbol, there is instead a stone altar with a brass dial mounted at its face. Seven marks around the dial. Whatever is currently selected glows faintly.*
 
+**Keeper's Chamber door (west wall)** — last line of the room description:
+- **Locked:** *In the west wall, a narrow door of dark wood is shut tight, a heavy lock beneath the latch.*
+- **Open:** *The narrow door in the west wall stands open, a ring of keys hanging from its lock.*
+
+- **`UNLOCK DOOR WITH KEYS`:** *The third key you try is the right one. The lock gives with a dry click, and the door swings inward on a small, plain room. You leave the keys hanging in the lock.* The keys stay in the lock; the door stays open.
+- **`WEST` / `OPEN DOOR` while locked:** *The door is locked.*
+- **Wrong key:** *That key doesn't fit.* **No key:** *You don't have the key to it.*
+
 ### The Altar
 **XP: 1**
 **NPCs:** None
@@ -472,6 +480,11 @@ The note reveals that the scholar of The Veil of the Arcane was transformed into
 **Room description (vial taken):** *A small room, plainly kept. A narrow bed, a writing desk, a shelf of religious texts. The kind of room that belongs to someone who doesn't spend much time in it. On the desk: a note in a careful hand.*
 
 **Note:** Readable but not takeable. Reveals the scholar became an undead werewolf and that the stake must be consecrated with holy water.
+- **Examine:** *A note in a careful hand, sealed at the bottom with green wax.*
+- **`READ NOTE`:** *"If you are reading this, I did not come back. The scholar of the Veil went down to the lower caves and did not come back as himself. What paces down there now is undead, and silver alone will not end it. The stake must be consecrated — pour the holy water on this desk over it. It is the last I blessed. I hid the stake where the town would keep it safe."*
+- **`TAKE NOTE`:** *You leave it where the Keeper left it.*
+
+Lit (part of the church — not on the dark room list).
 
 ---
 

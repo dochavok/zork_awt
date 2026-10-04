@@ -6,24 +6,22 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–M passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–N passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section N — Holy Water & Consecration. First failure:
+**Current position:** Section O — Kill the Undead Werewolf. First failure:
 
 ```
-SECTION [N) Werewolf's Amulet — Holy Water & Consecration]
-  cmd     : 'SOUTH'
-  missing : 'Church of All'
-  got     : "Tale and Ale — Main Room …"
+SECTION [O) Werewolf's Amulet — Kill the Undead Werewolf]
+  cmd     : 'EAST'
+  missing : 'Antechamber'
+  got     : "You can't go that way."
 ```
 
-**Section N route:** N climbs out through the Crypt and the Graveyard (Charnel Walk → UP → UP → NORTH → NORTH), arriving in the Church of All — the three lines after that (NORTH Main East, WEST Town Square, SOUTH) are deleted. The Keeper's Chamber is WEST of the Nave (locations.md), not east. TAKE STAKE at the Rickety Bridge on the way north. The Keeper's Chamber isn't built yet.
+The Antechamber (Trap 36, CLEAR BONES), Lower Crossing, Narrow Pass and Still Den (werewolf, DRIVE STAKE INTO WEREWOLF, amulet) aren't built yet. The Pile of Rubble has no EAST exit.
 
-**Torch budget:** the torch lights at the Mausoleum (H5) and ticks every turn, in town too. K swaps it at Shamus (`BUY TORCH` at 38 left, "Getting there"); the fresh torch lights at the Bone Passage in L, is at 79 at the Pile of Rubble and about 73 leaving the Lower Crypt.
-
-N reaches the Church at about 50 and finishes the holy water at about 46. Swap after the holy water: Nave → Main East → Town Square → Tale and Ale → Bar → Kitchen, `BUY TORCH` at about 40 ("Getting there"), then O goes down through the cellar. The fresh torch covers O–S (~55 turns).
+**Torch budget:** the torch lights at the Mausoleum (H5) and ticks every turn, in town too. K swaps it at Shamus (`BUY TORCH` at 38 left, "Getting there"); the fresh torch lights at the Bone Passage in L. N climbs out through the Crypt and swaps again in the Kitchen after the holy water (about 38 left, "Getting there"). O goes down through the cellar; the fresh torch covers O–S (~55 turns).
 
 **XP note:** the player is level 6 by the end of K (Quest 32 reward). Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
 
@@ -55,6 +53,7 @@ N reaches the Church at about 50 and finishes the holy water at about 46. Swap a
 - Section K: Rowan (start / in progress / reward / after), Bog-SE gravestone (Easy perception), LOAD STONE ONTO CART, loaded cart blocks UP/DOWN, UNLOAD STONE (+ synonyms, SET STONE input hook) — at the Graveyard leaves the cart, Middle Tier Key (TAKE KEY). Quest 25: May's cellar key (needs crowbar), cellar door (key stays in lock), USE CROWBAR ON DRAIN / PRY COVER / REMOVE COVER WITH CROWBAR, CLEAR DRAIN, drowning GAME OVER (stairs, Bone Passage door), lit Cellar with cashbox (10 Zenni), tunnel door to the Bone Passage, Bartender's Boots. Torch exchange via BUY TORCH (swap tiers). Quest 32 reward fixed to 5 Zenni.
 - Section L: cellar route, DROP ALL BUT with comma lists (DROP ALL keeps worn items), bridge weight checked both ways, Mid-Tier Key Door unlock (key stays in lock), Key Door Landing, Mine Passage, Stored Room / Hole to Below (DIG, TIE ROPE TO BEAM, JUMP death), Pile of Rubble, Will's DIG note. N and P climb back up to the Hole to Below.
 - Section M: Lower Crypt (key ring; skeleton, emerald seal, pendulum blade as scenery), Thermal Vent Room (LOOK UP / LOOK AT CEILING reveals fire clay; LOOK UP elsewhere = LOOK), The Encampment. `LOOK UP` fragment → [reddish clay] in both walkthroughs.
+- Section N: TAKE STAKE at the Rickety Bridge, climb out through the Crypt; Nave west door (UNLOCK DOOR WITH KEYS, keys stay in the lock), lit Keeper's Chamber (vial / no-vial descriptions, readable Keeper's note), POUR HOLY WATER ON STAKE (consecrated silver stake); torch swap in the Kitchen after the holy water. O rerouted down through the cellar.
 
 **Known issues still open:**
 - Deferred from L: The Crevice and gold pocket watch (no room description yet — Stored Room east exit closed until built); Mine Passage south exit (Inscription Chamber and beyond); charcoal, silver dust, and the iron chest's lock (Mine Passage keeps its default description; the chest is scenery).

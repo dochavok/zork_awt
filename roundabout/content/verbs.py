@@ -57,6 +57,11 @@ def v_open(world: World) -> int:
         tunnels.open_strongbox(world)
         return M_HANDLED
 
+    if obj.name == "KEEPER-DOOR":
+        from content import keeper
+        keeper.open_door(world)
+        return M_HANDLED
+
     if obj.name in ("CELLAR-DOOR", "TUNNEL-DOOR-CELLAR", "TUNNEL-DOOR-BONE", "CASHBOX"):
         from content import cellar
         {"CELLAR-DOOR": cellar.open_cellar_door, "CASHBOX": cellar.open_cashbox}.get(
@@ -142,6 +147,11 @@ def v_examine(world: World) -> int:
 # ---------------------------------------------------------------------------
 # V-LOOK (bare look — redescribe current room)
 # ---------------------------------------------------------------------------
+
+def v_pour(world: World) -> int:
+    from content import keeper
+    return M_HANDLED if keeper.pour(world) else M_NOT_HANDLED
+
 
 def v_look_up(world: World) -> int:
     from content import lower_tier
@@ -1057,6 +1067,10 @@ def v_unlock(world: World) -> int:
         from content import shrine_path
         shrine_path.unlock_key_door(world)
         return M_HANDLED
+    if obj is not None and obj.name == "KEEPER-DOOR":
+        from content import keeper
+        keeper.unlock_door(world)
+        return M_HANDLED
     print("You can't unlock that.")
     return M_HANDLED
 
@@ -1070,6 +1084,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-EXAMINE",    v_examine)
     game.register_verb("V-LOOK",       v_look)
     game.register_verb("V-LOOK-UP",    v_look_up)
+    game.register_verb("V-POUR",       v_pour)
     game.register_verb("V-INVENTORY",  v_inventory)
     game.register_verb("V-SAVE",       v_save)
     game.register_verb("V-RESTORE",    v_restore)

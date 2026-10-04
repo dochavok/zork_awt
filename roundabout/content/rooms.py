@@ -722,6 +722,9 @@ def _make_pond_and_bog(world, archery) -> None:
     mid_tier.make_rooms(world)
     from content import lower_tier
     lower_tier.make_rooms(world)
+    # Keeper's Chamber, west of the Church of All nave — content/keeper.py
+    from content import keeper
+    keeper.make_rooms(world)
 
     # Town Hall — content/town_hall.py
     from content import town_hall

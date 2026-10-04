@@ -973,6 +973,7 @@ the Keeper's Chamber in the Church of All.
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
 > NORTH                       [Rickety Bridge]
+> TAKE STAKE                  [silver stake]
 > NORTH                       [Shrine Room]
 > NORTH                       [Portcullis Corridor]
 > NORTH                       [Prayer Alcove]
@@ -989,26 +990,29 @@ the Keeper's Chamber in the Church of All.
 > UP                          [Mausoleum]
 > NORTH                       [Graveyard]
 > NORTH                       [Church of All]
+> UNLOCK DOOR WITH KEYS       [third key]
+> WEST                        [Keeper's Chamber]
+> TAKE HOLY WATER             [holy water]
+> POUR HOLY WATER ON STAKE    [silver drinks it]
+
+The torch is getting low. Shamus swaps it in the Tale and Ale kitchen.
+
+> EAST                        [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
-> SOUTH                       [Church of All]
-> EAST                        [Keeper's Chamber — door]
-> UNLOCK DOOR WITH KEYS       [Keeper's Chamber]
-> TAKE HOLY WATER             [holy water]
-> POUR HOLY WATER ON STAKE    [consecrated silver stake]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> SOUTH                       [Kitchen]
+> BUY TORCH                   [Getting there]
 
 =============================================================================
 O) Werewolf's Amulet — Kill the Undead Werewolf
 =============================================================================
-Return to the lower tier through the Hole to Below and go east through
-The Narrow Pass to The Still Den.
+Down through the cellar to the lower tier, then east through The Narrow
+Pass to The Still Den.
 
-> WEST                        [Church of All]
-> SOUTH                       [Graveyard]
-> SOUTH                       [Mausoleum]
-> DOWN                        [Crypt]
-> DOWN                        [Charnel Walk]
-> NORTH                       [Bone Passage]
+> DOWN                        [Cellar]
+> WEST                        [Bone Passage]
 > WEST                        [Junction]
 > SOUTH                       [Toll Bridge]
 > SOUTH                       [Dungeon Entrance]
@@ -1023,7 +1027,7 @@ The Narrow Pass to The Still Den.
 > SOUTH                       [Mid-Tier Key Door]
 > SOUTH                       [Key Door Landing]
 > SOUTH                       [Mine Passage]
-> EAST                        [Stored Room]
+> EAST                        [Hole to Below]
 > DOWN                        [Pile of Rubble]
 > EAST                        [Antechamber]
 

@@ -760,6 +760,28 @@ def _make_mid_tier_objects(world) -> None:
         name="VENT-CEILING", desc="ceiling", synonyms=["ceiling", "overhang", "roof"],
         adjectives=["low"], flags={NDESCBIT, SACREDBIT}, action=ceiling_action,
     ))
+    # Keeper's Chamber (logic: content/keeper.py)
+    world.register_object(GameObject(
+        name="KEEPER-DOOR", desc="narrow door", synonyms=["door", "lock"],
+        adjectives=["narrow", "dark", "wood", "wooden", "west"], flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="HOLY-WATER", desc="vial of holy water",
+        ldesc="A small glass vial of clear water, stoppered and sealed with a dab of green wax.",
+        synonyms=["water", "vial", "liquid"], adjectives=["holy", "clear", "glass", "small"],
+        size=1, flags={TAKEBIT, NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="KEEPER-NOTE", desc="Keeper's note",
+        ldesc="A note in a careful hand, sealed at the bottom with green wax.",
+        text=('"If you are reading this, I did not come back. The scholar of the Veil '
+              "went down to the lower caves and did not come back as himself. What paces "
+              "down there now is undead, and silver alone will not end it. The stake must "
+              "be consecrated — pour the holy water on this desk over it. It is the last I "
+              'blessed. I hid the stake where the town would keep it safe."'),
+        synonyms=["note"], adjectives=["keeper's", "keepers", "careful"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
     # Over the edge of the hole once the Stored Room floor is dug out
     world.register_object(GameObject(
         name="SUPPORT-TIMBER", desc="support timber", synonyms=["timber", "beam"],
