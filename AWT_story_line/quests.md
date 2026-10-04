@@ -321,7 +321,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 **Prerequisites:** Incantation scroll (Quest 28 reward) + Ivory Torch (The Still Den, lower tier).
 
 **Steps:**
-1. Find Tool Alcove (lower tier, north of The Lower Crossing) — perception check reveals speaking door disguised as back wall.
+1. Find Tool Alcove (lower tier, north of The Lower Crossing) — perception check (Medium) reveals speaking door disguised as back wall.
 2. Door speaks in unknown language — clearly a question; cannot be understood.
 3. `READ SCROLL` (incantation scroll) → door opens; scroll consumed. (*"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."*)
 4. Pass through The Flooded Passage — dark pool wall to wall.

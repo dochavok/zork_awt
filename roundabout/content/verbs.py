@@ -1249,6 +1249,10 @@ def v_light(world: World) -> int:
         mine.light_gunpowder(world)
         return M_HANDLED
 
+    if obj.name == "IVORY-TORCH":         # a source of heat, never of light
+        print("It doesn't need lighting. The heat is already there.")
+        return M_HANDLED
+
     print(f"You can't light the {obj.desc}.")
     return M_HANDLED
 

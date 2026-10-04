@@ -41,6 +41,10 @@ def initialize_world(world, game, seed=None) -> None:
     # Trap 8: the snare fires after the Inscription Chamber description
     from content import inscription
     game.register_enter_hook(inscription.on_enter)
+
+    # Quest 34: the Lower Crossing pull-back line after leaving the Tool Alcove
+    from content import tool_alcove
+    game.register_enter_hook(tool_alcove.on_enter)
     game.register_input_hook(gravestone.set_stone_input_hook)
 
     # Quest 49: ASSEMBLE BOWL (every bowl piece answers to "bowl")
@@ -205,7 +209,8 @@ def _place_objects(world) -> None:
                       ("PENDULUM-BLADE", "LOWER-CRYPT"), ("FIRE-CLAY", "THERMAL-VENT-ROOM"),
                       ("VENT-CEILING", "THERMAL-VENT-ROOM"), ("KEEPER-DOOR", "CHURCH-NAVE"),
                       ("HOLY-WATER", "KEEPERS-CHAMBER"), ("KEEPER-NOTE", "KEEPERS-CHAMBER"),
-                      ("BONES", "ANTECHAMBER"), ("WEREWOLF", "STILL-DEN"),
+                      ("BONES", "ANTECHAMBER"), ("WEREWOLF", "STILL-DEN"), ("IVORY-TORCH", "STILL-DEN"),
+                      ("ALCOVE-WALL", "TOOL-ALCOVE"),
                       ("AQUEDUCT-BLOCKS", "COLLAPSED-AQUEDUCT"), ("AQUEDUCT", "COLLAPSED-AQUEDUCT"),
                       ("FOUNTAIN", "TOWN-SQUARE"), ("SHRINE-PEDESTAL", "ROUNDABOUT-FOREST"),
                       ("ALTAR-STONE", "ALTAR"), ("DIAL", "ALTAR")):

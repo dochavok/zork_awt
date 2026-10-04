@@ -303,6 +303,10 @@ Left by Calder Finch. *"He left a key. Said it led to a lower level — wouldn't
 
 ### Ivory Torch
 **Weight:** 2
+**Nature:** a source of magical heat, not light — it never lights a dark room (the Light spell is still needed).
+**Room description:** *An ivory torch is set in an iron bracket on the wall. There's no flame at its head, but the air around it shimmers with heat.*
+**Examine:** *A torch with a shaft of carved ivory, yellowed with age. Its head has never been lit — it doesn't need to be. Heat pours off it, steady and impossible, enough to make your hand ache if you hold it close.*
+**`LIGHT IVORY TORCH`:** *It doesn't need lighting. The heat is already there.*
 **Location:** Mounted on wall in The Still Den (lower tier) — take before leaving
 **Quest use:** Quest 34 — required to thaw the frozen soldier over two turns (`HOLD TORCH NEAR ICE` twice).
 

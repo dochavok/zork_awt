@@ -2009,6 +2009,7 @@ Undead werewolf — critical path. Cannot be harmed by conventional weapons. Onl
 
 - **`DRIVE STAKE INTO WEREWOLF` (consecrated):** *You get inside its reach and drive the stake home. The sheen along the silver flares white.* — then the death/reversion text. The stake stays in the body (leaves the inventory). 15 XP (Warrior +10).
 - **Amulet room line (on the floor):** *A tarnished amulet lies beside the scholar, a seven-pointed star on its face.*
+- **Ivory Torch room line (on the wall):** *An ivory torch is set in an iron bracket on the wall. There's no flame at its head, but the air around it shimmers with heat.* It can be taken while the werewolf lives, but that turn is a combat round like any other.
 
 ### Tool Alcove (Room 10)
 **XP: 3**
@@ -2016,7 +2017,10 @@ Undead werewolf — critical path. Cannot be harmed by conventional weapons. Onl
 **Items:** None (scroll from elsewhere consumed here to open passage)
 **Quest Hooks:** Quest 34 — speaking door requires scroll to open; passage north leads to frozen soldier
 **Connections:** South → The Lower Crossing. North → The Flooded Passage (quest-gated; READ SCROLL opens passage permanently).
-Quest 34 barrier room. North of The Lower Crossing. Speaking door disguised as back wall. Perception check required for discovery.
+Quest 34 barrier room. North of The Lower Crossing. Speaking door disguised as back wall. Perception check required for discovery — Medium, every visit until found (glasses: automatic).
+
+- Found: the bracket description, then the "notices you" line (that visit only), then the persistent line. Found on a return visit (short description): the two lines print after the room title.
+- `EXAMINE WALL` / `LISTEN` once found: the persistent line. `EXAMINE WALL` before: the before-discovery description. Open: the open-state line.
 
 **Before discovery:** *"The passage ends at a shallow recess lined with iron brackets — the kind used to hang tools or equipment. The brackets are empty. The back wall is flat and featureless."*
 

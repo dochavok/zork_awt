@@ -917,6 +917,21 @@ def _make_mid_tier_objects(world) -> None:
         synonyms=["watch", "chain"], adjectives=["gold", "pocket"], size=1,
         flags={TAKEBIT, NDESCBIT},
     ))
+    # Quest 34 — Tool Alcove wall and the Ivory Torch (logic: content/tool_alcove.py)
+    world.register_object(GameObject(
+        name="ALCOVE-WALL", desc="back wall",
+        synonyms=["wall", "door", "brackets", "bracket", "recess"],
+        adjectives=["back", "speaking", "iron", "empty"], flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="IVORY-TORCH", desc="ivory torch",
+        fdesc="An ivory torch is set in an iron bracket on the wall. There's no flame "
+              "at its head, but the air around it shimmers with heat.",
+        examine="A torch with a shaft of carved ivory, yellowed with age. Its head has "
+              "never been lit — it doesn't need to be. Heat pours off it, steady and "
+              "impossible, enough to make your hand ache if you hold it close.",
+        synonyms=["torch"], adjectives=["ivory"], size=2, flags={TAKEBIT},
+    ))
     # South of the Mine Passage (logic: content/inscription.py)
     world.register_object(GameObject(
         name="ENGRAVING", desc="engraving",

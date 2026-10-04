@@ -1212,59 +1212,33 @@ BB) Quest 19/30 — Keeper's Keys (Lower Crypt)
 Emerald seal matches the statue note.
 
 =============================================================================
-CC) Quest 34 — Frozen Soldier (setup: Tool Alcove & Mid Room)
+CC) Quest 34 — Frozen Soldier (setup: the Tool Alcove)
 =============================================================================
-The Tool Alcove is north of The Junction in the lower tier. The speaking
-door there requires the incantation scroll (Quest 28 reward — not yet in
-hand). The Ivory Torch is in The Still Den — take it before attempting
-Quest 34. Proceed east through the lower tier first.
+East of the Pile of Rubble, through the Antechamber, the Tool Alcove lies
+north of The Lower Crossing.
 
+> SOUTH                       [Pile of Rubble]
 > EAST                        [Antechamber]
-> CLEAR BONES                 [disarmed]
 
-The antechamber bone crunch floor must be cleared before passing.
+The Bone Crunch Floor trap must be cleared before passing.
 
+> CLEAR BONES                 [narrow path]
 > EAST                        [Lower Crossing]
 > NORTH                       [Tool Alcove]
 
-Actually Enchanted Glasses auto-reveal the speaking door. But we don't
-have the incantation scroll yet. Return from archivist visit will
-complete this. Note the discovery and move on.
+The glasses catch it: the back wall is asking something. We can't answer
+yet — that takes the incantation scroll the Archivist will give us for
+the rubbing.
 
 > SOUTH                       [Lower Crossing]
-> EAST                        [Narrow Pass]
-> EAST                        [Still Den]
-> KILL WEREWOLF               [no effect]
-
-Without the consecrated silver stake we can't harm the werewolf.
-Take the Ivory Torch from the wall before combat begins.
-
-> TAKE IVORY TORCH            [ivory torch]
-
-We'll need to come back once the stake is consecrated.
-
-> WEST                        [Narrow Pass]
-> WEST                        [Lower Crossing]
-
-=============================================================================
-DD) Quest 49 — Crystal Bowl: Fire Clay (Thermal Vent Room)
-=============================================================================
-> WEST                        [Lower Crossing]
 > WEST                        [Antechamber]
 > WEST                        [Pile of Rubble]
-> NORTH                       [Lower Crypt]
-> NORTH                       [Thermal Vent Room]
-> LOOK UP                     [reddish clay]
-> TAKE CLAY                   [fire clay]
-> SOUTH                       [Lower Crypt]
-> SOUTH                       [Pile of Rubble]
 
 =============================================================================
 EE) Quest 19/30 — Holy Water & Consecration (surface, Keeper's Chamber)
 =============================================================================
 Surface, use Keeper's keys at Keeper's Chamber (Church of All).
 
-> SOUTH                       [Pile of Rubble]
 > UP                          [Stored Room]
 > WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
@@ -1314,8 +1288,8 @@ read the incantation etched on the base.
 > LISTEN                      [thermal vent]
 
 Jar whispers: "The ceiling of the thermal vent holds a secret." Quest 4
-complete. (We already retrieved the fire clay — the jar confirmed what
-we found.)
+complete. The fire clay waits in the Thermal Vent Room for our next trip
+down.
 
 =============================================================================
 GG) Quest 28 — The Archivist's Request (Complete)
@@ -1392,12 +1366,26 @@ Return to The Still Den with the consecrated silver stake.
 > SOUTH                       [Mine Passage]
 > EAST                        [Stored Room]
 > DOWN                        [Pile of Rubble]
+
+The jar said the ceiling of the thermal vent holds a secret. The Thermal
+Vent Room is north, past the Lower Crypt.
+
+> NORTH                       [Lower Crypt]
+> NORTH                       [Thermal Vent Room]
+> LOOK UP                     [reddish clay]
+> TAKE CLAY                   [fire clay]
+> SOUTH                       [Lower Crypt]
+> SOUTH                       [Pile of Rubble]
 > EAST                        [Antechamber]
 > EAST                        [Lower Crossing]
 > EAST                        [Narrow Pass]
 > EAST                        [Still Den]
 > DRIVE STAKE INTO WEREWOLF   [werewolf destroyed]
 > TAKE AMULET                 [Werewolf's Amulet]
+
+The Ivory Torch on the wall is needed for Quest 34.
+
+> TAKE IVORY TORCH            [You take the ivory torch]
 
 Quest 19/30 complete. Werewolf's Amulet acquired (ring ritual artifact).
 

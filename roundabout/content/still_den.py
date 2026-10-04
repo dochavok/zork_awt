@@ -15,8 +15,9 @@ Chain), items.md (Werewolf's Amulet), experience.md (Trap 36: 3 XP; werewolf:
   player takes 1 heart on a loss, the werewolf never takes damage).
   DRIVE STAKE INTO WEREWOLF with the consecrated stake kills it outright; the
   stake stays in the body and the amulet drops.
-- Deferred: Lower Crossing north (Tool Alcove) and south (Dark Room) and the
-  50/50 pull-back text; the Ivory Torch (Quest 34).
+- The Ivory Torch hangs on the Still Den wall (Quest 34); it's heat, not light.
+- Lower Crossing north is the Tool Alcove (content/tool_alcove.py).
+- Deferred: Lower Crossing south (Dark Room).
 
 State: BONES-CLEARED, DEN-JUST-ENTERED, WEREWOLF-DEAD
 """
@@ -227,7 +228,7 @@ def make_rooms(world) -> None:
     ante.exits.update(west=Exit(destination="PILE-OF-RUBBLE"),
                       east=_BoneExit(destination="LOWER-CROSSING"),
                       south=_SkeletonRoom(destination=None))
-    # Lower Crossing north (Tool Alcove) and south (Dark Room) are deferred
+    # Lower Crossing north: content/tool_alcove.py. South (Dark Room) is deferred
     crossing.exits.update(west=Exit(destination="ANTECHAMBER"), east=Exit(destination="NARROW-PASS"))
     narrow.exits.update(west=Exit(destination="LOWER-CROSSING"), east=Exit(destination="STILL-DEN"))
     den.exits.update(west=Exit(destination="NARROW-PASS"))

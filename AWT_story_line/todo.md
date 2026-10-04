@@ -10,16 +10,16 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section CC — Quest 34 setup. Sections A–Z pass (AA folded into Z). First failure:
+**Current position:** Full-score walkthrough, Section EE — Holy Water & Consecration. Sections A–CC pass (AA folded into Z, DD into II). First failure:
 
 ```
-SECTION [CC) Quest 34 — Frozen Soldier (setup: Tool Alcove & Mid Room)]
-  cmd     : 'EAST'
-  missing : 'Antechamber'
-  got     : "You can't go that way."
+SECTION [EE) Quest 19/30 — Holy Water & Consecration (surface, Keeper's Chamber)]
+  cmd     : 'UP'
+  missing : 'Stored Room'
+  got     : "Hole to Below\nThere is a shovel here."
 ```
 
-The Antechamber is east of the Pile of Rubble, not the Lower Crypt, so CC's route is out of date. CC also enters the Still Den without the stake (the werewolf attacks there). 239 full-score steps still fail.
+Stale fragment — the Stored Room is renamed Hole to Below after the dig. EE also carries the return-trip bridge load and the first Trophy Case visit. 181 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
@@ -96,6 +96,8 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section Y: two-crossing bridge plan; Mine Passage charcoal, silver dust (Medium perception), iron chest (lockpicks, 20 Zenni pocketed); The Crevice and gold pocket watch (own object); Stored Room EAST refused after the dig; shovel dropped after the dig. Quest 28 uses up the paper and charcoal.
 - Section Z: Inscription Chamber (Medium rune stone and snare checks; Trap 8 — spotted = stepped around, 3 XP / Rogue +5; fired = hanging until PULL FREE / STRUGGLE or CUT CORD with a blade), RUB PAPER ON ENGRAVING (paper + charcoal used up → rubbing), Cave Creature's Lair and bone flute, Echo Alcove, Magnetic Vault (Trap 15 — DISARM LODESTONE, iron-only pulse, stuck-to-chest line, Medium strength per item), Diamond Brooch, Deep Lock Door.
 - Section Z (cont.): AA folded into Z; UU's brooch detour removed. Lockpicks dropped after the Mine Passage chest. Parser: CUT prefers what isn't carried; STRUGGLE / PULL FREE verbs.
+- Section CC: Tool Alcove (Medium perception, 'notices you' + question lines, also on a return visit; EXAMINE WALL / LISTEN; 50/50 pull-back line once; north waits for READ SCROLL in JJ). Ivory Torch on the Still Den wall — heat, not light (LIGHT refusal).
+- Section CC (cont.): CC is the Quest 34 discovery only (no Still Den visit); DD folded into II (fire clay after the jar's hint); torch taken in II after the kill; EE's first SOUTH removed; FF prose fixed.
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -106,7 +108,8 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
 - Trophy Case (Town Hall Tower) not built — design in mechanics.md (Trophy Case, Score). Score and treasures read 0 until it is. The full-score walkthrough needs it.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
-- Deferred from O: Lower Crossing north (Tool Alcove) and south (Dark Room), the 50/50 pull-back text, the Ivory Torch (Quest 34); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
+- Deferred from O: Lower Crossing south (Dark Room); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
+- LISTEN has no handler — prints nothing outside the Tool Alcove.
 - V-PULL has no default handler — PULL on an ordinary object prints nothing.
 - Magnetic Vault: the default description ("Dust has settled in a faint ring around the latch") returns after the lodestone is out.
 - Floor listings: the burnt-out torch shows as "A torch." and plural items read "There is a lockpicks here."
