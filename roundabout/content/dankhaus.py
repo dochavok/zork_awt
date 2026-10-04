@@ -56,6 +56,11 @@ class _WardedExit(Exit):
 
 
 def bog_se_action(w: World, msg: int = M_NOT_HANDLED) -> int:
+    from content import gravestone   # Quest 32 — the stone is here too
+    if msg == M_ENTER:
+        gravestone.bog_se_enter(w)
+    elif msg == M_END:
+        gravestone.bog_se_end(w)
     if msg == M_ENTER and not w.get_global("DANKHAUS-PATH-FOUND"):
         from content.player import check_perception
         from content.perception import MEDIUM

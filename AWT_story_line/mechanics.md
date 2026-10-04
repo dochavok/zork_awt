@@ -462,7 +462,7 @@ Purchased from Shamus (Kitchen, Tale and Ale) for 3 Zenni. Weight: 2.
 - **Game over** only if the player is in a dark room **and** no exit from it leads straight to a lit room: *The torch goes out. In the dark, something shifts. You never find out what.*
 - **Otherwise** (in a lit area, or one move from one) the torch just goes out: *The torch gutters and goes out.* The player can walk back to the light.
 
-**Shamus swap tiers (player brings torch to Shamus):**
+**Shamus swap tiers (`BUY TORCH` while already carrying a torch — the only way to swap; 3 Zenni):**
 
 | Turns remaining | Shamus response |
 |----------------|-----------------|
@@ -471,7 +471,7 @@ Purchased from Shamus (Kitchen, Tale and Ale) for 3 Zenni. Weight: 2.
 | 29–15 | *Shamus glances at the torch. "That one's running short." He hands you a fresh one. "Three Zenni."* |
 | 14–0 | *Shamus glances at the torch. "That one's had it." He hands you a fresh one. "Three Zenni."* |
 
-Swapped torches reset the timer to 100. The ignition message fires again on next dark room entry.
+Swapped torches reset the timer to 100. The ignition message fires again on next dark room entry. Like a bought torch, the fresh one does not start burning until that entry. At 100–70 no Zenni is taken.
 
 ---
 
@@ -987,6 +987,8 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 | `CLEAR BONES` | Trap 36 — disarms Bone Crunch Floor Room |
 | `CLEAR DRAIN` | Quest 25 — unclogs cellar drain after cover removed |
 | `LOAD STONE ONTO CART` | Quest 32 — loads gravestone onto hand cart |
+| `UNLOAD STONE` (also `UNLOAD GRAVESTONE` / `UNLOAD CART` / `UNLOAD STONE FROM CART` / `PUT STONE ON GRAVE` / `PLACE STONE` / `SET STONE` / `RETURN STONE` / `DROP STONE`) | Quest 32 — at the Graveyard, sets the gravestone back and leaves the cart |
+| `USE CROWBAR ON DRAIN` (also `PRY COVER` / `REMOVE COVER WITH CROWBAR`) | Quest 25 — removes the cellar drain cover from the Kitchen top step |
 | `JUMP ON PLATE` | Trap 29 — intentionally triggers Warden bell; opens the Creature Den door |
 | `PRY DOOR` | Trap 33 escape — crowbar + strength check |
 | `USE PORTCULLIS BAR` | Trap 19 — props portcullis open permanently |

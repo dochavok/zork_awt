@@ -174,7 +174,8 @@ def make_rooms(world) -> None:
         "The stonework here is older than the rest of the tunnels — rougher cut, "
         "the joints wider, the walls slightly damp to the touch. The passage runs "
         "south. Whatever built this part didn't build it at the same time as the "
-        "rest. The name feels earned.",
+        "rest. The name feels earned.\n"
+        "In the east wall, a low door of black oak is set into the older stone.",
     )
     junction = room(
         "JUNCTION", "The Junction",
@@ -208,7 +209,7 @@ def make_rooms(world) -> None:
 
     crypt.exits.update(up=Exit(destination="MAUSOLEUM"), down=Exit(destination="CHARNEL-WALK"))
     charnel.exits.update(up=Exit(destination="CRYPT"), north=Exit(destination="BONE-PASSAGE"))
-    # Bone Passage east → Tavern Cellar (tunnel door) comes with Quest 25
+    # Bone Passage east → Tavern Cellar (tunnel door) is wired in cellar.py
     bone.exits.update(south=Exit(destination="CHARNEL-WALK"), west=Exit(destination="JUNCTION"))
     junction.exits.update(east=Exit(destination="BONE-PASSAGE"), north=Exit(destination="UNDERCROFT"),
                           south=Exit(destination="TOLL-BRIDGE"))

@@ -154,10 +154,26 @@ Always lit from purchase. Timer starts on first dark room entry (not on purchase
 ### Bartender's Boots
 **Slot:** Legs
 **Weight:** 1
-**Location:** Reward from Quest 25 (The Flooded Cellar) — bartender gives them after cellar drains.
+**Examine:** *Tall leather boots, salt-stained, soft at the ankle. Someone wore these into worse than a cellar and walked back out.*
+**Location:** Reward from Quest 25 (The Flooded Cellar) — May gives them on the next `TALK TO MAY` after the cellar drains.
 **Quest use:** None — trap disarm bonus.
 
-+3 trap disarm roll bonus. Flavor on receipt: *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar."*
++3 trap disarm roll bonus. Flavor on receipt: *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar."* Full line in `npcs.md` — May.
+
+---
+
+### Cellar Key
+**Weight:** 1
+**Examine:** *An iron key, rust-bloomed, on a loop of string gone grey.*
+**Location:** May gives it on `TALK TO MAY` while the player carries the crowbar (Quest 25).
+**Quest use:** Quest 25 — unlocks the cellar door in the Kitchen. Stays in the lock once used (never returns to inventory).
+
+---
+
+### Cashbox (Cellar Zenni Cache)
+**Room description:** *A rusted tin cashbox sits on a high shelf, above the old waterline.*
+**Location:** Cellar/Storeroom — visible once the cellar is drained.
+**Quest use:** Quest 25 cache. `OPEN CASHBOX` → 10 Zenni: *The lid gives on the third try. Inside, wrapped in oilcloth and perfectly dry: 10 Zenni. Somebody planned for the flood better than they planned for the drain.*
 
 ---
 
@@ -248,7 +264,8 @@ After keys taken: inventory description persists — room does not revert to ske
 
 ### Middle Tier Key
 **Weight:** 1
-**Location:** Reward from Quest 32 (The Missing Gravestone) — Councilman Rowan Finch
+**Examine:** *A heavy iron key, its bow worked into the shape of a finch in flight. The teeth are worn smooth at the tips.*
+**Location:** Reward from Quest 32 (The Missing Gravestone) — Councilman Rowan Finch holds it out; `TAKE KEY`.
 **Quest use:** Opens the Mid-Tier Key Door in the Dungeon Upper Tier.
 
 Left by Calder Finch. *"He left a key. Said it led to a lower level — wouldn't say what was down there."*
@@ -396,14 +413,32 @@ Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevi
 **Examine:** *A sturdy two-wheeled cart, the handles worn smooth. Built to carry more than a person could.*
 **Weight:** 5
 **Location:** Storage Area, Dungeon Upper Tier
+**Examine (loaded):** *The cart sits low on its axle under Calder Finch's gravestone.*
 **Quest use:** Quest 32 — needed to move Calder Finch's heavy gravestone from the bog back to the cemetery.
+
+Carried like any item. While loaded:
+- **First move after loading (once):** *The cart takes some getting started. Once it's rolling, it wants to keep going.*
+- **`UP` / `DOWN` refused:** *Not with that on it.*
+- `DROP CART` leaves the stone in the cart; at the Graveyard it does the same as `UNLOAD STONE`.
+
+After the stone is back at the Graveyard the cart stays there (still takeable — nothing else uses it).
 
 ---
 
 ### Gravestone (Calder Finch)
 **Weight:** 10
-**Location:** Face-down in the bog — perception check to find
-**Quest use:** Quest 32 — return to cemetery. Requires hand cart. `LOAD STONE ONTO CART` to move.
+**Location:** Face-down in the mud in Bog-SE — perception check to find
+**Quest use:** Quest 32 — return to cemetery. Requires hand cart. `LOAD STONE ONTO CART` to move, `UNLOAD STONE` at the Graveyard to set it back.
+
+- **Spotted (perception, first time):** *Half-sunk in the mud at the water's edge, a slab of dressed stone lies face-down — too square to be anything the bog made. Someone dumped it here.*
+- **Room description (found, in the bog):** *A gravestone lies face-down in the mud.*
+- **Examine:** *You tip up one edge far enough to read it: CALDER FINCH — EXPLORER.*
+- **`TAKE STONE`:** *It doesn't budge. Whatever carried this out here didn't carry it by hand.*
+- **`LOAD STONE ONTO CART` (no cart):** *You'll need something to put it on.*
+- **`LOAD STONE ONTO CART`:** *You tip the gravestone up out of the mud and walk it, corner by corner, onto the cart. The axle complains. The bog lets go of the stone with a sound you'd rather not have heard. The gravestone is loaded.*
+- **`UNLOAD STONE` at the Graveyard:** *You wheel the cart to the empty plot — a rectangle of disturbed earth with a broken stub of mortar at its head — and tip the gravestone back into place. It settles as if it remembers the spot. You leave the cart beside it; it's done its job.* Stone fixed in place; cart dropped.
+- **`UNLOAD STONE` anywhere else:** *You tip the gravestone off the cart. It lands face-down, which seems to be its preference.* Stone stays in that room; `LOAD` works again.
+- **Synonyms:** `UNLOAD STONE` / `UNLOAD GRAVESTONE` / `UNLOAD CART` / `UNLOAD STONE FROM CART` / `PUT STONE ON GRAVE` / `PLACE STONE` / `SET STONE` / `RETURN STONE` / `DROP STONE` / `DROP GRAVESTONE`.
 
 ---
 

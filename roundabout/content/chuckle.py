@@ -121,6 +121,8 @@ def graveyard_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         if w.get_global("CHUCKLE-HOUSE-VISIBLE"):
             print(_GRAVEYARD_CHUCKLE)
         print(_GRAVEYARD_AIR)
+        from content import gravestone
+        gravestone.graveyard_lines(w)
         return M_HANDLED
     return M_NOT_HANDLED
 

@@ -297,6 +297,17 @@ Back-of-house. **Shamus** works here — cook and unofficial vendor. `TALK TO SH
 *Dried herbs hang from the ceiling in loose bundles. A scarred wooden table dominates the center.*
 *The cellar door is set into the floor near the far wall; a faint smell of damp rises from it even when it's shut. The bartender keeps the key.*
 
+**Cellar door (Quest 25):** locked until `UNLOCK DOOR WITH KEY` (May's cellar key — it stays in the lock). The last line of the room description follows the door:
+- **Unlocked, closed:** *The cellar door is set into the floor near the far wall, May's key in its lock.*
+- **Open, flooded:** *The cellar door stands open near the far wall, May's key still in the lock. Below it, water fills the stairwell almost to the top step.*
+- **Open, drained:** *The cellar door stands open near the far wall, May's key still in the lock. Stone steps lead down into the cellar.*
+
+- **`UNLOCK DOOR WITH KEY`:** *The key turns stiffly. The lock hasn't been asked to do anything in years. You leave it where it is.*
+- **`OPEN DOOR` (flooded):** *The cellar door comes up on a breath of cold, wet air. Stone steps lead down — three of them, then water, still and clear, filling the cellar nearly to the beams. At the foot of the steps, through the water, you can make out the square iron cover of a drain.*
+- **`USE CROWBAR ON DRAIN` (door open; also `PRY COVER`, `REMOVE COVER WITH CROWBAR`):** *You lie flat on the top step and reach the crowbar down through the water, feeling along the bottom step until the lip catches the edge of the grate. You lean on it. The cover comes up with a jolt and slides off into the dark.*
+- **`CLEAR DRAIN` (cover off):** *You work the crowbar down into the open drain and lever. Something gives — a fist of rotted sacking and root comes up through the water — and the whole cellar starts to turn. The water drops a step, then another, then goes all at once with a long, sucking roar you feel through the kitchen floor. When it's quiet again, the stairs go all the way down.* Quest 25 completes.
+- **`DOWN` before the drain is cleared (instant drowning, GAME OVER):** *You start down the steps. On the fourth there isn't a step — only water, colder than it has any right to be. The kitchen's light shrinks to a square above you, and then it doesn't.*
+
 ### Upstairs Hall
 **XP: 1**
 **NPCs:** None
@@ -353,7 +364,12 @@ Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds th
 Starts flooded — drain must be unclogged (crowbar required) before the room is usable.
 Once drained, reveals a door to the Secret Tunnel. Tunnel door stays in whatever state the player leaves it. Travel bidirectional once drained.
 Entering from either direction before draining = instant drowning fail state (water damage, no warning, no roll).
-The flood is obvious from the kitchen doorway — no perception check on entry.
+The flood is obvious from the kitchen doorway — no perception check on entry. The drain is worked from the top step in the Kitchen (text under Kitchen). Lit (part of the inn — not on the dark room list).
+**Items:** Cashbox (Quest 25 Zenni cache — 10 Zenni; `items.md`).
+
+**Room description (drained):** *The cellar is still wet — the walls dark to shoulder height, a tide line of silt marking where the water stood for years. Barrels lie where the flood left them, staves sprung. The drain gurgles now and then, like it's still thinking about it. In the west wall is a low door of black oak that nobody upstairs has mentioned.*
+
+**Tunnel door:** starts closed. `OPEN DOOR` from the cellar: *The door swings inward onto dark stone. Cold air comes through it, and the smell of old earth.* `WEST` → The Bone Passage while open. Bone Passage side text under The Bone Passage.
 
 ---
 
@@ -468,6 +484,8 @@ The note reveals that the scholar of The Veil of the Arcane was transformed into
 **Quest Hooks:** Quest 16 (Litlock's bonk reveals Chuckle House); Quest 17 (Chuckle House accessible from here post-bonk)
 **Connections:** North → Church of All (Nave). South → The Mausoleum. East → The Entrance (Chuckle House; post-bonk only).
 East exit to Chuckle House appears only after Litlock's bonk (Quest 52) — absent from description until then.
+
+**Quest 32 — gravestone returned:** `UNLOAD STONE` here puts Calder Finch's gravestone back and leaves the cart (text in `items.md` — Gravestone). From then on this line is added after the description (pre- or post-bonk): *One headstone near the path stands straighter than the others, newly scrubbed of mud: CALDER FINCH — EXPLORER. An empty hand cart stands beside it.* (Cart clause drops if the player takes the cart.)
 
 **Pre-bonk description:** *The graves here are old, most of them. Headstones lean at angles that suggest the ground beneath has shifted, or decided it no longer agrees with what's above it. The church stands to the north. The mausoleum sits at the far end to the south, grey and patient. The air is still in a way that has nothing to do with wind.*
 
@@ -792,7 +810,7 @@ All four bog rooms display the same room title to the player: **"The Bog of Eter
 ### Bog of Eternal Stench (SE)
 **XP: 1**
 **NPCs:** None
-**Items:** Calder Finch's gravestone (Quest 32; perception check — face-down in the mud). Dankhaus path hidden here (perception check).
+**Items:** Calder Finch's gravestone (Quest 32; perception check (Easy) every visit until found — face-down in the mud; text in `items.md`). Dankhaus path hidden here (perception check).
 **Quest Hooks:** Dankhaus discovery (perception-gated; once found, path permanent)
 **Connections:** North → Bog of Eternal Stench (NE). West → Bog of Eternal Stench (SW). Northwest → Bog of Eternal Stench (NW). East → Dankhaus Common Room (perception-gated; ward-gated entry).
 The Dankhaus is east of here. Dankhaus hidden here — dense brush conceals the path; perception check (Medium) required each visit until discovered. Once discovered, path is permanently visible.
@@ -1231,6 +1249,11 @@ Narrowing abandoned passage.
 Crossroads east of the Junction: Tavern Cellar to the east, the Graveyard Crypt branch (Charnel Walk) to the south. Older stonework.
 
 *The stonework here is older than the rest of the tunnels — rougher cut, the joints wider, the walls slightly damp to the touch. The passage runs south. Whatever built this part didn't build it at the same time as the rest. The name feels earned.*
+*In the east wall, a low door of black oak is set into the older stone.*
+
+The door line is the same before and after the cellar drains — no warning sign. `EAST` needs the door open.
+- **`OPEN DOOR` before the cellar is drained (instant drowning, GAME OVER):** *You lift the latch. The door doesn't open so much as leave — the water behind it takes it off its hinges and you with it. The Bone Passage fills in the time it takes to understand what's happening.*
+- **`OPEN DOOR` after the drain:** *The door swings open onto the tavern cellar. Somewhere above, someone is cooking.*
 
 ### Charnel Walk
 **XP: 1**
@@ -1593,8 +1616,8 @@ End of key side critical path. Permanently sealed — no key, no lockpicks, dead
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None (one-way entry from upper tier Flooding Room; no return)
-**Connections:** Down → Flooding Room (one-way entry only). South → Dream Corridor.
-Wet, low-ceilinged chamber at base of sluice. One-way drop from upper tier. No exits except south.
+**Connections:** South → Dream Corridor.
+Wet, low-ceilinged chamber at base of sluice. Entered only by the one-way sweep from the Flooding Room above (Trap 41) — there's no way back up. No exits except south.
 
 **Room description:** *The sluice deposits you here — wet stone, low ceiling, the sound of water draining somewhere below. The chamber is small and close. There's no way back up. The passage continues south.*
 

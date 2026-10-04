@@ -117,3 +117,45 @@ def _one_move_from_light(w: World, room: Room) -> bool:
         if dest is not None and _room_lit(dest):
             return True
     return False
+
+
+# ---------------------------------------------------------------------------
+# Shamus's exchange — BUY TORCH while already carrying one (mechanics.md swap tiers)
+# ---------------------------------------------------------------------------
+
+_SWAP_PRICE = 3
+_SWAP_REFUSED = (
+    "Shamus glances at the torch. \"That one's got plenty of life left.\" He hands "
+    "it back. \"Come see me when it's lower.\""
+)
+_SWAP_TIERS = (   # (lowest turns left, line) — first match wins
+    (30, "Shamus glances at the torch. \"Getting there.\" He hands you a fresh one. \"Three Zenni.\""),
+    (15, "Shamus glances at the torch. \"That one's running short.\" He hands you a fresh one. \"Three Zenni.\""),
+    (0,  "Shamus glances at the torch. \"That one's had it.\" He hands you a fresh one. \"Three Zenni.\""),
+)
+_SWAP_SHORT = "\"Three Zenni,\" Shamus says, and doesn't let go of the fresh one."
+
+
+def turns_left(w: World) -> int:
+    """Life left on the carried torch: 100 until its first dark room, 0 burnt out."""
+    torch = _torch(w)
+    if not torch.has_flag("ONBIT"):
+        return 0
+    left = w.get_global("TORCH-LIT-TIMER")
+    return TORCH_TURNS if left is None else left
+
+
+def exchange(w: World) -> None:
+    left = turns_left(w)
+    if left >= 70:
+        print(_SWAP_REFUSED)
+        return
+    if w.globals.get("zenni", 0) < _SWAP_PRICE:
+        print(_SWAP_SHORT)
+        return
+    line = next(text for floor, text in _SWAP_TIERS if left >= floor)
+    w.globals["zenni"] -= _SWAP_PRICE
+    print(line)
+    torch = _torch(w)
+    torch.desc = "torch"
+    light_torch(w)   # fresh: lit, timer waits for the next dark room

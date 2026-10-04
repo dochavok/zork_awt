@@ -722,6 +722,10 @@ def _make_pond_and_bog(world, archery) -> None:
     from content import town_hall
     town_hall.make_rooms(world)
 
+    # Tavern cellar, Quest 25 (needs the Kitchen and the Bone Passage) — content/cellar.py
+    from content import cellar
+    cellar.make_rooms(world)
+
 
 # ---------------------------------------------------------------------------
 # Mine — Pie Rats Mining Inc.

@@ -829,7 +829,9 @@ Finch (Quest 32). His grandfather Calder's gravestone was stolen and lies
 face-down in the bog (Bog-SE). We already have the hand cart from the
 Storage Area (section I2).
 
-Talk to Rowan in the Council Chamber, just north of the square.
+Talk to Rowan in the Council Chamber, just north of the square. Seeing
+the iron door from the Rickety Bridge (I1) discovered the quest, so he
+raises it now.
 
 > NORTH                       [Town Hall]
 > EAST                        [Council Chamber]
@@ -837,17 +839,47 @@ Talk to Rowan in the Council Chamber, just north of the square.
 > WEST                        [Town Hall]
 > SOUTH                       [Town Square]
 
-To the bog. The gravestone is in Bog-SE (perception check — auto-pass
-with glasses).
+Torch logistics. The torch has been burning since the Mausoleum (H5) and
+is under 40 turns now — it won't survive section L. Two stops at the
+Tale and Ale fix that:
 
+1. Quest 25 (The Flooded Cellar). May offers the cellar key once we carry
+   the crowbar. Draining the cellar opens a tunnel door from the cellar
+   to the Bone Passage — a short, lit route from the Kitchen into the
+   tunnels, and back up to Shamus for the next torch.
+2. BUY TORCH while carrying a torch is Shamus's exchange. The fresh torch
+   doesn't start burning until the next dark room.
+
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> TALK TO MAY                 [cellar]
+> SOUTH                       [Kitchen]
+> BUY TORCH                   [Getting there]
+
+The drain is worked from the top step — going down into the water is
+instant drowning. The cellar key stays in the lock.
+
+> UNLOCK DOOR WITH KEY        [key turns]
+> OPEN DOOR                   [drain]
+> USE CROWBAR ON DRAIN        [cover comes up]
+> CLEAR DRAIN                 [all the way down]
+
+The cellar is dry; the tunnel door gets opened from the cellar side on
+the way down in section L. Now to the bog. The gravestone is in Bog-SE
+(perception check — auto-pass with glasses).
+
+> NORTH                       [Bar]
+> NORTH                       [Tale and Ale]
+> NORTH                       [Town Square]
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
 > NORTH                       [Bog of Eternal Stench]
-> EAST                        [Bog of Eternal Stench]
+> EAST                        [gravestone]
 > LOAD STONE ONTO CART        [loaded]
 
-Push the cart back to the Graveyard (cemetery).
+Push the cart back to the Graveyard. Unloading the stone there sets it
+back on the grave and leaves the cart behind — its job is done.
 
 > WEST                        [Bog of Eternal Stench]
 > SOUTH                       [Roundabout Pond]
@@ -857,7 +889,7 @@ Push the cart back to the Graveyard (cemetery).
 > EAST                        [Main East]
 > SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
-> DROP CART                   [gravestone placed]
+> UNLOAD STONE                [back into place]
 
 Return to Rowan Finch for the key.
 
@@ -866,7 +898,7 @@ Return to Rowan Finch for the key.
 > WEST                        [Town Square]
 > NORTH                       [Town Hall]
 > EAST                        [Council Chamber]
-> TALK TO ROWAN               [Middle Tier Key]
+> TALK TO ROWAN               [never meant for me]
 > TAKE KEY                    [Middle Tier Key]
 
 =============================================================================

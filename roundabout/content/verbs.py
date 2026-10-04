@@ -57,6 +57,12 @@ def v_open(world: World) -> int:
         tunnels.open_strongbox(world)
         return M_HANDLED
 
+    if obj.name in ("CELLAR-DOOR", "TUNNEL-DOOR-CELLAR", "TUNNEL-DOOR-BONE", "CASHBOX"):
+        from content import cellar
+        {"CELLAR-DOOR": cellar.open_cellar_door, "CASHBOX": cellar.open_cashbox}.get(
+            obj.name, cellar.open_tunnel_door)(world)
+        return M_HANDLED
+
     # Statue base — crowbar required (opening with the crowbar: Section J)
     if obj.name == "STATUE":
         print("The base is sealed tight. Something with leverage could pry it open.")
@@ -117,6 +123,10 @@ def v_examine(world: World) -> int:
     if obj.name == "WILL":
         from content.objects import WILL_APPEARANCE
         print(WILL_APPEARANCE)
+        return M_HANDLED
+
+    from content import gravestone
+    if gravestone.examine(world, obj):
         return M_HANDLED
 
     # Generic examine: show ldesc or fdesc
@@ -200,6 +210,11 @@ def v_take(world: World) -> int:
     if obj.name == "AYLORA":
         from content import vikings
         vikings.take_aylora(world)
+        return M_HANDLED
+
+    if obj.name == "GRAVESTONE":
+        from content import gravestone
+        gravestone.take_stone(world)
         return M_HANDLED
 
     from engine.world import TAKEBIT, SACREDBIT
@@ -318,6 +333,13 @@ def v_drop(world: World) -> int:
     if obj is None:
         return M_NOT_HANDLED
 
+    from content import gravestone
+    if obj.name == "GRAVESTONE":
+        gravestone.unload(world)
+        return M_HANDLED
+    if obj.name == "HAND-CART" and gravestone.drop_cart(world):
+        return M_HANDLED
+
     player = world.player
     if player is None or obj not in player.contents:
         print(f"You aren't carrying the {obj.desc}.")
@@ -365,6 +387,11 @@ def v_talk(world: World) -> int:
     if obj.name == "BOGGART":
         from content import tunnels
         tunnels.talk_boggart(world)
+        return M_HANDLED
+
+    if obj.name == "ROWAN-FINCH":
+        from content import gravestone
+        gravestone.talk_rowan(world)
         return M_HANDLED
 
     if obj.name == "RECORDS-WORKER":
@@ -536,6 +563,11 @@ def v_use(world: World) -> int:
         from content import statue
         statue.pry_open(world)
         return M_HANDLED
+    if obj is not None and obj.name == "CROWBAR" and world.prsi is not None \
+            and world.prsi.name == "DRAIN":
+        from content import cellar
+        cellar.pry_drain(world)
+        return M_HANDLED
     if obj is not None and obj.name == "PORTCULLIS-BAR":
         from content import shrine_path
         if shrine_path.use_bar(world):
@@ -664,6 +696,11 @@ def v_put_on(world: World) -> int:
     if item is None or target is None:
         return M_NOT_HANDLED
 
+    if item.name == "GRAVESTONE":   # PUT STONE ON GRAVE — Quest 32
+        from content import gravestone
+        gravestone.unload(world)
+        return M_HANDLED
+
     player = world.player
     if player is None or item not in player.contents:
         print(f"You aren't carrying the {item.desc}.")
@@ -720,6 +757,11 @@ def v_buy(world: World) -> int:
     # Must be in Kitchen with Shamus to buy
     if world.here is None or world.here.name != "KITCHEN":
         print("There's no one here to sell you that.")
+        return M_HANDLED
+
+    if obj.name == "TORCH" and world.player is not None and obj in world.player.contents:
+        from content import light
+        light.exchange(world)
         return M_HANDLED
 
     zenni = world.globals.get("zenni", 0)
@@ -956,6 +998,60 @@ def _check_mine_cave_in(world: World) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Quest 25 / Quest 32 verbs: PRY, CLEAR, LOAD, UNLOAD, UNLOCK, PUT ON GRAVE
+# ---------------------------------------------------------------------------
+
+def v_pry(world: World) -> int:
+    obj = world.prso
+    if obj is not None and obj.name == "DRAIN":
+        from content import cellar
+        cellar.pry_drain(world)
+        return M_HANDLED
+    print("You can't get any leverage on that.")
+    return M_HANDLED
+
+
+def v_clear(world: World) -> int:
+    obj = world.prso
+    if obj is not None and obj.name == "DRAIN":
+        from content import cellar
+        cellar.clear_drain(world)
+        return M_HANDLED
+    print("There's nothing to clear.")
+    return M_HANDLED
+
+
+def v_load(world: World) -> int:
+    obj = world.prso
+    if obj is not None and obj.name == "GRAVESTONE":
+        from content import gravestone
+        gravestone.load(world)
+        return M_HANDLED
+    print("That doesn't need loading.")
+    return M_HANDLED
+
+
+def v_unload(world: World) -> int:
+    obj = world.prso
+    if obj is None or obj.name in ("GRAVESTONE", "HAND-CART"):
+        from content import gravestone
+        gravestone.unload(world)
+        return M_HANDLED
+    print("That isn't loaded on anything.")
+    return M_HANDLED
+
+
+def v_unlock(world: World) -> int:
+    obj = world.prso
+    if obj is not None and obj.name == "CELLAR-DOOR":
+        from content import cellar
+        cellar.unlock_cellar_door(world)
+        return M_HANDLED
+    print("You can't unlock that.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
 # Registration
 # ---------------------------------------------------------------------------
 
@@ -988,6 +1084,11 @@ def register_verbs(game) -> None:
     game.register_verb("V-DISARM",     v_disarm)
     game.register_verb("V-RAISE",      v_raise)
     game.register_verb("V-USE",        v_use)
+    game.register_verb("V-PRY",        v_pry)
+    game.register_verb("V-CLEAR",      v_clear)
+    game.register_verb("V-LOAD",       v_load)
+    game.register_verb("V-UNLOAD",     v_unload)
+    game.register_verb("V-UNLOCK",     v_unlock)
     game.register_verb("V-ENTER",      v_enter)
     from content.dankhaus import litlock_input_hook
     game.register_input_hook(litlock_input_hook)

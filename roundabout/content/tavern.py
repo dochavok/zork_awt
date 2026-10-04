@@ -49,5 +49,7 @@ def talk_may(w: World) -> None:
         print(_MAY_MUGGER_REWARD)
         w.set_global("FREE-DRINK-PENDING", False)
         g["hearts"] = min(g.get("max_hearts", g.get("hearts", 1)), g.get("hearts", 1) + 1)
-    else:
+        return
+    from content import cellar
+    if not cellar.talk_may(w):
         print(_MAY_BUSY)

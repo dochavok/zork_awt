@@ -7,7 +7,7 @@ Built incrementally — objects added as walkthrough sections require them.
 from __future__ import annotations
 from engine.world import (
     GameObject, TAKEBIT, CONTBIT, OPENBIT, NDESCBIT, SACREDBIT, ACTORBIT, BURNBIT,
-    CLIMBBIT, INVISIBLE,
+    CLIMBBIT, INVISIBLE, SURFACEBIT, TRYTAKEBIT,
 )
 
 
@@ -52,6 +52,7 @@ def make_objects(world) -> None:
     _make_combat_room_objects(world)
     _make_shrine_path_objects(world)
     _make_statue_objects(world)
+    _make_cellar_objects(world)
     _set_weights(world)
 
 
@@ -557,6 +558,26 @@ def _make_town_hall_objects(world) -> None:
         synonyms=["rowan", "finch", "councilman", "man"], adjectives=["councilman"],
         flags={ACTORBIT, NDESCBIT},
     ))
+    # Quest 32 (logic: content/gravestone.py). Rowan puts the key in the room
+    # when he holds it out.
+    world.register_object(GameObject(
+        name="MIDDLE-TIER-KEY", desc="Middle Tier Key",
+        ldesc="A heavy iron key, its bow worked into the shape of a finch in flight. "
+              "The teeth are worn smooth at the tips.",
+        synonyms=["key"], adjectives=["middle", "tier", "iron", "heavy", "calder's"],
+        size=1, flags={TAKEBIT, NDESCBIT},
+    ))
+    from content.gravestone import LISTING_MUD
+    world.register_object(GameObject(
+        name="GRAVESTONE", desc="gravestone", fdesc=LISTING_MUD, ldesc=LISTING_MUD,
+        synonyms=["gravestone", "stone", "headstone", "slab"],
+        adjectives=["calder", "finch's"], size=10,
+        flags={INVISIBLE, TAKEBIT, TRYTAKEBIT},   # TAKE refuses it (gravestone.take_stone)
+    ))
+    world.register_object(GameObject(
+        name="GRAVE", desc="grave", synonyms=["grave", "plot"], adjectives=["empty", "calder's"],
+        flags={NDESCBIT, SACREDBIT, SURFACEBIT},
+    ))
     world.register_object(GameObject(
         name="TOWN-CHARTER", desc="town charter",
         ldesc="A rolled document tied with faded ribbon. The town seal is pressed "
@@ -606,9 +627,11 @@ def _make_upper_tier_objects(world) -> None:
          "It looks like it weighs as much as a Chachapoyan Fertility Idol.",
          ["sack", "salt"], [], 4)
     # The Storage Area's description mentions both; examine text only
+    # Open container so the parser can reach the gravestone on it (Quest 32)
     item("HAND-CART", "hand cart", "",
          "A sturdy two-wheeled cart, the handles worn smooth. Built to carry more "
-         "than a person could.", ["cart"], ["hand", "two-wheeled"], 5, {TAKEBIT, NDESCBIT})
+         "than a person could.", ["cart"], ["hand", "two-wheeled"], 5,
+         {TAKEBIT, NDESCBIT, CONTBIT, OPENBIT})
     item("SUPPORT-BEAM", "support beam", "",
          "A heavy timber beam, squared and solid. Something meant to hold up a "
          "ceiling.", ["beam", "timber"], ["support", "heavy"], 4, {TAKEBIT, NDESCBIT})
@@ -715,4 +738,40 @@ def _make_statue_objects(world) -> None:
         text=('"Kept here for whoever comes after me. I hope it\'s someone careful." '
               "There's no name — only the green wax seal."),
         synonyms=["note", "paper"], adjectives=["folded", "sealed"], size=1, flags={TAKEBIT},
+    ))
+
+
+# ---------------------------------------------------------------------------
+# Quest 25 — the flooded cellar (logic: content/cellar.py)
+# ---------------------------------------------------------------------------
+
+def _make_cellar_objects(world) -> None:
+    def fixed(name, desc, synonyms, adjectives, flags=None):
+        world.register_object(GameObject(
+            name=name, desc=desc, synonyms=synonyms, adjectives=adjectives,
+            flags=flags or {NDESCBIT, SACREDBIT},
+        ))
+    world.register_object(GameObject(
+        name="CELLAR-KEY", desc="cellar key",
+        ldesc="An iron key, rust-bloomed, on a loop of string gone grey.",
+        synonyms=["key"], adjectives=["cellar", "iron"], size=1, flags={TAKEBIT},
+    ))
+    fixed("CELLAR-DOOR", "cellar door", ["door", "trapdoor", "lock"], ["cellar"])
+    # In the Kitchen (reached from the top step) until the cellar drains
+    fixed("DRAIN", "drain", ["drain", "cover", "grate", "clog"], ["drain", "iron", "square"])
+    fixed("TUNNEL-DOOR-CELLAR", "black oak door", ["door"], ["black", "oak", "low", "tunnel"])
+    fixed("TUNNEL-DOOR-BONE", "black oak door", ["door"], ["black", "oak", "low", "tunnel"])
+    world.register_object(GameObject(
+        name="CASHBOX", desc="cashbox",
+        fdesc="A rusted tin cashbox sits on a high shelf, above the old waterline.",
+        ldesc="A rusted tin cashbox sits on a high shelf, above the old waterline.",
+        synonyms=["cashbox", "box", "cache"], adjectives=["rusted", "tin", "cash"],
+        flags={SACREDBIT, INVISIBLE},
+    ))
+    world.register_object(GameObject(
+        name="BARTENDERS-BOOTS", desc="Bartender's Boots",
+        ldesc="Tall leather boots, salt-stained, soft at the ankle. Someone wore these "
+              "into worse than a cellar and walked back out.",
+        synonyms=["boots"], adjectives=["bartender's", "bartenders", "leather", "tall"],
+        size=1, flags={TAKEBIT, "WEARABLE"},
     ))

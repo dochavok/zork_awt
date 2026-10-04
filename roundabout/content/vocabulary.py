@@ -192,6 +192,7 @@ def make_vocabulary() -> Vocabulary:
     # turn: "set" removed — SET SAIL must route through "sail" canonical
     v.add_verb("turn", "flip", "shut")
     v.add_verb("unlock")
+    v.add_verb("unload", "return")                 # UNLOAD STONE (Quest 32)
     v.add_verb("untie", "free", "release", "unfasten", "unattach", "unhook")
     v.add_verb("use")                               # USE PORTCULLIS BAR
     v.add_verb("wait", "z")

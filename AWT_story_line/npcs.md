@@ -295,6 +295,12 @@ Sells hints for Zenni (tiered — see hint system in `mechanics.md`). Manages Qu
 
 **Quest 51 reward (`TALK TO MAY` after the mugger is slain):** *May glances up. "Heard the back alley's gone quiet." She sets a glass on the bar. "That one's on the house."* Free drink, 1 heart. Quest 51 itself completes when the mugger dies (6 XP, 3 Zenni).
 
+**Quest 25 — cellar key (`TALK TO MAY` while carrying the crowbar, cellar not yet offered; fires once):** *May's eyes drop to the crowbar and stay there. "Now that's useful." She reaches under the bar and sets an iron key on the counter. "Cellar. It flooded years back — the drain clogged, and we shut the door and stopped thinking about it. If you can get the cover off that drain, it's yours to clear." She slides the key over. "Do it from the top of the stairs. Nobody goes down into that water."* Cellar key to inventory; Quest 25 discovered.
+
+**Quest 25 — Bartender's Boots (`TALK TO MAY` after the cellar is drained; fires once):** *May looks you over — the wet sleeves, the silt. "You got the cellar dry." She ducks under the bar and comes up with a pair of tall leather boots, salt-stained and broken in. "Forgot I had these. Should have given them to you BEFORE you cleaned up the cellar."* Boots to inventory.
+
+**TALK TO MAY priority:** Quest 51 free drink → Quest 25 boots → Quest 25 cellar key → default (*"She picks the glass back up and goes back to work. The conversation is over when she decides it is."*).
+
 **Hints:** `TIP MAY [#]` or `TIP MAY [#] ZENNI` — see hint system in `mechanics.md` for full tier responses.
 
 ---
@@ -304,6 +310,9 @@ Sells hints for Zenni (tiered — see hint system in `mechanics.md`). Manages Qu
 **Personality:** Short, wide, shaved head, untrimmed grey beard, efficient mover. "The kind of man you'd go to if you needed something that wasn't on any official list."
 
 Vendor: sells gunpowder (5Z), torch (3Z), Tip Journal (5Z), Fishing Rod (8Z). `TALK TO SHAMUS`: *"What can I do for you? Gunpowder's five Zenni. Torches, three."* Buyback at half price for his items only. `TALK TO SHAMUS` to buy or sell.
+
+**Torch exchange:** `BUY TORCH` while already carrying a torch is the exchange — the only way to swap. Shamus's response depends on the torch's life (swap tiers in `mechanics.md` — Torch). No `GIVE TORCH TO SHAMUS`.
+- **Short of 3 Zenni (exchange tiers only):** *"Three Zenni," Shamus says, and doesn't let go of the fresh one.*
 
 ---
 
@@ -525,7 +534,17 @@ Grandson of Calder Finch (dungeon explorer). Quest 32 giver — gravestone stole
 **General dialogue / Trophy Case mention:**
 *"My grandfather built this town as much as anyone. He explored the passages beneath it too — donated whatever he found to the Trophy Case upstairs. It's been empty for years. I don't know what that says about the state of adventure in Roundabout."*
 
-**Quest 32 trigger (after finding Mid-Tier Key Door):** See `quests.md` — Quest 32.
+**Quest 32 start (first `TALK TO ROWAN` after the Mid-Tier Key Door is seen — replaces the first-interaction line; fires once):**
+*Rowan looks up from his papers, then looks again — at your boots, and the tunnel dust on them. "You've been under the town." It isn't a question. "So did my grandfather. Calder Finch. Half the passages down there are in his notebooks."*
+*He sets the pen down. "Someone stole his gravestone out of the cemetery. Pried it up and carried it off, and nobody saw a thing. The town has other priorities." A pause. "You go places other people don't. If you find it, bring it home. I'd consider it a personal favor."*
+
+**Quest 32 in progress (stone not yet back):** *"Any word on the gravestone?" Rowan asks, before you can say anything. He reads the answer on your face and goes back to his papers.*
+
+**Quest 32 reward (stone back at the Graveyard):** see `quests.md` — Quest 32 reward interaction. Quest completes on this line; the key is in his hand and `TAKE KEY` takes it.
+
+**After Quest 32:** *"Grandfather's stone is standing straight for the first time in a year," Rowan says. "I went and looked. Twice." He goes back to his papers.*
+
+**Order:** before the door is seen, the first talk is the first-interaction line and later talks the Trophy Case line. Once the door is seen: start → in progress → reward → after. If the stone is already back before the first talk after discovery, the reward fires straight away.
 
 ---
 

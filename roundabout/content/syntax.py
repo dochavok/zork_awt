@@ -483,7 +483,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="load", action="V-LOAD",
                    obj1=ObjectSpec(locations=_held_car_og_ir),
                    prep="on",
-                   obj2=ObjectSpec(locations=_og_ir)),
+                   obj2=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="load", action="V-LOAD",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
 
@@ -786,6 +786,10 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         # REMOVE — take off a worn item; REMOVE X FROM Y is a take           #
         # ------------------------------------------------------------------ #
+        SyntaxRule(verb="remove", action="V-PRY",
+                   obj1=ObjectSpec(locations=_held_car_og_ir),
+                   prep="with",
+                   obj2=ObjectSpec(locations=_held_car_have)),
         SyntaxRule(verb="remove", action="V-REMOVE",
                    obj1=ObjectSpec(locations=_held_car_og_ir_take)),
         SyntaxRule(verb="remove", action="V-TAKE-FROM",
@@ -871,6 +875,17 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj2=ObjectSpec(locations=_held_car_have)),
         SyntaxRule(verb="unlock", action="V-UNLOCK",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
+
+        # ------------------------------------------------------------------ #
+        # UNLOAD — UNLOAD STONE / UNLOAD STONE FROM CART / RETURN STONE      #
+        # ------------------------------------------------------------------ #
+        SyntaxRule(verb="unload", action="V-UNLOAD",
+                   obj1=ObjectSpec(locations=_held_car_og_ir),
+                   prep="from",
+                   obj2=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="unload", action="V-UNLOAD",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="unload", action="V-UNLOAD"),
 
         # ------------------------------------------------------------------ #
         # UNTIE                                                               #

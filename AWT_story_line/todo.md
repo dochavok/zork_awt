@@ -6,22 +6,24 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–J passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–K passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section K — Quest 32, the Missing Gravestone. First failure:
+**Current position:** Section L — Mid-Tier Dungeon. First failure:
 
 ```
-SECTION [K) Quest 32 — Missing Gravestone (Middle Tier Key)]
-  cmd     : 'TALK TO ROWAN'
-  missing : 'gravestone'
-  got     : "There's no response from the Councilman Rowan Finch."
+SECTION [L) Mid-Tier Dungeon — Keeper's Keys & Holy Water]
+  cmd     : 'SOUTH'
+  missing : 'Mid-Tier Key Door'
+  got     : "The bridge groans under your load …"
 ```
 
-Needs Rowan's dialogue, the gravestone in Bog-SE, LOAD STONE ONTO CART, pushing the cart, DROP CART at the Graveyard, the Middle Tier Key. Also the Quest 25 cellar + torch swap planned for K.
+L still uses the Graveyard route; switch it to Kitchen → DOWN → OPEN DOOR → WEST (Bone Passage), and fix the bridge load. The Mid-Tier Key Door unlock isn't built yet.
 
-**Torch budget:** the torch lights at the Mausoleum (H5) and runs 100 turns, every turn. With no swaps it dies around turn 100 (section L). Plan: do Quest 25 (Flooded Cellar) in K while in town with the crowbar, swap the torch at Shamus there, then use the Bone Passage → cellar → kitchen shortcut for a second swap around N/O. Place swaps exactly once L–P are built.
+**Torch budget:** the torch lights at the Mausoleum (H5) and ticks every turn, in town too. K swaps it at Shamus (`BUY TORCH` at 38 left, "Getting there"); the fresh torch waits for the next dark room. With L, M and N routed through the cellar, it's about 50 left back at the Kitchen in N — swap again there, which covers O–S (~55 turns). Section N's route also has a bug: "WEST [Town Square] → SOUTH [Church of All]" — south of the square is the Tale and Ale.
+
+**XP note:** the player is level 6 by the end of K (Quest 32 reward). Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
@@ -48,6 +50,7 @@ Needs Rowan's dialogue, the gravestone in Bog-SE, LOAD STONE ONTO CART, pushing 
 - INVENTORY marks wearable items (not worn); TAKE prefers objects not already held
 - The Alley, Back Alley, mugger (Medium perception, one combat round per KILL, losing isn't death), May's first visit and Quest 51 free drink
 - Walkthrough cleanup: Q and R removed (bowl pieces in C1/E, fire clay in M), rope taken at end of C2
+- Section K: Rowan (start / in progress / reward / after), Bog-SE gravestone (Easy perception), LOAD STONE ONTO CART, loaded cart blocks UP/DOWN, UNLOAD STONE (+ synonyms, SET STONE input hook) — at the Graveyard leaves the cart, Middle Tier Key (TAKE KEY). Quest 25: May's cellar key (needs crowbar), cellar door (key stays in lock), USE CROWBAR ON DRAIN / PRY COVER / REMOVE COVER WITH CROWBAR, CLEAR DRAIN, drowning GAME OVER (stairs, Bone Passage door), lit Cellar with cashbox (10 Zenni), tunnel door to the Bone Passage, Bartender's Boots. Torch exchange via BUY TORCH (swap tiers). Quest 32 reward fixed to 5 Zenni.
 
 **Known issues still open:**
 - Deferred from I1: Flooding Room (north of the Creature Den; Trap 41 — exit blocked until built); Trap 17 (Supply Room smoke-pot shelf — smoke jar, small clay pot; the room uses its default description until then), Trap 33 (idol — fixed in place until then).
@@ -98,4 +101,15 @@ For each room: check access requirements in locations.md, then add the visit whe
 **Total is unresolved:** experience.md says 130 (was 133 before guest rooms went to 0), but the `**XP:**` values in locations.md sum to 173 across 131 entries (2026-10-03). Reconcile before using either number as the test target.
 
 Guest Rooms 1–3 are excluded: set to 0 XP (rest-only, random assignment) on 2026-10-03 — see locations.md and experience.md.
+
+---
+## TODO #5 — Build TIP MAY (hint system)
+
+`TIP MAY [#]` parses to `V-TIP`, but no handler exists, so `may_hint()` in `content/actions.py` is never called. The `_HINT_LINES` table there predates the design and contradicts it for every quest it covers (51, 25, 30, 53, 41, 50, 34, 22 — e.g. a "Tally" for Quest 25, Pie Rat hints under Quest 22, hints for Quest 53 which has none by design). Replace it, don't patch it.
+
+Build from the design: blind tipping and tier ranges (mechanics.md — Hint System), May's response lines, per-quest hints from quests.md (including one-tier and conditional hints: Quest 4 after first lower-tier descent, Quests 19&30 statue hint only if not examined, Chuckle House pre/post-visit, Quest 34 late hint), and hints unlocking on discovery.
+
+No ring-path step needs a hint (nothing checks for one), so the ring walkthrough doesn't wait on this. Quest 32 leans on May's hints to point players at Rowan and the bog — nothing else in-game does (decided 2026-10-03: leave it that way).
+
+Open question: quests.md Path A for Quests 19&30 reads "May's tier 1 hint → TALK TO LIBRARIAN reveals…". Confirm the Librarian's scholar dialogue does not depend on the hint having been bought.
 

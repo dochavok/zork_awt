@@ -33,6 +33,12 @@ def initialize_world(world, game, seed=None) -> None:
     game.register_walk_check(light.dark_block)
     game.register_enter_hook(light.on_enter)
 
+    # Quest 32: a loaded hand cart can't take stairs; first-push line
+    from content import gravestone
+    game.register_walk_check(gravestone.stairs_block)
+    game.register_enter_hook(gravestone.on_enter)
+    game.register_input_hook(gravestone.set_stone_input_hook)
+
     # Start in the White House
     world.here = world.rooms["WHITE-HOUSE"]
 
@@ -126,6 +132,14 @@ def _place_objects(world) -> None:
     # POCKET-WATCH is dropped when the ghost is freed
     world.move_object(world.objects["RECORDS-WORKER"], world.rooms["RECORDS-ROOM"])
     world.move_object(world.objects["ROWAN-FINCH"],    world.rooms["COUNCIL-CHAMBER"])
+    # Quest 32: MIDDLE-TIER-KEY appears when Rowan holds it out
+    world.move_object(world.objects["GRAVESTONE"], world.rooms["BOG-SE"])
+    world.move_object(world.objects["GRAVE"],      world.rooms["GRAVEYARD"])
+    # Quest 25: CELLAR-KEY and BARTENDERS-BOOTS come from May
+    for obj, room in (("CELLAR-DOOR", "KITCHEN"), ("DRAIN", "KITCHEN"),
+                      ("TUNNEL-DOOR-CELLAR", "CELLAR"), ("TUNNEL-DOOR-BONE", "BONE-PASSAGE"),
+                      ("CASHBOX", "CELLAR")):
+        world.move_object(world.objects[obj], world.rooms[room])
     # TOWN-CHARTER is handed over for the pocket watch
     world.move_object(world.objects["BOGGART"], world.rooms["TOLL-BRIDGE"])
     # STRONGBOX is dropped when the Boggart leaves

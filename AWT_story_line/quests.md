@@ -214,17 +214,19 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 
 ## Quest 25 — The Flooded Cellar
 
-**Discovery:** Innkeeper mentions a locked cellar that flooded years ago and was sealed off.
+**Discovery:** May (the bartender — "innkeeper" and "bartender" both mean May) mentions the flooded cellar on `TALK TO MAY`, but only while the player carries the crowbar. She hands over the cellar key in the same line. A pending Quest 51 free drink is served first.
 **Prerequisites:** Crowbar from Dungeon Upper Tier (Prayer Alcove).
 
 **Steps:**
-1. Get cellar key from bartender.
-2. Enter cellar via cellar door in kitchen.
-3. Remove drain cover with crowbar.
-4. `CLEAR DRAIN` → clog clears.
-5. Cellar drains → reveals pre-flood Zenni cache + door to Secret Tunnel.
+1. `TALK TO MAY` while carrying the crowbar → cellar key (dialogue in `npcs.md`).
+2. Kitchen: `UNLOCK DOOR WITH KEY` (the key stays in the lock — it never comes out, so it can't be confused with other keys), `OPEN DOOR` → the flood is obvious from the top of the stairs.
+3. From the top step (still in the Kitchen): `USE CROWBAR ON DRAIN` (also `PRY COVER`, `REMOVE COVER WITH CROWBAR`) → drain cover off.
+4. `CLEAR DRAIN` → clog clears, cellar drains all at once.
+5. Cellar drained → quest completes (10 XP, 5 Zenni). Reveals the Zenni cache (cashbox, 10 Zenni) and the tunnel door to the Bone Passage.
 
-**Reward:** Zenni cache. Bartender gives Bartender's Boots (leg-slot armor, +3 trap disarm roll bonus — *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar"*). Secret Tunnel door permanently accessible (bidirectional). 5 Zenni.
+Going `DOWN` into the cellar before it's drained, or opening the tunnel door from the Bone Passage side, is instant drowning — GAME OVER, no warning, no roll. Text in `locations.md`.
+
+**Reward:** Zenni cache (10 Zenni, in a cashbox in the cellar). On the next `TALK TO MAY` she gives Bartender's Boots (leg-slot armor, +3 trap disarm roll bonus — *"forgot I had these, should have given them to you BEFORE you cleaned up the cellar"*). Secret Tunnel door permanently accessible (bidirectional). 5 Zenni.
 
 **May's hint (one tier only):** *"There's water behind more than one door near the inn. Best to sort that out from the top before you go wandering underneath."*
 
@@ -291,10 +293,13 @@ After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only.
 2. Talk to Councilman Rowan Finch in Council Chamber (Town Hall).
 3. Perception check in the bog (Bog-SE) → gravestone face-down in mud.
 4. Find hand cart in Storage Area (Dungeon Upper Tier).
-5. `LOAD STONE ONTO CART` → move gravestone back to cemetery.
-6. Return to Rowan Finch.
+5. `LOAD STONE ONTO CART` → push the cart (carried) back to the Graveyard. A loaded cart goes anywhere on the level but not `UP` or `DOWN`.
+6. `UNLOAD STONE` at the Graveyard → gravestone back in place; the cart is left beside it automatically (its job is done). Unloading anywhere else just tips the stone onto the ground and the player keeps the cart.
+7. Return to Rowan Finch → reward dialogue; quest completes (12 XP, 5 Zenni). He holds the key out — `TAKE KEY`.
 
-**Reward interaction:** *"That cart came from the dungeon," Rowan says flatly. "Don't bother denying it — I've seen it before, in my grandfather's papers." He studies you for a moment. "He left a key. Said it led to a lower level — wouldn't say what was down there." He holds it out. "Take it. It was never meant for me."*
+Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Cart and gravestone text is in `items.md`; the Bog-SE and Graveyard text is in `locations.md`.
+
+**Reward interaction:** *"I went out to the cemetery this morning," Rowan says. "Grandfather's stone is back where it belongs." Then, flatly: "That cart you left by the grave came from the dungeon. Don't bother denying it — I've seen it before, in my grandfather's papers." He studies you for a moment. "He left a key. Said it led to a lower level — wouldn't say what was down there." He holds it out. "Take it. It was never meant for me."*
 
 **Reward:** Middle Tier Key — opens Mid-Tier Key Door, gates access to key side of mid-tier dungeon. 5 Zenni.
 
