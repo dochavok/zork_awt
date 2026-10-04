@@ -848,6 +848,15 @@ def _make_mid_tier_objects(world) -> None:
         name="SHRINE-ZENNI", desc="Zenni", synonyms=["zenni", "coin", "coins"],
         flags={NDESCBIT, SACREDBIT},
     ))
+    # Church of All altar (logic: content/altar.py)
+    world.register_object(GameObject(
+        name="ALTAR-STONE", desc="altar", synonyms=["altar"], adjectives=["stone", "plain"],
+        flags={NDESCBIT, SACREDBIT, SURFACEBIT},
+    ))
+    world.register_object(GameObject(
+        name="DIAL", desc="dial", synonyms=["dial"], adjectives=["brass"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
     # Over the edge of the hole once the Stored Room floor is dug out
     world.register_object(GameObject(
         name="SUPPORT-TIMBER", desc="support timber", synonyms=["timber", "beam"],

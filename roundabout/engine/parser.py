@@ -360,6 +360,14 @@ class Parser:
         candidates = self._structural_matches(rules, particle, rest_after)
         if not candidates and particle is not None:
             candidates = self._structural_matches(rules, None, rest)
+        # A particle at the end ("turn dial LEFT") is tried before reading it
+        # as part of the noun phrase, when no particle follows the verb.
+        if particle is None and len(rest) >= 2:
+            tail, _ = self._detect_particle(rest[-1:], rules)
+            if tail is not None:
+                trailing = self._structural_matches(rules, tail, rest[:-1])
+                if trailing:
+                    candidates = trailing
         if not candidates:
             print("That sentence isn't one I recognize.")
             return None

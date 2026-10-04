@@ -52,7 +52,7 @@ Full dialogue in `npcs.md` — Will Passion entry, Tower visit sequence step 4.
 
 Located in The Altar sub-room of the Church of All.
 
-**Dial:** `TURN DIAL LEFT` and `TURN DIAL RIGHT` cycle through seven religions. Current attunement shown in room description.
+**Dial:** `TURN DIAL LEFT` and `TURN DIAL RIGHT` cycle through seven religions. Current attunement shown in room description. `RIGHT` moves forward through the list below (… Keepers of the Lantern → Hearth Folk → Verdant Circle …), `LEFT` moves back; both wrap. Turn text: *The altar shimmers. The dial is set to [religion].*
 
 **Seven religions in dial order:**
 1. The Verdant Circle — *A sprouting seed inside a circle of leaves.*
@@ -78,6 +78,21 @@ Located in The Altar sub-room of the Church of All.
 
 **Wrong religion attuned:** Altar shimmers normally from dial turn, but artifact does not glow. Player keeps turning.
 
+**Glow persistence:** once an artifact glows it stays lit when the dial moves on. An artifact placed while its religion is already selected glows at once. Taking an artifact off the altar puts its glow out.
+
+**Placing an artifact:** *You set the [Pale Blade / Werewolf's Amulet / Crystal Bowl] on the altar. It rests on the bare stone. Nothing happens — yet.*
+
+**Glow lines:**
+- *The Pale Blade begins to glow — a clean white light, steady, coming from somewhere inside the steel.*
+- *The Werewolf's Amulet begins to glow — a deep red, pulsing faintly at the void in the star's center.*
+- *The Crystal Bowl begins to glow — green, soft and even, as if light were pooling in it like water.*
+
+**On the altar (room listing):** *The Pale Blade lies on the altar.* / *The Pale Blade lies on the altar, glowing white.* — *The Werewolf's Amulet lies on the altar.* / *…, glowing red.* — *The Crystal Bowl sits on the altar.* / *…, glowing green.*
+
+**Anything else put on the altar:** *That doesn't belong on the altar.*
+
+**Ring worn when placed:** it comes off automatically — no extra text. Placing it does not tick corruption.
+
 **Ring placed before all three artifacts are glowing:** *"Nothing happens. Something is missing from the ritual. You pick up the ring."* Ring returns to inventory automatically. Same text fires whether zero, one, or two artifacts are glowing.
 
 **Binding ceremony text (all three artifacts glowing, ring placed):**
@@ -94,7 +109,7 @@ Located in The Altar sub-room of the Church of All.
 
 *The ring is bound.*
 
-**Post-ceremony:** Ring returned to player inventory in bound state. Invisibility no longer functions. Player must return bound ring to Will Passion to complete the ring quest.
+**Post-ceremony:** Ring returned to player inventory in bound state (no `TAKE RING` needed). Invisibility no longer functions. Player must return bound ring to Will Passion to complete the ring quest. The ritual awards 5 XP.
 
 **`WEAR RING` while bound:** *The ring won't go on. It simply won't.*
 

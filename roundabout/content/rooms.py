@@ -716,6 +716,9 @@ def _make_pond_and_bog(world, archery) -> None:
     # Collapsed Aqueduct and Collapsed Gallery, Quest 22 — content/aqueduct.py
     from content import aqueduct
     aqueduct.make_rooms(world)
+    # The Altar, east of the Church of All nave — content/altar.py
+    from content import altar
+    altar.make_rooms(world)
 
     # Town Hall — content/town_hall.py
     from content import town_hall

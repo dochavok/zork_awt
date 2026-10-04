@@ -445,7 +445,7 @@ Separate sub-room inside the Church of All. Contains the attunement dial and the
 
 **Default attunement:** The Keepers of the Lantern.
 
-**Dial turn feedback:** The altar shimmers. Room description does not otherwise change.
+**Dial turn feedback:** The altar shimmers. Room description does not otherwise change. Direction, glow, placement and listing text: ring-rituals.md — The Church of All Altar.
 
 **Seven religions (dial order left to right):**
 1. **The Verdant Circle** — *A sprouting seed inside a circle of leaves.* Nature, growth, forests, patience.

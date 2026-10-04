@@ -1129,65 +1129,30 @@ Verdant Circle).
 =============================================================================
 T) Ring Binding Ritual — Church of All Altar
 =============================================================================
-All three artifacts are in hand: Pale Blade (Brotherhood of the Pale
-Blade), Werewolf's Amulet (Veil of the Arcane), Crystal Bowl (Verdant
-Circle). Navigate to the Church of All altar.
+All three artifacts are in hand: the Pale Blade, the Werewolf's Amulet
+and the Crystal Bowl. Back to the Church of All.
 
 > SOUTH                       [Old Oak]
 > SOUTH                       [Beach Road]
 > WEST                        [Wasteland]
 > WEST                        [Main East]
-> WEST                        [Town Square]
 > SOUTH                       [Church of All]
 > EAST                        [Altar]
 
-Place all three artifacts on the altar, attuning the dial for each one.
-Artifacts can be placed in any order. The default attunement is The
-Keepers of the Lantern. Turn the dial to reach each required religion.
+Set each artifact on the altar and turn the dial until it glows, then
+the ring.
 
-Place the Pale Blade and attune to The Brotherhood of the Pale Blade
-(three positions from the default on the dial):
-
-> PUT PALE BLADE ON ALTAR     [blade placed]
-> TURN DIAL RIGHT             [dial]
-> TURN DIAL RIGHT             [dial]
-> TURN DIAL RIGHT             [white]
-
-The Pale Blade glows white.
-
-Place the Werewolf's Amulet and attune to The Veil of the Arcane
-(two positions left from Brotherhood):
-
-> PUT AMULET ON ALTAR         [amulet placed]
-> TURN DIAL LEFT              [dial]
-> TURN DIAL LEFT              [red]
-
-The Werewolf's Amulet glows red.
-
-Place the Crystal Bowl and attune to The Verdant Circle (six positions
-left from Veil of the Arcane — or one right from the Keepers, passing
-through Heart Folk and back to start):
-
-> PUT BOWL ON ALTAR           [bowl placed]
-> TURN DIAL LEFT              [dial]
-> TURN DIAL LEFT              [dial]
-> TURN DIAL LEFT              [dial]
-> TURN DIAL LEFT              [dial]
-> TURN DIAL LEFT              [dial]
+> PUT PALE BLADE ON ALTAR     [Nothing happens]
+> TURN DIAL LEFT              [shimmers]
+> TURN DIAL LEFT              [shimmers]
+> TURN DIAL LEFT              [white light]
+> PUT AMULET ON ALTAR         [Nothing happens]
+> TURN DIAL LEFT              [deep red]
+> PUT BOWL ON ALTAR           [Nothing happens]
 > TURN DIAL LEFT              [green]
+> PUT RING ON ALTAR           [The ring is bound]
 
-The Crystal Bowl glows green. All three artifacts are glowing.
-
-Now place the ring:
-
-> WEAR RING                   [ring]
-> PUT RING ON ALTAR           [binding]
-
-The binding ceremony fires. All three artifacts are consumed. The ring
-is bound — invisibility no longer functions.
-
-> TAKE RING                   [bound ring]
-> REMOVE RING                 [ring won't go on]
+The artifacts are gone, and the ring is back in hand, bound.
 
 =============================================================================
 U) Return Ring to Will — Quest Complete

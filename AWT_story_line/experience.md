@@ -48,8 +48,9 @@ Each quest has a specific XP value. All quests bumped by a flat +2 XP from base 
 | Quest 57 | The Viking Trust Trials | 12 |
 | Quest 58 | The Dragon-Nip | 4 |
 | Quest 59 | Beat Lynds | 5 |
+| Ring ritual | Binding ceremony at the Church of All altar (ring-rituals.md) | 5 |
 
-**Quest total (confirmed): 254–264 XP** (Quest 53 variable — 219 if glasses not enchanted, 229 if Actually Enchanted)
+**Quest total (confirmed): 259–269 XP** (Quest 53 variable — 219 if glasses not enchanted, 229 if Actually Enchanted)
 
 ---
 
@@ -96,14 +97,14 @@ XP scales with enemy difficulty. Named/boss enemies award toward the higher end.
 | Source | XP |
 |--------|----|
 | Exploration | 131 |
-| Quests | 254–264 |
+| Quests | 259–269 |
 | Traps (disarm) | 39 |
 | Combat | 42 |
-| **Confirmed base total** | **476–486 XP** |
+| **Confirmed base total** | **481–491 XP** |
 | Class bonus (Warrior) | +40 XP |
 | Class bonus (Mage) | +47 XP |
 | Class bonus (Rogue) | +50 XP |
-| **Confirmed total with class bonus** | **519–539 XP** (varies by class and Quest 53 outcome) |
+| **Confirmed total with class bonus** | **524–544 XP** (varies by class and Quest 53 outcome) |
 
 Class bonuses are awarded on top of base XP and vary by class. Quest 53 awards 10 XP (glasses not enchanted) or 20 XP (Actually Enchanted) — a completionist who sails to Kevry earns the higher value. All classes clear the Level 8 threshold of 420 XP comfortably on a completionist run.
 
