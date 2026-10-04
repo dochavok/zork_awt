@@ -39,6 +39,10 @@ def initialize_world(world, game, seed=None) -> None:
     game.register_enter_hook(gravestone.on_enter)
     game.register_input_hook(gravestone.set_stone_input_hook)
 
+    # Quest 49: ASSEMBLE BOWL (every bowl piece answers to "bowl")
+    from content import shrine_bowl
+    game.register_input_hook(shrine_bowl.assemble_input_hook)
+
     # Start in the White House
     world.here = world.rooms["WHITE-HOUSE"]
 
@@ -156,7 +160,8 @@ def _place_objects(world) -> None:
                       ("VENT-CEILING", "THERMAL-VENT-ROOM"), ("KEEPER-DOOR", "CHURCH-NAVE"),
                       ("HOLY-WATER", "KEEPERS-CHAMBER"), ("KEEPER-NOTE", "KEEPERS-CHAMBER"),
                       ("BONES", "ANTECHAMBER"), ("WEREWOLF", "STILL-DEN"),
-                      ("AQUEDUCT-BLOCKS", "COLLAPSED-AQUEDUCT"), ("AQUEDUCT", "COLLAPSED-AQUEDUCT")):
+                      ("AQUEDUCT-BLOCKS", "COLLAPSED-AQUEDUCT"), ("AQUEDUCT", "COLLAPSED-AQUEDUCT"),
+                      ("FOUNTAIN", "TOWN-SQUARE"), ("SHRINE-PEDESTAL", "ROUNDABOUT-FOREST")):
         world.move_object(world.objects[obj], world.rooms[room])
 
     # LOCKPICKS drop when the mugger is slain

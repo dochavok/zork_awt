@@ -317,24 +317,9 @@ def _make_town(world) -> None:
     old_oak.set_flag(RLANDBIT)
     world.register_room(old_oak)
 
-    r_forest = Room(
-        name="ROUNDABOUT-FOREST",
-        desc="Roundabout Forest",
-        ldesc=(
-            "You wouldn't know, walking through here, that the ground beneath you "
-            "is hollow. The forest is peaceful — birdsong, dappled light, the smell "
-            "of pine.\n"
-            "The mine entrance sits somewhere among the roots and undergrowth, easy "
-            "to miss if you don't know to look.\n"
-            "A stone shrine stands at the edge of the trees — old enough that the "
-            "forest has started to take it back. A carved pedestal, still solid.\n"
-            "On it, the remains of a ceramic bowl, smashed at some point and not "
-            "recently. Three or four pieces visible here; others have clearly gone "
-            "elsewhere.\n"
-            "The symbol on the pedestal is a sprouting seed inside a circle of leaves."
-        ),
-        value=1,
-    )
+    # Description by pedestal state (Quest 49) — content/shrine_bowl.py
+    r_forest = Room(name="ROUNDABOUT-FOREST", desc="Roundabout Forest", ldesc="", value=1)
+    r_forest.global_objects.append("SHRINE-ZENNI")   # "zenni" is an object only here
     r_forest.set_flag(ONBIT)
     r_forest.set_flag(RLANDBIT)
     world.register_room(r_forest)

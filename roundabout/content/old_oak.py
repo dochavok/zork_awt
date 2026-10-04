@@ -15,7 +15,7 @@ State (story flags):
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from engine.game import M_HANDLED, M_NOT_HANDLED, M_ENTER, M_LOOK, M_END
+from engine.game import M_HANDLED, M_NOT_HANDLED, M_BEG, M_ENTER, M_LOOK, M_END
 
 if TYPE_CHECKING:
     from engine.world import World
@@ -133,6 +133,12 @@ def swarm_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 # ---------------------------------------------------------------------------
 
 def forest_action(w: World, msg: int = M_NOT_HANDLED) -> int:
+    from content import shrine_bowl
+    if msg == M_LOOK:
+        shrine_bowl.forest_look(w)   # pedestal state (Quest 49)
+        return M_HANDLED
+    if msg == M_BEG:
+        return shrine_bowl.forest_beg(w)
     if msg == M_ENTER:
         from content.verbs import _check_mine_cave_in
         _check_mine_cave_in(w)   # cave-in fires on exit from the mine after the fuse

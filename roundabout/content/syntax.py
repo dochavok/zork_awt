@@ -898,6 +898,16 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
+        # MIX — MIX CLAY WITH WATER (Quest 49)                               #
+        # ------------------------------------------------------------------ #
+        SyntaxRule(verb="mix", action="V-MIX",
+                   obj1=ObjectSpec(locations=_held_car_have),
+                   prep="with",
+                   obj2=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="mix", action="V-MIX",
+                   obj1=ObjectSpec(locations=_held_car_have)),
+
+        # ------------------------------------------------------------------ #
         # SEAL — SEAL JOINTS WITH MORTAR (Quest 22)                          #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="seal", action="V-SEAL",

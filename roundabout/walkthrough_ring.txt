@@ -1110,7 +1110,7 @@ and all three bowl pieces (C1, E, I1) are already in hand.
 Mix fire clay with fountain water at the now-flowing fountain.
 
 > MIX CLAY WITH WATER         [clay adhesive]
-> ASSEMBLE BOWL               [repaired bowl]
+> ASSEMBLE BOWL               [bowl again]
 
 Navigate to the Verdant Circle shrine in Roundabout Forest.
 
@@ -1119,8 +1119,9 @@ Navigate to the Verdant Circle shrine in Roundabout Forest.
 > EAST                        [Beach Road]
 > NORTH                       [Old Oak]
 > NORTH                       [Roundabout Forest]
-> PUT BOWL ON PEDESTAL        [bowl placed]
-> PUT COIN ON PEDESTAL        [crystal bowl]
+> PUT BOWL ON PEDESTAL        [bowl is placed]
+> PUT ZENNI ON PEDESTAL       [no longer what you put there]
+> TAKE BOWL                   [Crystal Bowl]
 
 The bowl transforms into the Crystal Bowl (ring ritual artifact, the
 Verdant Circle).

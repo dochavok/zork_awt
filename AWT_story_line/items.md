@@ -222,6 +222,7 @@ A tarnished amulet bearing the seven-pointed star of The Veil of the Arcane.
 **Location:** Transformed from the repaired ceramic bowl at the Verdant Circle shrine (Roundabout Forest) — place repaired bowl on pedestal, then offer a Zenni coin
 **Quest use:** Ring ritual artifact — consumed at The Verdant Circle ritual at the Church of All altar. See Quest 49 in `quests.md`.
 
+**On the shrine pedestal:** *A crystal bowl sits on the pedestal, clear as still water.*
 **Inventory description:** *A crystal bowl, clear as still water. A continuous line is etched into the rim — looping back on itself, no beginning, no end. It has the feeling of something that has been waiting a long time to be this.*
 
 ---
@@ -542,6 +543,23 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 **Room description (once found):** *A seam of reddish clay is pressed into the overhang above you.*
 **Examine / inventory:** *A lump of reddish fire clay, dense and faintly warm. It takes the print of your fingers.*
 **Quest use:** Quest 49 — mixed with fountain water to make clay adhesive for reassembling the shrine bowl.
+
+---
+
+### Clay Adhesive
+**Weight:** 1
+**Location:** Made at the flowing Town Square fountain — `MIX CLAY WITH WATER` (fire clay used up)
+**Examine / inventory:** *A palmful of soft red clay adhesive, tacky to the touch. It won't stay workable forever, but it doesn't seem in a hurry.*
+**Quest use:** Quest 49 — `ASSEMBLE BOWL` (used up).
+
+---
+
+### Repaired Bowl
+**Weight:** 2
+**Location:** `ASSEMBLE BOWL` — three bowl pieces + clay adhesive
+**Examine / inventory:** *A ceramic bowl, pieced back together, the seams of red clay still visible. A faint etched line runs around the rim without a break.*
+**On the shrine pedestal:** *The repaired bowl sits on the pedestal.*
+**Quest use:** Quest 49 — `PUT BOWL ON PEDESTAL`, then a Zenni offering → The Crystal Bowl.
 
 ---
 

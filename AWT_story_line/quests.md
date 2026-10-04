@@ -445,11 +445,19 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 1. Find shrine (perception check in Roundabout Forest) — quest discovered.
 2. Collect all three bowl pieces.
 3. Descend to Thermal Vent Room (lower tier) — `LOOK UP` reveals fire clay. `TAKE CLAY`.
-4. Return to Town Square fountain (must be flowing — Quest 22 prerequisite). Mix fire clay with fountain water → clay adhesive.
+4. Return to Town Square fountain (must be flowing — Quest 22 prerequisite). `MIX CLAY WITH WATER` → clay adhesive (clay used up).
    - If fountain dry: *"The fountain is dry. You'll need clean running water."*
-5. Assemble bowl with adhesive.
+   - Success: *You work the clay in your hands under the fountain's spill until it softens, then keeps softening, into something smooth and tacky that holds whatever it touches. Clay adhesive — enough for one careful job.*
+   - Anywhere but the fountain: *You'll need water for that — clean and running.*
+5. `ASSEMBLE BOWL` (anywhere, holding all three pieces and the adhesive; all used up) → Repaired Bowl.
+   - Success: *You lay the three pieces out and work the adhesive into every edge, pressing them together one at a time. The seams hold. The etched line runs unbroken from one piece to the next, all the way around. It's a bowl again — not a pretty one, but whole.*
+   - Missing pieces: *You don't have all of it. Some of the bowl is still out there.*
+   - No adhesive: *The pieces fit, but nothing holds them together.*
 6. Return to shrine → `PUT BOWL ON PEDESTAL` — shrine does not respond. Text: *"The bowl is placed. The shrine is unmoved. Devotion is appreciated. Contributions pay the bills."*
-7. `PUT COIN ON PEDESTAL` (or `OFFER COIN`, `DROP COIN`) with any Zenni coin → transformation text fires → bowl becomes The Crystal Bowl (ring ritual artifact).
+7. `PUT ZENNI ON PEDESTAL` (or `OFFER ZENNI`, `DROP ZENNI`; `COIN` also accepted) — costs 1 Zenni → transformation text fires → bowl becomes The Crystal Bowl (ring ritual artifact). Quest 49 completes. `TAKE BOWL` to pick it up.
+   - No bowl on the pedestal (the Zenni is still taken): *The coin settles on the pedestal and stays there. The shrine accepts contributions at any time.*
+   - No Zenni: *You don't have a coin to offer.*
+   - "Zenni" is only an object at the shrine — elsewhere the player's money is a count, not an item.
 
 **Transformation text:** *The coin settles on the pedestal. For a moment, nothing. Then the bowl begins to change — ceramic going pale, then translucent, then clear. The etched design that was barely visible before catches the light now, sharp and permanent. What sits on the pedestal is no longer what you put there.*
 

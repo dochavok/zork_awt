@@ -813,6 +813,41 @@ def _make_mid_tier_objects(world) -> None:
         synonyms=["aqueduct", "channel", "joints", "joint", "gap"], adjectives=["stone"],
         flags={NDESCBIT, SACREDBIT},
     ))
+    # Quest 49 — the shrine bowl (logic: content/shrine_bowl.py)
+    world.register_object(GameObject(
+        name="FOUNTAIN", desc="fountain", synonyms=["fountain", "water", "basin"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="CLAY-ADHESIVE", desc="clay adhesive",
+        ldesc="A palmful of soft red clay adhesive, tacky to the touch. It won't stay "
+              "workable forever, but it doesn't seem in a hurry.",
+        synonyms=["adhesive", "clay", "glue"], adjectives=["clay", "red", "soft"],
+        size=1, flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="REPAIRED-BOWL", desc="repaired bowl",
+        ldesc="A ceramic bowl, pieced back together, the seams of red clay still "
+              "visible. A faint etched line runs around the rim without a break.",
+        synonyms=["bowl"], adjectives=["repaired", "ceramic", "shrine"],
+        size=2, flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="CRYSTAL-BOWL", desc="Crystal Bowl",
+        ldesc="A crystal bowl, clear as still water. A continuous line is etched into "
+              "the rim — looping back on itself, no beginning, no end. It has the "
+              "feeling of something that has been waiting a long time to be this.",
+        synonyms=["bowl"], adjectives=["crystal", "clear"],
+        size=2, flags={TAKEBIT, NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="SHRINE-PEDESTAL", desc="pedestal", synonyms=["pedestal", "shrine"],
+        adjectives=["carved", "stone"], flags={NDESCBIT, SACREDBIT, SURFACEBIT},
+    ))
+    world.register_object(GameObject(
+        name="SHRINE-ZENNI", desc="Zenni", synonyms=["zenni", "coin", "coins"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
     # Over the edge of the hole once the Stored Room floor is dug out
     world.register_object(GameObject(
         name="SUPPORT-TIMBER", desc="support timber", synonyms=["timber", "beam"],

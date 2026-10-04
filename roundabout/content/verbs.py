@@ -153,6 +153,11 @@ def v_drive_stake(world: World) -> int:
     return M_HANDLED if still_den.drive_stake(world) else M_NOT_HANDLED
 
 
+def v_mix(world: World) -> int:
+    from content import shrine_bowl
+    return M_HANDLED if shrine_bowl.mix(world) else M_NOT_HANDLED
+
+
 def v_place(world: World) -> int:
     if world.prso is not None and world.prso.name == "AQUEDUCT-BLOCKS":
         from content import aqueduct
@@ -1119,6 +1124,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-LOOK-UP",    v_look_up)
     game.register_verb("V-POUR",       v_pour)
     game.register_verb("V-PLACE",      v_place)
+    game.register_verb("V-MIX",        v_mix)
     game.register_verb("V-SEAL",       v_seal)
     game.register_verb("V-DRIVE-STAKE", v_drive_stake)
     game.register_verb("V-INVENTORY",  v_inventory)

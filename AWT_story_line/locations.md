@@ -994,6 +994,8 @@ The crumbled Verdant Circle shrine is visible on entry — no perception check r
 
 **Bowl piece (Easy perception check, every visit until found):** room listing *Among the shards on the pedestal, one piece is larger than the rest — a curved section of the rim, still whole.*
 
+**Pedestal states:** the "remains of a ceramic bowl" sentence stays until the repaired bowl is placed; then the bowl's own line replaces it (*The repaired bowl sits on the pedestal.* / *A crystal bowl sits on the pedestal, clear as still water.*). After the Crystal Bowl is taken: *The pedestal is bare.*
+
 Pie Rats Mining Inc. — underground beneath Roundabout Forest. Legitimate mining facade; actually a smuggling front for the Pie Rats pirate faction.
 
 ### Mine Entrance

@@ -6,20 +6,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–P passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–S passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section S — Assemble Bowl at Fountain. First failure:
+**Current position:** Section T — Ring Binding Ritual. First failure:
 
 ```
-SECTION [S) Crystal Bowl — Assemble Bowl at Fountain]
-  cmd     : 'MIX CLAY WITH WATER'
-  missing : 'clay adhesive'
-  got     : 'I don't know the word "mix".'
+SECTION [T) Ring Binding Ritual — Church of All Altar]
+  cmd     : 'SOUTH'
+  missing : 'Church of All'
+  got     : "Tale and Ale — Main Room …"
 ```
 
-MIX and ASSEMBLE aren't built yet (Quest 49 — clay adhesive at the flowing fountain, repaired bowl, then the Verdant Circle shrine).
+T's route has the same bug N had: from the Town Square the Church is EAST to Main East, then SOUTH. The Altar, the dial and the ritual aren't built yet.
 
 **Torch budget:** the torch lights at the Mausoleum (H5) and ticks every turn, in town too. K swaps it at Shamus (`BUY TORCH` at 38 left, "Getting there"); the fresh torch lights at the Bone Passage in L. N climbs out through the Crypt and swaps again in the Kitchen after the holy water (about 38 left, "Getting there"). O goes down through the cellar; the fresh torch covers O–S (~55 turns).
 
@@ -58,8 +58,10 @@ MIX and ASSEMBLE aren't built yet (Quest 49 — clay adhesive at the flowing fou
 - Parser (with O): `drive` is its own verb (was mapped to exorcise); DRIVE … INTO matches ("into" is a synonym of "in").
 - Section P: Collapsed Gallery split — new Collapsed Aqueduct (Quest 22) south of the Storage Area, Gallery south of it, Gallery EAST ↔ Rickety Bridge WEST gated on Quests 38 and 22; PLACE BLOCKS ×3 (Medium strength check each), SEAL JOINTS WITH MORTAR / USE MORTAR ON …, fountain runs; flooded Gallery.
 - Section P (cont.): TAKE ALL at the bridge collects the L drop. Parser: second PUT rule for things on the floor (PLACE), SEAL verb.
+- Section S: Town Square fountain object; MIX CLAY WITH WATER (clay adhesive); ASSEMBLE BOWL (input hook — every piece answers to "bowl"); forest pedestal states; PUT BOWL ON PEDESTAL; PUT ZENNI ON PEDESTAL (OFFER / DROP ZENNI, COIN accepted; 1 Zenni, gone) → Crystal Bowl, Quest 49 complete; TAKE BOWL.
 
 **Known issues still open:**
+- Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
 - Deferred from P: Quest 38 (Collapsed Gallery timbers — pickaxe, three strength checks, support beam); the Gallery is built with its descriptions, flood line and a closed east exit. Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: Lower Crossing north (Tool Alcove) and south (Dark Room), the 50/50 pull-back text, the Ivory Torch (Quest 34); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
 - Deferred from L: The Crevice and gold pocket watch (no room description yet — Stored Room east exit closed until built); Mine Passage south exit (Inscription Chamber and beyond); charcoal, silver dust, and the iron chest's lock (Mine Passage keeps its default description; the chest is scenery).
