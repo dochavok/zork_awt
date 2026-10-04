@@ -622,8 +622,10 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         # PULL                                                                #
         # ------------------------------------------------------------------ #
+        SyntaxRule(verb="pull", particle="free", action="V-STRUGGLE"),
         SyntaxRule(verb="pull", action="V-PULL",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="struggle", action="V-STRUGGLE"),
 
         # ------------------------------------------------------------------ #
         # PUMP                                                                #

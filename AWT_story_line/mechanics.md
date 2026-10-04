@@ -978,7 +978,8 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 ### Parser Verbs (Confirmed)
 
 **Object descriptions (global):** an item has a room line (where it's first placed), an optional listing for after it's been moved, and its examine text (items.md "Examine"). `EXAMINE` shows the examine text and never changes how the item is listed; with no examine text it shows the item's room line. A moved item with no designed listing is listed as "There is a [item] here."
-**Which object a word means:** when a word matches several objects, `TAKE`, `EXAMINE`, `LOAD` and `UNLOAD` prefer the ones not in the player's pack (e.g. `EXAMINE JAR` in the Pipe Room means the Whispering Jar, not a carried smoke jar).
+**Which object a word means:** when a word matches several objects, `TAKE`, `EXAMINE`, `LOAD`, `UNLOAD` and `CUT` prefer the ones not in the player's pack (e.g. `EXAMINE JAR` in the Pipe Room means the Whispering Jar, not a carried smoke jar; `CUT CORD` in the snare means the snare, not the heart necklace).
+**`STRUGGLE` / `PULL FREE`** (also `WRIGGLE`, `SQUIRM`, `THRASH`): escapes the Trap 8 snare (Medium strength); anywhere else *Nothing happens.*
 **Keys:** `UNLOCK` / `OPEN [thing] WITH KEY` when several carried keys match "key": if only one of them fits that thing, it's used without asking (cellar door — cellar key, Mid-Tier Key Door — Middle Tier Key, Keeper's Chamber door — key ring, music box — music box key).
 **`DROP`:** *You drop the [item].* (Designed drops — e.g. the gravestone — use their own text.)
 **Several objects in one command** (`DROP ALL`, `TAKE ALL`, comma lists): one result per item. A result is labelled "[item]:" only when its line doesn't already name the item (refusals, special lines).

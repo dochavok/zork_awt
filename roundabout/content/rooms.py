@@ -756,6 +756,9 @@ def _make_pond_and_bog(world, archery) -> None:
     # Dungeon middle tier, key side, and the top of the lower tier — content/mid_tier.py
     from content import mid_tier
     mid_tier.make_rooms(world)
+    # Key side south of the Mine Passage — content/inscription.py
+    from content import inscription
+    inscription.make_rooms(world)
     from content import lower_tier
     lower_tier.make_rooms(world)
     # Keeper's Chamber, west of the Church of All nave — content/keeper.py

@@ -37,6 +37,10 @@ def initialize_world(world, game, seed=None) -> None:
     from content import gravestone
     game.register_walk_check(gravestone.stairs_block)
     game.register_enter_hook(gravestone.on_enter)
+
+    # Trap 8: the snare fires after the Inscription Chamber description
+    from content import inscription
+    game.register_enter_hook(inscription.on_enter)
     game.register_input_hook(gravestone.set_stone_input_hook)
 
     # Quest 49: ASSEMBLE BOWL (every bowl piece answers to "bowl")
@@ -192,6 +196,10 @@ def _place_objects(world) -> None:
                       ("MID-TIER-DOOR", "MID-TIER-KEY-DOOR"), ("MINE-CHEST", "MINE-PASSAGE"),
                       ("CHARCOAL", "MINE-PASSAGE"), ("SILVER-DUST", "MINE-PASSAGE"),
                       ("GOLD-WATCH", "THE-CREVICE"), ("CREVICE-SKELETON", "THE-CREVICE"),
+                      ("ENGRAVING", "INSCRIPTION-CHAMBER"), ("SNARE", "INSCRIPTION-CHAMBER"),
+                      ("DUNGEON-RUNE-STONE", "INSCRIPTION-CHAMBER"), ("BONE-FLUTE", "CAVE-CREATURES-LAIR"),
+                      ("VAULT-CHEST", "MAGNETIC-VAULT"), ("LODESTONE", "MAGNETIC-VAULT"),
+                      ("DEEP-LOCK", "DEEP-LOCK-DOOR"),
                       ("SUPPORT-TIMBER", "STORED-ROOM"), ("KEY-RING", "LOWER-CRYPT"),
                       ("SKELETON", "LOWER-CRYPT"), ("KEEPER-SEAL", "LOWER-CRYPT"),
                       ("PENDULUM-BLADE", "LOWER-CRYPT"), ("FIRE-CLAY", "THERMAL-VENT-ROOM"),
@@ -202,6 +210,8 @@ def _place_objects(world) -> None:
                       ("FOUNTAIN", "TOWN-SQUARE"), ("SHRINE-PEDESTAL", "ROUNDABOUT-FOREST"),
                       ("ALTAR-STONE", "ALTAR"), ("DIAL", "ALTAR")):
         world.move_object(world.objects[obj], world.rooms[room])
+    # Trap 15: the diamond brooch waits inside the Magnetic Vault chest
+    world.move_object(world.objects["DIAMOND-BROOCH"], world.objects["VAULT-CHEST"])
 
     # Which key opens what — the parser uses this to pick the right key when
     # several match "key" (UNLOCK DOOR WITH KEY)

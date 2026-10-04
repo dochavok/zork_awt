@@ -1709,6 +1709,21 @@ Ancient inscription on cave wall (Quest 28: `RUB PAPER ON ENGRAVING` with thin p
 
 Both perception checks are independent — either, both, or neither may fire on a given visit.*
 
+**Perception:** both checks are Medium, repeated every visit until found (glasses: automatic). The crawlspace check is the snare check (Trap 8):
+- **Spotted:** the crawlspace is revealed and the player steps around the snare (Trap 8 XP: 3, Rogue +5). Added room line: *A loop of fine cord lies half-buried in the dirt in front of the gap — a snare, set and waiting.* The snare doesn't block the crawlspace.
+- **Not spotted:** the snare fires on entry, after the room description. The crawlspace is revealed. No damage, no XP.
+  *Your foot comes down on something that gives. A cord snaps tight around your ankle and the floor drops away — you're yanked off your feet and left swinging upside down from a hook in the ceiling. From down here the room looks different: there's a low gap in the east wall you hadn't noticed.*
+- **Hanging:** only `LOOK` / `INVENTORY` (and meta commands) work; anything else: *You're hanging upside down by one ankle. That needs dealing with first.* No release on its own.
+  - `PULL FREE` / `STRUGGLE` — Medium strength check, retry allowed. Fail: *You twist and strain, but the cord holds. You swing gently, upside down.* Success: *You haul yourself up, get a hand to the knot and work your ankle free. You drop to the dirt in an undignified heap.*
+  - `CUT CORD` [`WITH` blade] — needs a blade (Pale Blade): *You saw through the cord and drop to the dirt in a heap.* Without one: *You've nothing to cut it with.*
+  - After it has fired, added room line: *A snapped cord dangles from a hook in the ceiling.*
+- `STRUGGLE` / `PULL FREE` anywhere else: *Nothing happens.*
+
+**Engraving — `EXAMINE` / `READ ENGRAVING`:** *Rows of characters cut into the smoothed stone, worn soft at the edges. Not a script you know. It would take a rubbing to carry it anywhere.*
+
+**`RUB PAPER ON ENGRAVING`** (thin paper + charcoal, both used up): *You press the thin paper flat against the carved wall and work the charcoal across it. The inscription comes up pale against the black, line by line. You peel the rubbing away carefully. The charcoal is worn down to nothing.* The rubbing goes straight to the inventory.
+- No paper: *You'd need something to take the rubbing on.* No charcoal: *You'd need something to rub with — charcoal, maybe.* Rubbing already made: *You've already got a rubbing of it.*
+
 #### Cave Creature's Lair
 **XP: 2**
 **NPCs:** None (creature absent, never encountered)
@@ -1717,6 +1732,8 @@ Both perception checks are independent — either, both, or neither may fire on 
 **Connections:** West → Inscription Chamber (crawlspace).
 Accessed via crawlspace off Inscription Chamber. Creature absent, never encountered. Bone flute on floor (Quest 7).
 
+**Room description:** *A low, rank-smelling hollow at the end of the crawlspace. The floor is matted with old bedding — grass, fur, things that were once other things — and gnawed bones are pushed against the walls. Whatever lives here isn't home. It hasn't been for a while, or it's only just left.*
+
 #### Echo Alcove
 **XP: 1**
 **NPCs:** None
@@ -1724,6 +1741,8 @@ Accessed via crawlspace off Inscription Chamber. Creature absent, never encounte
 **Quest Hooks:** None (one-way acoustic connection to Antechamber below; atmospheric only)
 **Connections:** North → Inscription Chamber. South → Magnetic Vault.
 Listening station. One-way acoustic connection to the Antechamber in the lower tier — the sound of bones grinding drifts up from below. Same text every visit: *"A faint grinding drifts up from somewhere far below — bone on stone."* No interaction, no commands.
+
+**Room description:** *A shallow alcove, barely deeper than it is wide, the rock curved like the inside of a shell. Your own breathing comes back to you a beat late. A faint grinding drifts up from somewhere far below — bone on stone. The passage runs north and south.*
 
 #### Magnetic Vault
 **XP: 1**
@@ -1739,6 +1758,17 @@ Heavily magnetic room. Trap 15 (Magnetic Chest) on central chest — opening wit
 *A square room, stone walls, a single chest at the center on a low stone platform. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn.*
 *A nail in the wall points toward it. The ring of metallic filings around the latch is deliberate — a lodestone is built into the lid. Opening the chest without removing it first would be a problem.*
 
+**Trap 15 (traps.md):** Medium perception on every visit until spotted (glasses: automatic). Once the lodestone is out or the pulse has fired, the room uses the default description.
+- `DISARM LODESTONE` / `REMOVE LODESTONE` / `DISARM TRAP` — only once spotted, else *You don't see anything to disarm.* Medium trap-disarm roll (boots +3), retry allowed.
+  - Success (4 XP, Rogue +5): *You slide a hand under the lid's lip, find the lodestone and work it loose. The filings slump out of their ring. The chest is just a chest now.*
+  - Fail: *The lodestone is set fast. You can't get it loose — not this time.*
+  - Afterwards: *There's nothing left to disarm.*
+- `OPEN CHEST`, disarmed: *The lid lifts easily. Inside, on a fold of black cloth, lies a diamond brooch.* Room line while the brooch is inside: *In the open chest lies a diamond brooch.* Again: *The chest is already open.*
+- `OPEN CHEST`, not disarmed — the pulse fires once and the lid opens: *The lid comes up an inch and the air goes tight. Everything iron you're carrying wrenches toward the chest and slams against it: [items]. They're stuck fast.* No iron carried: *The lid comes up an inch and the air goes tight — then eases. Nothing you're carrying answers to it.*
+- Stuck items are listed by one room line instead of their own: *Stuck fast to the side of the chest: [items].* `EXAMINE` shows their usual text.
+- Stuck items: `TAKE` / `PULL` each — Medium strength check, one turn per try. Fail: *The [item] won't budge.* Success: *You wrench the [item] free.*
+- Iron items (the only ones the lodestone pulls): lockpicks, crowbar, pickaxe, shovel, flint and steel, key ring, Middle Tier Key, cellar key, portcullis bar, Pale Blade. Not the ring, the gold watch or the silver stake.
+
 #### Deep Lock Door
 **XP: 1**
 **NPCs:** None
@@ -1748,6 +1778,8 @@ Heavily magnetic room. Trap 15 (Magnetic Chest) on central chest — opening wit
 End of key side critical path. Permanently sealed — no key, no lockpicks, dead end. Lower tier reached only via Hole to Below.
 
 **Room description:** *The passage ends at a door set deep into the stone. It is sealed absolutely — no lock visible, no handle, no gap at the frame. Whatever mechanism holds it closed is on the other side, or nowhere. This door does not open. The passage ends here.*
+
+`OPEN` / `UNLOCK` / `PICK` the door: *This door does not open.*
 
 ### Trap Side (5 rooms — entered via Flooding Room sweep only)
 

@@ -917,6 +917,62 @@ def _make_mid_tier_objects(world) -> None:
         synonyms=["watch", "chain"], adjectives=["gold", "pocket"], size=1,
         flags={TAKEBIT, NDESCBIT},
     ))
+    # South of the Mine Passage (logic: content/inscription.py)
+    world.register_object(GameObject(
+        name="ENGRAVING", desc="engraving",
+        examine="Rows of characters cut into the smoothed stone, worn soft at the "
+              "edges. Not a script you know. It would take a rubbing to carry it anywhere.",
+        text="Rows of characters cut into the smoothed stone, worn soft at the "
+             "edges. Not a script you know. It would take a rubbing to carry it anywhere.",
+        synonyms=["engraving", "inscription", "carving", "characters", "wall"],
+        adjectives=["carved", "worked", "ancient"], flags={NDESCBIT, SACREDBIT, READBIT},
+    ))
+    world.register_object(GameObject(
+        name="SNARE", desc="snare", synonyms=["snare", "cord", "loop", "hook"],
+        adjectives=["fine", "snapped"], flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="DUNGEON-RUNE-STONE", desc="rune stone",
+        fdesc="A small pale stone near the base of the carved wall catches your eye — "
+              "etched with faint lines.",
+        examine="A pale stone, roughly square, with deep natural veins of darker "
+              "mineral running through it like old script.",
+        synonyms=["stone", "rune", "runestone"], adjectives=["rune", "pale", "small"],
+        size=2, flags={TAKEBIT, INVISIBLE},
+    ))
+    world.register_object(GameObject(
+        name="RUBBING", desc="rubbing",
+        examine="A charcoal rubbing of the engraving — pale characters on a black "
+              "ground. You still can't read a word of it.",
+        synonyms=["rubbing"], adjectives=["charcoal"], size=1, flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="BONE-FLUTE", desc="bone flute",
+        fdesc="Among the bones lies one that's been hollowed and pierced along its "
+              "length — a flute.",
+        examine="A flute carved from a long, pale bone, finger holes drilled along its "
+              "length. Someone made this with care. It wasn't the creature.",
+        synonyms=["flute"], adjectives=["bone"], size=1, flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="VAULT-CHEST", desc="chest", synonyms=["chest", "lid", "latch"],
+        adjectives=["single", "central"], flags={NDESCBIT, SACREDBIT, CONTBIT},
+    ))
+    world.register_object(GameObject(
+        name="LODESTONE", desc="lodestone", synonyms=["lodestone", "filings", "trap"],
+        adjectives=["metallic"], flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="DIAMOND-BROOCH", desc="diamond brooch",
+        examine="A brooch of worked silver set with a single diamond the size of a "
+              "thumbnail. Even in this light it throws sparks.",
+        synonyms=["brooch", "diamond"], adjectives=["diamond", "silver"], size=1,
+        flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="DEEP-LOCK", desc="door", synonyms=["door"],
+        adjectives=["sealed", "deep"], flags={NDESCBIT, SACREDBIT},
+    ))
     world.register_object(GameObject(
         name="CREVICE-SKELETON", desc="skeleton",
         synonyms=["skeleton", "bones", "arm", "finger", "crack"], adjectives=["wedged"],

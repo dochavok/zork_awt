@@ -1149,6 +1149,7 @@ the iron chest.
 > TAKE CHARCOAL               [You take the charcoal]
 > TAKE SILVER DUST            [pocket it]
 > OPEN CHEST WITH LOCKPICKS   [20 Zenni]
+> DROP LOCKPICKS              [You drop the lockpicks]
 
 Stored Room is east of Mine Passage. Visit The Crevice before digging
 to get the Gold Pocket Watch.
@@ -1165,7 +1166,7 @@ The shovel's work here is done.
 > DROP SHOVEL                 [You drop the shovel]
 
 =============================================================================
-Z) Quest 28 — Complete: Inscription Chamber Rubbing
+Z) Inscription Chamber & the Magnetic Vault (Quests 28, 7, 42; Diamond Brooch)
 =============================================================================
 Inscription Chamber is south of Mine Passage — not south of Stored Room.
 Return west to Mine Passage, then go south.
@@ -1173,27 +1174,34 @@ Return west to Mine Passage, then go south.
 > WEST                        [Mine Passage]
 > SOUTH                       [Inscription Chamber]
 
-Actually Enchanted Glasses auto-reveal the crawlspace in the east wall
-(Cave Creature's Lair, Quest 7). Rune stone (Quest 42) also auto-found.
+The glasses spot the snare in front of a crawlspace in the east wall
+(Cave Creature's Lair, Quest 7) and a rune stone (Quest 42).
 
-> TAKE RUNE STONE             [rune stone]
+> TAKE RUNE STONE             [You take the rune stone]
 > EAST                        [Cave Creature's Lair]
-> TAKE BONE FLUTE             [bone flute]
+> TAKE FLUTE                  [You take the bone flute]
 > WEST                        [Inscription Chamber]
-> RUB PAPER ON ENGRAVING      [rubbing]
-> TAKE RUBBING                [rubbing]
+> RUB PAPER ON ENGRAVING      [comes up pale]
+
+The Archivist gets the rubbing when we surface (Quest 28). The silver
+dust from the Mine Passage waits for the Whispering Jar (Quest 4).
+
+Further south, the Magnetic Vault holds the Diamond Brooch. The glasses
+show what's wrong with the chest before we open it.
+
+> SOUTH                       [Echo Alcove]
+> SOUTH                       [Magnetic Vault]
+> DISARM LODESTONE            [just a chest now]
+> OPEN CHEST                  [diamond brooch]
+> TAKE BROOCH                 [You take the diamond brooch]
+> NORTH                       [Echo Alcove]
+> NORTH                       [Inscription Chamber]
 > NORTH                       [Mine Passage]
-> EAST                        [Stored Room]
+> EAST                        [Hole to Below]
 
 Now descend to the lower tier.
 
 > DOWN                        [Pile of Rubble]
-
-=============================================================================
-AA) Quest 4 — Whispering Jar: Silver Dust Collected
-=============================================================================
-Silver dust collected in Mine Passage above. We can restore the
-Whispering Jar when we surface. For now, continue through the lower tier.
 
 =============================================================================
 BB) Quest 19/30 — Keeper's Keys (Lower Crypt)
@@ -1699,79 +1707,6 @@ Nine treasures to deposit. The Tower is on the second floor of Town Hall.
 Open the case before placing items.
 
 > WEST                        [Church of All]
-> NORTH                       [Main East]
-> WEST                        [Town Square]
-> NORTH                       [Town Hall]
-> UP                          [Upper Hall]
-> UP                          [Tower]
-> OPEN CASE                   [case open]
-> PUT FORGOTTEN BLADE IN CASE         [Forgotten Blade]
-> PUT DIAMOND BROOCH IN CASE          [Diamond Brooch]
-
-Wait — the Diamond Brooch is in the Magnetic Vault (mid-tier dungeon).
-We haven't retrieved it yet. Let's do that now and return.
-
-> DOWN                        [Upper Hall]
-> DOWN                        [Town Hall]
-> SOUTH                       [Town Square]
-> EAST                        [Main East]
-> SOUTH                       [Church of All]
-> SOUTH                       [Graveyard]
-> SOUTH                       [Mausoleum]
-> DOWN                        [Crypt]
-> DOWN                        [Charnel Walk]
-> NORTH                       [Bone Passage]
-> WEST                        [Junction]
-> SOUTH                       [Toll Bridge]
-> SOUTH                       [Dungeon Entrance]
-> SOUTH                       [Ink Corridor]
-> SOUTH                       [Narrow Passageway]
-> SOUTH                       [Idol Room]
-> SOUTH                       [Combat Room]
-> SOUTH                       [Prayer Alcove]
-> SOUTH                       [Portcullis Corridor]
-> SOUTH                       [Shrine Room]
-> SOUTH                       [Rickety Bridge]
-> SOUTH                       [Mid-Tier Key Door]
-> SOUTH                       [Key Door Landing]
-> SOUTH                       [Mine Passage]
-> SOUTH                       [Inscription Chamber]
-> SOUTH                       [Echo Alcove]
-> SOUTH                       [Magnetic Vault]
-
-Actually Enchanted Glasses auto-detect the magnetic lodestone in the
-chest lid. Disarm it, then open the chest.
-
-> DISARM LODESTONE            [lodestone removed]
-> OPEN CHEST                  [diamond brooch]
-> TAKE BROOCH                 [Diamond Brooch]
-
-Return to the surface via the south branch of the key side.
-Magnetic Vault is south of Echo Alcove, south of Inscription Chamber,
-south of Mine Passage — Stored Room is not on this path.
-
-> NORTH                       [Echo Alcove]
-> NORTH                       [Inscription Chamber]
-> NORTH                       [Mine Passage]
-> NORTH                       [Key Door Landing]
-> NORTH                       [Mid-Tier Key Door]
-> NORTH                       [Rickety Bridge]
-> NORTH                       [Shrine Room]
-> NORTH                       [Portcullis Corridor]
-> NORTH                       [Prayer Alcove]
-> NORTH                       [Combat Room]
-> NORTH                       [Idol Room]
-> NORTH                       [Narrow Passageway]
-> NORTH                       [Ink Corridor]
-> NORTH                       [Dungeon Entrance]
-> NORTH                       [Toll Bridge]
-> NORTH                       [Junction]
-> EAST                        [Bone Passage]
-> SOUTH                       [Charnel Walk]
-> UP                          [Crypt]
-> UP                          [Mausoleum]
-> NORTH                       [Graveyard]
-> NORTH                       [Church of All]
 > NORTH                       [Main East]
 > WEST                        [Town Square]
 > NORTH                       [Town Hall]

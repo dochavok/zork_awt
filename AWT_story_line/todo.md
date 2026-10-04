@@ -10,20 +10,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section Z — Quest 28, Inscription Chamber Rubbing. Sections A–Y pass. First failure:
+**Current position:** Full-score walkthrough, Section CC — Quest 34 setup. Sections A–Z pass (AA folded into Z). First failure:
 
 ```
-SECTION [Z) Quest 28 — Complete: Inscription Chamber Rubbing]
-  cmd     : 'SOUTH'
-  missing : 'Inscription Chamber'
+SECTION [CC) Quest 34 — Frozen Soldier (setup: Tool Alcove & Mid Room)]
+  cmd     : 'EAST'
+  missing : 'Antechamber'
   got     : "You can't go that way."
 ```
 
-The Inscription Chamber (Mine Passage south) isn't built yet. 307 full-score steps still fail.
+The Antechamber is east of the Pile of Rubble, not the Lower Crypt, so CC's route is out of date. CC also enters the Still Den without the stake (the werewolf attacks there). 239 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
-Plan for Z: explore folding Section UU (Trophy Case deposits) into the run around Z — deposit treasures as they're collected instead of in one trip at the end. That removes UU's separate run and sheds weight for the bridge (EE's return trip north carries ~17–18 otherwise). Needs the Trophy Case built. Also fold AA's text (silver dust collected) into Z and drop the empty AA section.
+Trophy Case deposits as treasures are collected — build the case on EE's surface trip (EE's return north over the bridge carries ~13: leave the rune stone or similar below).
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
 - Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.
@@ -94,6 +94,8 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section W: Whispering Jar in the Pipe Room (EXAMINE JAR discovers Quest 4); Ty's Casino Corner and the Upstairs Hall built and visited. Parser: EXAMINE prefers what isn't in the pack.
 - Section X: Library — Main Hall and The Stacks, the Librarian (three states), the Archivist (four states; first talk discovers Quest 28).
 - Section Y: two-crossing bridge plan; Mine Passage charcoal, silver dust (Medium perception), iron chest (lockpicks, 20 Zenni pocketed); The Crevice and gold pocket watch (own object); Stored Room EAST refused after the dig; shovel dropped after the dig. Quest 28 uses up the paper and charcoal.
+- Section Z: Inscription Chamber (Medium rune stone and snare checks; Trap 8 — spotted = stepped around, 3 XP / Rogue +5; fired = hanging until PULL FREE / STRUGGLE or CUT CORD with a blade), RUB PAPER ON ENGRAVING (paper + charcoal used up → rubbing), Cave Creature's Lair and bone flute, Echo Alcove, Magnetic Vault (Trap 15 — DISARM LODESTONE, iron-only pulse, stuck-to-chest line, Medium strength per item), Diamond Brooch, Deep Lock Door.
+- Section Z (cont.): AA folded into Z; UU's brooch detour removed. Lockpicks dropped after the Mine Passage chest. Parser: CUT prefers what isn't carried; STRUGGLE / PULL FREE verbs.
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -105,7 +107,8 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Trophy Case (Town Hall Tower) not built — design in mechanics.md (Trophy Case, Score). Score and treasures read 0 until it is. The full-score walkthrough needs it.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: Lower Crossing north (Tool Alcove) and south (Dark Room), the 50/50 pull-back text, the Ivory Torch (Quest 34); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
-- Deferred from L: Mine Passage south exit (Inscription Chamber and beyond).
+- V-PULL has no default handler — PULL on an ordinary object prints nothing.
+- Magnetic Vault: the default description ("Dust has settled in a faint ring around the latch") returns after the lodestone is out.
 - Floor listings: the burnt-out torch shows as "A torch." and plural items read "There is a lockpicks here."
 - Deferred from I1: Flooding Room (north of the Creature Den; Trap 41 — exit blocked until built).
 - Inked state (Trap 45): flag built and cancels ring invisibility; NPC refusals and the inn bath still to build.

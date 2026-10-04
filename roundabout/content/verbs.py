@@ -786,6 +786,12 @@ def v_jump_on(world: World) -> int:
     return M_HANDLED
 
 
+def v_struggle(world: World) -> int:
+    """STRUGGLE / PULL FREE — only means something in the Trap 8 snare."""
+    print("Nothing happens.")
+    return M_HANDLED
+
+
 def v_disarm(world: World) -> int:
     from content import combat_room
     combat_room.disarm_plate(world)
@@ -1409,6 +1415,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-PROP",       v_prop)
     game.register_verb("V-JUMP-ON",    v_jump_on)
     game.register_verb("V-DISARM",     v_disarm)
+    game.register_verb("V-STRUGGLE",   v_struggle)
     game.register_verb("V-RAISE",      v_raise)
     game.register_verb("V-USE",        v_use)
     game.register_verb("V-PRY",        v_pry)

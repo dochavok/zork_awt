@@ -156,6 +156,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("pray")
     v.add_verb("pry", "lever", "jimmy")             # PRY DOOR (crowbar)
     v.add_verb("pull", "tug", "yank")
+    v.add_verb("struggle", "wriggle", "squirm", "thrash")   # Trap 8 snare
     v.add_verb("pump")
     v.add_verb("push", "press")
     v.add_verb("put", "stuff", "insert", "place", "hide")

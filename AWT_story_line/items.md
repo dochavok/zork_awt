@@ -396,6 +396,25 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 **Weight:** 1
 **Location:** Cave Creature's Lair, Dungeon Mid-Tier (off Inscription Chamber)
 **Quest use:** Quest 7 — return to Pyronicus for fireball scroll reward.
+**Room description:** *Among the bones lies one that's been hollowed and pierced along its length — a flute.*
+**Examine:** *A flute carved from a long, pale bone, finger holes drilled along its length. Someone made this with care. It wasn't the creature.*
+
+---
+
+### Rubbing
+**Weight:** 1
+**Location:** Made in the Inscription Chamber — `RUB PAPER ON ENGRAVING` (uses up the thin paper and the charcoal); goes straight to the inventory.
+**Examine:** *A charcoal rubbing of the engraving — pale characters on a black ground. You still can't read a word of it.*
+**Quest use:** Quest 28 — give to the Archivist.
+
+---
+
+### Diamond Brooch
+**Weight:** 1
+**Location:** Inside the chest in the Magnetic Vault (mid-tier) — behind Trap 15.
+**Room description (in the open chest):** *In the open chest lies a diamond brooch.*
+**Examine:** *A brooch of worked silver set with a single diamond the size of a thumbnail. Even in this light it throws sparks.*
+**Treasure:** 45 points.
 
 ---
 

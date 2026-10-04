@@ -12,6 +12,7 @@ Atmospheric only. The blade has already fired — it hangs motionless from the c
 A loop of fine cord hidden under loose dirt on a cave floor.
 Triggering it yanks the player off their feet (no damage) and suspends them upside down from a ceiling hook for several turns unless they cut the rope or pass a strength check to pull free.
 *(Quest 7 — The Bone Flute: Trap 8 guards the crawlspace off the Inscription Chamber in the mid-tier dungeon. Triggering it or spotting it with a perception check reveals the crawlspace entrance to the Cave Creature's Lair.)*
+Built (2026-10-04): Medium perception on entry, every visit until found. Spotted → the player steps around it (counts as disarmed: 3 XP, Rogue +5). Not spotted → fires on entry. While hanging: `PULL FREE` / `STRUGGLE` (Medium strength, retry) or `CUT CORD` with a blade; no release on its own. Text in locations.md — Inscription Chamber.
 
 
 **15. Magnetic Chest**
@@ -20,6 +21,7 @@ A chest in the dungeon is rigged so opening it without disarming triggers a powe
 Any metal items in the player's inventory are yanked toward the chest and stuck to it — including equipped armor and weapons — requiring a strength check to pry each one loose, costing a turn per item.
 Perception spots unusual metallic filings arranged in a ring around the chest's latch; disarming means removing a lodestone embedded in the lid's underside.
 *(Magnetic Vault, mid-tier key side.)*
+Built (2026-10-04): Medium perception, Medium disarm (`DISARM LODESTONE`), Medium strength per stuck item; the pulse fires once and pulls iron and steel only. Rules, item list and text in locations.md — Magnetic Vault.
 
 **16. Mirror Shatter Trap**
 **Descriptor:** a firing pin behind the mirror's frame, a crossbow cocked and ready
