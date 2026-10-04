@@ -588,11 +588,13 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 1. Speak to the Redcrosse Knight in the Town Square. He acknowledges the player and invites them to return when ready.
 2. Initiate the trial — `FIGHT KNIGHT` or `CHALLENGE KNIGHT`. Full combat begins.
 3. Combat runs until one side reaches 1 heart. The Knight stops the fight before the killing blow in either direction.
+   - **Mechanics:** `FIGHT`/`CHALLENGE`/`KILL KNIGHT` starts the trial (he draws); each further attack is one round (mechanics.md — Combat). The Knight rolls 2d8 and has 4 hearts (three hits bring him to 1). Hearts the player loses are real. If a tie brings both sides to 1 heart, the player wins. He won't start a trial while the player is at 1 heart. Fireball does nothing in the trial (his line in npcs.md). Leaving the square abandons a trial in progress; the next starts fresh.
+   - Speaking to him (Level 3+) discovers the quest; so does starting the trial.
    - **Player loses (reaches 1 heart):** *"He steps back and lowers his weapon. 'You fought well enough to keep your feet. That's not nothing.' He studies you for a moment. 'Come back. I'll be here.'"* Quest remains open — retryable.
    - **Player wins (Knight reaches 1 heart):** *"He holds still for a moment after you land the deciding blow. Then something in his posture shifts — subtle, but real. 'Good, [Name],' he says. Just that. He sheathes his weapon and nods toward an open space in the square. 'Again — this time I'll show you what you did right.'"*
-4. Pay 3 Zenni. Melee weapon skill unlocked permanently. The Knight adds: *"Shamus, at the inn, keeps weapons in the back. Tell him I sent you."*
+4. Pay 3 Zenni (`PAY KNIGHT` / `GIVE KNIGHT THREE ZENNI`). Melee weapon skill unlocked permanently. The Knight adds: *"Shamus, at the inn, keeps weapons in the back. Tell him I sent you."*
 
-**Reward:** Melee weapon skill. 8 XP. 5 Zenni.
+**Reward:** Melee weapon skill. 8 XP. No Zenni — the skill is the reward (the player pays the Knight 3 Zenni for the training).
 
 ---
 

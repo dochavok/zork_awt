@@ -1704,7 +1704,7 @@ and melee unlock are class-gated.
 > WEST                        [Wasteland]
 > WEST                        [Main East]
 > WEST                        [Town Square]
-> TALK TO KNIGHT              [Knight of Faith]
+> TALK TO KNIGHT              [already know what I teach]
 
 The Knight greets the player. As a Warrior, the quest does not trigger.
 

@@ -46,7 +46,7 @@ _QUEST_META: dict[str, dict] = {
     "51":  {"name": "The Back Alley Mugger",     "xp": 6,  "zenni": 3},
     "52":  {"name": "Make Litlock Laugh",        "xp": 6,  "zenni": 3},
     "53":  {"name": "Will's Glasses",            "xp": 10, "zenni": 5},  # 20 if enchanted
-    "54":  {"name": "Fight the Knight",          "xp": 8,  "zenni": 4},
+    "54":  {"name": "Fight the Knight",          "xp": 8,  "zenni": 0},
     "55":  {"name": "The Archer's Trial",        "xp": 6,  "zenni": 0},
     "56":  {"name": "Will's Teaching",           "xp": 4,  "zenni": 2},
     "57":  {"name": "The Viking Trust Trials",   "xp": 12, "zenni": 5},

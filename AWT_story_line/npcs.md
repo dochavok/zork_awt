@@ -450,6 +450,8 @@ He pauses.
 
 ### The Redcrosse Knight: Knight of Faith
 **Location:** Roundabout Town Square.
+**Presence line (room listing):** *The Redcrosse Knight, Knight of Faith, stands at ease near the fountain, watching the town go about its business.*
+**`EXAMINE KNIGHT`:** *A tall man in plain, well-kept armour, a red cross faded on the breast. He wears his sword like a tool he respects. His eyes are calm, and they miss very little.*
 **Personality:** Formally warm. A teacher first — he takes the trial seriously but is rooting for the player to pass. Few unnecessary words. The kind of man who gives respect before it's earned and more after.
 
 Teaches melee weapon use to Mages and Rogues via Quest 54 (Fight the Knight) — a trial by combat to earn his respect, not a hostile encounter. Uses player's name once familiarity established.
@@ -472,8 +474,29 @@ Teaches melee weapon use to Mages and Rogues via Quest 54 (Fight the Knight) —
 **Fight initiation (subsequent attempts):**
 *(No preamble — he draws his weapon.)*
 
-**After player loses / After player wins / Return visits:**
+**After player loses / After player wins:**
 Full combat dialogue in `quests.md` — Quest 54.
+
+**Trial rounds** (mechanics in `quests.md` — Quest 54):
+- You hit: *You get inside his guard and land a clean blow. He gives ground, nodding.*
+- He hits: *He turns your strike aside and catches you with the flat of his blade.*
+- Tie: *You trade blows, and both of you land one.*
+- `CAST FIREBALL` during the trial (no effect): *"Not that," he says. "Steel. That's what I teach."*
+
+**Fight attempted at 1 heart:** *He looks you over. "Not like that. Rest first, then come back."*
+
+**Return visits (`TALK TO KNIGHT`):**
+- After a loss: *"[Name]," he says. "Ready to try again?"*
+- Won, not yet paid (also `FIGHT KNIGHT` / `PAY KNIGHT` refusals route here): *"Three Zenni, [Name], and I'll show you what you did right."*
+- Paying with less than 3 Zenni: *"Three Zenni," he says. "Come back when you have it."*
+- After training: *"[Name]." He nods, once. "Keep your guard up."*
+- `FIGHT KNIGHT` after training: *"We're done with that, [Name]," he says.*
+
+**Paying (`PAY KNIGHT` / `GIVE KNIGHT THREE ZENNI`):** *He walks you through it twice, slowly, then once at speed: your footing, your guard, where your weight goes when you swing. By the end your arms ache, and something has settled into them that wasn't there before.* Then the Shamus line (quests.md — Quest 54).
+
+**Warriors (no trial):**
+- `TALK TO KNIGHT`: *The Knight turns to face you, unhurried, and takes in the way you stand before anything else. "You already know what I teach," he says. "You've nothing to prove to me. Go and use it."*
+- `FIGHT KNIGHT` / `CHALLENGE KNIGHT`: *He doesn't reach for his sword. "You don't need me for that," he says.*
 
 ---
 

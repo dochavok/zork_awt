@@ -79,7 +79,7 @@ Western end of Main Street.
 
 ### Roundabout Town Square
 **XP: 1**
-**NPCs:** None
+**NPCs:** The Redcrosse Knight (Quest 54 — see npcs.md). Presence line: *The Redcrosse Knight, Knight of Faith, stands at ease near the fountain, watching the town go about its business.*
 **Items:** Fountain water (available after Quest 22); silver stake + folded note (inside statue base, crowbar required)
 **Quest Hooks:** Quest 22 (The Ruined Aqueduct) — fountain restored; Quest 49 (The Ruined Shrine) — fountain water required; silver stake leads into werewolf critical path
 **Connections:** North → Town Hall. South → Tale and Ale (Main Room). East → Main East. West → Main West. Southwest → The Alley.

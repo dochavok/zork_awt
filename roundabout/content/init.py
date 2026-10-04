@@ -60,6 +60,9 @@ def initialize_world(world, game, seed=None) -> None:
     game.register_input_hook(dream_input_hook)       # Dream Corridor menus
     from content.vikings import give_zenni_input_hook
     game.register_input_hook(give_zenni_input_hook)  # GIVE RAZNAK THREE ZENNI
+    from content import knight
+    game.register_input_hook(knight.give_zenni_input_hook)  # GIVE KNIGHT THREE ZENNI
+    game.register_enter_hook(knight.on_enter)        # leaving abandons the trial
 
     # Pie Rat heist: weak point check; the blown entrance stays sealed
     from content import mine
@@ -155,6 +158,7 @@ def _place_objects(world) -> None:
     ):
         world.move_object(world.objects[obj], world.rooms[room])
     world.move_object(world.objects["STATUE"], world.rooms["TOWN-SQUARE"])
+    world.move_object(world.objects["KNIGHT"], world.rooms["TOWN-SQUARE"])
     world.move_object(world.objects["SCROLL-UNBIND-UNDEAD"], world.rooms["LIGHTHOUSE"])
     world.move_object(world.objects["MUSIC-BOX"],    world.rooms["WIZARDS-TOWER"])
     world.move_object(world.objects["SCROLL-LIGHT"], world.rooms["WIZARDS-TOWER"])

@@ -530,6 +530,11 @@ def v_talk(world: World) -> int:
         getattr(vikings, _VIKING_TALK[obj.name])(world)
         return M_HANDLED
 
+    if obj.name == "KNIGHT":
+        from content import knight
+        knight.talk(world)
+        return M_HANDLED
+
     if obj.name == "CHILD":
         print("The child says nothing.")
         return M_HANDLED
@@ -864,6 +869,12 @@ def v_pay(world: World) -> int:
         from content import vikings
         vikings.pay_raznak(world)
         return M_HANDLED
+    knight = world.objects.get("KNIGHT")
+    if (obj is None or obj.name == "KNIGHT") and knight is not None \
+            and knight.location is world.here:
+        from content import knight as knight_mod
+        knight_mod.pay(world)
+        return M_HANDLED
     print("There's no one here to pay.")
     return M_HANDLED
 
@@ -879,6 +890,10 @@ def v_challenge(world: World) -> int:
     if obj.name == "LYNDS":
         from content import lynds
         lynds.challenge(world)
+        return M_HANDLED
+    if obj.name == "KNIGHT":
+        from content import knight
+        knight.attack(world)
         return M_HANDLED
     print(f"The {obj.desc} doesn't seem interested.")
     return M_HANDLED
@@ -911,6 +926,10 @@ def v_melee(world: World) -> int:
     if obj.name == "APPRENTICE" and not world.get_global("APPRENTICE-FREED"):
         from content import trap_side
         trap_side.fight_round(world)
+        return M_HANDLED
+    if obj.name == "KNIGHT":
+        from content import knight
+        knight.attack(world)
         return M_HANDLED
     print(f"You can't fight the {obj.desc}.")
     return M_HANDLED

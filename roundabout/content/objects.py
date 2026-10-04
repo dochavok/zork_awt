@@ -372,6 +372,10 @@ def _make_viking_objects(world) -> None:
     npc("RAZNAK", "Raznak",
         "Raznak stands at the near end of the range, watching the targets.",
         ["raznak", "viking", "archer"])
+    # Quest 54 (content/knight.py)
+    from content import knight
+    npc("KNIGHT", "Redcrosse Knight", knight.PRESENCE,
+        ["knight", "redcrosse"], ["redcrosse"]).examine = knight.EXAMINE
     npc("IVANAAR", "Ivanaar Stormbringer",
         "Ivanaar Stormbringer sits by the central fire, watching you with the "
         "patience of someone who expects to be impressed or disappointed, and "

@@ -100,6 +100,9 @@ def _named(obj, words: str) -> bool:
 def _fireball(w: World, target: str) -> bool:
     """CAST FIREBALL [AT X]. True if it hit something (the timer starts)."""
     from engine.game import M_END
+    from content import knight
+    if knight.not_that(w):      # Quest 54: steel only
+        return False
     enemies = [o for o in (_here(w, n) for n in ("MUGGER", "WARDEN", "WEREWOLF", "APPRENTICE")) if o]
     if w.get_global("APPRENTICE-FREED"):
         enemies = [o for o in enemies if o.name != "APPRENTICE"]

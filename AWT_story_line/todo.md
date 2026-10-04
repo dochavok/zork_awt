@@ -10,16 +10,16 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section QQ — Quest 54, Fight the Knight. Sections A–PP pass (AA folded into Z, DD into II, MM into LL2, NN into OO). First failure:
+**Current position:** Full-score walkthrough, Section RR — Quest 58, The Dragon-Nip. Sections A–QQ pass (AA folded into Z, DD into II, MM into LL2, NN into OO). First failure:
 
 ```
-SECTION [QQ) Quest 54 — Fight the Knight (Melee Skill — Not Needed for Warrior)]
-  cmd     : 'TALK TO KNIGHT'
-  missing : 'Knight of Faith'
-  got     : "You can't see any knight here!"
+SECTION [RR) Quest 58 — The Dragon-Nip (Golden Dragon Scale)]
+  cmd     : 'NORTH'
+  missing : 'nightstand'
+  got     : "You push open the bedroom door and step inside.\nWill Passion's Bedroom\n..."
 ```
 
-20 full-score steps still fail.
+19 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
@@ -118,6 +118,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section LL2 (+MM): Dream Corridor (numbered menus, light not torch), Lost Apprentice's Cell (fight 2d8/3 hearts, Fireball, freed not killed, USE SHOVEL, UP to Bog-NW with the gloves; Quest 50 Zenni 6→5), Supply Cache (SEARCH RUBBLE → gold nugget), Flood Sump.
 - Section OO: Forgotten Shaft and Hidden Secondary Entrance (mine branch; Assay Room gap — Medium perception from the mine side, found from the tunnel side); cellar route with CAST LIGHT twice; bowl ending from the ring walkthrough (PUT ZENNI ON PEDESTAL); Assay Room description restored to the design text.
 - Section PP: Swarm Tree (USE SMOKE JAR settles the bees, the jar is used up, the queen vial appears; carrying the jar holds the swarm off), GIVE VIAL TO BEEKEEPER → enchanted honey straight to inventory (Quest 24), EAT HONEY restores 2 hearts; TAKE HONEY step removed.
+- Section QQ: Redcrosse Knight in Town Square (presence, examine, Warrior lines); Quest 54 trial for Mages and Rogues (2d8, 4 hearts, to 1 heart either way; Fireball refused), PAY KNIGHT / GIVE KNIGHT THREE ZENNI teaches melee; Quest 54 Zenni reward dropped (3 Zenni fee kept). test_knight.py plays the trial as Mage and Rogue. Fragment: TALK TO KNIGHT [already know what I teach].
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -131,6 +132,8 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - UU's `LOOK IN CASE [9 of 9]` fragment conflicts with the design (no denominator during play) — decide at UU.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: the bow attack on the werewolf (failure line in mechanics.md; the attack doesn't exist yet). Fireball is built.
+- Bow actions aren't built: the `SHOOT X (WITH BOW)` syntax maps to V-SHOOT, but no verb is registered, so shooting does nothing anywhere (mugger, Warden, apprentice, werewolf, the knight's trial). Needs the bow attack per mechanics.md (bow skill, round-1 bonus).
+- Inked refusals aren't built: traps.md (Trap 45) says May, Shamus, all trainers (Raznak, Redcrosse Knight, Will for spells), Litlock, the Records Room Worker, the Librarian and active quest givers refuse an inked player. Only Will's line is designed; the rest need refusal lines and the INKED checks.
 - Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
 - TAKE ALL lists "You already have…" for every carried item (Zork skips held items).
 - Combat bonuses from gear aren't applied in the per-encounter fights (mugger, Warden, apprentice roll `player.roll` alone): the Apprentice's Gloves' +3 and the melee weapon bonuses do nothing yet.
