@@ -159,6 +159,8 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("struggle", "wriggle", "squirm", "thrash")   # Trap 8 snare
     v.add_verb("pump")
     v.add_verb("push", "press")
+    v.add_verb("dust")
+    v.add_verb("sprinkle", "scatter")
     v.add_verb("put", "stuff", "insert", "place", "hide")
     v.add_verb("raise", "lift")
     v.add_verb("read", "skim")

@@ -373,7 +373,16 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 **Location:** Pipe Room, Tale and Ale (fixed in place).
 **Room description:** *A cracked ceramic jar sits on the side table, humming faintly to itself.*
 **Examine:** *A ceramic jar, glazed blue-grey, a crack running from lip to base. It hums — a low, steady note you feel more than hear. Letters are etched around its base, worn almost smooth.* (First look discovers Quest 4.)
-**Quest use:** Quest 4 — restored with the wax seal, silver dust and the incantation etched on its base.
+**Quest use:** Quest 4 — restored with the wax seal, silver dust and the inscription etched on its base.
+
+**Built (2026-10-04):** steps go in order — seal, dust, read. The seal and the dust are used up.
+- **`PRESS SEAL`** (also `PRESS SEAL ON JAR`, `PUT SEAL ON JAR`): *You press the wax seal over the crack. The wax gives, then takes — it spreads along the line of the crack and sets, red against the blue-grey glaze. The hum steadies.* Then: *Something clinks inside the jar. Five Zenni sit in the bottom, kept there by the crack until now. You pocket them.* (The quest's 5 Zenni.)
+- **`DUST JAR`** (also `SPRINKLE DUST ON JAR`, `PUT DUST ON JAR`): with no silver dust — *You have nothing to dust it with.* Before the seal — *The dust would only sift into the crack.* After — *You sprinkle the silver dust over the jar. It clings to the glaze and settles into the etched letters around the base, and for a moment the whole jar glints.*
+- **`READ INSCRIPTION`** (also `READ LETTERS` / `ETCHING` / `WORDS` / `BASE` / `JAR`): Medium perception check every time. Failed: *The letters are worn almost smooth. You can't make them out.* Before seal and dust: *Around the base, worn almost smooth: "Hold what was heard. Speak what was held." You say the words aloud. The jar hums on, unchanged.* After both (Quest 4 completes; the same text on every later read): *You read the words around the base aloud: "Hold what was heard. Speak what was held." The hum rises, wavers, and stops. In the silence, a voice no louder than breath: "The ceiling of the thermal vent holds a secret." Then nothing.*
+- **`LISTEN`** / **`LISTEN TO JAR`:** before — *A low, steady hum. Up close, it almost sounds like a voice holding a single note.* After — *Nothing. The jar is quiet now.*
+- **Restored room line:** *A mended ceramic jar sits on the side table, quiet.*
+- **Restored examine:** *A ceramic jar, glazed blue-grey, its crack sealed with red wax. A fine silver shimmer clings to the letters around its base. It doesn't hum any more.*
+- "Inscription" also names the Inscription Chamber engraving (mid-tier); the two never share a room.
 
 ---
 
@@ -382,14 +391,14 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 **Location:** Display cabinet, Town Hall Upper Hall — `OPEN CABINET`, `TAKE SEAL`. No perception check. (Cabinet text in locations.md — Upper Hall.)
 **Room description (open cabinet):** *A wax seal sits among the documents in the open cabinet.*
 **Examine:** *A disc of old red wax, still soft enough to press. The town crest is stamped into its face.*
-**Quest use:** Quest 4 (The Whispering Jar) — `PRESS SEAL` on the jar as part of the restoration sequence.
+**Quest use:** Quest 4 (The Whispering Jar) — `PRESS SEAL` on the jar as part of the restoration sequence. Used up.
 
 ---
 
 ### Silver Dust
 **Weight:** 1
 **Location:** Mine Passage, Dungeon Mid-Tier — perception check required
-**Quest use:** Quest 4 — `DUST JAR` as part of the Whispering Jar restoration.
+**Quest use:** Quest 4 — `DUST JAR` as part of the Whispering Jar restoration. Used up.
 **Room description (once found):** *A faint shimmer near the base of one timber catches your eye — silver dust, settled into a crack in the stone.*
 **`TAKE SILVER DUST`:** *You pinch the silver dust out of the crack and pocket it.*
 **Examine:** *A pinch of fine silver dust. It catches the light even down here.*

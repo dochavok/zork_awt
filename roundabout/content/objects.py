@@ -320,14 +320,15 @@ def _make_sea_objects(world) -> None:
         synonyms=["paper", "sheets", "sheet"], adjectives=["thin", "translucent"],
         flags={TAKEBIT},
     ))
-    # Quest 4 — the Whispering Jar, Pipe Room (restoration comes later)
+    # Quest 4 — the Whispering Jar, Pipe Room (restoration: content/whispering_jar.py)
     world.register_object(GameObject(
         name="WHISPERING-JAR", desc="ceramic jar",
         fdesc="A cracked ceramic jar sits on the side table, humming faintly to itself.",
         examine="A ceramic jar, glazed blue-grey, a crack running from lip to base. It "
                 "hums — a low, steady note you feel more than hear. Letters are etched "
                 "around its base, worn almost smooth.",
-        synonyms=["jar"], adjectives=["ceramic", "cracked", "whispering", "blue-grey"],
+        synonyms=["jar", "inscription", "letters", "base", "words", "etching"],
+        adjectives=["ceramic", "cracked", "whispering", "blue-grey", "mended", "etched"],
         flags={SACREDBIT},
     ))
     # Described in their rooms' descriptions

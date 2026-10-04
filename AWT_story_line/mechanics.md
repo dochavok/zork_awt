@@ -866,9 +866,9 @@ Dice minigame in the northwest corner of the Tale and Ale. Ty runs the game. One
 
 ### Whispering Jar (Quest 4)
 
-Restored with wax seal + silver dust + incantation (etched into base — readable via perception check or Enchanted Glasses). Whispers once: *"The ceiling of the thermal vent holds a secret."*
+Restored with wax seal + silver dust + the inscription etched into its base (`READ INSCRIPTION` — Medium perception check; Enchanted Glasses give their bonus, Actually Enchanted Glasses pass). Whispers: *"The ceiling of the thermal vent holds a secret."* Rules and text: items.md — The Whispering Jar.
 
-One time only, never repeated. This is the only hint anywhere for the fire clay in the Thermal Vent Room (lower tier, `LOOK UP`).
+Reading the inscription again repeats the whisper (no further reward). `LISTEN` afterwards: *Nothing. The jar is quiet now.* This is the only hint anywhere for the fire clay in the Thermal Vent Room (lower tier, `LOOK UP`).
 
 ---
 
@@ -981,6 +981,8 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 
 **Object descriptions (global):** an item has a room line (where it's first placed), an optional listing for after it's been moved, and its examine text (items.md "Examine"). `EXAMINE` shows the examine text and never changes how the item is listed; with no examine text it shows the item's room line. A moved item with no designed listing is listed as "There is a [item] here."
 **Which object a word means:** when a word matches several objects, `TAKE`, `EXAMINE`, `LOAD`, `UNLOAD` and `CUT` prefer the ones not in the player's pack (e.g. `EXAMINE JAR` in the Pipe Room means the Whispering Jar, not a carried smoke jar; `CUT CORD` in the snare means the snare, not the heart necklace).
+**Second object of `PUT` / `SPRINKLE` / `PRESS … ON`:** prefers what isn't in the pack (`PUT SEAL ON JAR` means the Whispering Jar, not a carried smoke jar). `DUST` and `LISTEN TO` prefer what isn't in the pack, like `TAKE`.
+**`DUST [thing]`** (Quest 4): `DUST JAR` in the Pipe Room; anywhere else *There's nothing here worth dusting.* `PRESS SEAL` away from the jar: *There's nothing here to press it on.*
 **`STRUGGLE` / `PULL FREE`** (also `WRIGGLE`, `SQUIRM`, `THRASH`): escapes the Trap 8 snare (Medium strength); anywhere else *Nothing happens.*
 **Keys:** `UNLOCK` / `OPEN [thing] WITH KEY` when several carried keys match "key": if only one of them fits that thing, it's used without asking (cellar door — cellar key, Mid-Tier Key Door — Middle Tier Key, Keeper's Chamber door — key ring, music box — music box key).
 **`DROP`:** *You drop the [item].* (Designed drops — e.g. the gravestone — use their own text.)

@@ -10,16 +10,16 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section FF — Quest 4, the Whispering Jar. Sections A–EE pass (AA folded into Z, DD into II). First failure:
+**Current position:** Full-score walkthrough, Section GG — Quest 28, the Archivist's Request. Sections A–FF pass (AA folded into Z, DD into II). First failure:
 
 ```
-SECTION [FF) Quest 4 — The Whispering Jar (Complete)]
-  cmd     : 'PRESS SEAL'
-  missing : 'seal'
-  got     : ""
+SECTION [GG) Quest 28 — The Archivist's Request (Complete)]
+  cmd     : 'NORTH'
+  missing : 'Library Main Hall'
+  got     : "You can't go that way."
 ```
 
-The jar mechanic isn't built (pressing the seal, dusting the jar, reading the incantation, the whisper). FF's `DUST JAR [dust]` and `READ INCANTATION [incantation]` pass by accident ("I don't know the word \"dust\"", "You can't see any incantation here!"). 187 full-score steps still fail.
+The Library (Main Hall) and The Stacks aren't built (rooms, Librarian, Archivist, GIVE RUBBING, incantation scroll object). 163 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
@@ -101,6 +101,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Trophy Case (The Tower): OPEN / CLOSE CASE, PUT / DROP … IN CASE (treasures only, points from items.md, SCORE reads them), room and EXAMINE / LOOK IN listings, nothing comes back out (deposits are flagged against the implicit take). Section O deposits the Ship-in-a-Bottle and Pie Rat Coin (no sailing after O); UU reworded to 'remaining'. Post-dig [Stored Room] fragments → [Hole to Below] (EE, II, LL).
 - Section EE: bridge pickups (stake, idol, wax seal, Pale Blade, three bowl pieces, two rune stones, smoke jar — the vial and lantern stay for II); ring's N route to the Keeper's Chamber; Tower stop deposits the gold watch, diamond brooch and idol. FF reaches the Pipe Room from the Tower.
 - Bowl pieces and rune stones have distinct names (large / muddy / stone bowl piece; flat / grey / pale rune stone); fragments updated in both walkthroughs.
+- Section FF: Whispering Jar restoration (PRESS SEAL → 5 Zenni in the jar, DUST JAR, READ INSCRIPTION — Medium perception, whisper repeats on re-read; LISTEN hum / quiet; seal and dust used up). Jar's READ word is INSCRIPTION (GG brings the incantation scroll). Parser: DUST / LISTEN TO prefer what isn't carried; PUT / SPRINKLE / PRESS … ON targets prefer what isn't carried. GG starts WEST from the Pipe Room.
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -114,7 +115,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - UU's `LOOK IN CASE [9 of 9]` fragment conflicts with the design (no denominator during play) — decide at UU.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: Lower Crossing south (Dark Room); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
-- LISTEN has no handler — prints nothing outside the Tool Alcove.
+- LISTEN has no default handler — prints nothing outside the Tool Alcove and the Pipe Room.
 - V-PULL has no default handler — PULL on an ordinary object prints nothing.
 - Magnetic Vault: the default description ("Dust has settled in a faint ring around the latch") returns after the lodestone is out.
 - Floor listings: the burnt-out torch shows as "A torch." and plural items read "There is a lockpicks here."

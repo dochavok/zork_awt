@@ -1310,17 +1310,16 @@ Also: restore the Whispering Jar. Return to the inn for that.
 FF) Quest 4 — The Whispering Jar (Complete)
 =============================================================================
 The jar is in the inn's Pipe Room, east of the Main Room. We have wax
-seal, silver dust, and can read the incantation etched on the base.
+seal, silver dust, and can read the inscription etched on the base.
 
 > DOWN                        [Upper Hall]
 > DOWN                        [Town Hall]
 > SOUTH                       [Town Square]
 > SOUTH                       [Tale and Ale]
 > EAST                        [Pipe Room]
-> PRESS SEAL                  [seal]
-> DUST JAR                    [dust]
-> READ INCANTATION            [incantation]
-> LISTEN                      [thermal vent]
+> PRESS SEAL                  [red against the blue-grey glaze|Five Zenni]
+> DUST JAR                    [whole jar glints]
+> READ INSCRIPTION            [thermal vent holds a secret]
 
 Jar whispers: "The ceiling of the thermal vent holds a secret." Quest 4
 complete. The fire clay waits in the Thermal Vent Room for our next trip
@@ -1331,7 +1330,7 @@ GG) Quest 28 — The Archivist's Request (Complete)
 =============================================================================
 Return the rubbing to the Archivist in the library.
 
-> NORTH                       [Main Room]
+> WEST                        [Main Room]
 > NORTH                       [Town Square]
 > WEST                        [Main West]
 > NORTH                       [Library Main Hall]

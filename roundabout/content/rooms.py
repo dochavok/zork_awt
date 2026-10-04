@@ -783,6 +783,9 @@ def _make_pond_and_bog(world, archery) -> None:
     # The Trophy Case in The Tower — content/trophy_case.py
     from content import trophy_case
     trophy_case.make_rooms(world)
+    # The Whispering Jar in the Pipe Room (Quest 4) — content/whispering_jar.py
+    from content import whispering_jar
+    whispering_jar.make_rooms(world)
 
     # Tavern cellar, Quest 25 (needs the Kitchen and the Bone Passage) — content/cellar.py
     from content import cellar

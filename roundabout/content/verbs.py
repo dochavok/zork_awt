@@ -1420,6 +1420,9 @@ def register_verbs(game) -> None:
     game.register_verb("V-JUMP-ON",    v_jump_on)
     game.register_verb("V-DISARM",     v_disarm)
     game.register_verb("V-STRUGGLE",   v_struggle)
+    from content import whispering_jar
+    game.register_verb("V-DUST",       whispering_jar.v_dust)
+    game.register_verb("V-PUSH",       whispering_jar.v_push)
     game.register_verb("V-RAISE",      v_raise)
     game.register_verb("V-USE",        v_use)
     game.register_verb("V-PRY",        v_pry)

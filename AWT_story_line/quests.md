@@ -22,10 +22,10 @@ Update this file immediately when any quest detail is designed or changed.
 **Steps:**
 1. `OPEN CABINET` in Town Hall Upper Hall → `TAKE SEAL` (no perception check)
 2. Descend to Mine Passage in dungeon mid-tier → find silver dust (perception check required)
-3. Return to jar → `PRESS SEAL`, `DUST JAR`, `READ INCANTATION`
-4. Jar whispers once: *"The ceiling of the thermal vent holds a secret."* — one time only, never repeated.
+3. Return to jar → `PRESS SEAL`, `DUST JAR`, `READ INSCRIPTION` (in that order; full rules and text in items.md — The Whispering Jar)
+4. Jar whispers: *"The ceiling of the thermal vent holds a secret."* Reading the inscription again repeats the whisper; the reward is given once.
 
-**Reward:** The Whispering Jar hint points player to fire clay in the Thermal Vent Room (lower tier, `LOOK UP`). No other hint for this exists anywhere. 5 Zenni.
+**Reward:** The Whispering Jar hint points player to fire clay in the Thermal Vent Room (lower tier, `LOOK UP`). No other hint for this exists anywhere. 5 Zenni — found in the bottom of the jar when the seal closes the crack.
 
 **May's hint (one tier only — unlocks once player has first descended to the lower tier):** *"That jar in the back room of the inn — people say it used to warn about things. If it's still got something to say, I'd want to hear it before going any deeper."*
 

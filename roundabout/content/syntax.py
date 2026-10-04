@@ -642,6 +642,23 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="push", action="V-PUSH",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
+        # PRESS SEAL ON / INTO JAR — Quest 4
+        SyntaxRule(verb="push", action="V-PUSH",
+                   obj1=ObjectSpec(locations=_held_car_og_ir),
+                   prep="on", obj2=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="push", action="V-PUSH",
+                   obj1=ObjectSpec(locations=_held_car_og_ir),
+                   prep="into", obj2=ObjectSpec(locations=_held_car_og_ir)),
+
+        # ------------------------------------------------------------------ #
+        # DUST / SPRINKLE (Quest 4 — the Whispering Jar)                      #
+        # ------------------------------------------------------------------ #
+        SyntaxRule(verb="dust", action="V-DUST"),
+        SyntaxRule(verb="dust", action="V-DUST",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="sprinkle", action="V-PUT-ON",
+                   obj1=ObjectSpec(locations=_held_car_og_ir_take_have),
+                   prep="on", obj2=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # PUT                                                                 #

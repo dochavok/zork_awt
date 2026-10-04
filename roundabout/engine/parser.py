@@ -703,10 +703,22 @@ class Parser:
         # if some matches are already held and others aren't, take the others.
         # LOAD / UNLOAD work on what's on the ground or in the cart the same way
         # (LOAD STONE with rune stones in the pack means the gravestone; CUT CORD
-        # means the snare, not the heart necklace).
+        # means the snare, not the heart necklace; DUST JAR / LISTEN TO JAR mean
+        # the Whispering Jar, not a carried smoke jar).
         if (len(matched) > 1
                 and getattr(self, "_current_action", None) in ("V-TAKE", "V-LOAD", "V-UNLOAD", "V-CUT",
-                                                                "V-EXAMINE")
+                                                                "V-EXAMINE", "V-DUST", "V-LISTEN")
+                and world.player is not None):
+            not_held = [o for o in matched if o not in world.player.contents]
+            if not_held:
+                matched = not_held
+
+        # PUT / SPRINKLE / PRESS <held thing> ON <target>: the target is the one
+        # not in the pack (PUT SEAL ON JAR means the Whispering Jar, not a carried
+        # smoke jar). _current_prso is only set while the second object resolves.
+        if (len(matched) > 1
+                and getattr(self, "_current_prso", None) is not None
+                and getattr(self, "_current_action", None) in ("V-PUT-ON", "V-PUSH")
                 and world.player is not None):
             not_held = [o for o in matched if o not in world.player.contents]
             if not_held:
