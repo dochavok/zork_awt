@@ -931,7 +931,7 @@ Rickety Bridge, through the iron door, and down into the lower tier.
 The bridge won't take everything we're carrying. Below it we need only
 the key, the torch, the shovel and the rope; the rest waits here.
 
-> DROP ALL BUT RING, KEY, TORCH, SHOVEL AND ROPE   [Dropped]
+> DROP ALL BUT RING, KEY, TORCH, SHOVEL AND ROPE   [You drop the]
 > SOUTH                       [Mid-Tier Key Door]
 > UNLOCK DOOR WITH KEY        [swings inward]
 > SOUTH                       [Key Door Landing]

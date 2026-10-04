@@ -846,7 +846,8 @@ The Dankhaus is east of here. Dankhaus hidden here — dense brush conceals the 
 **Items:** Rune stone (Quest 42; perception check)
 **Quest Hooks:** Quest 42
 **Connections:** South → Bog of Eternal Stench (SE). West → Bog of Eternal Stench (NW). Southwest → Bog of Eternal Stench (SW).
-Contains a rune stone — perception check required.
+Contains a rune stone — perception check (**Medium, 9**), every visit until found.
+- **Room listing once found:** *A grey stone sits at the water's edge, one face worn flat.* (Examine text in items.md — Rune Stones.)
 
 **Room description:** *The ground here is technically solid. Technically. Dark water pools between tufts of coarse grass. The smell has layers. You have stopped trying to identify them, and don't really want to.*
 
@@ -856,7 +857,8 @@ Contains a rune stone — perception check required.
 **Items:** Bog thyme (Quest 40; perception check — among the reeds); Verdant Circle shrine bowl piece (Quest 49; Easy perception check, every visit until found — text in items.md)
 **Quest Hooks:** Quest 40
 **Connections:** South → Roundabout Pond. East → Bog of Eternal Stench (SE). North → Bog of Eternal Stench (NW). Northeast → Bog of Eternal Stench (NE).
-Entry point from Roundabout Pond. Contains bog thyme — perception check required to spot it among the reeds.
+Entry point from Roundabout Pond. Contains bog thyme — perception check (**Medium, 9**), every visit until found, to spot it among the reeds.
+- **Room listing once found:** *A clump of thyme grows on a dry hummock among the reeds, improbably green.*
 
 **Room description:** *A flat expanse of bog, grey-green and indifferent. The water is still except where it isn't. The smell arrived before you did and will be here long after you leave.*
 
@@ -866,7 +868,10 @@ Entry point from Roundabout Pond. Contains bog thyme — perception check requir
 **Items:** Hollow log (perception check); key to Will's music box inside (Quest 12)
 **Quest Hooks:** Quest 12; Quest 50 exit surfaces here (shovel required from Lost Apprentice's Cell)
 **Connections:** East → Bog of Eternal Stench (NE). South → Bog of Eternal Stench (SW). Southeast → Bog of Eternal Stench (SE).
-Contains a hollow log — perception check required to find it. Inside: the key to Will's music box (Quest 12). Quest 50 Bog-NW exit surfaces here (shovel required to finish hole from Lost Apprentice's Cell).
+Contains a hollow log — perception check (**Medium, 9**), every visit until found. Inside: the key to Will's music box (Quest 12), found with the log; `TAKE KEY` works straight away.
+- **Log listing, key inside:** *A hollow log lies half-sunk among the reeds. Something small and metal glints inside it.* Once the key is taken: *A hollow log lies half-sunk among the reeds.*
+- **Examine log, key inside:** *Rotten through the middle and hollow end to end. Wedged inside: a small brass key.* Once empty: *Rotten through the middle and hollow end to end.*
+- The log can't be taken. Quest 50 Bog-NW exit surfaces here (shovel required to finish hole from Lost Apprentice's Cell).
 
 **Room description:** *The reeds are taller here, crowding in from the edges. The water is darker. The smell is worse. This part of the bog feels less visited, which is saying something.*
 

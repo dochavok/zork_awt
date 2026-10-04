@@ -109,6 +109,7 @@ class GameObject:
     desc:  str = ""   # short label used in listings ("brass lantern")
     fdesc: str = ""   # first-time room description (before player touches it)
     ldesc: str = ""   # subsequent room description
+    examine: str = "" # EXAMINE text (falls back to ldesc, then fdesc)
     text:  str = ""   # readable content (READBIT objects)
 
     # Properties mirroring ZIL PROPDEFs

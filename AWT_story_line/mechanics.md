@@ -973,6 +973,10 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 
 ### Parser Verbs (Confirmed)
 
+**Object descriptions (global):** an item has a room line (where it's first placed), an optional listing for after it's been moved, and its examine text (items.md "Examine"). `EXAMINE` shows the examine text and never changes how the item is listed; with no examine text it shows the item's room line. A moved item with no designed listing is listed as "There is a [item] here."
+**`DROP`:** *You drop the [item].* (Designed drops — e.g. the gravestone — use their own text.)
+**Several objects in one command** (`DROP ALL`, `TAKE ALL`, comma lists): one result per item. A result is labelled "[item]:" only when its line doesn't already name the item (refusals, special lines).
+
 | Verb | Context |
 |------|---------|
 | `OPEN MAILBOX` | White House / Tale and Ale — portal to Will's Tower |

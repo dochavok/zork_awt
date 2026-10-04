@@ -386,7 +386,8 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 
 ### Music Box Key
 **Weight:** 1
-**Location:** Hollow log in Bog-NW — perception check to find hollow log
+**Location:** Hollow log in Bog-NW — Medium perception check to find the log (log text in locations.md)
+**Examine:** *A small brass key, green at the edges, with a bow shaped like a treble clef.*
 **Quest use:** Quest 12 — opens the locked music box in Will's Wizard Tower.
 
 ---
@@ -622,7 +623,7 @@ The Old Oak rune stone falls free when the kite comes down — see Rune Stones.
 ### Rune Stones (3)
 **Weight:** 2 each
 **Locations:**
-1. **Bog rune stone:** Bog-NE (perception check) — *A grey stone, heavy for its size, one face worn flat by water. Faint lines are etched across the surface in no pattern you recognize.*
+1. **Bog rune stone:** Bog-NE (Medium perception check). Room listing: *A grey stone sits at the water's edge, one face worn flat.* Examine: *A grey stone, heavy for its size, one face worn flat by water. Faint lines are etched across the surface in no pattern you recognize.*
 2. **Dungeon rune stone:** Inscription Chamber, mid-tier (perception check) — *A pale stone, roughly square, with deep natural veins of darker mineral running through it like old script.*
 3. **Old Oak rune stone:** Falls into the grass when the kite comes down (Quest 41). Room listing: *A small flat stone on a cord lies in the grass.* Examine: *A small flat stone, dark and smooth, threaded on a cord. Mineral veins run through it in a pattern that looks almost intentional.*
 **Quest use:** Quest 42 (The Brotherhood Stones) — deliver all three to Ivanaar at the Viking Encampment.
@@ -648,7 +649,9 @@ Brotherhood weave, old but not worn. The runes along the hem and collar are fain
 
 ### Bog Thyme
 **Weight:** 1
-**Location:** Bog-SW — perception check required
+**Location:** Bog-SW — Medium perception check
+**Room description:** *A clump of thyme grows on a dry hummock among the reeds, improbably green.*
+**Examine:** *Small grey-green leaves with a smell sharp enough to cut through the bog. Almost.*
 **Quest use:** Quest 40 (Shamus's Recipe) — deliver with clay pot to Shamus for hearty stew menu upgrade.
 
 ---

@@ -139,11 +139,11 @@ def v_examine(world: World) -> int:
     if gravestone.examine(world, obj):
         return M_HANDLED
 
-    # Generic examine: show ldesc or fdesc
-    desc = obj.ldesc or obj.fdesc
+    # Generic examine: the examine text, else the room line. Looking at an
+    # object doesn't touch it — its room listing stays the same.
+    desc = obj.examine or obj.ldesc or obj.fdesc
     if desc:
         print(desc)
-        obj.touched = True
     else:
         print(f"You see nothing special about the {obj.desc}.")
     return M_HANDLED
@@ -302,6 +302,9 @@ def v_take(world: World) -> int:
     obj.touched = True
     world.move_object(obj, player)
     print(f"You take the {obj.desc}.")
+    if obj.name == "MUSIC-BOX-KEY":
+        from content import bog
+        bog.key_taken(world)
     return M_HANDLED
 
 
@@ -411,7 +414,7 @@ def v_drop(world: World) -> int:
         return M_HANDLED
 
     world.move_object(obj, world.here)
-    print(f"Dropped. {obj.ldesc or obj.desc}")
+    print(f"You drop the {obj.desc}.")
     return M_HANDLED
 
 

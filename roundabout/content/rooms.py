@@ -679,9 +679,21 @@ def _make_pond_and_bog(world, archery) -> None:
             # Shrine bowl piece — Easy perception, every visit until found
             from content.perception import EASY, reveal_if_found
             reveal_if_found(w, "BOWL-PIECE-BOG", EASY)
+            from content import bog
+            bog.reveal(w, "BOG-SW")       # bog thyme
         return M_NOT_HANDLED
 
+    def bog_find_action(room_name):
+        def action(w, msg=M_NOT_HANDLED):
+            if msg == M_ENTER:
+                from content import bog
+                bog.reveal(w, room_name)
+            return M_NOT_HANDLED
+        return action
+
     bog_sw.action = bog_sw_action
+    bog_ne.action = bog_find_action("BOG-NE")   # rune stone
+    bog_nw.action = bog_find_action("BOG-NW")   # hollow log, music box key
 
     # The Dankhaus, east of Bog-SE (path hidden, warded) — content/dankhaus.py
     from content import dankhaus

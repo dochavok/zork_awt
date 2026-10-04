@@ -151,7 +151,7 @@ def pour(w: World) -> bool:
     w.move_object(water, None)          # used up
     w.set_global("STAKE-CONSECRATED", True)
     stake.desc = "consecrated silver stake"
-    stake.ldesc = _CONSECRATED
+    stake.examine = _CONSECRATED
     stake.adjectives = list(stake.adjectives) + ["consecrated"]
     return True
 

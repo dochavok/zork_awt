@@ -398,7 +398,7 @@ rooms share one name; diagonal moves work between all of them.
 
 Actually Enchanted Glasses auto-pass perception: rune stone visible.
 
-> TAKE RUNE STONE             [rune stone]
+> TAKE RUNE STONE             [You take the rune stone]
 > WEST                        [Bog of Eternal Stench]
 
 Hollow log — actually enchanted glasses reveal it.
@@ -424,6 +424,12 @@ Bog-NW. For Warriors, the Light scroll must be taken to Will to learn.
 > SOUTH                       [Tale and Ale]
 > REMOVE GLASSES              [glasses removed]
 > OPEN MAILBOX                [tower]
+
+We're still carrying the Unbind Undead scroll from the Lighthouse.
+Warriors can't read spell scrolls alone, so give it to Will while
+we're here; he teaches it for 3 Zenni. It's for the Chuckle House ghost.
+
+> GIVE SCROLL TO WILL         [The knowing, I mean]
 > LOOK AT MUSIC BOX           [music box]
 > OPEN MUSIC BOX WITH KEY     [scroll]
 > TAKE SCROLL                 [scroll]

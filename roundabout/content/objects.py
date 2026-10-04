@@ -88,7 +88,7 @@ def _make_tower_objects(world) -> None:
             "A painting hangs on the wall, slightly crooked — a tavern scene, "
             "warm light, people who look comfortable."
         ),
-        ldesc="A painting of the Tale and Ale hangs on the wall, slightly crooked.",
+        examine="A painting of the Tale and Ale hangs on the wall, slightly crooked.",
         synonyms=["painting", "picture", "portrait"],
         flags={SACREDBIT, NDESCBIT},
     )
@@ -128,7 +128,7 @@ def _make_tower_objects(world) -> None:
     ring = GameObject(
         name="RING",
         desc="plain dark ring",
-        ldesc="A plain dark ring.",
+        examine="A plain dark ring.",
         synonyms=["ring"],
         adjectives=["plain", "dark", "god-forsaken"],
         flags={TAKEBIT, "WEARABLE"},
@@ -145,7 +145,7 @@ def _make_mine_objects(world) -> None:
         name="PICKAXE",
         desc="pickaxe",
         fdesc="A pickaxe leans against the wall.",
-        ldesc="A sturdy mining pickaxe.",
+        examine="A sturdy mining pickaxe.",
         synonyms=["pickaxe", "pick", "axe"],
         flags={TAKEBIT},
     )
@@ -155,7 +155,7 @@ def _make_mine_objects(world) -> None:
         name="PIE-RAT-DISGUISE",
         desc="Pie Rat disguise",
         fdesc="A Pie Rat disguise sits among the contraband.",
-        ldesc="A convincing Pie Rat disguise — hat, coat, the works.",
+        examine="A convincing Pie Rat disguise — hat, coat, the works.",
         synonyms=["disguise", "costume", "hat", "coat"],
         adjectives=["pie", "rat", "pie-rat"],
         flags={TAKEBIT},
@@ -186,7 +186,7 @@ def _make_mine_objects(world) -> None:
         name="FLINT-AND-STEEL",
         desc="flint and steel",
         fdesc="Flint and steel sit in the torch sconce.",
-        ldesc="A flint and steel striker.",
+        examine="A flint and steel striker.",
         synonyms=["flint", "steel", "striker"],
         adjectives=["flint", "and"],
         flags={TAKEBIT},
@@ -203,7 +203,7 @@ def _make_npcs(world) -> None:
         name="SHAMUS",
         desc="Shamus",
         fdesc="Shamus works the kitchen with practiced efficiency.",
-        ldesc="Shamus the cook, short and wide, shaved head and untrimmed grey beard.",
+        examine="Shamus the cook, short and wide, shaved head and untrimmed grey beard.",
         synonyms=["shamus", "cook"],
         adjectives=["shamus"],
         flags={ACTORBIT},
@@ -253,7 +253,7 @@ def _make_sea_objects(world) -> None:
         name="SHOVEL",
         desc="shovel",
         fdesc="A shovel is lashed to the rail near the bow.",
-        ldesc="A sturdy iron-headed shovel.",
+        examine="A sturdy iron-headed shovel.",
         synonyms=["shovel", "spade"],
         flags={TAKEBIT},
     )
@@ -263,7 +263,7 @@ def _make_sea_objects(world) -> None:
         name="ROPE",
         desc="coil of rope",
         fdesc="A coil of rope sits loose on a bollard.",
-        ldesc="A coil of sturdy rope.",
+        examine="A coil of sturdy rope.",
         synonyms=["rope", "coil", "line"],
         adjectives=["coil", "coiled"],
         flags={TAKEBIT},
@@ -273,7 +273,7 @@ def _make_sea_objects(world) -> None:
     # Found by a Hard perception check aboard; goes straight to inventory
     world.register_object(GameObject(
         name="TREASURE-MAP", desc="treasure map",
-        ldesc="A hand-drawn map on oilcloth. A small island south of the sea lane, "
+        examine="A hand-drawn map on oilcloth. A small island south of the sea lane, "
               "east of Roundabout, with a dotted line up the beach and an X near the trees.",
         synonyms=["map", "oilcloth"], adjectives=["treasure", "hand-drawn"],
         flags={TAKEBIT, READBIT},
@@ -288,7 +288,7 @@ def _make_sea_objects(world) -> None:
     world.register_object(GameObject(
         name="PIE-RAT-COIN", desc="Pie Rat Coin",
         fdesc="A Pie Rat Coin lies on the boards.",
-        ldesc="A heavy coin stamped with a grinning rat in a tricorn hat. It isn't "
+        examine="A heavy coin stamped with a grinning rat in a tricorn hat. It isn't "
               "money anywhere you know of.",
         synonyms=["coin"], adjectives=["pie", "rat", "pie-rat", "heavy"],
         flags={TAKEBIT},
@@ -298,7 +298,7 @@ def _make_sea_objects(world) -> None:
     world.register_object(GameObject(
         name="SHIP-IN-A-BOTTLE", desc="bottle",
         fdesc=BOTTLE_IN_POND,
-        ldesc="A tiny ship in full sail, sealed in green glass. Someone spent a long "
+        examine="A tiny ship in full sail, sealed in green glass. Someone spent a long "
               "time on the rigging. The name on the hull is too small to read — almost.",
         synonyms=["bottle", "ship", "ship-in-a-bottle"], adjectives=["green", "glass", "tiny"],
         flags={INVISIBLE},
@@ -306,7 +306,7 @@ def _make_sea_objects(world) -> None:
     # Shamus sells it (npcs.md — 8 Zenni)
     world.register_object(GameObject(
         name="FISHING-ROD", desc="fishing rod",
-        ldesc="A jointed wooden rod with a cork grip and a reel that clicks when you "
+        examine="A jointed wooden rod with a cork grip and a reel that clicks when you "
               "turn it. The line looks newer than the rod.",
         synonyms=["rod", "pole"], adjectives=["fishing", "wooden", "jointed"],
         flags={TAKEBIT},
@@ -347,7 +347,7 @@ def _make_viking_objects(world) -> None:
 
     banner = GameObject(
         name="BANNER", desc="banner",
-        ldesc="Four runes are stitched along the banner, left to right: "
+        examine="Four runes are stitched along the banner, left to right: "
               "Earth, Air, Fire, Water.",
         synonyms=["banner", "flag", "pole", "runes"],
         flags={NDESCBIT, SACREDBIT},
@@ -356,7 +356,7 @@ def _make_viking_objects(world) -> None:
 
     riddle_stone = GameObject(
         name="RIDDLE-STONE", desc="riddle stone",
-        ldesc="The stone is carved with runes — solid to the touch, but its "
+        examine="The stone is carved with runes — solid to the touch, but its "
               "surface moves like dark water.",
         synonyms=["stone", "rock"], adjectives=["riddle", "runic", "carved"],
         flags={NDESCBIT, SACREDBIT},
@@ -376,14 +376,14 @@ def _make_viking_objects(world) -> None:
 
     world.register_object(GameObject(
         name="RUNED-METAL", desc="runed metal",
-        ldesc="A length of dark metal — dense, rune-carved, warm to the touch "
+        examine="A length of dark metal — dense, rune-carved, warm to the touch "
               "even in the open air.",
         synonyms=["metal", "runes"], adjectives=["runed", "dark", "brotherhood"],
         flags={TAKEBIT},
     ))
     world.register_object(GameObject(
         name="PALE-BLADE", desc="Pale Blade",
-        ldesc="The blade is pale, almost white, and thin in the way of "
+        examine="The blade is pale, almost white, and thin in the way of "
               "something that doesn't need to be heavy to do what it does.",
         synonyms=["blade", "sword"], adjectives=["pale", "white"],
         flags={TAKEBIT},
@@ -418,7 +418,7 @@ def _make_scrolls(world) -> None:
     world.register_object(GameObject(
         name="SCROLL-UNBIND-UNDEAD", desc="Unbind Undead scroll",
         fdesc="A scroll lies on the desk, weighted at one corner with a smooth stone.",
-        ldesc="A spell scroll headed Unbind Undead, in a cramped, careful hand.",
+        examine="A spell scroll headed Unbind Undead, in a cramped, careful hand.",
         synonyms=["scroll", "spell"], adjectives=["unbind", "undead", "spell"],
         flags={TAKEBIT},
     ))
@@ -445,7 +445,7 @@ def _make_old_oak_objects(world) -> None:
     world.register_object(GameObject(
         name="OLD-OAK-RUNE-STONE", desc="rune stone",
         fdesc="A small flat stone on a cord lies in the grass.",
-        ldesc="A small flat stone, dark and smooth, threaded on a cord. Mineral "
+        examine="A small flat stone, dark and smooth, threaded on a cord. Mineral "
               "veins run through it in a pattern that looks almost intentional.",
         synonyms=["stone", "rune", "cord"], adjectives=["rune", "flat", "small"],
         flags={TAKEBIT},
@@ -460,7 +460,7 @@ def _make_old_oak_objects(world) -> None:
         name="BOWL-PIECE-FOREST", desc="bowl piece",
         fdesc="Among the shards on the pedestal, one piece is larger than the "
               "rest — a curved section of the rim, still whole.",
-        ldesc="A curved piece of ceramic from the shrine bowl, part of the rim. "
+        examine="A curved piece of ceramic from the shrine bowl, part of the rim. "
               "A faint etched line runs along its edge.",
         synonyms=["piece", "shard", "bowl"], adjectives=["bowl", "curved", "ceramic"],
         flags={TAKEBIT, INVISIBLE},
@@ -477,9 +477,39 @@ def _make_bog_objects(world) -> None:
         name="BOWL-PIECE-BOG", desc="bowl piece",
         fdesc="Half-sunk in the mud at the edge of the reeds, a curved shard of "
               "pale ceramic catches what light there is.",
-        ldesc="A piece of the shrine bowl, caked with bog mud. Under the mud, a "
+        examine="A piece of the shrine bowl, caked with bog mud. Under the mud, a "
               "faint etched line.",
         synonyms=["piece", "shard", "bowl"], adjectives=["bowl", "curved", "ceramic"],
+        flags={TAKEBIT, INVISIBLE},
+    ))
+    # Bog items below: Medium perception, every visit until found (content/bog.py)
+    world.register_object(GameObject(
+        name="BOG-RUNE-STONE", desc="rune stone",
+        fdesc="A grey stone sits at the water's edge, one face worn flat.",
+        examine="A grey stone, heavy for its size, one face worn flat by water. Faint "
+              "lines are etched across the surface in no pattern you recognize.",
+        synonyms=["stone", "rune"], adjectives=["rune", "grey", "gray", "heavy"],
+        flags={TAKEBIT, INVISIBLE},
+    ))
+    from content.bog import LOG_WITH_KEY, LOG_EXAMINE_KEY
+    world.register_object(GameObject(
+        name="HOLLOW-LOG", desc="hollow log",
+        fdesc=LOG_WITH_KEY, examine=LOG_EXAMINE_KEY,
+        synonyms=["log"], adjectives=["hollow", "rotten"],
+        flags={INVISIBLE},
+    ))
+    # Inside the log: the log's listing carries it until it's taken
+    world.register_object(GameObject(
+        name="MUSIC-BOX-KEY", desc="music box key",
+        examine="A small brass key, green at the edges, with a bow shaped like a treble clef.",
+        synonyms=["key"], adjectives=["music", "box", "brass", "small"],
+        flags={TAKEBIT, INVISIBLE, NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="BOG-THYME", desc="bog thyme",
+        fdesc="A clump of thyme grows on a dry hummock among the reeds, improbably green.",
+        examine="Small grey-green leaves with a smell sharp enough to cut through the bog. Almost.",
+        synonyms=["thyme", "clump", "herb"], adjectives=["bog"],
         flags={TAKEBIT, INVISIBLE},
     ))
 
@@ -521,7 +551,7 @@ def _make_lynds_objects(world) -> None:
     ))
     world.register_object(GameObject(
         name="HEART-NECKLACE", desc="heart necklace",
-        ldesc="A simple cord with a clay charm, worn smooth.",
+        examine="A simple cord with a clay charm, worn smooth.",
         synonyms=["necklace", "charm", "cord"], adjectives=["heart", "clay"],
         flags={TAKEBIT, "WEARABLE"},
     ))
@@ -557,7 +587,7 @@ def _make_chuckle_objects(world) -> None:
     from content.chuckle import GHOST_PRESENCE
     world.register_object(GameObject(
         name="TICKET-BOOTH", desc="ticket booth",
-        ldesc="The ticket window is cracked but intact. A small wooden sign on the "
+        examine="The ticket window is cracked but intact. A small wooden sign on the "
               "ledge reads: ADMISSION. Below it, in smaller text: EVERYONE GETS IN. "
               "The booth is empty. Whoever collected the tickets isn't collecting "
               "anymore.",
@@ -566,7 +596,7 @@ def _make_chuckle_objects(world) -> None:
     ))
     world.register_object(GameObject(
         name="CHUCKLE-HOOKS", desc="hooks",
-        ldesc="Empty brackets where something square once hung — the right shape "
+        examine="Empty brackets where something square once hung — the right shape "
               "for mirrors, though whatever was here is long gone. The hooks in the "
               "deeper rooms still have their tenants.",
         synonyms=["hooks", "brackets"], flags={NDESCBIT, SACREDBIT},
@@ -580,7 +610,7 @@ def _make_chuckle_objects(world) -> None:
     world.register_object(GameObject(
         name="POCKET-WATCH", desc="pocket watch",
         fdesc="A pocket watch lies on the floor where the ghost stood.",
-        ldesc="A plain silver pocket watch, stopped. The inside of the lid is "
+        examine="A plain silver pocket watch, stopped. The inside of the lid is "
               "engraved, but too worn to read.",
         synonyms=["watch"], adjectives=["pocket", "silver"], flags={TAKEBIT},
     ))
@@ -605,7 +635,7 @@ def _make_town_hall_objects(world) -> None:
     # when he holds it out.
     world.register_object(GameObject(
         name="MIDDLE-TIER-KEY", desc="Middle Tier Key",
-        ldesc="A heavy iron key, its bow worked into the shape of a finch in flight. "
+        examine="A heavy iron key, its bow worked into the shape of a finch in flight. "
               "The teeth are worn smooth at the tips.",
         synonyms=["key"], adjectives=["middle", "tier", "iron", "heavy", "calder's"],
         size=1, flags={TAKEBIT, NDESCBIT},
@@ -623,7 +653,7 @@ def _make_town_hall_objects(world) -> None:
     ))
     world.register_object(GameObject(
         name="TOWN-CHARTER", desc="town charter",
-        ldesc="A rolled document tied with faded ribbon. The town seal is pressed "
+        examine="A rolled document tied with faded ribbon. The town seal is pressed "
               "into the wax at the bottom, and the handwriting is the careful kind "
               "that expects to be read for a long time.",
         synonyms=["charter", "document"], adjectives=["town", "rolled"], flags={TAKEBIT},
@@ -651,9 +681,9 @@ def _make_tunnel_objects(world) -> None:
 # ---------------------------------------------------------------------------
 
 def _make_upper_tier_objects(world) -> None:
-    def item(name, desc, fdesc, ldesc, synonyms, adjectives, size, flags=None):
+    def item(name, desc, fdesc, examine, synonyms, adjectives, size, flags=None):
         world.register_object(GameObject(
-            name=name, desc=desc, fdesc=fdesc, ldesc=ldesc, synonyms=synonyms,
+            name=name, desc=desc, fdesc=fdesc, examine=examine, synonyms=synonyms,
             adjectives=adjectives, size=size, flags=flags or {TAKEBIT},
         ))
     item("PORTCULLIS-BAR", "portcullis bar",
@@ -702,14 +732,14 @@ def _make_combat_room_objects(world) -> None:
     world.register_object(GameObject(
         name="GUARDIANS-LANTERN", desc="Guardian's Lantern",
         fdesc="An old lantern lies on the floor, its glass faintly green.",
-        ldesc="A guard's lantern, heavy brass, the glass tinted a faint green. It "
+        examine="A guard's lantern, heavy brass, the glass tinted a faint green. It "
               "flickers when you lift it, as if it wants to light and can't decide where.",
         synonyms=["lantern"], adjectives=["guardian's", "guardians", "old", "brass"],
         size=2, flags={TAKEBIT},
     ))
     world.register_object(GameObject(
         name="INSIGNIA", desc="insignia",
-        ldesc="Pinned to the wall, almost lost under the grime: a faded insignia and "
+        examine="Pinned to the wall, almost lost under the grime: a faded insignia and "
               "the rags of a uniform. This was a guard post once.",
         synonyms=["insignia", "uniform", "rags"], adjectives=["faded"],
         flags={NDESCBIT, SACREDBIT},
@@ -725,14 +755,14 @@ def _make_shrine_path_objects(world) -> None:
     world.register_object(GameObject(
         name="CROWBAR", desc="crowbar",
         fdesc="A crowbar lies in the recess, one end flattened from use.",
-        ldesc="A heavy iron crowbar, one end flattened to a lip. Made for getting into things.",
+        examine="A heavy iron crowbar, one end flattened to a lip. Made for getting into things.",
         synonyms=["crowbar", "bar"], adjectives=["iron", "heavy"], size=3,
         flags={TAKEBIT, INVISIBLE},
     ))
     world.register_object(GameObject(
         name="GLACIER-MELT", desc="vial of glacier melt",
         fdesc="A small stoppered vial sits beside it, the glass frosted despite the damp.",
-        ldesc="A stoppered vial of water so cold the glass has frosted. It doesn't warm in your hand.",
+        examine="A stoppered vial of water so cold the glass has frosted. It doesn't warm in your hand.",
         synonyms=["vial", "melt"], adjectives=["glacier", "frosted", "stoppered"], size=1,
         flags={TAKEBIT, INVISIBLE},
     ))
@@ -764,27 +794,27 @@ def _make_mid_tier_objects(world) -> None:
     world.register_object(GameObject(
         name="KEY-RING", desc="key ring",
         fdesc="The skeleton's fingers are curled loosely around a ring of keys.",
-        ldesc="A ring of keys, old iron, worn smooth from years of use.",
+        examine="A ring of keys, old iron, worn smooth from years of use.",
         synonyms=["keys", "key", "keyring"], adjectives=["iron", "old", "keeper's", "keepers"],
         size=1, flags={TAKEBIT},
     ))
     world.register_object(GameObject(
         name="SKELETON", desc="skeleton",
-        ldesc="The robes have rotted at the seams, but the cord around the skeleton's "
+        examine="The robes have rotted at the seams, but the cord around the skeleton's "
               "neck has held. On it hangs a disc of emerald-green wax.",
         synonyms=["skeleton", "keeper", "robes", "bones"], adjectives=["robed"],
         flags={NDESCBIT, SACREDBIT},
     ))
     world.register_object(GameObject(
         name="KEEPER-SEAL", desc="emerald seal",
-        ldesc="A disc of emerald-green wax on a cord — the same seal as the note in "
+        examine="A disc of emerald-green wax on a cord — the same seal as the note in "
               "the statue's base.",
         synonyms=["seal", "wax", "cord", "disc"], adjectives=["emerald", "green", "wax"],
         flags={NDESCBIT, SACREDBIT},
     ))
     world.register_object(GameObject(
         name="PENDULUM-BLADE", desc="pendulum blade",
-        ldesc="The blade hangs dead still, a curved length of iron as wide as a man. "
+        examine="The blade hangs dead still, a curved length of iron as wide as a man. "
               "The edge is dark with old blood.",
         synonyms=["blade", "pendulum"], adjectives=["pendulum", "curved"],
         flags={NDESCBIT, SACREDBIT},
@@ -792,7 +822,7 @@ def _make_mid_tier_objects(world) -> None:
     world.register_object(GameObject(
         name="FIRE-CLAY", desc="fire clay",
         fdesc="A seam of reddish clay is pressed into the overhang above you.",
-        ldesc="A lump of reddish fire clay, dense and faintly warm. It takes the print "
+        examine="A lump of reddish fire clay, dense and faintly warm. It takes the print "
               "of your fingers.",
         synonyms=["clay", "seam"], adjectives=["fire", "reddish"],
         size=1, flags={TAKEBIT, INVISIBLE},
@@ -809,13 +839,13 @@ def _make_mid_tier_objects(world) -> None:
     ))
     world.register_object(GameObject(
         name="HOLY-WATER", desc="vial of holy water",
-        ldesc="A small glass vial of clear water, stoppered and sealed with a dab of green wax.",
+        examine="A small glass vial of clear water, stoppered and sealed with a dab of green wax.",
         synonyms=["water", "vial", "liquid"], adjectives=["holy", "clear", "glass", "small"],
         size=1, flags={TAKEBIT, NDESCBIT},
     ))
     world.register_object(GameObject(
         name="KEEPER-NOTE", desc="Keeper's note",
-        ldesc="A note in a careful hand, sealed at the bottom with green wax.",
+        examine="A note in a careful hand, sealed at the bottom with green wax.",
         text=('"If you are reading this, I did not come back. The scholar of the Veil '
               "went down to the lower caves and did not come back as himself. What paces "
               "down there now is undead, and silver alone will not end it. The stake must "
@@ -840,7 +870,7 @@ def _make_mid_tier_objects(world) -> None:
     world.register_object(GameObject(
         name="WEREWOLFS-AMULET", desc="Werewolf's Amulet",
         fdesc="A tarnished amulet lies beside the scholar, a seven-pointed star on its face.",
-        ldesc="A tarnished amulet bearing the seven-pointed star of The Veil of the Arcane.",
+        examine="A tarnished amulet bearing the seven-pointed star of The Veil of the Arcane.",
         synonyms=["amulet"], adjectives=["werewolf's", "werewolfs", "tarnished"],
         size=1, flags={TAKEBIT},
     ))
@@ -862,21 +892,21 @@ def _make_mid_tier_objects(world) -> None:
     ))
     world.register_object(GameObject(
         name="CLAY-ADHESIVE", desc="clay adhesive",
-        ldesc="A palmful of soft red clay adhesive, tacky to the touch. It won't stay "
+        examine="A palmful of soft red clay adhesive, tacky to the touch. It won't stay "
               "workable forever, but it doesn't seem in a hurry.",
         synonyms=["adhesive", "clay", "glue"], adjectives=["clay", "red", "soft"],
         size=1, flags={TAKEBIT},
     ))
     world.register_object(GameObject(
         name="REPAIRED-BOWL", desc="repaired bowl",
-        ldesc="A ceramic bowl, pieced back together, the seams of red clay still "
+        examine="A ceramic bowl, pieced back together, the seams of red clay still "
               "visible. A faint etched line runs around the rim without a break.",
         synonyms=["bowl"], adjectives=["repaired", "ceramic", "shrine"],
         size=2, flags={TAKEBIT},
     ))
     world.register_object(GameObject(
         name="CRYSTAL-BOWL", desc="Crystal Bowl",
-        ldesc="A crystal bowl, clear as still water. A continuous line is etched into "
+        examine="A crystal bowl, clear as still water. A continuous line is etched into "
               "the rim — looping back on itself, no beginning, no end. It has the "
               "feeling of something that has been waiting a long time to be this.",
         synonyms=["bowl"], adjectives=["crystal", "clear"],
@@ -915,6 +945,7 @@ _WEIGHTS = {
     "POCKET-WATCH": 1, "LOCKPICKS": 1, "GUARDIANS-LANTERN": 2, "HAND-CART": 5,
     "SUPPORT-BEAM": 4, "PORTCULLIS-BAR": 3, "MORTAR": 2, "SACK-OF-SALT": 4,
     "TREASURE-MAP": 1, "PIE-RAT-COIN": 1, "FISHING-ROD": 2, "SHIP-IN-A-BOTTLE": 2,
+    "BOG-RUNE-STONE": 2, "MUSIC-BOX-KEY": 1, "BOG-THYME": 1,
 }
 
 
@@ -931,13 +962,13 @@ def _make_statue_objects(world) -> None:
     world.register_object(GameObject(
         name="SILVER-STAKE", desc="silver stake",
         fdesc="A silver stake lies in the hollow of the statue's base.",
-        ldesc="A slim stake of solid silver, the point still sharp. Someone hid this deliberately.",
+        examine="A slim stake of solid silver, the point still sharp. Someone hid this deliberately.",
         synonyms=["stake"], adjectives=["silver", "slim"], size=2, flags={TAKEBIT},
     ))
     world.register_object(GameObject(
         name="STATUE-NOTE", desc="folded note",
         fdesc="A folded note lies beside it, sealed with green wax.",
-        ldesc="A folded note, unsigned, closed with a seal of emerald-green wax.",
+        examine="A folded note, unsigned, closed with a seal of emerald-green wax.",
         text=('"Kept here for whoever comes after me. I hope it\'s someone careful." '
               "There's no name — only the green wax seal."),
         synonyms=["note", "paper"], adjectives=["folded", "sealed"], size=1, flags={TAKEBIT},
@@ -956,7 +987,7 @@ def _make_cellar_objects(world) -> None:
         ))
     world.register_object(GameObject(
         name="CELLAR-KEY", desc="cellar key",
-        ldesc="An iron key, rust-bloomed, on a loop of string gone grey.",
+        examine="An iron key, rust-bloomed, on a loop of string gone grey.",
         synonyms=["key"], adjectives=["cellar", "iron"], size=1, flags={TAKEBIT},
     ))
     fixed("CELLAR-DOOR", "cellar door", ["door", "trapdoor", "lock"], ["cellar"])
@@ -973,7 +1004,7 @@ def _make_cellar_objects(world) -> None:
     ))
     world.register_object(GameObject(
         name="BARTENDERS-BOOTS", desc="Bartender's Boots",
-        ldesc="Tall leather boots, salt-stained, soft at the ankle. Someone wore these "
+        examine="Tall leather boots, salt-stained, soft at the ankle. Someone wore these "
               "into worse than a cellar and walked back out.",
         synonyms=["boots"], adjectives=["bartender's", "bartenders", "leather", "tall"],
         size=1, flags={TAKEBIT, "WEARABLE"},

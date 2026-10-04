@@ -195,13 +195,23 @@ class Game:
             w.walk_dir = result.direction
             return self.perform("V-WALK")
 
-        # Multi-object (MANY): dispatch each object in turn with a label
+        # Multi-object (MANY): dispatch each object in turn. Each result is
+        # labelled "name:" unless the result line already names the object.
         if len(result.prso) > 1:
+            import io
+            import sys
+            from contextlib import redirect_stdout
             v = M_NOT_HANDLED
             for obj in result.prso:
                 prsi = result.prsi[0] if result.prsi else None
-                print(f"{obj.desc}:")
-                r = self.perform(result.action, obj, prsi)
+                label = obj.desc
+                buf = io.StringIO()
+                with redirect_stdout(buf):
+                    r = self.perform(result.action, obj, prsi)
+                out = buf.getvalue()
+                if label.lower() not in out.lower():
+                    print(f"{label}:")
+                sys.stdout.write(out)
                 if r == M_FATAL:
                     return M_FATAL
                 v = r

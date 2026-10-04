@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 DEFAULT_PATH = "roundabout.sav"
 
-_OBJ_FIELDS = ("desc", "fdesc", "ldesc", "text", "synonyms", "adjectives",
+_OBJ_FIELDS = ("desc", "fdesc", "ldesc", "examine", "text", "synonyms", "adjectives",
                "flags", "touched", "size", "capacity", "value", "tvalue", "strength")
 
 

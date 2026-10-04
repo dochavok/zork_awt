@@ -10,22 +10,23 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section E — Bog rune stone. Sections A–D pass. First failure:
+**Current position:** Full-score walkthrough, Section F — The Locked Music Box. Sections A–E pass. First failure:
 
 ```
-SECTION [E) Quest 42 — Brotherhood Stones (Part 1: Bog Rune Stone)]
-  cmd     : 'TAKE KEY'
-  missing : 'music box key'
+SECTION [F) Quest 12 — The Locked Music Box (Light Spell)]
+  cmd     : 'LOOK AT MUSIC BOX'
+  missing : 'music box'
+  got     : "You can't see any box here!"
 ```
 
-The music box key (Bog-NW hollow log) and bog thyme aren't built.
+The music box (Will's Wizard Tower) isn't built.
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
 - Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.
 - Lynds after the Viking trials: always-max can't win at level 3 (21 vs his 23); level 4 comes during J. Litlock follows Lynds (needs the invitation).
-- Routes between all of C–M connect. Remaining D–M failures are unbuilt content: bog key and thyme (E), music box (F), recipe (G), Ivanaar fragment (J), Raznak states (M).
+- Routes between all of C–M connect. Remaining D–M failures are unbuilt content: music box (F), recipe (G), Ivanaar fragment (J), Raznak states (M).
 
-The full-score walkthrough fails at 506 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
+The full-score walkthrough fails at 501 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
 
 **XP note:** in the ring walkthrough the player is level 6 by the end of K (Quest 32 reward) and finishes at level 6 with 307 XP. Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
 
@@ -71,8 +72,11 @@ The full-score walkthrough fails at 506 steps in total; much of it predates the 
 - Section C (cont.): Desert Island DIG / buried chest / OPEN CHEST pockets 30 Zenni (TODO #2); ship return scene and Pie Rat Coin (boarding afterwards needs the coin carried); DIG elsewhere refusal; LOOK AROUND = LOOK. Section D route fixed (Docks → town via the Kitchen for the rod → Pond).
 - Section D: Roundabout Pond bottle — Medium sighting check each visit until seen, FISH (Hard fishing roll; rod required), bottle lands on the bank, TAKE BOTTLE. Full-score test harness now accepts "|" fragments, like the ring test.
 - Going ashore: DOCK / LAND / MOOR / MAKE LAND are one action, working only beside land; the ring walkthrough's return now sails to the Western Roundabout Sea before DOCK.
+- Section E: bog rune stone (Bog-NE), hollow log and music box key (Bog-NW), bog thyme (Bog-SW) — Medium perception every visit until found, listed in the room description. The E rune stone fragment is now [You take the rune stone] (it used to pass on the Old Oak stone already held).
+- Examine text: objects have a separate `examine` field (54 objects converted); EXAMINE no longer touches an object, so room listings stay put. DROP says "You drop the [item]."; multi-object results are labelled only when the line doesn't name the item. F: Unbind Undead scroll given to Will before the music box.
 
 **Known issues still open:**
+- `TAKE ALL` also tries items already in inventory ("You already have the …" for each). Predates this session.
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
 - Trophy Case (Town Hall Tower) not built — design in mechanics.md (Trophy Case, Score). Score and treasures read 0 until it is. The full-score walkthrough needs it.
 - Deferred from P: Quest 38 (Collapsed Gallery timbers — pickaxe, three strength checks, support beam); the Gallery is built with its descriptions, flood line and a closed east exit. Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
