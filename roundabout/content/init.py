@@ -179,7 +179,7 @@ def _place_objects(world) -> None:
     # STRONGBOX is dropped when the Boggart leaves
     for obj, room in (("PORTCULLIS-BAR", "SUPPLY-ROOM"), ("MORTAR", "SUPPLY-ROOM"),
                       ("SACK-OF-SALT", "SUPPLY-ROOM"), ("HAND-CART", "STORAGE-AREA"),
-                      ("SUPPORT-BEAM", "STORAGE-AREA"), ("IDOL", "IDOL-ROOM"), ("IDOL-DOOR", "IDOL-ROOM"),
+                      ("SUPPORT-BEAM", "STORAGE-AREA"), ("GALLERY-TIMBERS", "COLLAPSED-GALLERY"), ("IDOL", "IDOL-ROOM"), ("IDOL-DOOR", "IDOL-ROOM"),
                       ("SMOKE-JAR", "SUPPLY-ROOM"), ("SMALL-CLAY-POT", "SUPPLY-ROOM"),
                       ("PRESSURE-PLATE", "COMBAT-ROOM"), ("INSIGNIA", "CREATURE-DEN"),
                       ("CROWBAR", "PRAYER-ALCOVE"), ("GLACIER-MELT", "PRAYER-ALCOVE"),

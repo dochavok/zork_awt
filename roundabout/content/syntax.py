@@ -763,6 +763,14 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="swap", action="V-SWAP",
                    obj1=ObjectSpec(locations=_held_car_og_ir_have)),
 
+        # PROP PASSAGE WITH BEAM (Quest 38)
+        SyntaxRule(verb="prop", action="V-PROP",
+                   obj1=ObjectSpec(locations=_held_car_og_ir),
+                   prep="with",
+                   obj2=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="prop", action="V-PROP",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+
         # ------------------------------------------------------------------ #
         # SWIM                                                                #
         # ------------------------------------------------------------------ #

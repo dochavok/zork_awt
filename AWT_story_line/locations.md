@@ -928,9 +928,9 @@ The Dankhaus — three-bedroom home hidden in the bog behind dense brush. Percep
 
 ### Lynds's Room
 **XP: 1**
-**NPCs:** Lynds (arm wrestling; invitation clears Dankhaus wards)
+**NPCs:** None (Lynds lives here but is always found in the Tale and Ale — npcs.md, Lynds)
 **Items:** None
-**Quest Hooks:** Lynds arm wrestling — win for invitation flag that clears magical wards
+**Quest Hooks:** None (Lynds's arm wrestling happens in the Tale and Ale)
 **Connections:** North → Dankhaus Hearth Room.
 
 *Lynds's room. Large, untidy, comfortable. The furniture has been through some things.*
@@ -1488,6 +1488,11 @@ South of the Collapsed Aqueduct. Timbers wedged across it blocking a secondary e
 
 **Flood line (until Quest 22 is complete), added to either description:** *Water from the passage north pools across the floor here and runs on into the dark, deep enough at the far end that there's no telling what's under it.*
 - **`EAST` while flooded (timbers cleared):** *The water's too deep at the far end to wade, and it's moving fast.* While the timbers are up, they block first: *The timbers block the way.*
+- **Quest 38 timbers** (pickaxe, Hard strength each, retries): first — *You set the pickaxe into the first timber and lever. It groans, splinters, and comes down. Behind it, the second shifts.*
+  second — *The second timber is wedged tighter. It gives anyway, all at once, and the third sags loose.* third — *The last timber comes away in two pieces. The way east is open — though the rock overhead creaks, and a little dust drifts down.*
+- Failed swing: *You swing at the timber. It shudders and holds.* No pickaxe: *You'd need something to break them with.* All three down: *There are no timbers left to clear.*
+- **All three down, not yet propped** (room description in place of the blocked one): *The passage runs east. The timbers are down, but the rock overhead sags where they were, and it creaks.* `EAST` then: *The overhang creaks every time you move. It needs propping before you'd trust it.*
+- **Support beam:** before the timbers are down — *There's nowhere to fit it with the timbers still in the way.* After — *You wrestle the support beam upright and wedge it under the worst of the overhang. The creaking stops.* The beam stays in place; the cleared description takes over.
 
 ### Creature Den
 **XP: 1**

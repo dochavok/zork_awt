@@ -155,9 +155,79 @@ def is_aqueduct_part(obj) -> bool:
 # Collapsed Gallery
 # ---------------------------------------------------------------------------
 
+# Quest 38 — three Hard strength checks with the pickaxe (retries allowed),
+# then the support beam props the passage. The way east opens only then.
+TIMBER_DIFFICULTY = 14
+_GALLERY_UNPROPPED = (
+    "The passage runs east. The timbers are down, but the rock overhead sags "
+    "where they were, and it creaks."
+)
+_TIMBER_DOWN = (
+    "You set the pickaxe into the first timber and lever. It groans, splinters, "
+    "and comes down. Behind it, the second shifts.",
+    "The second timber is wedged tighter. It gives anyway, all at once, and the "
+    "third sags loose.",
+    "The last timber comes away in two pieces. The way east is open — though the "
+    "rock overhead creaks, and a little dust drifts down.",
+)
+_TIMBER_HOLDS = "You swing at the timber. It shudders and holds."
+_NO_PICKAXE = "You'd need something to break them with."
+_NO_TIMBERS = "There are no timbers left to clear."
+_UNPROPPED_EAST = "The overhang creaks every time you move. It needs propping before you'd trust it."
+_BEAM_TOO_SOON = "There's nowhere to fit it with the timbers still in the way."
+_PROPPED = (
+    "You wrestle the support beam upright and wedge it under the worst of the "
+    "overhang. The creaking stops."
+)
+
+
+def strike_timber(w: World) -> None:
+    """USE PICKAXE ON TIMBER / HIT / CHOP / BREAK TIMBER WITH PICKAXE."""
+    down = int(w.get_global("TIMBERS-DOWN") or 0)
+    if down >= 3:
+        print(_NO_TIMBERS)
+        return
+    if w.objects["PICKAXE"] not in w.player.contents:
+        print(_NO_PICKAXE)
+        return
+    from content.player import check_strength
+    if not check_strength(w, TIMBER_DIFFICULTY):
+        print(_TIMBER_HOLDS)
+        return
+    print(_TIMBER_DOWN[down])
+    w.set_global("TIMBERS-DOWN", down + 1)
+
+
+def prop_passage(w: World) -> None:
+    """USE SUPPORT BEAM / PROP PASSAGE WITH BEAM / PUT BEAM, in the Gallery."""
+    if w.get_global("TIMBERS-CLEARED"):
+        return
+    if int(w.get_global("TIMBERS-DOWN") or 0) < 3:
+        print(_BEAM_TOO_SOON)
+        return
+    beam = w.objects["SUPPORT-BEAM"]
+    w.move_object(beam, w.here)
+    beam.set_flag("NDESCBIT")          # the cleared description carries it
+    beam.clear_flag("TAKEBIT")
+    w.set_global("TIMBERS-CLEARED", True)
+    print(_PROPPED)
+    from content import quests
+    quests.discover(w, "38")
+    quests.complete(w, "38")
+
+
+def in_gallery(w: World) -> bool:
+    return w.here is not None and w.here.name == "COLLAPSED-GALLERY"
+
+
 def gallery_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
-        print(_GALLERY_CLEARED if w.get_global("TIMBERS-CLEARED") else _GALLERY_BLOCKED)
+        if w.get_global("TIMBERS-CLEARED"):
+            print(_GALLERY_CLEARED)
+        elif int(w.get_global("TIMBERS-DOWN") or 0) >= 3:
+            print(_GALLERY_UNPROPPED)
+        else:
+            print(_GALLERY_BLOCKED)
         if not w.get_global("AQUEDUCT-SEALED"):
             print(_FLOOD)
         return M_HANDLED
@@ -169,6 +239,8 @@ class _GalleryEast(Exit):
 
     def resolve(self, world):
         if not world.get_global("TIMBERS-CLEARED"):
+            if int(world.get_global("TIMBERS-DOWN") or 0) >= 3:
+                return None, _UNPROPPED_EAST
             return None, "The timbers block the way."
         if not world.get_global("AQUEDUCT-SEALED"):
             return None, _TOO_DEEP

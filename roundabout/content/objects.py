@@ -754,9 +754,16 @@ def _make_upper_tier_objects(world) -> None:
          "A sturdy two-wheeled cart, the handles worn smooth. Built to carry more "
          "than a person could.", ["cart"], ["hand", "two-wheeled"], 5,
          {TAKEBIT, NDESCBIT, CONTBIT, OPENBIT})
+    # Collapsed Gallery timbers (Quest 38 — content/aqueduct.py); the room
+    # description carries them
+    world.register_object(GameObject(
+        name="GALLERY-TIMBERS", desc="timbers",
+        synonyms=["timbers", "timber", "passage", "overhang", "wood"],
+        adjectives=["heavy", "old"], flags={NDESCBIT},
+    ))
     item("SUPPORT-BEAM", "support beam", "",
          "A heavy timber beam, squared and solid. Something meant to hold up a "
-         "ceiling.", ["beam", "timber"], ["support", "heavy"], 4, {TAKEBIT, NDESCBIT})
+         "ceiling.", ["beam"], ["support", "heavy", "timber"], 4, {TAKEBIT, NDESCBIT})
     # Trap 33 (content/upper_tier.py): on its pedestal the room description
     # carries it; SWAP IDOL WITH SALT is the safe way to take it
     world.register_object(GameObject(

@@ -517,7 +517,7 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 **Examine:** *A heavy timber beam, squared and solid. Something meant to hold up a ceiling.*
 **Weight:** 4
 **Location:** Storage Area, Dungeon Upper Tier
-**Quest use:** Quest 38 — props the cleared passage in Collapsed Gallery, makes shortcut permanent.
+**Quest use:** Quest 38 — props the cleared passage in Collapsed Gallery, makes shortcut permanent. Once propped it stays (can't be taken back).
 
 ---
 

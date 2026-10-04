@@ -604,6 +604,21 @@ After each of Litlock's lines, pick from the numbered menu.
 Litlock bonks the player on the head. The Chuckle House is now visible
 east of the Graveyard.
 
+Litlock's home is worth a look around before we leave.
+
+> NORTH                       [Litlock's Room]
+> EAST                        [Litlock's Study]
+> WEST                        [Litlock's Room]
+> SOUTH                       [Dankhaus Common Room]
+> SOUTH                       [Aurix's Room]
+> NORTH                       [Dankhaus Common Room]
+> EAST                        [Dankhaus Hearth Room]
+> EAST                        [Dankhaus Garden]
+> WEST                        [Dankhaus Hearth Room]
+> SOUTH                       [Lynds's Room]
+> NORTH                       [Dankhaus Hearth Room]
+> WEST                        [Dankhaus Common Room]
+
 =============================================================================
 M) Quest 55 — The Archer's Trial (Bow Skill, Warrior)
 =============================================================================
@@ -948,19 +963,28 @@ Quest 22 complete. The Town Square fountain now flows.
 =============================================================================
 T) Quest 38 — The Collapsed Passage (Dungeon Shortcut)
 =============================================================================
-The Collapsed Gallery is east of the Storage Area (east branch off Ink
-Corridor). Pickaxe required; three strength checks clear the timbers;
-support beam props the shortcut permanently.
+The Collapsed Gallery is south of the Collapsed Aqueduct. Timbers block
+its east end. The pickaxe (carried since the mine) clears them — three
+strength checks, retried until they give — and the support beam from
+the Storage Area props the passage open. With the aqueduct repaired
+there's no flood, so the shortcut leads straight to the Rickety Bridge.
 
-> EAST                        [Storage Area]
+> NORTH                       [Storage Area]
+> TAKE SUPPORT BEAM           [support beam]
+> SOUTH                       [Collapsed Aqueduct]
 > SOUTH                       [Collapsed Gallery]
 > USE PICKAXE ON TIMBER       [first timber]
 > USE PICKAXE ON TIMBER       [second timber]
-> USE PICKAXE ON TIMBER       [third timber]
-> USE SUPPORT BEAM            [shortcut open]
+> USE PICKAXE ON TIMBER       [last timber]
+> USE SUPPORT BEAM            [creaking stops]
 
-Quest 38 complete. Passage now exits at the Rickety Bridge — this
-shortcut bypasses everything above Shrine Room on future runs.
+Quest 38 complete. The shortcut bypasses everything above the Shrine
+Room. Try it, then come back.
+
+> EAST                        [Rickety Bridge]
+> WEST                        [Collapsed Gallery]
+> NORTH                       [Collapsed Aqueduct]
+> NORTH                       [Storage Area]
 
 =============================================================================
 U) Quest 25 — The Flooded Cellar

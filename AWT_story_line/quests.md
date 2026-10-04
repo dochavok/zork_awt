@@ -358,8 +358,8 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 **Steps:**
 1. Find Collapsed Gallery (east branch off Ink Corridor — Storage Area → Collapsed Aqueduct → Collapsed Gallery).
 2. Get pickaxe from mine.
-3. Three strength checks — one per main timber. After each success, another loosens.
-4. After clearing all three, prop passage with support beam.
+3. Three strength checks (**Hard, 14**, retries allowed) — one per main timber. After each success, another loosens. Commands: `USE PICKAXE ON TIMBER`, `HIT` / `CHOP` / `BREAK TIMBER (WITH PICKAXE)`.
+4. After clearing all three, prop passage with support beam (`USE SUPPORT BEAM`, `PROP PASSAGE WITH BEAM`, `PUT BEAM` in the Gallery). The way east opens only once it's propped. Quest 38 completes then. Text in locations.md (Collapsed Gallery).
 
 **Reward:** Permanent shortcut — passage exits into Rickety Bridge, placing player between Shrine Room and Mid-Tier Key Door, bypassing everything above. Significantly speeds dungeon traversal. 5 Zenni.
 

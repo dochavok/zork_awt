@@ -451,6 +451,12 @@ def v_drop(world: World) -> int:
         from content import mine
         if mine.drop_gunpowder(world):
             return M_HANDLED
+    if obj.name == "SUPPORT-BEAM":        # PUT BEAM in the Gallery props it (Quest 38)
+        from content import aqueduct
+        if aqueduct.in_gallery(world) and not world.get_global("TIMBERS-CLEARED") \
+                and int(world.get_global("TIMBERS-DOWN") or 0) >= 3:
+            aqueduct.prop_passage(world)
+            return M_HANDLED
     world.move_object(obj, world.here)
     print(f"You drop the {obj.desc}.")
     return M_HANDLED
@@ -697,6 +703,14 @@ def v_use(world: World) -> int:
     if obj is not None and obj.name == "MORTAR" and aqueduct.is_aqueduct_part(world.prsi):
         aqueduct.seal(world)
         return M_HANDLED
+    # Quest 38 — Collapsed Gallery
+    if obj is not None and obj.name == "PICKAXE" and world.prsi is not None \
+            and world.prsi.name == "GALLERY-TIMBERS":
+        aqueduct.strike_timber(world)
+        return M_HANDLED
+    if obj is not None and obj.name == "SUPPORT-BEAM" and aqueduct.in_gallery(world):
+        aqueduct.prop_passage(world)
+        return M_HANDLED
     print("Nothing happens.")
     return M_HANDLED
 
@@ -759,6 +773,10 @@ def v_challenge(world: World) -> int:
 # ---------------------------------------------------------------------------
 
 def v_melee(world: World) -> int:
+    if world.prso is not None and world.prso.name == "GALLERY-TIMBERS":   # HIT TIMBER
+        from content import aqueduct
+        aqueduct.strike_timber(world)
+        return M_HANDLED
     obj = world.prso
     if obj is None:
         return M_NOT_HANDLED
@@ -1201,6 +1219,29 @@ def v_clear(world: World) -> int:
 
 
 # ---------------------------------------------------------------------------
+# V-DESTROY / V-PROP  (Quest 38 — Collapsed Gallery timbers)
+# ---------------------------------------------------------------------------
+
+def v_destroy(world: World) -> int:
+    if world.prso is not None and world.prso.name == "GALLERY-TIMBERS":   # BREAK / CHOP TIMBER
+        from content import aqueduct
+        aqueduct.strike_timber(world)
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
+def v_prop(world: World) -> int:
+    from content import aqueduct
+    names = {o.name for o in (world.prso, world.prsi) if o is not None}
+    if aqueduct.in_gallery(world) and names & {"SUPPORT-BEAM", "GALLERY-TIMBERS"}:
+        if world.objects["SUPPORT-BEAM"] in world.player.contents \
+                or world.get_global("TIMBERS-CLEARED"):
+            aqueduct.prop_passage(world)
+            return M_HANDLED
+    return M_NOT_HANDLED
+
+
+# ---------------------------------------------------------------------------
 # V-SWAP  (SWAP IDOL WITH SALT — Trap 33)
 # ---------------------------------------------------------------------------
 
@@ -1299,6 +1340,8 @@ def register_verbs(game) -> None:
     game.register_verb("V-CHALLENGE",  v_challenge)
     game.register_verb("V-PAY",        v_pay)
     game.register_verb("V-SWAP",       v_swap)
+    game.register_verb("V-DESTROY",    v_destroy)
+    game.register_verb("V-PROP",       v_prop)
     game.register_verb("V-JUMP-ON",    v_jump_on)
     game.register_verb("V-DISARM",     v_disarm)
     game.register_verb("V-RAISE",      v_raise)

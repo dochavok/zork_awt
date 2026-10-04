@@ -10,22 +10,22 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section T — Quest 38, The Collapsed Passage. Sections A–S pass. First failure:
+**Current position:** Full-score walkthrough, Section U — Quest 25, The Flooded Cellar. Sections A–T pass. First failure:
 
 ```
-SECTION [T) Quest 38 — The Collapsed Passage (Dungeon Shortcut)]
-  cmd     : 'EAST'
-  missing : 'Storage Area'
+SECTION [U) Quest 25 — The Flooded Cellar]
+  cmd     : 'TALK TO BARTENDER'
+  missing : 'cellar key'
 ```
 
-S ends in the Collapsed Aqueduct; the Collapsed Gallery is south of it now (ring P layout). Quest 38 itself (timbers, pickaxe, support beam) isn't built — see Known issues.
+May's designed line hands over "an iron key" for the "Cellar" — the fragment never appears. The ring walkthrough's K section has the working Quest 25 route.
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
 - Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.
 - Lynds after the Viking trials: always-max can't win at level 3 (21 vs his 23); level 4 comes during J. Litlock follows Lynds (needs the invitation).
 - Routes between all of C–M connect.
 
-The full-score walkthrough fails at 375 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
+The full-score walkthrough fails at 358 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
 
 **XP note:** in the ring walkthrough the player is level 6 by the end of K (Quest 32 reward) and finishes at level 6 with 307 XP. Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
 
@@ -82,13 +82,15 @@ The full-score walkthrough fails at 375 steps in total; much of it predates the 
 - Section O: Lighthouse scroll trip removed (scroll picked up in C, taught in F); Upper Hall display cabinet and wax seal (Quest 4). P passes as is.
 - Section Q: Trap 17 (first entry, Medium/Medium, smoke jar and small clay pot), Trap 33 (SWAP IDOL WITH SALT; unswapped TAKE seals the north doorway, PRY DOOR with the crowbar, Medium strength). Q rerouted to match the ring's I1/I2/K. Parser: LOAD and UNLOAD prefer what isn't in the pack, like TAKE. Idol Room description drops the figurine once the idol is gone.
 - Section R: note fragment now [folded note] (taking it uses the standard line). Section S: Light cast in the Mausoleum (the torch burns out harmlessly on the way); aqueduct repair as in the ring's P (Storage Area → Collapsed Aqueduct, PLACE BLOCKS ×3, SEAL JOINTS WITH MORTAR).
+- Section T: Quest 38 — three Hard strength checks with the pickaxe (retries), support beam props the passage (only then does the way east open); HIT / CHOP / BREAK TIMBER, PROP PASSAGE WITH BEAM, PUT BEAM. "timber" is now an adjective for the support beam. Quest 38 reward fixed to 5 Zenni. T rerouted from the Collapsed Aqueduct and tries the shortcut.
+- Section L: walks every Dankhaus room after Litlock's bonk (TODO #4). Lynds's Room is empty — Lynds is always in the Tale and Ale (locations.md corrected).
 
 **Known issues still open:**
 - Full-score plan: the torch is allowed to burn out in the full run; no repurchase once Light is learned (F). Check P onward against that.
 - `TAKE ALL` also tries items already in inventory ("You already have the …" for each). Predates this session.
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
 - Trophy Case (Town Hall Tower) not built — design in mechanics.md (Trophy Case, Score). Score and treasures read 0 until it is. The full-score walkthrough needs it.
-- Deferred from P: Quest 38 (Collapsed Gallery timbers — pickaxe, three strength checks, support beam); the Gallery is built with its descriptions, flood line and a closed east exit. Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
+- Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: Lower Crossing north (Tool Alcove) and south (Dark Room), the 50/50 pull-back text, the Ivory Torch (Quest 34); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
 - Deferred from L: The Crevice and gold pocket watch (no room description yet — Stored Room east exit closed until built); Mine Passage south exit (Inscription Chamber and beyond); charcoal, silver dust, and the iron chest's lock (Mine Passage keeps its default description; the chest is scenery).
 - Deferred from I1: Flooding Room (north of the Creature Den; Trap 41 — exit blocked until built).
@@ -128,8 +130,8 @@ Remaining unit-test failures (14) are unrelated: test_world expects rooms/object
 `walkthrough_fullscore.txt` was scoped to quests, treasures and NPC arcs, not exploration. These rooms (all with XP in locations.md) are never entered:
 
 - **Tale and Ale:** Pipe Room, Ty's Casino Corner, Upstairs Hall
-- **Dankhaus:** Hearth Room, Garden, Litlock's Room, Litlock's Study, Lynds's Room, Aurix's Room, Hidden Secondary Entrance
-- **Tunnels / dungeon:** The Undercroft, The Forgotten Shaft, Skeleton Room (Room 6), The Flooded Passage (Room 11)
+- **Dankhaus:** Hearth Room, Garden, Litlock's Room, Litlock's Study, Lynds's Room, Aurix's Room — visited in Section L (2026-10-04)
+- **Tunnels / dungeon:** Hidden Secondary Entrance (mine — Assay Room gap), The Undercroft, The Forgotten Shaft, Skeleton Room (Room 6), The Flooded Passage (Room 11)
 
 Also confirm Key Side / Trap Side sub-rooms are all entered — the walkthrough labels these areas loosely.
 
