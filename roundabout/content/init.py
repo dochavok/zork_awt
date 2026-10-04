@@ -137,6 +137,8 @@ def _place_objects(world) -> None:
         world.move_object(world.objects[obj], world.rooms[room])
     world.move_object(world.objects["STATUE"], world.rooms["TOWN-SQUARE"])
     world.move_object(world.objects["SCROLL-UNBIND-UNDEAD"], world.rooms["LIGHTHOUSE"])
+    world.move_object(world.objects["MUSIC-BOX"],    world.rooms["WIZARDS-TOWER"])
+    world.move_object(world.objects["SCROLL-LIGHT"], world.rooms["WIZARDS-TOWER"])
     # Old Oak area (KITE and OLD-OAK-RUNE-STONE appear on CLIMB TREE)
     world.move_object(world.objects["OAK-CHILD"], world.rooms["OLD-OAK"])
     world.move_object(world.objects["OAK-TREE"],  world.rooms["OLD-OAK"])

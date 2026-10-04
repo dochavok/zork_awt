@@ -443,7 +443,7 @@ Warriors cannot read spell scrolls directly. The glasses came off before
 the mailbox (wearing them in Will's presence is an instant fail), so
 give the scroll to Will.
 
-> GIVE SCROLL TO WILL         [Light spell]
+> GIVE SCROLL TO WILL         [The knowing, I mean]
 
 Light spell learned permanently. Now we can safely enter all dark rooms
 without a torch burning down.
@@ -746,11 +746,11 @@ path also works (after Quest 25), but Crypt is available now.
 > SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
 > SOUTH                       [Mausoleum]
+
+The Mausoleum is dark — cast the Light spell.
+
+> CAST LIGHT                  [darkness pulls back]
 > DOWN                        [Crypt]
-
-The Crypt is dark — cast Light spell.
-
-> CAST LIGHT                  [light]
 > DOWN                        [Charnel Walk]
 > NORTH                       [Bone Passage]
 > WEST                        [Junction]

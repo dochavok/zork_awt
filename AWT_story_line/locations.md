@@ -27,8 +27,8 @@ Opening area; homage to Zork. One room only. Any command except `OPEN MAILBOX` r
 ### Will's Wizard Tower (Main Room)
 **XP: 1**
 **NPCs:** Will Passion
-**Items:** None
-**Quest Hooks:** None (hub/access room)
+**Items:** Locked music box (Quest 12 — text in quests.md); Light scroll inside
+**Quest Hooks:** Quest 12 (`LOOK AT MUSIC BOX`)
 **Connections:** In ← White House (one-way portal in); North → Will Passion's Bedroom (perception-gated); Painting → Tale and Ale Main Room (one-way teleport out); Mailbox → Tale and Ale Main Room (one-way teleport out)
 Accessed via mailbox portal from White House (opening sequence) or via mailbox in Tale and Ale Main Room.
 
@@ -1051,7 +1051,7 @@ Where ore samples were tested. The far wall has a gap that connects to the tunne
 **Items:** None
 **Quest Hooks:** None
 **Connections:** West → Assay Room. East → Forgotten Shaft.
-Perception check required from mine side; auto-discovered from tunnel side. Remains accessible after cave-in.
+Perception check required from mine side; auto-discovered from tunnel side. Coming through from the tunnel side also reveals the gap in the Assay Room wall. Remains accessible after cave-in.
 
 *The gap in the assay room wall opens into a rough passage that connects to the tunnel network below. It does not appear on any official plan of the mine. It would not.*
 

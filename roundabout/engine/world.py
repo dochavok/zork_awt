@@ -430,6 +430,8 @@ class World:
             return False
         if self.here.is_lit():
             return True
+        if self.globals.get("LIGHT-SPELL-ACTIVE"):   # content: the Light spell
+            return True
         return self._has_light_source(self.here) or self._has_light_source(self.player)
 
     def _has_light_source(self, container: Optional[Union[Room, GameObject]]) -> bool:

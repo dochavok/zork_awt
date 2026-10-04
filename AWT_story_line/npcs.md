@@ -694,7 +694,7 @@ Described in the Toll Bridge's room description (no separate presence line).
 
 | Spell | Effect | Duration | Reuse Timer | Source |
 |-------|--------|----------|-------------|--------|
-| Light | Creates light source | 10 turns | 20 turns | Quest 12 — scroll in locked music box, Will's Tower |
+| Light | Creates light source | Continuous while in dark rooms | None | Quest 12 — scroll in locked music box, Will's Tower (mechanics.md — Light Spell) |
 | Unbind Undead | Releases a bound spirit | Instant | 20 turns | Lighthouse — scroll on Silas Bryne's desk |
 
 **Spell learning:**

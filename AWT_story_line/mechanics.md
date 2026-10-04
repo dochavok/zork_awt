@@ -460,7 +460,8 @@ Purchased from Shamus (Kitchen, Tale and Ale) for 3 Zenni. Weight: 2.
 
 **Torch burnout (turn 0):** Once lit, the torch can't be put out — the timer runs every turn after the first dark room entry.
 - **Game over** only if the player is in a dark room **and** no exit from it leads straight to a lit room: *The torch goes out. In the dark, something shifts. You never find out what.*
-- **Otherwise** (in a lit area, or one move from one) the torch just goes out: *The torch gutters and goes out.* The player can walk back to the light.
+- **Otherwise** (in a lit area, or one move from one, or with the Light spell already lit) the torch just goes out: *The torch gutters and goes out.* The player can walk back to the light.
+- **Light spell known but not lit** (stranded as above): not game over, but the player must cast it fast — *The torch goes out. The dark closes in fast — if you're going to cast something, now would be the time.* `CAST LIGHT` within the next two commands (commands the parser doesn't understand don't count). Otherwise: *In the dark, something shifts. You never find out what.* — GAME OVER.
 
 **Shamus swap tiers (`BUY TORCH` while already carrying a torch — the only way to swap; 3 Zenni):**
 
@@ -480,6 +481,8 @@ Swapped torches reset the timer to 100. The ignition message fires again on next
 Learned permanently via Quest 12 (Light scroll, music box in Will's Tower).
 
 - Cast once on entering darkness. Runs continuously while the player remains in dark rooms. Extinguishes automatically on returning to naturally lit areas, resets silently, ready to cast again.
+- Knowing the spell lets the player step from a lit room into a dark one without a light: it's pitch black there (*It is pitch black. You are likely to be eaten by a grue.*) until `CAST LIGHT`. Moving on from an unlit dark room into another dark room is still refused (*It's too dark to go any further without a light.*).
+- `CAST LIGHT` in a naturally lit room: *There's light enough here already.* While the spell is already lit: *The light's already with you.*
 - No duration limit. No reuse timer.
 - Does not work in the Dark Room (lower tier) — magical darkness is immune to natural light sources.
 

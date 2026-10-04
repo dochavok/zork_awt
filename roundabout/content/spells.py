@@ -16,6 +16,7 @@ if TYPE_CHECKING:
 
 _SPELLS = {
     "unbind undead": ("spell_unbind_undead", 20),
+    "light": ("spell_light", 0),          # no reuse timer (mechanics.md — Light Spell)
 }
 
 
@@ -34,6 +35,11 @@ def cast_input_hook(w: World, text: str) -> bool:
     until = int(w.get_global(f"COOLDOWN-{flag}") or 0)
     if w.moves < until:
         print("You reach for the spell and find it isn't ready yet.")
+        return True
+
+    if name == "light":
+        from content import light
+        light.cast_light(w)
         return True
 
     if name == "unbind undead":

@@ -19,6 +19,7 @@ if TYPE_CHECKING:
 # Spell scroll object name -> spell flag (player stat)
 SPELL_SCROLLS = {
     "SCROLL-UNBIND-UNDEAD": "spell_unbind_undead",
+    "SCROLL-LIGHT": "spell_light",
 }
 
 TEACHING_COST = 3

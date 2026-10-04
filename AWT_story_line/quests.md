@@ -67,20 +67,26 @@ Update this file immediately when any quest detail is designed or changed.
 **Prerequisites:** Access to Will's Tower (available from start). Key is in Bog-NW hollow log.
 **Discovery source:** Will directly (not May's list). Triggered by `LOOK AT MUSIC BOX` — no dialogue command needed.
 
+**Music box (Will's Wizard Tower):** room line *A small lacquered music box sits on the corner of Will's desk, its lid locked shut.* Once opened: *A small lacquered music box sits open on the corner of Will's desk.*
+
 **Will's hints (free, triggered by successive examinations):**
-1. Will mentions the box and the missing student wistfully — quest discovered.
-2. Will recalls the student spent a lot of time in the bog.
-3. Will specifically remembers the student liked to hide things in hollow logs.
-After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only. Once scroll found, Will says nothing further.
+1. *A small lacquered music box, its lid locked tight. Will glances up from his papers. "That belonged to a student of mine. Bright. Restless. Never came back for it." He goes back to his writing, a little slower than before.* — quest discovered.
+2. *Will doesn't look up. "He spent half his apprenticeship out in the bog. Came back smelling of it, every time."*
+3. *"Hid things, too," Will says. "Hollow logs, mostly. Said nobody ever looks inside a log."*
+After all three hints given, subsequent `LOOK AT MUSIC BOX` repeats hint 3 only. Once the scroll is found, Will says nothing further: `LOOK AT MUSIC BOX` gives *A small lacquered music box, its lid open.* while the scroll is still inside, then *A small lacquered music box, its lid open. Empty now.*
+
+**Opening it:** without the key — *It's locked. There's a small keyhole in the front.*
+With the key carried (`OPEN MUSIC BOX` / `OPEN MUSIC BOX WITH KEY` / `UNLOCK MUSIC BOX`) — *The key turns with a soft click. The lid lifts, and a short melody plays — a few bright notes, a little out of tune, then nothing. Inside, folded small, is a scroll.*
+The key stays in the lock. The scroll lies in the box: *A folded scroll lies in the music box.*
 
 **Steps:**
 1. `LOOK AT MUSIC BOX` in Will's Tower — discovers quest, begins hint sequence.
 2. Search Bog-NW — perception check reveals hollow log. Inside: music box key.
-3. Return to tower → open music box with key → plays short melody → scroll inside.
+3. Return to tower → open music box with key → plays short melody → scroll inside. **Quest 12 completes here** (the scroll is found): 10 XP, 5 Zenni.
 4. **Mages:** Read scroll directly (consumed) → Light spell learned.
-5. **Warriors/Rogues:** Take scroll to Will (wearing Enchanted Glasses in Will's presence is an instant fail state) → scroll consumed, Light spell learned.
+5. **Warriors/Rogues:** Take scroll to Will (wearing Enchanted Glasses in Will's presence is an instant fail state) → scroll consumed, Light spell learned (Will's teaching: 3 Zenni, Quest 56 XP).
 
-**Reward:** Light spell — 10 turns duration, 20 turns reuse timer. 5 Zenni.
+**Reward:** 5 Zenni on finding the scroll. The scroll teaches the Light spell (mechanics.md — Light Spell: continuous while in dark rooms, no reuse timer).
 
 ---
 

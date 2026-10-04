@@ -68,6 +68,11 @@ def v_open(world: World) -> int:
             obj.name, cellar.open_tunnel_door)(world)
         return M_HANDLED
 
+    if obj.name == "MUSIC-BOX":
+        from content import music_box
+        music_box.open_box(world)
+        return M_HANDLED
+
     if obj.name == "BURIED-CHEST":
         from content import ship
         ship.open_chest(world)
@@ -137,6 +142,11 @@ def v_examine(world: World) -> int:
 
     from content import gravestone
     if gravestone.examine(world, obj):
+        return M_HANDLED
+
+    if obj.name == "MUSIC-BOX":           # Quest 12 — Will's hints
+        from content import music_box
+        music_box.examine(world)
         return M_HANDLED
 
     # Generic examine: the examine text, else the room line. Looking at an
@@ -1188,6 +1198,10 @@ def v_unlock(world: World) -> int:
     if obj is not None and obj.name == "KEEPER-DOOR":
         from content import keeper
         keeper.unlock_door(world)
+        return M_HANDLED
+    if obj is not None and obj.name == "MUSIC-BOX":
+        from content import music_box
+        music_box.open_box(world)
         return M_HANDLED
     print("You can't unlock that.")
     return M_HANDLED

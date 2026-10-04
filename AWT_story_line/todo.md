@@ -10,23 +10,22 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section F — The Locked Music Box. Sections A–E pass. First failure:
+**Current position:** Full-score walkthrough, Section G — Shamus's Recipe. Sections A–F pass. First failure:
 
 ```
-SECTION [F) Quest 12 — The Locked Music Box (Light Spell)]
-  cmd     : 'LOOK AT MUSIC BOX'
-  missing : 'music box'
-  got     : "You can't see any box here!"
+SECTION [G) Quest 40 — Shamus's Recipe]
+  cmd     : 'TALK TO SHAMUS'
+  missing : 'recipe'
 ```
 
-The music box (Will's Wizard Tower) isn't built.
+Shamus's Quest 40 dialogue isn't built.
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
 - Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.
 - Lynds after the Viking trials: always-max can't win at level 3 (21 vs his 23); level 4 comes during J. Litlock follows Lynds (needs the invitation).
-- Routes between all of C–M connect. Remaining D–M failures are unbuilt content: music box (F), recipe (G), Ivanaar fragment (J), Raznak states (M).
+- Routes between all of C–M connect. Remaining D–M failures are unbuilt content: recipe (G), Ivanaar fragment (J), Raznak states (M).
 
-The full-score walkthrough fails at 501 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
+The full-score walkthrough fails at 473 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
 
 **XP note:** in the ring walkthrough the player is level 6 by the end of K (Quest 32 reward) and finishes at level 6 with 307 XP. Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
 
@@ -76,8 +75,11 @@ The full-score walkthrough fails at 501 steps in total; much of it predates the 
 - Examine text: objects have a separate `examine` field (54 objects converted); EXAMINE no longer touches an object, so room listings stay put. DROP says "You drop the [item]."; multi-object results are labelled only when the line doesn't name the item. F: Unbind Undead scroll given to Will before the music box.
 - Pie Rat heist: flint and steel moved to the Assay Room; the 40-turn burnout removed from the design.
 - Heist (cont.): Mine Tunnels weak point (Easy perception), DROP GUNPOWDER wedges it there, LIGHT needs the flint and the gunpowder placed, 5-turn fuse, death if still in the mine, cave-in seals DOWN from the Mine Entrance (post-cave-in description). Both walkthroughs take the flint in the Assay Room and check the explosion.
+- Section F: music box (Will's three hints, locked / opened with the key, key stays in the lock), Light scroll; Quest 12 completes when the scroll is found. Light spell per mechanics.md (continuous; quests/items/npcs updated): CAST LIGHT, step into the dark from a lit room, goes out in lit rooms. Final F fragment now [The knowing, I mean].
+- Torch burnout with the Light spell: not fatal while Light is lit; known but not lit — two commands to CAST LIGHT, else death. P's CAST LIGHT moved to the Mausoleum (first dark room), fragment [darkness pulls back] — check when P is reached.
 
 **Known issues still open:**
+- Full-score plan: the torch is allowed to burn out in the full run; no repurchase once Light is learned (F). Check P onward against that.
 - `TAKE ALL` also tries items already in inventory ("You already have the …" for each). Predates this session.
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
 - Trophy Case (Town Hall Tower) not built — design in mechanics.md (Trophy Case, Score). Score and treasures read 0 until it is. The full-score walkthrough needs it.

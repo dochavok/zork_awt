@@ -22,6 +22,13 @@ if TYPE_CHECKING:
 TORCH_TURNS = 100
 
 _TOO_DARK = "It's too dark to go any further without a light."
+# mechanics.md — Light Spell
+_LIGHT_CAST = (
+    "The darkness pulls back. The spell settles into a steady glow — patient, "
+    "reliable, yours for as long as you're down here."
+)
+_LIGHT_NOT_NEEDED = "There's light enough here already."
+_LIGHT_ALREADY = "The light's already with you."
 _IGNITION = "The torch catches the dark and pushes it back. Good thinking, getting one of these."
 _WARNINGS = {
     50: "The torch burns a little lower than it did.",
@@ -33,6 +40,13 @@ _BURNOUT_FATAL = (
     "*** GAME OVER ***"
 )
 _BURNOUT_SAFE = "The torch gutters and goes out."
+# Light spell known but not lit: two turns to cast it (mechanics.md — Torch burnout)
+_BURNOUT_CAST_NOW = (
+    "The torch goes out. The dark closes in fast — if you're going to cast "
+    "something, now would be the time."
+)
+_DARK_TOOK_YOU = "In the dark, something shifts. You never find out what.\n\n*** GAME OVER ***"
+CAST_WINDOW = 2
 
 
 def _torch(w: World):
@@ -47,13 +61,33 @@ def dark_block(w: World, destination: Room) -> Optional[str]:
     """Walk check: refuse a move into a dark room without a light source."""
     if _room_lit(destination):
         return None
-    if w._has_light_source(w.player):
+    if w._has_light_source(w.player) or w.get_global("LIGHT-SPELL-ACTIVE"):
+        return None
+    # Knowing the Light spell, you can step into the dark from a lit room
+    # and cast it there (it's pitch black until you do).
+    if w.globals.get("spell_light") and w.is_lit():
         return None
     return _TOO_DARK
 
 
+def cast_light(w: World) -> None:
+    """CAST LIGHT — lasts while the player stays in dark rooms."""
+    if w.here is not None and _room_lit(w.here):
+        print(_LIGHT_NOT_NEEDED)
+        return
+    if w.get_global("LIGHT-SPELL-ACTIVE"):
+        print(_LIGHT_ALREADY)
+        return
+    w.set_global("LIGHT-SPELL-ACTIVE", True)
+    print(_LIGHT_CAST)
+    w.game.describe_room()
+
+
 def on_enter(w: World, room: Room) -> None:
-    """Enter hook: the torch timer starts on the first dark room entry."""
+    """Enter hook: the torch timer starts on the first dark room entry.
+    The Light spell goes out silently in a naturally lit room."""
+    if _room_lit(room):
+        w.set_global("LIGHT-SPELL-ACTIVE", False)
     torch = _torch(w)
     if torch is None or _room_lit(room) or w.get_global("TORCH-LIT-TIMER") is not None:
         return
@@ -102,13 +136,28 @@ def _burn_out(w: World) -> None:
     torch.ldesc = "A burnt-out torch, cold and black at the end."
     w.set_global("TORCH-LIT-TIMER", None)
     here = w.here
-    if here is not None and not _room_lit(here) and not _one_move_from_light(w, here) \
-            and not w._has_light_source(w.player):
+    stranded = (here is not None and not _room_lit(here) and not _one_move_from_light(w, here)
+                and not w._has_light_source(w.player) and not w.get_global("LIGHT-SPELL-ACTIVE"))
+    if not stranded:
+        print(_BURNOUT_SAFE)
+    elif w.globals.get("spell_light"):
+        # Not fatal, but they must cast it within the next two commands (an
+        # interrupt, so unparsed commands don't use up the window).
+        print(_BURNOUT_CAST_NOW)
+        w.game.clock.queue("dark-cast-window", _cast_window_closed, CAST_WINDOW)
+    else:
         print(_BURNOUT_FATAL)
         w.set_global("GAME-OVER", True)
         w.game.quit()
-    else:
-        print(_BURNOUT_SAFE)
+
+
+def _cast_window_closed(w: World) -> bool:
+    if w.is_lit():
+        return False
+    print(_DARK_TOOK_YOU)
+    w.set_global("GAME-OVER", True)
+    w.game.quit()
+    return True
 
 
 def _one_move_from_light(w: World, room: Room) -> bool:

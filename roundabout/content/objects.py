@@ -431,6 +431,21 @@ def _make_scrolls(world) -> None:
         synonyms=["scroll", "spell"], adjectives=["unbind", "undead", "spell"],
         flags={TAKEBIT},
     ))
+    # Quest 12 — in the locked music box (content/music_box.py)
+    world.register_object(GameObject(
+        name="SCROLL-LIGHT", desc="Light scroll",
+        fdesc="A folded scroll lies in the music box.",
+        examine="A spell scroll headed Light, in a small, quick hand.",
+        synonyms=["scroll", "spell"], adjectives=["light", "spell", "folded"],
+        flags={TAKEBIT, INVISIBLE},
+    ))
+    from content.music_box import BOX_LOCKED_LISTING
+    world.register_object(GameObject(
+        name="MUSIC-BOX", desc="music box",
+        fdesc=BOX_LOCKED_LISTING,
+        synonyms=["box"], adjectives=["music", "small", "lacquered"],
+        flags=set(),
+    ))
 
 
 # ---------------------------------------------------------------------------
@@ -953,7 +968,7 @@ _WEIGHTS = {
     "BOWL-PIECE-BOG": 1, "RUNED-METAL": 3, "PALE-BLADE": 3, "TOWN-CHARTER": 1,
     "POCKET-WATCH": 1, "LOCKPICKS": 1, "GUARDIANS-LANTERN": 2, "HAND-CART": 5,
     "SUPPORT-BEAM": 4, "PORTCULLIS-BAR": 3, "MORTAR": 2, "SACK-OF-SALT": 4,
-    "TREASURE-MAP": 1, "PIE-RAT-COIN": 1, "FISHING-ROD": 2, "SHIP-IN-A-BOTTLE": 2,
+    "SCROLL-LIGHT": 1, "TREASURE-MAP": 1, "PIE-RAT-COIN": 1, "FISHING-ROD": 2, "SHIP-IN-A-BOTTLE": 2,
     "BOG-RUNE-STONE": 2, "MUSIC-BOX-KEY": 1, "BOG-THYME": 1,
 }
 

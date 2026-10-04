@@ -322,7 +322,9 @@ Mages read scroll directly (consumed). Warriors/Rogues bring to Will (consumed, 
 ### Light Spell Scroll
 **Weight:** 1
 **Location:** Inside the locked music box in Will's Wizard Tower — key in hollow log, Bog-NW (Quest 12)
-**Quest use:** Quest 12. Light spell: 10 turns duration, 20 turns reuse.
+**Room description (in the open music box):** *A folded scroll lies in the music box.*
+**Examine:** *A spell scroll headed Light, in a small, quick hand.*
+**Quest use:** Quest 12 (finding it completes the quest). Teaches the Light spell — mechanics.md (Light Spell).
 
 ---
 
@@ -388,7 +390,7 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 **Weight:** 1
 **Location:** Hollow log in Bog-NW — Medium perception check to find the log (log text in locations.md)
 **Examine:** *A small brass key, green at the edges, with a bow shaped like a treble clef.*
-**Quest use:** Quest 12 — opens the locked music box in Will's Wizard Tower.
+**Quest use:** Quest 12 — opens the locked music box in Will's Wizard Tower. Stays in the lock once used.
 
 ---
 
