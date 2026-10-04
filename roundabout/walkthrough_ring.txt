@@ -54,23 +54,23 @@ always-max random rolls, the check succeeds immediately.
 
 > NORTH                       [nightstand]
 
-Take the glasses and put them on. The bedroom is safe — Will is not
-present. Equipping them anywhere Will can see you is an instant fail.
+Take the glasses.
 
 > TAKE GLASSES                [wire-rimmed glasses]
+> SOUTH                       [Will's Wizard Tower]
+> EXAMINE PAINTING            [Tale and Ale]
 > WEAR GLASSES                [glasses]
 
 =============================================================================
 C1) Before Sailing — Scroll, Kite & the Pie Rat Heist
 =============================================================================
-Kevry's island is 69 squares east across the Open Ocean, and the Pie
+Kevry's island is a way to the east across the Open Ocean, and the Pie
 Rats won't let us aboard their ship without a disguise. This section
 gets everything needed to board, picking up a few things on the way.
 
 Head from the Tale and Ale out to the overworld. The Docks are east of
 Roundabout Beach.
 
-> EXAMINE PAINTING            [Tale and Ale]
 > NORTH                       [Town Square]
 > EAST                        [Main East]
 > EAST                        [Roundabout Wasteland]
@@ -84,7 +84,6 @@ Chuckle House ghost; Will teaches it to us in section D.
 > NORTHEAST                   [Lighthouse]
 > TAKE SCROLL                 [Unbind Undead]
 > SOUTHWEST                   [Roundabout Beach]
-> EAST                        [Docks]
 
 Before boarding we need the Pie Rat disguise to get past the crew. The
 heist is required: get the disguise from the mine, buy gunpowder, use
@@ -92,7 +91,6 @@ flint and steel, blow the mine, then board while the crew is distracted.
 
 The mine is reached through Roundabout Forest (north of Beach Road).
 
-> WEST                        [Roundabout Beach]
 > NORTH                       [Beach Road]
 > NORTH                       [Old Oak]
 
@@ -208,7 +206,7 @@ the Hole to Below).
 =============================================================================
 C2) Set Sail — Kevry's Island & the Glasses Enchantment
 =============================================================================
-Sail 69 squares east through the Open Ocean. Navigation: SET SAIL, then
+Sail a way to the east through the Open Ocean. Navigation: SET SAIL, then
 GO EAST repeatedly until we reach Kevry's island. Glasses must be
 equipped (head slot) on arrival for Kevry to enchant them.
 
@@ -217,8 +215,9 @@ equipped (head slot) on arrival for Kevry to enchant them.
 > GO EAST                     [Roundabout Sea]
 > GO EAST                     [Eastern Roundabout Sea]
 
-Now we are in the Open Ocean. 69 east to Kevry's island. The test runner
-must issue GO EAST 69 times here; annotated as a block for clarity.
+Now we are in the Open Ocean. Kevry's island is a way to the east. The
+test runner issues GO EAST repeatedly here; annotated as a block for
+clarity.
 
 [69 × GO EAST — Open Ocean traversal to Kevry's island]
 

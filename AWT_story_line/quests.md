@@ -523,7 +523,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 1. Visit Will's Wizard Tower Main Room — silent perception check fires (Easy difficulty). On success: bedroom door becomes visible. Check repeats every visit until discovered.
 2. Enter Will's Bedroom — glasses on nightstand. Room description visible in full.
 3. `TAKE GLASSES` — wire-rimmed glasses added to inventory.
-4. `WEAR GLASSES` or `PUT ON GLASSES` inside the bedroom — safe, because Will is not present. Equipping anywhere Will can see the player triggers an instant fail state (Will attacks, no recovery).
+4. Leave the tower through the main room (`EXAMINE PAINTING` → Tale and Ale), then `WEAR GLASSES` or `PUT ON GLASSES`. Wearing them anywhere Will can see the player triggers an instant fail state (Will attacks, no recovery). The bedroom itself is safe, but the only way out is through the main room, so putting them on there just moves the fail one step later.
 5. Board the Pie Rat Ship and sail 69 squares east through the Open Ocean to Kevry's island. Glasses must be equipped (head slot) on arrival.
    - **If glasses in inventory but not equipped on arrival:** *"You've got something in there," Kevry says, not looking up. "I know you brought them."* `WEAR GLASSES` in front of him starts the enchantment.
    - **If glasses not in inventory:** `TALK TO KEVRY` gives a line that hints at the glasses without naming them (npcs.md — Kevry Talborn).
