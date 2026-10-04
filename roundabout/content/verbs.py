@@ -97,11 +97,15 @@ def v_examine(world: World) -> int:
     # Town Square statue — seam visible to anyone who looks (locations.md)
     if obj.name == "STATUE":
         world.set_global("STATUE-EXAMINED", True)
-        if world.get_global("STATUE-LOOTED"):
+        from content.statue import statue_state
+        state = statue_state(world)
+        if state == "looted":
             print(
                 "The statue stands to one side, its base pried open and empty. "
                 "Whatever was inside is gone."
             )
+        elif state == "open":
+            print("The statue stands to one side, its base pried open.")
         else:
             print(
                 "The plaque below it is worn to illegibility, but the base has "
@@ -528,6 +532,10 @@ def v_raise(world: World) -> int:
 
 def v_use(world: World) -> int:
     obj = world.prso
+    if obj is not None and obj.name == "CROWBAR" and world.prsi is not None             and world.prsi.name == "STATUE":
+        from content import statue
+        statue.pry_open(world)
+        return M_HANDLED
     if obj is not None and obj.name == "PORTCULLIS-BAR":
         from content import shrine_path
         if shrine_path.use_bar(world):

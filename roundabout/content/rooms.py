@@ -236,6 +236,7 @@ def _make_town(world) -> None:
             "illegibility, but the base has a seam around it — visible now that "
             "you're looking. Something with leverage could open it."
         ),
+        "open": "The statue stands to one side, its base pried open.",
         "looted": (
             "The statue stands to one side, its base pried open and empty. "
             "Whatever was inside is gone."
@@ -249,8 +250,10 @@ def _make_town(world) -> None:
             return M_NOT_HANDLED
         print(_SQUARE_BASE)
         print(_FOUNTAIN_RUNNING if w.get_global("FOUNTAIN-RUNNING") else _FOUNTAIN_DRY)
-        if w.get_global("STATUE-LOOTED"):
-            print(_STATUE["looted"])
+        from content.statue import statue_state
+        state = statue_state(w)
+        if state in ("open", "looted"):
+            print(_STATUE[state])
         elif w.get_global("STATUE-EXAMINED"):
             print(_STATUE["examined"])
         else:

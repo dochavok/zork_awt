@@ -51,6 +51,7 @@ def make_objects(world) -> None:
     _make_upper_tier_objects(world)
     _make_combat_room_objects(world)
     _make_shrine_path_objects(world)
+    _make_statue_objects(world)
     _set_weights(world)
 
 
@@ -694,3 +695,24 @@ _WEIGHTS = {
 def _set_weights(world) -> None:
     for name, weight in _WEIGHTS.items():
         world.objects[name].size = weight
+
+
+# ---------------------------------------------------------------------------
+# Town Square statue contents (logic: content/statue.py)
+# ---------------------------------------------------------------------------
+
+def _make_statue_objects(world) -> None:
+    world.register_object(GameObject(
+        name="SILVER-STAKE", desc="silver stake",
+        fdesc="A silver stake lies in the hollow of the statue's base.",
+        ldesc="A slim stake of solid silver, the point still sharp. Someone hid this deliberately.",
+        synonyms=["stake"], adjectives=["silver", "slim"], size=2, flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="STATUE-NOTE", desc="folded note",
+        fdesc="A folded note lies beside it, sealed with green wax.",
+        ldesc="A folded note, unsigned, closed with a seal of emerald-green wax.",
+        text=('"Kept here for whoever comes after me. I hope it\'s someone careful." '
+              "There's no name — only the green wax seal."),
+        synonyms=["note", "paper"], adjectives=["folded", "sealed"], size=1, flags={TAKEBIT},
+    ))

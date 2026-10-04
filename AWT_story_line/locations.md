@@ -93,6 +93,8 @@ Center of town. Contains a **fountain** — dry until Quest 22 (The Ruined Aqued
 
 **Room description (fountain dry, statue examined — seam visible):** *...A stone statue stands to one side. The plaque below it is worn to illegibility, but the base has a seam around it — visible now that you're looking. Something with leverage could open it.*
 
+**Room description (statue open, something still inside):** *...The statue stands to one side, its base pried open.*
+
 **Room description (fountain dry, statue looted):** *...The statue stands to one side, its base pried open and empty. Whatever was inside is gone.*
 
 **Room description (fountain flowing — Quest 22 complete):** *The fountain has been running long enough now that people have stopped remarking on it. The square sounds different with water in it.* (Statue state as above — independent.)
@@ -479,7 +481,10 @@ East exit to Chuckle House appears only after Litlock's bonk (Quest 52) — abse
 
 **Town square statue:** The statue in Roundabout Town Square has a hollow base — seam visible to anyone who types `LOOK AT STATUE` (no perception check).
 Attempting to open without a crowbar: *"The base is sealed tight. Something with leverage could pry it open."*
-Crowbar opens it → silver stake + folded note inside. Note unsigned but identified by emerald wax seal (same seal as Keeper's skeleton).
+Crowbar opens it (`USE CROWBAR ON STATUE`, no roll) → silver stake + folded note inside. Note unsigned but identified by emerald wax seal (same seal as Keeper's skeleton). The note is a clue only — nothing requires it.
+- **Pried open:** *You work the crowbar into the seam and lean on it. Stone grinds against stone, and the base of the statue swings open on a hinge nobody was meant to find. Inside, in the dark: a silver stake, and a folded note.*
+- **Listings:** stake — *A silver stake lies in the hollow of the statue's base.* Note — *A folded note lies beside it, sealed with green wax.*
+- **Note:** examine — *A folded note, unsigned, closed with a seal of emerald-green wax.* `READ NOTE` — *"Kept here for whoever comes after me. I hope it's someone careful." There's no name — only the green wax seal.*
 May's tier 1 hint (fires only if player has not yet examined the statue): *"Someone was seen tampering with the statue in Roundabout Town Square. Probably nothing. Probably."*
 
 ### The Mausoleum

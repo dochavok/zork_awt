@@ -6,18 +6,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–I2 passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — Sections A–J passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
 
 **Goal:** Full ring quest walkthrough passing with zero state injection.
 
-**Current position:** Section J — open the statue, get the silver stake. First failure:
+**Current position:** Section K — Quest 32, the Missing Gravestone. First failure:
 
 ```
-SECTION [J) Werewolf's Amulet — Open Statue, Get Silver Stake]
-  cmd     : 'USE CROWBAR ON STATUE'
-  missing : 'silver stake'
-  got     : "Nothing happens."
+SECTION [K) Quest 32 — Missing Gravestone (Middle Tier Key)]
+  cmd     : 'TALK TO ROWAN'
+  missing : 'gravestone'
+  got     : "There's no response from the Councilman Rowan Finch."
 ```
+
+Needs Rowan's dialogue, the gravestone in Bog-SE, LOAD STONE ONTO CART, pushing the cart, DROP CART at the Graveyard, the Middle Tier Key. Also the Quest 25 cellar + torch swap planned for K.
 
 **Torch budget:** the torch lights at the Mausoleum (H5) and runs 100 turns, every turn. With no swaps it dies around turn 100 (section L). Plan: do Quest 25 (Flooded Cellar) in K while in town with the crowbar, swap the torch at Shamus there, then use the Bone Passage → cellar → kitchen shortcut for a second swap around N/O. Place swaps exactly once L–P are built.
 
@@ -34,6 +36,7 @@ SECTION [J) Werewolf's Amulet — Open Statue, Get Silver Stake]
 - Hidden Zenni rooms (36, seeded at init; tests pin seed 7)
 - Old Oak area (Quest 41 kite, Beekeeper's Cottage, Swarm Tree), forest + bog bowl pieces, Pond and 4 bog rooms
 - SAVE / RESTORE
+- Town Square statue: USE CROWBAR ON STATUE, silver stake, folded note (clue only)
 - Dungeon upper tier I1/I2: ink trap (Trap 45, inked flag), Supply Room items, Storage Area/hand cart, Combat Room + Warden + plate-operated Den door (Trap 29), Creature Den, Prayer Alcove niche, Portcullis (Trap 19, LIFT + bar), Shrine Room piece, Rickety Bridge weight limit, Key Door (locked); death is GAME OVER
 - Lighting: dark rooms hard-block without light; torch lit on purchase, 100-turn timer from first dark room, warnings, burnout fatal only when stranded in the dark
 - Crypt (visit-based descriptions), Secret Tunnels, Toll Bridge (seal, Boggart, 200 toll, charter, strongbox — Quest 27), Dungeon Entrance; Mausoleum now dark

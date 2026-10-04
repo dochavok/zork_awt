@@ -213,6 +213,7 @@ A tarnished amulet bearing the seven-pointed star of The Veil of the Arcane.
 
 ### Silver Stake
 **Weight:** 2
+**Examine:** *A slim stake of solid silver, the point still sharp. Someone hid this deliberately.*
 **Location:** Hollow base of the Town Square statue — crowbar opens it
 **Quest use:** Must be consecrated with holy water → consecrated silver stake → `DRIVE STAKE INTO WEREWOLF`.
 

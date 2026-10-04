@@ -817,10 +817,9 @@ already examined it and saw the seam. Use the crowbar.
 > USE CROWBAR ON STATUE       [silver stake]
 > TAKE STAKE                  [silver stake]
 
-Also take the folded note — it bears the Keeper's emerald wax seal, which
-matches the skeleton in the Lower Crypt.
-
-> TAKE NOTE                   [emerald seal]
+The folded note beside it bears the Keeper's emerald wax seal — the
+same seal is on the skeleton in the Lower Crypt. It's a clue only; the
+ring doesn't need it, so leave it.
 
 =============================================================================
 K) Quest 32 — Missing Gravestone (Middle Tier Key)
