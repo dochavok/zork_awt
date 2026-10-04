@@ -144,7 +144,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("lower")
     v.add_verb("lubricate", "oil", "grease")
     v.add_verb("make")
-    v.add_verb("melt", "liquify")
+    v.add_verb("melt", "liquify", "thaw")
     v.add_verb("move")
     v.add_verb("mumble", "sigh")
     v.add_verb("open")

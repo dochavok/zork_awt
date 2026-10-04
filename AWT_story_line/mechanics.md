@@ -148,6 +148,11 @@ Dice-based, scales with player level. Warriors start proficient with melee; Rogu
 **Bow — first round bonus:** +5 to the attack roll on the opening bow attack of any combat. No bonus on subsequent rounds.
 
 **Fireball:** Guaranteed 1 heart damage — no roll required. 10-turn reuse timer. Effectively once per combat encounter.
+- **Built (2026-10-04):** `CAST FIREBALL` / `CAST FIREBALL AT [enemy]`. The fireball is the whole round: the enemy loses 1 heart and doesn't strike back. Hit line: *Fire leaves your hands in a single roaring sheet and takes the [enemy] full on. It reels back through the smoke.* With no target named, it hits the enemy present.
+- The werewolf: its failure line (Undead Werewolf, below), and the turn's werewolf round still happens. The timer starts.
+- The Fountain Room ice (Quest 34): *The fireball bursts against the block and rolls off it like water off glass. The frost doesn't so much as dull. I guess not every problem can be solved with fireball.* No timer.
+- Nothing to hit: *Nothing here answers the spell.* No timer.
+- **Any spell cast before it's ready:** *You reach for the spell and find it isn't ready yet.* — doesn't use a turn.
 
 **Melee weapons:** Warriors may use melee weapons from the start. Mages and Rogues require the Weapon Use skill (Quest 54) before any weapon provides a bonus — without it, `KILL X` defaults to unarmed (+0) regardless of inventory. Three weapons are sold by Shamus (Kitchen, Tale and Ale): Dagger (+2, 5 Zenni), Mace (+4, 25 Zenni), Battle Axe (+6, 100 Zenni). The combat roll for a melee attack is the player's base roll plus the weapon bonus. `KILL X` auto-selects the best usable weapon in inventory. `KILL X WITH DAGGER` forces a specific weapon.
 

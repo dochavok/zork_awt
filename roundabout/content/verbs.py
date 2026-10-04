@@ -231,7 +231,12 @@ def v_seal(world: World) -> int:
 
 def v_pour(world: World) -> int:
     from content import keeper
-    return M_HANDLED if keeper.pour(world) else M_NOT_HANDLED
+    if keeper.pour(world):
+        return M_HANDLED
+    if world.prso is not None and world.prso.name == "GLACIER-MELT":   # Quest 34 — only the pool
+        print("You'd rather not waste it.")
+        return M_HANDLED
+    return M_NOT_HANDLED
 
 
 def v_look_up(world: World) -> int:

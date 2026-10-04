@@ -164,35 +164,46 @@ def test_werewolf_consecrated_stake_kills():
 # Fireball: guaranteed 1 heart, no roll
 # ---------------------------------------------------------------------------
 
-def test_fireball_deals_guaranteed_damage():
+def _warden_fight():
+    """The Warden out in the Combat Room, the player facing him, Fireball known."""
     w, g = _make_world()
     w.globals["spell_fireball"] = True
-    w.globals["fireball_cooldown"] = 0
-    enemy = _make_enemy(w, "troll", hearts=5)
-    initial_hp = getattr(enemy, "combat_hearts", 5)
+    room = w.rooms["COMBAT-ROOM"]
+    w.move_object(w.player, room)
+    w.here = room
+    w.move_object(w.objects["WARDEN"], room)
+    w.set_global("WARDEN-OUT", True)
+    w.set_global("WARDEN-HEARTS", 5)
+    return w, g
 
+
+def test_fireball_deals_guaranteed_damage():
+    # Even with every roll lost, the fireball lands and the Warden doesn't hit back
+    w, g = _warden_fight()
     buf = io.StringIO()
     with patch("sys.stdout", buf), patch("random.randint", _always_min):
-        g.do_turn("cast fireball at troll")
-    out = buf.getvalue().lower()
+        g.do_turn("cast fireball at warden")
+    out = buf.getvalue()
 
-    # Fireball should mention fire/damage or the troll
-    assert "fire" in out or "fireball" in out or "damage" in out or "troll" in out
+    assert "takes the Warden full on" in out, out
+    assert w.get_global("WARDEN-HEARTS") == 4
+    assert w.globals["hearts"] == 5
 
 
 def test_fireball_cooldown_blocks_reuse():
-    w, g = _make_world()
-    w.globals["spell_fireball"] = True
-    w.globals["fireball_cooldown"] = 5
-    enemy = _make_enemy(w, "goblin")
-
+    # A second cast within 10 turns isn't ready, and doesn't use a turn
+    w, g = _warden_fight()
+    with patch("sys.stdout", io.StringIO()), patch("random.randint", _always_max):
+        g.do_turn("cast fireball at warden")
+    moves = w.moves
     buf = io.StringIO()
     with patch("sys.stdout", buf):
-        g.do_turn("cast fireball at goblin")
-    out = buf.getvalue().lower()
+        g.do_turn("cast fireball at warden")
+    out = buf.getvalue()
 
-    assert "can't" in out or "not yet" in out or "cooldown" in out \
-        or "again" in out or "ready" in out
+    assert "isn't ready yet" in out, out
+    assert w.moves == moves
+    assert w.get_global("WARDEN-HEARTS") == 4
 
 
 # ---------------------------------------------------------------------------

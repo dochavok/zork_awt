@@ -2024,7 +2024,7 @@ Undead werewolf — critical path. Cannot be harmed by conventional weapons. Onl
 ### Tool Alcove (Room 10)
 **XP: 3**
 **NPCs:** None (speaking door — READ SCROLL opens it)
-**Items:** None (scroll from elsewhere consumed here to open passage)
+**Items:** None (the incantation scroll opens the passage; it isn't used up)
 **Quest Hooks:** Quest 34 — speaking door requires scroll to open; passage north leads to frozen soldier
 **Connections:** South → The Lower Crossing. North → The Flooded Passage (quest-gated; READ SCROLL opens passage permanently).
 Quest 34 barrier room. North of The Lower Crossing. Speaking door disguised as back wall. Perception check required for discovery — Medium, every visit until found (glasses: automatic).
@@ -2038,7 +2038,7 @@ Quest 34 barrier room. North of The Lower Crossing. Speaking door disguised as b
 
 **Persistent (after discovery):** *"As you focus on the back wall, it asks you something. Once. The sound of it fills the alcove and then is gone, leaving only the clear impression that an answer is expected."*
 
-**`READ SCROLL` response:** *"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."* — scroll consumed; passage north opens permanently.
+**`READ SCROLL` response:** *"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."* — the scroll isn't used up (it can be left behind); passage north opens permanently. Before the door is found, `READ SCROLL` here gets the scroll's away-from-the-door line (items.md).
 
 **Open state (all future visits):** *"The passage ends at a shallow recess lined with empty iron brackets. The back wall stands open. It has nothing left to ask."*
 
@@ -2060,6 +2060,12 @@ North of Tool Alcove. A channel of dark water fills the room wall to wall — na
 
 **Freeze solution:** `POUR VIAL IN WATER` (vial of glacier melt from Prayer Alcove, upper tier) freezes the pool; player crosses freely.
 
+**Built (2026-10-04):**
+- `NORTH`, `SWIM` or `ENTER POOL` before the freeze: the swimming penalty above — 1 heart (arcane, not combat: the tunic doesn't apply); the player stays in the room.
+- **`POUR VIAL IN WATER`** (the vial is used up): *You unstopper the vial and tip it over the pool. The glacier melt hits the surface and the cold spreads out from it in a white rush, wall to wall, faster than water should freeze. The pool goes still. Then it goes solid.*
+- **Room description, frozen:** *The pool fills the room wall to wall, frozen solid. Water still seeps down the walls and stops where it meets the ice. The passage north is on the other side, and nothing stands between you and it now.*
+- Pouring the vial anywhere else: *You'd rather not waste it.*
+
 ### The Fountain Room (Room 12)
 **XP: 2**
 **NPCs:** Frozen soldier (encased in magical ice; freed by Ivory Torch; reappears in town offering weapon training)
@@ -2080,6 +2086,12 @@ North of The Flooded Passage. Contains a soldier encased in a block of magical i
 **Soldier handoff:** *He looks at the sword at his side as if surprised to find it still there. He draws it and holds it out to you without ceremony. "The Forgotten Blade," he says. "It has no business down here." Neither, apparently, does he — he moves past you and is gone before you can speak.*
 
 Soldier reappears in town as a minor NPC offering free weapon training sessions. Reward: **The Forgotten Blade** — see `items.md`.
+
+**Built (2026-10-04):**
+- `HOLD TORCH NEAR ICE` or `MELT ICE WITH TORCH` (also `THAW`), with the Ivory Torch: Turn 1, then Turn 2 + the soldier handoff + *[The Forgotten Blade added to inventory.]* Quest 34 completes (8 Zenni, silent).
+- **The ordinary torch:** lit — *You hold the torch to the ice. The flame gutters against the frost and leaves no mark. Whatever holds this ice, ordinary fire isn't going to move it.* Burnt out — *The torch is burnt out. It wouldn't have been enough anyway.*
+- **`EXAMINE ICE`** (also SOLDIER / FIGURE): before — *Frosted thick. Inside, a soldier stands composed, eyes open, waiting.* After Turn 1 — *A small clear window has opened in the frost. The soldier inside hasn't moved.*
+- **Room description, after the thaw:** *The fountain to your left is still frozen mid-pour. Where the block of ice stood, there's only a spreading wet patch on the floor and a few sheets of ice melting at its edges.*
 
 ### Dark Room (Room 11 — Dark branch off The Lower Crossing)
 **XP: 2**

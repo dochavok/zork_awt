@@ -174,6 +174,14 @@ def fight_round(w: World) -> None:
         _warden_dies(w)
 
 
+def fireball_hit(w: World) -> None:
+    """CAST FIREBALL at the Warden: 1 heart, no roll, no strike back."""
+    hearts = int(w.globals.get("WARDEN-HEARTS", WARDEN_HEARTS)) - 1
+    w.globals["WARDEN-HEARTS"] = hearts
+    if hearts <= 0 and not w.get_global("GAME-OVER"):
+        _warden_dies(w)
+
+
 def _warden_dies(w: World) -> None:
     from content.combat import award_combat_xp
     print(_WARDEN_DIES)

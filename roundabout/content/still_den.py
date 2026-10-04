@@ -92,6 +92,11 @@ _REVERTS = (
     "The creature drops. Between one moment and the next, it is not the creature "
     "anymore. The scholar lies on the floor of the cave he came down here to find."
 )
+# mechanics.md — Undead Werewolf, weapon failure messages
+FIREBALL_FAILS = (
+    "The fire takes hold for a moment — then dies. Whatever this creature is made of, "
+    "it isn't interested in burning."
+)
 _MELEE_FAILS = (
     "Your blade finds its mark. The creature doesn't notice. It turns toward you "
     "with the patience of something that has been waiting a very long time."

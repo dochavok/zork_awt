@@ -546,6 +546,10 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj2=ObjectSpec(locations=_held_car_have)),
         SyntaxRule(verb="melt", action="V-MELT",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
+        # HOLD TORCH NEAR ICE ("hold" is a TAKE word) — Quest 34
+        SyntaxRule(verb="take", action="V-HOLD-NEAR",
+                   obj1=ObjectSpec(locations=_held_car_have),
+                   prep="near", obj2=ObjectSpec(locations=_og_ir)),
 
         # ------------------------------------------------------------------ #
         # MOVE                                                                #

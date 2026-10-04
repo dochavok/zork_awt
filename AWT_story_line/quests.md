@@ -328,9 +328,9 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
    - Swimming: 1 heart arcane damage, returned to doorway.
    - Solution: `POUR VIAL IN WATER` (vial of glacier melt, Prayer Alcove, upper tier) → pool freezes; player crosses freely.
 5. Enter The Fountain Room — soldier encased in magical ice.
-6. `HOLD TORCH NEAR ICE` (turn 1) → ice begins to thaw.
+6. `HOLD TORCH NEAR ICE` / `MELT ICE WITH TORCH` (turn 1) → ice begins to thaw. Only the Ivory Torch works (ordinary-torch lines in locations.md — The Fountain Room).
 7. `HOLD TORCH NEAR ICE` (turn 2) → soldier freed.
-8. Soldier gives the Forgotten Blade and wanders off.
+8. Soldier gives the Forgotten Blade (straight to the inventory) and wanders off.
 
 **Reward:** The Forgotten Blade — ceremonial sword, treasure item (not a combat weapon). Soldier reappears in town as minor NPC offering free weapon training sessions. 8 Zenni.
 

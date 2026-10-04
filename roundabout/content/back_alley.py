@@ -112,6 +112,14 @@ def fight_round(w: World) -> None:
         print(_FIGHT_LOST)
 
 
+def fireball_hit(w: World) -> None:
+    """CAST FIREBALL at the mugger: 1 heart, no roll, he doesn't strike back."""
+    hearts = int(w.globals.get("MUGGER-HEARTS", MUGGER_HEARTS)) - 1
+    w.globals["MUGGER-HEARTS"] = hearts
+    if hearts <= 0:
+        _mugger_defeated(w)
+
+
 def _mugger_defeated(w: World) -> None:
     from content import quests
     from content.combat import award_combat_xp

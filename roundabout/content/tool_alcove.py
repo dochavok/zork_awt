@@ -10,7 +10,8 @@ quests.md (Quest 34).
   question. EXAMINE WALL / LISTEN show the question once it's found.
 - Leaving south before the door is found: one of two pull-back lines in The
   Lower Crossing, once only.
-- Deferred to JJ: READ SCROLL opens the wall; The Flooded Passage beyond.
+- READ SCROLL (the incantation scroll, not used up) once the door is found:
+  the wall opens for good; north to The Flooded Passage (content/frozen_soldier.py).
 
 State: ALCOVE-FOUND, ALCOVE-OPEN, ALCOVE-PULLBACK (None / "pending" / "done")
 """
@@ -39,6 +40,10 @@ _ASKS = (
 _OPEN = (
     "The passage ends at a shallow recess lined with empty iron brackets. The back "
     "wall stands open. It has nothing left to ask."
+)
+_ANSWERED = (
+    "The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You "
+    "get the sense it had begun to doubt anyone would ever answer."
 )
 _PULLBACK = (
     "As you step back into the crossing, you're not sure why, but you feel like you "
@@ -72,6 +77,12 @@ def alcove_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         return M_NOT_HANDLED
 
     wall = w.objects["ALCOVE-WALL"]
+    scroll = w.objects["INCANTATION-SCROLL"]
+    if (w.prsa == "V-READ" and w.prso is scroll and w.get_global("ALCOVE-FOUND")
+            and not w.get_global("ALCOVE-OPEN")):
+        print(_ANSWERED)
+        w.set_global("ALCOVE-OPEN", True)
+        return M_HANDLED
     if (w.prsa == "V-EXAMINE" and w.prso is wall) or w.prsa == "V-LISTEN":
         if w.get_global("ALCOVE-OPEN"):
             print(_OPEN)
@@ -100,11 +111,19 @@ def on_enter(w: World, room) -> None:
         print(_PULLBACK[random.randint(1, 2) - 1])
 
 
+class _WallExit(Exit):
+    """North through the back wall, once it has opened."""
+    def resolve(self, world):
+        if not world.get_global("ALCOVE-OPEN"):
+            return None, "You can't go that way."
+        return super().resolve(world)
+
+
 def make_rooms(world) -> None:
     alcove = Room(name="TOOL-ALCOVE", desc="Tool Alcove", ldesc="", value=3)
     alcove.set_flag(RLANDBIT)   # dark
     world.register_room(alcove)
     world.rooms["LOWER-CROSSING"].exits["north"] = Exit(destination="TOOL-ALCOVE")
-    # North (The Flooded Passage) opens with READ SCROLL — section JJ
-    alcove.exits.update(south=Exit(destination="LOWER-CROSSING"))
+    alcove.exits.update(south=Exit(destination="LOWER-CROSSING"),
+                        north=_WallExit(destination="FLOODED-PASSAGE"))
     alcove.action = alcove_action

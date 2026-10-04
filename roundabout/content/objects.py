@@ -975,6 +975,25 @@ def _make_mid_tier_objects(world) -> None:
               "ground. You still can't read a word of it.",
         synonyms=["rubbing"], adjectives=["charcoal"], size=1, flags={TAKEBIT},
     ))
+    # Quest 34 — The Flooded Passage / The Fountain Room (content/frozen_soldier.py)
+    world.register_object(GameObject(
+        name="FLOODED-POOL", desc="pool",
+        synonyms=["pool", "water", "channel"], adjectives=["dark", "frozen"],
+        flags={NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="ICE-BLOCK", desc="block of ice",
+        synonyms=["ice", "block", "soldier", "figure", "person"],
+        adjectives=["frosted", "magical", "frozen"],
+        flags={NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="FORGOTTEN-BLADE", desc="Forgotten Blade",
+        examine="A ceremonial sword, long and narrow, the blade unmarked by any use. The "
+                "hilt is wrapped in faded cloth that might once have been a colour.",
+        synonyms=["blade", "sword"], adjectives=["forgotten", "ceremonial"],
+        size=3, flags={TAKEBIT},
+    ))
     # Quest 28 reward from the Archivist (content/library.py); Quest 34 READ SCROLL
     world.register_object(GameObject(
         name="INCANTATION-SCROLL", desc="incantation scroll",

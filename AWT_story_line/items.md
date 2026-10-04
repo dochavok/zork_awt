@@ -297,7 +297,7 @@ Left by Calder Finch. *"He left a key. Said it led to a lower level — wouldn't
 **Examine:** *A stoppered vial of water so cold the glass has frosted. It doesn't warm in your hand.*
 **Weight:** 1
 **Location:** Prayer Alcove, Dungeon Upper Tier (alongside crowbar)
-**Quest use:** Quest 34 mid room — `POUR VIAL IN WATER` freezes the pool, player crosses freely.
+**Quest use:** Quest 34 mid room — `POUR VIAL IN WATER` freezes the pool, player crosses freely. Used up.
 
 ---
 
@@ -308,7 +308,7 @@ Left by Calder Finch. *"He left a key. Said it led to a lower level — wouldn't
 **Examine:** *A torch with a shaft of carved ivory, yellowed with age. Its head has never been lit — it doesn't need to be. Heat pours off it, steady and impossible, enough to make your hand ache if you hold it close.*
 **`LIGHT IVORY TORCH`:** *It doesn't need lighting. The heat is already there.*
 **Location:** Mounted on wall in The Still Den (lower tier) — take before leaving
-**Quest use:** Quest 34 — required to thaw the frozen soldier over two turns (`HOLD TORCH NEAR ICE` twice).
+**Quest use:** Quest 34 — required to thaw the frozen soldier over two turns (`HOLD TORCH NEAR ICE` / `MELT ICE WITH TORCH` twice). Not needed afterwards.
 
 ---
 
@@ -748,7 +748,7 @@ All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 
 | Item | Location | Weight | Points | Notes |
 |------|----------|--------|--------|-------|
-| **The Forgotten Blade** | The Fountain Room, Dungeon Lower Tier | 3 | 60 | Most valuable treasure in game; not a combat weapon, ceremonial only |
+| **The Forgotten Blade** | The Fountain Room, Dungeon Lower Tier | 3 | 60 | Most valuable treasure in game; not a combat weapon, ceremonial only. Straight to the inventory from the soldier. Examine: *A ceremonial sword, long and narrow, the blade unmarked by any use. The hilt is wrapped in faded cloth that might once have been a colour.* |
 | **Diamond Brooch** | Magnetic Vault, Dungeon Mid-Tier | 1 | 45 | Second most valuable treasure in game |
 | **Funeral Mask of Hammered Gold** | Burial Chamber, Dungeon Lower Tier | 3 | 36 | Spirits do not react to taking it |
 | **Golden Dragon Scale** | Reward from returning dragon-nip to Will | 1 | 36 | Dragon-nip hidden under nightstand in Will's Bedroom |

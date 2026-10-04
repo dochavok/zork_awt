@@ -10,16 +10,16 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section JJ — Quest 34, the Frozen Soldier. Sections A–II pass (AA folded into Z, DD into II, NN into OO). First failure:
+**Current position:** Full-score walkthrough, Section KK — Dark Room, Spirit Room, Burial Chamber. Sections A–JJ pass (AA folded into Z, DD into II, NN into OO). First failure:
 
 ```
-SECTION [JJ) Quest 34 — The Frozen Soldier (Incantation scroll + Ivory Torch)]
-  cmd     : 'READ SCROLL'
-  missing : 'door opens'
-  got     : "You read the words under your breath. Nothing answers. ..."
+SECTION [KK) Lower Tier — Dark Room, Spirit Room, Burial Chamber]
+  cmd     : 'SOUTH'
+  missing : 'Dark Room'
+  got     : "You can't go that way."
 ```
 
-Opening the Tool Alcove's speaking door was deferred to JJ. 116 full-score steps still fail.
+The Dark Room south of the Lower Crossing isn't built (deferred from O). 109 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
@@ -112,6 +112,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section FF: Whispering Jar restoration (PRESS SEAL → 5 Zenni in the jar, DUST JAR, READ INSCRIPTION — Medium perception, whisper repeats on re-read; LISTEN hum / quiet; seal and dust used up). Jar's READ word is INSCRIPTION (GG brings the incantation scroll). Parser: DUST / LISTEN TO prefer what isn't carried; PUT / SPRINKLE / PRESS … ON targets prefer what isn't carried. GG starts WEST from the Pipe Room.
 - Section GG: GIVE RUBBING TO ARCHIVIST (or TALK TO him carrying it) → his line, [Incantation scroll added to inventory.], Quest 28 (3 Zenni silent). Incantation scroll object; READ SCROLL away from the door has its own line; the scroll is never used up (can be left behind after Quest 34). GIVE refusals say 'The' for titled / common-noun NPCs. [Main Hall] fragments in GG and HH; TAKE SCROLL dropped.
 - Section HH1: GIVE FLUTE TO PYRONICUS → his line, [Fireball scroll added to inventory.], Quest 7 (3 Zenni silent); Fireball scroll joins Will's spell scrolls; GIVE prefers items meant for whoever is present. Section HH2: Quest 42 moved before II — GIVE STONES (any stone stands for the set; fewer than three handed back), tunic object + WEAR line, combat checks the tunic is worn; Quest 42 Zenni 6 → 5 per quests.md. II: CAST LIGHT in the Mausoleum, [creature drops] as in the ring walkthrough. EE drops the bowl pieces and smoke jar in the Bone Passage, the Pale Blade in the church.
+- Section JJ: READ SCROLL opens the Tool Alcove wall (scroll dropped after); The Flooded Passage (swimming 1 heart, POUR VIAL freezes the pool, vial used up) and The Fountain Room (HOLD TORCH NEAR ICE / MELT ICE WITH TORCH twice → [The Forgotten Blade added to inventory.], Quest 34; ordinary torch lit/out lines; Ivory Torch dropped after). II picks up the vial and lantern at the bridge. Fireball wired into CAST (enemy loses 1 heart, no strike back; werewolf failure line; ice line; 'Nothing here' with no timer); a spell cast before it's ready doesn't use a turn (engine: HOOK_NO_TURN). test_combat's two fireball tests (passing by accident) rewritten against the Warden. KK starts with SOUTH ×3 from the Fountain Room.
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -124,7 +125,8 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - OO and TT: `PUT BOWL …` asks which bowl while the pieces are carried.
 - UU's `LOOK IN CASE [9 of 9]` fragment conflicts with the design (no denominator during play) — decide at UU.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
-- Deferred from O: Lower Crossing south (Dark Room); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
+- Deferred from O: Lower Crossing south (Dark Room); the bow attack on the werewolf (failure line in mechanics.md; the attack doesn't exist yet). Fireball is built.
+- Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
 - Quest 7's Quest Board posting (20 turns after meeting Pyronicus) isn't built — giving the flute completes it regardless.
 - LISTEN has no default handler — prints nothing outside the Tool Alcove and the Pipe Room.
 - V-PULL has no default handler — PULL on an ordinary object prints nothing.

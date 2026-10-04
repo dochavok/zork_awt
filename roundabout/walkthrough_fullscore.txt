@@ -1427,6 +1427,12 @@ The Mausoleum is dark — step in and cast Light.
 > SOUTH                       [Portcullis Corridor]
 > SOUTH                       [Shrine Room]
 > SOUTH                       [Rickety Bridge]
+
+The vial of glacier melt and the Guardian's Lantern have waited at the
+bridge since EE.
+
+> TAKE VIAL                   [You take the vial of glacier melt]
+> TAKE LANTERN                [You take the Guardian's Lantern]
 > SOUTH                       [Mid-Tier Key Door]
 > SOUTH                       [Key Door Landing]
 > SOUTH                       [Mine Passage]
@@ -1465,28 +1471,29 @@ Still Den.
 > WEST                        [Narrow Pass]
 > WEST                        [Lower Crossing]
 > NORTH                       [Tool Alcove]
-> READ SCROLL                 [door opens]
+> READ SCROLL                 [slowly, it opens]
 
-Incantation scroll consumed. Passage north opens permanently.
+The passage north opens permanently. The scroll has done its work.
 
-> NORTH                       [Quest 34 Mid Room]
+> DROP SCROLL                 [You drop the incantation scroll]
+> NORTH                       [Flooded Passage]
 
 Dark pool fills the room wall to wall — swimming is 1 heart arcane
 damage, returned to doorway. Freeze it with the vial of glacier melt.
 
-> POUR VIAL IN WATER          [pool freezes]
-> NORTH                       [Quest 34 Fountain Room]
+> POUR VIAL IN WATER          [Then it goes solid]
+> NORTH                       [Fountain Room]
 
 A soldier is encased in magical ice. Thaw him over two turns with the
 Ivory Torch.
 
-> HOLD TORCH NEAR ICE         [crack]
-> HOLD TORCH NEAR ICE         [freed]
+> HOLD TORCH NEAR ICE         [single deep crack]
+> HOLD TORCH NEAR ICE         [Forgotten Blade added to inventory]
 
 The soldier hands over the Forgotten Blade (most valuable treasure,
-60 pts) and wanders off toward town.
+60 pts) and wanders off toward town. The Ivory Torch isn't needed again.
 
-> TAKE FORGOTTEN BLADE        [Forgotten Blade]
+> DROP TORCH                  [You drop the ivory torch]
 
 Quest 34 complete.
 
@@ -1496,6 +1503,8 @@ KK) Lower Tier — Dark Room, Spirit Room, Burial Chamber
 The Dark Room is a spur south of The Junction. Guardian's Lantern
 required to dispel magical darkness.
 
+> SOUTH                       [Flooded Passage]
+> SOUTH                       [Tool Alcove]
 > SOUTH                       [Lower Crossing]
 > SOUTH                       [Dark Room]
 > LIGHT LANTERN               [darkness collapses]

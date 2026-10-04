@@ -36,6 +36,10 @@ M_FLASH   = 4   # brief flash / redescription
 M_OBJDESC = 5   # describe an object in the room
 M_END     = 6   # end of turn (after verb dispatch)
 
+# An input hook returns this to handle a line without using a turn
+# (CAST before the spell is ready again).
+HOOK_NO_TURN = "no-turn"
+
 # Description modes
 VERBOSE     = 0   # always show long description + contents
 BRIEF       = 1   # long description on first visit only (default)
@@ -162,8 +166,10 @@ class Game:
             return M_FATAL
 
         for hook in self._input_hooks:
-            if hook(w, input_text):
-                self.clock.tick(w, command_parsed=True)
+            handled = hook(w, input_text)
+            if handled:
+                if handled != HOOK_NO_TURN:
+                    self.clock.tick(w, command_parsed=True)
                 return M_HANDLED
 
         result = self.parser.parse(input_text, w)

@@ -218,6 +218,8 @@ def _place_objects(world) -> None:
         world.move_object(world.objects[obj], world.rooms[room])
     # Trap 15: the diamond brooch waits inside the Magnetic Vault chest
     world.move_object(world.objects["DIAMOND-BROOCH"], world.objects["VAULT-CHEST"])
+    world.move_object(world.objects["FLOODED-POOL"], world.rooms["FLOODED-PASSAGE"])
+    world.move_object(world.objects["ICE-BLOCK"], world.rooms["FOUNTAIN-ROOM"])
 
     # Which key opens what — the parser uses this to pick the right key when
     # several match "key" (UNLOCK DOOR WITH KEY)
