@@ -1126,35 +1126,43 @@ Light.
 > SOUTH                       [Collapsed Gallery]
 > EAST                        [Rickety Bridge]
 
-Drop heavy items to cross (idol weight 4 + cart weight 5 alone exceeds
-limit). Critical items across the bridge: rope(3), lantern(2), stake(2),
-vial(1), key(1) = 9, under the 12 limit. Drop the idol, salt, cart here.
+The bridge won't take everything we're carrying. Below it we need the
+key, the shovel and the rope, then the lockpicks and the thin paper —
+a little more than the bridge will hold in one go. The key stays in the
+door once it's unlocked, so cross with it first and come back for the
+rest.
 
-> DROP IDOL                   [idol]
-> DROP SALT                   [sack of salt]
-> DROP CART                   [hand cart]
+> DROP ALL BUT RING, KEY, SHOVEL AND ROPE   [You drop the]
 > SOUTH                       [Mid-Tier Key Door]
-> UNLOCK DOOR WITH KEY        [door unlocked]
+> UNLOCK DOOR WITH KEY        [swings inward]
+> NORTH                       [Rickety Bridge]
+> TAKE LOCKPICKS              [You take the lockpicks]
+> TAKE THIN PAPER             [You take the thin paper]
+> SOUTH                       [Mid-Tier Key Door]
 > SOUTH                       [Key Door Landing]
 > SOUTH                       [Mine Passage]
 
-Take charcoal (Quest 28, no perception check). With Actually Enchanted
-Glasses silver dust auto-found (Quest 4).
+Charcoal for the Archivist's rubbing (Quest 28), and the glasses pick
+out silver dust for the Whispering Jar (Quest 4). The lockpicks open
+the iron chest.
 
-> TAKE CHARCOAL               [charcoal]
-> TAKE SILVER DUST            [silver dust]
-> OPEN CHEST WITH LOCKPICKS   [chest]
-> TAKE ZENNI                  [20 Zenni]
+> TAKE CHARCOAL               [You take the charcoal]
+> TAKE SILVER DUST            [pocket it]
+> OPEN CHEST WITH LOCKPICKS   [20 Zenni]
 
 Stored Room is east of Mine Passage. Visit The Crevice before digging
-to get the Gold Pocket Watch (missable after collapse).
+to get the Gold Pocket Watch.
 
 > EAST                        [Stored Room]
-> EAST                        [Crevice]
-> TAKE WATCH                  [gold pocket watch]
+> EAST                        [The Crevice]
+> TAKE WATCH                  [You take the gold pocket watch]
 > WEST                        [Stored Room]
-> DIG                         [Hole to Below]
-> TIE ROPE TO BEAM            [rope tied]
+> DIG                         [floor gives way]
+> TIE ROPE TO BEAM            [timber]
+
+The shovel's work here is done.
+
+> DROP SHOVEL                 [You drop the shovel]
 
 =============================================================================
 Z) Quest 28 — Complete: Inscription Chamber Rubbing

@@ -386,6 +386,9 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 **Weight:** 1
 **Location:** Mine Passage, Dungeon Mid-Tier — perception check required
 **Quest use:** Quest 4 — `DUST JAR` as part of the Whispering Jar restoration.
+**Room description (once found):** *A faint shimmer near the base of one timber catches your eye — silver dust, settled into a crack in the stone.*
+**`TAKE SILVER DUST`:** *You pinch the silver dust out of the crack and pocket it.*
+**Examine:** *A pinch of fine silver dust. It catches the light even down here.*
 
 ---
 
@@ -439,6 +442,12 @@ Opening it again: *The chest is open, and empty.*
 
 Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevice (mid-tier dungeon) — Trophy Case treasure item, **missable** (The Crevice is permanently inaccessible after the Stored Room collapses).
 
+### Gold Pocket Watch
+**Weight:** 1
+**Location:** The Crevice (mid-tier) — hanging from the skeleton's finger; part of the room description. `TAKE WATCH`.
+**Examine:** *A gold pocket watch, its case engraved in a pattern worn almost smooth. It stopped long ago at a quarter past three.*
+**Treasure:** 30 points. **Missable** — gone for good once the Stored Room is dug.
+
 ---
 
 ### Hand Cart
@@ -485,7 +494,9 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 ### Charcoal
 **Weight:** 1
 **Location:** Mine Passage, Dungeon Mid-Tier — no perception check needed
-**Quest use:** Quest 28 — used with thin paper to produce rubbing.
+**Room description:** *A few lumps of charcoal lie in a cold fire ring near the tools.*
+**Examine:** *Light, black lumps. They'd leave a mark on anything.*
+**Quest use:** Quest 28 — used with thin paper to produce rubbing. Used up: the charcoal and the thin paper are both gone once the rubbing is made.
 
 ---
 

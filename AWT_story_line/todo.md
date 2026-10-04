@@ -10,16 +10,20 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section Y — Dungeon Mid-Tier, Key Side. Sections A–X pass. Y's opening route is reworked and passes to the Rickety Bridge (library → Tale and Ale cellar → tunnel door → CAST LIGHT in the Bone Passage → Toll Bridge → Ink Corridor → Storage Area → Collapsed Aqueduct → Collapsed Gallery shortcut → Rickety Bridge). First failure:
+**Current position:** Full-score walkthrough, Section Z — Quest 28, Inscription Chamber Rubbing. Sections A–Y pass. First failure:
 
 ```
-SECTION [Y) Dungeon Mid-Tier — Key Side (Keeper's Keys, Crevice Watch, Hole to Below)]
-  cmd     : 'DROP SALT'
-  missing : 'sack of salt'
-  got     : "You can't see any salt here!"
+SECTION [Z) Quest 28 — Complete: Inscription Chamber Rubbing]
+  cmd     : 'SOUTH'
+  missing : 'Inscription Chamber'
+  got     : "You can't go that way."
 ```
 
-Y's weight-drop paragraph is out of date: the salt is on the Idol Room pedestal (Q's swap) and the cart was left at the Graveyard (Q). Rework the drops for what the player actually carries (bridge limit 12, checked both ways) — compare the ring walkthrough's L (DROP ALL BUT …) and M.
+The Inscription Chamber (Mine Passage south) isn't built yet. 307 full-score steps still fail.
+
+Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
+
+Plan for Z: explore folding Section UU (Trophy Case deposits) into the run around Z — deposit treasures as they're collected instead of in one trip at the end. That removes UU's separate run and sheds weight for the bridge (EE's return trip north carries ~17–18 otherwise). Needs the Trophy Case built. Also fold AA's text (silver dust collected) into Z and drop the empty AA section.
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
 - Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.
@@ -89,6 +93,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section V: Quest 40 delivery — thyme and pot to Shamus in either order; the second completes the quest (hearty stew flag, 3 Zenni). Between deliveries Shamus says which item he still needs. V also buys the thin paper (Shamus, 2 Zenni).
 - Section W: Whispering Jar in the Pipe Room (EXAMINE JAR discovers Quest 4); Ty's Casino Corner and the Upstairs Hall built and visited. Parser: EXAMINE prefers what isn't in the pack.
 - Section X: Library — Main Hall and The Stacks, the Librarian (three states), the Archivist (four states; first talk discovers Quest 28).
+- Section Y: two-crossing bridge plan; Mine Passage charcoal, silver dust (Medium perception), iron chest (lockpicks, 20 Zenni pocketed); The Crevice and gold pocket watch (own object); Stored Room EAST refused after the dig; shovel dropped after the dig. Quest 28 uses up the paper and charcoal.
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -100,7 +105,8 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Trophy Case (Town Hall Tower) not built — design in mechanics.md (Trophy Case, Score). Score and treasures read 0 until it is. The full-score walkthrough needs it.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: Lower Crossing north (Tool Alcove) and south (Dark Room), the 50/50 pull-back text, the Ivory Torch (Quest 34); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
-- Deferred from L: The Crevice and gold pocket watch (no room description yet — Stored Room east exit closed until built); Mine Passage south exit (Inscription Chamber and beyond); charcoal, silver dust, and the iron chest's lock (Mine Passage keeps its default description; the chest is scenery).
+- Deferred from L: Mine Passage south exit (Inscription Chamber and beyond).
+- Floor listings: the burnt-out torch shows as "A torch." and plural items read "There is a lockpicks here."
 - Deferred from I1: Flooding Room (north of the Creature Den; Trap 41 — exit blocked until built).
 - Inked state (Trap 45): flag built and cancels ring invisibility; NPC refusals and the inn bath still to build.
 - Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.

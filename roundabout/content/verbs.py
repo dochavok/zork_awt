@@ -84,6 +84,11 @@ def v_open(world: World) -> int:
                   "old red wax, stamped with the town crest.")
         return M_HANDLED
 
+    if obj.name == "MINE-CHEST":
+        from content import mid_tier
+        mid_tier.open_chest(world)
+        return M_HANDLED
+
     if obj.name == "BURIED-CHEST":
         from content import ship
         ship.open_chest(world)
@@ -338,6 +343,9 @@ def v_take(world: World) -> int:
 
     obj.touched = True
     world.move_object(obj, player)
+    if obj.name == "SILVER-DUST":
+        print("You pinch the silver dust out of the crack and pocket it.")
+        return M_HANDLED
     print(f"You take the {obj.desc}.")
     if obj.name == "MUSIC-BOX-KEY":
         from content import bog
@@ -1345,6 +1353,10 @@ def v_unlock(world: World) -> int:
     if obj is not None and obj.name == "MUSIC-BOX":
         from content import music_box
         music_box.open_box(world)
+        return M_HANDLED
+    if obj is not None and obj.name == "MINE-CHEST":
+        from content import mid_tier
+        mid_tier.open_chest(world)
         return M_HANDLED
     print("You can't unlock that.")
     return M_HANDLED

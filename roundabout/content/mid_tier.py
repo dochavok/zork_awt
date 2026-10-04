@@ -10,19 +10,22 @@ Rubble), mechanics.md (Shovel & Dig Mechanic), items.md (Rope, Shovel).
   player climb down and back up; once tied, the rope stays. JUMP into the hole
   is death.
 - Any successful DIG: Will's 1-in-20 audio note.
-- Deferred: The Crevice (Stored Room east, gold pocket watch); Mine Passage
-  south (Inscription Chamber); charcoal, silver dust and the iron chest's lock.
-  Pile of Rubble north/south are wired in content/lower_tier.py; east
+- Mine Passage: charcoal (no check), silver dust (Medium perception each
+  visit until found), iron chest — the lockpicks open it and the 20 Zenni are
+  pocketed directly.
+- The Crevice (Stored Room east): gold pocket watch on a skeleton's finger.
+  Cut off for good once the floor is dug.
+- Deferred: Mine Passage south (Inscription Chamber). Pile of Rubble north/south are wired in content/lower_tier.py; east
   (Antechamber) comes with section O.
 
-State: STORED-ROOM-DUG, ROPE-TIED
+State: STORED-ROOM-DUG, ROPE-TIED, MINE-CHEST-OPEN
 """
 
 from __future__ import annotations
 import random
 from typing import TYPE_CHECKING
 
-from engine.game import M_HANDLED, M_NOT_HANDLED, M_BEG, M_LOOK
+from engine.game import M_HANDLED, M_NOT_HANDLED, M_BEG, M_LOOK, M_ENTER
 from engine.world import Room, Exit, RLANDBIT, NDESCBIT, TAKEBIT
 
 if TYPE_CHECKING:
@@ -37,9 +40,27 @@ _LANDING = (
 _MINE = (
     "A worked section of cave — support timbers at intervals, rusting tools left "
     "where they were dropped. The smell of old rock dust is thick here. Someone "
-    "mined this passage, or used it as a route through to something being mined. "
-    "A large iron chest is bolted to the floor against one wall."
+    "mined this passage, or used it as a route through to something being mined."
 )
+_CHEST_SHUT = "A large iron chest is bolted to the floor against one wall."
+_CHEST_OPEN = "A large iron chest is bolted to the floor against one wall, its lid open."
+_CHEST_LOCKED = "The chest is locked. The lock looks pickable — if you had the tools."
+_CHEST_PICKED = (
+    "The lockpicks find the pins one by one, and the lid comes up with a groan. "
+    "Inside are 20 Zenni, which you pocket."
+)
+_CHEST_EMPTY = "The chest is empty."
+CHEST_ZENNI = 20
+_CREVICE = (
+    "The passage pinches down to a crack in the far wall, and a skeleton is wedged "
+    "into it at the shoulders — someone who tried to squeeze through and didn't fit."
+)
+_CREVICE_WATCH = (
+    "One arm hangs back toward you, and from its outstretched finger dangles a gold "
+    "pocket watch on a chain."
+)
+_CREVICE_EMPTY = "One arm hangs back toward you, the finger empty now."
+_TOO_WIDE = "The gap where the floor used to be is far too wide to cross."
 _STORED = (
     "The floor is packed tight with rubble — not the chaotic scatter of a cave-in, "
     "but deliberate, careful fill. Someone put this here on purpose."
@@ -86,6 +107,54 @@ def _game_over(w: World, text: str) -> None:
 def _walk(w: World, direction: str) -> int:
     w.walk_dir = direction
     return w.game.perform("V-WALK")
+
+
+# ---------------------------------------------------------------------------
+# Mine Passage
+# ---------------------------------------------------------------------------
+
+def open_chest(w: World) -> None:
+    """OPEN / UNLOCK CHEST (WITH LOCKPICKS): the lockpicks open it, Zenni pocketed."""
+    picks = w.objects["LOCKPICKS"]
+    if w.get_global("MINE-CHEST-OPEN"):
+        print(_CHEST_EMPTY)
+    elif picks not in w.player.contents or w.prsi not in (None, picks):
+        print(_CHEST_LOCKED)
+    else:
+        print(_CHEST_PICKED)
+        w.set_global("MINE-CHEST-OPEN", True)
+        w.globals["zenni"] = w.globals.get("zenni", 0) + CHEST_ZENNI
+
+
+def mine_action(w: World, msg: int = M_NOT_HANDLED) -> int:
+    if msg == M_ENTER:
+        from content.perception import MEDIUM, reveal_if_found
+        reveal_if_found(w, "SILVER-DUST", MEDIUM)
+    elif msg == M_LOOK:
+        print(_MINE + " " + (_CHEST_OPEN if w.get_global("MINE-CHEST-OPEN") else _CHEST_SHUT))
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# The Crevice
+# ---------------------------------------------------------------------------
+
+def crevice_action(w: World, msg: int = M_NOT_HANDLED) -> int:
+    if msg == M_LOOK:
+        watch_here = w.objects["GOLD-WATCH"] in w.here.contents
+        print(_CREVICE + " " + (_CREVICE_WATCH if watch_here else _CREVICE_EMPTY))
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
+class _CreviceExit(Exit):
+    """Stored Room EAST: open until the dig, then the hole is too wide."""
+
+    def resolve(self, world):
+        if world.get_global("STORED-ROOM-DUG"):
+            return None, _TOO_WIDE
+        return super().resolve(world)
 
 
 # ---------------------------------------------------------------------------
@@ -193,17 +262,21 @@ def make_rooms(world) -> None:
         return r
 
     landing = room("KEY-DOOR-LANDING", "Key Door Landing", _LANDING)
-    mine = room("MINE-PASSAGE", "Mine Passage", _MINE)
+    mine = room("MINE-PASSAGE", "Mine Passage", "")
     stored = room("STORED-ROOM", "Stored Room", "")
+    crevice = room("THE-CREVICE", "The Crevice", "")
     rubble = room("PILE-OF-RUBBLE", "Pile of Rubble", _RUBBLE_PILE, value=2)
 
     landing.exits.update(north=Exit(destination="MID-TIER-KEY-DOOR"), south=Exit(destination="MINE-PASSAGE"))
     # Mine Passage south → Inscription Chamber is deferred
     mine.exits.update(north=Exit(destination="KEY-DOOR-LANDING"), east=Exit(destination="STORED-ROOM"))
-    # Stored Room east → The Crevice is deferred (and closed for good after the dig)
-    stored.exits.update(west=Exit(destination="MINE-PASSAGE"), down=_HoleExit(destination="PILE-OF-RUBBLE"))
+    stored.exits.update(west=Exit(destination="MINE-PASSAGE"), east=_CreviceExit(destination="THE-CREVICE"),
+                        down=_HoleExit(destination="PILE-OF-RUBBLE"))
+    crevice.exits.update(west=Exit(destination="STORED-ROOM"))
     # The rope is always tied by the time the player is down here
     rubble.exits.update(up=Exit(destination="STORED-ROOM"))
 
+    mine.action = mine_action
+    crevice.action = crevice_action
     stored.action = stored_room_action
     rubble.action = rubble_action

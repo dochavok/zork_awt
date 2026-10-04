@@ -268,7 +268,7 @@ Going `DOWN` into the cellar before it's drained, or opening the tunnel door fro
 **Steps:**
 1. Buy thin paper from vendor (2 Zenni).
 2. Find charcoal in Mine Passage (mid-tier).
-3. In Inscription Chamber (mid-tier): `RUB PAPER ON ENGRAVING` → produces rubbing.
+3. In Inscription Chamber (mid-tier): `RUB PAPER ON ENGRAVING` → produces rubbing. The thin paper and the charcoal are used up.
 4. Return rubbing to archivist → earns incantation scroll.
    - Archivist: *"This appears to be an answer to a question I was never able to find."*
 

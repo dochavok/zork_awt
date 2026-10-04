@@ -1646,6 +1646,12 @@ Worked cave section, old support timbers and rusting tools. Contains: charcoal (
 *Someone mined this passage, or used it as a route through to something being mined. A large iron chest is bolted to the floor against one wall.*
 *A faint shimmer near the base of one timber catches your eye — silver dust, settled into a crack in the stone.*
 
+- **Charcoal (always listed until taken):** *A few lumps of charcoal lie in a cold fire ring near the tools.*
+- **Silver dust:** Medium perception check on every visit until found (glasses: automatic).
+- **Iron chest:** `OPEN CHEST` (with or without `WITH LOCKPICKS`) or `UNLOCK CHEST` while carrying the lockpicks: *The lockpicks find the pins one by one, and the lid comes up with a groan. Inside are 20 Zenni, which you pocket.* The Zenni are pocketed directly (like the cashbox and the buried chest).
+- **Without the lockpicks:** *The chest is locked. The lock looks pickable — if you had the tools.*
+- **Already open:** *The chest is empty.* The room description's last sentence becomes *A large iron chest is bolted to the floor against one wall, its lid open.*
+
 #### Stored Room
 **XP: 1**
 **NPCs:** None
@@ -1680,6 +1686,12 @@ After the dig the room is named **Hole to Below**. A support timber over the edg
 **Quest Hooks:** None (treasure item — missable)
 **Connections:** West → Stored Room (permanently inaccessible after dig).
 Dead-end spur east of Stored Room. Permanently inaccessible once the Stored Room floor collapses (`DIG`) — a player who digs first loses the watch. A skeleton is wedged in a narrow crack — tried to squeeze through and failed. Gold pocket watch hangs from one outstretched finger. `TAKE WATCH` (Trophy Case treasure). **Missable.**
+
+**Room description:** *The passage pinches down to a crack in the far wall, and a skeleton is wedged into it at the shoulders — someone who tried to squeeze through and didn't fit. One arm hangs back toward you, and from its outstretched finger dangles a gold pocket watch on a chain.*
+
+**After the watch is taken**, the last sentence becomes: *One arm hangs back toward you, the finger empty now.*
+
+**`EAST` from the Hole to Below (after the dig):** *The gap where the floor used to be is far too wide to cross.*
 
 #### Inscription Chamber
 **XP: 1**

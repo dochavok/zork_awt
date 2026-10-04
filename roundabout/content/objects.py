@@ -895,6 +895,33 @@ def _make_mid_tier_objects(world) -> None:
         name="MINE-CHEST", desc="iron chest", synonyms=["chest"],
         adjectives=["large", "iron", "bolted"], flags={NDESCBIT, SACREDBIT},
     ))
+    world.register_object(GameObject(
+        name="CHARCOAL", desc="charcoal",
+        fdesc="A few lumps of charcoal lie in a cold fire ring near the tools.",
+        examine="Light, black lumps. They'd leave a mark on anything.",
+        synonyms=["charcoal", "lumps", "lump"], size=1, flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="SILVER-DUST", desc="silver dust",
+        fdesc="A faint shimmer near the base of one timber catches your eye — silver "
+              "dust, settled into a crack in the stone.",
+        examine="A pinch of fine silver dust. It catches the light even down here.",
+        synonyms=["dust", "shimmer"], adjectives=["silver", "fine"], size=1,
+        flags={TAKEBIT, INVISIBLE},
+    ))
+    # The Crevice — the skeleton and watch are part of the room description
+    world.register_object(GameObject(
+        name="GOLD-WATCH", desc="gold pocket watch",
+        examine="A gold pocket watch, its case engraved in a pattern worn almost "
+              "smooth. It stopped long ago at a quarter past three.",
+        synonyms=["watch", "chain"], adjectives=["gold", "pocket"], size=1,
+        flags={TAKEBIT, NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="CREVICE-SKELETON", desc="skeleton",
+        synonyms=["skeleton", "bones", "arm", "finger", "crack"], adjectives=["wedged"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
     # Lower tier, west end (logic: content/lower_tier.py)
     world.register_object(GameObject(
         name="KEY-RING", desc="key ring",
