@@ -125,17 +125,18 @@ The pickaxe is visible in the Main Shaft. We will need it later for
 the Collapsed Gallery shortcut, so take it now.
 
 > TAKE PICKAXE                [pickaxe]
+
+The flint and steel for lighting the fuse is on the Assay Room workbench.
+
 > SOUTH                       [Assay Room]
+> TAKE FLINT                  [flint and steel]
 > NORTH                       [Main Shaft]
 
-The disguise is in The Rat's Nest, off the Mine Tunnels.
+The disguise is in The Rat's Nest, off the Mine Tunnels. The Mine Tunnels
+also hold the structural weak point where the gunpowder goes — an Easy
+perception check spots it (always-max rolls pass).
 
-> DOWN                        [Mine Tunnels]
-
-The flint and steel is in the torch sconces. Take it LAST — a 40-turn
-burnout timer starts immediately on pickup and failure is a fail state.
-First find the disguise and the structural weak point.
-
+> DOWN                        [Mine Tunnels|split along the grain]
 > NORTH                       [Rat's Nest]
 > TAKE DISGUISE               [Pie Rat disguise]
 > SOUTH                       [Mine Tunnels]
@@ -171,29 +172,23 @@ Now return to the mine through the forest to execute the heist.
 > DOWN                        [Main Shaft]
 > DOWN                        [Mine Tunnels]
 
-Find the structural weak point (perception check — auto-pass with
-Actually Enchanted Glasses; but we only have regular Enchanted Glasses
-here, so the always-max mock handles it).
+Wedge the gunpowder against the split timber, then light it.
 
-> DROP GUNPOWDER              [gunpowder]
-
-Now take the flint and steel — this starts the 40-turn burnout timer.
-Light the fuse immediately.
-
-> TAKE FLINT                  [flint and steel]
+> DROP GUNPOWDER              [split timber]
 > LIGHT GUNPOWDER             [fuse]
 
-Exit the mine before the explosion.
+The fuse gives us five turns. Get out of the mine before it goes.
 
 > UP                          [Main Shaft]
 > UP                          [Mine Entrance]
 > UP                          [Roundabout Forest]
-
-The explosion seals the main entrance. The Pie Rats rush to investigate.
-Board the ship while they are distracted.
-
 > SOUTH                       [Old Oak]
-> SOUTH                       [Beach Road]
+
+The explosion comes as we reach Beach Road. It seals the main entrance,
+and the Pie Rats rush to investigate. Board the ship while they are
+distracted.
+
+> SOUTH                       [Beach Road|BOOM]
 > SOUTH                       [Roundabout Beach]
 > EAST                        [Docks]
 

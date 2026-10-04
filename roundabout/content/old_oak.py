@@ -140,8 +140,6 @@ def forest_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_BEG:
         return shrine_bowl.forest_beg(w)
     if msg == M_ENTER:
-        from content.verbs import _check_mine_cave_in
-        _check_mine_cave_in(w)   # cave-in fires on exit from the mine after the fuse
         from content import quests
         from content.perception import EASY, reveal_if_found
         quests.discover(w, "49")   # shrine is visible on entry

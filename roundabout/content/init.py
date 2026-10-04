@@ -49,6 +49,11 @@ def initialize_world(world, game, seed=None) -> None:
     from content.verbs import make_land_input_hook
     game.register_input_hook(make_land_input_hook)   # MAKE LAND = LAND
 
+    # Pie Rat heist: weak point check; the blown entrance stays sealed
+    from content import mine
+    game.register_enter_hook(mine.on_enter)
+    game.register_walk_check(mine.sealed_check)
+
     # Roundabout Pond: bottle sighting check on each visit
     from content import pond
     game.register_enter_hook(pond.on_enter)
@@ -96,7 +101,8 @@ def _place_objects(world) -> None:
     # Mine objects
     world.move_object(world.objects["PICKAXE"],          world.rooms["MAIN-SHAFT"])
     world.move_object(world.objects["PIE-RAT-DISGUISE"], world.rooms["RATS-NEST"])
-    world.move_object(world.objects["FLINT-AND-STEEL"],  world.rooms["MINE-TUNNELS"])
+    world.move_object(world.objects["FLINT-AND-STEEL"],  world.rooms["ASSAY-ROOM"])
+    world.move_object(world.objects["WEAK-POINT"],       world.rooms["MINE-TUNNELS"])
     # Shamus sells gunpowder/torch — starts in Kitchen as vendor inventory
     world.move_object(world.objects["GUNPOWDER"], world.rooms["KITCHEN"])
     world.move_object(world.objects["TORCH"],     world.rooms["KITCHEN"])

@@ -128,33 +128,38 @@ One bowl piece is near the shrine. Take it.
 > DOWN                        [Mine Entrance]
 > DOWN                        [Main Shaft]
 > TAKE PICKAXE                [pickaxe]
+
+The flint and steel for lighting the fuse is on the Assay Room workbench.
+
 > SOUTH                       [Assay Room]
+> TAKE FLINT                  [flint and steel]
 > NORTH                       [Main Shaft]
-> DOWN                        [Mine Tunnels]
+
+The Mine Tunnels hold the structural weak point where the gunpowder
+goes — an Easy perception check spots it (always-max rolls pass).
+
+> DOWN                        [Mine Tunnels|split along the grain]
 > NORTH                       [Rat's Nest]
 > TAKE DISGUISE               [Pie Rat disguise]
 > SOUTH                       [Mine Tunnels]
 
-Find the structural weak point (a perception check — always-max rolls
-pass it). Drop gunpowder there.
+Wedge the gunpowder against the split timber, then light it.
 
-> DROP GUNPOWDER              [gunpowder]
-
-Take the flint and steel last — 40-turn burnout starts immediately.
-
-> TAKE FLINT                  [flint and steel]
+> DROP GUNPOWDER              [split timber]
 > LIGHT GUNPOWDER             [fuse]
 
-Exit before the explosion.
+The fuse gives us five turns. Get out of the mine before it goes.
 
 > UP                          [Main Shaft]
 > UP                          [Mine Entrance]
 > UP                          [Roundabout Forest]
-
-Mine entrance sealed. Pie Rats investigate. Board the ship.
-
 > SOUTH                       [Old Oak]
-> SOUTH                       [Beach Road]
+
+The explosion comes as we reach Beach Road. It seals the main entrance,
+and the Pie Rats rush to investigate. Board the ship while they are
+distracted.
+
+> SOUTH                       [Beach Road|BOOM]
 > SOUTH                       [Roundabout Beach]
 
 While we're at the beach, pick up the Unbind Undead scroll from Silas

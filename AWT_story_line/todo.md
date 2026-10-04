@@ -74,6 +74,8 @@ The full-score walkthrough fails at 501 steps in total; much of it predates the 
 - Going ashore: DOCK / LAND / MOOR / MAKE LAND are one action, working only beside land; the ring walkthrough's return now sails to the Western Roundabout Sea before DOCK.
 - Section E: bog rune stone (Bog-NE), hollow log and music box key (Bog-NW), bog thyme (Bog-SW) — Medium perception every visit until found, listed in the room description. The E rune stone fragment is now [You take the rune stone] (it used to pass on the Old Oak stone already held).
 - Examine text: objects have a separate `examine` field (54 objects converted); EXAMINE no longer touches an object, so room listings stay put. DROP says "You drop the [item]."; multi-object results are labelled only when the line doesn't name the item. F: Unbind Undead scroll given to Will before the music box.
+- Pie Rat heist: flint and steel moved to the Assay Room; the 40-turn burnout removed from the design.
+- Heist (cont.): Mine Tunnels weak point (Easy perception), DROP GUNPOWDER wedges it there, LIGHT needs the flint and the gunpowder placed, 5-turn fuse, death if still in the mine, cave-in seals DOWN from the Mine Entrance (post-cave-in description). Both walkthroughs take the flint in the Assay Room and check the explosion.
 
 **Known issues still open:**
 - `TAKE ALL` also tries items already in inventory ("You already have the …" for each). Predates this session.

@@ -185,13 +185,22 @@ def _make_mine_objects(world) -> None:
     flint = GameObject(
         name="FLINT-AND-STEEL",
         desc="flint and steel",
-        fdesc="Flint and steel sit in the torch sconce.",
+        fdesc="A flint and steel striker lies on the workbench among the crucibles.",
         examine="A flint and steel striker.",
         synonyms=["flint", "steel", "striker"],
         adjectives=["flint", "and"],
         flags={TAKEBIT},
     )
     world.register_object(flint)
+
+    # Mine Tunnels weak point (Easy perception — content/mine.py)
+    from content.mine import WEAK_POINT_LISTING
+    world.register_object(GameObject(
+        name="WEAK-POINT", desc="split timber support",
+        fdesc=WEAK_POINT_LISTING,
+        synonyms=["support", "timber", "point"], adjectives=["split", "timber", "weak"],
+        flags={INVISIBLE},
+    ))
 
 
 # ---------------------------------------------------------------------------

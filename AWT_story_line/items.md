@@ -525,14 +525,14 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 ### Gunpowder
 **Weight:** 2
 **Location:** Purchased from Shamus (5 Zenni)
-**Quest use:** Pie Rat Ship heist — `DROP GUNPOWDER` at structural weak point in mine, `LIGHT GUNPOWDER` to trigger explosion.
+**Quest use:** Pie Rat Ship heist — `DROP GUNPOWDER` at the structural weak point in the Mine Tunnels, `LIGHT GUNPOWDER` to trigger explosion (text in locations.md — Mine Tunnels).
 
 ---
 
 ### Flint and Steel
 **Weight:** 2
-**Location:** Torch sconces in Mine Tunnels
-**Quest use:** Pie Rat Ship heist — used to light the gunpowder fuse (`LIGHT GUNPOWDER`). Not a light source. Immediately begins a 40-turn burnout timer on pickup — burnout is a fail state for the heist sequence. Take last, just before lighting the fuse.
+**Location:** Assay Room workbench — *A flint and steel striker lies on the workbench among the crucibles.*
+**Quest use:** Pie Rat Ship heist — used to light the gunpowder fuse (`LIGHT GUNPOWDER`). Not a light source. No timer.
 
 ---
 

@@ -749,11 +749,7 @@ def _make_mine(world) -> None:
     mine_entrance = Room(
         name="MINE-ENTRANCE",
         desc="Mine Entrance",
-        ldesc=(
-            "The entrance to Pie Rats Mining Inc. is a ragged wound in the earth, "
-            "shored up with timber and optimism. A sign above the opening reads: "
-            "PIE RATS MINING INC. — AUTHORIZED PERSONNEL ONLY."
-        ),
+        ldesc="",   # content/mine.entrance_action (changes after the cave-in)
         value=1,
     )
     mine_entrance.set_flag(ONBIT)
@@ -824,17 +820,9 @@ def _make_mine(world) -> None:
     mine_tunnels.exits["north"] = Exit(destination="RATS-NEST")
     rats_nest.exits["south"] = Exit(destination="MINE-TUNNELS")
 
-    # Cave-in fires on entry to Mine Entrance or Forest after fuse is lit
-    from engine.game import M_NOT_HANDLED, M_ENTER
-
-    def _cave_in_check(w, msg=M_NOT_HANDLED):
-        if msg == M_ENTER:
-            from content.verbs import _check_mine_cave_in
-            _check_mine_cave_in(w)
-        return M_NOT_HANDLED
-
-    mine_entrance.action = _cave_in_check
-    # Roundabout Forest runs the same check from content/old_oak.forest_action
+    # Heist: weak point, fuse, cave-in — content/mine.py
+    from content import mine
+    mine_entrance.action = mine.entrance_action
 
 
 # ---------------------------------------------------------------------------

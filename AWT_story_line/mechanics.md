@@ -786,11 +786,12 @@ Multi-step quest chain that grants access to the Pie Rat Ship.
 
 1. Find Pie Rat disguise in The Rat's Nest (mine).
 2. Buy gunpowder from Shamus (5 Zenni).
-3. Take the flint and steel from mine sconces — 40-turn burnout timer starts immediately. Take last — grabbing it early wastes it.
-4. `DROP GUNPOWDER` at structural weak point in mine (perception check to locate).
-5. `LIGHT GUNPOWDER` — fuse catches; narrative implies leave immediately.
-6. Exit mine before explosion. Failure = death/fail state.
+3. Take the flint and steel from the Assay Room workbench.
+4. Find the structural weak point in the Mine Tunnels (Easy perception, every visit until found), then `DROP GUNPOWDER` there.
+5. `LIGHT GUNPOWDER` (flint and steel carried; gunpowder at the weak point) — fuse catches. Five turns to get out.
+6. Still inside the mine (Mine Entrance, Main Shaft, Assay Room, Mine Tunnels, Rat's Nest) when it goes: death, GAME OVER.
 7. Explosion — cave-in seals main mine entrance permanently.
+Text (locations.md — Mine Tunnels, Mine Entrance) covers the weak point, the drop, the refusals, the fuse, the explosion and the death line.
 8. Steal the ship while Pie Rats respond to explosion.
 9. Return the ship — Pie Rats angry but grudgingly impressed. One Pie Rat flips player a Pie Rat Coin (Trophy Case treasure item). From then on, `BOARD SHIP` works only while the player carries the coin (locations.md — Pie Rat Ship — Deck).
 

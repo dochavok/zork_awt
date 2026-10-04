@@ -282,6 +282,11 @@ def v_take(world: World) -> int:
         gravestone.take_stone(world)
         return M_HANDLED
 
+    if obj.name == "GUNPOWDER":
+        from content import mine
+        if mine.take_refused(world):
+            return M_HANDLED
+
     from engine.world import TAKEBIT, SACREDBIT
     if not obj.has_flag(TAKEBIT):
         print(f"You can't take the {obj.desc}.")
@@ -305,6 +310,9 @@ def v_take(world: World) -> int:
     if obj.name == "MUSIC-BOX-KEY":
         from content import bog
         bog.key_taken(world)
+    if obj.name == "GUNPOWDER":
+        from content import mine
+        mine.gunpowder_taken(world)
     return M_HANDLED
 
 
@@ -413,6 +421,10 @@ def v_drop(world: World) -> int:
         print(f"You aren't carrying the {obj.desc}.")
         return M_HANDLED
 
+    if obj.name == "GUNPOWDER":
+        from content import mine
+        if mine.drop_gunpowder(world):
+            return M_HANDLED
     world.move_object(obj, world.here)
     print(f"You drop the {obj.desc}.")
     return M_HANDLED
@@ -1107,37 +1119,12 @@ def v_light(world: World) -> int:
         return M_NOT_HANDLED
 
     if obj.name == "GUNPOWDER":
-        # Must be in Mine Tunnels
-        if world.here is None or world.here.name != "MINE-TUNNELS":
-            print("This isn't the place for that.")
-            return M_HANDLED
-        print(
-            "You strike the flint. The fuse catches with a sharp hiss. "
-            "The gunpowder is burning. Time to leave."
-        )
-        world.set_global("FUSE-LIT", True)
+        from content import mine
+        mine.light_gunpowder(world)
         return M_HANDLED
 
     print(f"You can't light the {obj.desc}.")
     return M_HANDLED
-
-
-# ---------------------------------------------------------------------------
-# Mine cave-in — fires when player exits mine after lighting fuse
-# ---------------------------------------------------------------------------
-
-def _check_mine_cave_in(world: World) -> None:
-    if world.get_global("FUSE-LIT") and not world.get_global("MINE-BLOWN"):
-        here = world.here
-        if here and here.name in ("MINE-ENTRANCE", "ROUNDABOUT-FOREST"):
-            world.set_global("MINE-BLOWN", True)
-            world.set_global("PIE-RATS-GONE", True)
-            print(
-                "A muffled BOOM shakes the ground beneath your feet. "
-                "Dust and splinters billow from the mine entrance as it collapses "
-                "inward. The Pie Rats go running to investigate — and the ship "
-                "is unguarded."
-            )
 
 
 # ---------------------------------------------------------------------------

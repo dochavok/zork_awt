@@ -1020,6 +1020,8 @@ Forest floor entrance to Pie Rats Mining Inc. Sealed permanently after the cave-
 
 *The entrance to Pie Rats Mining Inc. is a ragged wound in the earth, shored up with timber and optimism. A sign above the opening reads: PIE RATS MINING INC. — AUTHORIZED PERSONNEL ONLY. Someone has added, in different handwriting: THIS MEANS YOU. In another hand: ME? And beneath that, in the first handwriting: NO, NOT YOU SLOTH.*
 
+**`DOWN` after the cave-in:** *The way down is buried under the collapse.*
+
 **Post-cave-in:** *The entrance is gone. The explosion brought the whole thing down — timbers, signage, and a significant quantity of rock. Whatever was inside is inside permanently, or accessible some other way.*
 
 ### Main Shaft
@@ -1038,6 +1040,7 @@ Central spine of the mine. Contains a pickaxe — mining equipment, obvious and 
 **Items:** None
 **Quest Hooks:** None
 **Connections:** North → Main Shaft. East → Hidden Secondary Entrance.
+**Items:** Flint and steel (on the workbench) — *A flint and steel striker lies on the workbench among the crucibles.*
 Where ore samples were tested. The far wall has a gap that connects to the tunnel network.
 
 *A side room off the main shaft, fitted out for testing ore samples. A long workbench runs the length of one wall, scarred with acid burns and impact marks. Scales, tongs, crucibles — the tools of a working assay operation, left mid-use. Whatever the Pie Rats were mining, someone was genuinely checking its quality. The far wall has a gap in it that doesn't look entirely accidental.*
@@ -1055,10 +1058,18 @@ Perception check required from mine side; auto-discovered from tunnel side. Rema
 ### Mine Tunnels
 **XP: 1**
 **NPCs:** None
-**Items:** Torches (from sconces; 40-turn burn timer — burnout is fail state for gunpowder sequence)
+**Items:** Structural weak point (Easy perception, every visit until found) — the heist's gunpowder goes here
 **Quest Hooks:** None
 **Connections:** Up → Main Shaft. North → The Rat's Nest.
-Below Main Shaft. Torch sconces on walls — torches taken immediately begin burning down (40-turn timer). Burnout = fail state for gunpowder sequence.
+Below Main Shaft. Torch sconces on walls; the torches in them are scenery.
+- **Weak point found:** *One of the timber supports has split along the grain, and the rock above it sags. If anything in this mine wanted to come down, it would start there.*
+- **Room listing afterwards:** *A split timber support sags under the rock above it.*
+- **`DROP GUNPOWDER` here, weak point found:** *You wedge the gunpowder in against the split timber.* (Before it's found, or anywhere else, it's an ordinary drop.)
+- **`LIGHT GUNPOWDER`:** still holding it — *Not while you're holding it.*; not at the weak point — *That would just make a mess. It needs to be somewhere that matters.*; no flint and steel — *You've nothing to light it with.*
+- **Lit:** *You strike the flint. The fuse catches with a sharp hiss. The gunpowder is burning. Time to leave.* The fuse runs five more turns.
+- **`TAKE GUNPOWDER` with the fuse lit:** *Only a madman (or a Pie Rat) would pick that up!*
+- **Still in the mine when it goes:** *The mine finds its weak point. So does the ceiling above you.* — GAME OVER.
+- **Out of the mine when it goes:** *A muffled BOOM shakes the ground beneath your feet. Dust and splinters billow from the mine entrance as it collapses inward. The Pie Rats go running to investigate — and the ship is unguarded.*
 
 *The working tunnels branch off the main shaft in two directions, following veins of ore that may or may not have been the point. Torch sconces are fixed to the walls at intervals — the torches in them are real and lit. The smell of fresh-cut rock is strongest here. The floor is rutted with cart tracks.*
 
