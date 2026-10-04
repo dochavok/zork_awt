@@ -489,7 +489,7 @@ Learned permanently via Quest 12 (Light scroll, music box in Will's Tower).
 - Knowing the spell lets the player step from a lit room into a dark one without a light: it's pitch black there (*It is pitch black. You are likely to be eaten by a grue.*) until `CAST LIGHT`. Moving on from an unlit dark room into another dark room is still refused (*It's too dark to go any further without a light.*).
 - `CAST LIGHT` in a naturally lit room: *There's light enough here already.* While the spell is already lit: *The light's already with you.*
 - No duration limit. No reuse timer.
-- Does not work in the Dark Room (lower tier) — magical darkness is immune to natural light sources.
+- Does not work in the Dark Room (lower tier) — magical darkness is immune to natural light sources. `CAST LIGHT` there before the lantern gets its own line (locations.md — Dark Room).
 
 **Cast message:**
 *The darkness pulls back. The spell settles into a steady glow — patient, reliable, yours for as long as you're down here.*

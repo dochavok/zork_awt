@@ -129,6 +129,8 @@ Found in a carved niche in the Prayer Alcove — perception check reveals the al
 
 `TURN ON LANTERN` or `LIGHT LANTERN` both work. Flickers but does not light anywhere except the Dark Room — it is not a substitute for a torch or Light spell in ordinary dark rooms. In the Dark Room, it collapses magical darkness instantly and opens the passage south. Hangs permanently on wall hook in Dark Room once lit there — not takeable after.
 
+**Lit anywhere else:** *The lantern flickers, as if it wants to light and can't decide where. Not here, apparently.*
+
 ---
 
 ### Torch
@@ -750,7 +752,7 @@ All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 |------|----------|--------|--------|-------|
 | **The Forgotten Blade** | The Fountain Room, Dungeon Lower Tier | 3 | 60 | Most valuable treasure in game; not a combat weapon, ceremonial only. Straight to the inventory from the soldier. Examine: *A ceremonial sword, long and narrow, the blade unmarked by any use. The hilt is wrapped in faded cloth that might once have been a colour.* |
 | **Diamond Brooch** | Magnetic Vault, Dungeon Mid-Tier | 1 | 45 | Second most valuable treasure in game |
-| **Funeral Mask of Hammered Gold** | Burial Chamber, Dungeon Lower Tier | 3 | 36 | Spirits do not react to taking it |
+| **Funeral Mask of Hammered Gold** | Burial Chamber, Dungeon Lower Tier | 3 | 36 | Spirits do not react to taking it. Examine: *A face of hammered gold, serene and thin-lipped, eyes closed. Heavier than it looks, and cold, as if it has been waiting a long time to be picked up.* |
 | **Golden Dragon Scale** | Reward from returning dragon-nip to Will | 1 | 36 | Dragon-nip hidden under nightstand in Will's Bedroom |
 | **Chachapoyan Fertility Idol** | Idol Room, Dungeon Upper Tier | 4 | 30 | Safe swap required (sack of salt); same weight as sack of salt. Examine: *A small stone figurine, squat and round-bellied, worn smooth by hands that weren't yours. A Chachapoyan Fertility Idol, if you had to guess.* |
 | **Gold Pocket Watch** | The Crevice, Dungeon Mid-Tier | 1 | 30 | **Missable** — permanently inaccessible after Stored Room collapses |

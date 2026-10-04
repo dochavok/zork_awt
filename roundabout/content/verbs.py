@@ -1279,6 +1279,19 @@ def make_land_input_hook(world: World, text: str) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# V-TURN-ON / V-LAMP-ON  (TURN ON LANTERN — the Guardian's Lantern)
+# ---------------------------------------------------------------------------
+
+def v_turn_on(world: World) -> int:
+    obj = world.prso
+    if obj is None or obj.name != "GUARDIANS-LANTERN" or obj not in world.player.contents:
+        return M_NOT_HANDLED
+    from content import dark_branch
+    dark_branch.light_lantern(world)
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
 # V-LIGHT  (LIGHT GUNPOWDER — starts heist fuse)
 # ---------------------------------------------------------------------------
 
@@ -1290,6 +1303,11 @@ def v_light(world: World) -> int:
     if obj.name == "GUNPOWDER":
         from content import mine
         mine.light_gunpowder(world)
+        return M_HANDLED
+
+    if obj.name == "GUARDIANS-LANTERN" and obj in world.player.contents:
+        from content import dark_branch
+        dark_branch.light_lantern(world)
         return M_HANDLED
 
     if obj.name == "IVORY-TORCH":         # a source of heat, never of light
@@ -1450,6 +1468,8 @@ def register_verbs(game) -> None:
     game.register_verb("V-DIG",        v_dig)
     game.register_verb("V-FISH",       v_fish)
     game.register_verb("V-LIGHT",      v_light)
+    game.register_verb("V-TURN-ON",    v_turn_on)
+    game.register_verb("V-LAMP-ON",    v_turn_on)
     game.register_verb("V-PUT-ON",     v_put_on)
     game.register_verb("V-READ",       v_read)
     game.register_verb("V-CLIMB",      v_climb)

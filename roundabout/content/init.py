@@ -220,6 +220,8 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["DIAMOND-BROOCH"], world.objects["VAULT-CHEST"])
     world.move_object(world.objects["FLOODED-POOL"], world.rooms["FLOODED-PASSAGE"])
     world.move_object(world.objects["ICE-BLOCK"], world.rooms["FOUNTAIN-ROOM"])
+    world.move_object(world.objects["SPIRITS"], world.rooms["SPIRIT-ROOM"])
+    world.move_object(world.objects["FUNERAL-MASK"], world.rooms["BURIAL-CHAMBER"])
 
     # Which key opens what — the parser uses this to pick the right key when
     # several match "key" (UNLOCK DOOR WITH KEY)

@@ -994,6 +994,20 @@ def _make_mid_tier_objects(world) -> None:
         synonyms=["blade", "sword"], adjectives=["forgotten", "ceremonial"],
         size=3, flags={TAKEBIT},
     ))
+    # Spirit Room and Burial Chamber (content/dark_branch.py)
+    world.register_object(GameObject(
+        name="SPIRITS", desc="spirits",
+        synonyms=["spirits", "spirit", "shapes", "shape", "ghosts"], adjectives=["silent"],
+        flags={NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="FUNERAL-MASK", desc="Funeral Mask of Hammered Gold",
+        examine="A face of hammered gold, serene and thin-lipped, eyes closed. Heavier "
+                "than it looks, and cold, as if it has been waiting a long time to be "
+                "picked up.",
+        synonyms=["mask"], adjectives=["funeral", "gold", "golden", "hammered"],
+        size=3, flags={TAKEBIT, NDESCBIT},
+    ))
     # Quest 28 reward from the Archivist (content/library.py); Quest 34 READ SCROLL
     world.register_object(GameObject(
         name="INCANTATION-SCROLL", desc="incantation scroll",

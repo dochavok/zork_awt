@@ -2108,7 +2108,14 @@ Magical darkness fills the passage ahead. Hard block without Guardian's Lantern.
 *Unremarkable in every way except one: it is not dark. After what just happened, that feels like quite a lot.*
 *There is a hook on the wall. You hang the lantern on it. It feels like the right thing to do, and apparently it was.*
 
-**Persistent (lantern hung):** *A plain stone room, unremarkable in every way. Stone walls, stone floor, a passage north. The Guardian's Lantern burns steadily on the wall. It is not dark.* Lantern stays on wall permanently — in room but not takeable.
+**Persistent (lantern hung):** *A plain stone room, unremarkable in every way. Stone walls, stone floor, passages north and south. The Guardian's Lantern burns steadily on the wall. It is not dark.* Lantern stays on wall permanently — in room but not takeable.
+
+**Built (2026-10-04):**
+- The Dark Room can be entered with any ordinary light; it shows the before-lantern line whatever you carry. North is always open.
+- **`SOUTH` before the lantern:** *You take a step into it and the dark doesn't give. There's no telling where the passage goes, or whether it goes anywhere at all.*
+- **`CAST LIGHT` here before the lantern:** *The spell reaches out and finds nothing to push against. This is not like being in the dark. This is something the dark is doing on purpose.*
+- **`TAKE LANTERN` once it's hung:** *The lantern stays on its hook. It seems to belong there now.*
+- Once hung, the lantern lights the room; the room isn't naturally lit, so the Light spell stays on going south.
 
 ### Spirit Room (Room 12 — Dark branch)
 **XP: 2**
@@ -2118,11 +2125,19 @@ Magical darkness fills the passage ahead. Hard block without Guardian's Lantern.
 **Connections:** North → Dark Room. South → Burial Chamber.
 6–9 silent spirits. Hard block both directions while player is visible. The God-Forsaken Ring required. Spirits cannot be killed. South of Dark Room.
 
-**Room description:** *The room is silent. Shapes drift through it — sparse, irregular, neither here nor entirely anywhere. They are not human. They are not entirely not human. They take note of you the moment you enter. The passage north is visible. Getting there is another matter.*
+**Room description:** *The room is silent. Shapes drift through it — sparse, irregular, neither here nor entirely anywhere. They are not human. They are not entirely not human. They take note of you the moment you enter. The passages on either side are visible. Getting to them is another matter.*
+
+**Room description, invisible:** *The room is silent. Shapes drift through it — sparse, irregular, neither here nor entirely anywhere. They pay you no attention at all. Passages lead north and south.*
 
 **Attempt to pass while visible:** *The shapes collect between you and the passage. Not blocking — just there, watching, closer than they were. You sense that pressing forward would be a mistake you wouldn't finish making.*
 
 **Ring on:** *The attention in the room drops all at once — not gradually, immediately. The shapes drift back to their own patterns. They have forgotten you entirely.*
+
+**Built (2026-10-04):**
+- Both exits are blocked while the player is visible. The ring is only consumed in the rituals, which end the game, so this can't strand anyone. Ink (Trap 45) cancels the ring here as it does in the Chuckle House.
+- **`REMOVE RING` here:** *The shapes stop drifting. One by one, they turn toward you.*
+- **`EXAMINE SPIRITS`** (also SHAPES): *Shapes, mostly. Sparse, irregular, never quite where you looked. Somewhere between six and nine of them; they won't hold still long enough to count.*
+- **Attacking them:** *Your weapon passes through the nearest shape without finding anything. It doesn't seem to mind. The others watch.*
 
 ### Burial Chamber (Room 13 — Dark branch)
 **XP: 3**
@@ -2134,7 +2149,7 @@ South of Spirit Room.
 
 *The chamber is circular, the walls carved with processions of figures — mourners, by the look of them, rendered in a style no living hand in Roundabout would recognize. Niches hold candles that have not burned in centuries, wax melted flat and cold. The plinth at the center holds the mask. Everything in this room was arranged deliberately, long ago, by people who are not coming back.*
 
-Contains **Funeral Mask of Hammered Gold** (treasure) on central plinth. Taking the mask triggers no reaction from the spirits.
+Contains **Funeral Mask of Hammered Gold** (treasure) on central plinth. Taking the mask triggers no reaction from the spirits. Once the mask has been taken, "The plinth at the center holds the mask." becomes *The plinth at the center stands empty.*
 
 ### Trap Side Rooms (Rooms 14–17 + Flood Sump)
 These rooms are physically part of the mid-tier trap side, entered via the Flooding Room sluice sweep. Full room definitions are in the **Dungeon — Middle Tier / Trap Side** section above. XP values are defined there.

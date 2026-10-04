@@ -75,6 +75,10 @@ def cast_light(w: World) -> None:
     if w.here is not None and _room_lit(w.here):
         print(_LIGHT_NOT_NEEDED)
         return
+    from content import dark_branch
+    if dark_branch.magic_dark(w):        # the Dark Room: only the lantern works
+        dark_branch.light_spell_fails()
+        return
     if w.get_global("LIGHT-SPELL-ACTIVE"):
         print(_LIGHT_ALREADY)
         return

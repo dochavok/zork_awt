@@ -773,6 +773,9 @@ def _make_pond_and_bog(world, archery) -> None:
     # North of the Tool Alcove (Quest 34) — content/frozen_soldier.py
     from content import frozen_soldier
     frozen_soldier.make_rooms(world)
+    # Dark Room, Spirit Room, Burial Chamber south of The Lower Crossing — content/dark_branch.py
+    from content import dark_branch
+    dark_branch.make_rooms(world)
     # Collapsed Aqueduct and Collapsed Gallery, Quest 22 — content/aqueduct.py
     from content import aqueduct
     aqueduct.make_rooms(world)

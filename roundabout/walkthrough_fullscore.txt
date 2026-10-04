@@ -1500,7 +1500,7 @@ Quest 34 complete.
 =============================================================================
 KK) Lower Tier — Dark Room, Spirit Room, Burial Chamber
 =============================================================================
-The Dark Room is a spur south of The Junction. Guardian's Lantern
+The Dark Room is a spur south of The Lower Crossing. Guardian's Lantern
 required to dispel magical darkness.
 
 > SOUTH                       [Flooded Passage]
@@ -1512,7 +1512,7 @@ required to dispel magical darkness.
 
 Spirits block passage while visible. Equip the ring for invisibility.
 
-> WEAR RING                   [ring]
+> WEAR RING                   [ring|forgotten you entirely]
 > SOUTH                       [Burial Chamber]
 
 Funeral Mask of Hammered Gold on the central plinth — spirits do not
