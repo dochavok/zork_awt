@@ -109,7 +109,9 @@ class NarrativeRunner:
             with patch("sys.stdout", buf):
                 self.game.do_turn(cmd)
             out = buf.getvalue()
-            if frag and frag.lower() not in out.lower():
+            # "[a|b]" requires every piece to appear in the output
+            missing = [f for f in frag.split("|") if f and f.lower() not in out.lower()]
+            if missing:
                 self.failures.append(
                     f"SECTION [{section.name}]\n"
                     f"  cmd     : {cmd!r}\n"

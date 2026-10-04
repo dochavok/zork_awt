@@ -68,6 +68,11 @@ def v_open(world: World) -> int:
             obj.name, cellar.open_tunnel_door)(world)
         return M_HANDLED
 
+    if obj.name == "BURIED-CHEST":
+        from content import ship
+        ship.open_chest(world)
+        return M_HANDLED
+
     # Statue base — crowbar required (opening with the crowbar: Section J)
     if obj.name == "STATUE":
         print("The base is sealed tight. Something with leverage could pry it open.")
@@ -820,7 +825,7 @@ def v_drink(world: World) -> int:
 # ---------------------------------------------------------------------------
 
 # mechanics.md — Economy baseline / Torch
-_SHAMUS_PRICES = {"GUNPOWDER": 5, "TORCH": 3}
+_SHAMUS_PRICES = {"GUNPOWDER": 5, "TORCH": 3, "FISHING-ROD": 8}
 
 
 def v_buy(world: World) -> int:
@@ -882,6 +887,11 @@ def v_board_ship(world: World) -> int:
         print("There's no ship to board here.")
         return M_HANDLED
 
+    # At the Docks after the ship is returned: the Pie Rat Coin is the pass
+    from content import ship
+    if here.name == "DOCKS" and ship.boarding_refused(world):
+        return M_HANDLED
+
     # At the Docks: check disguise unless Pie Rats gone
     if here.name == "DOCKS" and not world.get_global("PIE-RATS-GONE"):
         player   = world.player
@@ -923,6 +933,31 @@ def v_dock(world: World) -> int:
     docks = world.rooms.get("DOCKS")
     if docks:
         world.game.enter_room(docks)
+        from content import ship
+        ship.ship_returned(world)
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-DIG  (room actions handle their own dig spots first — Stored Room)
+# ---------------------------------------------------------------------------
+
+def v_dig(world: World) -> int:
+    from content import ship
+    if world.here is not None and world.here.name == "DESERT-ISLAND":
+        ship.dig(world)
+    else:
+        print(ship.NOTHING_TO_DIG)
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-FISH  (Roundabout Pond — content/pond.py)
+# ---------------------------------------------------------------------------
+
+def v_fish(world: World) -> int:
+    from content import pond
+    pond.fish(world)
     return M_HANDLED
 
 
@@ -936,14 +971,34 @@ def v_sail(world: World) -> int:
         return M_HANDLED
 
     world.set_global("AT-SEA", True)
-    # If returning from Kevry's island, place ship at open ocean square 69
-    pos = world.get_global("SHIP-OCEAN-POS")
-    if pos is not None:
-        world.set_global("SHIP-POS-ROOM", f"OPEN-OCEAN-{pos}" if pos > 0 else "SEA-EAST")
-    else:
-        world.set_global("SHIP-POS-ROOM", None)
     print("You cast off and the ship moves into open water. The sails catch the wind.")
     return M_HANDLED
+
+
+def _sail_dir(direction: str):
+    """SAIL EAST etc. — on a moored deck, casts off and moves in one turn."""
+    def handler(world: World) -> int:
+        here = world.here
+        if here is None or here.name not in _SEA_ROOMS or here.name in (
+                "DESERT-ISLAND", "LAND-HO"):
+            print("You're not on the ship.")
+            return M_HANDLED
+        if here.name == "SHIP-DECK" and not world.get_global("AT-SEA"):
+            v_sail(world)
+        world.walk_dir = direction
+        return world.game.perform("V-WALK")
+    return handler
+
+
+_NOT_UNDER_SAIL = "The ship isn't going anywhere until you set sail."
+
+
+def _ship_origin(world: World):
+    """The sea room the moored ship sits in (None = in harbor at the Docks)."""
+    pos = world.get_global("SHIP-OCEAN-POS")
+    if pos is None:
+        return None
+    return world.rooms.get(f"OPEN-OCEAN-{pos}" if pos > 0 else "SEA-EAST")
 
 
 # ---------------------------------------------------------------------------
@@ -968,23 +1023,29 @@ def _pre_walk_at_sea(world: World) -> int:
 
     # Nautical east/west
     if direction in ("east", "west"):
-        # Special case: sailing from ship deck after boarding from Kevry/Desert
-        pos_room = world.get_global("SHIP-POS-ROOM")
-        if here.name == "SHIP-DECK" and pos_room:
-            dest = world.rooms.get(pos_room)
-            world.set_global("SHIP-POS-ROOM", None)
-        else:
-            exit_ = here.exits.get(direction)
-            if exit_ is None:
-                print("There's no way to sail further in that direction.")
-                return M_HANDLED
-            dest = world.rooms.get(exit_.destination)
+        origin = here
+        if here.name == "SHIP-DECK":
+            # The deck sits wherever the ship is: in harbor, off Desert Island
+            # (Eastern Roundabout Sea) or off Kevry's island (square 69).
+            moored_at = _ship_origin(world)
+            if not world.get_global("AT-SEA"):
+                if moored_at is not None or direction != "west":
+                    print(_NOT_UNDER_SAIL)
+                    return M_HANDLED
+            if moored_at is not None:
+                origin = moored_at
+        exit_ = origin.exits.get(direction)
+        if exit_ is None:
+            print("There's no way to sail further in that direction.")
+            return M_HANDLED
+        dest = world.rooms.get(exit_.destination)
         if dest:
-            if dest.name == "LAND-HO":
-                world.set_global("AT-SEA", False)
-            if dest.name in ("DOCKS", "SHIP-DECK"):
+            if dest.name in ("LAND-HO", "DOCKS", "SHIP-DECK"):
                 world.set_global("AT-SEA", False)
             world.game.enter_room(dest)
+            if dest.name == "SHIP-DECK":     # sailed back into harbor
+                from content import ship
+                ship.ship_returned(world)
         return M_HANDLED
 
     return M_NOT_HANDLED
@@ -1167,6 +1228,10 @@ def register_verbs(game) -> None:
     game.register_verb("V-BOARD-SHIP", v_board_ship)
     game.register_verb("V-DOCK",       v_dock)
     game.register_verb("V-SAIL",       v_sail)
+    for d in ("north", "south", "east", "west"):
+        game.register_verb(f"V-SAIL-{d.upper()}", _sail_dir(d))
+    game.register_verb("V-DIG",        v_dig)
+    game.register_verb("V-FISH",       v_fish)
     game.register_verb("V-LIGHT",      v_light)
     game.register_verb("V-PUT-ON",     v_put_on)
     game.register_verb("V-READ",       v_read)

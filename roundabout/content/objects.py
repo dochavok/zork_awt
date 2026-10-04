@@ -7,7 +7,7 @@ Built incrementally — objects added as walkthrough sections require them.
 from __future__ import annotations
 from engine.world import (
     GameObject, TAKEBIT, CONTBIT, OPENBIT, NDESCBIT, SACREDBIT, ACTORBIT, BURNBIT,
-    CLIMBBIT, INVISIBLE, SURFACEBIT, TRYTAKEBIT,
+    CLIMBBIT, INVISIBLE, SURFACEBIT, TRYTAKEBIT, READBIT,
 )
 
 
@@ -269,6 +269,48 @@ def _make_sea_objects(world) -> None:
         flags={TAKEBIT},
     )
     world.register_object(rope)
+
+    # Found by a Hard perception check aboard; goes straight to inventory
+    world.register_object(GameObject(
+        name="TREASURE-MAP", desc="treasure map",
+        ldesc="A hand-drawn map on oilcloth. A small island south of the sea lane, "
+              "east of Roundabout, with a dotted line up the beach and an X near the trees.",
+        synonyms=["map", "oilcloth"], adjectives=["treasure", "hand-drawn"],
+        flags={TAKEBIT, READBIT},
+    ))
+    from content.ship import CHEST_CLOSED_LISTING
+    world.register_object(GameObject(
+        name="BURIED-CHEST", desc="chest",
+        fdesc=CHEST_CLOSED_LISTING, ldesc=CHEST_CLOSED_LISTING,
+        synonyms=["chest"], adjectives=["small", "salt-crusted", "buried", "iron-banded"],
+        flags={SACREDBIT, INVISIBLE},
+    ))
+    world.register_object(GameObject(
+        name="PIE-RAT-COIN", desc="Pie Rat Coin",
+        fdesc="A Pie Rat Coin lies on the boards.",
+        ldesc="A heavy coin stamped with a grinning rat in a tricorn hat. It isn't "
+              "money anywhere you know of.",
+        synonyms=["coin"], adjectives=["pie", "rat", "pie-rat", "heavy"],
+        flags={TAKEBIT},
+    ))
+    # Roundabout Pond: seen on a perception check, fished out onto the bank
+    from content.pond import BOTTLE_IN_POND
+    world.register_object(GameObject(
+        name="SHIP-IN-A-BOTTLE", desc="bottle",
+        fdesc=BOTTLE_IN_POND,
+        ldesc="A tiny ship in full sail, sealed in green glass. Someone spent a long "
+              "time on the rigging. The name on the hull is too small to read — almost.",
+        synonyms=["bottle", "ship", "ship-in-a-bottle"], adjectives=["green", "glass", "tiny"],
+        flags={INVISIBLE},
+    ))
+    # Shamus sells it (npcs.md — 8 Zenni)
+    world.register_object(GameObject(
+        name="FISHING-ROD", desc="fishing rod",
+        ldesc="A jointed wooden rod with a cork grip and a reel that clicks when you "
+              "turn it. The line looks newer than the rod.",
+        synonyms=["rod", "pole"], adjectives=["fishing", "wooden", "jointed"],
+        flags={TAKEBIT},
+    ))
 
 
 # ---------------------------------------------------------------------------
@@ -872,6 +914,7 @@ _WEIGHTS = {
     "BOWL-PIECE-BOG": 1, "RUNED-METAL": 3, "PALE-BLADE": 3, "TOWN-CHARTER": 1,
     "POCKET-WATCH": 1, "LOCKPICKS": 1, "GUARDIANS-LANTERN": 2, "HAND-CART": 5,
     "SUPPORT-BEAM": 4, "PORTCULLIS-BAR": 3, "MORTAR": 2, "SACK-OF-SALT": 4,
+    "TREASURE-MAP": 1, "PIE-RAT-COIN": 1, "FISHING-ROD": 2, "SHIP-IN-A-BOTTLE": 2,
 }
 
 

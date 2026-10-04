@@ -772,7 +772,7 @@ Full tree (paths numbered A1–A3, B1–B3):
 
 Hidden aboard the Pie Rat Ship in the hold.
 
-Each turn aboard fires a silent perception check. On success: map found and added to inventory. Actually Enchanted Glasses pass all checks — map found on first turn.
+Each turn aboard fires a silent perception check (Hard, 14 — the map isn't critical, only extra Zenni). On success: map found and added to inventory. Actually Enchanted Glasses pass all checks — map found on first turn.
 
 Without the map: each `DIG` on Desert Island has a 10% chance of finding the buried chest (contains 30 Zenni). Player can keep trying indefinitely.
 
@@ -792,7 +792,7 @@ Multi-step quest chain that grants access to the Pie Rat Ship.
 6. Exit mine before explosion. Failure = death/fail state.
 7. Explosion — cave-in seals main mine entrance permanently.
 8. Steal the ship while Pie Rats respond to explosion.
-9. Return the ship — Pie Rats angry but grudgingly impressed. One Pie Rat flips player a Pie Rat Coin (Trophy Case treasure item).
+9. Return the ship — Pie Rats angry but grudgingly impressed. One Pie Rat flips player a Pie Rat Coin (Trophy Case treasure item). From then on, `BOARD SHIP` works only while the player carries the coin (locations.md — Pie Rat Ship — Deck).
 
 **Notes:**
 - Hidden secondary mine entrance remains open after cave-in.

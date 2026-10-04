@@ -43,6 +43,14 @@ def initialize_world(world, game, seed=None) -> None:
     from content import shrine_bowl
     game.register_input_hook(shrine_bowl.assemble_input_hook)
 
+    # Pie Rat Ship: treasure map check aboard, ship away from harbor
+    from content import ship
+    game.register_enter_hook(ship.on_enter)
+
+    # Roundabout Pond: bottle sighting check on each visit
+    from content import pond
+    game.register_enter_hook(pond.on_enter)
+
     # Start in the White House
     world.here = world.rooms["WHITE-HOUSE"]
 
@@ -90,6 +98,10 @@ def _place_objects(world) -> None:
     # Shamus sells gunpowder/torch — starts in Kitchen as vendor inventory
     world.move_object(world.objects["GUNPOWDER"], world.rooms["KITCHEN"])
     world.move_object(world.objects["TORCH"],     world.rooms["KITCHEN"])
+    world.move_object(world.objects["FISHING-ROD"], world.rooms["KITCHEN"])
+    # TREASURE-MAP is found aboard; PIE-RAT-COIN is flipped when the ship comes back
+    world.move_object(world.objects["BURIED-CHEST"], world.rooms["DESERT-ISLAND"])
+    world.move_object(world.objects["SHIP-IN-A-BOTTLE"], world.rooms["ROUNDABOUT-POND"])
     # Ship objects
     world.move_object(world.objects["SHOVEL"], world.rooms["SHIP-DECK"])
     world.move_object(world.objects["ROPE"],   world.rooms["DOCKS"])

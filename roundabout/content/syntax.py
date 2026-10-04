@@ -502,6 +502,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="look", action="V-LOOK"),
         SyntaxRule(verb="look", particle="up", action="V-LOOK-UP"),
+        SyntaxRule(verb="look", particle="around", action="V-LOOK"),
         SyntaxRule(verb="look", prep="at",
                    action="V-EXAMINE",
                    obj1=ObjectSpec(locations=_held_car_og_ir_have)),
@@ -703,10 +704,10 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # SAIL — new canonical                                                #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="sail", action="V-SAIL"),
-        SyntaxRule(verb="sail", particle="north", action="V-SAIL-DIR"),
-        SyntaxRule(verb="sail", particle="south", action="V-SAIL-DIR"),
-        SyntaxRule(verb="sail", particle="east",  action="V-SAIL-DIR"),
-        SyntaxRule(verb="sail", particle="west",  action="V-SAIL-DIR"),
+        SyntaxRule(verb="sail", particle="north", action="V-SAIL-NORTH"),
+        SyntaxRule(verb="sail", particle="south", action="V-SAIL-SOUTH"),
+        SyntaxRule(verb="sail", particle="east",  action="V-SAIL-EAST"),
+        SyntaxRule(verb="sail", particle="west",  action="V-SAIL-WEST"),
 
         # ------------------------------------------------------------------ #
         # SAY                                                                 #

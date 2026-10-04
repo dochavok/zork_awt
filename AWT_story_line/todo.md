@@ -10,16 +10,22 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section C — Quest 51, The Back Alley Mugger. Sections A–B pass. First failure:
+**Current position:** Full-score walkthrough, Section E — Bog rune stone. Sections A–D pass. First failure:
 
 ```
-SECTION [C) Quest 51 — The Back Alley Mugger]
-  cmd     : 'KILL MUGGER'
-  missing : 'solid blow'
-  got     : "You can't see any mugger here!"
+SECTION [E) Quest 42 — Brotherhood Stones (Part 1: Bog Rune Stone)]
+  cmd     : 'TAKE KEY'
+  missing : 'music box key'
 ```
 
-This is the known ordering issue (Known issues below): a level-1 Warrior with regular glasses can't spot the mugger. The full-score walkthrough fails at 666 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
+The music box key (Bog-NW hollow log) and bog thyme aren't built.
+
+Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
+- Mugger moved late: a level-1 Warrior can't spot him or win the fight, and the walkthrough will be player-facing.
+- Lynds after the Viking trials: always-max can't win at level 3 (21 vs his 23); level 4 comes during J. Litlock follows Lynds (needs the invitation).
+- Routes between all of C–M connect. Remaining D–M failures are unbuilt content: bog key and thyme (E), music box (F), recipe (G), Ivanaar fragment (J), Raznak states (M).
+
+The full-score walkthrough fails at 506 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
 
 **XP note:** in the ring walkthrough the player is level 6 by the end of K (Quest 32 reward) and finishes at level 6 with 307 XP. Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
 
@@ -60,6 +66,11 @@ This is the known ordering issue (Known issues below): a level-1 Warrior with re
 - Section T: T route (Main East → SOUTH); The Altar east of the Nave; dial (RIGHT forward, LEFT back, wraps); artifact placing, glow (persists; lost when taken off), altar listing, ring-too-early, binding ceremony (artifacts consumed, ring bound, 5 XP); a worn ring comes off through the normal removal check. Parser: a trailing particle (`TURN DIAL LEFT`) is understood.
 - Section U: SCORE (treasure points, level, XP, treasures on display — meta, no turn); GIVE RING TO WILL with the bound ring plays Will's final scene, the end-of-game SCORE (denominators + tier title), the closing line, then GAME OVER. Test harness: a fragment may list several required pieces separated by `|`.
 
+- Full-score Section C: Lighthouse scroll added; fishing rod (Shamus, 8 Zenni) bought in D after the chest pays; treasure map (Hard perception each turn aboard, straight to inventory).
+- Section C (cont.): ship position on boarding fixed (from Kevry's island 69 GO WEST reach the Eastern Roundabout Sea — ring fragment updated); SET SAIL needed before sea moves from a moored deck; SAIL <dir> casts off and moves in one turn.
+- Section C (cont.): Desert Island DIG / buried chest / OPEN CHEST pockets 30 Zenni (TODO #2); ship return scene and Pie Rat Coin (boarding afterwards needs the coin carried); DIG elsewhere refusal; LOOK AROUND = LOOK. Section D route fixed (Docks → town via the Kitchen for the rod → Pond).
+- Section D: Roundabout Pond bottle — Medium sighting check each visit until seen, FISH (Hard fishing roll; rod required), bottle lands on the bank, TAKE BOTTLE. Full-score test harness now accepts "|" fragments, like the ring test.
+
 **Known issues still open:**
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
 - Trophy Case (Town Hall Tower) not built — design in mechanics.md (Trophy Case, Score). Score and treasures read 0 until it is. The full-score walkthrough needs it.
@@ -70,14 +81,16 @@ This is the known ordering issue (Known issues below): a level-1 Warrior with re
 - Inked state (Trap 45): flag built and cancels ring invisibility; NPC refusals and the inn bath still to build.
 - Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.
 - Class XP bonuses (experience.md — Class XP Adjustments): Warrior +10 per kill is built (Aylora excluded — not a kill). Mage +1 per new dungeon room and Rogue +5 per trap disarmed are not built yet — add when the dungeon and traps are.
-- Full-score walkthrough does the mugger (its section C) before Kevry: a level-1 Warrior with regular glasses maxes at 8 perception < Medium 9, so the mugger is never spotted. Move it after the glasses enchantment or after level 2.
+- Quest 51 bounty notice (May posts it after 100 turns if the mugger lives) isn't built or written. The full-score run is well past 100 turns by the mugger in F, so the notice will be due there.
 - Raznak only has State 1 (trust not earned). States 2A/2B/3 and PAY are Quest 55 (full-score walkthrough).
 - The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 
 ---
-## TODO #2 - Fix chest in section D
+## TODO #2 - Fix chest in section D — RESOLVED 2026-10-04
+
+**Resolution:** items.md now has a Buried Chest entry. Decision: `OPEN CHEST` pockets the 30 Zenni directly, like the Cellar cashbox (no `TAKE ZENNI`). Full-score walkthrough (now Section C) uses DIG → OPEN CHEST.
 
 When the user digs to find the chest in section D, it would be closed.  It's a container, and would need to be OPENed for the user to then take the zenni inside.  Is this not clear in the design document?
 

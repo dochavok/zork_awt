@@ -181,10 +181,12 @@ Always lit from purchase. Timer starts on first dark room entry (not on purchase
 
 ### Treasure Map
 **Weight:** 1
-**Location:** Pie Rat Ship — Hold / Below Deck
+**Location:** Pie Rat Ship — Deck (the ship has no hold)
+**Examine:** *A hand-drawn map on oilcloth. A small island south of the sea lane, east of Roundabout, with a dotted line up the beach and an X near the trees.*
 **Quest use:** Guarantees `DIG` success on the Desert Island buried chest on the first attempt. Without the map: 10% chance per `DIG`.
 
-Found via silent perception check — fires once per turn spent aboard the ship. Actually Enchanted Glasses pass all perception checks; map found on first turn. A player who sails to Kevry's island without finding the map, gets the glasses enchanted there, and returns to the ship will auto-find the map on their next turn aboard.
+Found via silent perception check (**Hard, 14** — not critical, only extra Zenni).
+The check fires once per turn spent aboard the ship. Found text in locations.md (Pie Rat Ship — Deck). Actually Enchanted Glasses pass all perception checks; map found on first turn. A player who sails to Kevry's island without finding the map, gets the glasses enchanted there, and returns to the ship will auto-find the map on their next turn aboard.
 
 Not consumable — stays in inventory after use.
 
@@ -398,8 +400,18 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 
 ### Pie Rat Coin
 **Weight:** 1
-**Location:** Flipped by a Pie Rat after the player returns the stolen ship
-**Quest use:** None — treasure item.
+**Location:** Flipped by a Pie Rat after the player returns the stolen ship (scene text in locations.md — Pie Rat Ship — Deck). Lands on the boards in the player's room.
+**Room description:** *A Pie Rat Coin lies on the boards.*
+**Examine:** *A heavy coin stamped with a grinning rat in a tricorn hat. It isn't money anywhere you know of.*
+**Quest use:** Treasure item. Also the player's pass back aboard: after the ship is returned, `BOARD SHIP` works only while the coin is carried.
+
+---
+
+### Buried Chest (Desert Island)
+**Room description:** *A salt-crusted chest sits in the hole you dug.* Once emptied: *An empty chest sits in the hole you dug.*
+**Location:** Desert Island — buried; revealed by `DIG` (shovel required; treasure map guarantees it, otherwise 10% per dig — text in locations.md).
+**Use:** Zenni cache, like the Cellar cashbox. Fixed in place. `OPEN CHEST` pockets the Zenni directly — no `TAKE ZENNI`: *The hinges complain, but the lid comes up. Inside, wrapped in oilcloth: 30 Zenni. You pocket them.*
+Opening it again: *The chest is open, and empty.*
 
 ---
 
@@ -526,7 +538,17 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 ### Fishing Rod
 **Weight:** 2
 **Location:** Purchased from Shamus (8 Zenni)
+**Examine:** *A jointed wooden rod with a cork grip and a reel that clicks when you turn it. The line looks newer than the rod.*
 **Quest use:** Roundabout Pond — `FISH` to retrieve the bottle from the pond floor.
+
+---
+
+### Ship-in-a-Bottle
+**Weight:** 2
+**Location:** Roundabout Pond — on the bottom until fished out (perception and fishing rolls in locations.md); lands on the bank.
+**Room description (on the bank):** *A Ship-in-a-Bottle lies in the reeds at the water's edge.*
+**Examine:** *A tiny ship in full sail, sealed in green glass. Someone spent a long time on the rigging. The name on the hull is too small to read — almost.*
+**Quest use:** Treasure item (Treasure Items table).
 
 ---
 

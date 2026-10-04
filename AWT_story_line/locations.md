@@ -814,7 +814,14 @@ Between town and the bog. Two-state room.
 
 **Base description:** *The pond is easy to walk past without noticing. It sits low between the town path and the bog, ringed with reeds and the occasional frog. The water is dark and calm.*
 
-Each visit fires a silent perception check. On success: "You see a bottle at the bottom of the pond." — quest discovered, May's hints unlock. Sighting not permanent; check fires on every visit until quest is discovered. Retrieving the bottle requires a fishing rod (purchased from vendor) and a successful challenge roll (`FISH`); Rogues get a bonus. The bottle is a treasure item.
+Each visit fires a silent perception check (**Medium, 9**). On success: "You see a bottle at the bottom of the pond." — quest discovered, May's hints unlock. Sighting not permanent; check fires on every visit until quest is discovered. Retrieving the bottle requires a fishing rod (purchased from vendor) and a successful challenge roll (`FISH`); Rogues get a bonus. The bottle is a treasure item.
+
+**Fishing (`FISH`, Hard 14 fishing roll — Rogue bonus applies):** retries are unlimited. Once seen, the bottle stays listed with the line above until it's fished out; `TAKE BOTTLE` before then gets the standard "You can't take the bottle."
+- **Success:** *You cast, let the hook sink, and drag it slowly along the bottom. On the third pass it catches on something with weight. You reel it in carefully: a bottle, green glass furred with pond-scum, and inside it a tiny ship in full sail. You set it on the bank.*
+- **Failure:** *You drag the hook along the bottom. It catches, holds for a moment, and slips free. The bottle settles back into the silt.*
+- **Bottle not yet seen:** *You fish for a while. Nothing bites, and nothing on the bottom catches the hook.*
+- **Bottle already out:** *The pond has given up the only thing worth catching.*
+- **No rod:** *You'd need a fishing rod.* **Anywhere but the pond:** *There's nowhere to fish here.*
 
 **May's hints:** Imply Kevry was trying to retrieve his ship from the pond — player connects ship and bottle. Kevry knows about it but was never able to fish it out himself.
 
@@ -1112,7 +1119,19 @@ Leaving the ship at sea: *"The ocean offers no opinion on that idea, and neither
 
 **Shovel (in room, before taken):** *A shovel is lashed to the rail near the bow, practical and out of place at the same time.*
 
-**Perception check (each turn aboard):** Silent check fires every turn until treasure map is found. On success: map added to inventory. Actually Enchanted Glasses pass automatically — map found on first turn. A player who sails to Kevry's island without finding the map, gets the glasses enchanted there, and returns to the ship will auto-find the map on their next turn aboard.
+**Perception check (each turn aboard — Hard, 14):** Silent check fires every turn aboard (deck and every sea / Open Ocean square) until the treasure map is found.
+Hard because the map isn't critical — it only guarantees the Desert Island chest (extra Zenni).
+On success: map added to inventory — *Wedged under a barrel lashed to the rail is a fold of oilcloth. Inside is a hand-drawn map: a small island just off the sea lane, a dotted line, and an X near the trees. You tuck it away.*
+Actually Enchanted Glasses pass automatically — map found on first turn. A player who sails to Kevry's island without finding the map, gets the glasses enchanted there, and returns to the ship will auto-find the map on their next turn aboard.
+
+**Where the ship is:** the deck sits wherever the ship is moored — in harbor at the Docks, off Desert Island (Eastern Roundabout Sea), or off Kevry's island (Open Ocean square 69). After `SET SAIL`, the first move goes from there: from Kevry's island, `GO WEST` reaches square 68 and 69 moves reach the Eastern Roundabout Sea; from Desert Island, `GO WEST` reaches the Roundabout Sea (Middle).
+**Moving before casting off:** a sea direction from the deck before `SET SAIL` — *The ship isn't going anywhere until you set sail.* (In harbor, `WEST` simply steps off onto the Docks.)
+**`SAIL <direction>`:** on a moored deck, casts off and moves in one turn (cast-off line, then the new room). Once underway it's the same as `GO <direction>`.
+
+**Returning the ship:** the first time the ship comes back to harbor (`DOCK` from any sea square, or sailing west into the berth):
+*The Pie Rats are waiting on the dock. Nobody says anything for a while. The biggest of them walks the deck stem to stern and finds nothing wrong with his ship, which seems to annoy him more than damage would have. He snorts, digs in a pocket, and flips you a coin. It rings on the boards at your feet.* The Pie Rat Coin lands in the player's room (items.md).
+**Boarding after the return:** the Pie Rats are back aboard. `BOARD SHIP` works — no disguise needed — only while the player carries the Pie Rat Coin — including after it goes into the Trophy Case (take it back out to sail again).
+Without it: *A Pie Rat blocks the gangplank. "Coin," he says, and holds out a hand, palm up — not to take it, just to see it. You don't have it. He doesn't move.*
 
 ### The Sea
 **XP: 1 per Roundabout Sea room (3 total); 0 XP for all 69 Open Ocean traversal squares; Desert Island: 1 XP**
@@ -1175,7 +1194,15 @@ Spur off the Eastern Roundabout Sea — not on the main east axis. Visible from 
 *The quiet here is a different kind of quiet than the open ocean — heavier, more deliberate.*
 *You have the distinct feeling that something happened here once. The island isn't telling.*
 
-A buried chest is here — not visible without digging. With the treasure map: `DIG` succeeds immediately. Without the map: 10% chance per `DIG` attempt. Contents: 30 Zenni.
+A buried chest is here — not visible without digging. With the treasure map: `DIG` succeeds immediately. Without the map: 10% chance per `DIG` attempt. Contents: 30 Zenni. (Chest entry and `OPEN CHEST` in items.md — Buried Chest.)
+
+- **No shovel:** *The sand just slides back into the hole. You'd need a shovel.*
+- **With the map:** *You pace it out from the map — up the beach, toward the trees, to where the X should be. Two feet down, the shovel hits wood: a small chest, iron-banded and crusted with salt.*
+- **Without the map, success (10%):** *Two feet down, the shovel hits wood: a small chest, iron-banded and crusted with salt. Lucky.*
+- **Without the map, failure:** *You dig a hole. It's a perfectly good hole. There's nothing in it.*
+- **Already found:** *You've already found what was buried here.*
+
+**DIG anywhere without a dig spot** (global): *There's nothing here worth digging for.*
 
 ### Kevry's Island
 **XP: 5 per room (4 rooms = 20 total)**

@@ -42,6 +42,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_preposition("out")
     v.add_preposition("up")
     v.add_preposition("near")
+    v.add_preposition("around")
 
     # Directions
     v.add_direction("north", "n")

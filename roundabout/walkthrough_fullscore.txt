@@ -80,41 +80,13 @@ With always-max rolls the Easy perception check passes immediately.
 > WEAR GLASSES                [glasses]
 
 The glasses are now equipped in the head slot. We will sail to Kevry's
-island in section D to have him enchant them. For now, back to the
+island in section C to have him enchant them. For now, back to the
 Tale and Ale to continue setup.
 
 > EXAMINE PAINTING            [Tale and Ale]
 
 =============================================================================
-C) Quest 51 — The Back Alley Mugger
-=============================================================================
-The Back Alley is south of The Alley, which is southwest of Town Square.
-The mugger fires a perception check on every visit — with Actually
-Enchanted Glasses he will be visible on the first visit once glasses are
-enchanted, but we have only regular Enchanted Glasses right now and the
-always-max mock ensures the check passes.
-
-> NORTH                       [Town Square]
-> SOUTHWEST                   [Alley]
-> SOUTH                       [Back Alley]
-
-Perception check passes — mugger visible. Fight to the death.
-
-> KILL MUGGER                 [solid blow]
-> KILL MUGGER                 [lockpicks]
-
-The mugger drops lockpicks. These open the large iron chest in the Mine
-Passage (20 Zenni). May's free drink reward is waiting at the Bar.
-
-> TAKE LOCKPICKS              [lockpicks]
-> NORTH                       [Alley]
-> NORTHEAST                   [Town Square]
-> SOUTH                       [Tale and Ale]
-> SOUTH                       [Bar]
-> TALK TO MAY                 [on the house]
-
-=============================================================================
-D) Sailing — Kevry's Island (Glasses Enchantment) & Shovel
+C) Sailing — Kevry's Island (Glasses Enchantment) & Shovel
 =============================================================================
 Before the Pie Rat heist we need to visit the mine for the disguise,
 buy gunpowder, then blow the mine. The shovel is on the ship deck —
@@ -123,15 +95,11 @@ get the glasses enchanted (Actually Enchanted Glasses), and sail back.
 
 First: buy what we need from Shamus.
 
+> SOUTH                       [Bar]
 > SOUTH                       [Kitchen]
 > TALK TO SHAMUS              [Shamus]
 > BUY TORCH                   [torch]
 > BUY GUNPOWDER               [gunpowder]
-> BUY FISHING ROD             [fishing rod]
-
-The Roundabout Pond bottle (Ship-in-a-Bottle treasure) needs the
-fishing rod. Buy it now while we're here.
-
 > NORTH                       [Bar]
 > NORTH                       [Main Room]
 
@@ -167,8 +135,8 @@ One bowl piece is near the shrine. Take it.
 > TAKE DISGUISE               [Pie Rat disguise]
 > SOUTH                       [Mine Tunnels]
 
-Find the structural weak point (perception check auto-passes with
-Enchanted Glasses). Drop gunpowder there.
+Find the structural weak point (a perception check — always-max rolls
+pass it). Drop gunpowder there.
 
 > DROP GUNPOWDER              [gunpowder]
 
@@ -188,17 +156,22 @@ Mine entrance sealed. Pie Rats investigate. Board the ship.
 > SOUTH                       [Old Oak]
 > SOUTH                       [Beach Road]
 > SOUTH                       [Roundabout Beach]
+
+While we're at the beach, pick up the Unbind Undead scroll from Silas
+Bryne's desk in the Lighthouse (northeast). It's needed later for the
+Chuckle House ghost.
+
+> NORTHEAST                   [Lighthouse]
+> TAKE SCROLL                 [Unbind Undead]
+> SOUTHWEST                   [Roundabout Beach]
 > EAST                        [Docks]
 > TAKE ROPE                   [rope]
-> BOARD SHIP                  [deck]
+
+The treasure map is hidden aboard, behind a Hard perception check that
+fires every turn on the ship. Always-max rolls find it on the first turn.
+
+> BOARD SHIP                  [deck|oilcloth]
 > TAKE SHOVEL                 [shovel]
-
-The treasure map is aboard — perception check fires every turn. With
-actual Enchanted Glasses (not Actually Enchanted yet) the always-max
-mock handles this.
-
-> LOOK AROUND                 [treasure map]
-> TAKE MAP                    [treasure map]
 
 Sail east. Glasses must be equipped on arrival at Kevry's island.
 
@@ -293,6 +266,8 @@ pass automatically for the rest of the game.
 Sail back west to Roundabout. Stop at Desert Island on the way to dig
 up the buried chest (treasure map guarantees first-try success).
 
+> WEST                        [house]
+> WEST                        [Empty Beach]
 > BOARD SHIP                  [deck]
 > SET SAIL                    [sail]
 > GO WEST                     [open ocean]
@@ -363,35 +338,47 @@ up the buried chest (treasure map guarantees first-try success).
 > GO WEST                     [open ocean]
 > GO WEST                     [open ocean]
 > GO WEST                     [open ocean]
+> GO WEST                     [Eastern Roundabout Sea]
 
-We are now at Eastern Roundabout Sea. Dock at Desert Island.
+Back at the Eastern Roundabout Sea. Go ashore on Desert Island.
 
 > LAND                        [Desert Island]
 > DIG                         [chest]
-> TAKE ZENNI                  [Zenni]
+> OPEN CHEST                  [30 Zenni]
 
-Pie Rat Coin: the Pie Rats flip us a coin after we return the ship.
-Return the ship to the Docks.
+Return the ship to the Docks. SAIL WEST casts off and moves in one go.
 
 > BOARD SHIP                  [deck]
 > SAIL WEST                   [Roundabout Sea]
 > SAIL WEST                   [Western Roundabout Sea]
-> DOCK                        [Docks]
+> DOCK                        [Docks|flips you a coin]
 
-A Pie Rat flips us the Pie Rat Coin (treasure item).
+The coin is the Pie Rat Coin, a treasure.
 
 > TAKE PIE RAT COIN           [Pie Rat Coin]
 
 =============================================================================
-E) Roundabout Pond — Ship-in-a-Bottle (Treasure)
+D) Roundabout Pond — Ship-in-a-Bottle (Treasure)
 =============================================================================
 The fishing rod and a successful Fishing challenge roll retrieves the
 Ship-in-a-Bottle from the pond. With always-max rolls, the Rogue class
 bonus doesn't matter — Warrior succeeds too.
 
+Shamus sells the fishing rod (8 Zenni) — the Desert Island chest paid
+for it. Head back to town and stop in the Kitchen on the way.
+
+> WEST                        [Roundabout Beach]
+> NORTH                       [Beach Road]
 > WEST                        [Roundabout Wasteland]
 > WEST                        [Main East]
 > WEST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> SOUTH                       [Kitchen]
+> BUY FISHING ROD             [fishing rod]
+> NORTH                       [Bar]
+> NORTH                       [Main Room]
+> NORTH                       [Town Square]
 > WEST                        [Main West]
 > WEST                        [Archery Range]
 > NORTH                       [Roundabout Pond]
@@ -399,58 +386,15 @@ bonus doesn't matter — Warrior succeeds too.
 > TAKE BOTTLE                 [Ship-in-a-Bottle]
 
 =============================================================================
-F) Quest 59 — Beat Lynds (Heart Necklace + Dankhaus Access)
+E) Quest 42 — Brotherhood Stones (Part 1: Bog Rune Stone)
 =============================================================================
-Lynds is in the Tale and Ale. Arm wrestling: single contested strength
-roll. Always-max: Warrior wins immediately.
+The bog is north of the pond. Collect the Bog-NE rune stone (Quest 42
+is discovered after the Viking trust trials, but the stone can be
+picked up now). Bog-NW has the music box key (Quest 12). The four bog
+rooms share one name; diagonal moves work between all of them.
 
-> SOUTH                       [Archery Range]
-> EAST                        [Main West]
-> EAST                        [Town Square]
-> SOUTH                       [Tale and Ale]
-> CHALLENGE LYNDS             [arm wrestling]
-> WIN                         [Heart Necklace]
-> WEAR NECKLACE               [necklace]
-
-Lynds sets the Dankhaus invitation flag. Dankhaus wards are now cleared.
-
-=============================================================================
-G) Quest 52 — Make Litlock Laugh (Chuckle House Visibility)
-=============================================================================
-The Dankhaus is hidden in Bog-SE. With Actually Enchanted Glasses the
-path is auto-revealed. Navigate to the bog.
-
-> NORTH                       [Main West]
-> WEST                        [Archery Range]
-> NORTH                       [Roundabout Pond]
 > NORTH                       [Bog of Eternal Stench]
-> EAST                        [Bog of Eternal Stench]
-> ENTER DANKHAUS              [Common Room]
-
-Make Litlock laugh. Successful path: B (physical) → B2 (ridiculous) →
-C1 (push further).
-
-
-After each of Litlock's lines, pick from the numbered menu.
-
-> TALK TO LITLOCK             [Entertain me]
-> 2                           [watches]
-> 2                           [are you on the floor]
-> 1                           [bonk]
-
-Litlock bonks the player on the head. The Chuckle House is now visible
-east of the Graveyard.
-
-=============================================================================
-H) Quest 42 — Brotherhood Stones (Part 1: Bog Rune Stone)
-=============================================================================
-While in the bog, collect the Bog-NE rune stone (Quest 42 is discovered
-after the Viking trust trials, but the stone can be picked up now).
-Also: Bog-NW contains the music box key (Quest 12). Out of the Dankhaus
-(west to Bog-SE), then north to Bog-NE.
-
-> WEST                        [Bog of Eternal Stench]
-> NORTH                       [Bog of Eternal Stench]
+> NORTHEAST                   [Bog of Eternal Stench]
 
 Actually Enchanted Glasses auto-pass perception: rune stone visible.
 
@@ -468,7 +412,7 @@ Also: Bog-SW has bog thyme (Quest 40) and a bowl piece (Quest 49).
 > TAKE BOWL PIECE             [You take the bowl piece]
 
 =============================================================================
-I) Quest 12 — The Locked Music Box (Light Spell)
+F) Quest 12 — The Locked Music Box (Light Spell)
 =============================================================================
 The music box is in Will's Wizard Tower. The key was just collected in
 Bog-NW. For Warriors, the Light scroll must be taken to Will to learn.
@@ -494,7 +438,7 @@ Light spell learned permanently. Now we can safely enter all dark rooms
 without a torch burning down.
 
 =============================================================================
-J) Quest 40 — Shamus's Recipe
+G) Quest 40 — Shamus's Recipe
 =============================================================================
 Shamus needs bog thyme and the small clay pot from the Supply Room.
 The small clay pot is only available after reaching the Supply Room in
@@ -511,15 +455,38 @@ Quest 40 discovered. We'll complete it after getting the clay pot from
 the Supply Room.
 
 =============================================================================
-K) Quest 24 — The Beekeeper's Swarm (Part 1: Discovery)
+H) Quest 51 — The Back Alley Mugger
 =============================================================================
-The Beekeeper's Cottage is west of The Old Oak, at the forest edge.
+The Back Alley is south of The Alley, which is southwest of Town Square.
+The mugger's perception check passes automatically with Actually
+Enchanted Glasses, so he's visible on the first visit. Fight to the
+death — one round per KILL, and he has 2 hearts.
 
 > NORTH                       [Bar]
 > NORTH                       [Main Room]
 > NORTH                       [Town Square]
-> WEST                        [Main West]
-> EAST                        [Town Square]
+> SOUTHWEST                   [Alley]
+> SOUTH                       [Back Alley]
+> KILL MUGGER                 [solid blow]
+> KILL MUGGER                 [lockpicks]
+
+The mugger drops lockpicks. These open the large iron chest in the Mine
+Passage (20 Zenni). May's free drink reward is waiting at the Bar.
+
+> TAKE LOCKPICKS              [lockpicks]
+> NORTH                       [Alley]
+> NORTHEAST                   [Town Square]
+> SOUTH                       [Tale and Ale]
+> SOUTH                       [Bar]
+> TALK TO MAY                 [on the house]
+> NORTH                       [Main Room]
+
+=============================================================================
+I) Quest 24 — The Beekeeper's Swarm (Part 1: Discovery)
+=============================================================================
+The Beekeeper's Cottage is west of The Old Oak, at the forest edge.
+
+> NORTH                       [Town Square]
 > EAST                        [Main East]
 > EAST                        [Wasteland]
 > EAST                        [Beach Road]
@@ -533,7 +500,7 @@ That smoke jar is in the Supply Room (dungeon). Collect it during the
 dungeon run.
 
 =============================================================================
-L) Quest 57 — Viking Trust Trials (Pale Blade chain)
+J) Quest 57 — Viking Trust Trials (Pale Blade chain)
 =============================================================================
 West of the Archery Range. Three trials: Riddle Stone → Ritual Circle
 → Drinking Challenge.
@@ -582,12 +549,62 @@ Quest 57 complete. Runed metal acquired. Ivanaar introduces Quest 42
 dungeon). Raznak now invites Warriors and Mages for archery training.
 
 =============================================================================
+K) Quest 59 — Beat Lynds (Heart Necklace + Dankhaus Access)
+=============================================================================
+Lynds is in the Tale and Ale. Arm wrestling is a single contested
+strength roll (ties reroll). At level 4 a Warrior wins about 70% of the
+time; always-max rolls win. A loss means a 20-turn wait before Lynds
+will go again.
+
+> EAST                        [Archery Range]
+> EAST                        [Main West]
+> EAST                        [Town Square]
+> SOUTH                       [Tale and Ale]
+> CHALLENGE LYNDS             [Heart Necklace]
+> WEAR NECKLACE               [necklace]
+
+Lynds sets the Dankhaus invitation flag. Dankhaus wards are now cleared.
+
+=============================================================================
+L) Quest 52 — Make Litlock Laugh (Chuckle House Visibility)
+=============================================================================
+The Dankhaus is hidden in Bog-SE. With Actually Enchanted Glasses the
+path is auto-revealed. Navigate to the bog.
+
+> NORTH                       [Town Square]
+> WEST                        [Main West]
+> WEST                        [Archery Range]
+> NORTH                       [Roundabout Pond]
+> NORTH                       [Bog of Eternal Stench]
+> EAST                        [Bog of Eternal Stench]
+> ENTER DANKHAUS              [Common Room]
+
+Make Litlock laugh. Successful path: B (physical) → B2 (ridiculous) →
+C1 (push further).
+
+
+After each of Litlock's lines, pick from the numbered menu.
+
+> TALK TO LITLOCK             [Entertain me]
+> 2                           [watches]
+> 2                           [are you on the floor]
+> 1                           [bonk]
+
+Litlock bonks the player on the head. The Chuckle House is now visible
+east of the Graveyard.
+
+=============================================================================
 M) Quest 55 — The Archer's Trial (Bow Skill, Warrior)
 =============================================================================
 Raznak is at the Archery Range, which is now safe (arrow hazard
 silently disabled after all three trust trials complete).
 
-> EAST                        [Archery Range]
+Out of the Dankhaus and back south through the bog.
+
+> WEST                        [Bog of Eternal Stench]
+> WEST                        [Bog of Eternal Stench]
+> SOUTH                       [Roundabout Pond]
+> SOUTH                       [Archery Range]
 > TALK TO RAZNAK              [archery]
 > PAY 3 ZENNI                 [bow skill]
 
