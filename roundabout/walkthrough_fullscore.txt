@@ -1333,10 +1333,9 @@ Return the rubbing to the Archivist in the library.
 > WEST                        [Main Room]
 > NORTH                       [Town Square]
 > WEST                        [Main West]
-> NORTH                       [Library Main Hall]
+> NORTH                       [Main Hall]        
 > EAST                        [Stacks]
-> GIVE RUBBING TO ARCHIVIST   [incantation scroll]
-> TAKE SCROLL                 [incantation scroll]
+> GIVE RUBBING TO ARCHIVIST   [Incantation scroll added to inventory]
 
 Quest 28 complete. Incantation scroll received — needed for Quest 34.
 
@@ -1346,7 +1345,7 @@ HH) Quest 7 — The Bone Flute (Complete)
 We collected the bone flute from the Cave Creature's Lair. Return it to
 Pyronicus for the Fireball scroll.
 
-> WEST                        [Library Main Hall]
+> WEST                        [Main Hall]        
 > SOUTH                       [Main West]
 > EAST                        [Town Square]
 > EAST                        [Main East]

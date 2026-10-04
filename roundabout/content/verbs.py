@@ -713,8 +713,25 @@ def v_give(world: World) -> int:
         vikings.forge_pale_blade(world)
         return M_HANDLED
 
-    print(f"{npc.desc} doesn't take the {item.desc}.")
+    # Rubbing to the Archivist — Quest 28 → incantation scroll
+    if npc.name == "ARCHIVIST" and item.name == "RUBBING":
+        from content import library
+        library.give_rubbing(world)
+        return M_HANDLED
+
+    print(f"{_npc_subject(npc)} doesn't take the {item.desc}.")
     return M_HANDLED
+
+
+# NPCs known by a title rather than a name ("The Archivist").
+_TITLED_NPCS = {"ARCHIVIST", "BOGGART", "WARDEN"}
+
+
+def _npc_subject(npc) -> str:
+    """An NPC at the start of a sentence: 'Will Passion', 'The Archivist', 'The clerk'."""
+    if npc.name in _TITLED_NPCS or npc.desc[:1].islower():
+        return f"The {npc.desc}"
+    return npc.desc
 
 
 # ---------------------------------------------------------------------------
@@ -899,6 +916,10 @@ def v_read(world: World) -> int:
         return M_NOT_HANDLED
     from content import will
     if will.read_scroll(world, obj):
+        return M_HANDLED
+    if obj.name == "INCANTATION-SCROLL":   # Quest 34 — only the speaking door answers
+        print("You read the words under your breath. Nothing answers. Wherever these "
+              "are meant to be spoken, it isn't here.")
         return M_HANDLED
     if obj.text:
         print(obj.text)

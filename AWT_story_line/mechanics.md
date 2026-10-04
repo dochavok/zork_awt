@@ -294,7 +294,7 @@ Spells learned permanently once acquired.
 - Reuse timer still running: *"You reach for the spell and find it isn't ready yet."*
 - Spell not learned: *"You don't know that spell."*
 
-**Spell scrolls vs. use-item scrolls:** Spell scrolls teach a spell permanently (Light, Unbind Undead, Fireball). Use-item scrolls are consumed on use without teaching anything (incantation scroll — Quest 28/34 speaking door). The resistance mechanic below applies to spell scrolls only; use-item scrolls work for all classes.
+**Spell scrolls vs. use-item scrolls:** Spell scrolls teach a spell permanently (Light, Unbind Undead, Fireball). Use-item scrolls teach nothing and aren't used up (incantation scroll — Quest 28/34 speaking door; full rules in items.md). The resistance mechanic below applies to spell scrolls only; use-item scrolls work for all classes.
 
 **Warrior/Rogue scroll resistance:** `READ SCROLL` on a spell scroll returns:
 
@@ -985,6 +985,7 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 **`DUST [thing]`** (Quest 4): `DUST JAR` in the Pipe Room; anywhere else *There's nothing here worth dusting.* `PRESS SEAL` away from the jar: *There's nothing here to press it on.*
 **`STRUGGLE` / `PULL FREE`** (also `WRIGGLE`, `SQUIRM`, `THRASH`): escapes the Trap 8 snare (Medium strength); anywhere else *Nothing happens.*
 **Keys:** `UNLOCK` / `OPEN [thing] WITH KEY` when several carried keys match "key": if only one of them fits that thing, it's used without asking (cellar door — cellar key, Mid-Tier Key Door — Middle Tier Key, Keeper's Chamber door — key ring, music box — music box key).
+**`GIVE` refused:** *[NPC] doesn't take the [item].* NPCs known by a title or a common noun take "The" (*The Archivist doesn't take the rubbing.*, *The clerk …*); named NPCs don't (*Will Passion …*).
 **`DROP`:** *You drop the [item].* (Designed drops — e.g. the gravestone — use their own text.)
 **Several objects in one command** (`DROP ALL`, `TAKE ALL`, comma lists): one result per item. A result is labelled "[item]:" only when its line doesn't already name the item (refusals, special lines).
 

@@ -335,7 +335,10 @@ Mages read scroll directly (consumed). Warriors/Rogues bring to Will (consumed, 
 ### Incantation Scroll
 **Weight:** 1
 **Location:** Reward from Quest 28 (The Archivist's Request)
-**Quest use:** Quest 34 — `READ SCROLL` answers the speaking door in the Tool Alcove (lower tier). Scroll consumed.
+**Quest use:** Quest 34 — `READ SCROLL` answers the speaking door in the Tool Alcove (lower tier). Not used up; it can be left behind once the door is open.
+**Received:** straight to the inventory from the Archivist — *[Incantation scroll added to inventory.]*
+**Examine:** *A rolled scroll, the paper gone soft with age. The writing runs in close, even lines in no script you know — and yet the words sit easily in your mouth when you look at them.*
+**`READ SCROLL` anywhere but the speaking door:** *You read the words under your breath. Nothing answers. Wherever these are meant to be spoken, it isn't here.* A use-item scroll — any class can read it.
 
 ---
 

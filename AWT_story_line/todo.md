@@ -10,16 +10,16 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section GG — Quest 28, the Archivist's Request. Sections A–FF pass (AA folded into Z, DD into II). First failure:
+**Current position:** Full-score walkthrough, Section HH — Quest 7, the Bone Flute. Sections A–GG pass (AA folded into Z, DD into II). First failure:
 
 ```
-SECTION [GG) Quest 28 — The Archivist's Request (Complete)]
-  cmd     : 'NORTH'
-  missing : 'Library Main Hall'
-  got     : "You can't go that way."
+SECTION [HH) Quest 7 — The Bone Flute (Complete)]
+  cmd     : 'GIVE FLUTE TO PYRONICUS'
+  missing : 'fireball'
+  got     : "Pyronicus doesn't take the bone flute."
 ```
 
-The Library (Main Hall) and The Stacks aren't built (rooms, Librarian, Archivist, GIVE RUBBING, incantation scroll object). 163 full-score steps still fail.
+The flute-for-Fireball trade isn't built. 159 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
@@ -102,6 +102,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section EE: bridge pickups (stake, idol, wax seal, Pale Blade, three bowl pieces, two rune stones, smoke jar — the vial and lantern stay for II); ring's N route to the Keeper's Chamber; Tower stop deposits the gold watch, diamond brooch and idol. FF reaches the Pipe Room from the Tower.
 - Bowl pieces and rune stones have distinct names (large / muddy / stone bowl piece; flat / grey / pale rune stone); fragments updated in both walkthroughs.
 - Section FF: Whispering Jar restoration (PRESS SEAL → 5 Zenni in the jar, DUST JAR, READ INSCRIPTION — Medium perception, whisper repeats on re-read; LISTEN hum / quiet; seal and dust used up). Jar's READ word is INSCRIPTION (GG brings the incantation scroll). Parser: DUST / LISTEN TO prefer what isn't carried; PUT / SPRINKLE / PRESS … ON targets prefer what isn't carried. GG starts WEST from the Pipe Room.
+- Section GG: GIVE RUBBING TO ARCHIVIST (or TALK TO him carrying it) → his line, [Incantation scroll added to inventory.], Quest 28 (3 Zenni silent). Incantation scroll object; READ SCROLL away from the door has its own line; the scroll is never used up (can be left behind after Quest 34). GIVE refusals say 'The' for titled / common-noun NPCs. [Main Hall] fragments in GG and HH; TAKE SCROLL dropped.
 
 **Known issues still open:**
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.

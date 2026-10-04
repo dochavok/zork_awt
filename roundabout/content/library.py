@@ -3,6 +3,9 @@ The Library — Main Hall (the Librarian) and The Stacks (the Archivist).
 Design: locations.md (Library), npcs.md (The Librarian, The Archivist),
 quests.md (Quest 28).
 
+GIVE RUBBING TO ARCHIVIST (or TALK TO ARCHIVIST carrying it): his line, the
+incantation scroll to the inventory, Quest 28 completes (3 Zenni, silent).
+
 Deferred: the Archivist's book-research mechanic (TALK TO ARCHIVIST about a
 subject, READ BOOK) — see todo.md.
 """
@@ -111,9 +114,21 @@ def talk_archivist(w: World) -> None:
         print(_ARCHIVIST_AFTER_Q34)
     elif quests.get_state(w, "28") == quests.COMPLETE:
         print(_ARCHIVIST_AFTER_SCROLL)
+    elif w.player is not None and w.objects["RUBBING"] in w.player.contents:
+        give_rubbing(w)
     else:
         print(_ARCHIVIST_FIRST)
         quests.discover(w, "28")
+
+
+def give_rubbing(w: World) -> None:
+    """GIVE RUBBING TO ARCHIVIST (or TALK TO him carrying it) — Quest 28."""
+    from content import quests
+    w.move_object(w.objects["RUBBING"], None)
+    print(ARCHIVIST_RUBBING)
+    print("[Incantation scroll added to inventory.]")
+    w.move_object(w.objects["INCANTATION-SCROLL"], w.player)
+    quests.complete(w, "28")     # 3 Zenni, paid silently
 
 
 def make_rooms(world) -> None:

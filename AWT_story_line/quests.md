@@ -269,7 +269,7 @@ Going `DOWN` into the cellar before it's drained, or opening the tunnel door fro
 1. Buy thin paper from vendor (2 Zenni).
 2. Find charcoal in Mine Passage (mid-tier).
 3. In Inscription Chamber (mid-tier): `RUB PAPER ON ENGRAVING` → produces rubbing. The thin paper and the charcoal are used up.
-4. Return rubbing to archivist → earns incantation scroll.
+4. Return rubbing to archivist → earns incantation scroll. `GIVE RUBBING TO ARCHIVIST`, or `TALK TO ARCHIVIST` while carrying it: his rubbing line (npcs.md), then *[Incantation scroll added to inventory.]* The 3 Zenni are paid silently.
    - Archivist: *"This appears to be an answer to a question I was never able to find."*
 
 **Reward:** Incantation scroll — required for Quest 34 (speaking door in lower tier). Archivist's remark is the only connection to Quest 34. 3 Zenni.
@@ -323,7 +323,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 **Steps:**
 1. Find Tool Alcove (lower tier, north of The Lower Crossing) — perception check (Medium) reveals speaking door disguised as back wall.
 2. Door speaks in unknown language — clearly a question; cannot be understood.
-3. `READ SCROLL` (incantation scroll) → door opens; scroll consumed. (*"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."*)
+3. `READ SCROLL` (incantation scroll) → door opens; the scroll isn't used up (it can be left behind once the door is open). (*"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."*)
 4. Pass through The Flooded Passage — dark pool wall to wall.
    - Swimming: 1 heart arcane damage, returned to doorway.
    - Solution: `POUR VIAL IN WATER` (vial of glacier melt, Prayer Alcove, upper tier) → pool freezes; player crosses freely.

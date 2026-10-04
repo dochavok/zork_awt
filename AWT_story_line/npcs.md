@@ -625,7 +625,7 @@ He glances at the table, then back.
 
 *"I can't leave this. If you're heading down that way — thin paper, a stick of charcoal, and some patience. The engraving is in the Inscription Chamber. You'll know it when you see it."*
 
-**Quest 28 — rubbing delivered:**
+**Quest 28 — rubbing delivered** (`GIVE RUBBING TO ARCHIVIST`, or `TALK TO ARCHIVIST` while carrying it; followed by *[Incantation scroll added to inventory.]*):
 
 He takes the rubbing and holds it to the light without speaking for a moment.
 

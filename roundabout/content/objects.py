@@ -967,6 +967,15 @@ def _make_mid_tier_objects(world) -> None:
               "ground. You still can't read a word of it.",
         synonyms=["rubbing"], adjectives=["charcoal"], size=1, flags={TAKEBIT},
     ))
+    # Quest 28 reward from the Archivist (content/library.py); Quest 34 READ SCROLL
+    world.register_object(GameObject(
+        name="INCANTATION-SCROLL", desc="incantation scroll",
+        examine="A rolled scroll, the paper gone soft with age. The writing runs in "
+                "close, even lines in no script you know — and yet the words sit easily "
+                "in your mouth when you look at them.",
+        synonyms=["scroll", "incantation"], adjectives=["incantation", "rolled"],
+        size=1, flags={TAKEBIT, READBIT},
+    ))
     world.register_object(GameObject(
         name="BONE-FLUTE", desc="bone flute",
         fdesc="Among the bones lies one that's been hollowed and pierced along its "
