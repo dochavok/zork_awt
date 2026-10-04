@@ -75,6 +75,7 @@ def parse_walkthrough(path: str) -> list[Section]:
     end is the required output fragment.  Lines starting with '(' are
     input() responses during char creation — they are fed to the input mock
     rather than to do_turn().  Section headers are lines matching /^[A-Z]+\)/.
+    A fragment may list several required pieces separated by "|".
     """
     sections: list[Section] = []
     current: Section | None = None
@@ -119,7 +120,9 @@ class NarrativeRunner:
             with patch("sys.stdout", buf):
                 self.game.do_turn(cmd)
             out = buf.getvalue()
-            if frag and frag.lower() not in out.lower():
+            # "[a|b]" requires every piece to appear in the output
+            missing = [f for f in frag.split("|") if f and f.lower() not in out.lower()]
+            if missing:
                 self.failures.append(
                     f"SECTION [{section.name}]\n"
                     f"  cmd     : {cmd!r}\n"

@@ -934,6 +934,26 @@ Fixed container in The Tower (Town Hall). Treasure items are placed here permane
 - `LOOK IN CASE` / `EXAMINE CASE` — lists contents and count whether open or closed (glass panels visible either way).
 - **Count display:** *"[N] treasure[s] on display."* No denominator shown during play. Win condition reveals: *"9 of 9 treasures on display."*
 
+### Score
+
+**Score = treasure points deposited in the Trophy Case** (the only points in the design; 300 possible). The engine's Zork-style room score from Phase 1 is not shown — room visits already award XP.
+
+**`SCORE` during play** (no denominators, no tier):
+```
+Score: 0
+Level 6 (412 XP)
+0 treasures on display.
+```
+
+**End of game** (runs automatically after Will's final scene; adds denominators and the tier title):
+```
+Score: 0 of 300
+Level 6 (412 XP)
+0 of 9 treasures on display.
+Title: Empty-Handed
+```
+The tier title appears only at the end. The Trophy Case itself isn't built yet — until it is, score and treasures read 0.
+
 **Treasure achievement tiers (end-game display):**
 Shown at game end alongside player level. Based on total points deposited in the Trophy Case.
 

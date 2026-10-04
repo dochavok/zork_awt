@@ -6,24 +6,22 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — Sections A–T passing (C split into C1/C2; I split into I1/I2) in `test_walkthrough_ring_v2.py`
+**Status:** In progress — the ring walkthrough (`walkthrough_ring.txt`, `test_walkthrough_ring_v2.py`) passes end to end, A–U (2026-10-04). Next: the full-score walkthrough (`walkthrough_fullscore.txt`, `test_walkthrough_fullscore_v2.py`), section by section from A.
 
-**Goal:** Full ring quest walkthrough passing with zero state injection.
+**Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Section U — Return Ring to Will. First failure:
+**Current position:** Full-score walkthrough, Section C — Quest 51, The Back Alley Mugger. Sections A–B pass. First failure:
 
 ```
-SECTION [U) Return Ring to Will — Quest Complete]
-  cmd     : 'GIVE RING TO WILL'
-  missing : 'Well done'
-  got     : "Will Passion doesn't take the plain dark ring."
+SECTION [C) Quest 51 — The Back Alley Mugger]
+  cmd     : 'KILL MUGGER'
+  missing : 'solid blow'
+  got     : "You can't see any mugger here!"
 ```
 
-Will's final scene (ring-rituals.md) isn't built yet.
+This is the known ordering issue (Known issues below): a level-1 Warrior with regular glasses can't spot the mugger. The full-score walkthrough fails at 666 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
 
-**Torch budget:** the torch lights at the Mausoleum (H5) and ticks every turn, in town too. K swaps it at Shamus (`BUY TORCH` at 38 left, "Getting there"); the fresh torch lights at the Bone Passage in L. N climbs out through the Crypt and swaps again in the Kitchen after the holy water (about 38 left, "Getting there"). O goes down through the cellar; the fresh torch covers O–S (~55 turns).
-
-**XP note:** the player is level 6 by the end of K (Quest 32 reward). Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
+**XP note:** in the ring walkthrough the player is level 6 by the end of K (Quest 32 reward) and finishes at level 6 with 307 XP. Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
@@ -60,9 +58,11 @@ Will's final scene (ring-rituals.md) isn't built yet.
 - Section P (cont.): TAKE ALL at the bridge collects the L drop. Parser: second PUT rule for things on the floor (PLACE), SEAL verb.
 - Section S: Town Square fountain object; MIX CLAY WITH WATER (clay adhesive); ASSEMBLE BOWL (input hook — every piece answers to "bowl"); forest pedestal states; PUT BOWL ON PEDESTAL; PUT ZENNI ON PEDESTAL (OFFER / DROP ZENNI, COIN accepted; 1 Zenni, gone) → Crystal Bowl, Quest 49 complete; TAKE BOWL.
 - Section T: T route (Main East → SOUTH); The Altar east of the Nave; dial (RIGHT forward, LEFT back, wraps); artifact placing, glow (persists; lost when taken off), altar listing, ring-too-early, binding ceremony (artifacts consumed, ring bound, 5 XP); a worn ring comes off through the normal removal check. Parser: a trailing particle (`TURN DIAL LEFT`) is understood.
+- Section U: SCORE (treasure points, level, XP, treasures on display — meta, no turn); GIVE RING TO WILL with the bound ring plays Will's final scene, the end-of-game SCORE (denominators + tier title), the closing line, then GAME OVER. Test harness: a fragment may list several required pieces separated by `|`.
 
 **Known issues still open:**
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
+- Trophy Case (Town Hall Tower) not built — design in mechanics.md (Trophy Case, Score). Score and treasures read 0 until it is. The full-score walkthrough needs it.
 - Deferred from P: Quest 38 (Collapsed Gallery timbers — pickaxe, three strength checks, support beam); the Gallery is built with its descriptions, flood line and a closed east exit. Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: Lower Crossing north (Tool Alcove) and south (Dark Room), the 50/50 pull-back text, the Ivory Torch (Quest 34); bow and fireball attacks on the werewolf (failure lines are in mechanics.md, but neither attack exists yet).
 - Deferred from L: The Crevice and gold pocket watch (no room description yet — Stored Room east exit closed until built); Mine Passage south exit (Inscription Chamber and beyond); charcoal, silver dust, and the iron chest's lock (Mine Passage keeps its default description; the chest is scenery).

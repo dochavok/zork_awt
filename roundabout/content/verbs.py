@@ -165,6 +165,12 @@ def v_turn_dial_right(world: World) -> int:
     return M_HANDLED
 
 
+def v_score(world: World) -> int:
+    from content import ending
+    ending.score(world)
+    return M_HANDLED
+
+
 def v_mix(world: World) -> int:
     from content import shrine_bowl
     return M_HANDLED if shrine_bowl.mix(world) else M_NOT_HANDLED
@@ -539,6 +545,12 @@ def v_give(world: World) -> int:
     player = world.player
     if player is None or item not in player.contents:
         print(f"You aren't carrying the {item.desc}.")
+        return M_HANDLED
+
+    # Bound ring to Will — the final scene and the end of the game
+    if npc.name == "WILL" and item.name == "RING" and world.globals.get("ring_bound"):
+        from content import ending
+        ending.return_ring(world)
         return M_HANDLED
 
     # Ring to Will — second briefing. He doesn't take it; the player keeps it.
@@ -1137,6 +1149,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-POUR",       v_pour)
     game.register_verb("V-PLACE",      v_place)
     game.register_verb("V-MIX",        v_mix)
+    game.register_verb("V-SCORE",      v_score)
     game.register_verb("V-TURN-DIAL-LEFT",  v_turn_dial_left)
     game.register_verb("V-TURN-DIAL-RIGHT", v_turn_dial_right)
     game.register_verb("V-SEAL",       v_seal)

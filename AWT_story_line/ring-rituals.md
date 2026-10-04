@@ -129,6 +129,12 @@ Located in The Altar sub-room of the Church of All.
 
 *He means it. You can tell because he doesn't say anything else.*
 
+**The game ends here.** Right after Will's last line, the end-of-game `SCORE` runs automatically (mechanics.md — Score), followed by:
+
+`*** THE RING IS BOUND — GO BACK TO THE GUILD HALL FOR REWARDS ***`
+
+Then GAME OVER — further input is refused, as after a death.
+
 **Altar description:** Stone altar, nothing elaborate. The dial gives it a mystical quality — each turn of the dial causes the altar to shimmer.
 
 ---

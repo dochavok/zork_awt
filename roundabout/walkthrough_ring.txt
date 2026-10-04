@@ -1165,10 +1165,9 @@ Return the bound ring to Will Passion.
 > SOUTH                       [Tale and Ale]
 > REMOVE GLASSES              [glasses removed]
 > OPEN MAILBOX                [tower]
-> GIVE RING TO WILL           [Well done]
+> GIVE RING TO WILL           [Well done|Score: 0 of 300|Title: Empty-Handed|GUILD HALL FOR REWARDS]
 
-Will takes the ring, listens for something, sets it on the desk. "Well
-done, [Name]." He means it. Ring quest complete.
+The game ends with the final score.
 
 =============================================================================
 END OF MINIMAL RING QUEST WALKTHROUGH
