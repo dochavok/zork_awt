@@ -595,6 +595,37 @@ _SECOND_BRIEFING = (
 )
 
 
+# Quest 40 — Shamus's Recipe (quests.md; text in npcs.md, Shamus)
+_SHAMUS_THYME = (
+    'Shamus takes the thyme, crushes a leaf between his fingers and breathes it in. '
+    '"That\'s the stuff." He sets it by the stove. "Now a pot that holds water, and '
+    'we\'re in business."'
+)
+_SHAMUS_POT = (
+    'Shamus turns the pot over, taps it, holds it up to the light. Not a crack. '
+    '"Now that\'s a pot." He sets it by the stove. "Bog thyme, and we\'re in business."'
+)
+_SHAMUS_STEW = (
+    "Shamus puts the two together like they've been waiting for each other. The "
+    "kitchen fills with a smell you haven't smelled in this town before — thick, "
+    'green, and warm. "Hearty stew," he says. "Back on the menu. Tell May."'
+)
+
+
+def _give_shamus(world: World, item) -> None:
+    from content import quests
+    world.move_object(item, None)          # by the stove — he keeps it
+    flag = "SHAMUS-HAS-THYME" if item.name == "BOG-THYME" else "SHAMUS-HAS-POT"
+    world.set_global(flag, True)
+    quests.discover(world, "40")
+    if world.get_global("SHAMUS-HAS-THYME") and world.get_global("SHAMUS-HAS-POT"):
+        print(_SHAMUS_STEW)
+        world.set_global("HEARTY-STEW", True)   # inn menu upgrade (buying food isn't built yet)
+        quests.complete(world, "40")
+    else:
+        print(_SHAMUS_THYME if item.name == "BOG-THYME" else _SHAMUS_POT)
+
+
 def v_give(world: World) -> int:
     item, npc = world.prso, world.prsi
     if item is None:
@@ -644,6 +675,11 @@ def v_give(world: World) -> int:
     if npc.name == "OAK-CHILD" and item.name == "KITE":
         from content import old_oak
         old_oak.give_kite(world)
+        return M_HANDLED
+
+    # Bog thyme / small clay pot to Shamus — Quest 40, either order
+    if npc.name == "SHAMUS" and item.name in ("BOG-THYME", "SMALL-CLAY-POT"):
+        _give_shamus(world, item)
         return M_HANDLED
 
     # Runed metal to Pyronicus — forges the Pale Blade

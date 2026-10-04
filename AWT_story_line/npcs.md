@@ -313,6 +313,11 @@ Vendor: sells gunpowder (5Z), torch (3Z), Tip Journal (5Z), Fishing Rod (8Z). `T
 
 **Quest 40 (until it's complete):** `TALK TO SHAMUS` adds, after the greeting: *He glances at the pot on the fire and frowns at it. "There's a stew recipe I haven't made in years. Needs bog thyme, and a pot that isn't cracked. All of mine are."* The first time discovers Quest 40.
 
+**Quest 40 delivery (`GIVE THYME TO SHAMUS`, `GIVE POT TO SHAMUS` — either order, one at a time):**
+- Thyme first: *Shamus takes the thyme, crushes a leaf between his fingers and breathes it in. "That's the stuff." He sets it by the stove. "Now a pot that holds water, and we're in business."*
+- Pot first: *Shamus turns the pot over, taps it, holds it up to the light. Not a crack. "Now that's a pot." He sets it by the stove. "Bog thyme, and we're in business."*
+- The second one (Quest 40 complete): *Shamus puts the two together like they've been waiting for each other. The kitchen fills with a smell you haven't smelled in this town before — thick, green, and warm. "Hearty stew," he says. "Back on the menu. Tell May."*
+
 **Torch exchange:** `BUY TORCH` while already carrying a torch is the exchange — the only way to swap. Shamus's response depends on the torch's life (swap tiers in `mechanics.md` — Torch). No `GIVE TORCH TO SHAMUS`.
 - **Short of 3 Zenni (exchange tiers only):** *"Three Zenni," Shamus says, and doesn't let go of the fresh one.*
 

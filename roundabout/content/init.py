@@ -196,6 +196,12 @@ def _place_objects(world) -> None:
                       ("ALTAR-STONE", "ALTAR"), ("DIAL", "ALTAR")):
         world.move_object(world.objects[obj], world.rooms[room])
 
+    # Which key opens what — the parser uses this to pick the right key when
+    # several match "key" (UNLOCK DOOR WITH KEY)
+    for lock, key in (("CELLAR-DOOR", "CELLAR-KEY"), ("MID-TIER-DOOR", "MIDDLE-TIER-KEY"),
+                      ("KEEPER-DOOR", "KEY-RING"), ("MUSIC-BOX", "MUSIC-BOX-KEY")):
+        world.objects[lock].key_name = key
+
     # LOCKPICKS drop when the mugger is slain
     # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus
 

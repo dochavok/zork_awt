@@ -527,6 +527,7 @@ class Parser:
     ) -> Optional[ParseResult]:
         """Resolve the actual game objects for a structurally-matched rule."""
         self._current_action = rule.action
+        self._current_prso = None
         nc1_words = [t for t in nc1_raw if not self._vocab.is_buzz(t)]
         nc2_words = [t for t in nc2_raw if not self._vocab.is_buzz(t)]
 
@@ -547,6 +548,7 @@ class Parser:
                 prso = self._resolve_phrase(nc1_words, rule.obj1, world)
 
         if rule.obj2 is not None and nc2_words:
+            self._current_prso = prso[0] if len(prso) == 1 else None
             prsi = self._resolve_phrase(nc2_words, rule.obj2, world)
 
         return ParseResult(
@@ -707,6 +709,16 @@ class Parser:
             not_held = [o for o in matched if o not in world.player.contents]
             if not_held:
                 matched = not_held
+
+        # UNLOCK / OPEN <thing> WITH KEY: if only one of the matching keys fits
+        # that thing (its key_name, set by content), use it without asking.
+        target = getattr(self, "_current_prso", None)
+        fits = getattr(target, "key_name", None) if target is not None else None
+        if (len(matched) > 1 and fits
+                and getattr(self, "_current_action", None) in ("V-UNLOCK", "V-OPEN")):
+            fitting = [o for o in matched if o.name == fits]
+            if len(fitting) == 1:
+                matched = fitting
 
         if len(matched) > 1:
             noun = words[-1] if words else "object"

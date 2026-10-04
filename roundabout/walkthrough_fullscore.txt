@@ -989,8 +989,9 @@ Room. Try it, then come back.
 =============================================================================
 U) Quest 25 — The Flooded Cellar
 =============================================================================
-The cellar drain is below the kitchen. Bartender holds the cellar key.
-Crowbar required to remove drain cover.
+The cellar under the Kitchen has been flooded for years. May holds the
+key, and gives it to anyone carrying the crowbar — the drain cover needs
+prying off.
 
 > WEST                        [Ink Corridor]
 > NORTH                       [Dungeon Entrance]
@@ -1006,20 +1007,28 @@ Crowbar required to remove drain cover.
 > WEST                        [Town Square]
 > SOUTH                       [Tale and Ale]
 > SOUTH                       [Bar]
-> TALK TO BARTENDER           [cellar key]
-> TAKE KEY                    [cellar key]
+> TALK TO MAY                 [cellar]
 > SOUTH                       [Kitchen]
-> UNLOCK CELLAR DOOR          [cellar door]
+
+The drain is worked from the top step — going down into the water is
+instant drowning. The cellar key stays in the lock.
+
+> UNLOCK DOOR WITH KEY        [key turns]
+> OPEN DOOR                   [drain]
+> USE CROWBAR ON DRAIN        [cover comes up]
+> CLEAR DRAIN                 [all the way down]
+
+The cellar is dry. Down for the cashbox on the high shelf.
+
 > DOWN                        [Cellar]
-> REMOVE DRAIN COVER          [crowbar]
-> CLEAR DRAIN                 [drain clear]
-
-Cellar drains. Secret Tunnel door revealed. Bartender gives Bartender's
-Boots (leg slot, +3 trap disarm).
-
+> OPEN CASHBOX                [10 Zenni]
 > UP                          [Kitchen]
-> TALK TO BARTENDER           [boots]
-> TAKE BOOTS                  [Bartender's Boots]
+> NORTH                       [Bar]
+
+May has something for us now the cellar's dry: the Bartender's Boots
+(leg slot, +3 to trap disarm rolls).
+
+> TALK TO MAY                 [cellar dry]
 > WEAR BOOTS                  [boots]
 
 Quest 25 complete.

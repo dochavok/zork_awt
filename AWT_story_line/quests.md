@@ -377,7 +377,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 **Steps:**
 1. Find bog thyme via perception check in Bog-SW.
 2. Find small clay pot in Supply Room — visible in wreckage of Trap 17 whether triggered or disarmed.
-3. Deliver both to Shamus.
+3. Deliver both to Shamus — either order, one at a time; the second completes the quest (text in npcs.md, Shamus).
 
 **Reward:** Permanent inn menu upgrade — "hearty stew" option, restores 2 hearts at the same price as Food & Drink (2 Zenni). 3 Zenni.
 
