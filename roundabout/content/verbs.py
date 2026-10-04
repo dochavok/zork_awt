@@ -143,6 +143,12 @@ def v_examine(world: World) -> int:
 # V-LOOK (bare look — redescribe current room)
 # ---------------------------------------------------------------------------
 
+def v_look_up(world: World) -> int:
+    from content import lower_tier
+    lower_tier.look_up(world)
+    return M_HANDLED
+
+
 def v_look(world: World) -> int:
     world.game.desc_mode_override = True
     world.game.describe_room()
@@ -1063,6 +1069,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-OPEN",       v_open)
     game.register_verb("V-EXAMINE",    v_examine)
     game.register_verb("V-LOOK",       v_look)
+    game.register_verb("V-LOOK-UP",    v_look_up)
     game.register_verb("V-INVENTORY",  v_inventory)
     game.register_verb("V-SAVE",       v_save)
     game.register_verb("V-RESTORE",    v_restore)

@@ -1200,7 +1200,7 @@ DD) Quest 49 — Crystal Bowl: Fire Clay (Thermal Vent Room)
 > WEST                        [Pile of Rubble]
 > NORTH                       [Lower Crypt]
 > NORTH                       [Thermal Vent Room]
-> LOOK UP                     [fire clay]
+> LOOK UP                     [reddish clay]
 > TAKE CLAY                   [fire clay]
 > SOUTH                       [Lower Crypt]
 > SOUTH                       [Pile of Rubble]

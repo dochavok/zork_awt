@@ -533,6 +533,8 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 ### Fire Clay
 **Weight:** 1
 **Location:** Thermal Vent Room ceiling (lower tier) — invisible until `LOOK UP`; `TAKE CLAY` retrieves it
+**Room description (once found):** *A seam of reddish clay is pressed into the overhang above you.*
+**Examine / inventory:** *A lump of reddish fire clay, dense and faintly warm. It takes the print of your fingers.*
 **Quest use:** Quest 49 — mixed with fountain water to make clay adhesive for reassembling the shrine bowl.
 
 ---

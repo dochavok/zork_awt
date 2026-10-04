@@ -970,7 +970,7 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 | `LOOK AT BOARD` | Quest Board in The Bar |
 | `LOOK AT STATUE` | Town Square statue — reveals seam (no roll) |
 | `LOOK AT BANNER` | Viking Encampment — reveals elemental runes (Trial 2 clue) |
-| `LOOK UP` / `LOOK AT CEILING` | Thermal Vent Room — reveals fire clay on ceiling (synonyms) |
+| `LOOK UP` / `LOOK AT CEILING` | Thermal Vent Room — reveals fire clay on ceiling (synonyms). Anywhere else it acts as a plain `LOOK`. |
 | `ACTIVATE [ELEMENT] STONE` | Ritual Circle (Trial 2) — also accepts LOVE/LIFE for Heart |
 | `POUR HOLY WATER ON STAKE` | Creates consecrated silver stake |
 | `DRIVE STAKE INTO WEREWOLF` | Destroys undead werewolf |

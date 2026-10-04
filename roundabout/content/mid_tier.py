@@ -12,7 +12,8 @@ Rubble), mechanics.md (Shovel & Dig Mechanic), items.md (Rope, Shovel).
 - Any successful DIG: Will's 1-in-20 audio note.
 - Deferred: The Crevice (Stored Room east, gold pocket watch); Mine Passage
   south (Inscription Chamber); charcoal, silver dust and the iron chest's lock.
-  Pile of Rubble north/east/south are built with the lower tier.
+  Pile of Rubble north/south are wired in content/lower_tier.py; east
+  (Antechamber) comes with section O.
 
 State: STORED-ROOM-DUG, ROPE-TIED
 """

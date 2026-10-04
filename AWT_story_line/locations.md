@@ -1750,6 +1750,12 @@ Keeper's skeleton under inert pendulum blade. Key ring on skeleton.
 
 The emerald wax seal on a cord around the skeleton's neck matches the seal on the statue note in Roundabout Town Square. Key opens the Keeper's Chamber in the Church of All.
 
+The skeleton, the seal and the pendulum blade are scenery (the seal is not takeable):
+- **`EXAMINE SKELETON`:** *The robes have rotted at the seams, but the cord around the skeleton's neck has held. On it hangs a disc of emerald-green wax.*
+- **`EXAMINE SEAL`:** *A disc of emerald-green wax on a cord — the same seal as the note in the statue's base.*
+- **`TAKE SEAL`:** *It's the Keeper's. You leave it with him.*
+- **`EXAMINE BLADE`:** *The blade hangs dead still, a curved length of iron as wide as a man. The edge is dark with old blood.*
+
 ### The Encampment (Room 3)
 **XP: 2**
 **NPCs:** None
@@ -1769,6 +1775,12 @@ No mechanical trigger — context and lore only.
 **Quest Hooks:** Quest 49 (The Ruined Shrine) — fire clay sourced here; Whispering Jar is the only hint
 **Connections:** South → Lower Crypt.
 Dead-end spur. Warm air rises from fissures in the floor. Fire clay (Quest 49) pressed into ceiling overhang — invisible until `LOOK UP`; `TAKE CLAY` retrieves it. No perception check. Whispering Jar whisper (*"The ceiling of the thermal vent holds a secret."*) is the only hint anywhere.
+
+**Room description:** *A dead end, and a warm one. Heat rises from fissures in the floor, faint but steady, and the air smells of hot stone. The only way out is back south.* (Deliberately says nothing about the ceiling — the Whispering Jar stays the only hint.)
+
+- **`LOOK UP` / `LOOK AT CEILING` (clay not yet taken):** *Above you, the rock bulges into a low overhang. Pressed into its underside is a seam of reddish clay, warm and still soft.*
+- **Room listing once found:** *A seam of reddish clay is pressed into the overhang above you.*
+- **`LOOK UP` after the clay is taken:** *The overhang is bare where the clay was.*
 
 ### Antechamber / Bone Crunch Floor Room (Room 5)
 **XP: 2**

@@ -718,6 +718,48 @@ def _make_mid_tier_objects(world) -> None:
         name="MINE-CHEST", desc="iron chest", synonyms=["chest"],
         adjectives=["large", "iron", "bolted"], flags={NDESCBIT, SACREDBIT},
     ))
+    # Lower tier, west end (logic: content/lower_tier.py)
+    world.register_object(GameObject(
+        name="KEY-RING", desc="key ring",
+        fdesc="The skeleton's fingers are curled loosely around a ring of keys.",
+        ldesc="A ring of keys, old iron, worn smooth from years of use.",
+        synonyms=["keys", "key", "keyring"], adjectives=["iron", "old", "keeper's", "keepers"],
+        size=1, flags={TAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="SKELETON", desc="skeleton",
+        ldesc="The robes have rotted at the seams, but the cord around the skeleton's "
+              "neck has held. On it hangs a disc of emerald-green wax.",
+        synonyms=["skeleton", "keeper", "robes", "bones"], adjectives=["robed"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="KEEPER-SEAL", desc="emerald seal",
+        ldesc="A disc of emerald-green wax on a cord — the same seal as the note in "
+              "the statue's base.",
+        synonyms=["seal", "wax", "cord", "disc"], adjectives=["emerald", "green", "wax"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="PENDULUM-BLADE", desc="pendulum blade",
+        ldesc="The blade hangs dead still, a curved length of iron as wide as a man. "
+              "The edge is dark with old blood.",
+        synonyms=["blade", "pendulum"], adjectives=["pendulum", "curved"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="FIRE-CLAY", desc="fire clay",
+        fdesc="A seam of reddish clay is pressed into the overhang above you.",
+        ldesc="A lump of reddish fire clay, dense and faintly warm. It takes the print "
+              "of your fingers.",
+        synonyms=["clay", "seam"], adjectives=["fire", "reddish"],
+        size=1, flags={TAKEBIT, INVISIBLE},
+    ))
+    from content.lower_tier import ceiling_action
+    world.register_object(GameObject(
+        name="VENT-CEILING", desc="ceiling", synonyms=["ceiling", "overhang", "roof"],
+        adjectives=["low"], flags={NDESCBIT, SACREDBIT}, action=ceiling_action,
+    ))
     # Over the edge of the hole once the Stored Room floor is dug out
     world.register_object(GameObject(
         name="SUPPORT-TIMBER", desc="support timber", synonyms=["timber", "beam"],

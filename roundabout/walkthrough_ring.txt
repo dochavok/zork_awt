@@ -957,7 +957,7 @@ the Crystal Bowl (Quest 49) is pressed into its ceiling — LOOK UP to
 find it. No perception check. It isn't needed until section S.
 
 > NORTH                       [Thermal Vent Room]
-> LOOK UP                     [fire clay]
+> LOOK UP                     [reddish clay]
 > TAKE CLAY                   [fire clay]
 > SOUTH                       [Lower Crypt]
 
