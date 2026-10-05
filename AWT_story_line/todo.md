@@ -158,15 +158,17 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
   TALK / GIVE (item kept) / BUY / PAY / CHALLENGE / FIGHT / SHOOT / riddle answers / Aylora's DRINK refused, no Zenni taken, a turn used; reading the slate still works. Arrival greetings (Ivanaar, Haalvar's riddle, the beekeeper) wait until clean.
   Will: TALK gets his disdainful line every time; the first GIVE / teaching gets it once, then goes ahead. Litlock turns an inked player away at the door, invited or not (npcs.md, traps.md). test_ink.py.
 - Opening pacing: two stops only — after "Then we begin" and after the ring briefing — each showing "[Press ENTER to continue]"; no silent waits; the rest flows into the first > prompt (npcs.md — Will Passion, Pauses). test_opening.py.
+- SHOW dropped from the design: GIVE DRAGON-NIP TO WILL is the only way (quests.md — Quest 58).
+- The ring's description is minimal by design — "plain dark ring" / "A plain dark ring.", no hint of what it is; only the corruption milestones reveal it (items.md).
+- The ring can't be dropped (content/ring.py): DROP / THROW / PUT anywhere but the altar get "Bring it to me, or keep it close," Will said. You keep it close.; worn, no removal attempt; DROP ALL skips it (KEEPBIT); weight 0 (items.md, mechanics.md). test_ring_keep.py.
+- DROP ALL with nothing to drop: "You are empty-handed." / "You'll need to remove anything you want to drop." (only worn items) / the ring's line (only the ring) (mechanics.md). test_ring_keep.py.
 
 **Known issues still open:**
-- SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
 - The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.
 - Thin paper "destroyed if player gets wet": no wetting events are defined yet.
 - Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
 - Quest 50: Will being visibly shaken on the player's next tower visit isn't built.
 - Tip Journal: Shamus sells it (5 Zenni, on the slate), but it's an empty object — its contents and READ JOURNAL (mechanics.md: active discovered quests with purchased hints) aren't built.
-- The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 

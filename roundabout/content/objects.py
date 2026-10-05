@@ -164,7 +164,7 @@ def _make_tower_objects(world) -> None:
         examine="A plain dark ring.",
         synonyms=["ring"],
         adjectives=["plain", "dark", "god-forsaken"],
-        flags={TAKEBIT, "WEARABLE"},
+        flags={TAKEBIT, "WEARABLE", "KEEPBIT"},   # can't be dropped (content/ring.py)
     )
     world.register_object(ring)
 
@@ -1308,7 +1308,8 @@ def _make_mid_tier_objects(world) -> None:
 
 # items.md weights — used by the Rickety Bridge (limit 12). Engine default is 5.
 _WEIGHTS = {
-    "RING": 1, "ENCHANTED-GLASSES": 1, "HEART-NECKLACE": 1, "TORCH": 2, "PICKAXE": 3,
+    # The ring weighs 0: it can't be dropped, so it never counts
+    "RING": 0, "ENCHANTED-GLASSES": 1, "HEART-NECKLACE": 1, "TORCH": 2, "PICKAXE": 3,
     "PIE-RAT-DISGUISE": 1, "GUNPOWDER": 2, "FLINT-AND-STEEL": 2, "SHOVEL": 3, "ROPE": 3,
     "KITE": 1, "OLD-OAK-RUNE-STONE": 2, "SCROLL-UNBIND-UNDEAD": 1, "BOWL-PIECE-FOREST": 1,
     "BOWL-PIECE-BOG": 1, "RUNED-METAL": 3, "PALE-BLADE": 3, "TOWN-CHARTER": 1,

@@ -680,7 +680,7 @@ Actually Enchanted Glasses auto-succeed. They can't be worn through the tower's 
 **Steps:**
 1. Pass perception check in Will's Bedroom (Very Hard; auto-pass with Actually Enchanted Glasses — put them on once inside the bedroom).
 2. `TAKE DRAGON-NIP` or `TAKE SPRIG` — item added to inventory.
-3. Bring dragon-nip to Will Passion in the tower. `GIVE DRAGON-NIP TO WILL` or `SHOW DRAGON-NIP TO WILL` (SHOW not built yet — see todo.md).
+3. Bring dragon-nip to Will Passion in the tower. `GIVE DRAGON-NIP TO WILL` (GIVE only — there is no SHOW verb).
 4. Will takes it (dialogue in npcs.md). Produces a Golden Dragon Scale, which goes straight into the inventory: *[Golden Dragon Scale added to inventory.]* Quest complete.
 
 **Reward:** Golden Dragon Scale (Trophy Case treasure item). 15 XP. 5 Zenni.

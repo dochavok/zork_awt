@@ -89,13 +89,15 @@ def test_ring_off_elsewhere_ejects_with_ward_line():
     assert _THERE not in out and _FAINT not in out
 
 
-def test_dropped_ring_stays_inside():
+def test_ring_cant_be_dropped_inside():
+    # The ring can't be dropped (items.md): still worn, still unseen, still inside
     w, g = _at_bog_se(ring_on=True)
     _do(g, "east")
     _do(g, "east")
-    _do(g, "drop ring")
-    assert w.here.name == "BOG-SE"
-    assert w.objects["RING"].location is w.rooms["DANKHAUS-HEARTH-ROOM"]
+    out = _do(g, "drop ring")
+    assert '"Bring it to me, or keep it close," Will said. You keep it close.' in out
+    assert w.here.name == "DANKHAUS-HEARTH-ROOM"
+    assert w.objects["RING"].location is w.player and w.globals["ring_worn"]
 
 
 def test_invited_unseen_entry_holds_inciting_moment():

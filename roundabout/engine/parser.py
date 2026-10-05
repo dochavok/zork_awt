@@ -207,6 +207,8 @@ _PUNCT_RE = re.compile(r"[.,;:!?\"'`]+")
 
 _WALK_VERBS = {"go", "walk", "run", "proceed", "step"}
 _ALL_WORDS  = {"all", "everything", "every"}
+# ALL leaves KEEPBIT objects out of these (see _all_objects)
+_PARTING_ACTIONS = {"V-DROP", "V-PUT", "V-PUT-IN", "V-PUT-ON", "V-PLACE", "V-THROW"}
 _BUT_WORDS  = {"but", "except"}
 
 
@@ -659,9 +661,13 @@ class Parser:
 
     def _all_objects(self, spec: ObjectSpec, world: "World") -> list:
         """Everything "all" covers. DROP ALL leaves worn items on the player;
-        TAKE ALL leaves out what the player already carries."""
+        TAKE ALL leaves out what the player already carries. KEEPBIT items
+        (content: never parted with) are left out of anything that parts
+        with them."""
         candidates = self._scope_objects(spec, world)
         action = getattr(self, "_current_action", None)
+        if action in _PARTING_ACTIONS:
+            candidates = [o for o in candidates if not o.has_flag("KEEPBIT")]
         if action == "V-DROP":
             candidates = [o for o in candidates if not o.has_flag("WEARBIT")]
         elif action == "V-TAKE":

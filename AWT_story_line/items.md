@@ -24,8 +24,13 @@ Required to make ranged (bow) attacks in combat. `SHOOT` equips it (mechanics.md
 
 ### The God-Forsaken Ring *(Core Quest Item)*
 **Slot:** Ring
-**Weight:** 1
+**Weight:** 0 (it can't be dropped — see below)
 **Location:** Pyronicus's Forge (retrieved from Pyronicus on first visit)
+**Inventory description:** "plain dark ring"
+**Examine:** *A plain dark ring.*
+**Can't be dropped:** `DROP RING`, `PUT RING` anywhere but the altar, and `THROW RING` get: *"Bring it to me, or keep it close," Will said. You keep it close.* `DROP ALL` skips it. Worn, the refusal comes first — no removal attempt, no corruption roll; `REMOVE RING` is unchanged. `PUT RING ON ALTAR` and `GIVE RING TO WILL` still work; other NPCs don't take it.
+**Why it can't be dropped:** it never needs to leave the inventory, and a dropped ring can be lost for good (the guest rooms are one-way).
+**Minimal by design:** the ring's descriptions give no hint of what it is — nothing about forsakenness, corruption, or anything else. The corruption milestone messages are the only place the ring reveals itself. Keep it that way.
 **Quest use:** Required throughout — invisibility enables Chuckle House, Spirit Room passage, and other quests. Consumed (corrupts) during the three Church of All rituals.
 
 - Only one exists in the game.

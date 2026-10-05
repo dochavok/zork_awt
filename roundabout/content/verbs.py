@@ -477,10 +477,28 @@ def _set_glasses_state(world: World) -> None:
 # V-DROP
 # ---------------------------------------------------------------------------
 
+_EMPTY_HANDED = "You are empty-handed."
+_ALL_WORN = "You'll need to remove anything you want to drop."
+
+
+def _drop_nothing(world: World) -> None:
+    """DROP ALL with nothing left to drop (mechanics.md — Several objects)."""
+    from engine.world import WEARBIT
+    carried = world.player.contents if world.player is not None else []
+    if not carried:
+        print(_EMPTY_HANDED)
+    elif any(o.has_flag(WEARBIT) and o.name != "RING" for o in carried):
+        print(_ALL_WORN)
+    elif any(o.name == "RING" for o in carried):
+        from content.ring import KEEP_CLOSE
+        print(KEEP_CLOSE)
+
+
 def v_drop(world: World) -> int:
     obj = world.prso
     if obj is None:
-        return M_NOT_HANDLED
+        _drop_nothing(world)   # only reached by an ALL that left nothing
+        return M_HANDLED
 
     from content import gravestone
     if obj.name == "GRAVESTONE":

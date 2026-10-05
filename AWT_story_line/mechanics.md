@@ -257,6 +257,7 @@ When the enemy wins a combat round and would deal 1 heart damage, the tunic fire
 
 - Grants invisibility while worn. `WEAR RING`: *You slip the ring on. When you look down, your hand is still there — but only because you know where to look.*
 - Corruption timer advances each turn worn. Pauses on removal; resumes on re-equip. Never resets.
+- Can't be dropped (items.md — The God-Forsaken Ring): *"Bring it to me, or keep it close," Will said. You keep it close.* Weight 0.
 - **Total ticks to full corruption: 50.**
 - Altar use at Church of All does NOT tick corruption — the ring is being used for its purpose, not personal gain.
 - Quests requiring invisibility: Chuckle House (Quest 17 — mirrors repel visible players) and Dankhaus (Litlock will not engage while player is invisible).
@@ -1030,7 +1031,8 @@ The Rickety Bridge (between Shrine Room and Mid-Tier Key Door, upper tier) has a
 
 If inventory exceeds limit: bridge groans, and the crossing is blocked in either direction (south to the Key Door, or north back from it — same groan text). Player must drop items on the near side, cross, then return for them. Always crossable at or under limit. This is a logistical puzzle, not a trap.
 
-**Weight scale (1–5, with one exception):**
+**Weight scale (1–5, with two exceptions):**
+- **0** — The God-Forsaken Ring (can't be dropped, so it never counts)
 - **1** — tiny/negligible: rings, keys, coins, vials, scrolls, glasses, maps, paper, herbs, clothing
 - **2** — small/light: torches, flutes, jars, rods, nuggets
 - **3** — moderate: crowbar, pickaxe, rope, shovel, portcullis bar, runed metal, swords
@@ -1111,6 +1113,7 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 **`DROP`:** *You drop the [item].* (Designed drops — e.g. the gravestone — use their own text.) Dropping something worn takes it off first, silently.
 **Several objects in one command** (`DROP ALL`, `TAKE ALL`, comma lists): one result per item. A result is labelled "[item]:" only when its line doesn't already name the item (refusals, special lines).
 - `TAKE ALL` (and `TAKE ALL BUT …`) leaves out what the player already carries; if nothing is left: "There's nothing here you can take." (as in Zork). `TAKE X` for a carried item still says "You already have the X."
+- `DROP ALL` (and `DROP ALL BUT …`) leaves out worn items and the ring. If nothing is left: carrying nothing at all — *You are empty-handed.*; worn items other than the ring — *You'll need to remove anything you want to drop.*; only the ring (worn or not) — the ring's line, *"Bring it to me, or keep it close," Will said. You keep it close.*
 
 **A missing tool in a full sentence:** `SEAL JOINTS WITH MORTAR` without the mortar and `MIX CLAY WITH WATER` away from the fountain give the designed lines, the same as the short forms (`SEAL JOINTS`, `MIX CLAY`). Elsewhere a missing object after WITH still gets *You can't see any [word] here!* (Decided 2026-10-05.)
 
