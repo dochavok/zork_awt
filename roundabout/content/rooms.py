@@ -8,6 +8,10 @@ from __future__ import annotations
 import random
 from engine.world import Room, Exit, ONBIT, RLANDBIT
 
+# locations.md — Pie Rat Ship: stepping off a shore into the sea
+INTO_THE_SEA = ("The ocean offers no opinion on that idea, and neither does your "
+                "survival instinct.")
+
 
 def make_rooms(world) -> None:
     _make_opening(world)
@@ -998,8 +1002,8 @@ def _make_beach_and_sea(world) -> None:
     sea_mid.exits["east"]  = Exit(destination="SEA-EAST")
     sea_east.exits["west"] = Exit(destination="SEA-MID")
     sea_east.exits["east"] = Exit(destination="OPEN-OCEAN-1")
-    sea_east.exits["south"] = Exit(destination="DESERT-ISLAND")
-    desert_island.exits["north"] = Exit(destination="SEA-EAST")
+    # Ship ↔ shore only by LAND / DOCK and BOARD SHIP (locations.md — Desert Island)
+    desert_island.exits["north"] = Exit(destination=None, message=INTO_THE_SEA)
 
     # Chain ocean rooms east/west
     for idx, oc in enumerate(ocean_rooms):
@@ -1072,11 +1076,12 @@ def _make_kevrys_island(world) -> None:
     from content.kevry import quarters_action
     captains_quarters.action = quarters_action
 
-    # Wire Kevry's island exits
+    # Wire Kevry's island exits. Land, Ho! is the last sea square — the ship
+    # sails there; LAND puts the player on the Empty Beach, and BOARD SHIP
+    # there brings them back aboard (verbs.py — _ASHORE, v_board_ship).
     world.rooms["OPEN-OCEAN-69"].exits["east"] = Exit(destination="LAND-HO")
     land_ho.exits["west"]  = Exit(destination="OPEN-OCEAN-69")
-    land_ho.exits["east"]  = Exit(destination="EMPTY-BEACH")
-    empty_beach.exits["west"] = Exit(destination="LAND-HO")
+    empty_beach.exits["west"] = Exit(destination=None, message=INTO_THE_SEA)
     empty_beach.exits["east"] = Exit(destination="KEVRYS-HOUSE")
     kevry_house.exits["west"] = Exit(destination="EMPTY-BEACH")
     kevry_house.exits["east"] = Exit(destination="CAPTAINS-QUARTERS")

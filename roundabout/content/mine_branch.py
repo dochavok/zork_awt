@@ -27,8 +27,8 @@ if TYPE_CHECKING:
 _SHAFT = (
     "The passage narrows as it goes — not dangerously, but noticeably. The stonework "
     "changes here, older and less deliberate, as if this part of the tunnel predates "
-    "whoever dug the rest. The far wall has a gap in it that doesn't look entirely "
-    "accidental."
+    "whoever dug the rest. To the west, a rougher passage breaks off and climbs "
+    "toward the mine."
 )
 _HIDDEN = (
     "The gap in the assay room wall opens into a rough passage that connects to the "

@@ -1094,6 +1094,41 @@ def v_drink(world: World) -> int:
 _SHAMUS_PRICES = {"GUNPOWDER": 5, "TORCH": 3, "FISHING-ROD": 8, "THIN-PAPER": 2}
 
 
+def buy_input_hook(world: World, text: str) -> bool:
+    """BUY X in the Kitchen. Shamus's stock isn't in the world until it's bought
+    (locations.md: the Kitchen has no items), so the parser can't see it — match
+    the name here. Anything else falls through to the parser and v_buy."""
+    words = [x for x in text.lower().split() if x not in ("a", "an", "the", "some")]
+    if len(words) < 2 or words[0] not in ("buy", "order", "purchase"):
+        return False
+    if world.here is None or world.here.name != "KITCHEN":
+        return False
+    for name, price in _SHAMUS_PRICES.items():
+        obj = world.objects[name]
+        names = set(obj.synonyms) | set(obj.adjectives)
+        if obj.location is None and all(x in names for x in words[1:]) \
+                and any(x in obj.synonyms for x in words[1:]):
+            _sell(world, obj, price)
+            return True
+    return False
+
+
+def _sell(world: World, obj, price: int) -> None:
+    zenni = world.globals.get("zenni", 0)
+    if zenni < price:
+        print(f"You don't have enough Zenni. (Need {price}, have {zenni}.)")
+        return
+    world.globals["zenni"] = zenni - price
+    world.move_object(obj, world.player)
+    if obj.name == "TORCH":
+        from content import light
+        light.light_torch(world)   # lit from the moment of purchase
+    print(
+        f'Shamus takes the Zenni and slides the {obj.desc} across the counter. '
+        f'"Anything else?"'
+    )
+
+
 def v_buy(world: World) -> int:
     obj = world.prso
     if obj is None:
@@ -1109,29 +1144,16 @@ def v_buy(world: World) -> int:
         light.exchange(world)
         return M_HANDLED
 
-    zenni = world.globals.get("zenni", 0)
     price = _SHAMUS_PRICES.get(obj.name)
     if price is None:
         print('Shamus shakes his head. "Don\'t sell that."')
         return M_HANDLED
 
-    if zenni < price:
-        print(f"You don't have enough Zenni. (Need {price}, have {zenni}.)")
+    if world.player is not None and obj in world.player.contents:
+        print('Shamus glances at the one you\'re holding. "You\'ve already got one."')
         return M_HANDLED
 
-    player = world.player
-    if player is None:
-        return M_NOT_HANDLED
-
-    world.globals["zenni"] = zenni - price
-    world.move_object(obj, player)
-    if obj.name == "TORCH":
-        from content import light
-        light.light_torch(world)   # lit from the moment of purchase
-    print(
-        f'Shamus takes the Zenni and slides the {obj.desc} across the counter. '
-        f'"Anything else?"'
-    )
+    _sell(world, obj, price)
     return M_HANDLED
 
 
@@ -1141,8 +1163,7 @@ def v_buy(world: World) -> int:
 
 _BOARD_FROM_ROOMS = frozenset({
     "DOCKS",
-    "LAND-HO",
-    "EMPTY-BEACH",
+    "EMPTY-BEACH",      # Kevry's island; the ship lies off Land, Ho!
     "DESERT-ISLAND",
 })
 
@@ -1171,8 +1192,8 @@ def v_board_ship(world: World) -> int:
             return M_HANDLED
 
     # Track where the ship is so sailing direction is correct
-    if here.name in ("LAND-HO", "EMPTY-BEACH"):
-        world.set_global("SHIP-OCEAN-POS", 69)   # at Kevry's island
+    if here.name == "EMPTY-BEACH":
+        world.set_global("SHIP-OCEAN-POS", 70)   # off Kevry's island (Land, Ho!)
     elif here.name == "DESERT-ISLAND":
         world.set_global("SHIP-OCEAN-POS", 0)    # at eastern sea
     else:
@@ -1235,8 +1256,7 @@ def _sail_dir(direction: str):
     """SAIL EAST etc. — on a moored deck, casts off and moves in one turn."""
     def handler(world: World) -> int:
         here = world.here
-        if here is None or here.name not in _SEA_ROOMS or here.name in (
-                "DESERT-ISLAND", "LAND-HO"):
+        if here is None or here.name not in _SEA_ROOMS:
             print("You're not on the ship.")
             return M_HANDLED
         if here.name == "SHIP-DECK" and not world.get_global("AT-SEA"):
@@ -1247,13 +1267,17 @@ def _sail_dir(direction: str):
 
 
 _NOT_UNDER_SAIL = "The ship isn't going anywhere until you set sail."
+_LAND_FIRST = "You'll have to land the ship."
 
 
 def _ship_origin(world: World):
-    """The sea room the moored ship sits in (None = in harbor at the Docks)."""
+    """The sea room the moored ship sits in (None = in harbor at the Docks;
+    70 = Land, Ho!, off Kevry's island; 0 = the Eastern Roundabout Sea)."""
     pos = world.get_global("SHIP-OCEAN-POS")
     if pos is None:
         return None
+    if pos == 70:
+        return world.rooms.get("LAND-HO")
     return world.rooms.get(f"OPEN-OCEAN-{pos}" if pos > 0 else "SEA-EAST")
 
 
@@ -1283,7 +1307,7 @@ def _pre_walk_at_sea(world: World) -> int:
         origin = here
         if here.name == "SHIP-DECK":
             # The deck sits wherever the ship is: in harbor, off Desert Island
-            # (Eastern Roundabout Sea) or off Kevry's island (square 69).
+            # (Eastern Roundabout Sea) or off Kevry's island (Land, Ho!).
             moored_at = _ship_origin(world)
             if not world.get_global("AT-SEA"):
                 if moored_at is not None or direction != "west":
@@ -1291,13 +1315,16 @@ def _pre_walk_at_sea(world: World) -> int:
                     return M_HANDLED
             if moored_at is not None:
                 origin = moored_at
+        if origin.name == "LAND-HO" and direction == "east":
+            print(_LAND_FIRST)             # the island is ashore: LAND
+            return M_HANDLED
         exit_ = origin.exits.get(direction)
         if exit_ is None:
             print("There's no way to sail further in that direction.")
             return M_HANDLED
         dest = world.rooms.get(exit_.destination)
         if dest:
-            if dest.name in ("LAND-HO", "DOCKS", "SHIP-DECK"):
+            if dest.name in ("DOCKS", "SHIP-DECK"):
                 world.set_global("AT-SEA", False)
             world.game.enter_room(dest)
             if dest.name == "SHIP-DECK":     # sailed back into harbor
@@ -1309,14 +1336,15 @@ def _pre_walk_at_sea(world: World) -> int:
 
 
 _SEA_ROOMS = frozenset({
-    "SHIP-DECK", "SEA-WEST", "SEA-MID", "SEA-EAST", "DESERT-ISLAND", "LAND-HO",
+    "SHIP-DECK", "SEA-WEST", "SEA-MID", "SEA-EAST", "LAND-HO",
     *(f"OPEN-OCEAN-{i}" for i in range(1, 70)),
 })
 
 
-# Rooms that are aboard the ship (the islands are ashore)
+# Rooms that are aboard the ship (Desert Island and the Empty Beach are ashore;
+# Land, Ho! is the last sea square, off Kevry's island)
 _ABOARD_ROOMS = frozenset({
-    "SHIP-DECK", "SEA-WEST", "SEA-MID", "SEA-EAST",
+    "SHIP-DECK", "SEA-WEST", "SEA-MID", "SEA-EAST", "LAND-HO",
     *(f"OPEN-OCEAN-{i}" for i in range(1, 70)),
 })
 
@@ -1324,7 +1352,7 @@ _ABOARD_ROOMS = frozenset({
 _ASHORE = {
     "SEA-WEST": "DOCKS",
     "SEA-EAST": "DESERT-ISLAND",
-    "OPEN-OCEAN-69": "LAND-HO",
+    "LAND-HO": "EMPTY-BEACH",
 }
 
 

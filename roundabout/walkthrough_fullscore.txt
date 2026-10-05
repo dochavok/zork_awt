@@ -260,8 +260,8 @@ squares into the Open Ocean.
 
 Land on Kevry's island, find him in the Captain's Quarters.
 
-> LAND                        [Land, Ho!]
-> EAST                        [Empty Beach]
+> GO EAST                     [Land, Ho!]
+> LAND                        [Empty Beach]
 > EAST                        [house]
 > EAST                        [Don't lose them]
 
@@ -275,6 +275,7 @@ up the buried chest (treasure map guarantees first-try success).
 > WEST                        [Empty Beach]
 > BOARD SHIP                  [deck]
 > SET SAIL                    [sail]
+> GO WEST                     [open ocean]
 > GO WEST                     [open ocean]
 > GO WEST                     [open ocean]
 > GO WEST                     [open ocean]

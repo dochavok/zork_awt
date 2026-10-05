@@ -1155,10 +1155,11 @@ Boarding commands (all synonyms): `BOARD SHIP`, `GET ON SHIP`, `CLIMB ABOARD`, `
 Sailing commands: `SET SAIL` (primary), `SAIL` (synonym). Directional movement once underway: `GO EAST`, `SAIL EAST`, etc.
 Leaving the ship at sea: *"The ocean offers no opinion on that idea, and neither does your survival instinct."*
 **Going ashore — `DOCK` / `LAND` / `MOOR` / `MAKE LAND` (all four are the same action):** works only where there's land beside the ship.
-- Western Roundabout Sea → The Docks. Eastern Roundabout Sea → Desert Island. Open Ocean square 69 → Land, Ho! (Kevry's Island).
-- On the deck it counts from where the ship is moored: off Desert Island → Desert Island; off Kevry's island → Land, Ho!. In harbor it's "There's no place to land here." (`WEST` steps off onto the Docks.)
+- Western Roundabout Sea → The Docks. Eastern Roundabout Sea → Desert Island. Land, Ho! → Empty Beach (Kevry's Island).
+- On the deck it counts from where the ship is moored: off Desert Island → Desert Island; off Kevry's island → Empty Beach. In harbor it's "There's no place to land here." (`WEST` steps off onto the Docks.)
 - Anywhere else aboard (Roundabout Sea (Middle), Open Ocean squares 1–68): *There's no place to land here.*
-- Off the ship (including standing on Desert Island or at Land, Ho!): *You're not on a ship.*
+- Off the ship (including standing on Desert Island or the Empty Beach): *You're not on a ship.*
+- Ship and shore connect only this way and by `BOARD SHIP` (decided 2026-10-04). Walking off a shore into the sea (`NORTH` on Desert Island, `WEST` on the Empty Beach): *The ocean offers no opinion on that idea, and neither does your survival instinct.* Sailing at an island (`EAST` at Land, Ho!): *You'll have to land the ship.*
 
 **Boarding without disguise:** *A Pie Rat on deck looks you over with the thoroughness of someone whose job is exactly this. "You don't even look like a pirate." He doesn't move. Neither, apparently, will you.*
 
@@ -1171,7 +1172,7 @@ Hard because the map isn't critical — it only guarantees the Desert Island che
 On success: map added to inventory — *Wedged under a barrel lashed to the rail is a fold of oilcloth. Inside is a hand-drawn map: a small island just off the sea lane, a dotted line, and an X near the trees. You tuck it away.*
 Actually Enchanted Glasses pass automatically — map found on first turn. A player who sails to Kevry's island without finding the map, gets the glasses enchanted there, and returns to the ship will auto-find the map on their next turn aboard.
 
-**Where the ship is:** the deck sits wherever the ship is moored — in harbor at the Docks, off Desert Island (Eastern Roundabout Sea), or off Kevry's island (Open Ocean square 69). After `SET SAIL`, the first move goes from there: from Kevry's island, `GO WEST` reaches square 68 and 69 moves reach the Eastern Roundabout Sea; from Desert Island, `GO WEST` reaches the Roundabout Sea (Middle).
+**Where the ship is:** the deck sits wherever the ship is moored — in harbor at the Docks, off Desert Island (Eastern Roundabout Sea), or off Kevry's island (Land, Ho!). After `SET SAIL`, the first move goes from there: from Kevry's island, `GO WEST` reaches square 69 and 70 moves reach the Eastern Roundabout Sea; from Desert Island, `GO WEST` reaches the Roundabout Sea (Middle).
 **Moving before casting off:** a sea direction from the deck before `SET SAIL` — *The ship isn't going anywhere until you set sail.* (In harbor, `WEST` simply steps off onto the Docks.)
 **`SAIL <direction>`:** on a moored deck, casts off and moves in one turn (cast-off line, then the new room). Once underway it's the same as `GO <direction>`.
 
@@ -1205,7 +1206,7 @@ Three Roundabout Sea rooms + 69 Open Ocean squares to Kevry's island. Requires b
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None (Desert Island spur visible; Open Ocean continues east)
-**Connections:** West → Roundabout Sea (Middle). East → Open Ocean (square 1). South → Desert Island.
+**Connections:** West → Roundabout Sea (Middle). East → Open Ocean (square 1). Desert Island by `LAND` / `DOCK` (no walking exit).
 *Is that — yes. An island. Small, tree-lined, a beach curving around the side facing you. The water around it is shallow and clear. Nothing out here suggested this was coming. It sits quietly off the bow, waiting to be noticed. East of it, the sea continues without comment.*
 
 `DOCK`, `LAND`, `MOOR`, or `MAKE LAND` puts the player ashore on the Desert Island. Continuing east enters the Open Ocean.
@@ -1215,7 +1216,7 @@ Three Roundabout Sea rooms + 69 Open Ocean squares to Kevry's island. Requires b
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None (traversal only; Kevry's Island at square 69)
-**Connections:** West → Eastern Roundabout Sea (square 1 only). East → next square. Square 69: East → Land, Ho! (via BOARD SHIP).
+**Connections:** West → Eastern Roundabout Sea (square 1 only). East → next square. Square 69: East → Land, Ho! (still at sea).
 Each room draws a random description from the pool below. The rare option triggers at 1-in-100 chance per room entered.
 
 **Standard pool:**
@@ -1232,7 +1233,7 @@ Each room draws a random description from the pool below. The rare option trigge
 **NPCs:** None
 **Items:** Buried chest — 30 Zenni (dig with treasure map for immediate success; 10% chance per dig without map)
 **Quest Hooks:** None (treasure map from Pie Rat Ship leads here)
-**Connections:** North → Eastern Roundabout Sea (via BOARD SHIP).
+**Connections:** Eastern Roundabout Sea by `BOARD SHIP` only (no walking exit).
 Spur off the Eastern Roundabout Sea — not on the main east axis. Visible from the Eastern Roundabout Sea. Reached via `DOCK`, `LAND`, `MOOR`, or `MAKE LAND`. `BOARD SHIP` returns the player to the Eastern Roundabout Sea. Appears to be the obvious payoff for sailing east — masks Kevry's location 69 squares further into the Open Ocean.
 
 **Island Shore (the only room):**
@@ -1253,15 +1254,15 @@ A buried chest is here — not visible without digging. With the treasure map: `
 
 ### Kevry's Island
 **XP: 5 per room (4 rooms = 20 total)**
-Easter egg. 69 squares into the Open Ocean east of the Eastern Roundabout Sea. No hints from May. Boarding commands (`DOCK`, `LAND`, `MOOR`, `MAKE LAND`) to come ashore; `BOARD SHIP` returns player to Open Ocean square 69.
+Easter egg. 69 squares into the Open Ocean east of the Eastern Roundabout Sea. No hints from May. Going-ashore commands (`DOCK`, `LAND`, `MOOR`, `MAKE LAND`) at Land, Ho! put the player on the Empty Beach; `BOARD SHIP` on the Empty Beach returns them to the deck, moored off Land, Ho!.
 
 ### Land, Ho!
 **XP: 5**
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
-**Connections:** West → Open Ocean (square 69) (via BOARD SHIP). East → Empty Beach.
-First room on the island. Same boarding mechanic as Desert Island.
+**Connections:** West → Open Ocean (square 69). Empty Beach by `LAND` / `DOCK`.
+The last sea square, off Kevry's island (decided 2026-10-04) — the player is still aboard. The ship moors here; going ashore puts the player on the Empty Beach.
 
 *The island resolves out of the horizon slowly, then all at once. Sand, trees, solid ground. You've earned this. The beach curves invitingly ahead.*
 
@@ -1270,7 +1271,7 @@ First room on the island. Same boarding mechanic as Desert Island.
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None
-**Connections:** West → Land, Ho!. East → A House.
+**Connections:** Ship by `BOARD SHIP` (moored off Land, Ho!). East → A House.
 *The beach is long and quiet, the sand unmarked. A line of scrubby trees runs along the inland edge. Somewhere beyond them, half-hidden, a small structure. The only sounds are the water behind you and the wind doing very little. It feels like a place that has been left alone for a long time and is content with that.*
 
 ### A House / Kevry's House
@@ -1327,7 +1328,7 @@ Wide rough-hewn passage on the mine branch.
 **Connections:** South → The Undercroft. West → Hidden Secondary Entrance.
 Narrowing abandoned passage.
 
-*The passage narrows as it goes — not dangerously, but noticeably. The stonework changes here, older and less deliberate, as if this part of the tunnel predates whoever dug the rest. The far wall has a gap in it that doesn't look entirely accidental.*
+*The passage narrows as it goes — not dangerously, but noticeably. The stonework changes here, older and less deliberate, as if this part of the tunnel predates whoever dug the rest. To the west, a rougher passage breaks off and climbs toward the mine.*
 
 ### The Bone Passage
 **XP: 1**

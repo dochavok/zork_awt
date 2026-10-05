@@ -51,7 +51,7 @@ _RETURNED = (
 
 # Rooms that count as "aboard the ship" for the map check
 _ABOARD = frozenset({
-    "SHIP-DECK", "SEA-WEST", "SEA-MID", "SEA-EAST",
+    "SHIP-DECK", "SEA-WEST", "SEA-MID", "SEA-EAST", "LAND-HO",
     *(f"OPEN-OCEAN-{i}" for i in range(1, 70)),
 })
 

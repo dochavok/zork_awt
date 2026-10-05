@@ -31,8 +31,6 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Lynds after the Viking trials: always-max can't win at level 3 (21 vs his 23); level 4 comes during J. Litlock follows Lynds (needs the invitation).
 - Routes between all of C–M connect.
 
-The full-score walkthrough fails at 342 steps in total; much of it predates the ring-walkthrough design decisions (cellar route, Collapsed Aqueduct split, ZENNI offering, dial direction, etc.), so expect walkthrough corrections as well as engine work.
-
 **XP note:** in the ring walkthrough the player is level 6 by the end of K (Quest 32 reward) and finishes at level 6 with 307 XP. Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
 
 **Completed:**
@@ -121,6 +119,10 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Full-score section letters renumbered (mapping above); stale prose references fixed (clay pot: section Q; vial and lantern at the bridge since Y).
   Stale code comments fixed: full-score test seed note (35 Zenni at Will's first teaching in F), and "built with section …" notes in lower_tier, mid_tier, tunnels, upper_tier and verbs now point at where those exits and traps are wired.
 - TODO #4: Z detours to Deep Lock Door, AA opens with The Encampment; still_den.py stale Dark Room note fixed.
+- Shamus's stock is out of the world until bought — BUY X in the Kitchen. TAKE and TAKE ALL there used to take it for free, and the Kitchen listed it. Buying an item you already carry is refused ("You've already got one."), except the torch exchange. test_shamus_shop.py.
+- Forgotten Shaft: the last sentence was a copy of the Assay Room's hidden-gap line; it now describes the west passage.
+- Ship and shore connect only by LAND / DOCK and BOARD SHIP. Land, Ho! is the last sea square and the Empty Beach is the shore. Walking exits between islands and sea removed.
+  Both walkthroughs: GO EAST [Land, Ho!] / LAND [Empty Beach], and one more GO WEST home. test_ship_shore.py.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
@@ -132,28 +134,19 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
 - The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.
 - Thin paper "destroyed if player gets wet": no wetting events are defined yet.
-- Full-score plan: the torch is allowed to burn out in the full run; no repurchase once Light is learned (F). Check P onward against that.
 - `TAKE ALL` also tries items already in inventory ("You already have the …" for each). Predates this session.
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: the bow attack on the werewolf (failure line in mechanics.md; the attack doesn't exist yet). Fireball is built.
 - Bow actions aren't built: the `SHOOT X (WITH BOW)` syntax maps to V-SHOOT, but no verb is registered, so shooting does nothing anywhere (mugger, Warden, apprentice, werewolf, the knight's trial). Needs the bow attack per mechanics.md (bow skill, round-1 bonus).
-- Inked refusals aren't built: traps.md (Trap 45) says May, Shamus, all trainers (Raznak, Redcrosse Knight, Will for spells), Litlock, the Records Room Worker, the Librarian and active quest givers refuse an inked player. Only Will's line is designed; the rest need refusal lines and the INKED checks.
 - Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
-- TAKE ALL lists "You already have…" for every carried item (Zork skips held items).
 - Combat bonuses from gear aren't applied in the per-encounter fights (mugger, Warden, apprentice roll `player.roll` alone): the Apprentice's Gloves' +3 and the melee weapon bonuses do nothing yet.
 - Quest 50: Will being visibly shaken on the player's next tower visit isn't built.
-- Quest 50's Quest Board posting (Will, anonymous, at game start; removed for good if the Flooding Room plate is disarmed) isn't built.
-- Quest 7's Quest Board posting (20 turns after meeting Pyronicus) isn't built — giving the flute completes it regardless.
 - LISTEN has no default handler — prints nothing outside the Tool Alcove and the Pipe Room.
 - V-PULL has no default handler — PULL on an ordinary object prints nothing.
 - Magnetic Vault: the default description ("Dust has settled in a faint ring around the latch") returns after the lodestone is out.
 - Floor listings: the burnt-out torch shows as "A torch." and plural items read "There is a lockpicks here."
-- Deferred from I1: Flooding Room (north of the Creature Den; Trap 41 — exit blocked until built).
-- Inked state (Trap 45): flag built and cancels ring invisibility; NPC refusals and the inn bath still to build.
 - Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.
-- Class XP bonuses (experience.md — Class XP Adjustments): Warrior +10 per kill is built (Aylora excluded — not a kill). Mage +1 per new dungeon room and Rogue +5 per trap disarmed are not built yet — add when the dungeon and traps are.
-- Quest 51 bounty notice (May posts it after 100 turns if the mugger lives) isn't built or written. The full-score run is well past 100 turns by the mugger in F, so the notice will be due there.
 - The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.

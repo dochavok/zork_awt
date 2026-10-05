@@ -56,6 +56,8 @@ def initialize_world(world, game, seed=None) -> None:
     game.register_enter_hook(ship.on_enter)
     from content.verbs import make_land_input_hook
     game.register_input_hook(make_land_input_hook)   # MAKE LAND = LAND
+    from content.verbs import buy_input_hook
+    game.register_input_hook(buy_input_hook)         # BUY X from Shamus's stock
     from content.trap_side import dream_input_hook
     game.register_input_hook(dream_input_hook)       # Dream Corridor menus
     from content.vikings import give_zenni_input_hook
@@ -137,11 +139,8 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["PIE-RAT-DISGUISE"], world.rooms["RATS-NEST"])
     world.move_object(world.objects["FLINT-AND-STEEL"],  world.rooms["ASSAY-ROOM"])
     world.move_object(world.objects["WEAK-POINT"],       world.rooms["MINE-TUNNELS"])
-    # Shamus sells gunpowder/torch — starts in Kitchen as vendor inventory
-    world.move_object(world.objects["GUNPOWDER"], world.rooms["KITCHEN"])
-    world.move_object(world.objects["TORCH"],     world.rooms["KITCHEN"])
-    world.move_object(world.objects["FISHING-ROD"], world.rooms["KITCHEN"])
-    world.move_object(world.objects["THIN-PAPER"],  world.rooms["KITCHEN"])
+    # Shamus's stock (gunpowder, torch, fishing rod, thin paper) isn't in the
+    # world until it's bought — BUY X in the Kitchen (verbs.buy_input_hook)
     world.move_object(world.objects["WHISPERING-JAR"], world.rooms["PIPE-ROOM"])
     world.move_object(world.objects["TY"],        world.rooms["CASINO-CORNER"])
     world.move_object(world.objects["LIBRARIAN"], world.rooms["LIBRARY"])
