@@ -28,6 +28,7 @@ Update this file immediately when any quest detail is designed or changed.
 **Reward:** The Whispering Jar hint points player to fire clay in the Thermal Vent Room (lower tier, `LOOK UP`). No other hint for this exists anywhere. 5 Zenni — found in the bottom of the jar when the seal closes the crack.
 
 **May's hint (one tier only — unlocks once player has first descended to the lower tier):** *"That jar in the back room of the inn — people say it used to warn about things. If it's still got something to say, I'd want to hear it before going any deeper."*
+Decided 2026-10-04: May sells it from the first lower-tier descent whether or not Quest 4 is discovered, and buying it discovers Quest 4. It counts as Tier 1.
 
 ---
 
@@ -133,6 +134,12 @@ The key stays in the lock. The scroll lies in the box: *A folded scroll lies in 
 - Tier 3: *"Word is the records room clerk had a relative who went into the Chuckle House years ago and never came back. He doesn't talk about it. He's also the one sitting on the town charter, and he's not giving it up easily — but something personal might move him more than an argument would."*
 - Special rule: if ghost quest is complete and charter not yet obtained, Tiers 1 and 2 auto-marked given; only Tier 3 available for purchase.
 
+**May's hints as built (decided 2026-10-04 — replaces the two sets above):** one quest, three phases. Hints left unbought in a phase stop being sold when the next phase begins.
+1. Before the first Chuckle House visit: Ghost/Watch Tiers 1–3 (before visiting).
+2. After visiting, ghost not yet freed: Ghost/Watch Tiers 1–2 (after visiting) — sold from Tier 1 again.
+3. Ghost freed, watch not yet delivered: Charter Tier 3 as a one-tier hint (counts as Tier 1).
+Charter Tiers 1 and 2 and the special rule are retired — they date from when the charter was a separate quest.
+
 ---
 
 ## Quest 18 — Quest Removed From Game
@@ -153,6 +160,11 @@ The key stays in the lock. The scroll lies in the box: *A folded scroll lies in 
 **Discovery — Statue:** `LOOK AT STATUE` in Roundabout Town Square (no perception check — seam visible on examination). Attempting to open without crowbar: *"The base is sealed tight. Something with leverage could pry it open."*
 
 **May's tier 1 hint (fires only if player has not yet examined the statue):** *"Someone was seen tampering with the statue in Roundabout Town Square. Probably nothing. Probably."*
+
+**May's hints as built (decided 2026-10-04):** May sells these before the quest is discovered, and buying one discovers Quests 19 & 30. One sequence of three tiers:
+- Tier 1: the statue line above while the statue is unexamined; once it has been examined, Path B Tier 1 (the Keeper has gone missing).
+- Tier 2: the Path A line (the scholar; the Librarian might know). It replaces Path B Tier 2, which says nearly the same thing.
+- Tier 3: Path B Tier 3 (the Keeper's locked office).
 
 **Steps:**
 1. Get crowbar from Prayer Alcove (Dungeon Upper Tier — perception check reveals full depth of alcove).
@@ -295,6 +307,10 @@ Going `DOWN` into the cellar before it's drained, or opening the tunnel door fro
 - Tier 3: *"Old Calder Finch — now there was an explorer. Spent more time underground than above it. Whatever he knew about that door went with him to the cemetery. Rowan might point you in the right direction."*
 - Gravestone hint (one tier only): *"I've heard carts are good for moving heavy things. Stones, for instance."*
 
+**When they're sold (decided 2026-10-04):** two phases; hints left unbought in phase 1 stop being sold once phase 2 begins.
+1. Quest 32 discovered, Rowan not yet talked to: Tiers 1–3.
+2. After talking to Rowan, until the stone is back at the Graveyard: the gravestone hint only (counts as Tier 1).
+
 **Steps:**
 1. See the Mid-Tier Key Door from the Rickety Bridge (dungeon upper tier) → quest discovered.
 2. Talk to Councilman Rowan Finch in Council Chamber (Town Hall).
@@ -338,6 +354,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 **Pull-back mechanics (for players who missed the Tool Alcove perception check):**
 
 - **May — late hint (one tier only):** Fires if Quest 34 is the last incomplete major quest and the player has been in the lower tier for 50+ turns without discovering the Tool Alcove door. *"There are rooms in the deep passages that aren't finished. Sometimes a room that looks like a dead end is asking you something."*
+  Decided 2026-10-04 (replaces the condition above): May sells it once Quest 28 is complete, Quest 34 is still undiscovered, and the player has spent 50+ turns in the lower tier in total. "Last incomplete major quest" is dropped. Buying it does not discover Quest 34 — the player still has to find the door. It counts as Tier 1.
 
 - **Archivist — second visit dialogue:** If the player returns to the archivist after receiving the incantation scroll but before completing Quest 34: *"Whatever that engraving answers — I suspect it's somewhere in the lower passages. Somewhere that feels like it's waiting."*
 
@@ -442,6 +459,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 **May's hints:**
 - Tier 1: *"Something about that shrine bowl needs water — clean, running water. Check the Quest Board; there may be something relevant posted."*
 - Tier 2: *"The town fountain hasn't run in years. Word is the aqueduct beneath the dungeon needs repair — it's on the Quest Board if you haven't seen it."*
+- Decided 2026-10-04: sold only while Quest 22 is incomplete. Once the fountain runs, Quest 49 has no hints.
 
 **Bowl pieces (3):**
 1. Near the shrine in Roundabout Forest (perception check — should be easy; set difficulty once perception mechanic is defined)

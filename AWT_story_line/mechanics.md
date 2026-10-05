@@ -404,6 +404,21 @@ Some hints are conditional: May's tier 1 hint for Quests 19&30 fires only if pla
   2. *May looks at the coin and shakes her head slowly. "I'd be robbing you. Ask me again when something changes."*
   3. *May sets the Zenni on the bar and slides it back. "Nothing in here worth selling today," she says, tapping her temple.*
 - **Over 12 Zenni:** *May looks genuinely uncomfortable. "I appreciate the thought, but no." She slides it all back. "Ask me something and we'll talk."*
+- **No amount (`TIP MAY`):** *May waits. "How much?"*
+- **Zero (`TIP MAY 0`):** *May looks at your empty hand, then at you. "That's nothing."*
+- **More than the player has:** *May looks at you evenly. "You're short." She goes back to work.*
+- **Not in the Bar:** *May isn't here.*
+- `TIP [#]` without May's name tips May too — she's the only one who takes tips.
+- No Zenni changes hands in the last six cases.
+
+The response follows the amount tipped, not the tier delivered — a 7-Zenni tip that falls back to a Tier 1 hint still gets the Tier 3 response. The hint follows the response. "[Name]" is the player's name. (Decided 2026-10-04.)
+
+**One-tier hints** count as Tier 1. **Phased hints** (Quests 17 and 32): when a quest moves to its next phase, hints left unbought in the earlier phase stop being sold.
+
+**Hints before discovery:** Quests 19&30 and Quest 4 are sold before they're discovered, and buying one discovers the quest; Quest 34's late hint is sold before discovery but doesn't discover it. Per-quest conditions are in quests.md. (Decided 2026-10-04.)
+
+**Which hint a tip buys (decided 2026-10-04):** the tip amount sets the tier paid for. May gives a random hint at exactly that tier — chosen from the quests whose next unbought hint is that tier. If there are none, she steps down one tier and picks at random there, and so on down to Tier 1.
+Tiers stay in order per quest, so a large tip can buy a low tier (the overpaying above). If nothing is left at or below the tier paid for, she gives a "nothing to share" line and the Zenni comes back.
 
 May only offers hints for quests that are discovered AND incomplete. She won't hint on undiscovered or finished quests. Each tier for each quest is a one-time purchase — May will not re-sell a tier already bought.
 

@@ -1,8 +1,8 @@
 """
 Game-logic actions for Roundabout: The God-Forsaken Ring.
 
-Contains: combat loop, altar ritual, Cargo dice game,
-May's hint dispatch, ghost unbind, and other complex multi-step logic.
+Contains: combat loop, altar ritual, Cargo dice game, and other complex
+multi-step logic. May's hints: content/may_hints.py.
 
 Called from verbs.py and room action handlers.
 """
@@ -107,7 +107,6 @@ def _combat_narrate(world: "World", result: str, npc_key: str, weapon: str) -> N
 
 def _enemy_defeated(world: "World", npc_key: str) -> None:
     from content.combat import award_combat_xp
-    from content.quests import complete, is_complete
 
     award_combat_xp(world, npc_key)
     world.globals.pop("current_enemy", None)
@@ -136,13 +135,6 @@ def _enemy_defeated(world: "World", npc_key: str) -> None:
     }
 
     print(defeat_msgs.get(npc_key, f"{npc_name} is defeated."))
-
-    # Quest completions on enemy defeat
-    if npc_key == "mugger" and not is_complete(world, "51"):
-        complete(world, "51")
-        world.globals["free_drink_pending"] = True
-        world.globals["free_drink_reason"] = "mugger"
-        print("(Quest complete: The Back Alley Mugger)")
 
     # Move defeated NPC out of room
     npc_obj = world.objects.get(npc_key)
@@ -270,116 +262,6 @@ def altar_pray(world: "World", dial_setting: str) -> int:
 
 
 # ---------------------------------------------------------------------------
-# Ghost Unbind
-# ---------------------------------------------------------------------------
-
-def unbind_ghost(world: "World") -> int:
-    """CAST UNBIND UNDEAD in ghosts-room."""
-    g = world.globals
-
-    if g.get("ghost_unbound"):
-        print("There are no bound spirits here.")
-        return M_HANDLED
-
-    cd = g.get("unbind_cooldown", 0)
-    if cd > 0:
-        print(f"The spell needs {cd} more turns to recharge.")
-        return M_HANDLED
-
-    g["ghost_unbound"] = True
-    g["unbind_cooldown"] = 15
-
-    print(
-        "You cast Unbind Undead.\n\n"
-        "The spirits that were congregating here -- six of them, "
-        "you notice only now that you're counting -- "
-        "simply... release. Not violently. More like held breath finally let go.\n\n"
-        "The room is empty. The cold stays a little longer, then goes too."
-    )
-
-    from content.quests import complete, is_complete
-    if not is_complete(world, "42"):
-        complete(world, "42")
-        print("(Quest complete: The Brotherhood Stones)")
-
-    return M_HANDLED
-
-
-# ---------------------------------------------------------------------------
-# May's hint system
-# ---------------------------------------------------------------------------
-
-def may_hint(world: "World", quest_id: str, tier: int) -> None:
-    """
-    Print May's hint for quest_id at the given tier (1, 2, or 3).
-    Called from V-TIP after zenni has been deducted.
-    """
-    hints = _HINT_LINES.get(quest_id, {})
-    text = hints.get(tier)
-
-    if text:
-        print(text)
-    else:
-        print(
-            "May considers. \"I know something -- give me a minute.\" "
-            "She wipes down the bar while she thinks. "
-            "\"Sorry. That one's beyond me right now. Here.\" "
-            "She slides the Zenni back."
-        )
-        # Refund since we had nothing
-        world.globals["zenni"] = world.globals.get("zenni", 0) + _tip_cost(tier)
-
-
-def _tip_cost(tier: int) -> int:
-    return {1: 2, 2: 5, 3: 10}.get(tier, 2)
-
-
-# Quest hint lines: {quest_id: {tier: text}}
-_HINT_LINES: dict[str, dict[int, str]] = {
-    "51": {
-        1: "\"Back alley at night -- you know what that means. I'd have something to defend myself with.\"",
-        2: "\"He's not brave, just desperate. Press hard and he'll fold.\"",
-        3: "\"Take him down and I'll put something on the house. He's been bad for business.\"",
-    },
-    "25": {
-        1: "\"The cellar's been flooded since the last rain. Barkeep's been meaning to fix the drain.\"",
-        2: "\"The key's behind the bar. Tally's had it so long she probably forgot it was there.\"",
-        3: "\"Pry the drain. Clear the water. There's something down there I don't ask questions about.\"",
-    },
-    "30": {
-        1: "\"There's something in the dungeon that shouldn't be there. Sounds like a warden. Isn't.\"",
-        2: "\"Silver hurts it. Regular silver won't kill it. You'll need something more.\"",
-        3: "\"Consecrate the stake. Holy water, if you can find any. Then put it through the chest.\"",
-    },
-    "53": {
-        1: "\"Will's been missing his glasses for a week. He won't say where he left them.\"",
-        2: "\"He took them off in his bedroom. He never takes them off. Something upset him.\"",
-        3: "\"Look under the furniture. He's nearsighted without them -- he genuinely can't find them himself.\"",
-    },
-    "41": {
-        1: "\"The child by the old oak. Lost their kite. They've been standing there for days.\"",
-        2: "\"It's stuck up in the branches. The tree's climbable, but not all the way.\"",
-        3: "\"Someone with a pole, or a very long reach, could get it from the lower branches.\"",
-    },
-    "50": {
-        1: "\"There's someone lost in the bog. Posted about it on the board. No one's gone yet.\"",
-        2: "\"Bog goes deep in the south section. Bring a shovel -- the ground's not stable.\"",
-        3: "\"Three rounds of digging once you find them. Don't stop in the middle.\"",
-    },
-    "34": {
-        1: "\"There's a soldier frozen somewhere in the deep dungeon. People say the torch can help.\"",
-        2: "\"The ivory torch -- ask about it in the upper tier. Not something you can buy.\"",
-        3: "\"Two passes with the torch. Not one. The ice is thick.\"",
-    },
-    "22": {
-        1: "\"Aqueduct's been broken for a season. Something knocked it loose upstream.\"",
-        2: "\"You'll need to get aboard a ship. And for that you'll need to look like you belong.\"",
-        3: "\"Find a disguise. The Pie Rats won't let just anyone on deck.\"",
-    },
-}
-
-
-# ---------------------------------------------------------------------------
 # Ty's Cargo dice game
 # ---------------------------------------------------------------------------
 #
@@ -460,7 +342,6 @@ def play_cargo(world: "World") -> int:
                 f"Ship. Captain. Crew. Cargo sums to {cargo_total}.\n"
                 f"Ty counts out {bet} Zenni and slides them across without ceremony. \"Well played.\""
             )
-            _cargo_quest_progress(world, won=True)
         else:
             # Have the hand but cargo too low
             g["zenni"] = g.get("zenni", 0) - bet
@@ -468,7 +349,6 @@ def play_cargo(world: "World") -> int:
                 f"Ship. Captain. Crew -- but cargo only totals {cargo_total}. Needs fifteen.\n"
                 "Ty sweeps the Zenni off the table. \"Close.\""
             )
-            _cargo_quest_progress(world, won=False)
     else:
         missing = []
         if not has_ship:    missing.append("ship (6)")
@@ -479,7 +359,6 @@ def play_cargo(world: "World") -> int:
             f"No {'or '.join(missing)}.\n"
             "Ty collects the Zenni. \"Better luck next roll.\""
         )
-        _cargo_quest_progress(world, won=False)
 
     return M_HANDLED
 
@@ -497,21 +376,6 @@ def _auto_keep(dice: list[int], kept: list[int]) -> tuple[list[int], list[int]]:
             dice = [d for d in dice if d != value or d in kept]
             print(f"  Keeping {label} ({value}).")
     return dice, kept
-
-
-def _cargo_quest_progress(world: "World", won: bool) -> None:
-    """Track cargo game plays for Quest 59 (Beat Lynds)."""
-    from content.quests import is_complete, complete, start
-
-    g = world.globals
-    if won:
-        wins = g.get("cargo_wins", 0) + 1
-        g["cargo_wins"] = wins
-        if wins >= 3 and not is_complete(world, "59"):
-            complete(world, "59")
-            print("(Quest complete: Beat Lynds)")
-    else:
-        start(world, "59")
 
 
 # ---------------------------------------------------------------------------

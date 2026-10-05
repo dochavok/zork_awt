@@ -84,6 +84,11 @@ def initialize_world(world, game, seed=None) -> None:
     quest_board.setup(world)
     game.register_enter_hook(quest_board.on_enter)
 
+    # May's hints: TIP MAY [#]; tracking for conditional hints
+    from content import may_hints
+    game.register_input_hook(may_hints.tip_input_hook)
+    game.register_enter_hook(may_hints.on_enter)
+
     # Start in the White House
     world.here = world.rooms["WHITE-HOUSE"]
 

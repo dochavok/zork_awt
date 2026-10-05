@@ -230,7 +230,7 @@ Fires automatically on arrival in the Captain's Quarters (after the room descrip
 
 **After enchanting (`TALK TO KEVRY`):** *Kevry glances up from his map. "Don't lose them."*
 
-**Pond hint (Ship-in-a-Bottle):** to be designed — May's hints imply Kevry's ship is the bottle in the pond.
+**Pond hint (Ship-in-a-Bottle):** left out (decided 2026-10-04) — May has no hint about the bottle in the pond.
 
 ---
 

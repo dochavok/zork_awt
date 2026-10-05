@@ -126,7 +126,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
 - The Mage class XP bonus (+1 per new dungeon room, experience.md — Class XP Adjustments) isn't built. The Warrior kill bonus and Rogue disarm bonus are.
 - The pond bottle (locations.md — Pond) "discovers the quest" and unlocks May's hints, but has no quest number in quests.md.
-- Old completion paths in actions.py for 42, 51 and the cargo-game version of 59; remove them with the old hint code (TODO #5).
+- Most of actions.py is unused (altar_ritual, altar_pray, play_cargo, tick_cooldowns). Only start_combat is used, and only by the old failing test_combat tests. Review it when Ty's Cargo game is built.
 - Inked player handling (traps.md — Trap 45) is only partly built: INKED is set and cancels the ring's invisibility (Chuckle House ghost). Not built: the NPC refusals while inked (May, Shamus, the trainers, Litlock, the Records Room Worker, the Librarian, active quest givers), Will's disdainful line (npcs.md),
   and the bath with inn rest (5 Zenni) that clears the ink.
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -190,20 +190,16 @@ Exploration total reconciled at 167 (experience.md, locations.md and the engine 
 Mage bonus count checked: 43 reachable dungeon rooms, not 47 (experience.md corrected; tier headers in locations.md corrected to 15 / 14 / 15). The class-bonus total range was also corrected to 568–588.
 
 ---
-## TODO #5 — Build TIP MAY (hint system)
+## TODO #5 — Build TIP MAY (hint system) — RESOLVED 2026-10-04
 
-`TIP MAY [#]` parses to `V-TIP`, but no handler exists, so `may_hint()` in `content/actions.py` is never called. The `_HINT_LINES` table there predates the design and contradicts it for every quest it covers (51, 25, 30, 53, 41, 50, 34, 22 — e.g. a "Tally" for Quest 25, Pie Rat hints under Quest 22, hints for Quest 53 which has none by design). Replace it, don't patch it.
+Built in content/may_hints.py, tested in test_may_hints.py (21 tests). Rules in mechanics.md (Hint System): the tip amount sets the tier paid for; May picks a random hint at that tier, stepping down a tier at a time; her response follows the amount tipped.
 
-Build from the design: blind tipping and tier ranges (mechanics.md — Hint System), May's response lines, per-quest hints from quests.md (including one-tier and conditional hints: Quest 4 after first lower-tier descent, Quests 19&30 statue hint only if not examined, Chuckle House pre/post-visit, Quest 34 late hint), and hints unlocking on discovery.
-
-No ring-path step needs a hint (nothing checks for one), so the ring walkthrough doesn't wait on this. Quest 32 leans on May's hints to point players at Rowan and the bog — nothing else in-game does (decided 2026-10-03: leave it that way).
-
-Resolved 2026-10-04: the Librarian's dialogue doesn't depend on the hint (library.py).
-
-Order agreed 2026-10-04: quest discovery hooks (done), then the Quest Board (done), then TIP MAY. The TIP MAY design gaps are raised but not yet decided: quest selection, 19&30 hints before discovery, Quest 4/34 hints before discovery, the Quest 17 hint sets, the Quest 32 gravestone hint, the Quest 49 cutoff, and how tip amounts map to tiers.
+Per-quest decisions in quests.md (4, 17, 19&30, 32, 34, 49). May has no Kevry pond hint (npcs.md). The old hint table and the old quest completions in actions.py are gone.
 
 ---
-## TODO #6 — Build and test the Quest Board and May's tips
+## TODO #6 — Build and test the Quest Board and May's tips — RESOLVED 2026-10-04
+
+Both built and tested: the Quest Board (below) and May's tips (TODO #5).
 
 No ring-path step needs them, and no walkthrough step checks a hint, so they need their own code and their own tests. (The full-score walkthrough now reads the board twice — see below.)
 
@@ -216,5 +212,5 @@ Organic quest discovery wired 2026-10-04 (19&30, 34, 41, 42, 51, 53, 58, 59); Qu
 Quest Board built 2026-10-04 (content/quest_board.py, test_quest_board.py — 15 tests).
 - Rules and all board text are in mechanics.md (Quest Board). Reading the board discovers what it shows; postings alone don't.
 - The full-score walkthrough reads the board in O and U, so the board quests (7, 17, 22, 50) are discovered before they're completed. test_quest_discovery.py has no exemptions now.
-- Remaining under TODO #6: May's tips (TODO #5).
+- May's tips: built under TODO #5.
 

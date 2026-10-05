@@ -263,6 +263,7 @@ Return to Verdant Circle shrine in Roundabout Forest. Place repaired bowl on ped
 **May's hints:**
 - Tier 1: *"Something about that shrine bowl needs water — clean, running water. Check the Quest Board; there may be something relevant posted."*
 - Tier 2: *"The town fountain hasn't run in years. Word is the aqueduct beneath the dungeon needs repair — it's on the Quest Board if you haven't seen it."*
+- Sold only while Quest 22 is incomplete (quests.md — Quest 49).
 
 **Step 7 — Ritual**
 Bring The Crystal Bowl to the Church of All altar. Attune to The Verdant Circle. Place ring + artifact on altar. Bowl consumed. Ritual complete.
