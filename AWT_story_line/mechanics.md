@@ -37,8 +37,8 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 **Economy baseline:**
 | Item | Cost |
 |------|------|
-| Food & Drink (1 heart) | 2 Zenni |
-| Hearty Stew (2 hearts) | 2 Zenni — unlocked after Quest 40 |
+| Food & Drink (1 heart) | 2 Zenni — 1 Zenni after Quest 22 |
+| Hearty Stew (2 hearts) | 2 Zenni — unlocked after Quest 40; 1 Zenni after Quest 22 |
 | Inn Rest (full heal) | 5 Zenni |
 | Weapon training | 3 Zenni |
 | Archery training | 3 Zenni |
@@ -693,7 +693,7 @@ Beach `DIG`: succeeds up to 5 times with flavor text (nothing but wet sand); 6th
 White House, Will's Wizard Tower (Main Room), Will's Bedroom,
 Main West, Town Square, Main East, The Alley, Back Alley,
 Town Hall, Council Chamber, Records Room, Upper Hall, The Tower,
-Tale & Ale Main Room, Bar, Ty's Casino Corner, Pipe Room, Kitchen, Upstairs Hall, Guest Rooms 1/2/3, Cellar/Storeroom,
+Tale & Ale Main Room, Bar, Ty's Casino Corner, Pipe Room, Kitchen, Upstairs Hall, Cellar/Storeroom,
 Library Main Hall, The Stacks,
 Church Nave, The Altar, Keeper's Chamber,
 Graveyard, The Mausoleum, The Crypt,
@@ -714,6 +714,7 @@ Lower Crypt, The Encampment, Thermal Vent Room, The Lower Crossing, The Narrow P
 
 **Excluded rooms (not eligible):**
 All four Bog rooms, all Sea / Open Ocean squares, Desert Island, Kevry's Island, Pie Rat Ship Hold, Flooding Room, Dream Corridor, Dark Room, Hole to Below / Pile of Rubble, Rickety Bridge, Collapsed Aqueduct, all Chuckle House rooms (Entrance, Rejection Mirror, Shatter Trap Mirror, Ghost's Room), Mine Passage, The Crevice (has dedicated treasure — gold pocket watch), Skeleton Room (instant death on entry)
+Also excluded: Guest Rooms 1–3 (Tale and Ale) — entered only by renting a room, with a random room each time.
 
 ---
 
@@ -1142,7 +1143,8 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 | `TALK TO [NPC]` | Standard NPC interaction verb |
 | `BUY DRINK` / `ORDER DRINK` | The Bar only — 2 Zenni, restores 1 heart; May refuses at full hearts |
 | `BUY FOOD` / `ORDER FOOD` | The Bar only — 2 Zenni, restores 1 heart; May refuses at full hearts |
-| `RENT ROOM` / `BUY ROOM` | The Bar only — 5 Zenni, full heal; May refuses at full hearts |
+| `BUY STEW` / `ORDER STEW` | The Bar only, after Quest 40 — 2 Zenni, restores 2 hearts; May refuses at full hearts |
+| `RENT ROOM` / `BUY ROOM` | The Bar only — 5 Zenni, full heal; May refuses at full hearts unless the player is inked (the room's bath clears ink) |
 | `TIP MAY [#]` / `TIP MAY [#] ZENNI` | The Bar only — hint purchase; May determines tier by amount. `GIVE [#] ZENNI TO MAY` / `PAY MAY [#]` are the same |
 | `LOOK AT BOARD` | Quest Board in The Bar |
 | `LOOK AT STATUE` | Town Square statue — reveals seam (no roll) |
@@ -1233,7 +1235,7 @@ All Roundabout commands mapped to their canonical verb. Use this as the spec for
 |---|---|---|---|
 | `SAIL` / `SET SAIL` / `SAIL EAST` etc. | `sail` | (remove `set` from `turn`; do not alias `set`→`sail` — parser finds first verb token) | `V-SAIL` + directional particle rules |
 | `DOCK` | `dock` | `moor` | `V-DOCK` |
-| `BUY DRINK` / `ORDER DRINK` / `ORDER FOOD` / `RENT ROOM` / `BUY ROOM` | `buy` | `order`, `purchase`, `rent` | `V-BUY` (handler routes on object) |
+| `BUY DRINK` / `ORDER DRINK` / `ORDER FOOD` / `BUY STEW` / `RENT ROOM` / `BUY ROOM` | `buy` | `order`, `purchase`, `rent` | `V-BUY` (handler routes on object) |
 | `TIP MAY [#]` / `TIP MAY [#] ZENNI` | `tip` | — | `V-TIP` (handler reads numeric from raw input) |
 | `FISH` | `fish` | `angle` | `V-FISH` |
 | `DRIVE STAKE INTO WEREWOLF` | `drive` | — | `V-DRIVE-STAKE` |

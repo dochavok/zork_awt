@@ -334,7 +334,7 @@ Back-of-house. **Shamus** works here — cook and unofficial vendor. `BUY X` buy
 **Items:** None
 **Quest Hooks:** None
 **Connections:** Down (staircase) → Main Room.
-Connects the three guest rooms. Accessed via staircase from Main Room. Guest rooms entered via May's teleport only — no direct navigation from hall.
+Connects the three guest rooms. Accessed via staircase from Main Room. Guest rooms entered via May's teleport only — no direct navigation from hall. On waking, the room's name and wake-up description show instead of its room description (an inked player's bath line comes first — npcs.md, May); LOOK shows the room description. Guest rooms are not in the Zenni pool.
 
 **Room description:** *The upstairs hall is narrow and low-ceilinged, the floorboards announcing every step. Three doors lead off it — the guest rooms. A window at the far end looks out over the alley below. The stairs down creak in a specific sequence that regular guests have learned to navigate quietly.*
 
@@ -344,7 +344,7 @@ Connects the three guest rooms. Accessed via staircase from Main Room. Guest roo
 **Items:** None
 **Quest Hooks:** None
 **Connections:** East → Upstairs Hall. (One-way exit — entry via May's teleport only)
-One of three guest rooms off the Upstairs Hall. Assigned randomly by May when the player pays for rest. Player wakes here refreshed (full heal).
+One of three guest rooms off the Upstairs Hall. Assigned randomly by May when the player pays for rest. Player wakes here refreshed (full heal). Not in the Zenni room pool.
 
 **Room description:** *A plain room, honestly kept. Bed, washstand, a window that looks out over the street. The kind of room that asks nothing of you.*
 
@@ -356,7 +356,7 @@ One of three guest rooms off the Upstairs Hall. Assigned randomly by May when th
 **Items:** None
 **Quest Hooks:** None
 **Connections:** West → Upstairs Hall. (One-way exit — entry via May's teleport only)
-One of three guest rooms off the Upstairs Hall. Assigned randomly by May when the player pays for rest. Player wakes here refreshed (full heal).
+One of three guest rooms off the Upstairs Hall. Assigned randomly by May when the player pays for rest. Player wakes here refreshed (full heal). Not in the Zenni room pool.
 
 **Room description:** *A corner room, slightly larger than it needs to be. Two windows, a wardrobe that doesn't quite close, a rag rug that was once a specific color. Comfortable in an unassuming way.*
 
@@ -368,7 +368,7 @@ One of three guest rooms off the Upstairs Hall. Assigned randomly by May when th
 **Items:** None
 **Quest Hooks:** None
 **Connections:** South → Upstairs Hall. (One-way exit — entry via May's teleport only)
-One of three guest rooms off the Upstairs Hall. Assigned randomly by May when the player pays for rest. Player wakes here refreshed (full heal).
+One of three guest rooms off the Upstairs Hall. Assigned randomly by May when the player pays for rest. Player wakes here refreshed (full heal). Not in the Zenni room pool.
 
 **Room description:** *The smallest of the three rooms, tucked at the end of the hall. Low ceiling, narrow bed, a single candle on the nightstand burned to nothing. Quiet in a way the other rooms aren't.*
 

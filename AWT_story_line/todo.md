@@ -151,14 +151,15 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Dragon-nip check raised from Hard to Very Hard (18): a Level 3 Mage was finding it on ~56% of tries (locations.md, quests.md — Quest 58). test_sprig_check.py.
 - Ring vs. the Dankhaus wards: the ring (not inked) slips an uninvited player past the ward; Litlock's unseen line replaces the Common Room description and he won't engage (TALK, menu choices);
   Taking the ring off inside (REMOVE or DROP) throws an uninvited player out to Bog-SE ("There you are" / faint line in the Common Room, ward line elsewhere); invited, the inciting moment waits for the ring to come off (npcs.md, locations.md). test_dankhaus_ring.py.
+- The inn (content/tavern.py): BUY / ORDER / PURCHASE DRINK, FOOD or STEW at the Bar (1 heart; stew 2 after Quest 40; 2 Zenni, 1 after Quest 22); RENT / BUY ROOM (5 Zenni, full heal, random guest room with its wake-up text);
+  full-hearts and "You're short." refusals; Guest Rooms 1–3 built (one-way out), taken out of the Zenni pool. test_inn.py.
+- Inked: renting a room bathes off the ink, even at full hearts; it's the only thing May does for an inked player (food, drink, TALK, tips refused; hand-overs and the free drink wait). Will engages with disdain rather than refusing (traps.md). test_inn.py.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
-- Inked player handling (traps.md — Trap 45) is only partly built: INKED is set and cancels the ring's invisibility (Chuckle House ghost). Not built: the NPC refusals while inked (May, Shamus, the trainers, Litlock, the Records Room Worker, the Librarian, active quest givers), Will's disdainful line (npcs.md),
-  and the bath with inn rest (5 Zenni) that clears the ink.
+- Inked player handling (traps.md — Trap 45): May and the bath are built. Not built: refusals for Shamus, the trainers (Raznak, Redcrosse Knight), Litlock, the Records Room Worker, the Librarian, active quest givers; Will's disdainful line.
 - The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.
 - Thin paper "destroyed if player gets wet": no wetting events are defined yet.
-- Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
 - Quest 50: Will being visibly shaken on the player's next tower visit isn't built.
 - Tip Journal: Shamus sells it (5 Zenni, on the slate), but it's an empty object — its contents and READ JOURNAL (mechanics.md: active discovered quests with purchased hints) aren't built.

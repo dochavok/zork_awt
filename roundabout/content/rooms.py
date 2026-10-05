@@ -239,6 +239,8 @@ def _make_tale_and_ale(world) -> None:
     main.exits["up"] = Exit(destination="UPSTAIRS-HALL")
     casino.exits["southeast"] = Exit(destination="TALE-AND-ALE")
     upstairs.exits["down"] = Exit(destination="TALE-AND-ALE")
+    from content.tavern import make_guest_rooms
+    make_guest_rooms(world)   # entered only by renting a room (May)
 
 
 # ---------------------------------------------------------------------------

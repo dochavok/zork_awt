@@ -143,7 +143,7 @@ def seal(w: World) -> None:
     w.move_object(mortar, None)            # used up
     w.set_global("AQUEDUCT-SEALED", True)
     w.set_global("FOUNTAIN-RUNNING", True)
-    w.set_global("FOOD-DISCOUNT", True)    # Quest 22 reward; food buying not built yet
+    w.set_global("FOOD-DISCOUNT", True)    # Quest 22 reward: Bar food, drink and stew 1 Zenni
     quests.complete(w, "22")
 
 

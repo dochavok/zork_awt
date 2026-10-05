@@ -204,7 +204,7 @@ Both quests are discovered at the statue (`LOOK AT STATUE`, or prying it open) a
 4. Seal joints with mortar from Supply Room (`SEAL JOINTS WITH MORTAR`; mortar used up) → aqueduct restored.
 Until sealed, the spill floods the far end of the Collapsed Gallery — the Quest 38 shortcut to the Rickety Bridge also needs this quest.
 
-**Reward:** Innkeeper permanently lowers Food & Drink cost by 1 Zenni. 5 Zenni.
+**Reward:** Innkeeper permanently lowers Food & Drink cost by 1 Zenni (hearty stew too). 5 Zenni.
 **Cascade:** Town Square fountain begins running → water required for Quest 49 (The Ruined Shrine) clay adhesive. Ensures most players complete this naturally before needing the fountain.
 
 ---
@@ -397,7 +397,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 2. Find small clay pot in Supply Room — visible in wreckage of Trap 17 whether triggered or disarmed.
 3. Deliver both to Shamus — either order, one at a time; the second completes the quest (text in npcs.md, Shamus).
 
-**Reward:** Permanent inn menu upgrade — "hearty stew" option, restores 2 hearts at the same price as Food & Drink (2 Zenni). 3 Zenni.
+**Reward:** Permanent inn menu upgrade — "hearty stew" option, restores 2 hearts at the same price as Food & Drink (2 Zenni; 1 after Quest 22). 3 Zenni.
 
 ---
 

@@ -704,7 +704,7 @@ def _give_shamus(world: World, item) -> None:
     quests.discover(world, "40")
     if world.get_global("SHAMUS-HAS-THYME") and world.get_global("SHAMUS-HAS-POT"):
         print(_SHAMUS_STEW)
-        world.set_global("HEARTY-STEW", True)   # inn menu upgrade (buying food isn't built yet)
+        world.set_global("HEARTY-STEW", True)   # inn menu upgrade: BUY STEW at the Bar
         quests.complete(world, "40")
     else:
         print(_SHAMUS_THYME if item.name == "BOG-THYME" else _SHAMUS_POT)

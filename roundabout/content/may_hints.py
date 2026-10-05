@@ -203,6 +203,10 @@ def tip(w: World, amount: int | None) -> None:
     if w.here is None or w.here.name != "BAR":
         print(_NOT_HERE)
         return
+    if w.get_global("INKED"):
+        from content.tavern import MAY_INKED
+        print(MAY_INKED)   # no hints while inked (traps.md — Trap 45)
+        return
     if amount is None:
         print(_HOW_MUCH)
         return

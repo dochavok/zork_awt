@@ -292,14 +292,26 @@ Sells hints for Zenni (tiered — see hint system in `mechanics.md`). Manages Qu
 **BUY FOOD (Bar only):** 2 Zenni, restores 1 heart.
 *May calls back to the kitchen and a plate appears shortly after. She sets it in front of you. "Two Zenni."*
 
+**HEARTY STEW (Bar only, after Quest 40):** 2 Zenni, restores 2 hearts. `BUY STEW` / `ORDER STEW`.
+*May calls back to the kitchen. Shamus brings the bowl out himself and sets it down without a word. "Two Zenni," May says.*
+**Stew before Quest 40:** *"Not on the menu," May says. "Ask Shamus."*
+
+**Quest 22 discount:** food, drink and stew all cost 1 Zenni once Quest 22 is done; the lines above say "One Zenni" instead of "Two Zenni". Rooms stay 5 Zenni.
+**Order words:** `BUY` / `ORDER` / `PURCHASE` DRINK, FOOD or STEW; `RENT` / `BUY` ROOM. Ordering food, drink or stew away from the Bar: *There's no one here to sell you that.*
+**Free drink (Quest 51):** served only through `TALK TO MAY`; `BUY DRINK` always charges.
+
 **RENT ROOM (Bar only):** 5 Zenni, full heal. Player teleported to randomly assigned Guest Room (1, 2, or 3); wakes refreshed.
 *"Five Zenni," May says, and slides a key across the bar. "Sleep well."*
+**Sequence:** May's line, then the guest room's name and its wake-up text (locations.md) instead of its room description. LOOK afterwards shows the room description.
+**RENT ROOM while inked** (instead of "Sleep well."): *May looks at the ink for a long moment. "Five Zenni," she says, and slides a key across the bar. "There's a bath up there. Use it."*
+**The bath** (printed before the wake-up text; clears the ink): *The ink takes three changes of water and most of the soap. It comes off.*
 
 **At full hearts — BUY DRINK or BUY FOOD:**
 *May glances at you and sets the glass back down. "You don't need it. Come back when you do."* No charge.
 
 **At full hearts — RENT ROOM:**
 *May stops halfway to the key. "You're fine. Come back when you're not."* No charge.
+Not while inked: an inked player can always rent a room, even at full hearts — the room comes with the bath that clears the ink (traps.md — Trap 45). Renting a room is the only thing May will do for an inked player.
 
 **Insufficient Zenni (any purchase):**
 *May looks at you evenly. "You're short." She goes back to work.*
@@ -309,6 +321,9 @@ Sells hints for Zenni (tiered — see hint system in `mechanics.md`). Manages Qu
 **Quest 25 — cellar key (`TALK TO MAY` while carrying the crowbar, cellar not yet offered; fires once):** *May's eyes drop to the crowbar and stay there. "Now that's useful." She reaches under the bar and sets an iron key on the counter. "Cellar. It flooded years back — the drain clogged, and we shut the door and stopped thinking about it. If you can get the cover off that drain, it's yours to clear." She slides the key over. "Do it from the top of the stairs. Nobody goes down into that water."* Cellar key to inventory; Quest 25 discovered.
 
 **Quest 25 — Bartender's Boots (`TALK TO MAY` after the cellar is drained; fires once):** *May looks you over — the wet sleeves, the silt. "You got the cellar dry." She ducks under the bar and comes up with a pair of tall leather boots, salt-stained and broken in. "Forgot I had these. Should have given them to you BEFORE you cleaned up the cellar."* Boots to inventory.
+
+**Inked player — everything but rooms** (`TALK TO MAY`, `BUY FOOD` / `DRINK` / `STEW`, `TIP MAY`, `GIVE` Zenni; no charge; quest hand-overs and a pending free drink wait until the player is clean): *May looks at the ink, then at you. "Rooms are upstairs. That's all you're getting from me until you've used one."*
+Her first-visit introduction still fires if the player is inked — it's unprompted.
 
 **TALK TO MAY priority:** Quest 51 free drink → Quest 25 boots → Quest 25 cellar key → default (*"She picks the glass back up and goes back to work. The conversation is over when she decides it is."*).
 

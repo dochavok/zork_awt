@@ -110,9 +110,9 @@ Triggering it douses the player in black ink — no heart damage, but the player
 **Bathing:** Included with inn rest at 5 Zenni.
 **Ring effect:** Ink negates ring invisibility — the player is visible even while wearing the ring. Corruption still ticks normally while the ring is worn.
 **NPC impacts while inked:**
-- **Unaffected:** The innkeeper — inn rest and bath (5 Zenni) are always available regardless of ink status. The player cannot be permanently stuck.
-- **Refuse entirely:** May (no hints), Shamus (no vendor sales), all trainers (Raznak, Redcrosse Knight, Will for spells), Litlock (no Dankhaus access), Records Room Worker (no charter), Librarian (refuses to assist), all active quest givers.
-- **Will Passion:** Still engages but disdainful. Response: *"Will peers over his spectacles. 'And you found the thread,' he says, and pauses. 'Everyone finds the thread.' He turns back to his work. 'The inn has a bath. Use it. Twice.'"*
+- **May — rooms only:** `RENT ROOM` (inn rest and bath, 5 Zenni) is always available regardless of ink status, even at full hearts. It's the only thing May will do for an inked player. The player cannot be permanently stuck.
+- **Refuse entirely:** May for everything but rooms (no hints, food or drink; her quest hand-overs wait until the player is clean), Shamus (no vendor sales), the trainers (Raznak, Redcrosse Knight), Litlock (no Dankhaus access), Records Room Worker (no charter), Librarian (refuses to assist), all active quest givers.
+- **Will Passion:** Still engages — including spell teaching; he doesn't refuse — but disdainful. Response: *"Will peers over his spectacles. 'And you found the thread,' he says, and pauses. 'Everyone finds the thread.' He turns back to his work. 'The inn has a bath. Use it. Twice.'"*
 - **Chuckle House ghost:** Inaccessible while inked — ink negates ring invisibility so the ghost cannot be seen or interacted with.
 - **Kevry:** Unaffected — too isolated to notice or care.
 - **Toll Bridge Boggart:** Unaffected.
