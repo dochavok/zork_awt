@@ -17,7 +17,7 @@ Chain), items.md (Werewolf's Amulet), experience.md (Trap 36: 3 XP; werewolf:
   stake stays in the body and the amulet drops.
 - The Ivory Torch hangs on the Still Den wall (Quest 34); it's heat, not light.
 - Lower Crossing north is the Tool Alcove (content/tool_alcove.py).
-- Deferred: Lower Crossing south (Dark Room).
+- Lower Crossing south (Dark Room) is wired in content/dark_branch.py.
 
 State: BONES-CLEARED, DEN-JUST-ENTERED, WEREWOLF-DEAD
 """

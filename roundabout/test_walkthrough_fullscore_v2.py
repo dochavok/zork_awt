@@ -52,6 +52,9 @@ def _make_input_feed():
 # Seed 7 gives 35 Zenni by Will's first teaching in section F.
 _SEED = 7
 
+# experience.md — Exploration total: room XP paid over a run that enters every room.
+_EXPLORATION_XP = 167
+
 
 def _always_max(a, b):
     return b
@@ -174,8 +177,29 @@ class TestFullScoreNarrative(unittest.TestCase):
             sections,
             f"No sections parsed from {_WALKTHROUGH_PATH} — check the file exists and has section headers.",
         )
+        # TODO #4: the full-score run enters every room worth XP. Entries are
+        # recorded by an enter hook — some rooms reset room.visited to force
+        # their full description, so the flag alone can't be trusted.
+        entered = {self.world.here.name}
+        room_xp_start = sum(r.value for r in self.world.rooms.values())
+        self.game.register_enter_hook(lambda w, room: entered.add(room.name))
+
         runner = NarrativeRunner(self.game, self.world)
         runner.run_all(sections)
+
+        missed = sorted(n for n, r in self.world.rooms.items()
+                        if r.value > 0 and n not in entered)
+        if missed:
+            runner.failures.append(
+                "ROOM COVERAGE — rooms worth XP never entered:\n  " + ", ".join(missed)
+            )
+        # Entering a room pays its XP and zeroes room.value (engine/game.py)
+        room_xp_paid = room_xp_start - sum(r.value for r in self.world.rooms.values())
+        if room_xp_start != _EXPLORATION_XP or room_xp_paid != _EXPLORATION_XP:
+            runner.failures.append(
+                f"EXPLORATION XP — design total {_EXPLORATION_XP}, engine rooms total "
+                f"{room_xp_start}, paid in the run {room_xp_paid}"
+            )
         runner.report(self)
 
 

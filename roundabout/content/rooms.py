@@ -38,7 +38,7 @@ def _make_opening(world) -> None:
             "with a boarded front door.\n"
             "There is a small mailbox here."
         ),
-        value=1,
+        value=0,   # the game starts here; no entry ever pays it (experience.md)
     )
     r.set_flag(ONBIT)
     r.set_flag(RLANDBIT)

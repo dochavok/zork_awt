@@ -10,9 +10,9 @@ Update this file immediately when any XP value or level detail is designed or ch
 ### Exploration (passive, automatic)
 Each room has a defined XP value awarded the first time it is discovered. Most rooms award 1 XP. Significant destinations award more. Ocean traversal squares award 0 XP. Perception-gated rooms (hidden behind a perception check to discover) generally award double their base value; critical path rooms are set individually. All room XP values are defined in `locations.md`.
 
-Guest Rooms 1–3 award 0 XP: they are reached only by paid rest with a random room assignment, not by exploration.
+Guest Rooms 1–3 award 0 XP: they are reached only by paid rest with a random room assignment, not by exploration. The White House awards 0 XP: the game starts there and it's never revisited. The Skeleton Room awards 0 XP: entering it is death.
 
-**Exploration total (all confirmed rooms): 131 XP**
+**Exploration total (all confirmed rooms): 167 XP** — the sum of the `**XP:**` values of the individual rooms in locations.md (the Kevry's Island, Sea and Open Ocean group headings aren't rooms). The full-score walkthrough test asserts this total.
 
 ---
 
@@ -96,15 +96,15 @@ XP scales with enemy difficulty. Named/boss enemies award toward the higher end.
 
 | Source | XP |
 |--------|----|
-| Exploration | 131 |
+| Exploration | 167 |
 | Quests | 270–280 |
 | Traps (disarm) | 39 |
 | Combat | 42 |
-| **Confirmed base total** | **492–502 XP** |
+| **Confirmed base total** | **528–538 XP** |
 | Class bonus (Warrior) | +40 XP |
 | Class bonus (Mage) | +47 XP |
 | Class bonus (Rogue) | +50 XP |
-| **Confirmed total with class bonus** | **535–555 XP** (varies by class and Quest 53 outcome) |
+| **Confirmed total with class bonus** | **571–591 XP** (varies by class and Quest 53 outcome) |
 
 Class bonuses are awarded on top of base XP and vary by class. Quest 53 awards 10 XP (glasses not enchanted) or 20 XP (Actually Enchanted) — a completionist who sails to Kevry earns the higher value. All classes clear the Level 8 threshold of 420 XP comfortably on a completionist run.
 

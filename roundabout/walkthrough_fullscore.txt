@@ -1203,6 +1203,8 @@ show what's wrong with the chest before we open it.
 > DISARM LODESTONE            [just a chest now]
 > OPEN CHEST                  [diamond brooch]
 > TAKE BROOCH                 [You take the diamond brooch]
+> SOUTH                       [Deep Lock Door]
+> NORTH                       [Magnetic Vault]
 > NORTH                       [Echo Alcove]
 > NORTH                       [Inscription Chamber]
 > NORTH                       [Mine Passage]
@@ -1215,6 +1217,8 @@ Now descend to the lower tier.
 =============================================================================
 AA) Quest 19/30 — Keeper's Keys (Lower Crypt)
 =============================================================================
+> SOUTH                       [Encampment]
+> NORTH                       [Pile of Rubble]
 > NORTH                       [Lower Crypt]
 > TAKE KEYS                   [key ring]
 

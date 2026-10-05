@@ -120,6 +120,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
   Trophy Case: score and count are worked out from the case contents (the running counters double-counted repeat deposits: SCORE showed 12 treasures and 405 points); a treasure already in the case is refused — "It's already in the case." (mechanics.md).
 - Full-score section letters renumbered (mapping above); stale prose references fixed (clay pot: section Q; vial and lantern at the bridge since Y).
   Stale code comments fixed: full-score test seed note (35 Zenni at Will's first teaching in F), and "built with section …" notes in lower_tier, mid_tier, tunnels, upper_tier and verbs now point at where those exits and traps are wired.
+- TODO #4: Z detours to Deep Lock Door, AA opens with The Encampment; still_den.py stale Dark Room note fixed.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
@@ -177,21 +178,13 @@ The gap is in items.md — the buried chest needs its own entry that specifies i
 Remaining unit-test failures (14) are unrelated: test_world expects rooms/objects not yet rebuilt, and test_combat imports weapon functions removed in the content wipe.
 
 ---
-## TODO #4 — Full-score walkthrough must visit every room
+## TODO #4 — Full-score walkthrough must visit every room — RESOLVED 2026-10-04
 
-`walkthrough_fullscore.txt` was scoped to quests, treasures and NPC arcs, not exploration. These rooms (all with XP in locations.md) are never entered:
+The full-score walkthrough enters every room worth XP: The Encampment (lower tier) and Deep Lock Door were the last two, added to AA and Z. test_walkthrough_fullscore_v2.py now fails if a room worth XP is never entered, and if the room XP paid differs from experience.md's exploration total.
 
-- **Tale and Ale:** Pipe Room, Ty's Casino Corner, Upstairs Hall — visited in Section W (2026-10-04)
-- **Dankhaus:** Hearth Room, Garden, Litlock's Room, Litlock's Study, Lynds's Room, Aurix's Room — visited in Section L (2026-10-04)
-- **Tunnels / dungeon:** Hidden Secondary Entrance (mine — Assay Room gap), The Undercroft, The Forgotten Shaft, Skeleton Room (Room 6), The Flooded Passage (Room 11)
+Exploration total reconciled at 167 (experience.md, locations.md and the engine agree). The old 173 counted the Kevry's Island and Sea group headings as rooms; experience.md's 131 was stale. The White House went to 0 XP: the game starts there and never returns, so it could never be paid.
 
-Also confirm Key Side / Trap Side sub-rooms are all entered — the walkthrough labels these areas loosely.
-
-For each room: check access requirements in locations.md, then add the visit where the route already passes nearby. Once TODO #3 connects XP, assert total exploration XP at the end of the run.
-
-**Total is unresolved:** experience.md says 130 (was 133 before guest rooms went to 0), but the `**XP:**` values in locations.md sum to 173 across 131 entries (2026-10-03). Reconcile before using either number as the test target.
-
-Guest Rooms 1–3 are excluded: set to 0 XP (rest-only, random assignment) on 2026-10-03 — see locations.md and experience.md.
+Still to check: experience.md's Mage bonus assumes 47 reachable dungeon rooms.
 
 ---
 ## TODO #5 — Build TIP MAY (hint system)

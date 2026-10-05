@@ -13,7 +13,7 @@ Each room's XP value is noted in its entry below.
 ## Opening Area
 
 ### White House / West of House
-**XP: 1**
+**XP: 0** (the game starts here and it's never revisited, so there's no first entry to pay for)
 **NPCs:** Will Passion (appears on mailbox open)
 **Items:** None
 **Quest Hooks:** None (opening sequence only)
