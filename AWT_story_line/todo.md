@@ -6,20 +6,13 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — the ring walkthrough (`walkthrough_ring.txt`, `test_walkthrough_ring_v2.py`) passes end to end, A–U (2026-10-04). Next: the full-score walkthrough (`walkthrough_fullscore.txt`, `test_walkthrough_fullscore_v2.py`), section by section from A.
+**Status:** In progress — both walkthroughs pass end to end with no state injection: the ring walkthrough (`walkthrough_ring.txt`, `test_walkthrough_ring_v2.py`), A–U, and the full-score walkthrough (`walkthrough_fullscore.txt`, `test_walkthrough_fullscore_v2.py`) (2026-10-04). Remaining: renumber the full-score section letters.
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section TT — Ring Binding Ritual. Sections A–RR pass (AA folded into Z, DD into II, MM into LL2, NN into OO, SS into RR). First failure:
+**Current position:** The full-score walkthrough passes end to end with no state injection (2026-10-04), and the ring walkthrough still passes. Remaining for TODO #1: renumber the full-score section letters (gaps from AA, DD, MM, NN and SS being folded in, and the HH1/HH2 and LL1/LL2 splits).
 
-```
-SECTION [TT) Ring Binding Ritual — Church of All Altar]
-  cmd     : 'PUT PALE BLADE ON ALTAR'
-  missing : 'blade placed'
-  got     : "You can't see any blade here!\n"
-```
-
-12 full-score steps still fail.
+0 full-score steps fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
@@ -122,6 +115,9 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section RR (SS folded in): Will's Bedroom — nightstand scenery (EXAMINE, PUT … ON), dragon-nip under it (silent Hard check on every entry and on WEAR GLASSES there; Actually Enchanted Glasses auto-pass), GIVE DRAGON-NIP TO WILL → Golden Dragon Scale straight to inventory (Quest 58: 15 XP, 5 Zenni — experience.md updated from 4).
   DROP / PUT GLASSES ON NIGHTSTAND completes Quest 53 (20/10 XP, 5 Zenni); dropping a worn item takes it off first (the ring goes through its removal roll). Bedroom nightstand sentence no longer names the glasses.
   Q and the ring walkthrough: Rowan hands the Middle Tier Key straight to inventory (TAKE KEY removed; NPC hand-over convention written into mechanics.md). Fragments: NORTH [Bedroom], LOOK [glows faintly], TAKE DRAGON-NIP [sprig], GIVE … [looking for that|golden dragon scale added].
+- Sections TT–VV: TAKE BLADE in the Church of All (left there in EE); the ritual aligned with the ring walkthrough (dial LEFT each time, PUT RING ON ALTAR binds it).
+  UU: OPEN CASE removed (the case is opened in O), the three repeat deposits removed (brooch, idol, watch — deposited in EE), LOOK IN CASE and SCORE check [9 treasures on display]; GIVE RING TO WILL checks "9 of 9 treasures on display".
+  Trophy Case: score and count are worked out from the case contents (the running counters double-counted repeat deposits: SCORE showed 12 treasures and 405 points); a treasure already in the case is refused — "It's already in the case." (mechanics.md).
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
@@ -131,9 +127,6 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Full-score plan: the torch is allowed to burn out in the full run; no repurchase once Light is learned (F). Check P onward against that.
 - `TAKE ALL` also tries items already in inventory ("You already have the …" for each). Predates this session.
 - Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
-- II's southbound bridge crossing will be overweight with the surface items (Pale Blade, bowl pieces, rune stones, smoke jar) — stash them in town or hand some in early.
-- OO and TT: `PUT BOWL …` asks which bowl while the pieces are carried.
-- UU's `LOOK IN CASE [9 of 9]` fragment conflicts with the design (no denominator during play) — decide at UU.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: the bow attack on the werewolf (failure line in mechanics.md; the attack doesn't exist yet). Fireball is built.
 - Bow actions aren't built: the `SHOOT X (WITH BOW)` syntax maps to V-SHOOT, but no verb is registered, so shooting does nothing anywhere (mugger, Warden, apprentice, werewolf, the knight's trial). Needs the bow attack per mechanics.md (bow skill, round-1 bonus).

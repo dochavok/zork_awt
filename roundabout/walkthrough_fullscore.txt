@@ -1740,56 +1740,36 @@ TT) Ring Binding Ritual — Church of All Altar
 =============================================================================
 All three ring ritual artifacts: Pale Blade (Brotherhood of the Pale
 Blade), Werewolf's Amulet (Veil of the Arcane), Crystal Bowl (Verdant
-Circle). Navigate to the Church of All altar.
+Circle). The Pale Blade is still in the Church of All, where it was
+left in EE. Navigate to the Church of All altar.
 
 > EXAMINE PAINTING            [Tale and Ale]
 > NORTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church of All]
+> TAKE BLADE                  [Pale Blade]
 > EAST                        [Altar]
 
-Place all three artifacts and attune the dial for each. Default
-attunement is The Keepers of the Lantern (position 6 in the 7-religion
-dial). Brotherhood of the Pale Blade is position 3 — turn left three
-times. Veil of the Arcane is position 2 — turn right one time from
-position 3. Verdant Circle is position 1 — turn right one time from
-position 2.
+Set each artifact on the altar and turn the dial until it glows, then
+the ring.
 
-Place the Pale Blade first:
+> PUT PALE BLADE ON ALTAR     [Nothing happens]
+> TURN DIAL LEFT              [shimmers]
+> TURN DIAL LEFT              [shimmers]
+> TURN DIAL LEFT              [white light]
+> PUT AMULET ON ALTAR         [Nothing happens]
+> TURN DIAL LEFT              [deep red]
+> PUT BOWL ON ALTAR           [Nothing happens]
+> TURN DIAL LEFT              [green]
+> PUT RING ON ALTAR           [The ring is bound]
 
-> PUT PALE BLADE ON ALTAR     [blade placed]
-> TURN DIAL LEFT              [dial]
-> TURN DIAL LEFT              [dial]
-> TURN DIAL LEFT              [white]
-
-The Pale Blade glows white. Place the Werewolf's Amulet:
-
-> PUT AMULET ON ALTAR         [amulet placed]
-> TURN DIAL RIGHT             [dial]
-> TURN DIAL RIGHT             [red]
-
-The Werewolf's Amulet glows red. Place the Crystal Bowl:
-
-> PUT BOWL ON ALTAR           [bowl placed]
-> TURN DIAL RIGHT             [green]
-
-The Crystal Bowl glows green. All three artifacts glowing. Place the
-ring:
-
-> WEAR RING                   [ring]
-> PUT RING ON ALTAR           [binding]
-
-Binding ceremony fires. All three artifacts consumed. Ring bound.
-
-> TAKE RING                   [bound ring]
-> REMOVE RING                 [ring won't go on]
+The artifacts are gone, and the ring is back in hand, bound.
 
 =============================================================================
 UU) Trophy Case — Deposit the Remaining Treasures
 =============================================================================
 The remaining treasures go in the case. The Tower is on the second floor
 of Town Hall.
-Open the case before placing items.
 
 > WEST                        [Church of All]
 > NORTH                       [Main East]
@@ -1797,18 +1777,15 @@ Open the case before placing items.
 > NORTH                       [Town Hall]
 > UP                          [Upper Hall]
 > UP                          [Tower]
-> OPEN CASE                   [case open]
 
 Deposit the remaining treasures:
 
 > PUT FORGOTTEN BLADE IN CASE          [Forgotten Blade]
-> PUT DIAMOND BROOCH IN CASE           [Diamond Brooch]
 > PUT FUNERAL MASK IN CASE             [Funeral Mask]
 > PUT GOLDEN DRAGON SCALE IN CASE      [Golden Dragon Scale]
-> PUT FERTILITY IDOL IN CASE           [Fertility Idol]
-> PUT GOLD POCKET WATCH IN CASE        [Pocket Watch]
 > PUT GOLD NUGGET IN CASE              [Gold Nugget]
-> LOOK IN CASE                         [9 of 9]
+> LOOK IN CASE                         [9 treasures on display]
+> SCORE                                [9 treasures on display]
 
 The remaining treasures are deposited. Trophy Case win condition fires.
 
@@ -1822,7 +1799,7 @@ Return the bound ring to Will Passion.
 > SOUTH                       [Town Square]
 > SOUTH                       [Tale and Ale]
 > OPEN MAILBOX                [tower]
-> GIVE RING TO WILL           [Well done]
+> GIVE RING TO WILL           [Well done|9 of 9 treasures on display]
 
 Will takes the ring, listens for something, sets it on the desk. "Well
 done, [Name]." Ring quest complete. Game over — victory.

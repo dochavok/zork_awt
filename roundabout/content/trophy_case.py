@@ -5,12 +5,14 @@ Design: locations.md (The Tower — Trophy Case), mechanics.md (Trophy Case,
 Score), items.md (Treasure Items table — points).
 
 - OPEN / CLOSE CASE. PUT (or DROP) a treasure IN CASE while it's open: the
-  treasure stays there for good and its points go to the score
-  (TROPHY-POINTS / TROPHY-COUNT, read by SCORE and the ending).
-- Non-treasures are refused; nothing comes back out.
+  treasure stays there for good and its points go to the score. Score and
+  count are worked out from what's in the case (points() / count(), read by
+  SCORE and the ending), so they always match what's on display.
+- Non-treasures are refused, and so is a treasure already in the case;
+  nothing comes back out.
 - The Tower description and EXAMINE / LOOK IN CASE list what's behind the glass.
 
-State: CASE-OPEN, TROPHY-POINTS, TROPHY-COUNT
+State: CASE-OPEN
 """
 
 from __future__ import annotations
@@ -66,6 +68,7 @@ _CLOSES = "You close the case."
 _ALREADY_CLOSED = "It's already closed."
 _CLOSED = "The case is closed."
 _NOT_TREASURE = "The case is for treasures. That isn't one."
+_ALREADY_IN = "It's already in the case."
 _DEPOSITED = "The {item} settles into the velvet. The case is a better place for it."
 _KEPT = "That belongs to Roundabout now."
 
@@ -77,6 +80,15 @@ def _contents(w: World) -> list:
 def _list(objs) -> str:
     names = [f"the {o.desc}" for o in objs]
     return names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
+
+
+def points(w: World) -> int:
+    """Score: the points of every treasure in the case."""
+    return sum(TREASURE_POINTS.get(o.name, 0) for o in _contents(w))
+
+
+def count(w: World) -> int:
+    return sum(1 for o in _contents(w) if o.name in TREASURE_POINTS)
 
 
 def _count_line(n: int) -> str:
@@ -97,14 +109,13 @@ def _deposit(w: World, item) -> None:
     case = w.objects["TROPHY-CASE"]
     if not w.get_global("CASE-OPEN"):
         print(_CLOSED)
+    elif item.location is case:
+        print(_ALREADY_IN)
     elif item.name not in TREASURE_POINTS:
         print(_NOT_TREASURE)
     else:
         w.move_object(item, case)
         item.set_flag(TRYTAKEBIT)    # no implicit "(Taken)" out of the case
-        g = w.globals
-        g["TROPHY-POINTS"] = int(g.get("TROPHY-POINTS", 0)) + TREASURE_POINTS[item.name]
-        g["TROPHY-COUNT"] = int(g.get("TROPHY-COUNT", 0)) + 1
         print(_DEPOSITED.format(item=item.desc))
 
 

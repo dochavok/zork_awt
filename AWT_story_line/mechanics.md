@@ -945,6 +945,7 @@ Fixed container in The Tower (Town Hall). Treasure items are placed here permane
 **Rules:**
 - Case must be open to accept items (`OPEN CASE` first).
 - `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` — registers treasure in count. Confirmation: *"The [item name] settles into the velvet. The case is a better place for it."*
+- A treasure already in the case isn't counted again: *"It's already in the case."*
 - `TAKE <ITEM> FROM CASE` — always returns: *"That belongs to Roundabout now."*
 - `LOOK IN CASE` / `EXAMINE CASE` — lists contents and count whether open or closed (glass panels visible either way).
 - **Count display:** *"[N] treasure[s] on display."* No denominator shown during play. Win condition reveals: *"9 of 9 treasures on display."*

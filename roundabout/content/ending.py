@@ -4,9 +4,8 @@ SCORE and the end of the game.
 Design: mechanics.md (Score; Trophy Case — treasure achievement tiers),
 ring-rituals.md (Will's final scene; the game ends).
 
-- Score = treasure points deposited in the Trophy Case (300 possible). The
-  Trophy Case isn't built yet, so score and treasures read 0 until it is
-  (TROPHY-POINTS / TROPHY-COUNT).
+- Score = treasure points deposited in the Trophy Case (300 possible),
+  worked out from what's in the case (content/trophy_case.py).
 - SCORE during play: no denominators, no tier. At the end it runs
   automatically with denominators and the tier title.
 - GIVE RING TO WILL with the bound ring: Will's final scene, the end-of-game
@@ -54,10 +53,10 @@ def _title(points: int) -> str:
 
 def score(w: World, final: bool = False) -> None:
     from content.experience import get_level
-    g = w.globals
-    points = int(g.get("TROPHY-POINTS", 0))
-    count = int(g.get("TROPHY-COUNT", 0))
-    xp = g.get("xp", 0)
+    from content import trophy_case
+    points = trophy_case.points(w)
+    count = trophy_case.count(w)
+    xp = w.globals.get("xp", 0)
     if final:
         print(f"Score: {points} of {MAX_POINTS}")
         print(f"Level {get_level(w)} ({xp} XP)")
