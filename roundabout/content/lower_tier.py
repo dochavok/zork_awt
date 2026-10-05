@@ -90,7 +90,7 @@ def make_rooms(world) -> None:
     camp = room("LOWER-ENCAMPMENT", "The Encampment", _ENCAMPMENT)
 
     rubble = world.rooms["PILE-OF-RUBBLE"]
-    # Pile of Rubble east → Antechamber is built with section O
+    # Pile of Rubble east → Antechamber is wired in content/still_den.py
     rubble.exits.update(north=Exit(destination="LOWER-CRYPT"), south=Exit(destination="LOWER-ENCAMPMENT"))
     crypt.exits.update(south=Exit(destination="PILE-OF-RUBBLE"), north=Exit(destination="THERMAL-VENT-ROOM"))
     vent.exits.update(south=Exit(destination="LOWER-CRYPT"))

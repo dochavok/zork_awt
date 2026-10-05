@@ -94,7 +94,7 @@ def v_open(world: World) -> int:
         ship.open_chest(world)
         return M_HANDLED
 
-    # Statue base — crowbar required (opening with the crowbar: Section J)
+    # Statue base — crowbar required (USE CROWBAR ON STATUE: content/statue.py)
     if obj.name == "STATUE":
         print("The base is sealed tight. Something with leverage could pry it open.")
         return M_HANDLED

@@ -6,11 +6,11 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ## TODO #1 — Narrative-Driven Test Rewrite
 
-**Status:** In progress — both walkthroughs pass end to end with no state injection: the ring walkthrough (`walkthrough_ring.txt`, `test_walkthrough_ring_v2.py`), A–U, and the full-score walkthrough (`walkthrough_fullscore.txt`, `test_walkthrough_fullscore_v2.py`) (2026-10-04). Remaining: renumber the full-score section letters.
+**Status:** In progress — both walkthroughs pass end to end with no state injection: the ring walkthrough (`walkthrough_ring.txt`, `test_walkthrough_ring_v2.py`), A–U, and the full-score walkthrough (`walkthrough_fullscore.txt`, `test_walkthrough_fullscore_v2.py`), A–SS (2026-10-04). Remaining: the known issues below.
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** The full-score walkthrough passes end to end with no state injection (2026-10-04), and the ring walkthrough still passes. Remaining for TODO #1: renumber the full-score section letters (gaps from AA, DD, MM, NN and SS being folded in, and the HH1/HH2 and LL1/LL2 splits).
+**Current position:** Both walkthroughs pass end to end with no state injection (2026-10-04). Full-score sections renumbered A–Z, AA–SS. TODO #1 stays open until the known issues below are resolved.
 
 0 full-score steps fail.
 
@@ -23,7 +23,7 @@ Surface-items plan (2026-10-04, built for EE, HH2, II, OO; TT pickup still to wr
 - EE drops the Pale Blade in the Church of All (TT picks it up there) and the three bowl pieces and smoke jar in the Bone Passage.
 - II's crossing is then 11: worn 4 + tunic 1 + stake 2 + incantation scroll 1 + vial 1 + lantern 2.
 - OO went down through the Tale and Ale cellar to the Bone Passage, took the bowl pieces and smoke jar, then detoured Junction → Undercroft → Forgotten Shaft → Hidden Secondary Entrance → Assay Room and back for the room XP (from the tunnel side the gap is found automatically). Back up the cellar to the Town Square fountain, then the Forest shrine. No Trophy Case stop — treasures are deposited at the end. The mine can't be entered from the Forest — the Mine Entrance is sealed after Section C's explosion.
-- Full-score section letters: HH → HH1 (Quest 7) + HH2 (Quest 42), LL → LL1 + LL2 (LL.1 never parsed as its own section — the harness only matches letters and digits), NN removed (its bog-exit route opens OO), MM folded into LL2, SS folded into RR. **When the full-score walkthrough passes, clean up the section letter order.**
+- Section letters renumbered 2026-10-04 (old → new): BB→AA, CC→BB, EE→CC, FF→DD, GG→EE, HH1→FF, HH2→GG, II→HH, JJ→II, KK→JJ, LL1→KK, LL2→LL, OO→MM, PP→NN, QQ→OO, RR→PP, TT→QQ, UU→RR, VV→SS. A–Z unchanged. Done entries above use the old letters.
 - LL1 built: shovel taken at the Hole to Below; the bridge is crossed twice (blade and mask first, then shovel, fire clay, amulet).
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
@@ -118,6 +118,8 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Sections TT–VV: TAKE BLADE in the Church of All (left there in EE); the ritual aligned with the ring walkthrough (dial LEFT each time, PUT RING ON ALTAR binds it).
   UU: OPEN CASE removed (the case is opened in O), the three repeat deposits removed (brooch, idol, watch — deposited in EE), LOOK IN CASE and SCORE check [9 treasures on display]; GIVE RING TO WILL checks "9 of 9 treasures on display".
   Trophy Case: score and count are worked out from the case contents (the running counters double-counted repeat deposits: SCORE showed 12 treasures and 405 points); a treasure already in the case is refused — "It's already in the case." (mechanics.md).
+- Full-score section letters renumbered (mapping above); stale prose references fixed (clay pot: section Q; vial and lantern at the bridge since Y).
+  Stale code comments fixed: full-score test seed note (35 Zenni at Will's first teaching in F), and "built with section …" notes in lower_tier, mid_tier, tunnels, upper_tier and verbs now point at where those exits and traps are wired.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.

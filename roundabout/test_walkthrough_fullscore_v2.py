@@ -49,7 +49,7 @@ def _make_input_feed():
 
 
 # Random setup (Zenni rooms) is randomized once and fixed for the tests.
-# Seed 7 is on the lean side: 8 Zenni by Will's teaching in section D.
+# Seed 7 gives 35 Zenni by Will's first teaching in section F.
 _SEED = 7
 
 

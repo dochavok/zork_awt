@@ -15,8 +15,9 @@ Rubble), mechanics.md (Shovel & Dig Mechanic), items.md (Rope, Shovel).
   pocketed directly.
 - The Crevice (Stored Room east): gold pocket watch on a skeleton's finger.
   Cut off for good once the floor is dug.
-- Deferred: Mine Passage south (Inscription Chamber). Pile of Rubble north/south are wired in content/lower_tier.py; east
-  (Antechamber) comes with section O.
+- Exits wired elsewhere: Pile of Rubble north/south in content/lower_tier.py,
+  east (Antechamber) in content/still_den.py; Mine Passage south (Inscription
+  Chamber) in content/inscription.py.
 
 State: STORED-ROOM-DUG, ROPE-TIED, MINE-CHEST-OPEN
 """

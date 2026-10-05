@@ -453,7 +453,7 @@ G) Quest 40 — Shamus's Recipe
 =============================================================================
 Shamus needs bog thyme and the small clay pot from the Supply Room.
 The small clay pot is only available after reaching the Supply Room in
-the dungeon. We'll collect it in section N (dungeon run) and return.
+the dungeon. We'll collect it in section Q (dungeon run) and return.
 For now, note the quest is discovered by talking to Shamus.
 
 > EXAMINE PAINTING            [Tale and Ale]
@@ -1213,7 +1213,7 @@ Now descend to the lower tier.
 > DOWN                        [Pile of Rubble]
 
 =============================================================================
-BB) Quest 19/30 — Keeper's Keys (Lower Crypt)
+AA) Quest 19/30 — Keeper's Keys (Lower Crypt)
 =============================================================================
 > NORTH                       [Lower Crypt]
 > TAKE KEYS                   [key ring]
@@ -1221,7 +1221,7 @@ BB) Quest 19/30 — Keeper's Keys (Lower Crypt)
 Emerald seal matches the statue note.
 
 =============================================================================
-CC) Quest 34 — Frozen Soldier (setup: the Tool Alcove)
+BB) Quest 34 — Frozen Soldier (setup: the Tool Alcove)
 =============================================================================
 East of the Pile of Rubble, through the Antechamber, the Tool Alcove lies
 north of The Lower Crossing.
@@ -1244,7 +1244,7 @@ the rubbing.
 > WEST                        [Pile of Rubble]
 
 =============================================================================
-EE) Quest 19/30 — Holy Water & Consecration (surface, Keeper's Chamber)
+CC) Quest 19/30 — Holy Water & Consecration (surface, Keeper's Chamber)
 =============================================================================
 Surface, use Keeper's keys at Keeper's Chamber (Church of All).
 
@@ -1282,7 +1282,7 @@ three bowl pieces, the other two rune stones and the smoke jar.
 > EAST                        [Bone Passage]
 
 The bowl pieces and the smoke jar aren't needed below. They wait here
-until OO.
+until MM.
 
 > DROP LARGE BOWL PIECE       [You drop the large bowl piece]
 > DROP MUDDY BOWL PIECE       [You drop the muddy bowl piece]
@@ -1294,7 +1294,7 @@ until OO.
 > NORTH                       [Graveyard]
 > NORTH                       [Church of All]
 
-The Pale Blade stays in the church until the ritual (TT).
+The Pale Blade stays in the church until the ritual (QQ).
 
 > DROP PALE BLADE             [You drop the Pale Blade]
 > UNLOCK DOOR WITH KEYS       [third key]
@@ -1318,7 +1318,7 @@ the Trophy Case.
 Also: restore the Whispering Jar. Return to the inn for that.
 
 =============================================================================
-FF) Quest 4 — The Whispering Jar (Complete)
+DD) Quest 4 — The Whispering Jar (Complete)
 =============================================================================
 The jar is in the inn's Pipe Room, east of the Main Room. We have wax
 seal, silver dust, and can read the inscription etched on the base.
@@ -1337,7 +1337,7 @@ complete. The fire clay waits in the Thermal Vent Room for our next trip
 down.
 
 =============================================================================
-GG) Quest 28 — The Archivist's Request (Complete)
+EE) Quest 28 — The Archivist's Request (Complete)
 =============================================================================
 Return the rubbing to the Archivist in the library.
 
@@ -1351,7 +1351,7 @@ Return the rubbing to the Archivist in the library.
 Quest 28 complete. Incantation scroll received — needed for Quest 34.
 
 =============================================================================
-HH1) Quest 7 — The Bone Flute (Complete)
+FF) Quest 7 — The Bone Flute (Complete)
 =============================================================================
 We collected the bone flute from the Cave Creature's Lair. Return it to
 Pyronicus for the Fireball scroll.
@@ -1379,7 +1379,7 @@ Warriors cannot read spell scrolls directly — take it to Will.
 Quest 7 complete. Fireball spell learned.
 
 =============================================================================
-HH2) Quest 42 — The Brotherhood Stones (Complete)
+GG) Quest 42 — The Brotherhood Stones (Complete)
 =============================================================================
 We have all three rune stones: Bog-NE, Old Oak, Inscription Chamber.
 Deliver them to Ivanaar at the Viking Encampment.
@@ -1397,7 +1397,7 @@ Quest 42 complete. Ivanaar's Tunic (chest slot, damage avoidance)
 acquired.
 
 =============================================================================
-II) Quest 19/30 — Kill the Undead Werewolf
+HH) Quest 19/30 — Kill the Undead Werewolf
 =============================================================================
 Return to The Still Den with the consecrated silver stake.
 
@@ -1428,7 +1428,7 @@ The Mausoleum is dark — step in and cast Light.
 > SOUTH                       [Rickety Bridge]
 
 The vial of glacier melt and the Guardian's Lantern have waited at the
-bridge since EE.
+bridge since Y.
 
 > TAKE VIAL                   [You take the vial of glacier melt]
 > TAKE LANTERN                [You take the Guardian's Lantern]
@@ -1461,7 +1461,7 @@ The Ivory Torch on the wall is needed for Quest 34.
 Quest 19/30 complete. Werewolf's Amulet acquired (ring ritual artifact).
 
 =============================================================================
-JJ) Quest 34 — The Frozen Soldier (Incantation scroll + Ivory Torch)
+II) Quest 34 — The Frozen Soldier (Incantation scroll + Ivory Torch)
 =============================================================================
 Return north in the lower tier to the Tool Alcove. We now have the
 incantation scroll from the Archivist and the Ivory Torch from The
@@ -1497,7 +1497,7 @@ The soldier hands over the Forgotten Blade (most valuable treasure,
 Quest 34 complete.
 
 =============================================================================
-KK) Lower Tier — Dark Room, Spirit Room, Burial Chamber
+JJ) Lower Tier — Dark Room, Spirit Room, Burial Chamber
 =============================================================================
 The Dark Room is a spur south of The Lower Crossing. Guardian's Lantern
 required to dispel magical darkness.
@@ -1524,7 +1524,7 @@ react to taking it.
 > REMOVE RING                 [ring removed]
 
 =============================================================================
-LL1) Quest 50 — The Lost Apprentice (Trap Side)
+KK) Quest 50 — The Lost Apprentice (Trap Side)
 =============================================================================
 Quest 50 requires being swept through the Flooding Room (Trap 41) —
 the ONLY way to reach the trap side of the mid-tier. We must NOT disarm
@@ -1569,7 +1569,7 @@ then Right.
 We are swept through the sluice to The Spillway (mid-tier trap side).
 
 =============================================================================
-LL2) Dream Corridor — Lost Apprentice's Cell
+LL) Dream Corridor — Lost Apprentice's Cell
 =============================================================================
 Navigate through the Dream Corridor to reach the Lost Apprentice's Cell.
 The Dream Corridor is a 2×3×2 decision tree. Successful path: B (go
@@ -1609,10 +1609,10 @@ Quest 50 complete. Apprentice's Gloves received.
 > WEAR GLOVES                 [gloves]
 
 =============================================================================
-OO) Quest 49 — Crystal Bowl: Assemble at Fountain
+MM) Quest 49 — Crystal Bowl: Assemble at Fountain
 =============================================================================
 We have the fire clay; the three bowl pieces and the smoke jar wait in the
-Bone Passage, where we left them in EE. The Town Square fountain is running
+Bone Passage, where we left them in CC. The Town Square fountain is running
 (Quest 22 complete). Mix fire clay with fountain water to make clay
 adhesive and assemble the bowl.
 
@@ -1675,7 +1675,7 @@ The bowl transforms into the Crystal Bowl (ring ritual artifact, the
 Verdant Circle).
 
 =============================================================================
-PP) Quest 24 — The Beekeeper's Swarm (Complete)
+NN) Quest 24 — The Beekeeper's Swarm (Complete)
 =============================================================================
 We have the smoke jar from the Supply Room. Navigate to the swarm tree
 (east of The Old Oak).
@@ -1691,7 +1691,7 @@ We have the smoke jar from the Supply Room. Navigate to the swarm tree
 Quest 24 complete. Enchanted honey (restores 2 hearts) received.
 
 =============================================================================
-QQ) Quest 54 — Fight the Knight (Melee Skill — Not Needed for Warrior)
+OO) Quest 54 — Fight the Knight (Melee Skill — Not Needed for Warrior)
 =============================================================================
 The Redcrosse Knight is in Town Square. Quest 54 is for Mages and Rogues
 only — Warriors already have melee skill. For a Warrior walkthrough,
@@ -1708,7 +1708,7 @@ and melee unlock are class-gated.
 The Knight greets the player. As a Warrior, the quest does not trigger.
 
 =============================================================================
-RR) Quests 58 and 53 — The Dragon-Nip and Will's Glasses
+PP) Quests 58 and 53 — The Dragon-Nip and Will's Glasses
 =============================================================================
 Dragon-nip is hidden under the nightstand in Will's Bedroom — Hard
 perception check, but Actually Enchanted Glasses auto-pass. The glasses
@@ -1736,12 +1736,12 @@ Leave the glasses on the nightstand. Quest 53 complete.
 Quest 58 complete. Golden Dragon Scale (treasure, 36 pts) acquired.
 
 =============================================================================
-TT) Ring Binding Ritual — Church of All Altar
+QQ) Ring Binding Ritual — Church of All Altar
 =============================================================================
 All three ring ritual artifacts: Pale Blade (Brotherhood of the Pale
 Blade), Werewolf's Amulet (Veil of the Arcane), Crystal Bowl (Verdant
 Circle). The Pale Blade is still in the Church of All, where it was
-left in EE. Navigate to the Church of All altar.
+left in CC. Navigate to the Church of All altar.
 
 > EXAMINE PAINTING            [Tale and Ale]
 > NORTH                       [Town Square]
@@ -1766,7 +1766,7 @@ the ring.
 The artifacts are gone, and the ring is back in hand, bound.
 
 =============================================================================
-UU) Trophy Case — Deposit the Remaining Treasures
+RR) Trophy Case — Deposit the Remaining Treasures
 =============================================================================
 The remaining treasures go in the case. The Tower is on the second floor
 of Town Hall.
@@ -1790,7 +1790,7 @@ Deposit the remaining treasures:
 The remaining treasures are deposited. Trophy Case win condition fires.
 
 =============================================================================
-VV) Return Ring to Will — Quest Complete
+SS) Return Ring to Will — Quest Complete
 =============================================================================
 Return the bound ring to Will Passion.
 

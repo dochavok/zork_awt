@@ -217,7 +217,7 @@ def make_rooms(world) -> None:
     undercroft.exits["south"] = Exit(destination="JUNCTION")
     bridge.exits.update(north=Exit(destination="JUNCTION"),
                         south=_BoggartExit(destination="DUNGEON-ENTRANCE"))
-    # Dungeon Entrance south → Ink Corridor comes with section I
+    # Dungeon Entrance south → Ink Corridor is wired in content/upper_tier.py
     entrance.exits["north"] = Exit(destination="TOLL-BRIDGE")
 
     crypt.action = crypt_action

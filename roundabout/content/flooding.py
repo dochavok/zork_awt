@@ -200,6 +200,6 @@ def make_rooms(world) -> None:
         return r
 
     flooding = room("FLOODING-ROOM", "Flooding Room", flooding_room_action, 1)
-    room("SPILLWAY", "The Spillway", spillway_action, 2)   # south → Dream Corridor (LL2)
+    room("SPILLWAY", "The Spillway", spillway_action, 2)   # south → Dream Corridor (LL)
     world.rooms["CREATURE-DEN"].exits["north"] = Exit(destination="FLOODING-ROOM")
     flooding.exits["south"] = _LeaveExit(destination="CREATURE-DEN")

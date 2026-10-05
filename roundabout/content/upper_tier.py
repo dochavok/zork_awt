@@ -1,16 +1,16 @@
 """
-Dungeon — Upper Tier (built in batches as section I1 needs it).
+Dungeon — Upper Tier.
 
-Batch 1: Ink Corridor (Trap 45), Supply Room, Narrow Passageway, Idol Room,
-Storage Area. Design: locations.md (Dungeon — Upper Tier), traps.md
-(Trap 45), items.md.
+Ink Corridor (Trap 45), Supply Room (Trap 17), Narrow Passageway, Idol Room
+(Trap 33), Storage Area. Design: locations.md (Dungeon — Upper Tier),
+traps.md (Traps 17, 33, 45), items.md.
 
 - Every room here is dark (light.py).
 - Trap 45 (Ink Corridor): Medium perception, then Medium disarm (trap roll);
   missed or botched, the player is inked. Inked (INKED) cancels the ring's
-  invisibility. NPC refusals and the inn bath come with those NPCs.
-- Deferred: Trap 17 (Supply Room shelf — smoke jar, clay pot) and Trap 33
-  (the idol, fixed in place until then).
+  invisibility. The inked NPC refusals and the inn bath aren't built yet.
+- Trap 17 (Supply Room shelf — smoke jar, clay pot) and Trap 33 (the idol's
+  pedestal; SWAP IDOL WITH SALT) are below.
 
 State: TRAP45-DONE, INKED, HAND-CART-TAKEN
 """
