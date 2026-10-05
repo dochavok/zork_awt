@@ -51,6 +51,8 @@ def back_alley_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         return M_NOT_HANDLED
 
     if msg == M_ENTER:
+        from content import quests
+        quests.discover(w, "51")           # organic — entering the alley
         # Fleeing resets the fight; a fresh visit starts at full hearts
         w.set_global("MUGGER-HEARTS", MUGGER_HEARTS)
         if not w.get_global("MUGGER-SPOTTED"):

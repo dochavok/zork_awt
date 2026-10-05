@@ -205,6 +205,9 @@ def drive_stake(w: World) -> bool:
     w.move_object(w.objects["SCHOLAR"], w.here)
     w.move_object(w.objects["WEREWOLFS-AMULET"], w.here)
     award_combat_xp(w, "werewolf")
+    from content import quests                       # the chain ends here
+    quests.complete(w, "19")
+    quests.complete(w, "30")
     return True
 
 

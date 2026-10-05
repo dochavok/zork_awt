@@ -58,8 +58,10 @@ def check_sprig(w: World) -> None:
     if INVISIBLE not in sprig.flags or sprig.location is not w.rooms[BEDROOM]:
         return
     if check_perception(w, HARD):
+        from content import quests
         sprig.clear_flag(INVISIBLE)
         print(SPRIG_FOUND)
+        quests.discover(w, "58")
 
 
 def on_enter(w: World, room: Room) -> None:

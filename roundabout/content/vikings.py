@@ -128,7 +128,7 @@ def _runed_metal_handoff(w: World) -> None:
     w.move_object(w.objects["RUNED-METAL"], w.player)
     w.set_global("VIKING-TRUST", True)   # arrow hazard silently disabled
     quests.complete(w, "57")
-
+    quests.discover(w, "42")             # Ivanaar's "three stones" request
 
 def talk_ivanaar(w: World) -> None:
     if w.get_global("VIKING-TRUST"):

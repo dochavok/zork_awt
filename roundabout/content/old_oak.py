@@ -57,6 +57,9 @@ def oak_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         kite = "" if w.get_global("KITE-DOWN") else _OAK_KITE
         print(_OAK_START + kite + _OAK_END)
         return M_HANDLED
+    if msg == M_ENTER:
+        from content import quests
+        quests.discover(w, "41")           # organic — the child under the oak
     return M_NOT_HANDLED
 
 

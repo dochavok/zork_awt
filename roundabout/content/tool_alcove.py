@@ -58,6 +58,8 @@ def alcove_action(w: World, msg: int = M_NOT_HANDLED) -> int:
             from content.perception import MEDIUM
             from content.player import check_perception
             if check_perception(w, MEDIUM):
+                from content import quests
+                quests.discover(w, "34")   # organic — the speaking door found
                 w.set_global("ALCOVE-FOUND", True)
                 w.set_global("ALCOVE-JUST-FOUND", True)
         return M_NOT_HANDLED

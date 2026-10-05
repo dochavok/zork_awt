@@ -110,8 +110,10 @@ def _make_tower(world) -> None:
             if not w.get_global("BEDROOM-DOOR-VISIBLE"):
                 from content.player import check_perception
                 if check_perception(w, EASY):
+                    from content import quests
                     w.set_global("BEDROOM-DOOR-VISIBLE", True)
                     print("You notice a door to the north you hadn't seen before.")
+                    quests.discover(w, "53")
         return M_NOT_HANDLED
 
     main.action = tower_action

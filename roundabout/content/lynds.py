@@ -57,6 +57,8 @@ def challenge(w: World) -> None:
         print(f'Lynds grins. "You already beat me, {name}. I remember." He '
               "doesn't put his elbow down.")
         return
+    from content import quests
+    quests.discover(w, "59")               # organic — TALK TO / CHALLENGE LYNDS
     if w.moves < int(w.get_global("LYNDS-COOLDOWN-UNTIL") or 0):
         print(_COOLDOWN)
         return

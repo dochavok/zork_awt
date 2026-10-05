@@ -134,7 +134,8 @@ def v_examine(world: World) -> int:
     # Town Square statue — seam visible to anyone who looks (locations.md)
     if obj.name == "STATUE":
         world.set_global("STATUE-EXAMINED", True)
-        from content.statue import statue_state
+        from content.statue import statue_state, discover_quests
+        discover_quests(world)
         state = statue_state(world)
         if state == "looted":
             print(

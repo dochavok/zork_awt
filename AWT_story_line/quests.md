@@ -170,6 +170,7 @@ The key stays in the lock. The scroll lies in the box: *A folded scroll lies in 
 11. Take Ivory Torch from wall before leaving.
 
 **Reward:** Werewolf's Amulet → ring ritual artifact for The Veil of the Arcane ritual at Church of All altar. See `ring-rituals.md`. 10 Zenni.
+Both quests are discovered at the statue (`LOOK AT STATUE`, or prying it open) and both complete when the werewolf dies — 11 XP and 5 Zenni each (experience.md's 22 XP).
 
 ---
 

@@ -33,6 +33,13 @@ def statue_state(w: World) -> str:
     return "examined" if w.get_global("STATUE-EXAMINED") else "unexamined"
 
 
+def discover_quests(w: World) -> None:
+    """Quests 19 & 30 are discovered at the statue (quests.md — Discovery — Statue)."""
+    from content import quests
+    quests.discover(w, "19")
+    quests.discover(w, "30")
+
+
 def pry_open(w: World) -> None:
     if w.here is None or w.here.name != "TOWN-SQUARE":
         print("There's no statue here.")
@@ -46,5 +53,6 @@ def pry_open(w: World) -> None:
     print(_PRIED)
     w.set_global("STATUE-OPEN", True)
     w.set_global("STATUE-EXAMINED", True)
+    discover_quests(w)
     for name in _CONTENTS:
         w.move_object(w.objects[name], w.rooms["TOWN-SQUARE"])

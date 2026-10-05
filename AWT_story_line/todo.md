@@ -125,6 +125,8 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
 - The Mage class XP bonus (+1 per new dungeon room, experience.md — Class XP Adjustments) isn't built. The Warrior kill bonus and Rogue disarm bonus are.
+- The pond bottle (locations.md — Pond) "discovers the quest" and unlocks May's hints, but has no quest number in quests.md.
+- Old completion paths in actions.py for 42, 51 and the cargo-game version of 59; remove them with the old hint code (TODO #5).
 - Inked player handling (traps.md — Trap 45) is only partly built: INKED is set and cancels the ring's invisibility (Chuckle House ghost). Not built: the NPC refusals while inked (May, Shamus, the trainers, Litlock, the Records Room Worker, the Librarian, active quest givers), Will's disdainful line (npcs.md),
   and the bath with inn rest (5 Zenni) that clears the ink.
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -196,7 +198,9 @@ Build from the design: blind tipping and tier ranges (mechanics.md — Hint Syst
 
 No ring-path step needs a hint (nothing checks for one), so the ring walkthrough doesn't wait on this. Quest 32 leans on May's hints to point players at Rowan and the bog — nothing else in-game does (decided 2026-10-03: leave it that way).
 
-Open question: quests.md Path A for Quests 19&30 reads "May's tier 1 hint → TALK TO LIBRARIAN reveals…". Confirm the Librarian's scholar dialogue does not depend on the hint having been bought.
+Resolved 2026-10-04: the Librarian's dialogue doesn't depend on the hint (library.py).
+
+Order agreed 2026-10-04: quest discovery hooks (done), then the Quest Board (TODO #6), then TIP MAY. The TIP MAY design gaps are raised but not yet decided: quest selection, 19&30 hints before discovery, Quest 4/34 hints before discovery, the Quest 17 hint sets, the Quest 32 gravestone hint, the Quest 49 cutoff, and how tip amounts map to tiers.
 
 ---
 ## TODO #6 — Build and test the Quest Board and May's tips
@@ -206,4 +210,6 @@ Neither walkthrough needs them (no step checks the board or a hint), so the walk
 - **Quest Board** (Bar — `LOOK AT BOARD` / `READ BOARD`): postings from the design — quests posted at game start, on first visits (e.g. Quest 40 on meeting Shamus) and by cascade (quests.md, mechanics.md — Quest Board), removals (e.g. Quest 50 when Trap 41 is disarmed), the Quest 51 bounty after 100 turns, and how completed quests show.
 - **May's tips:** build per TODO #5 (TIP MAY tiers, blind tipping, conditional hints, hints unlocking on discovery).
 - **Tests:** a dedicated test file (not a walkthrough) that drives game state through do_turn where it can — discover, progress and complete quests — and checks the board text and each tier of May's hints, including conditional and one-tier hints.
+
+Organic quest discovery wired 2026-10-04 (19&30, 34, 41, 42, 51, 53, 58, 59); Quests 19&30 now complete at the werewolf. test_quest_discovery.py checks every quest is discovered before it's completed over the full-score run; 7, 17, 22 and 50 are exempt until the board posts them. When the board is built, remove that exemption.
 
