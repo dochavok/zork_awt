@@ -415,7 +415,7 @@ The response follows the amount tipped, not the tier delivered — a 7-Zenni tip
 
 **One-tier hints** count as Tier 1. **Phased hints** (Quests 17 and 32): when a quest moves to its next phase, hints left unbought in the earlier phase stop being sold.
 
-**Hints before discovery:** Quests 19&30 and Quest 4 are sold before they're discovered, and buying one discovers the quest; Quest 34's late hint is sold before discovery but doesn't discover it. Per-quest conditions are in quests.md. (Decided 2026-10-04.)
+**Hints before discovery:** Quests 19&30 and Quest 4 are sold before they're discovered, and buying one discovers the quest; Quest 34's late hint is sold before discovery but doesn't discover it. Per-quest conditions are in quests.md. (Decided 2026-10-04; confirmed 2026-10-05 that the 19&30 hints stay on sale from game start.)
 
 **Which hint a tip buys (decided 2026-10-04):** the tip amount sets the tier paid for. May gives a random hint at exactly that tier — chosen from the quests whose next unbought hint is that tier. If there are none, she steps down one tier and picks at random there, and so on down to Tier 1.
 Tiers stay in order per quest, so a large tip can buy a low tier (the overpaying above). If nothing is left at or below the tier paid for, she gives a "nothing to share" line and the Zenni comes back.

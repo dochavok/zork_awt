@@ -123,10 +123,10 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Forgotten Shaft: the last sentence was a copy of the Assay Room's hidden-gap line; it now describes the west passage.
 - Ship and shore connect only by LAND / DOCK and BOARD SHIP. Land, Ho! is the last sea square and the Empty Beach is the shore. Walking exits between islands and sea removed.
   Both walkthroughs: GO EAST [Land, Ho!] / LAND [Empty Beach], and one more GO WEST home. test_ship_shore.py.
+- Mage class XP bonus: +1 XP the first time a Mage enters each of the 43 dungeon rooms (experience.md — Class XP Adjustments), paid lit or dark, once per room even if its visited state resets. A move refused by darkness pays nothing. Quests 19 & 30 hints stay on sale from game start (mechanics.md). test_mage_bonus.py.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
-- The Mage class XP bonus (+1 per new dungeon room, experience.md — Class XP Adjustments) isn't built. The Warrior kill bonus and Rogue disarm bonus are.
 - The pond bottle (locations.md — Pond) "discovers the quest" and unlocks May's hints, but has no quest number in quests.md.
 - Most of actions.py is unused (altar_ritual, altar_pray, play_cargo, tick_cooldowns). Only start_combat is used, and only by the old failing test_combat tests. Review it when Ty's Cargo game is built.
 - Inked player handling (traps.md — Trap 45) is only partly built: INKED is set and cancels the ring's invisibility (Chuckle House ghost). Not built: the NPC refusals while inked (May, Shamus, the trainers, Litlock, the Records Room Worker, the Librarian, active quest givers), Will's disdainful line (npcs.md),

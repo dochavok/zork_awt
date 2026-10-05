@@ -43,6 +43,44 @@ _HEARTS_AT_LEVEL = {
 }
 
 
+# experience.md — Class XP Adjustments: Mages get +1 XP per new dungeon room.
+# The Upper (15), Middle (14) and Lower (15) Tier rooms in locations.md,
+# less the Skeleton Room (death on entry, no room object) = 43. The Stored
+# Room becomes the Hole to Below — one room object, credited once.
+DUNGEON_ROOMS = frozenset({
+    # Upper Tier
+    "INK-CORRIDOR", "SUPPLY-ROOM", "NARROW-PASSAGEWAY", "IDOL-ROOM",
+    "STORAGE-AREA", "COLLAPSED-AQUEDUCT", "COLLAPSED-GALLERY", "CREATURE-DEN",
+    "COMBAT-ROOM", "FLOODING-ROOM", "PRAYER-ALCOVE", "PORTCULLIS-CORRIDOR",
+    "SHRINE-ROOM", "RICKETY-BRIDGE", "MID-TIER-KEY-DOOR",
+    # Middle Tier — key side
+    "KEY-DOOR-LANDING", "MINE-PASSAGE", "STORED-ROOM", "THE-CREVICE",
+    "INSCRIPTION-CHAMBER", "CAVE-CREATURES-LAIR", "ECHO-ALCOVE",
+    "MAGNETIC-VAULT", "DEEP-LOCK-DOOR",
+    # Middle Tier — trap side
+    "SPILLWAY", "DREAM-CORRIDOR", "LOST-APPRENTICES-CELL", "SUPPLY-CACHE",
+    "FLOOD-SUMP",
+    # Lower Tier
+    "PILE-OF-RUBBLE", "LOWER-CRYPT", "LOWER-ENCAMPMENT", "THERMAL-VENT-ROOM",
+    "ANTECHAMBER", "LOWER-CROSSING", "NARROW-PASS", "STILL-DEN",
+    "TOOL-ALCOVE", "FLOODED-PASSAGE", "FOUNTAIN-ROOM", "DARK-ROOM",
+    "SPIRIT-ROOM", "BURIAL-CHAMBER",
+})
+
+
+def award_mage_room_xp(world: "World", room) -> None:
+    """+1 XP the first time a Mage enters each dungeon room. Credited rooms
+    are kept in their own list — some rooms reset room.visited."""
+    g = world.globals
+    if g.get("player_class") != "mage" or room.name not in DUNGEON_ROOMS:
+        return
+    credited = g.setdefault("MAGE-ROOMS-CREDITED", [])
+    if room.name in credited:
+        return
+    credited.append(room.name)
+    award_xp(world, 1)
+
+
 def award_xp(world: "World", amount: int) -> None:
     """Add XP to player total. Auto-levels if threshold crossed."""
     if amount <= 0:

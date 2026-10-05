@@ -420,6 +420,8 @@ class Game:
             from content.verbs import _score_upd
             _score_upd(w, room.value)
             room.value = 0
+        from content.experience import award_mage_room_xp
+        award_mage_room_xp(w, room)
 
         self.describe_room()
         room.visited = True
