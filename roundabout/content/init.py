@@ -108,8 +108,9 @@ def initialize_world(world, game, seed=None) -> None:
     for name, article in _ARTICLES.items():
         world.objects[name].article = article
 
-    # Start in the White House
+    # Start in the White House — the player object in it, not just "here"
     world.here = world.rooms["WHITE-HOUSE"]
+    world.move_object(world.player, world.here)
 
 
 _ARTICLES = {

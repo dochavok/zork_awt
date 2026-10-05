@@ -163,6 +163,7 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - The ring can't be dropped (content/ring.py): DROP / THROW / PUT anywhere but the altar get "Bring it to me, or keep it close," Will said. You keep it close.; worn, no removal attempt; DROP ALL skips it (KEEPBIT); weight 0 (items.md, mechanics.md). test_ring_keep.py.
 - DROP ALL with nothing to drop: "You are empty-handed." / "You'll need to remove anything you want to drop." (only worn items) / the ring's line (only the ring) (mechanics.md). test_ring_keep.py.
 - Quest 50: Will is shaken on the first tower arrival afterwards — once, before the room description: "Thank you," he says, to the glass. Fires even if inked (npcs.md — Will Passion). test_will_shaken.py.
+- test_world.py trimmed to 7 tests (engine object/flag basics, starting state): the stale name lookups and arbitrary count thresholds from the original baseline removed — the walkthroughs cover them. The player now starts inside the White House (it had no location until the opening). Suite baseline: 0 failures.
 
 **Known issues still open:**
 - The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.

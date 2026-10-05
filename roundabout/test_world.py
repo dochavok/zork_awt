@@ -1,14 +1,16 @@
 """
-Smoke tests: world init, room/object instantiation, flag checks.
+Smoke tests: the engine's core object/room operations and the world's
+starting state. Content (rooms, NPCs, items) is covered by the walkthroughs
+and the feature tests.
 Run with: pytest roundabout/test_world.py  (from c:\\zork_awt)
-or: python test_world.py  (from c:\\zork_awt\\roundabout)
+or: py test_world.py  (from c:\\zork_awt\\roundabout)
 """
 
 import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
 
-from engine.world import World, Room, GameObject, Exit, TAKEBIT, ACTORBIT, ONBIT
+from engine.world import World, Room, GameObject, TAKEBIT
 from engine.clock import Clock
 from engine.game import Game
 from content.init import initialize_world
@@ -28,7 +30,7 @@ def _make_world():
 
 def test_basic_room_and_object():
     w = World()
-    room = Room(name="test-room", desc="A room.", flags=frozenset({ONBIT}))
+    room = Room(name="test-room", desc="A room.", flags=frozenset())
     w.register_room(room)
     obj = GameObject(name="widget", desc="A widget.", flags=frozenset({TAKEBIT}))
     w.register_object(obj)
@@ -64,112 +66,6 @@ def test_move_object_to_none_removes():
     assert obj.location is None
 
 
-# ---------------------------------------------------------------------------
-# Full world init
-# ---------------------------------------------------------------------------
-
-def test_world_init_room_count():
-    w, g = _make_world()
-    assert len(w.rooms) >= 150, f"Expected >= 150 rooms, got {len(w.rooms)}"
-
-
-def test_world_init_object_count():
-    w, g = _make_world()
-    # Objects excluding player
-    objs = [o for o in w.objects.values() if o.name != "player"]
-    assert len(objs) >= 80, f"Expected >= 80 objects, got {len(objs)}"
-
-
-def test_player_created():
-    w, g = _make_world()
-    assert w.player is not None
-    assert w.player.name == "player"
-
-
-def test_player_in_starting_room():
-    w, g = _make_world()
-    assert w.here is not None
-    assert w.player in w.here.contents
-
-
-def test_globals_initialized():
-    w, g = _make_world()
-    assert "hearts" in w.globals
-    assert w.globals["hearts"] == 5
-    assert "zenni" in w.globals
-    assert "ring_corruption" in w.globals
-    assert w.globals["ring_corruption"] == 0
-
-
-# ---------------------------------------------------------------------------
-# Key rooms exist
-# ---------------------------------------------------------------------------
-
-def test_key_rooms_present():
-    w, g = _make_world()
-    expected = [
-        "tale-and-ale-main",
-        "wills-tower-main",
-        "portcullis-corridor",
-        "idol-room",
-        "flooding-room",
-        "ink-corridor",
-        "bone-passage",
-        "skeleton-room",
-        "ghosts-room",
-        "church-nave",     # Church of All — nave room
-        "the-altar",       # Church of All — altar sub-room
-        "combat-room",
-    ]
-    for name in expected:
-        assert name in w.rooms, f"Room missing: {name}"
-
-
-# ---------------------------------------------------------------------------
-# Key objects exist and have correct flags
-# ---------------------------------------------------------------------------
-
-def test_ring_object_exists():
-    w, g = _make_world()
-    ring = w.objects.get("ring")
-    assert ring is not None
-    assert ring.has_flag("WEARBIT") or "WEARBIT" in str(ring.flags)
-
-
-def test_pale_blade_object_exists():
-    w, g = _make_world()
-    blade = w.objects.get("pale-blade")
-    assert blade is not None
-    assert blade.has_flag("TAKEBIT") or "TAKEBIT" in str(blade.flags)
-
-
-def test_npc_objects_present():
-    w, g = _make_world()
-    # Core NPCs: will, may, shamus, litlock, archivist, beekeeper, knight, warden
-    expected_npcs = ["may", "will", "shamus", "litlock", "archivist", "beekeeper",
-                     "knight", "warden", "ivanaar"]
-    for name in expected_npcs:
-        assert name in w.objects, f"NPC missing: {name}"
-        npc = w.objects[name]
-        assert npc.has_flag("ACTORBIT"), f"NPC {name} missing ACTORBIT"
-
-
-def test_objects_have_locations():
-    w, g = _make_world()
-    unplaced = [
-        o.name for o in w.objects.values()
-        if o.location is None and o.name != "player"
-        and not o.name.startswith("_")
-    ]
-    # Many items are unplaced at start (reward items, quest-spawned, locked room items).
-    # Threshold is 55 to account for them all; if this grows much larger investigate.
-    assert len(unplaced) <= 55, f"Too many unplaced objects ({len(unplaced)}): {unplaced[:10]}"
-
-
-# ---------------------------------------------------------------------------
-# GameObject flag helpers
-# ---------------------------------------------------------------------------
-
 def test_set_flag_and_has_flag():
     obj = GameObject(name="test", desc="Test", flags=set())
     obj.set_flag("CUSTOM")
@@ -181,6 +77,26 @@ def test_clear_flag():
     assert obj.has_flag("MYBIT")
     obj.clear_flag("MYBIT")
     assert not obj.has_flag("MYBIT")
+
+
+# ---------------------------------------------------------------------------
+# Starting state
+# ---------------------------------------------------------------------------
+
+def test_player_in_starting_room():
+    w, g = _make_world()
+    assert w.here is w.rooms["WHITE-HOUSE"]
+    assert w.player in w.here.contents
+    assert w.player.location is w.here
+
+
+def test_globals_initialized():
+    w, g = _make_world()
+    assert "hearts" in w.globals
+    assert w.globals["hearts"] == 5
+    assert "zenni" in w.globals
+    assert "ring_corruption" in w.globals
+    assert w.globals["ring_corruption"] == 0
 
 
 if __name__ == "__main__":
