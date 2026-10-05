@@ -29,7 +29,7 @@ Opening area; homage to Zork. One room only. Any command except `OPEN MAILBOX` r
 **NPCs:** Will Passion
 **Items:** Locked music box (Quest 12 — text in quests.md); Light scroll inside
 **Quest Hooks:** Quest 12 (`LOOK AT MUSIC BOX`)
-**Connections:** In ← White House (one-way portal in); North → Will Passion's Bedroom (perception-gated); Painting → Tale and Ale Main Room (one-way teleport out); Mailbox → Tale and Ale Main Room (one-way teleport out)
+**Connections:** In ← White House (one-way portal in); North → Will Passion's Bedroom (perception-gated); Painting → Tale and Ale Main Room (one-way teleport out). There is no mailbox in the Tower — `OPEN MAILBOX` here gets the parser's usual not-here reply.
 Accessed via mailbox portal from White House (opening sequence) or via mailbox in Tale and Ale Main Room.
 
 **First impression:** *The tower doesn't announce itself. It simply is — books, firelight, the low hum of something you can't quite locate. A desk dominates one end, buried under papers that somehow manage to look organized. A painting hangs on the wall, slightly crooked. The room has the feeling of a place where important things happen without any particular fuss.*
@@ -1161,7 +1161,13 @@ Leaving the ship at sea: *"The ocean offers no opinion on that idea, and neither
 - Off the ship (including standing on Desert Island or the Empty Beach): *You're not on a ship.*
 - Ship and shore connect only this way and by `BOARD SHIP` (decided 2026-10-04). Walking off a shore into the sea (`NORTH` on Desert Island, `WEST` on the Empty Beach): *The ocean offers no opinion on that idea, and neither does your survival instinct.* Sailing at an island (`EAST` at Land, Ho!): *You'll have to land the ship.*
 
-**Boarding without disguise:** *A Pie Rat on deck looks you over with the thoroughness of someone whose job is exactly this. "You don't even look like a pirate." He doesn't move. Neither, apparently, will you.*
+**The gangplank (decided 2026-10-05):** `BOARD SHIP` and `EAST` from the Docks are the same action with the same checks. In order:
+- Carrying the Pie Rat Coin: aboard, disguise or not.
+- Ship already returned, no coin: the coin refusal (below).
+- No disguise carried (before or after the explosion): *A Pie Rat on deck looks you over with the thoroughness of someone whose job is exactly this. "You don't even look like a pirate." He doesn't move. Neither, apparently, will you.*
+- Disguise, but the mine hasn't blown yet: *The Pie Rat at the gangplank squints at your coat, then at you. "Crew's all aboard. Don't know you." He doesn't move.*
+- Disguise, after the explosion: aboard — the crew is off at the mine.
+Sailing back into the berth from the Western Roundabout Sea is never checked.
 
 **Room description:** *The deck is cluttered in the way of a working vessel — coils of line, barrels lashed to the rail, a general smell of fish and salt and something that has been at sea too long. This is a ship that wants to move.*
 

@@ -68,7 +68,7 @@ def _make_tower(world) -> None:
         value=1,
     )
     main.set_flag(ONBIT)
-    main.global_objects = ["PAINTING", "MAILBOX-TOWER"]
+    main.global_objects = ["PAINTING"]
     world.register_room(main)
 
     bedroom = Room(

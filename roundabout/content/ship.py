@@ -39,6 +39,15 @@ _NO_COIN = (
     'A Pie Rat blocks the gangplank. "Coin," he says, and holds out a hand, palm '
     "up — not to take it, just to see it. You don't have it. He doesn't move."
 )
+_NO_DISGUISE = (
+    "A Pie Rat on deck looks you over with the thoroughness of someone whose job "
+    'is exactly this. "You don\'t even look like a pirate." He doesn\'t move. '
+    "Neither, apparently, will you."
+)
+_CREW_ABOARD = (
+    "The Pie Rat at the gangplank squints at your coat, then at you. "
+    '"Crew\'s all aboard. Don\'t know you." He doesn\'t move.'
+)
 CHEST_CLOSED_LISTING ="A salt-crusted chest sits in the hole you dug."
 CHEST_EMPTY_LISTING = "An empty chest sits in the hole you dug."
 NOTHING_TO_DIG = "There's nothing here worth digging for."
@@ -127,15 +136,26 @@ def open_chest(w: World) -> None:
 # Returning the ship — the Pie Rat Coin
 # ---------------------------------------------------------------------------
 
-def boarding_refused(w: World) -> bool:
-    """After the ship is returned, the Pie Rats let you aboard only with the
-    Pie Rat Coin on you. Prints the refusal and returns True if refused."""
-    if not w.get_global("SHIP-RETURNED"):
-        return False
-    if w.objects["PIE-RAT-COIN"] in w.player.contents:
-        return False
-    print(_NO_COIN)
-    return True
+def gangplank_refusal(w: World):
+    """Boarding from the Docks (BOARD SHIP or EAST — locations.md, The
+    gangplank). Returns the refusal line, or None to let the player aboard."""
+    carried = w.player.contents
+    if w.objects["PIE-RAT-COIN"] in carried:
+        return None
+    if w.get_global("SHIP-RETURNED"):
+        return _NO_COIN
+    if w.objects["PIE-RAT-DISGUISE"] not in carried:
+        return _NO_DISGUISE
+    if not w.get_global("PIE-RATS-GONE"):
+        return _CREW_ABOARD
+    return None
+
+
+def gangplank_check(w: World, room: Room):
+    """Walk check: EAST from the Docks onto the deck is BOARD SHIP."""
+    if room.name == "SHIP-DECK" and w.here is not None and w.here.name == "DOCKS":
+        return gangplank_refusal(w)
+    return None
 
 
 def ship_returned(w: World) -> None:

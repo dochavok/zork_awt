@@ -137,6 +137,9 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - actions.py deleted: the old play_cargo, altar_ritual, altar_pray, tick_cooldowns and the unused start_combat, with the five test_combat tests that only exercised start_combat. Suite baseline is now 11 old failures (test_combat 5, test_world 6).
 - Town Charter: the Boggart hands it back after Quest 27; it stays with the player (items.md).
 - Cargo: if Ty misses 6-5-4 and the player makes it, the player wins outright — no reroll choice (mechanics.md). test_cargo.py.
+- Zenni total: INVENTORY ends with "You have N Zenni." (1 Zenni / no Zenni; empty-handed prints both lines); SCORE during play adds "Zenni: N" under the Level line (mechanics.md). test_zenni_display.py.
+- Pie Rat Ship gangplank: EAST from the Docks is BOARD SHIP (it skipped every check before). Boarding needs the disguise and the explosion; the Pie Rat Coin always works; new "Crew's all aboard" refusal (locations.md — The gangplank; mechanics.md heist step 8). test_gangplank.py.
+- OPEN MAILBOX no longer works in Will's Tower (the Tale and Ale mailbox was a Tower global too); locations.md Tower connections fixed. test_tower_mailbox.py.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.

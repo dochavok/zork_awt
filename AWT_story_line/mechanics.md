@@ -74,6 +74,8 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 
 `INVENTORY` / `I` lists carried items by their inventory description (items.md). Worn items show **(being worn)**; wearable items carried but not worn show **(not worn)**. Nothing carried: *"You are empty-handed."*
 
+The purse always ends the list: *"You have 12 Zenni."* (*"You have 1 Zenni."*, *"You have no Zenni."*). Empty-handed prints both lines. There is no other place the player is told the total, besides `SCORE` (below).
+
 ### Dice & Roll System
 
 All checks are dice-based and hidden from the player. Players see outcomes only, never numbers.
@@ -851,7 +853,7 @@ Multi-step quest chain that grants access to the Pie Rat Ship.
 6. Still inside the mine (Mine Entrance, Main Shaft, Assay Room, Mine Tunnels, Rat's Nest) when it goes: death, GAME OVER.
 7. Explosion — cave-in seals main mine entrance permanently.
 Text (locations.md — Mine Tunnels, Mine Entrance) covers the weak point, the drop, the refusals, the fuse, the explosion and the death line.
-8. Steal the ship while Pie Rats respond to explosion.
+8. Steal the ship while Pie Rats respond to explosion. Boarding needs the disguise **and** the explosion (or, later, the Pie Rat Coin) — locations.md, Pie Rat Ship — Deck, The gangplank.
 9. Return the ship — Pie Rats angry but grudgingly impressed. One Pie Rat flips player a Pie Rat Coin (Trophy Case treasure item). From then on, `BOARD SHIP` works only while the player carries the coin (locations.md — Pie Rat Ship — Deck).
 
 **Notes:**
@@ -1032,6 +1034,7 @@ Fixed container in The Tower (Town Hall). Treasure items are placed here permane
 ```
 Score: 0
 Level 6 (412 XP)
+Zenni: 12
 0 treasures on display.
 ```
 

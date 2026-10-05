@@ -285,8 +285,11 @@ def v_inventory(world: World) -> int:
     from engine.world import WEARBIT
     player = world.player
     items = [o for o in (player.contents if player else []) if o is not player]
+    zenni = world.globals.get("zenni", 0)
+    purse = f"You have {zenni} Zenni." if zenni else "You have no Zenni."
     if not items:
         print("You are empty-handed.")
+        print(purse)
         return M_HANDLED
 
     print("You are carrying:")
@@ -298,6 +301,7 @@ def v_inventory(world: World) -> int:
         else:
             note = ""
         print(f"  {obj.desc[:1].upper()}{obj.desc[1:]}{note}")
+    print(purse)
     return M_HANDLED
 
 
@@ -1226,21 +1230,12 @@ def v_board_ship(world: World) -> int:
         print("There's no ship to board here.")
         return M_HANDLED
 
-    # At the Docks after the ship is returned: the Pie Rat Coin is the pass
+    # At the Docks: disguise and explosion, or the Pie Rat Coin
     from content import ship
-    if here.name == "DOCKS" and ship.boarding_refused(world):
-        return M_HANDLED
-
-    # At the Docks: check disguise unless Pie Rats gone
-    if here.name == "DOCKS" and not world.get_global("PIE-RATS-GONE"):
-        player   = world.player
-        disguise = world.objects.get("PIE-RAT-DISGUISE")
-        if disguise is None or player is None or disguise not in player.contents:
-            print(
-                'A Pie Rat on deck looks you over with the thoroughness of '
-                'someone whose job is exactly this. "You don\'t even look '
-                'like a pirate." He doesn\'t move. Neither, apparently, will you.'
-            )
+    if here.name == "DOCKS":
+        refusal = ship.gangplank_refusal(world)
+        if refusal:
+            print(refusal)
             return M_HANDLED
 
     # Track where the ship is so sailing direction is correct

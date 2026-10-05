@@ -75,6 +75,8 @@ def initialize_world(world, game, seed=None) -> None:
     from content import mine
     game.register_enter_hook(mine.on_enter)
     game.register_walk_check(mine.sealed_check)
+    from content import ship
+    game.register_walk_check(ship.gangplank_check)   # EAST from the Docks = BOARD SHIP
     from content import mine_branch
     game.register_enter_hook(mine_branch.on_enter)   # the Assay Room gap
 
