@@ -157,6 +157,7 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Inked player (content/ink.py): Shamus, Raznak, the Knight, the Records Room Worker and the Librarian refuse with their own lines; the active quest givers (Archivist, oak child, beekeeper, Ivanaar, Haalvar, Aylora, Pyronicus, Rowan Finch, Lynds) share one;
   TALK / GIVE (item kept) / BUY / PAY / CHALLENGE / FIGHT / SHOOT / riddle answers / Aylora's DRINK refused, no Zenni taken, a turn used; reading the slate still works. Arrival greetings (Ivanaar, Haalvar's riddle, the beekeeper) wait until clean.
   Will: TALK gets his disdainful line every time; the first GIVE / teaching gets it once, then goes ahead. Litlock turns an inked player away at the door, invited or not (npcs.md, traps.md). test_ink.py.
+- Opening pacing: two stops only — after "Then we begin" and after the ring briefing — each showing "[Press ENTER to continue]"; no silent waits; the rest flows into the first > prompt (npcs.md — Will Passion, Pauses). test_opening.py.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.

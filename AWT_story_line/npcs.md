@@ -36,6 +36,8 @@ Will asks: *"Are you up for an adventure?"*
 - **No:** *Will pauses. "No," he repeats, tasting the word. "Interesting." He waves a hand, not unkindly. "Off you go, then." And he is gone. The field is quiet. The mailbox stands closed in the morning light, as though it never opened. As though none of this happened.* GAME OVER. Player never leaves the field.
 - **Yes:** *Will straightens to his full height. Something changes in the air — a pressure, a stillness, the sense of a page turning. "Then we begin," he says. The field vanishes. The tower arrives around you like a cloak settling onto broad shoulders.* Player teleported to tower.
 
+**Pauses:** the opening stops for the player only twice — after the Yes line (before the tower appears) and after the ring briefing (step 4). Each shows `[Press ENTER to continue]` where the cursor waits. Everything else flows: class result straight into the name question, the welcome line into the briefing, the Zenni handoff and send-off into the first `>` prompt.
+
 **Tower visit sequence:**
 1. Player arrives — sees tower first impression.
 2. **Class selection:** *"I have read destinies in the lines of a man's palm, in the pattern of stars, in the way smoke rises from a candle. And yet here you stand, entirely unreadable."* He sighs. *"Just tell me — Warrior, Mage, or Rogue?"*

@@ -102,8 +102,12 @@ _SENDOFF_TEXT = """\
 """
 
 
+_PAUSE_CUE = "[Press ENTER to continue] "
+
+
 def _pause() -> None:
-    input()
+    """One of the opening's two stops (npcs.md — Will Passion, Pauses)."""
+    input(_PAUSE_CUE)
 
 
 def _prompt_adventure() -> bool:
@@ -140,7 +144,7 @@ def run_opening(world: World, game: Game) -> None:
         return
 
     print(_ACCEPT_TEXT)
-    _pause()
+    _pause()                      # stop 1: before the tower appears
 
     # Step 1 — Player arrives: tower first impression
     tower = world.rooms.get("WIZARDS-TOWER")
@@ -153,7 +157,7 @@ def run_opening(world: World, game: Game) -> None:
     print(_CLASS_RESPONSE[choice])
     print(f"\nYou have chosen: {choice.capitalize()}")
     print(f"Hearts: {cls['hearts']}  Starting skill: {cls['skill']}")
-    _pause()
+    print()
 
     # Step 3 — Name entry
     name = _prompt_name() or "Adventurer"
@@ -168,19 +172,17 @@ def run_opening(world: World, game: Game) -> None:
         g["max_hearts"]   = cls["hearts"]
         g[f"skill_{cls['skill']}"] = True
 
-    print(f"\nWelcome, {name}.")
-    _pause()
+    print(f"\nWelcome, {name}.\n")
 
     # Step 4 — Ring quest briefing (no ring handed over; Pyronicus has it)
     print(_BRIEFING_TEXT)
-    _pause()
+    _pause()                      # stop 2: after the briefing
 
     # Step 5 — Zenni handoff
     print(_ZENNI_TEXT)
     world.globals["zenni"] = world.globals.get("zenni", 0) + 10
-    _pause()
 
-    # Step 6 — Send-off. Step 7 (trailing warning) and step 8 (transition)
-    # fire on the first EXAMINE PAINTING — see verbs.v_examine.
-    print(_SENDOFF_TEXT)
-    _pause()
+    # Step 6 — Send-off, straight into the game's > prompt. Step 7 (trailing
+    # warning) and step 8 (transition) fire on the first EXAMINE PAINTING —
+    # see verbs.v_examine.
+    print(_SENDOFF_TEXT.rstrip("\n"))
