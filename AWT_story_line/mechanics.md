@@ -898,6 +898,7 @@ Built 2026-10-05 (content/cargo.py). Fair d6 — no level dice, no Lucky. The fa
 - **The rerolled result must be kept, even if lower.** This is the only player decision in the game.
 
 **Order:** Ty rolls first, then the player — the player knows the score to beat. Ties (including both 0) are a push: stakes back.
+If Ty misses 6-5-4 (scores 0) and the player makes it, the player wins outright — no reroll choice, the round settles at once.
 
 **Ty's rerolls (decided 2026-10-05):** while rolls remain, he keeps any cargo die showing 4–6 and rerolls any showing 1–3; both 4+ means he stands. (Simulated with a player who chooses well: player wins ~38%, Ty ~37%, push ~24%.)
 

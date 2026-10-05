@@ -177,7 +177,7 @@ def _player_turn(w: World, stake: int, ty: int) -> None:
         _settle(w, stake, ty, 0)
         return
     a, b = cargo
-    if left == 0:
+    if left == 0 or ty == 0:                 # Ty missed 6-5-4: the sequence wins outright
         print(_SEQUENCE.format(a=a, b=b, n=a + b))
         _settle(w, stake, ty, a + b)
         return

@@ -136,6 +136,7 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Ty's Cargo game (content/cargo.py): fair d6, Ty rolls first (keeps cargo dice 4–6, rerolls 1–3), player REROLL BOTH / REROLL n / STAND, ties push, Ty's bankroll grows with his winnings, cleaned out = table closed. mechanics.md and npcs.md updated (reroll one or both). test_cargo.py.
 - actions.py deleted: the old play_cargo, altar_ritual, altar_pray, tick_cooldowns and the unused start_combat, with the five test_combat tests that only exercised start_combat. Suite baseline is now 11 old failures (test_combat 5, test_world 6).
 - Town Charter: the Boggart hands it back after Quest 27; it stays with the player (items.md).
+- Cargo: if Ty misses 6-5-4 and the player makes it, the player wins outright — no reroll choice (mechanics.md). test_cargo.py.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.

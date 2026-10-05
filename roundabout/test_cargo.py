@@ -149,6 +149,16 @@ def test_choice_reroll_both_twice_must_keep():
     assert w.get_global("CARGO-ROUND") is None
 
 
+def test_ty_scored_zero_sequence_wins_outright():
+    w, g = _table()
+    out = _play(g, "bet 3", _TY_FAIL + [6, 5, 4, 1, 1])     # 2, rolls left — no choice
+    assert "Ship, Captain and Crew. Your cargo: 1 and 1 — 2." in out
+    assert cargo._CHOOSE not in out
+    assert cargo._WIN in out
+    assert w.get_global("CARGO-ROUND") is None
+    assert w.globals["zenni"] == 23
+
+
 def test_bare_reroll_and_other_commands_wait_without_a_turn():
     w, g = _table()
     _play(g, "bet 3", _TY_9 + [6, 5, 4, 2, 6])
@@ -177,8 +187,7 @@ def test_ty_matches_what_he_has_and_is_cleaned_out():
     out = _play(g, "bet 10", _TY_FAIL + [6, 5, 4, 6, 6])
     assert '"I can match 4."' in out
     assert "Ty's cargo" not in out
-    out = _do(g, "stand")
-    assert cargo._WIN in out and cargo._CLEANED_OUT in out
+    assert cargo._WIN in out and cargo._CLEANED_OUT in out    # Ty missed: wins outright
     assert w.globals["zenni"] == 54 and w.get_global("TY-BANKROLL") == 0
     assert cargo._CLOSED in _do(g, "bet 3")
     assert cargo._CLOSED in _do(g, "talk to ty")
