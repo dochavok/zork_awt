@@ -97,6 +97,9 @@ He asks it the way someone asks a question they already suspect the answer to. H
 
 He turns back to his work.
 
+**Quest 50 — after the apprentice comes home:** on the first arrival at the tower after Quest 50 completes, once, printed as the player arrives (before the room description, which then has him back at his desk). Fires even if the player is inked. Nothing else changes.
+*Will is standing at the window when you arrive. He doesn't turn around. "Thank you," he says, to the glass. Then he sits back down, and that's the end of it.*
+
 **Return visit (player brings ring back):** See `ring-rituals.md` — second briefing confirmed. Will explains the Church of All, the dial, and that three religions are needed. Does not name which three.
 
 **Final scene (player returns bound ring):** See `ring-rituals.md` — confirmed. Will takes the ring, listens for something, sets it on the desk. *"Well done."* Ring quest complete.

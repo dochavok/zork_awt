@@ -104,12 +104,24 @@ def _make_tower(world) -> None:
     from engine.game import M_NOT_HANDLED, M_ENTER, M_END
     from content.perception import EASY
 
+    _WILL_SHAKEN = (    # npcs.md — Will Passion, Quest 50
+        "Will is standing at the window when you arrive. He doesn't turn around. "
+        '"Thank you," he says, to the glass. Then he sits back down, and that\'s '
+        "the end of it."
+    )
+
     def tower_action(w, msg=M_NOT_HANDLED):
         if msg == M_END:
             from content.will import glasses_seen
             glasses_seen(w)
             return M_NOT_HANDLED
         if msg == M_ENTER:
+            # Quest 50: first arrival after the apprentice comes home, once —
+            # before the room description, which has Will back at his desk
+            from content import quests
+            if quests.is_complete(w, "50") and not w.get_global("WILL-SHAKEN-SHOWN"):
+                w.set_global("WILL-SHAKEN-SHOWN", True)
+                print(_WILL_SHAKEN)
             # Silent Easy perception check fires every visit until bedroom found
             if not w.get_global("BEDROOM-DOOR-VISIBLE"):
                 from content.player import check_perception

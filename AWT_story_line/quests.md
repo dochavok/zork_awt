@@ -506,7 +506,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 6. Apprentice follows player out.
 7. As they surface in Bog-NW, apprentice gives his gloves. Quest completes on bog exit — no return to Will required.
 
-**Reward:** Apprentice's Gloves — hands slot, +3 combat roll bonus. Will is visibly shaken when player next visits the tower; says little about it. 5 Zenni.
+**Reward:** Apprentice's Gloves — hands slot, +3 combat roll bonus. Will is visibly shaken when player next visits the tower; says little about it (npcs.md — Will Passion). 5 Zenni.
 
 ---
 
