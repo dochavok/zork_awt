@@ -515,6 +515,8 @@ Full combat dialogue in `quests.md` — Quest 54.
 - After training: *"[Name]." He nods, once. "Keep your guard up."*
 - `FIGHT KNIGHT` after training: *"We're done with that, [Name]," he says.*
 
+**`SHOOT KNIGHT` (any time he's there; no turn used):** *He steps inside your draw and pushes the bow aside with the flat of his blade. "Steel," he says. "That's what you came to learn."*
+
 **Paying (`PAY KNIGHT` / `GIVE KNIGHT THREE ZENNI`):** *He walks you through it twice, slowly, then once at speed: your footing, your guard, where your weight goes when you swing. By the end your arms ache, and something has settled into them that wasn't there before.* Then the Shamus line (quests.md — Quest 54).
 
 **Warriors (no trial):**

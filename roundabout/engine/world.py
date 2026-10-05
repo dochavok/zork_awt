@@ -330,6 +330,9 @@ class World:
         # over — has been handled: its first-sight line (fdesc) is spent.
         if destination is not None and destination is self.player:
             obj.touched = True
+        # Parting with the equipped weapon unequips it (mechanics.md — Equipping weapons)
+        elif self.globals.get("EQUIPPED") == obj.name:
+            self.globals["EQUIPPED"] = None
         if destination is not None:
             if isinstance(destination, Room):
                 destination.contents.append(obj)

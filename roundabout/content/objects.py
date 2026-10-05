@@ -191,7 +191,7 @@ def _make_mine_objects(world) -> None:
         examine="A convincing Pie Rat disguise — hat, coat, the works.",
         synonyms=["disguise", "costume", "hat", "coat"],
         adjectives=["pie", "rat", "pie-rat"],
-        flags={TAKEBIT},
+        flags={TAKEBIT, "WEARABLE"},
     )
     world.register_object(disguise)
 
@@ -424,7 +424,7 @@ def _make_viking_objects(world) -> None:
         examine="A bow, plain and well-maintained, strung tight and balanced. It has "
                 "the feeling of something that expects to be used correctly.",
         synonyms=["bow"], adjectives=["plain"],
-        flags={TAKEBIT},
+        flags={TAKEBIT, WEAPONBIT},
     ))
     npc("RAZNAK", "Raznak",
         "Raznak stands at the near end of the range, watching the targets.",

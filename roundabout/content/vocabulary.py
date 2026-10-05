@@ -183,6 +183,9 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("spray")
     v.add_verb("squeeze")
     v.add_verb("stab")
+    v.add_verb("shoot")                             # SHOOT X (WITH BOW)
+    v.add_verb("equip", "wield")                    # EQUIP BOW / EQUIP MACE
+    v.add_verb("unequip")
     v.add_verb("stand")
     v.add_verb("stay")
     v.add_verb("strike")

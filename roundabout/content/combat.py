@@ -20,6 +20,12 @@ if TYPE_CHECKING:
 # items.md — Dagger, Mace, Battle Axe
 WEAPON_BONUS: dict[str, int] = {"DAGGER": 2, "MACE": 4, "BATTLE-AXE": 6}
 GLOVES_BONUS = 3          # items.md — Apprentice's Gloves, while worn
+BOW_OPENING_BONUS = 5     # mechanics.md — Bow, first round bonus
+EQUIPPABLE = (*WEAPON_BONUS, "BOW")
+
+# A bow shot's own hit and tie lines; a miss keeps the fight's line (mechanics.md)
+_BOW_WON = "Your arrow finds its mark. The {enemy} staggers."
+_BOW_TIE = "You loose an arrow as it closes on you. Both of you feel it."
 
 # experience.md — Combat
 _COMBAT_XP: dict[str, int] = {
@@ -56,15 +62,50 @@ def can_use_weapons(w: "World") -> bool:
     return w.globals.get("player_class") == "warrior" or bool(w.globals.get("skill_melee"))
 
 
-def weapon_bonus(w: "World", weapon=None) -> int:
-    """The weapon's bonus: the one named (KILL X WITH Y), else the best one
-    carried. Nothing without Weapon Use (Warriors; Mages/Rogues after Quest 54)."""
-    if not can_use_weapons(w):
+def equipped(w: "World"):
+    """The equipped weapon or bow, if the player still has it."""
+    name = w.globals.get("EQUIPPED")
+    obj = w.objects.get(name) if name else None
+    return obj if _carried(w, obj) else None
+
+
+def equip(w: "World", obj) -> bool:
+    """EQUIP X (mechanics.md — Equipping weapons). Prints the line; True if obj
+    is equipped afterwards."""
+    if obj.name not in EQUIPPABLE:
+        print(f"You can't equip the {obj.desc}.")
+        return False
+    if obj.name in WEAPON_BONUS and not can_use_weapons(w):
+        print(f"You don't know how to fight with the {obj.desc}. "
+              "The knight in the square teaches that.")
+        return False
+    current = equipped(w)
+    if current is obj:
+        print(f"You're already holding the {obj.desc}.")
+        return True
+    if current is not None:
+        print(f"You put away the {current.desc} and take up the {obj.desc}.")
+    else:
+        print(f"You take up the {obj.desc}.")
+    w.globals["EQUIPPED"] = obj.name
+    return True
+
+
+def unequip(w: "World", obj) -> None:
+    if equipped(w) is not obj:
+        print(f"You aren't holding the {obj.desc}.")
+        return
+    w.globals["EQUIPPED"] = None
+    print(f"You put away the {obj.desc}.")
+
+
+def weapon_bonus(w: "World") -> int:
+    """The equipped melee weapon's bonus. Nothing without Weapon Use
+    (Warriors; Mages/Rogues after Quest 54)."""
+    obj = equipped(w)
+    if obj is None or not can_use_weapons(w):
         return 0
-    if weapon is not None:
-        return WEAPON_BONUS.get(weapon.name, 0) if _carried(w, weapon) else 0
-    return max((b for name, b in WEAPON_BONUS.items()
-                if _carried(w, w.objects.get(name))), default=0)
+    return WEAPON_BONUS.get(obj.name, 0)
 
 
 def gloves_bonus(w: "World") -> int:
@@ -72,8 +113,12 @@ def gloves_bonus(w: "World") -> int:
     return GLOVES_BONUS if _carried(w, gloves) and gloves.has_flag("WEARBIT") else 0
 
 
-def player_roll(w: "World", weapon=None) -> int:
-    return player.roll(w) + weapon_bonus(w, weapon) + gloves_bonus(w)
+def player_roll(w: "World", *, shot: bool = False, opening: bool = False) -> int:
+    """Melee: level dice + equipped weapon + gloves. A bow shot: level dice +
+    5 on the fight's opening round + gloves."""
+    if shot:
+        return player.roll(w) + (BOW_OPENING_BONUS if opening else 0) + gloves_bonus(w)
+    return player.roll(w) + weapon_bonus(w) + gloves_bonus(w)
 
 
 def _enemy_roll(dice: tuple[int, int]) -> int:
@@ -91,9 +136,14 @@ def fight_round(w: "World", dice: tuple[int, int], won: str, lost: str, tie: str
     loses (0, 1, or FINISHED). lethal=False: the player's hearts can reach 0
     without death (the mugger handles that himself). finishing=False: no
     Finishing Move (the knight's trial)."""
+    opening = not w.globals.get("FIGHT-OPENED")
+    w.globals["FIGHT-OPENED"] = True
     if finishing and _finishing_move(w):
         return FINISHED
-    mine = player_roll(w, w.prsi if w.prsa == "V-MELEE" else None)
+    shot = w.prsa == "V-SHOOT"
+    if shot and w.prso is not None:
+        won, tie = _BOW_WON.format(enemy=w.prso.desc), _BOW_TIE
+    mine = player_roll(w, shot=shot, opening=opening)
     theirs = _enemy_roll(dice)
     if mine > theirs:
         print(won)
@@ -105,6 +155,12 @@ def fight_round(w: "World", dice: tuple[int, int], won: str, lost: str, tie: str
     print(tie)
     take_damage(w, 1, lethal=lethal)
     return 1
+
+
+def on_enter(w: "World", room) -> None:
+    """Enter hook: every fight resets when the player comes back into its room,
+    so the next round is a fight's opening round (the bow's +5)."""
+    w.globals["FIGHT-OPENED"] = False
 
 
 def _finishing_move(w: "World") -> bool:

@@ -121,14 +121,18 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
 
         # SHOOT — bow attack
-        SyntaxRule(verb="attack", particle="shoot",
-                   action="V-SHOOT",
+        SyntaxRule(verb="shoot", action="V-SHOOT",
                    obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir),
                    prep="with",
                    obj2=ObjectSpec(locations=_held_car_have)),
-        SyntaxRule(verb="attack", particle="shoot",
-                   action="V-SHOOT",
+        SyntaxRule(verb="shoot", action="V-SHOOT",
                    obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+
+        # EQUIP / WIELD / UNEQUIP — one weapon or the bow at a time
+        SyntaxRule(verb="equip", action="V-EQUIP",
+                   obj1=ObjectSpec(find_flag=WEAPONBIT, locations=_held_car_have)),
+        SyntaxRule(verb="unequip", action="V-UNEQUIP",
+                   obj1=ObjectSpec(find_flag=WEAPONBIT, locations=_held_car_have)),
 
         # ------------------------------------------------------------------ #
         # BACK                                                                #

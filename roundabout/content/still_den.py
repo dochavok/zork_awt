@@ -205,6 +205,17 @@ def drive_stake(w: World) -> bool:
     return True
 
 
+_BOW_FAILS = (
+    "The arrow strikes true and stays there. The werewolf looks at it briefly, "
+    "then at you. It does not appear concerned."
+)
+
+
+def shot(w: World) -> None:
+    """SHOOT WEREWOLF: the arrow does nothing; the turn's round still happens."""
+    print(_BOW_FAILS)
+
+
 def melee(w: World) -> None:
     """KILL / ATTACK WEREWOLF: conventional weapons do nothing."""
     print(_MELEE_FAILS)

@@ -191,6 +191,28 @@ def give_zenni_input_hook(w: World, text: str) -> bool:
     return True
 
 
+BOW_REFUSED = (
+    "He steps inside your draw and pushes the bow aside with the flat of his "
+    'blade. "Steel," he says. "That\'s what you came to learn."'
+)
+
+
+def shoot_input_hook(w: World, text: str):
+    """SHOOT KNIGHT / KILL KNIGHT WITH BOW, bow in hand: he won't have it — no
+    turn used (npcs.md)."""
+    words = text.lower().split()
+    if not words or not ({"knight", "redcrosse"} & set(words)):
+        return False
+    shot = words[0] == "shoot" or ("with" in words and "bow" in words)
+    knight = w.objects.get("KNIGHT")
+    if not shot or knight is None or knight.location is not w.here \
+            or w.objects["BOW"] not in w.player.contents:
+        return False
+    from engine.game import HOOK_NO_TURN
+    print(BOW_REFUSED)
+    return HOOK_NO_TURN
+
+
 def on_enter(w: World, room) -> None:
     """Enter hook: leaving the square abandons a trial in progress."""
     if room.name != "TOWN-SQUARE":

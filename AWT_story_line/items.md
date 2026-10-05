@@ -14,7 +14,7 @@ Update this file immediately when any item detail is designed or changed.
 - **Rogues:** Raznak hands it over immediately on first interaction after trust earned — no training required, no Zenni cost.
 - **Warriors / Mages:** Awarded after paying 3 Zenni for archery training.
 
-Required to make ranged (bow) attacks in combat. Must be carried in inventory.
+Required to make ranged (bow) attacks in combat. `SHOOT` equips it (mechanics.md — Equipping weapons); it can't be worn.
 
 **First round bonus:** The opening bow attack in any combat gains +5 to the roll — advantage of distance and surprise. Subsequent rounds in the same combat have no bonus.
 

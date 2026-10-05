@@ -292,9 +292,13 @@ def v_inventory(world: World) -> int:
         print(purse)
         return M_HANDLED
 
+    from content.combat import equipped
+    held = equipped(world)
     print("You are carrying:")
     for obj in items:
-        if obj.has_flag(WEARBIT):
+        if obj is held:
+            note = " (equipped)"
+        elif obj.has_flag(WEARBIT):
             note = " (being worn)"
         elif obj.has_flag("WEARABLE"):
             note = " (not worn)"
@@ -378,6 +382,9 @@ def v_wear(world: World) -> int:
     player = world.player
     if player is None:
         return M_NOT_HANDLED
+    if not obj.has_flag("WEARABLE"):
+        print(f"You can't wear the {obj.desc}.")
+        return M_HANDLED
 
     if obj not in player.contents:
         world.move_object(obj, player)
@@ -424,6 +431,10 @@ def v_remove(world: World) -> int:
         return M_NOT_HANDLED
 
     from engine.world import WEARBIT
+    from content import combat
+    if obj.name in combat.EQUIPPABLE:
+        combat.unequip(world, obj)
+        return M_HANDLED
     player = world.player
     if player is None or obj not in player.contents or not obj.has_flag(WEARBIT):
         print(f"You aren't wearing the {obj.desc}.")
@@ -982,6 +993,34 @@ def v_challenge(world: World) -> int:
 # V-MELEE  (KILL / ATTACK X) — one combat round per command (mechanics.md)
 # ---------------------------------------------------------------------------
 
+_FIGHTS = ("MUGGER", "WARDEN", "WEREWOLF", "APPRENTICE", "KNIGHT")
+
+
+def _fightable(world: World, obj) -> bool:
+    if obj.name == "APPRENTICE":
+        return not world.get_global("APPRENTICE-FREED")
+    return obj.name in _FIGHTS
+
+
+def _fight(world: World, obj) -> None:
+    """One round against obj — melee or a bow shot, by world.prsa (content/combat.py)."""
+    if obj.name == "MUGGER":
+        from content import back_alley
+        back_alley.fight_round(world)
+    elif obj.name == "WARDEN":
+        from content import combat_room
+        combat_room.fight_round(world)
+    elif obj.name == "WEREWOLF":
+        from content import still_den
+        still_den.shot(world) if world.prsa == "V-SHOOT" else still_den.melee(world)
+    elif obj.name == "APPRENTICE":
+        from content import trap_side
+        trap_side.fight_round(world)
+    elif obj.name == "KNIGHT":
+        from content import knight
+        knight.attack(world)
+
+
 def v_melee(world: World) -> int:
     if world.prso is not None and world.prso.name == "GALLERY-TIMBERS":   # HIT TIMBER
         from content import aqueduct
@@ -990,27 +1029,61 @@ def v_melee(world: World) -> int:
     obj = world.prso
     if obj is None:
         return M_NOT_HANDLED
-    if obj.name == "MUGGER":
-        from content import back_alley
-        back_alley.fight_round(world)
+    weapon = world.prsi
+    if weapon is not None and weapon.name == "BOW":         # KILL X WITH BOW
+        world.prsa = "V-SHOOT"
+        return v_shoot(world)
+    if not _fightable(world, obj):
+        print(f"You can't fight the {obj.desc}.")
         return M_HANDLED
-    if obj.name == "WARDEN":
-        from content import combat_room
-        combat_room.fight_round(world)
+    # KILL X WITH Y: a usable weapon is taken up first, same turn
+    from content import combat
+    if (weapon is not None and weapon.name in combat.WEAPON_BONUS
+            and weapon in world.player.contents and combat.can_use_weapons(world)
+            and combat.equipped(world) is not weapon):
+        combat.equip(world, weapon)
+    _fight(world, obj)
+    return M_HANDLED
+
+
+def v_shoot(world: World) -> int:
+    """SHOOT X (WITH BOW) — a bow round; equips the bow (mechanics.md — Bow attacks)."""
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    from content import combat
+    bow = world.objects["BOW"]
+    if bow not in world.player.contents:
+        print("You've nothing to shoot with.")
         return M_HANDLED
-    if obj.name == "WEREWOLF":
-        from content import still_den
-        still_den.melee(world)
+    if world.prsi is not None and world.prsi is not bow:
+        print("That won't shoot anything.")
         return M_HANDLED
-    if obj.name == "APPRENTICE" and not world.get_global("APPRENTICE-FREED"):
-        from content import trap_side
-        trap_side.fight_round(world)
+    if not _fightable(world, obj):
+        print(f"You can't fight the {obj.desc}.")
         return M_HANDLED
-    if obj.name == "KNIGHT":
-        from content import knight
-        knight.attack(world)
+    if combat.equipped(world) is not bow:
+        combat.equip(world, bow)
+    _fight(world, obj)
+    return M_HANDLED
+
+
+def v_equip(world: World) -> int:
+    if world.prso is None:
+        return M_NOT_HANDLED
+    from content import combat
+    combat.equip(world, world.prso)
+    return M_HANDLED
+
+
+def v_unequip(world: World) -> int:
+    if world.prso is None:
+        return M_NOT_HANDLED
+    from content import combat
+    if world.prso.name not in combat.EQUIPPABLE:
+        print(f"You aren't holding the {world.prso.desc}.")
         return M_HANDLED
-    print(f"You can't fight the {obj.desc}.")
+    combat.unequip(world, world.prso)
     return M_HANDLED
 
 
@@ -1673,6 +1746,9 @@ def register_verbs(game) -> None:
     game.register_verb("V-CLIMB",      v_climb)
     game.register_verb("V-CLIMB-TREE", v_climb_tree)
     game.register_verb("V-MELEE",      v_melee)
+    game.register_verb("V-SHOOT",      v_shoot)
+    game.register_verb("V-EQUIP",      v_equip)
+    game.register_verb("V-UNEQUIP",    v_unequip)
     game.register_verb("V-CHALLENGE",  v_challenge)
     game.register_verb("V-PAY",        v_pay)
     game.register_verb("V-SWAP",       v_swap)

@@ -71,7 +71,9 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 
 ### Inventory Display
 
-`INVENTORY` / `I` lists carried items by their inventory description (items.md). Worn items show **(being worn)**; wearable items carried but not worn show **(not worn)**. Nothing carried: *"You are empty-handed."*
+`WEAR X` works only on wearable items (the glasses, the ring, the Heart Necklace, the gloves, the tunic, the boots, the Pie Rat disguise); anything else: *You can't wear the X.*
+
+`INVENTORY` / `I` lists carried items by their inventory description (items.md). Worn items show **(being worn)**; an equipped weapon shows **(equipped)**; wearable items carried but not worn show **(not worn)**. Nothing carried: *"You are empty-handed."*
 
 The purse always ends the list: *"You have 12 Zenni."* (*"You have 1 Zenni."*, *"You have no Zenni."*). Empty-handed prints both lines. There is no other place the player is told the total, besides `SCORE` during play (below) — no `ZENNI` / `PURSE` command, and the end-of-game score leaves Zenni out (decided 2026-10-05).
 
@@ -148,6 +150,14 @@ Dice-based, scales with player level. Warriors start proficient with melee; Rogu
 
 **Bow — first round bonus:** +5 to the attack roll on the opening bow attack of any combat. No bonus on subsequent rounds.
 
+**Bow attacks (decided 2026-10-05):** `SHOOT X` / `SHOOT X WITH BOW` (and `KILL X WITH BOW`) is one round against the mugger, the Warden or the afflicted apprentice, with the bow roll (Gear bonuses, below).
+- Shot lines: hit — *Your arrow finds its mark. The [mugger / Warden / apprentice] staggers.* Tie — *You loose an arrow as it closes on you. Both of you feel it.* A miss uses the fight's own "you take a hit" line.
+- The +5 applies only when the fight's first round since it last reset (leaving resets the mugger, Warden and apprentice) is a bow shot. Swing first and later shots get nothing.
+- `SHOOT` equips the bow if it's carried but not equipped (the equip line prints, then the round). No bow carried: *You've nothing to shoot with.*
+- `SHOOT X WITH` something other than the bow: *That won't shoot anything.* Shooting a non-enemy: *You can't fight the X.*
+- The werewolf: its bow line (Undead Werewolf, below); that turn's werewolf round still happens. The knight: his bow line (npcs.md); no turn used.
+- The Archery Range targets take no SHOOT commands.
+
 **Fireball:** Guaranteed 1 heart damage — no roll required. 10-turn reuse timer. Effectively once per combat encounter.
 - **Built (2026-10-04):** `CAST FIREBALL` / `CAST FIREBALL AT [enemy]`. The fireball is the whole round: the enemy loses 1 heart and doesn't strike back. Hit line: *Fire leaves your hands in a single roaring sheet and takes the [enemy] full on. It reels back through the smoke.* With no target named, it hits the enemy present.
 - The werewolf: its failure line (Undead Werewolf, below), and the turn's werewolf round still happens. The timer starts.
@@ -155,14 +165,26 @@ Dice-based, scales with player level. Warriors start proficient with melee; Rogu
 - Nothing to hit: *Nothing here answers the spell.* No timer.
 - **Any spell cast before it's ready:** *You reach for the spell and find it isn't ready yet.* — doesn't use a turn.
 
-**Melee weapons:** Warriors may use melee weapons from the start. Mages and Rogues require the Weapon Use skill (Quest 54) before any weapon provides a bonus — without it, `KILL X` defaults to unarmed (+0) regardless of inventory. Three weapons are sold by Shamus (Kitchen, Tale and Ale): Dagger (+2, 5 Zenni), Mace (+4, 25 Zenni), Battle Axe (+6, 100 Zenni). The combat roll for a melee attack is the player's base roll plus the weapon bonus. `KILL X` auto-selects the best usable weapon in inventory. `KILL X WITH DAGGER` forces a specific weapon.
+**Melee weapons:** Warriors may use melee weapons from the start. Mages and Rogues require the Weapon Use skill (Quest 54) before any weapon provides a bonus — without it, `KILL X` defaults to unarmed (+0) regardless of inventory. Three weapons are sold by Shamus (Kitchen, Tale and Ale): Dagger (+2, 5 Zenni), Mace (+4, 25 Zenni), Battle Axe (+6, 100 Zenni). The combat roll for a melee attack is the player's base roll plus the equipped weapon's bonus (Equipping weapons, below).
 
 **Gear bonuses (decided 2026-10-05):** one set of combat rules (content/combat.py) serves every fight — the mugger, the Warden, the apprentice, the knight and the werewolf.
-- Player roll = level dice + the best usable melee weapon carried (+2 / +4 / +6) + the Apprentice's Gloves (+3, only while worn).
+- Melee roll = level dice + the equipped melee weapon (+2 / +4 / +6) + the Apprentice's Gloves (+3, only while worn).
+- Bow roll = level dice + 5 on the opening round of the fight + the gloves (+3, while worn). No melee weapon bonus.
 - A weapon is usable by a Warrior, or by a Mage or Rogue once Quest 54 is complete. Anyone can buy and carry one; unusable, it adds nothing.
 - Ivanaar's Tunic's avoidance roll applies to every hit the player takes in every fight, the mugger's included.
 - The werewolf: the roll (with all bonuses) only decides whether its claws land. Nothing but the stake harms it.
 - Weapons are always on sale at Shamus's (npcs.md — Shamus, The slate).
+
+### Equipping weapons
+
+Decided 2026-10-05. `EQUIP X` / `WIELD X` takes up the bow, the Dagger, the Mace or the Battle Axe. One at a time; only the equipped one counts in a fight.
+- `KILL X` uses the equipped melee weapon — bare hands (+0) if nothing or the bow is equipped. `SHOOT X` uses the bow and equips it if needed.
+- `KILL X WITH Y`: if Y is a carried weapon the player can use, it's equipped first and the round follows in the same turn; otherwise the round is fought as normal. `KILL X WITH BOW` is a bow shot.
+- Nothing equipped: *You take up the bow.* Something else equipped: *You put away the mace and take up the bow.* Already equipped: *You're already holding the bow.*
+- Melee weapons need Weapon Use (Warriors; Mages and Rogues after Quest 54). Without it: *You don't know how to fight with the dagger. The knight in the square teaches that.* The bow: anyone who has it (it always comes with the skill).
+- `EQUIP` anything else: *You can't equip the rope.*
+- `UNEQUIP X` / `REMOVE X`: *You put away the mace.* Not equipped: *You aren't holding the mace.*
+- Dropping, giving or otherwise parting with the equipped item unequips it silently. INVENTORY shows it with **(equipped)**.
 
 **Confirmed enemy stats:**
 

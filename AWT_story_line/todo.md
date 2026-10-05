@@ -144,6 +144,9 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Shamus's slate: Kitchen description line; READ / LOOK AT / EXAMINE SLATE and LIST / WARES / PRICES show his prices ("(sold)" once bought, torch always listed); TALK greeting points at it. Dagger, Mace, Battle Axe and Tip Journal on sale; untrained-buyer line. Buyback removed from the design (npcs.md, locations.md, mechanics.md). test_shamus_slate.py.
 - Shared combat rules (content/combat.py): level dice + best usable weapon (or the one named) + gloves +3 while worn, in every fight; the tunic now covers the mugger too; werewolf bonuses only decide whether its claws land. Old resolve_round and its 8 tests removed. test_combat_rules.py.
 - Finishing Move (Level 8) built: mugger, Warden, apprentice; not the knight or werewolf; 216-in-8000 draw so max test dice never fire it (mechanics.md).
+- EQUIP / WIELD / UNEQUIP: one of the bow, Dagger, Mace or Battle Axe at a time; only the equipped one counts (KILL uses it, bare hands otherwise); KILL X WITH Y equips Y first; untrained / non-weapon / already-holding lines; REMOVE puts it away; parting with it unequips silently; INVENTORY shows (equipped) (mechanics.md — Equipping weapons). test_combat_rules.py.
+- Bow attacks: SHOOT X (WITH BOW) and KILL X WITH BOW — SHOOT equips the bow; +5 only on a fight's opening round (reset on re-entering the room); gloves count, melee weapons don't; own hit / tie lines; werewolf arrow line (round still happens); knight's bow line, no turn; no-bow / not-a-bow / non-enemy lines (mechanics.md — Bow attacks; npcs.md). test_combat_rules.py.
+- WEAR refuses anything not wearable ("You can't wear the X."); the Pie Rat disguise is now wearable.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
@@ -153,8 +156,6 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.
 - Thin paper "destroyed if player gets wet": no wetting events are defined yet.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
-- Deferred from O: the bow attack on the werewolf (failure line in mechanics.md; the attack doesn't exist yet). Fireball is built.
-- Bow actions aren't built: the `SHOOT X (WITH BOW)` syntax maps to V-SHOOT, but no verb is registered, so shooting does nothing anywhere (mugger, Warden, apprentice, werewolf, the knight's trial). Needs the bow attack per mechanics.md (bow skill, round-1 bonus).
 - Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
 - Quest 50: Will being visibly shaken on the player's next tower visit isn't built.
 - Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.

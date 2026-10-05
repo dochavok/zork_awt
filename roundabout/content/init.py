@@ -69,11 +69,14 @@ def initialize_world(world, game, seed=None) -> None:
     game.register_input_hook(give_zenni_input_hook)  # GIVE RAZNAK THREE ZENNI
     from content import knight
     game.register_input_hook(knight.give_zenni_input_hook)  # GIVE KNIGHT THREE ZENNI
+    game.register_input_hook(knight.shoot_input_hook)  # SHOOT KNIGHT: no turn
     game.register_enter_hook(knight.on_enter)        # leaving abandons the trial
 
     # Pie Rat heist: weak point check; the blown entrance stays sealed
     from content import mine
     game.register_enter_hook(mine.on_enter)
+    from content import combat
+    game.register_enter_hook(combat.on_enter)        # a fresh fight's opening round (bow +5)
     game.register_walk_check(mine.sealed_check)
     from content import ship
     game.register_walk_check(ship.gangplank_check)   # EAST from the Docks = BOARD SHIP
