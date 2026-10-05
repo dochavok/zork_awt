@@ -298,6 +298,7 @@ Left by Calder Finch. *"He left a key. Said it led to a lower level — wouldn't
 **Location:** Records Room, Town Hall — awarded by Records Room Worker after returning the pocket watch
 **Examine:** *A rolled document tied with faded ribbon. The town seal is pressed into the wax at the bottom, and the handwriting is the careful kind that expects to be read for a long time.*
 **Quest use:** Required for Quest 27 (The Toll Bridge Operator). `GIVE CHARTER TO BOGGART` clears the bridge to the dungeon.
+**After Quest 27:** the Boggart hands it back, so it stays in the inventory. It has no further use; the player can drop it anywhere. (Decided 2026-10-05.)
 
 ---
 

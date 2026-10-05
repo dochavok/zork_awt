@@ -21,6 +21,11 @@ def initialize_world(world, game, seed=None) -> None:
     _init_player_state(world)
     _place_objects(world)
     _wire_whitehouse_action(world, game)
+    # Ty's Cargo table: PLAY CARGO / BET n; REROLL / STAND while choosing.
+    # First (before register_verbs' hooks), so an open reroll-or-stand choice
+    # is seen before any other hook.
+    from content import cargo
+    game.register_input_hook(cargo.input_hook)
     register_verbs(game)
 
     import random

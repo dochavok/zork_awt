@@ -543,6 +543,11 @@ def v_talk(world: World) -> int:
         kevry.talk(world)
         return M_HANDLED
 
+    if obj.name == "TY":                   # the Cargo table
+        from content import cargo
+        cargo.talk(world)
+        return M_HANDLED
+
     _VIKING_TALK = {
         "IVANAAR": "talk_ivanaar", "HAALVAR": "talk_haalvar",
         "AYLORA": "talk_aylora", "RAZNAK": "talk_raznak",

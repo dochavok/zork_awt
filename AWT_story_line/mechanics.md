@@ -874,7 +874,8 @@ Guardian's Lantern (dropped by The Warden, upper tier) flickers everywhere in th
 
 ### Ty's Casino Corner — Cargo (Ship, Captain, and Crew)
 
-Dice minigame in the northwest corner of the Tale and Ale. Ty runs the game. One round per session; player antes Zenni to play.
+Dice minigame in the northwest corner of the Tale and Ale. Ty runs the game. One round per PLAY / BET; the player can play again right away while they have the Zenni.
+Built 2026-10-05 (content/cargo.py). Fair d6 — no level dice, no Lucky. The faces are shown (the "players never see numbers" rule is for skill rolls only).
 
 **The goal:** Lock in a 6 (Ship), 5 (Captain), and 4 (Crew) in that exact order across up to 3 rolls, then score the highest possible total on the remaining two dice (the Cargo). Highest Cargo wins the round.
 
@@ -893,14 +894,26 @@ Dice minigame in the northwest corner of the Tale and Ale. Ty runs the game. One
 
 **The Cargo decision:**
 - Once 6, 5, and 4 are all locked, the remaining two dice are the Cargo (score = sum, 2–12).
-- If rolls remain when the sequence is complete, the player may reroll both Cargo dice for a potentially higher score.
+- If rolls remain when the sequence is complete, the player may reroll **one or both** Cargo dice for a potentially higher score (each reroll uses a roll).
 - **The rerolled result must be kept, even if lower.** This is the only player decision in the game.
+
+**Order:** Ty rolls first, then the player — the player knows the score to beat. Ties (including both 0) are a push: stakes back.
+
+**Ty's rerolls (decided 2026-10-05):** while rolls remain, he keeps any cargo die showing 4–6 and rerolls any showing 1–3; both 4+ means he stands. (Simulated with a player who chooses well: player wins ~38%, Ty ~37%, push ~24%.)
+
+**Commands (the Casino Corner):**
+- `PLAY CARGO [n]` / `PLAY [n]` / `BET n` / `WAGER n` start a round at stake n. `TALK TO TY` gives his intro.
+- While the player's choice is open: `REROLL BOTH`, `REROLL n` (the die showing n; with a pair, one of them), `STAND`.
+- Bare `REROLL`, a number not on the cargo dice, or any other command gets Ty's waiting line and uses no turn (SAVE / RESTORE / QUIT still work).
 
 **Ty's roll dialogue:**
 
 - *Roll 1 — locks all three immediately:* Ty looks at the dice for a moment without touching them. "Six, five, four." He sets three aside with two fingers, unhurried. "Cargo." He rolls the remaining two. He doesn't look surprised.
 - *Roll 1 — no 6, gets it on Roll 2:* The first roll comes up without a six. Ty considers the dice the way a man considers weather — not concerned, just noting it. He sweeps them up. The second roll produces the six. He sets it aside. "There it is." As if it were never in doubt.
 - *Roll 3 — fails to lock all three, scores zero:* The dice don't cooperate. Ty watches the last roll settle. No four. He looks at the table for a moment, then at you. "Happens." He gathers the dice. "Your turn."
+- *Any other way:* Ty rolls, sets the dice aside as they come, and rolls again.
+- *Rerolls one cargo die:* Ty keeps the [6] and rolls the [2] again. *Both:* Ty sweeps up both cargo dice and rolls again.
+- *His score:* Ty's cargo: [N]. — then the score line below.
 
 **Ty's score dialogue:**
 
@@ -911,12 +924,25 @@ Dice minigame in the northwest corner of the Tale and Ale. Ty runs the game. One
 
 - *Player wins:* Ty looks at the scores. He slides the pot across without comment. "Well played."
 - *Player loses:* Ty looks at the scores. He pulls the pot in. "Better luck." He means it plainly — no gloating.
+- *Push:* Ty looks at the scores. "Push." He slides your stake back.
 
-**Stakes:** Player sets the wager each round; Ty matches it. No per-round cap. Ty has a fixed bankroll of 30 Zenni. No lockout timer; Ty is always available to play until cleaned out.
+**The player's roll:**
+
+- *Each roll:* First roll: 6, 2, 5, 3, 1. You set aside the six and the five. (Second / Third roll show only the dice rolled.) Nothing locked: Nothing to set aside.
+- *Sequence done, rolls left:* Ship, Captain and Crew. Your cargo: 2 and 6 — 8. Reroll one, both, or stand? (on the last roll, without the question — the round settles)
+- *Reroll one:* You roll the 2 again: 5. Your cargo: 6 and 5 — 11. *Both:* You roll the cargo again: 6 and 4 — 10. Rolls still left: Reroll one, both, or stand?
+- *No full sequence:* No crew. Your score: 0. (or No ship / No captain — the first slot missing)
+- *Bare REROLL:* Ty waits. "Both, or just the [lowest]?" (REROLL BOTH, REROLL [lowest], or STAND)
+- *Anything else while choosing:* Ty waits. "Reroll or stand?" (REROLL BOTH, REROLL [lowest], or STAND)
+
+**Stakes:** Player sets the wager each round; Ty matches it. No per-round cap. Ty starts with a bankroll of 30 Zenni; what he wins goes back into it. No lockout timer; Ty is always available to play until cleaned out.
+
+- **No stake:** *Ty taps the table in front of you. "Stake first."* **Zero:** *"Zero's not a bet."* **More than the player has:** *Ty glances at your purse. "You don't have that."
 
 - **Normal wager:** Ty matches without comment. Round proceeds.
 - **Wager exceeds Ty's remaining bankroll:** *"I can match [X]." He sets the Zenni on the table. "That's what I've got."* Round proceeds automatically at the reduced wager.
 - **Ty cleaned out:** *Ty doesn't say anything for a moment. He looks at the table, then at you, then back at the table. "You cleaned me out." A small nod, as if confirming something to himself. "I don't play on credit." He reaches for his drink and doesn't reach for the dice.* Game permanently unavailable for the rest of the playthrough.
+- **Afterwards (PLAY / BET / TALK TO TY):** *Ty raises his drink an inch. "Table's closed. You saw to that."
 
 ---
 

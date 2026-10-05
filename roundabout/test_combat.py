@@ -55,58 +55,6 @@ def _make_enemy(w, name, hearts=3, location=None):
 
 
 # ---------------------------------------------------------------------------
-# Basic combat: player wins with max rolls
-# ---------------------------------------------------------------------------
-
-def test_combat_player_wins_with_max_roll():
-    w, g = _make_world()
-    enemy = _make_enemy(w, "bandit")
-    w.globals["hostile_bandit"] = True
-
-    from content.actions import start_combat
-    buf = io.StringIO()
-    with patch("sys.stdout", buf), patch("random.randint", _always_max):
-        start_combat(w, enemy, weapon="melee")
-
-    out = buf.getvalue()
-    # start_combat should produce some output (fight happened)
-    assert len(out) > 0, "start_combat produced no output"
-
-
-def test_combat_player_loses_hearts():
-    w, g = _make_world()
-    enemy = _make_enemy(w, "guard", hearts=10)
-    w.globals["hearts"] = 5
-
-    from content.actions import start_combat
-    buf = io.StringIO()
-    with patch("sys.stdout", buf), patch("random.randint", _always_min):
-        start_combat(w, enemy, weapon="melee")
-
-    # Player should have fewer hearts or be dead
-    final_hearts = w.globals.get("hearts", 0)
-    assert final_hearts < 5
-
-
-def test_combat_death_triggers_jigs_up():
-    w, g = _make_world()
-    w.globals["hearts"] = 1
-    enemy = _make_enemy(w, "ogre", hearts=20)
-
-    from content.actions import start_combat
-    buf = io.StringIO()
-    with patch("sys.stdout", buf), patch("random.randint", _always_min):
-        try:
-            start_combat(w, enemy, weapon="melee")
-        except SystemExit:
-            pass  # jigs_up calls sys.exit
-    out = buf.getvalue()
-    # Either hearts hit 0 and game over fired, or out contains death message
-    final_hearts = w.globals.get("hearts", 0)
-    assert final_hearts <= 0 or "over" in out.lower() or "dead" in out.lower()
-
-
-# ---------------------------------------------------------------------------
 # Werewolf: only consecrated stake kills it
 # ---------------------------------------------------------------------------
 
@@ -229,24 +177,6 @@ def test_bow_attack_executes():
 
 
 # ---------------------------------------------------------------------------
-# XP awarded on enemy defeat
-# ---------------------------------------------------------------------------
-
-def test_xp_awarded_after_combat_win():
-    w, g = _make_world()
-    enemy = _make_enemy(w, "raider", hearts=1)
-    initial_xp = w.globals.get("xp", 0)
-
-    from content.actions import start_combat
-    buf = io.StringIO()
-    with patch("sys.stdout", buf), patch("random.randint", _always_max):
-        start_combat(w, enemy, weapon="melee")
-
-    final_xp = w.globals.get("xp", 0)
-    assert final_xp >= initial_xp  # XP >= initial (may be equal if enemy had no XP value)
-
-
-# ---------------------------------------------------------------------------
 # Weapon bonuses
 # ---------------------------------------------------------------------------
 
@@ -345,36 +275,6 @@ def test_battle_axe_beats_mace():
 
     from content.verbs import _best_melee_weapon
     assert _best_melee_weapon(w) == "battle-axe"
-
-
-def test_auto_select_weapon_passed_to_start_combat():
-    """start_combat receives the auto-selected weapon name, not always 'melee'."""
-    from content import actions as act
-    w, g = _make_world()
-
-    mace = w.objects.get("mace")
-    if mace:
-        w.move_object(mace, w.player)
-
-    captured = {}
-    original = act.start_combat
-    def spy(world, npc, weapon="melee"):
-        captured["weapon"] = weapon
-        return original(world, npc, weapon=weapon)
-
-    tavern = w.rooms.get("tale-and-ale-main")
-    if tavern:
-        w.move_object(w.player, tavern)
-        w.here = tavern
-
-    enemy = _make_enemy(w, "bandit")
-
-    buf = io.StringIO()
-    with patch("sys.stdout", buf), patch("content.actions.start_combat", spy), \
-         patch("random.randint", _always_max):
-        g.do_turn("kill bandit")
-
-    assert captured.get("weapon") == "mace", f"expected 'mace', got {captured.get('weapon')!r}"
 
 
 def test_no_weapon_skill_returns_melee():

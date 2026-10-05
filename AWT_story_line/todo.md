@@ -133,14 +133,15 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Design-doc lines over 400 chars split (experience.md Mage bonus, mechanics.md).
 - GIVE / HAND / PAY Zenni to May (with her present) is a tip — same lines and tiers as TIP MAY; no amount: "How much?". test_may_hints.py (TestGiveZenniAsTip).
 - Plain CAST lists known spells (Light, Unbind Undead, Fireball order) or "You don't know any spells."; no turn. test_cast_what.py.
+- Ty's Cargo game (content/cargo.py): fair d6, Ty rolls first (keeps cargo dice 4–6, rerolls 1–3), player REROLL BOTH / REROLL n / STAND, ties push, Ty's bankroll grows with his winnings, cleaned out = table closed. mechanics.md and npcs.md updated (reroll one or both). test_cargo.py.
+- actions.py deleted: the old play_cargo, altar_ritual, altar_pray, tick_cooldowns and the unused start_combat, with the five test_combat tests that only exercised start_combat. Suite baseline is now 11 old failures (test_combat 5, test_world 6).
+- Town Charter: the Boggart hands it back after Quest 27; it stays with the player (items.md).
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
 - The pond bottle (locations.md — Pond) "discovers the quest" and unlocks May's hints, but has no quest number in quests.md.
-- Most of actions.py is unused (altar_ritual, altar_pray, play_cargo, tick_cooldowns). Only start_combat is used, and only by the old failing test_combat tests. Review it when Ty's Cargo game is built.
 - Inked player handling (traps.md — Trap 45) is only partly built: INKED is set and cancels the ring's invisibility (Chuckle House ghost). Not built: the NPC refusals while inked (May, Shamus, the trainers, Litlock, the Records Room Worker, the Librarian, active quest givers), Will's disdainful line (npcs.md),
   and the bath with inn rest (5 Zenni) that clears the ink.
-- Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
 - The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.
 - Thin paper "destroyed if player gets wet": no wetting events are defined yet.
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
