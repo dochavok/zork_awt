@@ -31,6 +31,10 @@ def cast_input_hook(w: World, text: str) -> bool:
     words = text.strip().lower().split()
     if not words or words[0] not in ("cast", "incant", "chant"):
         return False
+    if len(words) == 1:
+        from engine.game import HOOK_NO_TURN
+        _cast_what(w)
+        return HOOK_NO_TURN
     rest = " ".join(words[1:])
     name = rest.split(" at ")[0].split(" on ")[0].strip()
     target = rest[len(name):].strip()
@@ -67,6 +71,20 @@ def cast_input_hook(w: World, text: str) -> bool:
         else:
             print("Nothing here answers the spell.")
     return True
+
+
+# Plain CAST lists what's known (mechanics.md — Spells)
+_LISTED = (("light", "Light"), ("unbind undead", "Unbind Undead"), ("fireball", "Fireball"))
+
+
+def _cast_what(w: World) -> None:
+    known = [shown for name, shown in _LISTED if w.globals.get(_SPELLS[name][0])]
+    if not known:
+        print("You don't know any spells.")
+    elif len(known) == 1:
+        print(f"Cast what? You know {known[0]}.")
+    else:
+        print(f"Cast what? You know {', '.join(known[:-1])} and {known[-1]}.")
 
 
 # ---------------------------------------------------------------------------

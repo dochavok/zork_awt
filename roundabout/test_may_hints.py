@@ -36,6 +36,10 @@ class MayHintsBase(unittest.TestCase):
         ]
         for p in self._patches:
             p.start()
+        self.fresh()
+
+    def fresh(self):
+        """A new game in the Bar (patches stay as set up)."""
         self.game, self.w = fullscore._make_game()
         self.w.globals["zenni"] = 100
         self.w.globals["player_name"] = "Tester"
@@ -230,6 +234,41 @@ class TestQuestHints(MayHintsBase):
         self.assertIn(mh._Q49[0], self.tip(1))
         quests.complete(self.w, "22")
         self.assertNothing(self.tip(4))
+
+
+class TestGiveZenniAsTip(MayHintsBase):
+    """GIVE / HAND / PAY Zenni to May is a tip (mechanics.md — TIP MAY)."""
+
+    def test_give_forms_tip(self):
+        for cmd in ("give 3 zenni to may", "give may 3 zenni", "hand may three zenni",
+                    "pay may 3", "give the bartender 3 zenni"):
+            self.fresh()
+            quests.discover(self.w, "59")
+            out = self.do(cmd)
+            self.assertIn(_RESP[1], out, cmd)
+            self.assertEqual(self.w.globals["zenni"], 97, cmd)
+
+    def test_no_amount_asks_how_much(self):
+        self.assertIn('"How much?"', self.do("give zenni to may"))
+        self.assertIn('"How much?"', self.do("pay may"))
+        self.assertEqual(self.w.globals["zenni"], 100)
+
+    def test_short_and_over(self):
+        self.assertIn("I appreciate the thought, but no", self.do("give 13 zenni to may"))
+        self.w.globals["zenni"] = 2
+        self.assertIn("You're short", self.do("give 3 zenni to may"))
+        self.assertEqual(self.w.globals["zenni"], 2)
+
+    def test_away_from_may_is_not_a_tip(self):
+        self.go("TALE-AND-ALE")
+        out = self.do("give 3 zenni to may")
+        self.assertNotIn("May isn't here.", out)
+        self.assertEqual(self.w.globals["zenni"], 100)
+
+    def test_giving_an_item_is_still_give(self):
+        out = self.do("give note to may")
+        self.assertNotIn('"How much?"', out)
+        self.assertEqual(self.w.globals["zenni"], 100)
 
 
 if __name__ == "__main__":

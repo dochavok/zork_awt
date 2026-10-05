@@ -89,6 +89,7 @@ def initialize_world(world, game, seed=None) -> None:
     # May's hints: TIP MAY [#]; tracking for conditional hints
     from content import may_hints
     game.register_input_hook(may_hints.tip_input_hook)
+    game.register_input_hook(may_hints.give_zenni_input_hook)   # GIVE 3 ZENNI TO MAY
     game.register_enter_hook(may_hints.on_enter)
 
     # Floor listings for plural and mass names (mechanics.md)

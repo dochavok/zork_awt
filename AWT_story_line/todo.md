@@ -131,6 +131,8 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
   Torch: a burnt-out torch dropped leaves the game; BUY TORCH sells a fresh one (a lit one left elsewhere leaves its room); a torch away from the player burns down unseen. test_floor_listing.py.
 - SEAL JOINTS WITH MORTAR / MIX CLAY WITH WATER with the tool missing give the designed lines (SyntaxRule.obj2_optional). test_optional_with.py.
 - Design-doc lines over 400 chars split (experience.md Mage bonus, mechanics.md).
+- GIVE / HAND / PAY Zenni to May (with her present) is a tip — same lines and tiers as TIP MAY; no amount: "How much?". test_may_hints.py (TestGiveZenniAsTip).
+- Plain CAST lists known spells (Light, Unbind Undead, Fireball order) or "You don't know any spells."; no turn. test_cast_what.py.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.

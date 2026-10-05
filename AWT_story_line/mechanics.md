@@ -408,6 +408,7 @@ Some hints are conditional: May's tier 1 hint for Quests 19&30 fires only if pla
 - **Zero (`TIP MAY 0`):** *May looks at your empty hand, then at you. "That's nothing."*
 - **More than the player has:** *May looks at you evenly. "You're short." She goes back to work.*
 - **Not in the Bar:** *May isn't here.*
+- **Giving Zenni is tipping** (decided 2026-10-05): with May present, `GIVE 3 ZENNI TO MAY`, `GIVE MAY 3 ZENNI`, `HAND MAY 3 ZENNI` and `PAY MAY 3` work exactly like `TIP MAY 3` (same lines, same tiers). `GIVE ZENNI TO MAY` / `PAY MAY` with no amount: *May waits. "How much?"* Giving her an item is still an ordinary GIVE.
 - `TIP [#]` without May's name tips May too — she's the only one who takes tips.
 - No Zenni changes hands in the last six cases.
 
@@ -1081,7 +1082,7 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 | `BUY DRINK` / `ORDER DRINK` | The Bar only — 2 Zenni, restores 1 heart; May refuses at full hearts |
 | `BUY FOOD` / `ORDER FOOD` | The Bar only — 2 Zenni, restores 1 heart; May refuses at full hearts |
 | `RENT ROOM` / `BUY ROOM` | The Bar only — 5 Zenni, full heal; May refuses at full hearts |
-| `TIP MAY [#]` / `TIP MAY [#] ZENNI` | The Bar only — hint purchase; May determines tier by amount |
+| `TIP MAY [#]` / `TIP MAY [#] ZENNI` | The Bar only — hint purchase; May determines tier by amount. `GIVE [#] ZENNI TO MAY` / `PAY MAY [#]` are the same |
 | `LOOK AT BOARD` | Quest Board in The Bar |
 | `LOOK AT STATUE` | Town Square statue — reveals seam (no roll) |
 | `LOOK AT BANNER` | Viking Encampment — reveals elemental runes (Trial 2 clue) |
@@ -1090,6 +1091,7 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 | `POUR HOLY WATER ON STAKE` | Creates consecrated silver stake |
 | `DRIVE STAKE INTO WEREWOLF` | Destroys undead werewolf |
 | `CAST UNBIND UNDEAD` | Releases ghost in Ghost's Room (Chuckle House) |
+| `CAST` (no spell) | No turn. Lists known spells in the order Light, Unbind Undead, Fireball: *Cast what? You know Light, Unbind Undead and Fireball.* / *Cast what? You know Light.* None: *You don't know any spells.* (2026-10-05) |
 | `HOLD TORCH NEAR ICE` | Quest 34 — two turns to thaw frozen soldier |
 | `POUR VIAL IN WATER` | Quest 34 — freezes dark pool in mid room |
 | `READ SCROLL` | Quest 34 — answers speaking door (all classes); spell scrolls — Mage only (Warriors/Rogues get resistance message pointing to Will); in Will's Tower, triggers spell teaching for Warriors/Rogues |

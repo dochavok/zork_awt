@@ -259,13 +259,40 @@ def tip_input_hook(w: World, text: str) -> bool:
               and x not in ("zenni", "coin", "coins", "to")]
     if others:
         return False
+    tip(w, _amount(words[1:]))
+    return True
+
+
+def _amount(words) -> int | None:
     amount = None
-    for x in words[1:]:
+    for x in words:
         if x.isdigit():
             amount = int(x)
         elif x in _NUMBERS:
             amount = _NUMBERS[x]
-    tip(w, amount)
+    return amount
+
+
+def give_zenni_input_hook(w: World, text: str) -> bool:
+    """GIVE 3 ZENNI TO MAY / GIVE MAY 3 ZENNI / PAY MAY 3 — a tip, while May
+    is here. Zenni isn't a parser object."""
+    words = [x for x in text.lower().split() if x not in ("the", "a")]
+    if not words or words[0] not in ("give", "hand", "pay"):
+        return False
+    if not any(x in _MAY for x in words[1:]):
+        return False
+    others = [x for x in words[1:]
+              if x not in _MAY and x not in _NUMBERS and not x.isdigit()
+              and x not in ("zenni", "coin", "coins", "to", "her")]
+    if others:
+        return False                     # GIVE NOTE TO MAY etc. — the normal GIVE
+    if words[0] != "pay" and "zenni" not in words and "coin" not in words \
+            and "coins" not in words and _amount(words[1:]) is None:
+        return False                     # GIVE MAY — let the parser ask "what?"
+    may = w.objects.get("MAY")
+    if may is None or may.location is not w.here:
+        return False
+    tip(w, _amount(words[1:]))
     return True
 
 
