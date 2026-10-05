@@ -311,7 +311,25 @@ Sells hints for Zenni (tiered — see hint system in `mechanics.md`). Manages Qu
 **Location:** Kitchen, Tale and Ale Tavern.
 **Personality:** Short, wide, shaved head, untrimmed grey beard, efficient mover. "The kind of man you'd go to if you needed something that wasn't on any official list."
 
-Vendor: sells gunpowder (5Z), torch (3Z), Tip Journal (5Z), Fishing Rod (8Z), thin paper (2Z — Quest 28). `TALK TO SHAMUS`: *"What can I do for you? Gunpowder's five Zenni. Torches, three."* Buyback at half price for his items only. `TALK TO SHAMUS` to buy or sell.
+Vendor: sells torch (3Z), thin paper (2Z — Quest 28), gunpowder (5Z), fishing rod (8Z), Tip Journal (5Z), dagger (5Z), mace (25Z), battle axe (100Z). Shamus doesn't buy anything back (buyback removed 2026-10-05).
+`TALK TO SHAMUS`: *Shamus wipes his hands on his apron. "What can I do for you?" He tips his head at the slate by the door. "Prices are up. Ask if you need something that isn't."*
+
+**The slate (decided 2026-10-05):** `READ SLATE` / `LOOK AT SLATE` / `EXAMINE SLATE`, or `LIST` / `WARES` / `PRICES` anywhere in the Kitchen:
+```
+Chalked on the slate, in a square, heavy hand:
+  Torch ........... 3 Zenni
+  Thin paper ...... 2 Zenni
+  Gunpowder ....... 5 Zenni
+  Fishing rod ..... 8 Zenni
+  Tip Journal ..... 5 Zenni
+  Dagger .......... 5 Zenni
+  Mace ............ 25 Zenni
+  Battle axe ...... 100 Zenni
+Under that, smaller: Ask about the stew.
+Under that, smaller still: No refunds.
+```
+Anything already bought (except the torch, which he always has) shows as `(sold)` in place of its price.
+**Buying a weapon without Weapon Use** (a Mage or Rogue before Quest 54): the sale goes through, then *Shamus hands it over, then looks at the way you're holding it. "See the knight in the square before you swing that at anything."*
 His stock isn't on display — nothing in the Kitchen can be taken; `BUY X` there sells it (decided 2026-10-04). Buying an item the player already carries (not the torch — that's the exchange): *Shamus glances at the one you're holding. "You've already got one."* No charge.
 
 **Quest 40 (until it's complete):** `TALK TO SHAMUS` adds, after the greeting: *He glances at the pot on the fire and frowns at it. "There's a stew recipe I haven't made in years. Needs bog thyme, and a pot that isn't cracked. All of mine are."* The first time discovers Quest 40.

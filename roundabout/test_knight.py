@@ -44,7 +44,7 @@ def _do(g, cmd):
 def _rolls(player, knight):
     """Fix one round: the player's roll and the knight's 2d8 total."""
     return (patch("content.player.roll", return_value=player),
-            patch("content.knight.random.randint", side_effect=[knight, 0]))
+            patch("content.combat.random.randint", side_effect=[knight, 0]))
 
 
 def _round(g, player, knight):

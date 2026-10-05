@@ -23,7 +23,6 @@ State: BONES-CLEARED, DEN-JUST-ENTERED, WEREWOLF-DEAD
 """
 
 from __future__ import annotations
-import random
 from typing import TYPE_CHECKING
 
 from engine.game import M_HANDLED, M_NOT_HANDLED, M_ENTER, M_LOOK, M_END
@@ -177,13 +176,8 @@ def den_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 
 
 def _werewolf_round(w: World) -> None:
-    from content.player import roll
-    from content.combat import _take_damage
-    mine = roll(w)
-    its = sum(random.randint(1, WEREWOLF_DICE[1]) for _ in range(WEREWOLF_DICE[0]))
-    if its > mine:
-        print(_CLAWS)
-        _take_damage(w, 1)
+    from content import combat
+    combat.defend(w, WEREWOLF_DICE, _CLAWS)    # bonuses count; only the stake harms it
 
 
 def drive_stake(w: World) -> bool:

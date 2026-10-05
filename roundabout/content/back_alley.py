@@ -83,23 +83,12 @@ def _mugged(w: World) -> None:
 
 
 def fight_round(w: World) -> None:
-    """KILL MUGGER — one round. Higher roll hits for 1 heart; ties hit both."""
-    from content.player import roll
+    """KILL MUGGER — one round (content/combat.py). Losing isn't death."""
+    from content import combat
     g = w.globals
-    mine = roll(w)
-    his = sum(random.randint(1, MUGGER_DICE[1]) for _ in range(MUGGER_DICE[0]))
     mugger_hearts = int(g.get("MUGGER-HEARTS", MUGGER_HEARTS))
-
-    if mine > his:
-        print(_ROUND_WON)
-        mugger_hearts -= 1
-    elif his > mine:
-        print(_ROUND_LOST)
-        g["hearts"] = g.get("hearts", 1) - 1
-    else:
-        print(_ROUND_TIE)
-        mugger_hearts -= 1
-        g["hearts"] = g.get("hearts", 1) - 1
+    mugger_hearts -= combat.fight_round(w, MUGGER_DICE, _ROUND_WON, _ROUND_LOST,
+                                        _ROUND_TIE, lethal=False)
     g["MUGGER-HEARTS"] = mugger_hearts
 
     if mugger_hearts <= 0:

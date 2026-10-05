@@ -173,6 +173,9 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["ROPE"],   world.rooms["DOCKS"])
     # NPCs
     world.move_object(world.objects["SHAMUS"], world.rooms["KITCHEN"])
+    from content.verbs import slate_action
+    world.move_object(world.objects["SLATE"], world.rooms["KITCHEN"])
+    world.objects["SLATE"].action = slate_action
     world.move_object(world.objects["KEVRY"],  world.rooms["CAPTAINS-QUARTERS"])
     world.move_object(world.objects["PYRONICUS"], world.rooms["PYRONICUS-FORGE"])
     world.move_object(world.objects["WILL"],   world.rooms["WIZARDS-TOWER"])

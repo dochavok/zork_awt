@@ -50,7 +50,8 @@ _KITCHEN = (
     "Shamus moves through it without wasted motion, cooking and selling in equal "
     "measure — if you need something, he's worth asking.\n"
     "Dried herbs hang from the ceiling in loose bundles. A scarred wooden table "
-    "dominates the center."
+    "dominates the center.\n"
+    "Prices are chalked on a slate by the door."
 )
 _DOOR_LOCKED = (
     "The cellar door is set into the floor near the far wall; a faint smell of "

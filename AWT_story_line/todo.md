@@ -140,6 +140,10 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Zenni total: INVENTORY ends with "You have N Zenni." (1 Zenni / no Zenni; empty-handed prints both lines); SCORE during play adds "Zenni: N" under the Level line (mechanics.md). test_zenni_display.py.
 - Pie Rat Ship gangplank: EAST from the Docks is BOARD SHIP (it skipped every check before). Boarding needs the disguise and the explosion; the Pie Rat Coin always works; new "Crew's all aboard" refusal (locations.md — The gangplank; mechanics.md heist step 8). test_gangplank.py.
 - OPEN MAILBOX no longer works in Will's Tower (the Tale and Ale mailbox was a Tower global too); locations.md Tower connections fixed. test_tower_mailbox.py.
+- Zenni display decisions: no ZENNI / PURSE command; the end-of-game score leaves Zenni out (mechanics.md).
+- Shamus's slate: Kitchen description line; READ / LOOK AT / EXAMINE SLATE and LIST / WARES / PRICES show his prices ("(sold)" once bought, torch always listed); TALK greeting points at it. Dagger, Mace, Battle Axe and Tip Journal on sale; untrained-buyer line. Buyback removed from the design (npcs.md, locations.md, mechanics.md). test_shamus_slate.py.
+- Shared combat rules (content/combat.py): level dice + best usable weapon (or the one named) + gloves +3 while worn, in every fight; the tunic now covers the mugger too; werewolf bonuses only decide whether its claws land. Old resolve_round and its 8 tests removed. test_combat_rules.py.
+- Finishing Move (Level 8) built: mugger, Warden, apprentice; not the knight or werewolf; 216-in-8000 draw so max test dice never fire it (mechanics.md).
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
@@ -152,9 +156,9 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Deferred from O: the bow attack on the werewolf (failure line in mechanics.md; the attack doesn't exist yet). Fireball is built.
 - Bow actions aren't built: the `SHOOT X (WITH BOW)` syntax maps to V-SHOOT, but no verb is registered, so shooting does nothing anywhere (mugger, Warden, apprentice, werewolf, the knight's trial). Needs the bow attack per mechanics.md (bow skill, round-1 bonus).
 - Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
-- Combat bonuses from gear aren't applied in the per-encounter fights (mugger, Warden, apprentice roll `player.roll` alone): the Apprentice's Gloves' +3 and the melee weapon bonuses do nothing yet.
 - Quest 50: Will being visibly shaken on the player's next tower visit isn't built.
 - Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.
+- Tip Journal: Shamus sells it (5 Zenni, on the slate), but it's an empty object — its contents and READ JOURNAL (mechanics.md: active discovered quests with purchased hints) aren't built.
 - The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.

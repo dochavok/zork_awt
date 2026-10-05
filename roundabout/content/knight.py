@@ -18,7 +18,6 @@ State: KNIGHT-FOUGHT, KNIGHT-FIGHTING, KNIGHT-HEARTS, KNIGHT-WON, skill_melee
 """
 
 from __future__ import annotations
-import random
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -137,22 +136,11 @@ def attack(w: World) -> None:
 
 
 def _round(w: World) -> None:
-    """One round: higher roll hits for 1 heart; ties hit both."""
-    from content.player import roll
-    from content.combat import _take_damage
-    mine = roll(w)
-    his = sum(random.randint(1, KNIGHT_DICE[1]) for _ in range(KNIGHT_DICE[0]))
+    """One round (content/combat.py)."""
+    from content import combat
     hearts = int(w.globals.get("KNIGHT-HEARTS", KNIGHT_HEARTS))
-    if mine > his:
-        print(_ROUND_WON)
-        hearts -= 1
-    elif his > mine:
-        print(_ROUND_LOST)
-        _take_damage(w, 1)
-    else:
-        print(_ROUND_TIE)
-        hearts -= 1
-        _take_damage(w, 1)
+    hearts -= combat.fight_round(w, KNIGHT_DICE, _ROUND_WON, _ROUND_LOST, _ROUND_TIE,
+                                 finishing=False)          # a trial, not a kill
     w.globals["KNIGHT-HEARTS"] = hearts
     if hearts <= 1:
         w.set_global("KNIGHT-FIGHTING", False)

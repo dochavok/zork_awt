@@ -522,8 +522,9 @@ def v_talk(world: World) -> int:
 
     if obj.name == "SHAMUS":
         print(
-            'Shamus wipes his hands on his apron. "What can I do for you? '
-            'Gunpowder\'s five Zenni. Torches, three."'
+            'Shamus wipes his hands on his apron. "What can I do for you?" He tips '
+            'his head at the slate by the door. "Prices are up. Ask if you need '
+            'something that isn\'t."'
         )
         # Quest 40 — mentioned wistfully until the stew is back on the menu
         from content import quests
@@ -1140,18 +1141,52 @@ def v_drink(world: World) -> int:
 # V-BUY
 # ---------------------------------------------------------------------------
 
-# mechanics.md — Economy baseline / Torch
-_SHAMUS_PRICES = {"GUNPOWDER": 5, "TORCH": 3, "FISHING-ROD": 8, "THIN-PAPER": 2}
+# mechanics.md — Economy baseline / Torch; in slate order (npcs.md — Shamus, The slate)
+_SHAMUS_PRICES = {
+    "TORCH": 3, "THIN-PAPER": 2, "GUNPOWDER": 5, "FISHING-ROD": 8, "TIP-JOURNAL": 5,
+    "DAGGER": 5, "MACE": 25, "BATTLE-AXE": 100,
+}
+_WEAPONS = ("DAGGER", "MACE", "BATTLE-AXE")
+_UNTRAINED = (
+    'Shamus hands it over, then looks at the way you\'re holding it. "See the '
+    'knight in the square before you swing that at anything."'
+)
+
+
+def _slate_name(desc: str) -> str:
+    return desc if desc[:1].isupper() else desc[:1].upper() + desc[1:]
+
+
+def read_slate(world: World) -> None:
+    print("Chalked on the slate, in a square, heavy hand:")
+    for name, price in _SHAMUS_PRICES.items():
+        obj = world.objects[name]
+        sold = name != "TORCH" and obj.location is not None
+        label = _slate_name(obj.desc) + " "
+        print(f"  {label:.<17} {'(sold)' if sold else f'{price} Zenni'}")
+    print("Under that, smaller: Ask about the stew.")
+    print("Under that, smaller still: No refunds.")
+
+
+def slate_action(world: World) -> int:
+    if world.prsa in ("V-EXAMINE", "V-READ", "V-LOOK-INSIDE"):
+        read_slate(world)
+        return M_HANDLED
+    return M_NOT_HANDLED
 
 
 def buy_input_hook(world: World, text: str) -> bool:
     """BUY X in the Kitchen. Shamus's stock isn't in the world until it's bought
     (locations.md: the Kitchen has no items), so the parser can't see it — match
-    the name here. Anything else falls through to the parser and v_buy."""
+    the name here. Anything else falls through to the parser and v_buy.
+    LIST / WARES / PRICES in the Kitchen read the slate."""
     words = [x for x in text.lower().split() if x not in ("a", "an", "the", "some")]
-    if len(words) < 2 or words[0] not in ("buy", "order", "purchase"):
-        return False
     if world.here is None or world.here.name != "KITCHEN":
+        return False
+    if words in (["list"], ["wares"], ["prices"]):
+        read_slate(world)
+        return True
+    if len(words) < 2 or words[0] not in ("buy", "order", "purchase"):
         return False
     for name, price in _SHAMUS_PRICES.items():
         obj = world.objects[name]
@@ -1183,6 +1218,9 @@ def _sell(world: World, obj, price: int) -> None:
         f'Shamus takes the Zenni and slides the {obj.desc} across the counter. '
         f'"Anything else?"'
     )
+    from content.combat import can_use_weapons
+    if obj.name in _WEAPONS and not can_use_weapons(world):
+        print(_UNTRAINED)
 
 
 def v_buy(world: World) -> int:

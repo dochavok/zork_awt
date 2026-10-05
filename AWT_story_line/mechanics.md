@@ -56,7 +56,6 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 - Will Passion opening gift: 10 Zenni
 - Hidden room Zenni: 36 rooms randomized per new game; 18 Easy / 10 Medium / 2 Hard pay 1–3 Zenni each; 6 Very Hard pay 5 Zenni each (~74 Zenni total if all found); Actually Enchanted Glasses pass all checks and find all rooms automatically
 - Desert Island buried chest: 30 Zenni
-- Vendor buyback: half price, own items only; no buyback for treasure
 - Quest rewards: ~133 Zenni across all 27 active quests (3–10 Zenni per quest, mirroring XP tiers)
 
 ---
@@ -74,7 +73,7 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 
 `INVENTORY` / `I` lists carried items by their inventory description (items.md). Worn items show **(being worn)**; wearable items carried but not worn show **(not worn)**. Nothing carried: *"You are empty-handed."*
 
-The purse always ends the list: *"You have 12 Zenni."* (*"You have 1 Zenni."*, *"You have no Zenni."*). Empty-handed prints both lines. There is no other place the player is told the total, besides `SCORE` (below).
+The purse always ends the list: *"You have 12 Zenni."* (*"You have 1 Zenni."*, *"You have no Zenni."*). Empty-handed prints both lines. There is no other place the player is told the total, besides `SCORE` during play (below) — no `ZENNI` / `PURSE` command, and the end-of-game score leaves Zenni out (decided 2026-10-05).
 
 ### Dice & Roll System
 
@@ -157,6 +156,13 @@ Dice-based, scales with player level. Warriors start proficient with melee; Rogu
 - **Any spell cast before it's ready:** *You reach for the spell and find it isn't ready yet.* — doesn't use a turn.
 
 **Melee weapons:** Warriors may use melee weapons from the start. Mages and Rogues require the Weapon Use skill (Quest 54) before any weapon provides a bonus — without it, `KILL X` defaults to unarmed (+0) regardless of inventory. Three weapons are sold by Shamus (Kitchen, Tale and Ale): Dagger (+2, 5 Zenni), Mace (+4, 25 Zenni), Battle Axe (+6, 100 Zenni). The combat roll for a melee attack is the player's base roll plus the weapon bonus. `KILL X` auto-selects the best usable weapon in inventory. `KILL X WITH DAGGER` forces a specific weapon.
+
+**Gear bonuses (decided 2026-10-05):** one set of combat rules (content/combat.py) serves every fight — the mugger, the Warden, the apprentice, the knight and the werewolf.
+- Player roll = level dice + the best usable melee weapon carried (+2 / +4 / +6) + the Apprentice's Gloves (+3, only while worn).
+- A weapon is usable by a Warrior, or by a Mage or Rogue once Quest 54 is complete. Anyone can buy and carry one; unusable, it adds nothing.
+- Ivanaar's Tunic's avoidance roll applies to every hit the player takes in every fight, the mugger's included.
+- The werewolf: the roll (with all bonuses) only decides whether its claws land. Nothing but the stake harms it.
+- Weapons are always on sale at Shamus's (npcs.md — Shamus, The slate).
 
 **Confirmed enemy stats:**
 
@@ -335,6 +341,9 @@ Granted silently at Level 8. The player is never told this ability exists — no
 **Trigger:** All 3d20 roll 15 or higher in a single combat roll (~2.7% chance per roll).
 
 **Effect:** Instant kill. The enemy is defeated immediately regardless of remaining health.
+
+**Built (2026-10-05):** checked at the start of every attack round against the mugger, the Warden and the afflicted apprentice (he is freed, as on any win). Not the knight (a trial that stops at one heart) and not the werewolf (only the stake harms it). The player takes no damage that round.
+The roll is one draw of 216 in 8,000 — the same odds as 3d20 all at 15+ — so the always-max test dice never trigger it.
 
 **Narrative (shown to player on trigger):**
 

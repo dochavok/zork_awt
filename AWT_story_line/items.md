@@ -752,6 +752,7 @@ Brotherhood weave, old but not worn. The runes along the hem and collar are fain
 **Weight:** 1
 **Location:** Purchased from Shamus (5 Zenni)
 **Quest use:** None — flavor item. Contains in-world tips and observations.
+On sale on Shamus's slate (2026-10-05). The journal's contents and `READ JOURNAL` (mechanics.md) aren't designed in detail or built yet — todo.md known issues.
 
 ---
 

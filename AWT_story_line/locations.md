@@ -304,16 +304,17 @@ Smoking parlor. Atmospheric; natural gathering spot for Rogues and shady deals.
 
 ### Kitchen
 **XP: 1**
-**NPCs:** Shamus (cook; buy/sell items via TALK TO SHAMUS)
-**Items:** None (cellar key held by May in the Bar; required for cellar door)
+**NPCs:** Shamus (cook; sells items — `BUY X`, prices on the slate)
+**Items:** None (cellar key held by May in the Bar; required for cellar door). Scenery: the slate (npcs.md — Shamus, The slate).
 **Quest Hooks:** Quest 40 — hearty stew available after completion
 **Connections:** North → Bar. Down (cellar door, key required) → Cellar/Storeroom. (Key held by May in the Bar)
-Back-of-house. **Shamus** works here — cook and unofficial vendor. `TALK TO SHAMUS` to buy or sell items. Cellar door to the Cellar/Storeroom is here; bartender holds the key.
+Back-of-house. **Shamus** works here — cook and unofficial vendor. `BUY X` buys from him; the slate lists his prices. Cellar door to the Cellar/Storeroom is here; bartender holds the key.
 
 **Room description:**
 *The kitchen is warm and loud in the way that working kitchens are — pots, fire, the particular authority of someone who knows exactly what they're doing.*
 *Shamus moves through it without wasted motion, cooking and selling in equal measure — if you need something, he's worth asking.*
 *Dried herbs hang from the ceiling in loose bundles. A scarred wooden table dominates the center.*
+*Prices are chalked on a slate by the door.*
 *The cellar door is set into the floor near the far wall; a faint smell of damp rises from it even when it's shut. The bartender keeps the key.*
 
 **Cellar door (Quest 25):** locked until `UNLOCK DOOR WITH KEY` (May's cellar key — it stays in the lock). The last line of the room description follows the door:

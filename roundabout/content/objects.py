@@ -7,7 +7,7 @@ Built incrementally — objects added as walkthrough sections require them.
 from __future__ import annotations
 from engine.world import (
     GameObject, TAKEBIT, CONTBIT, OPENBIT, NDESCBIT, SACREDBIT, ACTORBIT, BURNBIT,
-    CLIMBBIT, INVISIBLE, SURFACEBIT, TRYTAKEBIT, READBIT,
+    CLIMBBIT, INVISIBLE, SURFACEBIT, TRYTAKEBIT, READBIT, WEAPONBIT,
 )
 
 
@@ -377,6 +377,30 @@ def _make_sea_objects(world) -> None:
               "turn it. The line looks newer than the rod.",
         synonyms=["rod", "pole"], adjectives=["fishing", "wooden", "jointed"],
         flags={TAKEBIT},
+    ))
+    # Shamus's weapons (items.md — Dagger, Mace, Battle Axe) and the Tip Journal
+    for name, desc, text, syns, adjs in (
+        ("DAGGER", "dagger",
+         "A short blade, plain-handled and well-balanced. Nothing fancy about it.",
+         ["dagger", "blade", "knife"], ["short"]),
+        ("MACE", "mace",
+         "A heavy flanged mace, solid iron head, leather-wrapped grip. It has the look "
+         "of something that settles arguments.",
+         ["mace"], ["heavy", "flanged", "iron"]),
+        ("BATTLE-AXE", "battle axe",
+         "A broad-headed battle axe, balanced for a two-handed swing. Shamus keeps it "
+         "behind the counter. It is not subtle.",
+         ["axe", "battleaxe"], ["battle", "broad-headed"]),
+        ("TIP-JOURNAL", "Tip Journal", "",             # contents not built (todo.md)
+         ["journal"], ["tip"]),
+    ):
+        world.register_object(GameObject(name=name, desc=desc, examine=text,
+                                         synonyms=syns, adjectives=adjs,
+                                         flags={TAKEBIT, WEAPONBIT} if name != "TIP-JOURNAL" else {TAKEBIT}))
+    # The Kitchen slate — Shamus's prices (npcs.md — Shamus, The slate)
+    world.register_object(GameObject(
+        name="SLATE", desc="slate", synonyms=["slate", "prices", "chalk"],
+        adjectives=["price"], flags={NDESCBIT, SACREDBIT},
     ))
 
 
@@ -1292,6 +1316,7 @@ _WEIGHTS = {
     "SUPPORT-BEAM": 4, "PORTCULLIS-BAR": 3, "MORTAR": 2, "SACK-OF-SALT": 4,
     "IDOL": 4, "SMOKE-JAR": 2, "SMALL-CLAY-POT": 1,
     "SCROLL-LIGHT": 1, "THIN-PAPER": 1, "TREASURE-MAP": 1, "PIE-RAT-COIN": 1, "FISHING-ROD": 2, "SHIP-IN-A-BOTTLE": 2,
+    "DAGGER": 1, "MACE": 2, "BATTLE-AXE": 3, "TIP-JOURNAL": 1,
     "BOG-RUNE-STONE": 2, "MUSIC-BOX-KEY": 1, "BOG-THYME": 1,
 }
 

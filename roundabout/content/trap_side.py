@@ -21,7 +21,6 @@ State: DREAM-STEP (None | "1" | "2A" | "2B" | "A1".."B3"), DREAM-PASSED,
 """
 
 from __future__ import annotations
-import random
 from typing import TYPE_CHECKING
 
 from engine.game import M_HANDLED, M_NOT_HANDLED, M_BEG, M_ENTER, M_LOOK
@@ -340,22 +339,10 @@ def _afflicted(w: World) -> bool:
 
 
 def fight_round(w: World) -> None:
-    """KILL APPRENTICE — one round. Higher roll hits for 1 heart; ties hit both."""
-    from content.player import roll
-    from content.combat import _take_damage
-    mine = roll(w)
-    his = sum(random.randint(1, APPRENTICE_DICE[1]) for _ in range(APPRENTICE_DICE[0]))
+    """KILL APPRENTICE — one round (content/combat.py)."""
+    from content import combat
     hearts = int(w.globals.get("APPRENTICE-HEARTS", APPRENTICE_HEARTS))
-    if mine > his:
-        print(_ROUND_WON)
-        hearts -= 1
-    elif his > mine:
-        print(_ROUND_LOST)
-        _take_damage(w, 1)
-    else:
-        print(_ROUND_TIE)
-        hearts -= 1
-        _take_damage(w, 1)
+    hearts -= combat.fight_round(w, APPRENTICE_DICE, _ROUND_WON, _ROUND_LOST, _ROUND_TIE)
     w.globals["APPRENTICE-HEARTS"] = hearts
     if hearts <= 0 and not w.get_global("GAME-OVER"):
         _freed(w)

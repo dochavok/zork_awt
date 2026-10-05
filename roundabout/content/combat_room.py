@@ -19,7 +19,6 @@ State: PLATE-SPOTTED, PLATE-STATE (None | "disarmed" | "fired"),
 """
 
 from __future__ import annotations
-import random
 from typing import TYPE_CHECKING
 
 from engine.game import M_HANDLED, M_NOT_HANDLED, M_ENTER, M_LOOK, M_END
@@ -152,23 +151,11 @@ def disarm_plate(w: World) -> None:
 
 
 def fight_round(w: World) -> None:
-    """KILL WARDEN — one round. Higher roll hits for 1 heart; ties hit both."""
-    from content.player import roll
-    from content.combat import _take_damage
+    """KILL WARDEN — one round (content/combat.py)."""
+    from content import combat
     g = w.globals
-    mine = roll(w)
-    his = sum(random.randint(1, WARDEN_DICE[1]) for _ in range(WARDEN_DICE[0]))
     hearts = int(g.get("WARDEN-HEARTS", WARDEN_HEARTS))
-    if mine > his:
-        print(_ROUND_WON)
-        hearts -= 1
-    elif his > mine:
-        print(_ROUND_LOST)
-        _take_damage(w, 1)
-    else:
-        print(_ROUND_TIE)
-        hearts -= 1
-        _take_damage(w, 1)
+    hearts -= combat.fight_round(w, WARDEN_DICE, _ROUND_WON, _ROUND_LOST, _ROUND_TIE)
     g["WARDEN-HEARTS"] = hearts
     if hearts <= 0 and not w.get_global("GAME-OVER"):
         _warden_dies(w)
