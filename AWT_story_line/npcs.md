@@ -115,13 +115,22 @@ A 2×2×2 dialogue-tree puzzle. One path per tier succeeds; the other fails and 
 
 ---
 
-**Invisible entry — wards not cleared (ring bypassed ward):**
+**Invisible = ring worn and not inked.** Ink (Trap 45) cancels invisibility, as in the Chuckle House and the Spirit Room — an inked player wearing the ring gets the ward deflection like anyone uninvited.
+
+**Common Room while invisible (either case):** this line replaces the room description, on every entry and every LOOK:
 *Litlock is here. He glances toward you — or toward where you are — with the unhurried attention of someone who has seen stranger things. Then he waits. He does not speak.*
-On ring removal: *"There you are," Litlock says, as though you'd simply stepped in from outside.* Wards re-engage immediately — player is ejected. From within, faintly: *"...and there you go."*
+
+**Litlock won't engage while the player is invisible.** `TALK TO LITLOCK`, and a numbered choice while his tree is open (the tree stays where it was), get: *Litlock glances toward where you are, and waits. He does not speak.*
+
+**Invisible entry — wards not cleared (ring bypassed ward):**
+The ring carries the player past the ward. Every Dankhaus room is open and awards its room XP as usual. The inciting moment does not fire.
+On ring removal in the Common Room: *"There you are," Litlock says, as though you'd simply stepped in from outside.* Wards re-engage immediately — player is ejected to Bog-SE (its room description shown), then: *From inside, faintly: "...and there you go."*
+On ring removal anywhere else in the Dankhaus (Litlock isn't there): the ward deflection line, then the player is ejected to Bog-SE (its room description shown).
 
 **Invisible entry — wards cleared (Lynds's invitation):**
-*Litlock is here. He glances toward you — or toward where you are — with the unhurried attention of someone who has seen stranger things. Then he waits. He does not speak.*
-On ring removal: *"There you are," Litlock says, as though you'd simply stepped in from outside.* No ejection. Resumes normally — inciting moment fires as usual if not yet triggered.
+The inciting moment waits until the ring comes off.
+On ring removal in the Common Room: *"There you are," Litlock says, as though you'd simply stepped in from outside.* No ejection. Resumes normally — inciting moment fires as usual if not yet triggered.
+Ring removal elsewhere in the Dankhaus: nothing. Putting the ring on in front of Litlock: no line.
 
 **Inciting moment (first visit after ward removal):**
 
@@ -486,7 +495,7 @@ Teaches melee weapon use to Mages and Rogues via Quest 54 (Fight the Knight) —
 **First encounter (pre-trial):**
 *"The Knight stands at ease in the square, watching the town go about its business. When he notices you, he turns fully to face you — unhurried, attentive. 'You're looking at me like someone who wants to learn something,' he says. 'I teach one thing. Come find me when you're ready to show me what you already know.'"*
 
-**Below Level 3 (attempt turned away):**
+**Below Level 3 (attempt turned away):** the fight command only — `TALK TO KNIGHT` below Level 3 still gives the first-encounter line, without discovering Quest 54. Nothing else points the player to him (both kept as is, 2026-10-05).
 *"He looks you over once. 'Not yet,' he says, not unkindly. 'Come back when you've got more behind you.'"*
 
 **Fight initiation (first attempt only):**

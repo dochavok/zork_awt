@@ -149,6 +149,8 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - WEAR refuses anything not wearable ("You can't wear the X."); the Pie Rat disguise is now wearable.
 - Ship-in-a-Bottle is a plain treasure: no quest, no May hint (locations.md — Pond; items.md; mechanics.md's stray "(Quest 12)" fixed).
 - Dragon-nip check raised from Hard to Very Hard (18): a Level 3 Mage was finding it on ~56% of tries (locations.md, quests.md — Quest 58). test_sprig_check.py.
+- Ring vs. the Dankhaus wards: the ring (not inked) slips an uninvited player past the ward; Litlock's unseen line replaces the Common Room description and he won't engage (TALK, menu choices);
+  Taking the ring off inside (REMOVE or DROP) throws an uninvited player out to Bog-SE ("There you are" / faint line in the Common Room, ward line elsewhere); invited, the inciting moment waits for the ring to come off (npcs.md, locations.md). test_dankhaus_ring.py.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
@@ -159,7 +161,6 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
 - Quest 50: Will being visibly shaken on the player's next tower visit isn't built.
-- Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.
 - Tip Journal: Shamus sells it (5 Zenni, on the slate), but it's an empty object — its contents and READ JOURNAL (mechanics.md: active discovered quests with purchased hints) aren't built.
 - The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").
 

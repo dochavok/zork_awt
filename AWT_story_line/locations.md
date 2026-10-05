@@ -856,7 +856,7 @@ All four bog rooms display the same room title to the player: **"The Bog of Eter
 The Dankhaus is east of here. Dankhaus hidden here — dense brush conceals the path; perception check (Medium) required each visit until discovered. Once discovered, path is permanently visible.
 - **Path spotted (first time):** *Off to the east, the brush isn't quite as dense as it should be. Behind it, a path — narrow, deliberate — leads to something low and round. A yurt, improbably dry.*
 - **Added to the room description once found:** *A narrow path leads east through the brush to a low, round yurt.*
-- `EAST` or `ENTER DANKHAUS` / `ENTER YURT` goes in (ward-gated until Lynds's invitation).
+- `EAST` or `ENTER DANKHAUS` / `ENTER YURT` goes in (ward-gated until Lynds's invitation). The ring (worn, not inked) gets an uninvited player past the ward — see npcs.md, Litlock, for what happens inside.
 
 **Room description:** *The bog stretches in every direction, dark water between clumps of soggy earth. The smell is comprehensive and personal. Reeds crowd the edges of every dry patch. Something is moving just out of sight, or was.*
 
@@ -907,6 +907,8 @@ The Dankhaus — three-bedroom home hidden in the bog behind dense brush. Percep
 **Connections:** West → Bog of Eternal Stench (SE) (ward-gated; ward deflection if uninvited: *"Something in the air near the door shifts as you approach. Not hostile. More like a house that knows you haven't been introduced yet."*). East → Hearth Room. North → Litlock's Room. South → Aurix's Room.
 
 *Litlock fills whatever room he's in without trying to. The common room is large enough, and he's in it — near the fireplace, which is also large, and burning steadily. Chairs, a table, shelves. The kind of room that works because the people in it make it work. He looks up.*
+
+**While invisible (ring worn, not inked):** Litlock's invisible line (npcs.md) replaces this description.
 
 ### Dankhaus Hearth Room
 **XP: 1**

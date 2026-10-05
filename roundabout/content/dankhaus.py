@@ -5,12 +5,14 @@ Design: locations.md (Bog-SE, the Dankhaus rooms), npcs.md (Litlock),
 quests.md (Quest 52).
 - Bog-SE: Medium perception check every visit until the path east is found.
 - East from Bog-SE: hidden until the path is found; warded until Lynds's
-  invitation (DANKHAUS-INVITED, set when Lynds is beaten).
+  invitation (DANKHAUS-INVITED, set when Lynds is beaten). The ring (not
+  inked) slips an uninvited player past the ward; taking it off inside
+  throws them back out to Bog-SE. Unseen, Litlock waits and won't engage.
 - Litlock's 2×2×2 tree: numbered menu after each line. Failures loop back to
   Tier 1. Success: the bonk — Chuckle House visible, Quest 52 complete.
 
 State: DANKHAUS-PATH-FOUND, LITLOCK-MET, LITLOCK-TIER, LITLOCK-PATH,
-       LITLOCK-BONKED, CHUCKLE-HOUSE-VISIBLE
+       LITLOCK-BONKED, CHUCKLE-HOUSE-VISIBLE, DANKHAUS-UNSEEN
 """
 
 from __future__ import annotations
@@ -44,13 +46,20 @@ _WARD = (
 )
 
 
+def _visible(w: World) -> bool:
+    """Ring on and not inked = unseen — the same rule as the Chuckle House."""
+    from content import chuckle
+    return chuckle._visible(w)
+
+
 class _WardedExit(Exit):
-    """East from Bog-SE: hidden until the path is found, warded until invited."""
+    """East from Bog-SE: hidden until the path is found, warded until invited.
+    The ring (not inked) slips an uninvited player past the ward."""
 
     def resolve(self, world):
         if not world.get_global("DANKHAUS-PATH-FOUND"):
             return None, "You can't go that way."
-        if not world.get_global("DANKHAUS-INVITED"):
+        if not world.get_global("DANKHAUS-INVITED") and _visible(world):
             return None, _WARD
         return super().resolve(world)
 
@@ -99,14 +108,7 @@ def make_rooms(world, bog_se: Room) -> None:
         world.register_room(r)
         return r
 
-    common = room(
-        "DANKHAUS-COMMON-ROOM", "Dankhaus Common Room",
-        "Litlock fills whatever room he's in without trying to. The common room "
-        "is large enough, and he's in it — near the fireplace, which is also "
-        "large, and burning steadily. Chairs, a table, shelves. The kind of room "
-        "that works because the people in it make it work. He looks up.",
-        value=3,
-    )
+    common = room("DANKHAUS-COMMON-ROOM", "Dankhaus Common Room", "", value=3)
     hearth = room(
         "DANKHAUS-HEARTH-ROOM", "Dankhaus Hearth Room",
         "A working hearth room — herbs drying overhead, something on the fire, "
@@ -163,6 +165,8 @@ def make_rooms(world, bog_se: Room) -> None:
     bog_se.ldesc = ""
     bog_se.action = bog_se_action
     common.action = common_room_action
+    for r in (hearth, garden, litlocks_room, study, lynds_room, aurix_room):
+        r.action = dankhaus_room_action
 
 
 # ---------------------------------------------------------------------------
@@ -260,9 +264,69 @@ def _start(w: World, text: str) -> None:
     _menu("1")
 
 
+COMMON_LDESC = (
+    "Litlock fills whatever room he's in without trying to. The common room "
+    "is large enough, and he's in it — near the fireplace, which is also "
+    "large, and burning steadily. Chairs, a table, shelves. The kind of room "
+    "that works because the people in it make it work. He looks up."
+)
+
+# Invisible in the Dankhaus (npcs.md — Litlock, invisible entry)
+_UNSEEN = (
+    "Litlock is here. He glances toward you — or toward where you are — with "
+    "the unhurried attention of someone who has seen stranger things. Then he "
+    "waits. He does not speak."
+)
+_NO_ENGAGE = "Litlock glances toward where you are, and waits. He does not speak."
+_THERE_YOU_ARE = ('"There you are," Litlock says, as though you\'d simply '
+                  "stepped in from outside.")
+_AND_THERE = 'From inside, faintly: "...and there you go."'
+
+
+def _ring_watch(w: World, msg: int) -> bool:
+    """Notice the ring coming off at end of turn (REMOVE, DROP — any way).
+    Uninvited: the wards throw the player out to Bog-SE. True if ejected."""
+    if msg == M_ENTER:
+        w.set_global("DANKHAUS-UNSEEN", not _visible(w))
+        return False
+    if msg != M_END:
+        return False
+    if not _visible(w):
+        w.set_global("DANKHAUS-UNSEEN", True)
+        return False
+    if not w.get_global("DANKHAUS-UNSEEN"):
+        return False
+    w.set_global("DANKHAUS-UNSEEN", False)
+    in_common = w.here.name == "DANKHAUS-COMMON-ROOM"
+    if in_common:
+        print(_THERE_YOU_ARE)
+    if w.get_global("DANKHAUS-INVITED"):
+        return False
+    if not in_common:
+        print(_WARD)
+    bog_se = w.rooms["BOG-SE"]
+    w.game.enter_room(bog_se)
+    if in_common:
+        print(_AND_THERE)
+    bog_se.action(w, M_END)   # Bog-SE's own end of turn (gravestone find line)
+    return True
+
+
+def dankhaus_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
+    _ring_watch(w, msg)
+    return M_NOT_HANDLED
+
+
 def common_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
-    """Inciting moment on the first visit after the wards clear (Quest 52)."""
-    if msg == M_END and not w.get_global("LITLOCK-MET"):
+    """Inciting moment on the first visit after the wards clear (Quest 52).
+    Unseen, Litlock just waits; the inciting moment waits for the ring to come off."""
+    if msg == M_LOOK:
+        print(COMMON_LDESC if _visible(w) else _UNSEEN)
+        return M_HANDLED
+    if _ring_watch(w, msg):
+        return M_NOT_HANDLED
+    if (msg == M_END and not w.get_global("LITLOCK-MET")
+            and w.get_global("DANKHAUS-INVITED") and _visible(w)):
         from content import quests
         w.set_global("LITLOCK-MET", True)
         quests.discover(w, "52")
@@ -271,6 +335,9 @@ def common_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 
 
 def talk_litlock(w: World) -> None:
+    if not _visible(w):
+        print(_NO_ENGAGE)
+        return
     if w.get_global("LITLOCK-BONKED"):
         print("Litlock is still smiling about it.")
         return
@@ -285,6 +352,9 @@ def litlock_input_hook(w: World, text: str) -> bool:
     choice = text.strip()
     if choice not in ("1", "2"):
         return False
+    if not _visible(w):
+        print(_NO_ENGAGE)   # the tree stays where it was
+        return True
 
     if tier == "1":
         if choice == "1":
