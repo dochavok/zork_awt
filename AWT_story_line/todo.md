@@ -124,6 +124,7 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
+- The Mage class XP bonus (+1 per new dungeon room, experience.md — Class XP Adjustments) isn't built. The Warrior kill bonus and Rogue disarm bonus are.
 - Inked player handling (traps.md — Trap 45) is only partly built: INKED is set and cancels the ring's invisibility (Chuckle House ghost). Not built: the NPC refusals while inked (May, Shamus, the trainers, Litlock, the Records Room Worker, the Librarian, active quest givers), Will's disdainful line (npcs.md),
   and the bath with inn rest (5 Zenni) that clears the ink.
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
@@ -184,7 +185,7 @@ The full-score walkthrough enters every room worth XP: The Encampment (lower tie
 
 Exploration total reconciled at 167 (experience.md, locations.md and the engine agree). The old 173 counted the Kevry's Island and Sea group headings as rooms; experience.md's 131 was stale. The White House went to 0 XP: the game starts there and never returns, so it could never be paid.
 
-Still to check: experience.md's Mage bonus assumes 47 reachable dungeon rooms.
+Mage bonus count checked: 43 reachable dungeon rooms, not 47 (experience.md corrected; tier headers in locations.md corrected to 15 / 14 / 15). The class-bonus total range was also corrected to 568–588.
 
 ---
 ## TODO #5 — Build TIP MAY (hint system)

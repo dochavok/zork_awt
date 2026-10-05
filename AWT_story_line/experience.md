@@ -102,9 +102,9 @@ XP scales with enemy difficulty. Named/boss enemies award toward the higher end.
 | Combat | 42 |
 | **Confirmed base total** | **528–538 XP** |
 | Class bonus (Warrior) | +40 XP |
-| Class bonus (Mage) | +47 XP |
+| Class bonus (Mage) | +43 XP |
 | Class bonus (Rogue) | +50 XP |
-| **Confirmed total with class bonus** | **571–591 XP** (varies by class and Quest 53 outcome) |
+| **Confirmed total with class bonus** | **568–588 XP** (varies by class and Quest 53 outcome) |
 
 Class bonuses are awarded on top of base XP and vary by class. Quest 53 awards 10 XP (glasses not enchanted) or 20 XP (Actually Enchanted) — a completionist who sails to Kevry earns the higher value. All classes clear the Level 8 threshold of 420 XP comfortably on a completionist run.
 
@@ -159,7 +159,7 @@ Hearts are granted at Levels 3, 5, and 7. The Heart Necklace (Lynds arm wrestlin
 Each class gets a bonus in their natural domain. Class identity feels present in progression without locking any content. Bonuses are calibrated so a completionist run of confirmed content yields approximately 40–50 class bonus XP regardless of class.
 
 - **Warriors** — +10 XP per combat kill (4 confirmed kills = +40 XP; grows naturally as combat design pass adds encounters)
-- **Mages** — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean; 47 reachable rooms = +47 XP)
+- **Mages** — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean; 43 reachable rooms = +43 XP). Dungeon = the Upper (15), Middle (14) and Lower (15) Tier rooms in locations.md; not the Secret Tunnels, Dungeon Entrance, Toll Bridge or mine. The Skeleton Room can't be earned (death on entry); the Stored Room / Hole to Below counts once.
 - **Rogues** — +5 XP per trap disarmed (10 disarmable traps = +50 XP)
 
 **Class bonus totals (confirmed content):**
@@ -167,5 +167,5 @@ Each class gets a bonus in their natural domain. Class identity feels present in
 | Class | Bonus | Confirmed events | Bonus XP |
 |-------|-------|-----------------|----------|
 | Warrior | +10/kill | 4 kills | +40 XP |
-| Mage | +1/dungeon room | 47 rooms | +47 XP |
+| Mage | +1/dungeon room | 43 rooms | +43 XP |
 | Rogue | +5/trap disarmed | 10 traps | +50 XP |

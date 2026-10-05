@@ -1389,7 +1389,7 @@ Threshold between Secret Tunnels and Dungeon Upper Tier.
 
 ---
 
-## Dungeon — Upper Tier (16 rooms, FINALIZED)
+## Dungeon — Upper Tier (15 rooms, FINALIZED)
 
 **Critical path:** Dungeon Entrance → Ink Corridor → Supply Room → Narrow Passageway → Idol Room → Combat Room → Prayer Alcove → Portcullis Corridor → Shrine Room → Rickety Bridge → Mid-Tier Key Door
 
@@ -1649,9 +1649,9 @@ Lockpick attempt returns: "This lock can't be picked." Seeing this door (from th
 
 ---
 
-## Dungeon — Middle Tier (15 rooms, FINALIZED)
+## Dungeon — Middle Tier (14 rooms, FINALIZED)
 
-**Key side** (10 rooms) accessed via Mid-Tier Key Door. **Trap side** (5 rooms) accessed via Flooding Room sweep only. Hole to Below (Stored Room collapse) is the only route to the lower tier.
+**Key side** (9 rooms; the Stored Room becomes the Hole to Below — one room) accessed via Mid-Tier Key Door. **Trap side** (5 rooms) accessed via Flooding Room sweep only. Hole to Below (Stored Room collapse) is the only route to the lower tier.
 
 ### Key Side
 
@@ -1876,7 +1876,7 @@ Lowest point on trap side. Shallow pool. No confirmed items.
 
 ---
 
-## Dungeon — Lower Tier (17 rooms, FINALIZED 2026-06-04)
+## Dungeon — Lower Tier (15 rooms, FINALIZED 2026-06-04)
 
 **Entry:** Stored Room post-dig (rope required to return). Deep Lock Door — permanently sealed, no entry from mid tier.
 
