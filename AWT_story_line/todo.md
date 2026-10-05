@@ -200,16 +200,21 @@ No ring-path step needs a hint (nothing checks for one), so the ring walkthrough
 
 Resolved 2026-10-04: the Librarian's dialogue doesn't depend on the hint (library.py).
 
-Order agreed 2026-10-04: quest discovery hooks (done), then the Quest Board (TODO #6), then TIP MAY. The TIP MAY design gaps are raised but not yet decided: quest selection, 19&30 hints before discovery, Quest 4/34 hints before discovery, the Quest 17 hint sets, the Quest 32 gravestone hint, the Quest 49 cutoff, and how tip amounts map to tiers.
+Order agreed 2026-10-04: quest discovery hooks (done), then the Quest Board (done), then TIP MAY. The TIP MAY design gaps are raised but not yet decided: quest selection, 19&30 hints before discovery, Quest 4/34 hints before discovery, the Quest 17 hint sets, the Quest 32 gravestone hint, the Quest 49 cutoff, and how tip amounts map to tiers.
 
 ---
 ## TODO #6 — Build and test the Quest Board and May's tips
 
-Neither walkthrough needs them (no step checks the board or a hint), so the walkthrough tests won't exercise them. They need their own code and their own tests.
+No ring-path step needs them, and no walkthrough step checks a hint, so they need their own code and their own tests. (The full-score walkthrough now reads the board twice — see below.)
 
 - **Quest Board** (Bar — `LOOK AT BOARD` / `READ BOARD`): postings from the design — quests posted at game start, on first visits (e.g. Quest 40 on meeting Shamus) and by cascade (quests.md, mechanics.md — Quest Board), removals (e.g. Quest 50 when Trap 41 is disarmed), the Quest 51 bounty after 100 turns, and how completed quests show.
 - **May's tips:** build per TODO #5 (TIP MAY tiers, blind tipping, conditional hints, hints unlocking on discovery).
 - **Tests:** a dedicated test file (not a walkthrough) that drives game state through do_turn where it can — discover, progress and complete quests — and checks the board text and each tier of May's hints, including conditional and one-tier hints.
 
-Organic quest discovery wired 2026-10-04 (19&30, 34, 41, 42, 51, 53, 58, 59); Quests 19&30 now complete at the werewolf. test_quest_discovery.py checks every quest is discovered before it's completed over the full-score run; 7, 17, 22 and 50 are exempt until the board posts them. When the board is built, remove that exemption.
+Organic quest discovery wired 2026-10-04 (19&30, 34, 41, 42, 51, 53, 58, 59); Quests 19&30 now complete at the werewolf. test_quest_discovery.py checks every quest is discovered before it's completed over the full-score run.
+
+Quest Board built 2026-10-04 (content/quest_board.py, test_quest_board.py — 15 tests).
+- Rules and all board text are in mechanics.md (Quest Board). Reading the board discovers what it shows; postings alone don't.
+- The full-score walkthrough reads the board in O and U, so the board quests (7, 17, 22, 50) are discovered before they're completed. test_quest_discovery.py has no exemptions now.
+- Remaining under TODO #6: May's tips (TODO #5).
 

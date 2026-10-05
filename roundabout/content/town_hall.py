@@ -54,6 +54,8 @@ def give_watch(w: World) -> None:
     w.move_object(w.objects["POCKET-WATCH"], w.objects["RECORDS-WORKER"])
     w.move_object(w.objects["TOWN-CHARTER"], w.player)
     quests.complete(w, "17")
+    from content import quest_board
+    quest_board.post(w, "24")             # the beekeeper's notice, on the charter
 
 
 def make_rooms(world) -> None:

@@ -615,6 +615,8 @@ def v_talk(world: World) -> int:
             )
             world.move_object(ring, player)
             world.set_global("RING-RETRIEVED", True)
+            from content import quest_board
+            quest_board.met_pyronicus(world)    # Quest 7 notice, 20 turns on
         else:
             print(
                 "He goes back to what he was doing. The conversation, "
@@ -707,6 +709,8 @@ def v_give(world: World) -> int:
             and not world.get_global("SECOND-BRIEFING-DONE"):
         print(_SECOND_BRIEFING)
         world.set_global("SECOND-BRIEFING-DONE", True)
+        from content import quest_board
+        quest_board.post(world, "17")           # the Records Room Worker's notice
         return M_HANDLED
 
     # Spell scroll to Will — teaching (mechanics.md, Quest 56)

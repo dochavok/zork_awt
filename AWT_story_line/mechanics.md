@@ -574,6 +574,28 @@ Located in The Bar of the Tale and Ale. Described in the room text. `LOOK AT BOA
 
 Full cascade design — which quests unlock new postings — confirmed above.
 
+**Rules (decided 2026-10-04):**
+- `LOOK AT BOARD`, `READ BOARD` and `EXAMINE BOARD` all list the board. Nouns: board, quest board, notice board, notices, notice.
+- A posted quest is discovered when the player reads the board while it's posted — not when it's posted. A notice the player never reads discovers nothing.
+- Postings are listed in the order they went up. Completed quests are left off.
+- "First meets Pyronicus" (Quest 7) is the ring hand-over (`TALK TO PYRONICUS`); the notice goes up 20 turns later.
+- Quest 40 is also discovered by talking to Shamus; the Kitchen-visit posting is a second route.
+- Quest 50's notice comes down for good when Trap 41 is disarmed. If the player already read it, the quest stays discovered; unread, it never appears.
+- The Quest 51 bounty goes up at 100 turns only if the mugger is still alive.
+
+**Board text:**
+- Header: *Notices are pinned to the board, newer ones over older:*
+- Empty: *The board holds nothing but pinholes and the corners of notices long since torn away.*
+
+**Postings** (one line each, in posting order):
+- Quest 22: *WANTED: someone to mend the old aqueduct beneath the town. The fountain's been dry for years. Drinks will be cheaper for it. — May*
+- Quest 50 (unsigned — Will): *MISSING: a young man, last seen heading toward the dungeon. He may not be himself. If you find him, bring him out. Please.*
+- Quest 40: *WANTED: bog thyme, and a cooking pot that isn't cracked. Bring both to the kitchen. There's a stew in it. — Shamus*
+- Quest 7: *WANTED: a bone flute, somewhere in the middle passages below. Bring it to the forge beneath the volcano. — Pyronicus*
+- Quest 17: *MISSING: a relative of mine went into the Chuckle House some years ago and never came out. If he lives, tell him to come home. If he doesn't, I would like his pocket watch. — Records Room, Town Hall*
+- Quest 24: *SWARM LOOSE: my bees have taken up in a hollow tree at the forest edge. Help wanted bringing the queen home. Honey for your trouble. — the cottage west of the Old Oak*
+- Quest 51: *BOUNTY: someone's been robbing people in the back alley. Whoever puts a stop to it drinks free. — May*
+
 ---
 
 ## Shovel & Dig Mechanic

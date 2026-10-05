@@ -151,7 +151,8 @@ def _make_tale_and_ale(world) -> None:
             "that suggests a system only May understands.\n"
             "She works the bar with the efficiency of someone who has answered "
             "every question before and will answer them all again without complaint.\n"
-            "A board on the wall to one side holds notices. The kitchen is further south."
+            "A board on the wall to one side holds notices — quest postings, local "
+            "announcements, things people want found or done. The kitchen is further south."
         ),
         value=1,
     )

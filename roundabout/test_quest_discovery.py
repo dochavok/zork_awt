@@ -22,10 +22,6 @@ sys.path.insert(0, os.path.dirname(__file__))
 import test_walkthrough_fullscore_v2 as fullscore
 from content import quests
 
-# Discovered by a Quest Board posting — no board yet (todo.md TODO #6), so these
-# go straight from undiscovered to complete.
-_BOARD_PENDING = {"7", "17", "22", "50"}
-
 # Organic discoveries: quest -> room the trigger fires in (quests.md — Discovery)
 _DISCOVERED_IN = {
     "19": "TOWN-SQUARE",        # LOOK AT STATUE
@@ -74,9 +70,10 @@ class TestQuestDiscovery(unittest.TestCase):
 
     def test_discovered_before_completed(self):
         _w, history, _found = _replay()
+        # Board quests (7, 17, 22, 50) are discovered by the walkthrough's two
+        # LOOK AT BOARD steps (sections O and U)
         skipped = sorted(
-            (q for q, states in history.items()
-             if states[0] == quests.COMPLETE and q not in _BOARD_PENDING),
+            (q for q, states in history.items() if states[0] == quests.COMPLETE),
             key=int,
         )
         self.assertEqual(skipped, [], f"completed without being discovered: {skipped}")

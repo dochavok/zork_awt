@@ -12,7 +12,7 @@ Design: locations.md (Flooding Room, Trap Side — The Spillway), traps.md
   the warning; after the second, the player is swept one-way to the Spillway.
   The middle lever closes the sluice; the plate re-arms. Left and right levers
   are spent once pulled. Leaving south while it floods closes the sluice too.
-- Disarming jams the plate for good (Quest 50's posting would go — todo.md).
+- Disarming jams the plate for good, and Quest 50's notice comes off the board.
 
 State: FLOOD-PLATE-SPOTTED, FLOOD-PLATE (None | "disarmed"),
        FLOOD-TURNS (None while closed; 0, 1 while flooding), LEVER-LEFT, LEVER-RIGHT
@@ -72,6 +72,8 @@ def _fire(w: World) -> None:
 def _disarmed(w: World) -> None:
     from content.experience import award_xp
     w.set_global("FLOOD-PLATE", "disarmed")
+    from content import quest_board
+    quest_board.remove(w, "50")           # Will's notice comes down for good
     award_xp(w, 5 + (5 if w.globals.get("player_class") == "rogue" else 0))
 
 

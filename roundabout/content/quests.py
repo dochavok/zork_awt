@@ -54,11 +54,6 @@ _QUEST_META: dict[str, dict] = {
     "59":  {"name": "Beat Lynds",                "xp": 5,  "zenni": 3},
 }
 
-# Quest board postings: {quest_id: True} means quest is posted on board
-# Initial postings set in init.py globals
-_BOARD_QUESTS = {"22", "50"}
-
-
 def get_state(world: "World", quest_id: str) -> str:
     return world.globals.get("quest_states", {}).get(quest_id, UNDISCOVERED)
 
@@ -87,10 +82,9 @@ def complete(
     *,
     xp_override: int | None = None,
     zenni_override: int | None = None,
-    cascade_quests: list[str] | None = None,
 ) -> None:
     """
-    Mark quest complete. Award XP and Zenni. Trigger cascade postings.
+    Mark quest complete. Award XP and Zenni. Board postings: content/quest_board.py.
     xp_override / zenni_override allow special-case values (Quest 53 variable XP).
     """
     if get_state(world, quest_id) == COMPLETE:
@@ -105,18 +99,6 @@ def complete(
     award_xp(world, xp)
     if zenni:
         world.globals["zenni"] = world.globals.get("zenni", 0) + zenni
-
-    # Cascade: post related quests to board
-    if cascade_quests:
-        for q in cascade_quests:
-            _post_to_board(world, q)
-
-
-def _post_to_board(world: "World", quest_id: str) -> None:
-    """Post quest to board; sets DISCOVERED state if previously unknown."""
-    posted = world.globals.setdefault("board_quest_posted", {})
-    posted[quest_id] = True
-    discover(world, quest_id)
 
 
 def is_complete(world: "World", quest_id: str) -> bool:

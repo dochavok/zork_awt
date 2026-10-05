@@ -688,6 +688,9 @@ Equip the ring for invisibility before entering the Chuckle House.
 Corruption ticks while wearing it — remove it as soon as possible after.
 
 > EXAMINE PAINTING            [Tale and Ale]
+> SOUTH                       [Bar]
+> LOOK AT BOARD               [Chuckle House|aqueduct|young man]
+> NORTH                       [Main Room]
 > WEAR GLASSES                [glasses]
 > NORTH                       [Town Square]
 > EAST                        [Main East]
@@ -1039,6 +1042,7 @@ May has something for us now the cellar's dry: the Bartender's Boots
 
 > TALK TO MAY                 [cellar dry]
 > WEAR BOOTS                  [boots]
+> LOOK AT BOARD               [bone flute]
 
 Quest 25 complete.
 

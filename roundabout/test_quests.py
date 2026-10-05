@@ -197,24 +197,7 @@ def test_quest_22_cascade_fountain_available():
     assert w.globals.get("fountain_running") or True  # passes if not yet wired
 
 
-# ---------------------------------------------------------------------------
-# Quest Board: reading board discovers quests
-# ---------------------------------------------------------------------------
-
-def test_read_quest_board_discovers_posted_quests():
-    w, g = _make_world()
-    w.globals["board_quest_22_posted"] = True
-    w.globals["board_quest_50_posted"] = True
-
-    from content.quests import get_state
-    # Before reading board, these should be undiscovered
-    # After the READ BOARD command, they should be discovered
-    buf = io.StringIO()
-    with patch("sys.stdout", buf):
-        g.do_turn("read board")
-    out = buf.getvalue()
-    # Output should mention quests or board
-    assert len(out) > 0
+# Quest Board: test_quest_board.py
 
 
 # ---------------------------------------------------------------------------

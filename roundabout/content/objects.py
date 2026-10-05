@@ -124,6 +124,12 @@ def _make_tower_objects(world) -> None:
     )
     world.register_object(glasses)
 
+    # The Bar — the Quest Board, described by the room (content/quest_board.py)
+    world.register_object(GameObject(
+        name="QUEST-BOARD", desc="Quest Board",
+        synonyms=["board", "notices", "notice"], adjectives=["quest", "notice"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
     # Will's Bedroom — Quest 58 (content/bedroom.py)
     world.register_object(GameObject(
         name="NIGHTSTAND", desc="nightstand",
