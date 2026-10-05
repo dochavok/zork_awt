@@ -671,14 +671,14 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 
 ## Quest 58 — The Dragon-Nip
 
-**Discovery:** Organic only — silent perception check (Hard difficulty) fires on every visit to Will's Bedroom.
+**Discovery:** Organic only — silent perception check (Very Hard, 18 — raised from Hard 2026-10-05) fires on every visit to Will's Bedroom.
 On success: *"Something small glows faintly under the nightstand — easy to miss, impossible to unsee once noticed. A sprig of something, tucked against the baseboard as if it rolled there and was forgotten."*
 Actually Enchanted Glasses auto-succeed. They can't be worn through the tower's main room (wearing them in Will's presence is an instant fail), so the player removes them before the mailbox and puts them back on in the bedroom — putting them on in the bedroom fires the check too. No Quest Board posting. No May hints.
 **Prerequisites:** Access to Will's Bedroom (hidden door revealed via Quest 53 perception check).
 **Missability:** Extremely high. Hard perception check, no hints anywhere, no cascade from any other quest except the glasses connection.
 
 **Steps:**
-1. Pass perception check in Will's Bedroom (Hard; auto-pass with Actually Enchanted Glasses — put them on once inside the bedroom).
+1. Pass perception check in Will's Bedroom (Very Hard; auto-pass with Actually Enchanted Glasses — put them on once inside the bedroom).
 2. `TAKE DRAGON-NIP` or `TAKE SPRIG` — item added to inventory.
 3. Bring dragon-nip to Will Passion in the tower. `GIVE DRAGON-NIP TO WILL` or `SHOW DRAGON-NIP TO WILL` (SHOW not built yet — see todo.md).
 4. Will takes it (dialogue in npcs.md). Produces a Golden Dragon Scale, which goes straight into the inventory: *[Golden Dragon Scale added to inventory.]* Quest complete.

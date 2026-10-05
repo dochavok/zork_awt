@@ -39,7 +39,7 @@ Contains a painting of the Tale and Ale — `LOOK AT PAINTING` teleports player 
 ### Will Passion's Bedroom
 **XP: 1**
 **NPCs:** None (Will is not present here)
-**Items:** Enchanted Glasses (nightstand); dragon-nip (under nightstand, Hard perception check — Actually Enchanted Glasses auto-pass)
+**Items:** Enchanted Glasses (nightstand); dragon-nip (under nightstand, Very Hard perception check — Actually Enchanted Glasses auto-pass)
 **Quest Hooks:** Dragon-nip return to Will → Golden Dragon Scale (treasure)
 **Connections:** South → Will's Wizard Tower (Main Room)
 Hidden room inside the tower.
@@ -48,7 +48,7 @@ Hidden room inside the tower.
 Equipping the glasses in Will's presence triggers an instant fail state — Will attacks, no recovery. The bedroom is safe because Will is not there.
 `DROP GLASSES` or `PUT GLASSES ON NIGHTSTAND` places them on the nightstand — description persists, and the first time completes Quest 53 (quests.md).
 The nightstand is scenery: it can be examined and things can be put on it.
-Contains **dragon-nip** — a glowing sprig hidden under the nightstand. Silent Hard perception check on every entry (after the room description) and again when the glasses are put on in the bedroom; Actually Enchanted Glasses auto-pass.
+Contains **dragon-nip** — a glowing sprig hidden under the nightstand. Silent Very Hard (18) perception check (raised from Hard 2026-10-05: a Level 3 Mage found it on ~56% of tries) on every entry (after the room description) and again when the glasses are put on in the bedroom; Actually Enchanted Glasses auto-pass.
 Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn't ask.
 
 **Room description:**
@@ -830,13 +830,13 @@ West of The Encampment. **Aylora** is the Viking champion. Best of five rounds; 
 **XP: 1**
 **NPCs:** None
 **Items:** Bottle (at pond bottom; perception check each visit; retrieved with fishing rod + challenge roll — treasure item)
-**Quest Hooks:** Bottle retrieval — perception-gated discovery; May's hints unlock on discovery
+**Quest Hooks:** None — the bottle is a plain treasure, not a quest; May has no hint for it (decided 2026-10-05)
 **Connections:** South → Archery Range. North → Bog of Eternal Stench (SW).
 Between town and the bog. Two-state room.
 
 **Base description:** *The pond is easy to walk past without noticing. It sits low between the town path and the bog, ringed with reeds and the occasional frog. The water is dark and calm.*
 
-Each visit fires a silent perception check (**Medium, 9**). On success: "You see a bottle at the bottom of the pond." — quest discovered, May's hints unlock. Sighting not permanent; check fires on every visit until quest is discovered. Retrieving the bottle requires a fishing rod (purchased from vendor) and a successful challenge roll (`FISH`); Rogues get a bonus. The bottle is a treasure item.
+Each visit fires a silent perception check (**Medium, 9**). On success: "You see a bottle at the bottom of the pond." Sighting not permanent; check fires on every visit until the bottle is seen. Retrieving the bottle requires a fishing rod (purchased from vendor) and a successful challenge roll (`FISH`); Rogues get a bonus. The bottle is a treasure item.
 
 **Fishing (`FISH`, Hard 14 fishing roll — Rogue bonus applies):** retries are unlimited. Once seen, the bottle stays listed with the line above until it's fished out; `TAKE BOTTLE` before then gets the standard "You can't take the bottle."
 - **Success:** *You cast, let the hook sink, and drag it slowly along the bottom. On the third pass it catches on something with weight. You reel it in carefully: a bottle, green glass furred with pond-scum, and inside it a tiny ship in full sail. You set it on the bank.*
@@ -844,8 +844,6 @@ Each visit fires a silent perception check (**Medium, 9**). On success: "You see
 - **Bottle not yet seen:** *You fish for a while. Nothing bites, and nothing on the bottom catches the hook.*
 - **Bottle already out:** *The pond has given up the only thing worth catching.*
 - **No rod:** *You'd need a fishing rod.* **Anywhere but the pond:** *There's nowhere to fish here.*
-
-**May's hints:** Imply Kevry was trying to retrieve his ship from the pond — player connects ship and bottle. Kevry knows about it but was never able to fish it out himself.
 
 All four bog rooms display the same room title to the player: **"The Bog of Eternal Stench"** — directional designations (SE/NE/SW/NW) are internal design references only, never shown to the player. Rooms are arranged in a 2×2 grid; diagonal movement is permitted between all four.
 

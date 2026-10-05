@@ -96,7 +96,7 @@ Both rolls fire automatically on room entry. The player issues no verb — the m
    - **Disarm failure:** *"You see [descriptor], but your attempt to disarm it fails miserably."* Trap fires — standard consequence text follows immediately after.
 
 Each trap entry in `traps.md` includes a `descriptor` field used in the above messages.
-- **Fishing** — `FISH` at Roundabout Pond; success retrieves the bottle (Quest 12). Class bonus: Rogues.
+- **Fishing** — `FISH` at Roundabout Pond; success retrieves the bottle (a treasure; no quest). Class bonus: Rogues.
 
 **Perception mechanic:**
 

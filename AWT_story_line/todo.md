@@ -147,10 +147,11 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - EQUIP / WIELD / UNEQUIP: one of the bow, Dagger, Mace or Battle Axe at a time; only the equipped one counts (KILL uses it, bare hands otherwise); KILL X WITH Y equips Y first; untrained / non-weapon / already-holding lines; REMOVE puts it away; parting with it unequips silently; INVENTORY shows (equipped) (mechanics.md — Equipping weapons). test_combat_rules.py.
 - Bow attacks: SHOOT X (WITH BOW) and KILL X WITH BOW — SHOOT equips the bow; +5 only on a fight's opening round (reset on re-entering the room); gloves count, melee weapons don't; own hit / tie lines; werewolf arrow line (round still happens); knight's bow line, no turn; no-bow / not-a-bow / non-enemy lines (mechanics.md — Bow attacks; npcs.md). test_combat_rules.py.
 - WEAR refuses anything not wearable ("You can't wear the X."); the Pie Rat disguise is now wearable.
+- Ship-in-a-Bottle is a plain treasure: no quest, no May hint (locations.md — Pond; items.md; mechanics.md's stray "(Quest 12)" fixed).
+- Dragon-nip check raised from Hard to Very Hard (18): a Level 3 Mage was finding it on ~56% of tries (locations.md, quests.md — Quest 58). test_sprig_check.py.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
-- The pond bottle (locations.md — Pond) "discovers the quest" and unlocks May's hints, but has no quest number in quests.md.
 - Inked player handling (traps.md — Trap 45) is only partly built: INKED is set and cancels the ring's invisibility (Chuckle House ghost). Not built: the NPC refusals while inked (May, Shamus, the trainers, Litlock, the Records Room Worker, the Librarian, active quest givers), Will's disdainful line (npcs.md),
   and the bath with inn rest (5 Zenni) that clears the ink.
 - The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.
