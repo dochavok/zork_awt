@@ -77,9 +77,8 @@ def _make_tower(world) -> None:
             "and in at least one case load-bearing.\n"
             "A narrow bed sits against the far wall, made with the perfunctory "
             "neatness of someone who knows they'll be up again soon.\n"
-            "A nightstand holds a pair of wire-rimmed glasses, a half-melted "
-            "candle, and a ring left by a cup that was never there long enough "
-            "to matter.\n"
+            "A nightstand holds a half-melted candle and a ring left by a cup "
+            "that was never there long enough to matter.\n"
             "The rest of the room is Will's business and clearly has been for "
             "a very long time."
         ),

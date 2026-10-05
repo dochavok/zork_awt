@@ -919,8 +919,7 @@ back on the grave and leaves the cart behind — its job is done.
 > WEST                        [Town Square]
 > NORTH                       [Town Hall]
 > EAST                        [Council Chamber]
-> TALK TO ROWAN               [never meant for me]
-> TAKE KEY                    [Middle Tier Key]
+> TALK TO ROWAN               [never meant for me|Middle Tier Key added]
 
 Quest 32 complete.
 
@@ -1709,42 +1708,32 @@ and melee unlock are class-gated.
 The Knight greets the player. As a Warrior, the quest does not trigger.
 
 =============================================================================
-RR) Quest 58 — The Dragon-Nip (Golden Dragon Scale)
+RR) Quests 58 and 53 — The Dragon-Nip and Will's Glasses
 =============================================================================
 Dragon-nip is hidden under the nightstand in Will's Bedroom — Hard
-perception check, but Actually Enchanted Glasses auto-pass. Return to
-the bedroom.
+perception check, but Actually Enchanted Glasses auto-pass. The glasses
+aren't needed after this, so they go back on the nightstand on the way
+out. Return to the bedroom.
 
 > SOUTH                       [Tale and Ale]
 > REMOVE GLASSES              [glasses removed]
 > OPEN MAILBOX                [tower]
-> NORTH                       [nightstand]
+> NORTH                       [Bedroom]
 
 The glasses can't be worn past Will. The bedroom is safe: put them back
 on here and the dragon-nip is auto-visible.
 
-> WEAR GLASSES                [dragon-nip]
-> TAKE DRAGON-NIP             [dragon-nip]
+> WEAR GLASSES                [put on]
+> LOOK                        [glows faintly]
+> TAKE DRAGON-NIP             [sprig]
 
-Take them off again before going back through to Will.
+Leave the glasses on the nightstand. Quest 53 complete.
 
-> REMOVE GLASSES              [glasses removed]
+> DROP GLASSES                [nightstand]
 > SOUTH                       [Wizard Tower]
-> GIVE DRAGON-NIP TO WILL     [Golden Dragon Scale]
-> TAKE SCALE                  [Golden Dragon Scale]
+> GIVE DRAGON-NIP TO WILL     [looking for that|golden dragon scale added]
 
 Quest 58 complete. Golden Dragon Scale (treasure, 36 pts) acquired.
-
-=============================================================================
-SS) Quest 53 — Will's Glasses (Drop on Nightstand for XP)
-=============================================================================
-Dropping the Actually Enchanted Glasses on the nightstand in Will's
-Bedroom completes Quest 53 and awards 20 XP.
-
-> NORTH                       [nightstand]
-> DROP GLASSES                [nightstand]
-
-Quest 53 complete. 20 XP awarded.
 
 =============================================================================
 TT) Ring Binding Ritual — Church of All Altar

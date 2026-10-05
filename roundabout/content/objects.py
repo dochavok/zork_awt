@@ -124,6 +124,33 @@ def _make_tower_objects(world) -> None:
     )
     world.register_object(glasses)
 
+    # Will's Bedroom — Quest 58 (content/bedroom.py)
+    world.register_object(GameObject(
+        name="NIGHTSTAND", desc="nightstand",
+        examine="A small wooden nightstand, ringed with old cup marks. A half-melted "
+                "candle leans on it at an angle that suggests it has been there "
+                "through several emergencies.",
+        synonyms=["nightstand", "stand"], adjectives=["small", "wooden", "night"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="DRAGON-NIP", desc="glowing sprig",
+        ldesc="A sprig of something glows faintly under the nightstand.",
+        examine="A small sprig, three narrow leaves on a woody stem, giving off a "
+                "faint golden glow. It smells of smoke and something sweet.",
+        synonyms=["dragon-nip", "sprig", "nip"], adjectives=["glowing", "dragon"],
+        size=1, flags={TAKEBIT, INVISIBLE},
+    ))
+    world.objects["DRAGON-NIP"].give_to = "WILL"
+    world.register_object(GameObject(
+        name="GOLDEN-DRAGON-SCALE", desc="golden dragon scale",
+        examine="A single scale, larger than your palm and heavier than gold has any "
+                "right to be. It catches the light like a mirror that's decided to be "
+                "something else.",
+        synonyms=["scale"], adjectives=["golden", "gold", "dragon"],
+        size=1, flags={TAKEBIT},
+    ))
+
     # The Ring — given to player after briefing
     ring = GameObject(
         name="RING",
@@ -717,14 +744,13 @@ def _make_town_hall_objects(world) -> None:
         synonyms=["rowan", "finch", "councilman", "man"], adjectives=["councilman"],
         flags={ACTORBIT, NDESCBIT},
     ))
-    # Quest 32 (logic: content/gravestone.py). Rowan puts the key in the room
-    # when he holds it out.
+    # Quest 32 (logic: content/gravestone.py). Rowan hands the key over.
     world.register_object(GameObject(
         name="MIDDLE-TIER-KEY", desc="Middle Tier Key",
         examine="A heavy iron key, its bow worked into the shape of a finch in flight. "
               "The teeth are worn smooth at the tips.",
         synonyms=["key"], adjectives=["middle", "tier", "iron", "heavy", "calder's"],
-        size=1, flags={TAKEBIT, NDESCBIT},
+        size=1, flags={TAKEBIT},
     ))
     from content.gravestone import LISTING_MUD
     world.register_object(GameObject(

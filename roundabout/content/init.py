@@ -75,6 +75,10 @@ def initialize_world(world, game, seed=None) -> None:
     from content import pond
     game.register_enter_hook(pond.on_enter)
 
+    # Will's Bedroom: dragon-nip check (Quest 58)
+    from content import bedroom
+    game.register_enter_hook(bedroom.on_enter)
+
     # Start in the White House
     world.here = world.rooms["WHITE-HOUSE"]
 
@@ -114,6 +118,8 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["PAINTING"],            world.rooms["WIZARDS-TOWER"])
     world.move_object(world.objects["MAILBOX-TOWER"],       world.rooms["TALE-AND-ALE"])
     world.move_object(world.objects["ENCHANTED-GLASSES"],   world.rooms["WIZARDS-BEDROOM"])
+    world.move_object(world.objects["NIGHTSTAND"],          world.rooms["WIZARDS-BEDROOM"])
+    world.move_object(world.objects["DRAGON-NIP"],          world.rooms["WIZARDS-BEDROOM"])
     world.move_object(world.objects["RING"],                world.objects["PYRONICUS"])
     # Mine objects
     world.move_object(world.objects["PICKAXE"],          world.rooms["MAIN-SHAFT"])
@@ -187,7 +193,7 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["DISPLAY-CABINET"], world.rooms["UPPER-HALL"])
     world.move_object(world.objects["WAX-SEAL"],        world.rooms["UPPER-HALL"])
     world.move_object(world.objects["ROWAN-FINCH"],    world.rooms["COUNCIL-CHAMBER"])
-    # Quest 32: MIDDLE-TIER-KEY appears when Rowan holds it out
+    # Quest 32: MIDDLE-TIER-KEY goes to the player when Rowan hands it over
     world.move_object(world.objects["GRAVESTONE"], world.rooms["BOG-SE"])
     world.move_object(world.objects["GRAVE"],      world.rooms["GRAVEYARD"])
     # Quest 25: CELLAR-KEY and BARTENDERS-BOOTS come from May

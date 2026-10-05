@@ -998,8 +998,9 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 **Keys:** `UNLOCK` / `OPEN [thing] WITH KEY` when several carried keys match "key": if only one of them fits that thing, it's used without asking (cellar door — cellar key, Mid-Tier Key Door — Middle Tier Key, Keeper's Chamber door — key ring, music box — music box key).
 **`GIVE [thing]` with several matches:** items meant for someone who is present are preferred (`GIVE SCROLL TO WILL` means a spell scroll, not the incantation scroll).
 **`GIVE` a set:** items handed over together count as one hand-over — `GIVE STONES` / `GIVE STONE TO IVANAAR` means all three rune stones ("stones" is a word for each of them). Spell scrolls aren't a set; Will still asks which one when two are carried.
+**NPC hand-overs:** an item an NPC gives the player goes straight to the inventory, with the line *[Item Name added to inventory.]* (the item's name, title case — e.g. *[Middle Tier Key added to inventory.]*). The player never `TAKE`s from an NPC.
 **`GIVE` refused:** *[NPC] doesn't take the [item].* NPCs known by a title or a common noun take "The" (*The Archivist doesn't take the rubbing.*, *The clerk …*); named NPCs don't (*Will Passion …*).
-**`DROP`:** *You drop the [item].* (Designed drops — e.g. the gravestone — use their own text.)
+**`DROP`:** *You drop the [item].* (Designed drops — e.g. the gravestone — use their own text.) Dropping something worn takes it off first, silently.
 **Several objects in one command** (`DROP ALL`, `TAKE ALL`, comma lists): one result per item. A result is labelled "[item]:" only when its line doesn't already name the item (refusals, special lines).
 
 | Verb | Context |

@@ -39,29 +39,38 @@ Contains a painting of the Tale and Ale — `LOOK AT PAINTING` teleports player 
 ### Will Passion's Bedroom
 **XP: 1**
 **NPCs:** None (Will is not present here)
-**Items:** Enchanted Glasses (nightstand); dragon-nip (under nightstand, perception check — hardest roll or Enchanted Glasses required)
+**Items:** Enchanted Glasses (nightstand); dragon-nip (under nightstand, Hard perception check — Actually Enchanted Glasses auto-pass)
 **Quest Hooks:** Dragon-nip return to Will → Golden Dragon Scale (treasure)
 **Connections:** South → Will's Wizard Tower (Main Room)
 Hidden room inside the tower.
 **Discovery:** Silent Easy perception check fires on every visit to the Main Room. On success, bedroom door becomes visible to the north — permanently. No nudge, no hint. Repeating check.
 "Where the magic happens." Contains the Enchanted Glasses on the nightstand.
 Equipping the glasses in Will's presence triggers an instant fail state — Will attacks, no recovery. The bedroom is safe because Will is not there.
-`DROP GLASSES` places them on the nightstand — description persists.
-Contains **dragon-nip** — a glowing sprig hidden under the nightstand, practically impossible to find (requires perfect roll at highest level, or Actually Enchanted Glasses).
+`DROP GLASSES` or `PUT GLASSES ON NIGHTSTAND` places them on the nightstand — description persists, and the first time completes Quest 53 (quests.md).
+The nightstand is scenery: it can be examined and things can be put on it.
+Contains **dragon-nip** — a glowing sprig hidden under the nightstand. Silent Hard perception check on every entry (after the room description) and again when the glasses are put on in the bedroom; Actually Enchanted Glasses auto-pass.
 Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn't ask.
 
 **Room description:**
 *This is, apparently, where the magic happens. The bedroom is smaller than the main room and considerably more honest about its occupant.*
 *Books here are not organized — they are stacked, wedged, balanced, and in at least one case load-bearing.*
 *A narrow bed sits against the far wall, made with the perfunctory neatness of someone who knows they'll be up again soon.*
-*A nightstand holds a pair of wire-rimmed glasses, a half-melted candle, and a ring left by a cup that was never there long enough to matter.*
+*A nightstand holds a half-melted candle and a ring left by a cup that was never there long enough to matter.*
+
+The glasses are described by their own line below, so the room description stays right after they're taken.
 *The rest of the room is Will's business and clearly has been for a very long time.*
 
 **Glasses on nightstand (before taking):** *A pair of wire-rimmed glasses sit on the nightstand. They look perfectly ordinary.*
 
-**Glasses on nightstand (after DROP GLASSES):** *Your wire-rimmed glasses sit on the nightstand where you left them.*
+**Glasses on nightstand (after DROP GLASSES):** *A pair of wire-rimmed glasses rests on the nightstand.* (or "slightly glowing" if enchanted — items.md)
+
+**DROP GLASSES / PUT GLASSES ON NIGHTSTAND here:** *You set the glasses back on the nightstand, where they were.*
+
+**EXAMINE NIGHTSTAND:** *A small wooden nightstand, ringed with old cup marks. A half-melted candle leans on it at an angle that suggests it has been there through several emergencies.*
 
 **Dragon-nip (perception success only):** *Something small glows faintly under the nightstand — easy to miss, impossible to unsee once noticed. A sprig of something, tucked against the baseboard as if it rolled there and was forgotten.*
+
+**Dragon-nip in the room after it's found (until taken):** *A sprig of something glows faintly under the nightstand.*
 
 ---
 

@@ -577,7 +577,7 @@ Grandson of Calder Finch (dungeon explorer). Quest 32 giver — gravestone stole
 
 **Quest 32 in progress (stone not yet back):** *"Any word on the gravestone?" Rowan asks, before you can say anything. He reads the answer on your face and goes back to his papers.*
 
-**Quest 32 reward (stone back at the Graveyard):** see `quests.md` — Quest 32 reward interaction. Quest completes on this line; the key is in his hand and `TAKE KEY` takes it.
+**Quest 32 reward (stone back at the Graveyard):** see `quests.md` — Quest 32 reward interaction. Quest completes on this line; the key goes straight to the inventory — *[Middle Tier Key added to inventory.]*
 
 **After Quest 32:** *"Grandfather's stone is standing straight for the first time in a year," Rowan says. "I went and looked. Twice." He goes back to his papers.*
 

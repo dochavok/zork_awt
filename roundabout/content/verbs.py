@@ -400,8 +400,9 @@ def v_wear(world: World) -> int:
         return M_HANDLED
     print(f"You put on the {obj.desc}.")
     if obj.name == "ENCHANTED-GLASSES":
-        from content import kevry
+        from content import kevry, bedroom
         kevry.on_wear_glasses(world)
+        bedroom.on_wear_glasses(world)
     if obj.name == "HEART-NECKLACE":
         from content.lynds import necklace_worn
         necklace_worn(world, True)
@@ -423,10 +424,18 @@ def v_remove(world: World) -> int:
         print(f"You aren't wearing the {obj.desc}.")
         return M_HANDLED
 
+    if _take_off(world, obj):
+        print(f"{obj.desc[0].upper()}{obj.desc[1:]} removed.")
+    return M_HANDLED
+
+
+def _take_off(world: World, obj) -> bool:
+    """Take off a worn item (REMOVE, or silently before DROP). False if it stays on."""
+    from engine.world import WEARBIT
     if obj.name == "RING":
         from content import corruption, chuckle
         if not corruption.try_remove_ring(world):
-            return M_HANDLED   # late-stage roll failed; the ring stays on
+            return False   # late-stage roll failed; the ring stays on
         chuckle.update_ghost_visibility(world)
 
     obj.clear_flag(WEARBIT)
@@ -435,8 +444,7 @@ def v_remove(world: World) -> int:
     if obj.name == "HEART-NECKLACE":
         from content.lynds import necklace_worn
         necklace_worn(world, False)
-    print(f"{obj.desc[0].upper()}{obj.desc[1:]} removed.")
-    return M_HANDLED
+    return True
 
 
 def _set_glasses_state(world: World) -> None:
@@ -470,9 +478,18 @@ def v_drop(world: World) -> int:
         print(f"You aren't carrying the {obj.desc}.")
         return M_HANDLED
 
+    # mechanics.md — dropping something worn takes it off first, silently
+    from engine.world import WEARBIT
+    if obj.has_flag(WEARBIT) and not _take_off(world, obj):
+        return M_HANDLED
+
     if obj.name == "GUNPOWDER":
         from content import mine
         if mine.drop_gunpowder(world):
+            return M_HANDLED
+    if obj.name == "ENCHANTED-GLASSES":   # Quest 53 — back on the nightstand
+        from content import bedroom
+        if bedroom.return_glasses(world):
             return M_HANDLED
     if obj.name == "SUPPORT-BEAM":        # PUT BEAM in the Gallery props it (Quest 38)
         from content import aqueduct
@@ -697,6 +714,12 @@ def v_give(world: World) -> int:
         if item.name in will.SPELL_SCROLLS:
             will.teach(world, item)
             return M_HANDLED
+
+    # Dragon-nip to Will — Quest 58, the Golden Dragon Scale
+    if npc.name == "WILL" and item.name == "DRAGON-NIP":
+        from content import bedroom
+        bedroom.give_sprig(world)
+        return M_HANDLED
 
     # Town charter to the Boggart — Quest 27, the bridge is public property
     if npc.name == "BOGGART" and item.name == "TOWN-CHARTER":
@@ -1005,6 +1028,14 @@ def v_put_on(world: World) -> int:
     if item.name == "RUNED-METAL" and target.name == "FORGE":
         from content import vikings
         vikings.forge_pale_blade(world)
+        return M_HANDLED
+
+    if item.name == "ENCHANTED-GLASSES" and target.name == "NIGHTSTAND":
+        from engine.world import WEARBIT
+        from content import bedroom
+        if item.has_flag(WEARBIT) and not _take_off(world, item):
+            return M_HANDLED
+        bedroom.return_glasses(world)
         return M_HANDLED
 
     print(f"You can't put the {item.desc} on the {target.desc}.")

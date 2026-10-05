@@ -10,7 +10,7 @@ Design: quests.md (Quest 32), npcs.md (Councilman Rowan Finch), items.md
 - UNLOAD STONE at the Graveyard sets the stone back and leaves the cart
   there; anywhere else it tips the stone onto the ground.
 - Rowan: first interaction / Trophy Case line until the quest is discovered,
-  then start → in progress → reward (quest completes, key held out) → after.
+  then start → in progress → reward (quest completes, key handed over) → after.
 
 State: ROWAN-MET, ROWAN-QUEST-STARTED, GRAVESTONE-FOUND, GRAVESTONE-RETURNED,
        CART-ROLLED
@@ -83,7 +83,8 @@ _ROWAN_REWARD = (
     "grave came from the dungeon. Don't bother denying it — I've seen it before, "
     "in my grandfather's papers.\" He studies you for a moment. \"He left a key. "
     "Said it led to a lower level — wouldn't say what was down there.\" He holds "
-    "it out. \"Take it. It was never meant for me.\""
+    "it out. \"Take it. It was never meant for me.\"\n"
+    "[Middle Tier Key added to inventory.]"
 )
 _ROWAN_AFTER = (
     "\"Grandfather's stone is standing straight for the first time in a year,\" "
@@ -236,7 +237,7 @@ def talk_rowan(w: World) -> None:
     elif w.get_global("GRAVESTONE-RETURNED"):
         print(_ROWAN_REWARD)
         quests.complete(w, "32")
-        w.move_object(w.objects["MIDDLE-TIER-KEY"], w.here)   # held out — TAKE KEY
+        w.move_object(w.objects["MIDDLE-TIER-KEY"], w.player)   # straight to the inventory
     elif w.get_global("ROWAN-QUEST-STARTED"):
         print(_ROWAN_WAITING)
     else:

@@ -53,8 +53,18 @@ Required to make ranged (bow) attacks in combat. Must be carried in inventory.
 - Upgraded by **Kevry Talborn** — automatically on arrival if worn (head slot); if only carried, putting them on in front of him triggers it.
 - **Warning:** Equipping in Will's presence triggers an instant fail state — Will attacks, no recovery. The bedroom is safe only because Will is not there.
 - **Fail text:** *Will looks up from his desk. His eyes go to the glasses on your face and stay there. For a moment nothing in the room moves. Then he is out of his chair, and whatever happens next, you don't see it coming.* — then GAME OVER. Fires when the player arrives in the tower wearing them or puts them on there.
-- **End-game return:** Dropping in Will's Bedroom at end-game earns XP — double if Actually Enchanted.
+- **End-game return:** Dropping in Will's Bedroom (`DROP GLASSES` or `PUT GLASSES ON NIGHTSTAND`) completes Quest 53 the first time — double XP if Actually Enchanted. Text: *You set the glasses back on the nightstand, where they were.*
 - Missable only if player never finds Will's hidden bedroom.
+
+---
+
+### Dragon-Nip
+**Weight:** 1
+**Location:** Will Passion's Bedroom, under the nightstand (Hard perception check — locations.md)
+**Inventory description:** "glowing sprig"
+**Parser names:** dragon-nip, sprig, nip
+**Examine:** *A small sprig, three narrow leaves on a woody stem, giving off a faint golden glow. It smells of smoke and something sweet.*
+**Quest use:** Quest 58 — give to Will Passion for the Golden Dragon Scale. Consumed (Will keeps it). Never explained.
 
 ---
 
@@ -276,7 +286,7 @@ After keys taken: inventory description persists — room does not revert to ske
 ### Middle Tier Key
 **Weight:** 1
 **Examine:** *A heavy iron key, its bow worked into the shape of a finch in flight. The teeth are worn smooth at the tips.*
-**Location:** Reward from Quest 32 (The Missing Gravestone) — Councilman Rowan Finch holds it out; `TAKE KEY`.
+**Location:** Reward from Quest 32 (The Missing Gravestone) — Councilman Rowan Finch holds it out; straight to the inventory — *[Middle Tier Key added to inventory.]*
 **Quest use:** Opens the Mid-Tier Key Door in the Dungeon Upper Tier.
 
 Left by Calder Finch. *"He left a key. Said it led to a lower level — wouldn't say what was down there."*
@@ -757,7 +767,7 @@ All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 | **The Forgotten Blade** | The Fountain Room, Dungeon Lower Tier | 3 | 60 | Most valuable treasure in game; not a combat weapon, ceremonial only. Straight to the inventory from the soldier. Examine: *A ceremonial sword, long and narrow, the blade unmarked by any use. The hilt is wrapped in faded cloth that might once have been a colour.* |
 | **Diamond Brooch** | Magnetic Vault, Dungeon Mid-Tier | 1 | 45 | Second most valuable treasure in game |
 | **Funeral Mask of Hammered Gold** | Burial Chamber, Dungeon Lower Tier | 3 | 36 | Spirits do not react to taking it. Examine: *A face of hammered gold, serene and thin-lipped, eyes closed. Heavier than it looks, and cold, as if it has been waiting a long time to be picked up.* |
-| **Golden Dragon Scale** | Reward from returning dragon-nip to Will | 1 | 36 | Dragon-nip hidden under nightstand in Will's Bedroom |
+| **Golden Dragon Scale** | Reward from returning dragon-nip to Will | 1 | 36 | Dragon-nip hidden under nightstand in Will's Bedroom. Inventory description: "golden dragon scale". Examine: *A single scale, larger than your palm and heavier than gold has any right to be. It catches the light like a mirror that's decided to be something else.* |
 | **Chachapoyan Fertility Idol** | Idol Room, Dungeon Upper Tier | 4 | 30 | Safe swap required (sack of salt); same weight as sack of salt. Examine: *A small stone figurine, squat and round-bellied, worn smooth by hands that weren't yours. A Chachapoyan Fertility Idol, if you had to guess.* |
 | **Gold Pocket Watch** | The Crevice, Dungeon Mid-Tier | 1 | 30 | **Missable** — permanently inaccessible after Stored Room collapses |
 | **Ship-in-a-Bottle** | Roundabout Pond (fishing rod + challenge roll) | 2 | 24 | May's hints imply Kevry connection |

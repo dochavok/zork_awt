@@ -10,16 +10,16 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Full-score walkthrough, Section RR — Quest 58, The Dragon-Nip. Sections A–QQ pass (AA folded into Z, DD into II, MM into LL2, NN into OO). First failure:
+**Current position:** Full-score walkthrough, Section TT — Ring Binding Ritual. Sections A–RR pass (AA folded into Z, DD into II, MM into LL2, NN into OO, SS into RR). First failure:
 
 ```
-SECTION [RR) Quest 58 — The Dragon-Nip (Golden Dragon Scale)]
-  cmd     : 'NORTH'
-  missing : 'nightstand'
-  got     : "You push open the bedroom door and step inside.\nWill Passion's Bedroom\n..."
+SECTION [TT) Ring Binding Ritual — Church of All Altar]
+  cmd     : 'PUT PALE BLADE ON ALTAR'
+  missing : 'blade placed'
+  got     : "You can't see any blade here!\n"
 ```
 
-19 full-score steps still fail.
+12 full-score steps still fail.
 
 Y bridge plan (2026-10-04, built): the minimum load is 13 (key, shovel, rope, lockpicks, thin paper, ring + 3 worn), so Y crosses twice — `DROP ALL BUT RING, KEY, SHOVEL AND ROPE` (11), cross, unlock (the key stays in the lock), come back north, take the lockpicks and `THIN PAPER` (plain `PAPER` also matches the folded note), cross again. The shovel is dropped once the hole is dug; the rope stays tied.
 
@@ -30,7 +30,7 @@ Surface-items plan (2026-10-04, built for EE, HH2, II, OO; TT pickup still to wr
 - EE drops the Pale Blade in the Church of All (TT picks it up there) and the three bowl pieces and smoke jar in the Bone Passage.
 - II's crossing is then 11: worn 4 + tunic 1 + stake 2 + incantation scroll 1 + vial 1 + lantern 2.
 - OO went down through the Tale and Ale cellar to the Bone Passage, took the bowl pieces and smoke jar, then detoured Junction → Undercroft → Forgotten Shaft → Hidden Secondary Entrance → Assay Room and back for the room XP (from the tunnel side the gap is found automatically). Back up the cellar to the Town Square fountain, then the Forest shrine. No Trophy Case stop — treasures are deposited at the end. The mine can't be entered from the Forest — the Mine Entrance is sealed after Section C's explosion.
-- Full-score section letters: HH → HH1 (Quest 7) + HH2 (Quest 42), LL → LL1 + LL2 (LL.1 never parsed as its own section — the harness only matches letters and digits), NN removed (its bog-exit route opens OO), MM folded into LL2. **When the full-score walkthrough passes, clean up the section letter order.**
+- Full-score section letters: HH → HH1 (Quest 7) + HH2 (Quest 42), LL → LL1 + LL2 (LL.1 never parsed as its own section — the harness only matches letters and digits), NN removed (its bog-exit route opens OO), MM folded into LL2, SS folded into RR. **When the full-score walkthrough passes, clean up the section letter order.**
 - LL1 built: shovel taken at the Hole to Below; the bridge is crossed twice (blade and mask first, then shovel, fire clay, amulet).
 
 Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G Shamus's Recipe, H Mugger, I Beekeeper, J Viking trials, K Lynds, L Litlock, M Archer; unchanged from N.
@@ -119,8 +119,12 @@ The full-score walkthrough fails at 342 steps in total; much of it predates the 
 - Section OO: Forgotten Shaft and Hidden Secondary Entrance (mine branch; Assay Room gap — Medium perception from the mine side, found from the tunnel side); cellar route with CAST LIGHT twice; bowl ending from the ring walkthrough (PUT ZENNI ON PEDESTAL); Assay Room description restored to the design text.
 - Section PP: Swarm Tree (USE SMOKE JAR settles the bees, the jar is used up, the queen vial appears; carrying the jar holds the swarm off), GIVE VIAL TO BEEKEEPER → enchanted honey straight to inventory (Quest 24), EAT HONEY restores 2 hearts; TAKE HONEY step removed.
 - Section QQ: Redcrosse Knight in Town Square (presence, examine, Warrior lines); Quest 54 trial for Mages and Rogues (2d8, 4 hearts, to 1 heart either way; Fireball refused), PAY KNIGHT / GIVE KNIGHT THREE ZENNI teaches melee; Quest 54 Zenni reward dropped (3 Zenni fee kept). test_knight.py plays the trial as Mage and Rogue. Fragment: TALK TO KNIGHT [already know what I teach].
+- Section RR (SS folded in): Will's Bedroom — nightstand scenery (EXAMINE, PUT … ON), dragon-nip under it (silent Hard check on every entry and on WEAR GLASSES there; Actually Enchanted Glasses auto-pass), GIVE DRAGON-NIP TO WILL → Golden Dragon Scale straight to inventory (Quest 58: 15 XP, 5 Zenni — experience.md updated from 4).
+  DROP / PUT GLASSES ON NIGHTSTAND completes Quest 53 (20/10 XP, 5 Zenni); dropping a worn item takes it off first (the ring goes through its removal roll). Bedroom nightstand sentence no longer names the glasses.
+  Q and the ring walkthrough: Rowan hands the Middle Tier Key straight to inventory (TAKE KEY removed; NPC hand-over convention written into mechanics.md). Fragments: NORTH [Bedroom], LOOK [glows faintly], TAKE DRAGON-NIP [sprig], GIVE … [looking for that|golden dragon scale added].
 
 **Known issues still open:**
+- SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
 - The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.
 - Thin paper "destroyed if player gets wet": no wetting events are defined yet.

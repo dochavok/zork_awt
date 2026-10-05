@@ -894,8 +894,7 @@ Return to Rowan Finch for the key.
 > WEST                        [Town Square]
 > NORTH                       [Town Hall]
 > EAST                        [Council Chamber]
-> TALK TO ROWAN               [never meant for me]
-> TAKE KEY                    [Middle Tier Key]
+> TALK TO ROWAN               [never meant for me|Middle Tier Key added]
 
 =============================================================================
 L) Mid-Tier Dungeon — Key Door & the Hole to Below

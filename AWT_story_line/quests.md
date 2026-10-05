@@ -301,7 +301,7 @@ Going `DOWN` into the cellar before it's drained, or opening the tunnel door fro
 4. Find hand cart in Storage Area (Dungeon Upper Tier).
 5. `LOAD STONE ONTO CART` → push the cart (carried) back to the Graveyard. A loaded cart goes anywhere on the level but not `UP` or `DOWN`.
 6. `UNLOAD STONE` at the Graveyard → gravestone back in place; the cart is left beside it automatically (its job is done). Unloading anywhere else just tips the stone onto the ground and the player keeps the cart.
-7. Return to Rowan Finch → reward dialogue; quest completes (12 XP, 5 Zenni). He holds the key out — `TAKE KEY`.
+7. Return to Rowan Finch → reward dialogue; quest completes (12 XP, 5 Zenni). He holds the key out; it goes straight to the inventory — *[Middle Tier Key added to inventory.]*
 
 Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Cart and gravestone text is in `items.md`; the Bog-SE and Graveyard text is in `locations.md`.
 
@@ -544,7 +544,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 6. Glasses worn on arrival — Kevry enchants them automatically.
    - *Kevry looks at the glasses, then at you, then at the glasses again. "Will sent you." It isn't a question. He takes them gently. "Interesting that he didn't come himself." He does something brief and private with them that you don't quite follow. When he hands them back they feel different. Lighter, somehow, and more certain. "There. Don't lose them."*
    - Glasses upgrade to Actually Enchanted Glasses — pass all perception checks automatically.
-7. Return to Will's Bedroom. `DROP GLASSES` on the nightstand — quest complete, XP awarded.
+7. Return to Will's Bedroom. `DROP GLASSES` or `PUT GLASSES ON NIGHTSTAND` — quest complete, XP awarded. Text: *You set the glasses back on the nightstand, where they were.* (locations.md). Dropping them while worn takes them off first.
    - Will is not present and never acknowledges the glasses were missing or returned.
 
 **Reward:** XP (see below). Actually Enchanted Glasses may be picked up again freely after dropping. 5 Zenni.
@@ -661,8 +661,8 @@ Actually Enchanted Glasses auto-succeed. They can't be worn through the tower's 
 **Steps:**
 1. Pass perception check in Will's Bedroom (Hard; auto-pass with Actually Enchanted Glasses — put them on once inside the bedroom).
 2. `TAKE DRAGON-NIP` or `TAKE SPRIG` — item added to inventory.
-3. Bring dragon-nip to Will Passion in the tower. `GIVE DRAGON-NIP TO WILL` or `SHOW DRAGON-NIP TO WILL`.
-4. Will takes it. Produces a Golden Dragon Scale. Quest complete.
+3. Bring dragon-nip to Will Passion in the tower. `GIVE DRAGON-NIP TO WILL` or `SHOW DRAGON-NIP TO WILL` (SHOW not built yet — see todo.md).
+4. Will takes it (dialogue in npcs.md). Produces a Golden Dragon Scale, which goes straight into the inventory: *[Golden Dragon Scale added to inventory.]* Quest complete.
 
 **Reward:** Golden Dragon Scale (Trophy Case treasure item). 15 XP. 5 Zenni.
 
