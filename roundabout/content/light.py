@@ -101,6 +101,15 @@ def on_enter(w: World, room: Room) -> None:
         _ensure_clock(w)
 
 
+_DISCARD = "You toss the burnt-out torch aside. It's no good to anyone now."
+
+
+def discard_burnt_out(w: World) -> None:
+    """DROP a burnt-out torch: it leaves the game (back in Shamus's stock)."""
+    w.move_object(_torch(w), None)
+    print(_DISCARD)
+
+
 def light_torch(w: World) -> None:
     """A newly bought torch is lit; its timer waits for the first dark room."""
     torch = _torch(w)
@@ -124,21 +133,36 @@ def _torch_demon(w: World) -> bool:
         return False
     left -= 1
     w.set_global("TORCH-LIT-TIMER", left)
-    if left in _WARNINGS:
+    seen = _torch_with_player(w)           # one left lying elsewhere burns down unseen
+    if seen and left in _WARNINGS:
         print(_WARNINGS[left])
     if left <= 0:
-        _burn_out(w)
-        return True
+        if seen:
+            _burn_out(w)
+        else:
+            _go_out(w)
+        return seen
     w.game.clock.get("torch-clock").ticks = 1
-    return left in _WARNINGS
+    return seen and left in _WARNINGS
 
 
-def _burn_out(w: World) -> None:
+def _torch_with_player(w: World) -> bool:
+    """Carried, or in the room the player is in (the player's own room
+    is where a carried torch is too)."""
+    return w.here is not None and _torch(w).containing_room() is w.here
+
+
+def _go_out(w: World) -> None:
+    """The torch's burnt-out state, with no messages."""
     torch = _torch(w)
     torch.clear_flag("ONBIT")
     torch.desc = "burnt-out torch"
     torch.ldesc = "A burnt-out torch, cold and black at the end."
     w.set_global("TORCH-LIT-TIMER", None)
+
+
+def _burn_out(w: World) -> None:
+    _go_out(w)
     here = w.here
     stranded = (here is not None and not _room_lit(here) and not _one_move_from_light(w, here)
                 and not w._has_light_source(w.player) and not w.get_global("LIGHT-SPELL-ACTIVE"))

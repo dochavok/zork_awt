@@ -91,8 +91,20 @@ def initialize_world(world, game, seed=None) -> None:
     game.register_input_hook(may_hints.tip_input_hook)
     game.register_enter_hook(may_hints.on_enter)
 
+    # Floor listings for plural and mass names (mechanics.md)
+    for name, article in _ARTICLES.items():
+        world.objects[name].article = article
+
     # Start in the White House
     world.here = world.rooms["WHITE-HOUSE"]
+
+
+_ARTICLES = {
+    "LOCKPICKS": "plural", "APPRENTICE-GLOVES": "plural", "BARTENDERS-BOOTS": "plural",
+    "CHARCOAL": "some", "SILVER-DUST": "some", "BOG-THYME": "some", "FIRE-CLAY": "some",
+    "CLAY-ADHESIVE": "some", "ENCHANTED-HONEY": "some", "MORTAR": "some",
+    "THIN-PAPER": "some", "RUNED-METAL": "some",
+}
 
 
 def _make_player(world) -> None:

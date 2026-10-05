@@ -498,6 +498,10 @@ def v_drop(world: World) -> int:
                 and int(world.get_global("TIMBERS-DOWN") or 0) >= 3:
             aqueduct.prop_passage(world)
             return M_HANDLED
+    if obj.name == "TORCH" and not obj.has_flag("ONBIT"):   # burnt out — back to Shamus's stock
+        from content import light
+        light.discard_burnt_out(world)
+        return M_HANDLED
     world.move_object(obj, world.here)
     print(f"You drop the {obj.desc}.")
     return M_HANDLED
@@ -783,7 +787,7 @@ def v_give(world: World) -> int:
 
 
 # NPCs known by a title rather than a name ("The Archivist").
-_TITLED_NPCS = {"ARCHIVIST", "BOGGART", "WARDEN"}
+_TITLED_NPCS = {"ARCHIVIST", "BOGGART", "WARDEN", "KNIGHT"}
 
 
 def _npc_subject(npc) -> str:
@@ -791,6 +795,43 @@ def _npc_subject(npc) -> str:
     if npc.name in _TITLED_NPCS or npc.desc[:1].islower():
         return f"The {npc.desc}"
     return npc.desc
+
+
+# ---------------------------------------------------------------------------
+# V-LISTEN — the default when no room or object answers (mechanics.md).
+# LISTEN is passive: it never stands in for TALK TO.
+# ---------------------------------------------------------------------------
+
+def v_listen(world: World) -> int:
+    obj = world.prso
+    if obj is None:
+        print("You hear nothing out of the ordinary.")
+    elif obj.has_flag("ACTORBIT"):
+        print(f"{_npc_subject(obj)} isn't saying anything right now.")
+    else:
+        print(f"The {obj.desc} makes no sound.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# V-PULL / V-MOVE / V-PUSH — defaults when no room or object answers
+# (mechanics.md; PULL and MOVE as Zork's V-MOVE, gverbs.zil)
+# ---------------------------------------------------------------------------
+
+def v_move(world: World) -> int:
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    from engine.world import TAKEBIT
+    if obj.has_flag("ACTORBIT"):
+        print(f"{_npc_subject(obj)} wouldn't appreciate that.")
+    elif world.prsa == "V-PUSH":
+        print(f"Pushing the {obj.desc} has no effect.")
+    elif obj.has_flag(TAKEBIT):
+        print(f"Moving the {obj.desc} reveals nothing.")
+    else:
+        print(f"You can't move the {obj.desc}.")
+    return M_HANDLED
 
 
 # ---------------------------------------------------------------------------
@@ -1106,7 +1147,10 @@ def buy_input_hook(world: World, text: str) -> bool:
     for name, price in _SHAMUS_PRICES.items():
         obj = world.objects[name]
         names = set(obj.synonyms) | set(obj.adjectives)
-        if obj.location is None and all(x in names for x in words[1:]) \
+        # The torch is for sale unless carried — a lit one dropped elsewhere
+        # is replaced by the fresh one (mechanics.md — Torch)
+        on_sale = obj.location is None or (name == "TORCH" and obj.location is not world.player)
+        if on_sale and all(x in names for x in words[1:]) \
                 and any(x in obj.synonyms for x in words[1:]):
             _sell(world, obj, price)
             return True
@@ -1119,9 +1163,12 @@ def _sell(world: World, obj, price: int) -> None:
         print(f"You don't have enough Zenni. (Need {price}, have {zenni}.)")
         return
     world.globals["zenni"] = zenni - price
+    # One torch object: a lit one left lying elsewhere quietly leaves its
+    # room and comes back fresh (mechanics.md — Torch)
     world.move_object(obj, world.player)
     if obj.name == "TORCH":
         from content import light
+        obj.desc = "torch"
         light.light_torch(world)   # lit from the moment of purchase
     print(
         f'Shamus takes the Zenni and slides the {obj.desc} across the counter. '
@@ -1569,6 +1616,9 @@ def register_verbs(game) -> None:
     game.register_verb("V-DROP",       v_drop)
     game.register_verb("V-TALK",       v_talk)
     game.register_verb("V-GIVE",       v_give)
+    game.register_verb("V-LISTEN",     v_listen)
+    game.register_verb("V-PULL",       v_move)
+    game.register_verb("V-MOVE",       v_move)
     game.register_verb("V-BUY",        v_buy)
     game.register_verb("V-BOARD-SHIP", v_board_ship)
     game.register_verb("V-DOCK",       v_dock)

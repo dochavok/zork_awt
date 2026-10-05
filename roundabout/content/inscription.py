@@ -93,6 +93,10 @@ _VAULT = (
     "identify — small metal objects have drifted toward the chest, as if drawn."
 )
 _VAULT_DEFAULT = "A nail in the wall points toward it. Dust has settled in a faint ring around the latch."
+_VAULT_AFTER = (
+    "A nail in the wall still points toward it, though nothing pulls at it now. "
+    "The filings lie in a loose scatter below the latch."
+)
 _VAULT_SPOTTED = (
     "A nail in the wall points toward it. The ring of metallic filings around the "
     "latch is deliberate — a lodestone is built into the lid. Opening the chest "
@@ -253,8 +257,13 @@ def vault_action(w: World, msg: int = M_NOT_HANDLED) -> int:
                 w.set_global("VAULT-SPOTTED", True)
         return M_NOT_HANDLED
     if msg == M_LOOK:
-        spotted = w.get_global("VAULT-SPOTTED") and w.get_global("LODESTONE-STATE") is None
-        print(_VAULT + " " + (_VAULT_SPOTTED if spotted else _VAULT_DEFAULT))
+        if w.get_global("LODESTONE-STATE") is not None:
+            tail = _VAULT_AFTER
+        elif w.get_global("VAULT-SPOTTED"):
+            tail = _VAULT_SPOTTED
+        else:
+            tail = _VAULT_DEFAULT
+        print(_VAULT + " " + tail)
         # The chest is a fixture (never listed itself), so its contents are shown here
         brooch = w.objects["DIAMOND-BROOCH"]
         if w.get_global("VAULT-CHEST-OPEN") and brooch.location is w.objects["VAULT-CHEST"]:

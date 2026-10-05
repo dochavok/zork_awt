@@ -483,6 +483,13 @@ Purchased from Shamus (Kitchen, Tale and Ale) for 3 Zenni. Weight: 2.
 - **Otherwise** (in a lit area, or one move from one, or with the Light spell already lit) the torch just goes out: *The torch gutters and goes out.* The player can walk back to the light.
 - **Light spell known but not lit** (stranded as above): not game over, but the player must cast it fast — *The torch goes out. The dark closes in fast — if you're going to cast something, now would be the time.* `CAST LIGHT` within the next two commands (commands the parser doesn't understand don't count). Otherwise: *In the dark, something shifts. You never find out what.* — GAME OVER.
 
+**Dropping the torch** (decided 2026-10-05):
+- A burnt-out torch has no use. `DROP TORCH` (or `DROP ALL`) removes it from the game, back into Shamus's stock: *You toss the burnt-out torch aside. It's no good to anyone now.*
+- A lit torch dropped stays on the floor (*A lit torch.*).
+- `BUY TORCH` when not carrying one sells a fresh torch; a lit one left lying elsewhere quietly leaves its room (there is only one torch).
+- A lit torch left lying keeps burning down. In another room it does so unseen: no warnings, no burnout line, no stranded check.
+- Carried, or on the floor of the player's room, it gets all the messages above, stranded check (and game over) included.
+
 **Shamus swap tiers (`BUY TORCH` while already carrying a torch — the only way to swap; 3 Zenni):**
 
 | Turns remaining | Shamus response |
@@ -1040,6 +1047,24 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 **`GIVE` refused:** *[NPC] doesn't take the [item].* NPCs known by a title or a common noun take "The" (*The Archivist doesn't take the rubbing.*, *The clerk …*); named NPCs don't (*Will Passion …*).
 **`DROP`:** *You drop the [item].* (Designed drops — e.g. the gravestone — use their own text.) Dropping something worn takes it off first, silently.
 **Several objects in one command** (`DROP ALL`, `TAKE ALL`, comma lists): one result per item. A result is labelled "[item]:" only when its line doesn't already name the item (refusals, special lines).
+- `TAKE ALL` (and `TAKE ALL BUT …`) leaves out what the player already carries; if nothing is left: "There's nothing here you can take." (as in Zork). `TAKE X` for a carried item still says "You already have the X."
+
+**A missing tool in a full sentence:** `SEAL JOINTS WITH MORTAR` without the mortar and `MIX CLAY WITH WATER` away from the fountain give the designed lines, the same as the short forms (`SEAL JOINTS`, `MIX CLAY`). Elsewhere a missing object after WITH still gets *You can't see any [word] here!* (Decided 2026-10-05.)
+
+**Floor listings** (decided 2026-10-05):
+- An item on the floor shows its first-sight line until it has been in the player's hands (taken, bought or handed over), then its own line, else *There is a/an [item] here.*
+- Plural names: *There are [item] here.* (lockpicks, Apprentice's Gloves, Bartender's Boots).
+- Mass names: *There is some [item] here.* (charcoal, silver dust, bog thyme, fire clay, clay adhesive, enchanted honey, mortar compound, thin paper, runed metal).
+
+**`LISTEN` defaults** (decided 2026-10-05; where no room or object has its own line — the Whispering Jar and the Tool Alcove do):
+- Plain `LISTEN`: *You hear nothing out of the ordinary.*
+- `LISTEN TO` an object: *The [object] makes no sound.* (as in Zork).
+- `LISTEN TO` an NPC: *[Name] isn't saying anything right now.* LISTEN is passive: it never stands in for TALK TO, so it can't discover quests or start hand-overs.
+
+**`PULL` / `MOVE` / `PUSH` defaults** (decided 2026-10-05; where no room or object has its own line — the Flooding Room levers, the wax seal, the Magnetic Vault's stuck items, the Supply Cache rubble do):
+- `PULL` / `TUG` / `YANK` / `MOVE` a takeable object: *Moving the [object] reveals nothing.* A fixed object: *You can't move the [object].* (as in Zork).
+- `PUSH` any object: *Pushing the [object] has no effect.*
+- Any of them on an NPC: *[Name] wouldn't appreciate that.*
 
 | Verb | Context |
 |------|---------|

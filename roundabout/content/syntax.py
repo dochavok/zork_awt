@@ -939,7 +939,8 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="mix", action="V-MIX",
                    obj1=ObjectSpec(locations=_held_car_have),
                    prep="with",
-                   obj2=ObjectSpec(locations=_held_car_og_ir)),
+                   obj2=ObjectSpec(locations=_held_car_og_ir),
+                   obj2_optional=True),          # no water here → the designed line
         SyntaxRule(verb="mix", action="V-MIX",
                    obj1=ObjectSpec(locations=_held_car_have)),
 
@@ -949,7 +950,8 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="seal", action="V-SEAL",
                    obj1=ObjectSpec(locations=_og_ir),
                    prep="with",
-                   obj2=ObjectSpec(locations=_held_car_have)),
+                   obj2=ObjectSpec(locations=_held_car_have),
+                   obj2_optional=True),          # no mortar → the designed line
         SyntaxRule(verb="seal", action="V-SEAL",
                    obj1=ObjectSpec(locations=_og_ir)),
 

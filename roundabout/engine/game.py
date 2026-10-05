@@ -201,6 +201,11 @@ class Game:
             w.walk_dir = result.direction
             return self.perform("V-WALK")
 
+        # TAKE ALL that finds nothing (gmain.zil)
+        if result.action == "V-TAKE" and not result.prso:
+            print("There's nothing here you can take.")
+            return M_HANDLED
+
         # Multi-object (MANY): dispatch each object in turn. Each result is
         # labelled "name:" unless the result line already names the object.
         if len(result.prso) > 1:
@@ -473,6 +478,10 @@ class Game:
                         print(obj.fdesc)
                     elif obj.ldesc:
                         print(obj.ldesc)
+                    elif obj.article == "plural":
+                        print(f"There are {obj.desc} here.")
+                    elif obj.article == "some":
+                        print(f"There is some {obj.desc} here.")
                     else:
                         print(f"There is {_article(obj.desc)} here.")
                 else:

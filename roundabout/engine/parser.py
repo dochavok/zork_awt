@@ -87,6 +87,8 @@ class SyntaxRule:
     obj1      -- direct object (PRSO) spec, None if no direct object
     prep      -- canonical preposition between obj1 and obj2 ("with", "in"…)
     obj2      -- indirect object (PRSI) spec, None if no indirect object
+    obj2_optional -- if the indirect object isn't in scope, go on without it
+                     (PRSI None) so the handler can give its designed line
     """
     verb: str
     action: str
@@ -95,6 +97,7 @@ class SyntaxRule:
     obj1: Optional[ObjectSpec] = None
     prep: Optional[str] = None
     obj2: Optional[ObjectSpec] = None
+    obj2_optional: bool = False
 
 
 # ---------------------------------------------------------------------------
@@ -556,7 +559,14 @@ class Parser:
 
         if rule.obj2 is not None and nc2_words:
             self._current_prso = prso[0] if len(prso) == 1 else None
-            prsi = self._resolve_phrase(nc2_words, rule.obj2, world)
+            if rule.obj2_optional:
+                try:
+                    with contextlib.redirect_stdout(io.StringIO()):
+                        prsi = self._resolve_phrase(nc2_words, rule.obj2, world)
+                except _ParseError:
+                    prsi = []
+            else:
+                prsi = self._resolve_phrase(nc2_words, rule.obj2, world)
 
         return ParseResult(
             action=rule.action,
@@ -648,11 +658,24 @@ class Parser:
         return [o for o in candidates if id(o) not in excluded_ids]
 
     def _all_objects(self, spec: ObjectSpec, world: "World") -> list:
-        """Everything "all" covers. DROP ALL leaves worn items on the player."""
+        """Everything "all" covers. DROP ALL leaves worn items on the player;
+        TAKE ALL leaves out what the player already carries."""
         candidates = self._scope_objects(spec, world)
-        if getattr(self, "_current_action", None) == "V-DROP":
+        action = getattr(self, "_current_action", None)
+        if action == "V-DROP":
             candidates = [o for o in candidates if not o.has_flag("WEARBIT")]
+        elif action == "V-TAKE":
+            candidates = [o for o in candidates if not self._carried(o, world)]
         return candidates
+
+    @staticmethod
+    def _carried(obj, world: "World") -> bool:
+        loc = obj.location
+        while loc is not None:
+            if loc is world.player:
+                return True
+            loc = getattr(loc, "location", None)
+        return False
 
     # ------------------------------------------------------------------ #
     # Object resolution (mirrors GET-OBJECT / THIS-IT? / SEARCH-LIST)    #

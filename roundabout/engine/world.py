@@ -111,6 +111,9 @@ class GameObject:
     ldesc: str = ""   # subsequent room description
     examine: str = "" # EXAMINE text (falls back to ldesc, then fdesc)
     text:  str = ""   # readable content (READBIT objects)
+    # Floor listing without an ldesc: "" = "There is a/an X here.",
+    # "some" = "There is some X here.", "plural" = "There are X here."
+    article: str = ""
 
     # Properties mirroring ZIL PROPDEFs
     size:     int = 5   # bulk; default from <PROPDEF SIZE 5>
@@ -323,6 +326,10 @@ class World:
                 old_loc.contents.remove(obj)
 
         obj._location = destination
+        # Anything that reaches the player's hands — taken, bought, handed
+        # over — has been handled: its first-sight line (fdesc) is spent.
+        if destination is not None and destination is self.player:
+            obj.touched = True
         if destination is not None:
             if isinstance(destination, Room):
                 destination.contents.append(obj)

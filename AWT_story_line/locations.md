@@ -1793,7 +1793,11 @@ Heavily magnetic room. Trap 15 (Magnetic Chest) on central chest — opening wit
 *A square room, stone walls, a single chest at the center on a low stone platform. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn.*
 *A nail in the wall points toward it. The ring of metallic filings around the latch is deliberate — a lodestone is built into the lid. Opening the chest without removing it first would be a problem.*
 
-**Trap 15 (traps.md):** Medium perception on every visit until spotted (glasses: automatic). Once the lodestone is out or the pulse has fired, the room uses the default description.
+**Room description (after the trap — lodestone out or pulse fired):**
+*A square room, stone walls, a single chest at the center on a low stone platform. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn.*
+*A nail in the wall still points toward it, though nothing pulls at it now. The filings lie in a loose scatter below the latch.*
+
+**Trap 15 (traps.md):** Medium perception on every visit until spotted (glasses: automatic). Once the lodestone is out or the pulse has fired, the room uses the after-the-trap description.
 - `DISARM LODESTONE` / `REMOVE LODESTONE` / `DISARM TRAP` — only once spotted, else *You don't see anything to disarm.* Medium trap-disarm roll (boots +3), retry allowed.
   - Success (4 XP, Rogue +5): *You slide a hand under the lid's lip, find the lodestone and work it loose. The filings slump out of their ring. The chest is just a chest now.*
   - Fail: *The lodestone is set fast. You can't get it loose — not this time.*

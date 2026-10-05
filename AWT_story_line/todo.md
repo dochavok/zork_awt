@@ -124,6 +124,13 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Ship and shore connect only by LAND / DOCK and BOARD SHIP. Land, Ho! is the last sea square and the Empty Beach is the shore. Walking exits between islands and sea removed.
   Both walkthroughs: GO EAST [Land, Ho!] / LAND [Empty Beach], and one more GO WEST home. test_ship_shore.py.
 - Mage class XP bonus: +1 XP the first time a Mage enters each of the 43 dungeon rooms (experience.md — Class XP Adjustments), paid lit or dark, once per room even if its visited state resets. A move refused by darkness pays nothing. Quests 19 & 30 hints stay on sale from game start (mechanics.md). test_mage_bonus.py.
+- TAKE ALL / TAKE ALL BUT leave out what the player carries; nothing left: "There's nothing here you can take." (as in Zork). test_take_all.py.
+- LISTEN defaults (plain, object, NPC — passive, never TALK TO); PULL / MOVE / PUSH defaults; the Redcrosse Knight takes "The". test_listen.py, test_pull_push_move.py.
+- Magnetic Vault: after-the-trap room description (locations.md); the "faint ring" line no longer returns. test_magnetic_vault_desc.py.
+- Floor listings: items reaching the player's hands any way are touched (no stale first-sight lines); plural / mass names ("There are lockpicks here.", "There is some charcoal here.").
+  Torch: a burnt-out torch dropped leaves the game; BUY TORCH sells a fresh one (a lit one left elsewhere leaves its room); a torch away from the player burns down unseen. test_floor_listing.py.
+- SEAL JOINTS WITH MORTAR / MIX CLAY WITH WATER with the tool missing give the designed lines (SyntaxRule.obj2_optional). test_optional_with.py.
+- Design-doc lines over 400 chars split (experience.md Mage bonus, mechanics.md).
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
@@ -134,18 +141,12 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Ty's Cargo dice game (mechanics.md, reference-cargo-game) isn't built — Ty is part of his room description; TALK TO TY gets the generic no-response line.
 - The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.
 - Thin paper "destroyed if player gets wet": no wetting events are defined yet.
-- `TAKE ALL` also tries items already in inventory ("You already have the …" for each). Predates this session.
-- Parser quirk: a full sentence naming a missing object gets the parser's "You can't see any X here!" instead of the designed refusal — `SEAL JOINTS WITH MORTAR` without the mortar, `MIX CLAY WITH WATER` away from the fountain. The designed lines appear for the short forms (`SEAL JOINTS`, `MIX CLAY`).
 - Deferred from P: Quest 22's food & drink price cut is a flag only — buying food and drink isn't built.
 - Deferred from O: the bow attack on the werewolf (failure line in mechanics.md; the attack doesn't exist yet). Fireball is built.
 - Bow actions aren't built: the `SHOOT X (WITH BOW)` syntax maps to V-SHOOT, but no verb is registered, so shooting does nothing anywhere (mugger, Warden, apprentice, werewolf, the knight's trial). Needs the bow attack per mechanics.md (bow skill, round-1 bonus).
 - Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
 - Combat bonuses from gear aren't applied in the per-encounter fights (mugger, Warden, apprentice roll `player.roll` alone): the Apprentice's Gloves' +3 and the melee weapon bonuses do nothing yet.
 - Quest 50: Will being visibly shaken on the player's next tower visit isn't built.
-- LISTEN has no default handler — prints nothing outside the Tool Alcove and the Pipe Room.
-- V-PULL has no default handler — PULL on an ordinary object prints nothing.
-- Magnetic Vault: the default description ("Dust has settled in a faint ring around the latch") returns after the lodestone is out.
-- Floor listings: the burnt-out torch shows as "A torch." and plural items read "There is a lockpicks here."
 - Ring invisibility vs. the Dankhaus wards (npcs.md: invisible-entry lines) not built yet — comes with WEAR RING in H3.
 - The God-Forsaken Ring has no room/inventory description in items.md (code uses placeholder "A plain dark ring.").
 

@@ -138,11 +138,12 @@ def v_dust(w: World) -> int:
 
 
 def v_push(w: World) -> int:
-    """PRESS SEAL away from the jar; other pushes fall through as before."""
+    """PRESS SEAL away from the jar; other pushes get the default line."""
     if w.prso is not None and w.prso.name == "WAX-SEAL":
         print(_NO_JAR_SEAL)
         return M_HANDLED
-    return M_NOT_HANDLED
+    from content.verbs import v_move
+    return v_move(w)
 
 
 def make_rooms(world) -> None:

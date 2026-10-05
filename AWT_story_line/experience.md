@@ -159,7 +159,8 @@ Hearts are granted at Levels 3, 5, and 7. The Heart Necklace (Lynds arm wrestlin
 Each class gets a bonus in their natural domain. Class identity feels present in progression without locking any content. Bonuses are calibrated so a completionist run of confirmed content yields approximately 40–50 class bonus XP regardless of class.
 
 - **Warriors** — +10 XP per combat kill (4 confirmed kills = +40 XP; grows naturally as combat design pass adds encounters)
-- **Mages** — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean; 43 reachable rooms = +43 XP). Dungeon = the Upper (15), Middle (14) and Lower (15) Tier rooms in locations.md; not the Secret Tunnels, Dungeon Entrance, Toll Bridge or mine. The Skeleton Room can't be earned (death on entry); the Stored Room / Hole to Below counts once. Paid silently on first entry, lit or dark; each room is credited once even if its visited state resets.
+- **Mages** — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean; 43 reachable rooms = +43 XP). Dungeon = the Upper (15), Middle (14) and Lower (15) Tier rooms in locations.md; not the Secret Tunnels, Dungeon Entrance, Toll Bridge or mine. The Skeleton Room can't be earned (death on entry); the Stored Room / Hole to Below counts once.
+  - Paid silently on first entry, lit or dark; each room is credited once even if its visited state resets. A move refused by darkness pays nothing.
 - **Rogues** — +5 XP per trap disarmed (10 disarmable traps = +50 XP)
 
 **Class bonus totals (confirmed content):**
