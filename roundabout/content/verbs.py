@@ -1261,6 +1261,9 @@ def buy_input_hook(world: World, text: str) -> bool:
         return True
     if len(words) < 2 or words[0] not in ("buy", "order", "purchase"):
         return False
+    from content import ink
+    if ink.refuse(world, "SHAMUS"):   # inked: no sales (the slate can still be read)
+        return True
     for name, price in _SHAMUS_PRICES.items():
         obj = world.objects[name]
         names = set(obj.synonyms) | set(obj.adjectives)

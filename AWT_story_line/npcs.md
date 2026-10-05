@@ -72,7 +72,9 @@ Wearing the Enchanted Glasses in Will's presence is an instant fail state (Will 
 **Teaching dialogue:**
 *Will glances at the scroll, then at you. He takes it without ceremony and unrolls it, reading silently for a moment. Then he reads it aloud — not to you, exactly, more as if the words need to be heard in the right kind of room. When he finishes, you understand it. You're not sure how. "Keep that," he says, nodding at the space where the scroll was. It's gone. "The knowing, I mean."*
 
-**Inked player:** Will still engages but is disdainful. *"Will peers over his spectacles. 'And you found the thread,' he says, and pauses. 'Everyone finds the thread.' He turns back to his work. 'The inn has a bath. Use it. Twice.'"*
+**Inked player:** Will still engages but is disdainful.
+The first thing the player does with him while inked (teaching, the ring, the dragon-nip) gets this line, then goes ahead; after that he's normal until the player is inked again. `TALK TO WILL` gets it every time while inked.
+*"Will peers over his spectacles. 'And you found the thread,' he says, and pauses. 'Everyone finds the thread.' He turns back to his work. 'The inn has a bath. Use it. Twice.'"*
 
 **Will's hidden room:** Contains the Enchanted Glasses. Wearing them in Will's presence (anywhere he can see the player — in practice, the tower's main room) triggers an instant fail state. The bedroom is safe because Will is not there.
 
@@ -101,6 +103,7 @@ He turns back to his work.
 
 ### Litlock
 **Location:** The Dankhaus, hidden in Bog-SE behind dense brush.
+**Inked player:** turned away at the Dankhaus door, even when invited (instead of the ward line): *The air near the door shifts as you approach, then settles, firmly. From inside, Litlock's voice: "Not like that, you're not."*
 **Personality:** Jovial. Raises Aurix the Kobold child.
 
 Each time the player passes through Bog-SE, a perception check (Medium, 9) occurs. On success the path to the Dankhaus is revealed — permanently visible for the rest of the playthrough. Access gated by magical wards — unlocked by Lynds after arm wrestling quest.
@@ -115,7 +118,7 @@ A 2×2×2 dialogue-tree puzzle. One path per tier succeeds; the other fails and 
 
 ---
 
-**Invisible = ring worn and not inked.** Ink (Trap 45) cancels invisibility, as in the Chuckle House and the Spirit Room — an inked player wearing the ring gets the ward deflection like anyone uninvited.
+**Invisible = ring worn and not inked.** Ink (Trap 45) cancels invisibility, as in the Chuckle House and the Spirit Room — an inked player never gets in: Litlock's inked line below turns them away at the door, invited or not, ring or no ring.
 
 **Common Room while invisible (either case):** this line replaces the room description, on every entry and every LOOK:
 *Litlock is here. He glances toward you — or toward where you are — with the unhurried attention of someone who has seen stranger things. Then he waits. He does not speak.*
@@ -245,6 +248,7 @@ Fires automatically on arrival in the Captain's Quarters (after the room descrip
 
 ### Pyronicus
 **Location:** Below the illusory volcano, south of the Roundabout Wasteland.
+**Inked player:** an active quest giver — refuses everything (TALK, GIVE, challenges) until the ink is gone (traps.md — Trap 45): *{Name} takes one look at the ink and wants nothing to do with you until it's gone.*
 **Personality:** Measured, slightly aloof. Economical with words.
 
 Lives in a single large obsidian room built around an ancient forge. Will told Pyronicus to expect the player — he is unconcerned about being found.
@@ -333,6 +337,7 @@ Her first-visit introduction still fires if the player is inked — it's unpromp
 
 ### Shamus
 **Location:** Kitchen, Tale and Ale Tavern.
+**Inked player:** refuses everything (TALK, BUY, GIVE; reading the slate still works): *Shamus looks up from the stove, takes in the ink, and points the ladle at the door. "Not in my kitchen."*
 **Personality:** Short, wide, shaved head, untrimmed grey beard, efficient mover. "The kind of man you'd go to if you needed something that wasn't on any official list."
 
 Vendor: sells torch (3Z), thin paper (2Z — Quest 28), gunpowder (5Z), fishing rod (8Z), Tip Journal (5Z), dagger (5Z), mace (25Z), battle axe (100Z). Shamus doesn't buy anything back (buyback removed 2026-10-05).
@@ -371,6 +376,7 @@ His stock isn't on display — nothing in the Kitchen can be taken; `BUY X` ther
 
 ### Lynds
 **Location:** Tale and Ale (regular).
+**Inked player:** an active quest giver — refuses everything (TALK, GIVE, challenges) until the ink is gone (traps.md — Trap 45): *{Name} takes one look at the ink and wants nothing to do with you until it's gone.*
 **Presence line (room listing):** *Lynds sits at a corner table, a drink in front of him and an elbow's worth of space cleared beside it.*
 **Personality:** Renowned for strength. Arm wrestles anyone.
 
@@ -428,6 +434,7 @@ Runs the Cargo dice game (Ship, Captain, and Crew). Full mechanic in `mechanics.
 
 ### Raznak
 **Location:** Archery Range (west edge of town).
+**Inked player:** refuses everything (TALK, PAY / GIVE Zenni): *Raznak lowers his bow and studies you. "Wash," he says. "Then we talk."*
 **Presence line (room listing):** *Raznak stands at the near end of the range, watching the targets.*
 **Personality:** Viking. Economical with words. Respects competence and earned trust above all.
 
@@ -497,6 +504,7 @@ He pauses.
 
 ### The Redcrosse Knight: Knight of Faith
 **Location:** Roundabout Town Square.
+**Inked player:** refuses everything (TALK, CHALLENGE / FIGHT, PAY / GIVE Zenni): *The knight looks you over, slowly. "I teach those who present themselves properly. Come back clean."*
 **Presence line (room listing):** *The Redcrosse Knight, Knight of Faith, stands at ease near the fountain, watching the town go about its business.*
 **`EXAMINE KNIGHT`:** *A tall man in plain, well-kept armour, a red cross faded on the breast. He wears his sword like a tool he respects. His eyes are calm, and they miss very little.*
 **Personality:** Formally warm. A teacher first — he takes the trial seriously but is rooting for the player to pass. Few unnecessary words. The kind of man who gives respect before it's earned and more after.
@@ -553,6 +561,7 @@ Full combat dialogue in `quests.md` — Quest 54.
 
 ### Ivanaar Stormbringer
 **Location:** The Encampment (hub).
+**Inked player:** an active quest giver — refuses everything (TALK, GIVE, challenges) until the ink is gone (traps.md — Trap 45): *{Name} takes one look at the ink and wants nothing to do with you until it's gone.*
 **Presence line (room listing):** *Ivanaar Stormbringer sits by the central fire, watching you with the patience of someone who expects to be impressed or disappointed, and has not decided which.*
 **Personality:** Gruff, softens after each trial. Formal and warm simultaneously.
 
@@ -562,6 +571,7 @@ Four states — see full dialogue in `locations.md` (Viking Encampment section).
 
 ### Haalvar
 **Location:** Haalvar's Hut, north of The Encampment.
+**Inked player:** an active quest giver — refuses everything (TALK, GIVE, challenges) until the ink is gone (traps.md — Trap 45): *{Name} takes one look at the ink and wants nothing to do with you until it's gone.*
 **Presence line (room listing):** *Haalvar lounges beside the stone, looking pleased with himself.*
 **Personality:** Smarmy, self-satisfied.
 
@@ -571,6 +581,7 @@ Administers Trial 1 (Riddle Stone). Full dialogue in `locations.md`.
 
 ### Aylora
 **Location:** The Fire Pit, west of The Encampment.
+**Inked player:** an active quest giver — refuses everything (TALK, GIVE, challenges) until the ink is gone (traps.md — Trap 45): *{Name} takes one look at the ink and wants nothing to do with you until it's gone.*
 **Presence line (room listing):** *Aylora sits by the fire, a cup in hand.* After losing the contest: *Aylora is slumped on the bench, snoring.*
 **Personality:** Viking drinking champion.
 
@@ -580,6 +591,7 @@ Administers Trial 3 (Thornbrew drinking challenge). Passes out if player wins. F
 
 ### Beekeeper
 **Location:** Beekeeper's Cottage (west of The Old Oak). Mentioned in her room description, so no separate presence line.
+**Inked player:** an active quest giver — refuses everything (TALK, GIVE, challenges) until the ink is gone (traps.md — Trap 45): *{Name} takes one look at the ink and wants nothing to do with you until it's gone.*
 **Quest:** Quest 24 — The Beekeeper's Swarm (discovered on first visit).
 **First visit / `TALK TO BEEKEEPER`:** *"You'll want to keep clear of the tree east of the oak," she says, before you've said anything. "Swarm got loose and nested in a hollow there. I'd fetch them back, but my smoke kit's gone — somewhere in the tunnels under town, last I knew." She shrugs. "If you come across it."*
 **`GIVE VIAL TO BEEKEEPER`:** *She takes the vial in both hands and holds it up to the light. "There she is," she says softly, to the bee rather than to you. When she looks up, she's smiling. "The rest will follow her home. Here — you've earned this." She presses a small jar of honey into your hands. It's faintly warm.* — *[Enchanted honey added to inventory.]* Quest 24 completes (Zenni paid silently).
@@ -589,6 +601,7 @@ Administers Trial 3 (Thornbrew drinking challenge). Passes out if player wins. F
 
 ### Child at the Old Oak
 **Location:** The Old Oak.
+**Inked player:** an active quest giver — refuses everything (TALK, GIVE, challenges) until the ink is gone (traps.md — Trap 45): *{Name} takes one look at the ink and wants nothing to do with you until it's gone.*
 **Quest:** Quest 41 — The Child's Kite.
 **Presence line (kite stuck):** *A child stands under the oak, staring up at the kite with the patience of someone who has been at it a while.*
 **Presence line (kite returned):** *The child is flying the kite in the clearing, badly and happily.*
@@ -610,6 +623,7 @@ Does not speak. Administers Trial 2 by pointing. Looks disappointed on wrong ord
 
 ### Councilman Rowan Finch
 **Location:** Council Chamber, Town Hall.
+**Inked player:** an active quest giver — refuses everything (TALK, GIVE, challenges) until the ink is gone (traps.md — Trap 45): *{Name} takes one look at the ink and wants nothing to do with you until it's gone.*
 **Personality:** Formal, civic-minded. Aware of his family's history.
 
 Grandson of Calder Finch (dungeon explorer). Quest 32 giver — gravestone stolen. Rewards Middle Tier Key on completion.
@@ -638,6 +652,7 @@ Grandson of Calder Finch (dungeon explorer). Quest 32 giver — gravestone stole
 
 ### The Librarian
 **Location:** Library Main Hall.
+**Inked player:** refuses to assist: *The Librarian takes one look at you and moves, quietly, between you and the shelves. "Not with those hands."*
 **Personality:** Half-elf, half-Kenku. Emerald cuffs. Only one of her kind in Roundabout. Her Kenku nature shapes her speech — she stitches together fragments overheard or said to her, often verbatim. For the scholar quest, the fragments are things the scholar actually said to her.
 
 **Interaction verb:** `TALK TO LIBRARIAN` only. No topic prompts needed.
@@ -685,6 +700,7 @@ She picks up her book. *"He said that once, about a research problem. I think ab
 
 ### The Archivist
 **Location:** The Stacks, Library.
+**Inked player:** an active quest giver — refuses everything (TALK, GIVE, challenges) until the ink is gone (traps.md — Trap 45): *{Name} takes one look at the ink and wants nothing to do with you until it's gone.*
 **Personality:** Scholarly, curious, meticulous. Speaks precisely — qualifies claims, distinguishes between what is known and what is inferred. Not unfriendly, but absorbed. The map project has been on his table for a while.
 
 **Appearance:** An older man, slight, ink on both hands. He works at a large table buried under rolled maps, open books held flat by smooth stones, and sheets covered in careful notation. He does not look up immediately when the player enters.
@@ -728,6 +744,7 @@ He is already working when the player arrives.
 
 ### Records Room Worker
 **Location:** Records Room, Town Hall.
+**Inked player:** refuses everything (TALK, GIVE — no charter): *The clerk glances up, sees the ink, and slides the ledger out of your reach. "Not near the records. Not like that."*
 
 Refuses to hand over the town charter until the player returns the pocket watch from the Chuckle House ghost. The watch belonged to his missing relative (the ghost — his uncle). The connection between the watch and his family is a surprise to him. Charter is required for Quest 27.
 

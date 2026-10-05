@@ -187,7 +187,9 @@ def give_zenni_input_hook(w: World, text: str) -> bool:
     knight = w.objects.get("KNIGHT")
     if knight is None or knight.location is not w.here:
         return False
-    pay(w)
+    from content import ink
+    if not ink.refuse(w, "KNIGHT"):
+        pay(w)
     return True
 
 
@@ -208,6 +210,9 @@ def shoot_input_hook(w: World, text: str):
     if not shot or knight is None or knight.location is not w.here \
             or w.objects["BOW"] not in w.player.contents:
         return False
+    from content import ink
+    if ink.refuse(w, "KNIGHT"):
+        return True                      # inked: a refusal, and a turn like any other
     from engine.game import HOOK_NO_TURN
     print(BOW_REFUSED)
     return HOOK_NO_TURN

@@ -113,6 +113,8 @@ def encampment_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     from content import quests
     if w.get_global("AYLORA-DRAGGED"):
         _runed_metal_handoff(w)
+    elif w.get_global("INKED"):
+        pass                                # Ivanaar's greeting waits until clean
     elif not quests.is_discovered(w, "57"):
         # Quest 57 discovery: Ivanaar greets the player on first entry
         quests.discover(w, "57")
@@ -181,7 +183,8 @@ def _ask_riddle(w: World) -> None:
 
 
 def hut_action(w: World, msg: int = M_NOT_HANDLED) -> int:
-    if _arrived(w, msg, "HAALVARS-HUT") and _riddle_open(w):
+    if _arrived(w, msg, "HAALVARS-HUT") and _riddle_open(w) \
+            and not w.get_global("INKED"):  # inked: the riddle waits until clean
         _ask_riddle(w)
     return M_NOT_HANDLED
 
@@ -220,6 +223,9 @@ def riddle_input_hook(w: World, text: str) -> bool:
     else:
         return False
 
+    from content import ink
+    if ink.refuse(w, "HAALVAR"):
+        return True
     if [a for a in answer if a not in ("the", "a")] == ["sea"]:
         print(_RIDDLE_SOLVED + _haalvar_next(w))
         w.set_global("RIDDLE-DONE", True)
@@ -310,6 +316,9 @@ def drink_contest(w: World) -> bool:
         return False
     if w.get_global("AYLORA-OUT"):
         print(_AYLORA_SNORING)
+        return True
+    from content import ink
+    if ink.refuse(w, "AYLORA"):
         return True
     if not _first_two_done(w):
         print(_AYLORA_NOT_YET)
@@ -446,7 +455,9 @@ def give_zenni_input_hook(w: World, text: str) -> bool:
     raznak = w.objects.get("RAZNAK")
     if raznak is None or raznak.location is not w.here:
         return False
-    pay_raznak(w)
+    from content import ink
+    if not ink.refuse(w, "RAZNAK"):
+        pay_raznak(w)
     return True
 
 

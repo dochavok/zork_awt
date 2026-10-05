@@ -41,8 +41,11 @@ def test_ward_stops_visible_uninvited_player():
 
 
 def test_ink_cancels_the_ring_at_the_ward():
+    # Inked: Litlock's line turns the player away, ring or not (traps.md — Trap 45)
     w, g = _at_bog_se(ring_on=True, inked=True)
-    assert _WARD in _do(g, "east")
+    out = _do(g, "east")
+    assert 'Litlock\'s voice: "Not like that, you\'re not."' in out
+    assert _WARD not in out
     assert w.here.name == "BOG-SE"
 
 

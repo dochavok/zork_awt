@@ -167,8 +167,8 @@ def rent_room(w: World) -> None:
     w.set_global("GUEST-WAKING", True)
     w.set_global("GUEST-BATH", inked)
     if inked:
-        w.set_global("INKED", False)
-        from content import chuckle
+        from content import chuckle, ink
+        ink.cleaned(w)
         chuckle.update_ghost_visibility(w)
     room = w.rooms[f"GUEST-ROOM-{random.randint(1, 3)}"]
     game = w.game

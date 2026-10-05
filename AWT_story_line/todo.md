@@ -154,10 +154,12 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - The inn (content/tavern.py): BUY / ORDER / PURCHASE DRINK, FOOD or STEW at the Bar (1 heart; stew 2 after Quest 40; 2 Zenni, 1 after Quest 22); RENT / BUY ROOM (5 Zenni, full heal, random guest room with its wake-up text);
   full-hearts and "You're short." refusals; Guest Rooms 1–3 built (one-way out), taken out of the Zenni pool. test_inn.py.
 - Inked: renting a room bathes off the ink, even at full hearts; it's the only thing May does for an inked player (food, drink, TALK, tips refused; hand-overs and the free drink wait). Will engages with disdain rather than refusing (traps.md). test_inn.py.
+- Inked player (content/ink.py): Shamus, Raznak, the Knight, the Records Room Worker and the Librarian refuse with their own lines; the active quest givers (Archivist, oak child, beekeeper, Ivanaar, Haalvar, Aylora, Pyronicus, Rowan Finch, Lynds) share one;
+  TALK / GIVE (item kept) / BUY / PAY / CHALLENGE / FIGHT / SHOOT / riddle answers / Aylora's DRINK refused, no Zenni taken, a turn used; reading the slate still works. Arrival greetings (Ivanaar, Haalvar's riddle, the beekeeper) wait until clean.
+  Will: TALK gets his disdainful line every time; the first GIVE / teaching gets it once, then goes ahead. Litlock turns an inked player away at the door, invited or not (npcs.md, traps.md). test_ink.py.
 
 **Known issues still open:**
 - SHOW isn't a verb: quests.md lists SHOW DRAGON-NIP TO WILL as an alternative to GIVE.
-- Inked player handling (traps.md — Trap 45): May and the bath are built. Not built: refusals for Shamus, the trainers (Raznak, Redcrosse Knight), Litlock, the Records Room Worker, the Librarian, active quest givers; Will's disdainful line.
 - The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.
 - Thin paper "destroyed if player gets wet": no wetting events are defined yet.
 - Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.

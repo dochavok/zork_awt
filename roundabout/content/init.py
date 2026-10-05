@@ -126,6 +126,8 @@ def _make_player(world) -> None:
         desc="Adventurer",
         synonyms=["me", "myself", "self"],
     )
+    from content import ink
+    player.action = ink.player_action   # inked: NPC refusals, Will's disdain
     world.register_object(player)
     world.player = player
     world.winner = player

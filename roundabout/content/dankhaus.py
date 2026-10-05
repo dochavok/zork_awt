@@ -59,6 +59,9 @@ class _WardedExit(Exit):
     def resolve(self, world):
         if not world.get_global("DANKHAUS-PATH-FOUND"):
             return None, "You can't go that way."
+        if world.get_global("INKED"):        # invited or not (traps.md — Trap 45)
+            from content.ink import LITLOCK_DOOR
+            return None, LITLOCK_DOOR
         if not world.get_global("DANKHAUS-INVITED") and _visible(world):
             return None, _WARD
         return super().resolve(world)

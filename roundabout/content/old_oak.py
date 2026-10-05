@@ -141,7 +141,8 @@ def eat_honey(w: World) -> None:
 
 
 def cottage_action(w: World, msg: int = M_NOT_HANDLED) -> int:
-    if msg == M_END and not w.get_global("BEEKEEPER-MET"):
+    # inked: the beekeeper's greeting waits until clean (traps.md — Trap 45)
+    if msg == M_END and not w.get_global("BEEKEEPER-MET") and not w.get_global("INKED"):
         from content import quests
         w.set_global("BEEKEEPER-MET", True)
         quests.discover(w, "24")

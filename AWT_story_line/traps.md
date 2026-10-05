@@ -112,7 +112,13 @@ Triggering it douses the player in black ink — no heart damage, but the player
 **NPC impacts while inked:**
 - **May — rooms only:** `RENT ROOM` (inn rest and bath, 5 Zenni) is always available regardless of ink status, even at full hearts. It's the only thing May will do for an inked player. The player cannot be permanently stuck.
 - **Refuse entirely:** May for everything but rooms (no hints, food or drink; her quest hand-overs wait until the player is clean), Shamus (no vendor sales), the trainers (Raznak, Redcrosse Knight), Litlock (no Dankhaus access), Records Room Worker (no charter), Librarian (refuses to assist), all active quest givers.
-- **Will Passion:** Still engages — including spell teaching; he doesn't refuse — but disdainful. Response: *"Will peers over his spectacles. 'And you found the thread,' he says, and pauses. 'Everyone finds the thread.' He turns back to his work. 'The inn has a bath. Use it. Twice.'"*
+- **What a refusal blocks:** every action with that NPC — TALK, GIVE (the player keeps the item), BUY, PAY / GIVE Zenni, CHALLENGE / FIGHT, the trials. No Zenni taken; the refusal uses a turn, like any other. Reading Shamus's slate still works.
+- **Refusal lines** (npcs.md has each): Shamus, Raznak, the Knight, Litlock (at the door, even when invited), the Records Room Worker and the Librarian have their own. The active quest givers share one: *{Name} takes one look at the ink and wants nothing to do with you until it's gone.*
+- **Active quest givers:** the Archivist, the Child at the Old Oak, the Beekeeper, Ivanaar, Haalvar, Aylora, Pyronicus, Councilman Rowan Finch, Lynds. Not affected: Ty, the Afflicted Apprentice (and Kevry and the Boggart, below).
+- **Arrivals and trials while inked:** quest givers' unprompted arrival lines hold until the player is clean — Ivanaar's first greeting (and Quest 57's discovery), Haalvar's riddle on entering the hut, the beekeeper's first greeting (and Quest 24's discovery); riddle answers get the shared line.
+  Trial 3 (`DRINK` at the Fire Pit) gets the shared line as Aylora. Trial 2's stones still work (the unnamed child isn't a quest giver). May's unprompted introduction still fires.
+- **Will Passion:** Still engages — including spell teaching; he doesn't refuse — but disdainful.
+  The first thing the player does with him while inked gets his line, then goes ahead; after that he's normal until the player is inked again. `TALK TO WILL` gets the line every time while inked. Response: *"Will peers over his spectacles. 'And you found the thread,' he says, and pauses. 'Everyone finds the thread.' He turns back to his work. 'The inn has a bath. Use it. Twice.'"*
 - **Chuckle House ghost:** Inaccessible while inked — ink negates ring invisibility so the ghost cannot be seen or interacted with.
 - **Kevry:** Unaffected — too isolated to notice or care.
 - **Toll Bridge Boggart:** Unaffected.
