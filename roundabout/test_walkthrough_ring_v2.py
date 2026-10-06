@@ -74,7 +74,7 @@ def parse_walkthrough(path: str) -> list[Section]:
     Lines starting with '>' are commands.  The bracketed [fragment] at the
     end is the required output fragment.  Lines starting with '(' are
     input() responses during char creation — they are fed to the input mock
-    rather than to do_turn().  Section headers are lines matching /^[A-Z]+\)/.
+    rather than to do_turn().  Section headers are lines matching /^[A-Z]+\\)/.
     A fragment may list several required pieces separated by "|".
     """
     sections: list[Section] = []

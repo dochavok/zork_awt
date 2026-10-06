@@ -9,7 +9,7 @@ verbatim in AWT_story_line/*.md (ignoring markdown emphasis and line breaks;
 not design text).
 
 When a constant changes, update the design file first — or this fails.
-Run with: pytest roundabout/test_design_text.py  (from c:\zork_awt)
+Run with: pytest roundabout/test_design_text.py  (from c:\\zork_awt)
 """
 
 import glob
