@@ -4,13 +4,13 @@ Consolidated from all source files. Update this file when items are resolved; re
 
 ---
 
-## TODO #1 — Narrative-Driven Test Rewrite
+## TODO #1 — Narrative-Driven Test Rewrite — RESOLVED 2026-10-05
 
-**Status:** In progress — both walkthroughs pass end to end with no state injection: the ring walkthrough (`walkthrough_ring.txt`, `test_walkthrough_ring_v2.py`), A–U, and the full-score walkthrough (`walkthrough_fullscore.txt`, `test_walkthrough_fullscore_v2.py`), A–SS (2026-10-04). Remaining: the known issues below.
+**Status:** Resolved — both walkthroughs pass end to end with no state injection: the ring walkthrough (`walkthrough_ring.txt`, `test_walkthrough_ring_v2.py`), A–U, and the full-score walkthrough (`walkthrough_fullscore.txt`, `test_walkthrough_fullscore_v2.py`), A–SS (2026-10-04). The known issues below were all resolved by 2026-10-05.
 
 **Goal:** Both walkthroughs — ring quest and full score — passing with zero state injection. The narrative rewrite is complete only when the full-score walkthrough passes too.
 
-**Current position:** Both walkthroughs pass end to end with no state injection (2026-10-04). Full-score sections renumbered A–Z, AA–SS. TODO #1 stays open until the known issues below are resolved.
+**Current position:** Both walkthroughs pass end to end with no state injection (2026-10-04). Full-score sections renumbered A–Z, AA–SS. All known issues resolved 2026-10-05.
 
 0 full-score steps fail.
 
@@ -31,7 +31,7 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Lynds after the Viking trials: always-max can't win at level 3 (21 vs his 23); level 4 comes during J. Litlock follows Lynds (needs the invitation).
 - Routes between all of C–M connect.
 
-**XP note:** in the ring walkthrough the player is level 6 by the end of K (Quest 32 reward) and finishes at level 6 with 307 XP. Not a problem for the ring path; worth checking against the level curve when TODO #4 is reconciled.
+**XP check (2026-10-05, Warrior):** ring walkthrough — level 2 in C1 (before the dungeon), level 6 in K, level 7 in S; finishes at level 7 with 332 XP. Full-score walkthrough — level 2 in C, level 8 in II (440 XP); finishes with 552 XP. Both fit the curve in experience.md.
 
 **Completed:**
 - Steps 1–4 from original plan done (walkthroughs written, test files created, old tests deleted)
@@ -169,6 +169,7 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - The Archivist: Quest 28 (the rubbing) is his only role — the book-research mechanic was dropped in favor of it (locations.md — The Stacks, npcs.md).
 - Quest 34's soldier doesn't return to town — weapon training belongs to the Redcrosse Knight (Quest 54); the town return and its unreachable ambient line removed (npcs.md, quests.md, locations.md).
 - Tip Journal: READ / EXAMINE JOURNAL lists each discovered, unfinished quest by name in discovery order with [Board] / [May] / [Organic] and the hints bought from May (the Hollow Statue hint shows under the Undead Warden too); "You don't have a journal." / "The journal is empty."; weight 0 (mechanics.md — Tip Journal, items.md). content/journal.py, test_journal.py.
+- XP vs the level curve checked (Warrior walkthroughs fit). experience.md totals corrected: quest XP by class (each class does two of Quests 54–56; Quest 56 is 4 XP × three spells), Warrior bonus 3 kills = +30, summary per class (550–560 / 559–569 / 572–582).
 
 **Known issues still open:**
 - None.

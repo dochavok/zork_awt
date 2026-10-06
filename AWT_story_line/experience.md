@@ -42,15 +42,21 @@ Each quest has a specific XP value. All quests bumped by a flat +2 XP from base 
 | Quest 51 | The Back Alley Mugger | 6 |
 | Quest 52 | Make Litlock Laugh | 6 |
 | Quest 53 | Will's Glasses | 10 or 20 (10 if regular Enchanted Glasses returned; 20 if Actually Enchanted) |
-| Quest 54 | Fight the Knight | 8 |
-| Quest 55 | The Archer's Trial | 6 |
-| Quest 56 | Will's Teaching | 4 per spell |
+| Quest 54 | Fight the Knight | 8 (Mage, Rogue) |
+| Quest 55 | The Archer's Trial | 6 (Warrior, Mage) |
+| Quest 56 | Will's Teaching | 4 per spell (Warrior, Rogue) — three spell scrolls: Light, Unbind Undead, Fireball (12 XP) |
 | Quest 57 | The Viking Trust Trials | 12 |
 | Quest 58 | The Dragon-Nip | 15 |
 | Quest 59 | Beat Lynds | 5 |
 | Ring ritual | Binding ceremony at the Church of All altar (ring-rituals.md) | 5 |
 
-**Quest total (confirmed): 270–280 XP** (Quest 53 variable — 230 if glasses not enchanted, 240 if Actually Enchanted)
+**Quest total (confirmed), by class:** each class does two of the three training quests (54, 55, 56); Quest 56 counts all three spells; the lower figure is Quest 53 at 10, the higher at 20.
+
+| Class | Training quests | Quest XP |
+|-------|-----------------|----------|
+| Warrior | 55, 56 | 272–282 |
+| Mage | 54, 55 | 268–278 |
+| Rogue | 54, 56 | 274–284 |
 
 ---
 
@@ -94,19 +100,19 @@ XP scales with enemy difficulty. Named/boss enemies award toward the higher end.
 
 ## XP Summary
 
-| Source | XP |
-|--------|----|
-| Exploration | 167 |
-| Quests | 270–280 |
-| Traps (disarm) | 39 |
-| Combat | 42 |
-| **Confirmed base total** | **528–538 XP** |
-| Class bonus (Warrior) | +40 XP |
-| Class bonus (Mage) | +43 XP |
-| Class bonus (Rogue) | +50 XP |
-| **Confirmed total with class bonus** | **568–588 XP** (varies by class and Quest 53 outcome) |
+| Source | Warrior | Mage | Rogue |
+|--------|---------|------|-------|
+| Exploration | 167 | 167 | 167 |
+| Quests | 272–282 | 268–278 | 274–284 |
+| Traps (disarm) | 39 | 39 | 39 |
+| Combat | 42 | 42 | 42 |
+| **Confirmed base total** | **520–530** | **516–526** | **522–532** |
+| Class bonus | +30 | +43 | +50 |
+| **Confirmed total with class bonus** | **550–560** | **559–569** | **572–582** |
 
 Class bonuses are awarded on top of base XP and vary by class. Quest 53 awards 10 XP (glasses not enchanted) or 20 XP (Actually Enchanted) — a completionist who sails to Kevry earns the higher value. All classes clear the Level 8 threshold of 420 XP comfortably on a completionist run.
+
+Checked 2026-10-05 against the full-score walkthrough (Warrior): level 2 before the dungeon, level 8 at 440 XP in section II, 552 XP at the end — the Warrior maximum less three traps the walkthrough doesn't disarm (Traps 29, 41, 45).
 
 Level 8 threshold: 420 XP. Every class clears it on a completionist run.
 
@@ -156,9 +162,9 @@ Hearts are granted at Levels 3, 5, and 7. The Heart Necklace (Lynds arm wrestlin
 
 ## Class XP Adjustments
 
-Each class gets a bonus in their natural domain. Class identity feels present in progression without locking any content. Bonuses are calibrated so a completionist run of confirmed content yields approximately 40–50 class bonus XP regardless of class.
+Each class gets a bonus in their natural domain. Class identity feels present in progression without locking any content. Bonuses are calibrated so a completionist run of confirmed content yields approximately 30–50 class bonus XP regardless of class.
 
-- **Warriors** — +10 XP per combat kill (4 confirmed kills = +40 XP; grows naturally as combat design pass adds encounters)
+- **Warriors** — +10 XP per combat kill (3 confirmed kills — the Back Alley Mugger, the Warden, the Undead Werewolf = +30 XP; the Afflicted Apprentice is freed, not killed, and Aylora's challenge is a drinking contest; grows naturally as combat design pass adds encounters)
 - **Mages** — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean; 43 reachable rooms = +43 XP). Dungeon = the Upper (15), Middle (14) and Lower (15) Tier rooms in locations.md; not the Secret Tunnels, Dungeon Entrance, Toll Bridge or mine. The Skeleton Room can't be earned (death on entry); the Stored Room / Hole to Below counts once.
   - Paid silently on first entry, lit or dark; each room is credited once even if its visited state resets. A move refused by darkness pays nothing.
 - **Rogues** — +5 XP per trap disarmed (10 disarmable traps = +50 XP)
@@ -167,6 +173,6 @@ Each class gets a bonus in their natural domain. Class identity feels present in
 
 | Class | Bonus | Confirmed events | Bonus XP |
 |-------|-------|-----------------|----------|
-| Warrior | +10/kill | 4 kills | +40 XP |
+| Warrior | +10/kill | 3 kills | +30 XP |
 | Mage | +1/dungeon room | 43 rooms | +43 XP |
 | Rogue | +5/trap disarmed | 10 traps | +50 XP |
