@@ -349,7 +349,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 7. `HOLD TORCH NEAR ICE` (turn 2) → soldier freed.
 8. Soldier gives the Forgotten Blade (straight to the inventory) and wanders off.
 
-**Reward:** The Forgotten Blade — ceremonial sword, treasure item (not a combat weapon). Soldier reappears in town as minor NPC offering free weapon training sessions. 8 Zenni.
+**Reward:** The Forgotten Blade — ceremonial sword, treasure item (not a combat weapon). 8 Zenni. The soldier doesn't return to town (npcs.md — The Soldier).
 
 **Pull-back mechanics (for players who missed the Tool Alcove perception check):**
 

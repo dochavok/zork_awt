@@ -167,9 +167,9 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - Thin paper: the Flooding Room sweep (Trap 41) is the one thing that soaks the player — carried paper is destroyed ("The thin paper didn't survive the trip. …") and is back on Shamus's slate; the rubbing, scrolls and other paper survive (items.md, traps.md). test_thin_paper.py.
 - DROP ALL BUT that keeps back everything droppable: "That leaves nothing to drop." (it was silent); the ring's line and the worn-items line still come first (mechanics.md — Several objects). test_ring_keep.py.
 - The Archivist: Quest 28 (the rubbing) is his only role — the book-research mechanic was dropped in favor of it (locations.md — The Stacks, npcs.md).
+- Quest 34's soldier doesn't return to town — weapon training belongs to the Redcrosse Knight (Quest 54); the town return and its unreachable ambient line removed (npcs.md, quests.md, locations.md).
 
 **Known issues still open:**
-- Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
 - Tip Journal: Shamus sells it (5 Zenni, on the slate), but it's an empty object — its contents and READ JOURNAL (mechanics.md: active discovered quests with purchased hints) aren't built.
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.

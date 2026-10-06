@@ -2090,7 +2090,6 @@ Quest 34 barrier room. North of The Lower Crossing. Speaking door disguised as b
 **Open state (all future visits):** *"The passage ends at a shallow recess lined with empty iron brackets. The back wall stands open. It has nothing left to ask."*
 
 **Pull-back mechanics (before discovery only):**
-- Freed soldier (town re-appearance, Quest 34 complete in another playthrough context — see npcs.md): *"There's a room down there that talked to me once. I never figured out what it said."*
 - 50/50 text on Lower Crossing exit — see The Lower Crossing (Room 7) above.
 
 ### The Flooded Passage (Room 11)
@@ -2115,7 +2114,7 @@ North of Tool Alcove. A channel of dark water fills the room wall to wall — na
 
 ### The Fountain Room (Room 12)
 **XP: 2**
-**NPCs:** Frozen soldier (encased in magical ice; freed by Ivory Torch; reappears in town offering weapon training)
+**NPCs:** Frozen soldier (encased in magical ice; freed by Ivory Torch; leaves for good)
 **Items:** The Forgotten Blade (given by soldier on freeing — see items.md)
 **Quest Hooks:** Quest 34 — HOLD TORCH NEAR ICE twice frees soldier; The Forgotten Blade reward
 **Connections:** South → The Flooded Passage.
@@ -2132,7 +2131,7 @@ North of The Flooded Passage. Contains a soldier encased in a block of magical i
 
 **Soldier handoff:** *He looks at the sword at his side as if surprised to find it still there. He draws it and holds it out to you without ceremony. "The Forgotten Blade," he says. "It has no business down here." Neither, apparently, does he — he moves past you and is gone before you can speak.*
 
-Soldier reappears in town as a minor NPC offering free weapon training sessions. Reward: **The Forgotten Blade** — see `items.md`.
+He doesn't return to town — weapon training belongs to the Redcrosse Knight (Quest 54). (Decided 2026-10-05.) Reward: **The Forgotten Blade** — see `items.md`.
 
 **Built (2026-10-04):**
 - `HOLD TORCH NEAR ICE` or `MELT ICE WITH TORCH` (also `THAW`), with the Ivory Torch: Turn 1, then Turn 2 + the soldier handoff + *[The Forgotten Blade added to inventory.]* Quest 34 completes (8 Zenni, silent).

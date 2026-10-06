@@ -789,9 +789,7 @@ Will's missing apprentice, found in the Lost Apprentice's Cell (mid-tier trap si
 - **Surfacing in Bog-NW:** *You haul yourself out into the reeds, and the apprentice climbs out after you, blinking at the sky. He stands there a long moment, breathing the stench like it's fresh air. Then he pulls off his gloves and presses them into your hands. "They were for digging," he says. "I won't be doing that again." He heads off toward town without looking back.* — *[Apprentice's Gloves added to inventory.]*
 
 ### The Soldier (Quest 34)
-Encased in magical ice in The Fountain Room (dungeon lower tier). Thawed by Ivory Torch over two turns. Hands over the Forgotten Blade without ceremony. Wanders off dazed. Reappears in town as a minor NPC offering free weapon training sessions. Intentionally unnamed — referred to only as "the soldier."
-
-**Town dialogue (after Quest 34 complete — fires once, before Tool Alcove door is opened in current playthrough):** *"There's a room down there that talked to me once. I never figured out what it said."* — passive ambient line; no `TALK TO` required.
+Encased in magical ice in The Fountain Room (dungeon lower tier). Thawed by Ivory Torch over two turns. Hands over the Forgotten Blade without ceremony. Wanders off dazed. He doesn't return to town — weapon training belongs to the Redcrosse Knight (Quest 54). (Decided 2026-10-05.) Intentionally unnamed — referred to only as "the soldier."
 
 ---
 
