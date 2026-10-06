@@ -18,6 +18,7 @@ _CUE = "[Press ENTER to continue] "
 def _run_opening():
     from content.char_create import run_opening
     w, g = _make_world()
+    w.globals["zenni"] = 0                         # a new player has nothing yet
     prompts = []
 
     def _input(prompt=""):
@@ -32,7 +33,9 @@ def _run_opening():
         return ""
 
     buf = io.StringIO()
-    with patch("content.char_create.input", _input), patch("sys.stdout", buf):
+    # No perception: a random Zenni find in the starting room can't add to the gift
+    with patch("content.char_create.input", _input), patch("sys.stdout", buf), \
+         patch("content.player.check_perception", return_value=False):
         run_opening(w, g)
     return w, prompts, buf.getvalue()
 
@@ -63,5 +66,5 @@ def test_opening_still_sets_up_the_player():
     w, _prompts, out = _run_opening()
     assert w.globals["player_name"] == "Tess"
     assert w.globals["player_class"] == "warrior"
-    assert w.globals["zenni"] >= 10
+    assert w.globals["zenni"] == 10                # mechanics.md — Will's opening gift
     assert out.rstrip().endswith("The conversation, it seems, is over.")

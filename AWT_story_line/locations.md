@@ -1479,6 +1479,12 @@ East branch off Ink Corridor. Wide chamber. Contains: hand cart (Quest 32), supp
 
 **Room description:** *A wide chamber, larger than expected — the dungeon opens up here before closing back down. The walls are rough, the floor uneven. Equipment has been left here: a hand cart against one wall, a heavy support beam laid across the floor. The east wall is solid. A passage leads south, and from somewhere down it comes the sound of water.*
 
+The equipment sentence follows what is still in the room (the rest of the description is unchanged):
+- **Cart and beam:** *Equipment has been left here: a hand cart against one wall, a heavy support beam laid across the floor.*
+- **Beam only:** *Equipment has been left here: a heavy support beam laid across the floor.*
+- **Cart only:** *Equipment has been left here: a hand cart against one wall.*
+- **Neither:** *Scuffs in the dust show where equipment once stood.*
+
 ### Collapsed Aqueduct
 **XP: 1**
 **NPCs:** None

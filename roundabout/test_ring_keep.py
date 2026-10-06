@@ -133,9 +133,4 @@ def test_ring_weighs_nothing():
     w, _g = _with_ring()
     assert w.objects["RING"].size == 0
 
-
-def test_every_listed_weight_is_applied():
-    from content.objects import _WEIGHTS
-    w, _g = _make_world()
-    wrong = {n: w.objects[n].size for n, s in _WEIGHTS.items() if w.objects[n].size != s}
-    assert not wrong
+# Every item's weight against items.md: test_item_weights.py

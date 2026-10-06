@@ -53,10 +53,29 @@ USED_BY_TESTS = [
     ("cargo", "_TY_REROLLS_BOTH"),
     ("cargo", "_TY_SIX_ON_TWO"),
     ("cargo", "_WIN"),
+    ("cellar", "_DROWN_STAIRS"),
+    ("cellar", "_DROWN_TUNNEL"),
+    ("cellar", "_MAY_BOOTS"),
+    ("cellar", "_MAY_KEY"),
     ("combat", "_FINISH_LINES"),
     ("combat", "_TUNIC_LINES"),
+    ("combat_room", "_BELL"),
+    ("combat_room", "_PLATE_SPOTTED"),
     ("combat_room", "_ROUND_LOST"),
+    ("combat_room", "_WARDEN_EMERGES"),
     ("flooding", "_LEFT"),
+    ("flooding", "_SPOTTED"),
+    ("gravestone", "LISTING_MUD"),
+    ("gravestone", "_LISTING_GROUND"),
+    ("gravestone", "_NO_STAIRS"),
+    ("gravestone", "_PLACED"),
+    ("gravestone", "_ROWAN_AFTER"),
+    ("gravestone", "_ROWAN_FIRST"),
+    ("gravestone", "_ROWAN_START"),
+    ("gravestone", "_ROWAN_TROPHY"),
+    ("gravestone", "_ROWAN_WAITING"),
+    ("gravestone", "_TIPPED_OFF"),
+    ("inscription", "_HANGING"),
     ("knight", "BOW_REFUSED"),
     ("light", "_BURNOUT_FATAL"),
     ("light", "_BURNOUT_SAFE"),
@@ -77,15 +96,31 @@ USED_BY_TESTS = [
     ("may_hints", "_Q42"),
     ("may_hints", "_Q49"),
     ("may_hints", "_Q59"),
+    ("quest_board", "POSTINGS"),
     ("ship", "_CREW_ABOARD"),
     ("ship", "_NO_COIN"),
     ("ship", "_NO_DISGUISE"),
     ("shrine_bowl", "_MIXED"),
     ("shrine_bowl", "_NO_WATER"),
+    ("shrine_path", "_LIFT_FAILS"),
+    ("statue", "_PRIED"),
     ("still_den", "_BOW_FAILS"),
+    ("upper_tier", "SLAB_BLOCKS"),
+    ("upper_tier", "_STORAGE_BEAM"),
+    ("upper_tier", "_STORAGE_BOTH"),
+    ("upper_tier", "_STORAGE_CART"),
+    ("upper_tier", "_STORAGE_NONE"),
+    ("upper_tier", "_IDOL_SPOTTED"),
     ("verbs", "_UNTRAINED"),
+    ("vikings", "_IVANAAR_STATES"),
     ("whispering_jar", "_NO_JAR_SEAL")
 ]
+
+# Imported by tests but not design text (the guard below skips them)
+NOT_DESIGN_TEXT = {
+    ("zenni_rooms", "ELIGIBLE_ROOMS"),   # room names, not text
+    ("vikings", "_RIDDLE"),              # the design's riddle with "Haalvar says: " in front
+}
 
 
 def _strings(value):
@@ -104,3 +139,27 @@ def test_constant_is_design_text(module, name):
             piece = _norm(piece)
             if len(piece) >= 15:
                 assert piece in _DESIGN, f"{module}.{name} is not in the design docs: {piece!r}"
+
+
+def _imported_text_constants():
+    """(module, name) for every `from content.<module> import <name>` in a test
+    file whose value is text. (Attribute access — may_hints._Q32 — isn't seen.)"""
+    import ast
+    here = os.path.dirname(__file__)
+    found = set()
+    for path in glob.glob(os.path.join(here, "test_*.py")):
+        for node in ast.walk(ast.parse(_read(path))):
+            if isinstance(node, ast.ImportFrom) and (node.module or "").startswith("content."):
+                module = node.module.split(".", 1)[1]
+                for alias in node.names:
+                    value = getattr(importlib.import_module(node.module), alias.name, None)
+                    if _strings(value):
+                        found.add((module, alias.name))
+    return found
+
+
+def test_every_imported_text_constant_is_listed():
+    # A test asserting against code text only checks the design if that text is
+    # the design's — so every one a test imports must be listed above.
+    unlisted = _imported_text_constants() - set(USED_BY_TESTS) - NOT_DESIGN_TEXT
+    assert sorted(unlisted) == []

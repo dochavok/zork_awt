@@ -40,6 +40,8 @@ _STORAGE_BASE = (
 )
 _STORAGE_BOTH = "Equipment has been left here: a hand cart against one wall, a heavy support beam laid across the floor. "
 _STORAGE_BEAM = "Equipment has been left here: a heavy support beam laid across the floor. "
+_STORAGE_CART = "Equipment has been left here: a hand cart against one wall. "
+_STORAGE_NONE = "Scuffs in the dust show where equipment once stood. "
 _STORAGE_END = (
     "The east wall is solid. A passage leads south, and from somewhere down it "
     "comes the sound of water."
@@ -73,8 +75,11 @@ def _award_disarm(w: World) -> None:
 
 def storage_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
-        cart_here = w.objects["HAND-CART"].location is w.here
-        print(_STORAGE_BASE + (_STORAGE_BOTH if cart_here else _STORAGE_BEAM) + _STORAGE_END)
+        cart = w.objects["HAND-CART"].location is w.here
+        beam = w.objects["SUPPORT-BEAM"].location is w.here
+        middle = (_STORAGE_BOTH if cart and beam else _STORAGE_CART if cart
+                  else _STORAGE_BEAM if beam else _STORAGE_NONE)
+        print(_STORAGE_BASE + middle + _STORAGE_END)
         return M_HANDLED
     return M_NOT_HANDLED
 

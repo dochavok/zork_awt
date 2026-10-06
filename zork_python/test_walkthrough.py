@@ -285,29 +285,59 @@ class TestWalkthrough(unittest.TestCase):
         self.assertTrue(r.has_item("POT-OF-GOLD"))
         r.assert_no_failures(self)
 
+    # --- Coal machine (1actions.zil — MACHINE-F, MSWITCH-FUNCTION) ----------
+    # The full route is test_14's; these start in the Machine Room.
+
+    def _in_machine_room(self, *carried):
+        w = self.game.world
+        room = w.rooms["MACHINE-ROOM"]
+        w.move_object(w.winner, room)
+        w.here = room
+        for name in carried:
+            w.move_object(w.objects[name], w.winner)
+        return w
+
     def test_11_machine_makes_diamond(self):
+        w = self._in_machine_room("COAL", "SCREWDRIVER")
         r = self.r
-        # Navigate to machine room via the long route
-        r.cmd("go south"); r.cmd("go east"); r.cmd("open window"); r.cmd("enter house")
-        r.cmd("go west"); r.cmd("take lamp"); r.cmd("move rug"); r.cmd("open trap door")
-        r.cmd("turn on lamp"); r.cmd("go down"); r.cmd("go north")
-        r.cmd("kill troll with sword")
-        r.cmd("go east"); r.cmd("go east"); r.cmd("go east")  # Loud Room (with dam opened)
-        # To get platinum bar from Loud Room need dam opened first.
-        # Navigate to dam instead: go north from chasm area
-        # For this test, navigate to machine room via mine
-        r.cmd("go west"); r.cmd("go west"); r.cmd("go west"); r.cmd("go south")  # Cellar
-        r.cmd("go up")  # Living Room
-        r.cmd("go east"); r.cmd("go east")  # Behind House
-        r.cmd("open window")  # already open
-        # Navigate to dam lobby
-        r.cmd("go south"); r.cmd("go east")  # Behind House → ... south → north of house
-        # Direct approach: go north from behind house
-        r.cmd("go north")  # North of House
-        r.cmd("go north")  # Forest Path
-        # This approach is getting complex; just verify machine produces diamond
-        # by directly testing the machine puzzle mechanics
-        pass  # Covered in test_14_all_treasures_in_case
+        r.cmd("open lid"); r.cmd("put coal in machine"); r.cmd("close lid")
+        r.cmd("turn switch with screwdriver", "machine comes to life")
+        r.cmd("open lid", "The lid opens, revealing a huge diamond.")
+        r.assert_no_failures(self)
+        self.assertIsNone(w.objects["COAL"].location)          # the coal is used up
+        r.cmd("take diamond", "Taken.")
+        self.assertTrue(r.has_item("DIAMOND"))
+
+    @unittest.expectedFailure   # port bug: any tool turns the switch
+    def test_11_machine_switch_needs_the_screwdriver(self):
+        # ZIL: <EQUAL? ,PRSI ,SCREWDRIVER> else "It seems that a <D PRSI> won't do."
+        w = self._in_machine_room("COAL", "KNIFE")
+        r = self.r
+        r.cmd("open lid"); r.cmd("put coal in machine"); r.cmd("close lid")
+        r.cmd("turn switch with knife", "It seems that a knife won't do.")
+        r.assert_no_failures(self)
+        self.assertIs(w.objects["COAL"].location, w.objects["MACHINE"])
+
+    @unittest.expectedFailure   # port bug: runs with the lid open
+    def test_11_machine_does_nothing_with_the_lid_open(self):
+        # ZIL: <FSET? ,MACHINE ,OPENBIT> -> "The machine doesn't seem to want to do anything."
+        w = self._in_machine_room("COAL", "SCREWDRIVER")
+        r = self.r
+        r.cmd("open lid"); r.cmd("put coal in machine")
+        r.cmd("turn switch with screwdriver", "The machine doesn't seem to want to do anything.")
+        r.assert_no_failures(self)
+        self.assertIs(w.objects["COAL"].location, w.objects["MACHINE"])
+
+    @unittest.expectedFailure   # port bug: no slag; the contents survive
+    def test_11_machine_without_coal_makes_slag(self):
+        # ZIL: no coal -> everything inside is removed and GUNK is moved in
+        w = self._in_machine_room("GARLIC", "SCREWDRIVER")
+        r = self.r
+        r.cmd("open lid"); r.cmd("put garlic in machine"); r.cmd("close lid")
+        r.cmd("turn switch with screwdriver", "machine comes to life")
+        r.assert_no_failures(self)
+        self.assertIsNone(w.objects["GARLIC"].location)
+        self.assertIs(w.objects["GUNK"].location, w.objects["MACHINE"])
 
     def test_12_hades_puzzle(self):
         r = self.r

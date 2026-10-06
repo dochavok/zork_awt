@@ -57,6 +57,19 @@ def _always_max(a, b):
     return b
 
 
+# The parser's generic refusals — never what a walkthrough step is for.
+_REFUSALS = (
+    "You can't see any ",
+    "I don't know the word",
+    "That sentence isn't one I recognize.",
+    "I beg your pardon?",
+    "You can't go that way.",
+    "A Great Underground Empire?",
+    "You aren't holding the",
+    "You don't have enough Zenni",
+)
+
+
 # ---------------------------------------------------------------------------
 # Narrative parser
 # ---------------------------------------------------------------------------
@@ -127,6 +140,17 @@ class NarrativeRunner:
                     f"SECTION [{section.name}]\n"
                     f"  cmd     : {cmd!r}\n"
                     f"  missing : {frag!r}\n"
+                    f"  got     : {out[:300]!r}"
+                )
+            # A refusal can still hold the fragment ("You can't see any ring
+            # here!" holds "ring"), so a refused step fails unless its fragment
+            # asks for the refusal.
+            refused = [r for r in _REFUSALS if r in out and r.lower() not in frag.lower()]
+            if refused:
+                self.failures.append(
+                    f"SECTION [{section.name}]\n"
+                    f"  cmd     : {cmd!r}\n"
+                    f"  refused : {refused[0]!r}\n"
                     f"  got     : {out[:300]!r}"
                 )
 

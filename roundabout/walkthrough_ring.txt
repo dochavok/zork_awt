@@ -59,7 +59,7 @@ Take the glasses.
 > TAKE GLASSES                [wire-rimmed glasses]
 > SOUTH                       [Will's Wizard Tower]
 > EXAMINE PAINTING            [Tale and Ale]
-> WEAR GLASSES                [glasses]
+> WEAR GLASSES                [You put on the wire-rimmed glasses.]
 
 =============================================================================
 C1) Before Sailing — Scroll, Kite & the Pie Rat Heist
@@ -102,7 +102,7 @@ the tree frees it; giving it back to the child completes the quest
 (4 XP).
 
 > CLIMB TREE                  [kite]
-> GIVE KITE TO CHILD          [kite]
+> GIVE KITE TO CHILD          [The child takes the kite in both hands, inspects it for damage, finds]
 
 The rooms off the Old Oak are worth a visit for exploration XP. The
 Swarm Tree's bees drive us straight back out (1 heart) — that's fine,
@@ -124,7 +124,7 @@ perception check. It isn't needed until much later.
 The pickaxe is visible in the Main Shaft. We will need it later for
 the Collapsed Gallery shortcut, so take it now.
 
-> TAKE PICKAXE                [pickaxe]
+> TAKE PICKAXE                [You take the pickaxe.]
 
 The flint and steel for lighting the fuse is on the Assay Room workbench.
 
@@ -154,9 +154,9 @@ Buy gunpowder from Shamus before lighting anything. Return to town first.
 > SOUTH                       [Tale and Ale]
 > SOUTH                       [Bar]
 > SOUTH                       [Kitchen]
-> TALK TO SHAMUS              [Shamus]
-> BUY GUNPOWDER               [gunpowder]
-> BUY TORCH                   [torch]
+> TALK TO SHAMUS              [Shamus wipes his hands on his apron.]
+> BUY GUNPOWDER               [Shamus takes the Zenni and slides the gunpowder across the counter.]
+> BUY TORCH                   [Shamus takes the Zenni and slides the torch across the counter.]
 
 Now return to the mine through the forest to execute the heist.
 
@@ -196,7 +196,7 @@ The shovel is lashed to the ship's rail — take it now (needed later for
 the Hole to Below).
 
 > BOARD SHIP                  [deck]
-> TAKE SHOVEL                 [shovel]
+> TAKE SHOVEL                 [You take the shovel.]
 
 =============================================================================
 C2) Set Sail — Kevry's Island & the Glasses Enchantment
@@ -205,7 +205,7 @@ Sail a way to the east through the Open Ocean. Navigation: SET SAIL, then
 GO EAST repeatedly until we reach Kevry's island. Glasses must be
 equipped (head slot) on arrival for Kevry to enchant them.
 
-> SET SAIL                    [sail]
+> SET SAIL                    [You cast off and the ship moves into open water.]
 > GO EAST                     [Western Roundabout Sea]
 > GO EAST                     [Roundabout Sea]
 > GO EAST                     [Eastern Roundabout Sea]
@@ -301,7 +301,7 @@ Walk back to the beach and board the ship.
 > WEST                        [house]
 > WEST                        [Empty Beach]
 > BOARD SHIP                  [deck]
-> SET SAIL                    [sail]
+> SET SAIL                    [You cast off and the ship moves into open water.]
 > GO WEST                     [open ocean]
 > GO WEST                     [open ocean]
 > GO WEST                     [open ocean]
@@ -379,7 +379,7 @@ Walk back to the beach and board the ship.
 The coil of rope on the bollard is needed much later, to tie off the
 Hole to Below in the dungeon (section L). Take it now.
 
-> TAKE ROPE                   [rope]
+> TAKE ROPE                   [You take the coil of rope.]
 
 =============================================================================
 D) Ring Retrieval — Pyronicus's Forge
@@ -441,7 +441,7 @@ lit. Head to the encampment: north to Town Square, west through Main
 West to the Archery Range, then west again to the Viking Encampment.
 
 > EXAMINE PAINTING            [Tale and Ale]
-> WEAR GLASSES                [glasses]
+> WEAR GLASSES                [You put on the slightly glowing wire-rimmed glasses.]
 > NORTH                       [Town Square]
 > WEST                        [Main West]
 > WEST                        [Archery Range]
@@ -483,11 +483,11 @@ in the Encampment gives the order of the first four stones:
 
 > LOOK AT BANNER              [Earth]
 > SOUTH                       [Ritual Circle]
-> ACTIVATE EARTH STONE        [Earth]
-> ACTIVATE AIR STONE          [Air]
-> ACTIVATE FIRE STONE         [Fire]
-> ACTIVATE WATER STONE        [Water]
-> ACTIVATE HEART STONE        [Heart]
+> ACTIVATE EARTH STONE        [The Earth stone hums and lights from within.]
+> ACTIVATE AIR STONE          [The Air stone hums and lights from within.]
+> ACTIVATE FIRE STONE         [The Fire stone hums and lights from within.]
+> ACTIVATE WATER STONE        [The Water stone hums and lights from within.]
+> ACTIVATE HEART STONE        [The Heart stone hums and lights from within.]
 > NORTH                       [Viking Encampment]
 
 Trial 3 — The Drinking Challenge (Fire Pit, west):
@@ -586,7 +586,7 @@ on a ring-only run, RESTORE and challenge him again instead.
 
 > SAVE                        [Saved]
 > CHALLENGE LYNDS             [Heart Necklace]
-> WEAR NECKLACE               [necklace]
+> WEAR NECKLACE               [You put on the heart necklace.]
 
 Lynds's invitation clears the Dankhaus wards.
 
@@ -634,7 +634,7 @@ corruption ticks every turn it's worn.
 > EAST                        [Main East]
 > SOUTH                       [Church of All]
 > SOUTH                       [Graveyard]
-> WEAR RING                   [ring]
+> WEAR RING                   [You slip the ring on.]
 > EAST                        [The Entrance]
 > SOUTH                       [Rejection Mirror]
 > SOUTH                       [Shatter Trap Mirror]
@@ -712,7 +712,7 @@ Corridor). The salt is only for the idol swap — the idol is a treasure,
 not needed for the ring, so leave both. The smoke jar is for Quest 24,
 also not needed.
 
-> TAKE PORTCULLIS BAR         [portcullis bar]
+> TAKE PORTCULLIS BAR         [You take the portcullis bar.]
 > EAST                        [Ink Corridor]
 > SOUTH                       [Narrow Passageway]
 > SOUTH                       [Idol Room]
@@ -735,10 +735,10 @@ rings, the door opens, and he comes out. One round per KILL; he has 5
 hearts and always-max rolls win every round.
 
 > JUMP ON PLATE               [bell]
-> KILL WARDEN                 [Warden]
-> KILL WARDEN                 [Warden]
-> KILL WARDEN                 [Warden]
-> KILL WARDEN                 [Warden]
+> KILL WARDEN                 [You land a solid blow.]
+> KILL WARDEN                 [You land a solid blow.]
+> KILL WARDEN                 [You land a solid blow.]
+> KILL WARDEN                 [You land a solid blow.]
 > KILL WARDEN                 [lantern]
 > TAKE LANTERN                [Guardian's Lantern]
 > SOUTH                       [Prayer Alcove]
@@ -746,7 +746,7 @@ hearts and always-max rolls win every round.
 Prayer Alcove looks like a dead end until examined. With Actually
 Enchanted Glasses it is automatically revealed. Take the crowbar.
 
-> TAKE CROWBAR                [crowbar]
+> TAKE CROWBAR                [You take the crowbar.]
 
 Continue south through Portcullis Corridor. The portcullis carries an
 arcane charge — touching without disarming deals lightning damage. With
@@ -989,7 +989,7 @@ the Keeper's Chamber in the Church of All.
 > NORTH                       [Church of All]
 > UNLOCK DOOR WITH KEYS       [third key]
 > WEST                        [Keeper's Chamber]
-> TAKE HOLY WATER             [holy water]
+> TAKE HOLY WATER             [You take the vial of holy water.]
 > POUR HOLY WATER ON STAKE    [silver drinks it]
 
 The torch is getting low. Shamus swaps it in the Tale and Ale kitchen.

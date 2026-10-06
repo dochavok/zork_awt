@@ -77,7 +77,7 @@ With always-max rolls the Easy perception check passes immediately.
 
 > NORTH                       [nightstand]
 > TAKE GLASSES                [wire-rimmed glasses]
-> WEAR GLASSES                [glasses]
+> WEAR GLASSES                [You put on the wire-rimmed glasses.]
 
 The glasses are now equipped in the head slot. We will sail to Kevry's
 island in section C to have him enchant them. For now, back to the
@@ -97,9 +97,9 @@ First: buy what we need from Shamus.
 
 > SOUTH                       [Bar]
 > SOUTH                       [Kitchen]
-> TALK TO SHAMUS              [Shamus]
-> BUY TORCH                   [torch]
-> BUY GUNPOWDER               [gunpowder]
+> TALK TO SHAMUS              [Shamus wipes his hands on his apron.]
+> BUY TORCH                   [Shamus takes the Zenni and slides the torch across the counter.]
+> BUY GUNPOWDER               [Shamus takes the Zenni and slides the gunpowder across the counter.]
 > NORTH                       [Bar]
 > NORTH                       [Main Room]
 
@@ -114,8 +114,8 @@ Navigate to the mine via the forest.
 The child's kite is tangled in the Old Oak. Quest 41.
 
 > CLIMB TREE                  [kite]
-> TAKE RUNE STONE             [rune stone]
-> GIVE KITE TO CHILD          [kite]
+> TAKE RUNE STONE             [You take the flat rune stone.]
+> GIVE KITE TO CHILD          [The child takes the kite in both hands, inspects it for damage, finds]
 
 Quest 41 complete. Rune stone (Old Oak) acquired. Continue north.
 
@@ -127,7 +127,7 @@ One bowl piece is near the shrine. Take it.
 > TAKE BOWL PIECE             [You take the large bowl piece]
 > DOWN                        [Mine Entrance]
 > DOWN                        [Main Shaft]
-> TAKE PICKAXE                [pickaxe]
+> TAKE PICKAXE                [You take the pickaxe.]
 
 The flint and steel for lighting the fuse is on the Assay Room workbench.
 
@@ -170,17 +170,17 @@ Chuckle House ghost.
 > TAKE SCROLL                 [Unbind Undead]
 > SOUTHWEST                   [Roundabout Beach]
 > EAST                        [Docks]
-> TAKE ROPE                   [rope]
+> TAKE ROPE                   [You take the coil of rope.]
 
 The treasure map is hidden aboard, behind a Hard perception check that
 fires every turn on the ship. Always-max rolls find it on the first turn.
 
 > BOARD SHIP                  [deck|oilcloth]
-> TAKE SHOVEL                 [shovel]
+> TAKE SHOVEL                 [You take the shovel.]
 
 Sail east. Glasses must be equipped on arrival at Kevry's island.
 
-> SET SAIL                    [sail]
+> SET SAIL                    [You cast off and the ship moves into open water.]
 > GO EAST                     [Western Roundabout Sea]
 > GO EAST                     [Roundabout Sea]
 > GO EAST                     [Eastern Roundabout Sea]
@@ -274,7 +274,7 @@ up the buried chest (treasure map guarantees first-try success).
 > WEST                        [house]
 > WEST                        [Empty Beach]
 > BOARD SHIP                  [deck]
-> SET SAIL                    [sail]
+> SET SAIL                    [You cast off and the ship moves into open water.]
 > GO WEST                     [open ocean]
 > GO WEST                     [open ocean]
 > GO WEST                     [open ocean]
@@ -361,7 +361,7 @@ Return the ship to the Docks. SAIL WEST casts off and moves in one go.
 
 The coin is the Pie Rat Coin, a treasure.
 
-> TAKE PIE RAT COIN           [Pie Rat Coin]
+> TAKE PIE RAT COIN           [You take the Pie Rat Coin.]
 
 =============================================================================
 D) Roundabout Pond — Ship-in-a-Bottle (Treasure)
@@ -381,7 +381,7 @@ for it. Head back to town and stop in the Kitchen on the way.
 > SOUTH                       [Tale and Ale]
 > SOUTH                       [Bar]
 > SOUTH                       [Kitchen]
-> BUY FISHING ROD             [fishing rod]
+> BUY FISHING ROD             [Shamus takes the Zenni and slides the fishing rod across the counter.]
 > NORTH                       [Bar]
 > NORTH                       [Main Room]
 > NORTH                       [Town Square]
@@ -414,7 +414,7 @@ Hollow log — actually enchanted glasses reveal it.
 Also: Bog-SW has bog thyme (Quest 40) and a bowl piece (Quest 49).
 
 > SOUTH                       [Bog of Eternal Stench]
-> TAKE BOG THYME              [bog thyme]
+> TAKE BOG THYME              [You take the bog thyme.]
 > TAKE BOWL PIECE             [You take the muddy bowl piece]
 
 =============================================================================
@@ -436,9 +436,9 @@ Warriors can't read spell scrolls alone, so give it to Will while
 we're here; he teaches it for free. It's for the Chuckle House ghost.
 
 > GIVE SCROLL TO WILL         [The knowing, I mean]
-> LOOK AT MUSIC BOX           [music box]
+> LOOK AT MUSIC BOX           [A small lacquered music box, its lid locked tight.]
 > OPEN MUSIC BOX WITH KEY     [scroll]
-> TAKE SCROLL                 [scroll]
+> TAKE SCROLL                 [You take the Light scroll.]
 
 Warriors cannot read spell scrolls directly. The glasses came off before
 the mailbox (wearing them in Will's presence is an instant fail), so
@@ -458,7 +458,7 @@ the dungeon. We'll collect it in section Q (dungeon run) and return.
 For now, note the quest is discovered by talking to Shamus.
 
 > EXAMINE PAINTING            [Tale and Ale]
-> WEAR GLASSES                [glasses]
+> WEAR GLASSES                [You put on the slightly glowing wire-rimmed glasses.]
 > SOUTH                       [Bar]
 > SOUTH                       [Kitchen]
 > TALK TO SHAMUS              [recipe]
@@ -485,7 +485,7 @@ death — one round per KILL, and he has 2 hearts.
 The mugger drops lockpicks. These open the large iron chest in the Mine
 Passage (20 Zenni). May's free drink reward is waiting at the Bar.
 
-> TAKE LOCKPICKS              [lockpicks]
+> TAKE LOCKPICKS              [You take the lockpicks.]
 > NORTH                       [Alley]
 > NORTHEAST                   [Town Square]
 > SOUTH                       [Tale and Ale]
@@ -539,11 +539,11 @@ Trial 1 — Riddle Stone:
 Trial 2 — Ritual Circle:
 
 > SOUTH                       [Ritual Circle]
-> ACTIVATE EARTH STONE        [Earth]
-> ACTIVATE AIR STONE          [Air]
-> ACTIVATE FIRE STONE         [Fire]
-> ACTIVATE WATER STONE        [Water]
-> ACTIVATE HEART STONE        [Heart]
+> ACTIVATE EARTH STONE        [The Earth stone hums and lights from within.]
+> ACTIVATE AIR STONE          [The Air stone hums and lights from within.]
+> ACTIVATE FIRE STONE         [The Fire stone hums and lights from within.]
+> ACTIVATE WATER STONE        [The Water stone hums and lights from within.]
+> ACTIVATE HEART STONE        [The Heart stone hums and lights from within.]
 > NORTH                       [Viking Encampment]
 > TALK TO IVANAAR             [Fire Pit]
 
@@ -573,7 +573,7 @@ will go again.
 > EAST                        [Town Square]
 > SOUTH                       [Tale and Ale]
 > CHALLENGE LYNDS             [Heart Necklace]
-> WEAR NECKLACE               [necklace]
+> WEAR NECKLACE               [You put on the heart necklace.]
 
 Lynds sets the Dankhaus invitation flag. Dankhaus wards are now cleared.
 
@@ -692,7 +692,7 @@ Corruption ticks while wearing it — remove it as soon as possible after.
 > SOUTH                       [Bar]
 > LOOK AT BOARD               [Chuckle House|aqueduct|young man]
 > NORTH                       [Main Room]
-> WEAR GLASSES                [glasses]
+> WEAR GLASSES                [You put on the slightly glowing wire-rimmed glasses.]
 > NORTH                       [Town Square]
 > EAST                        [Main East]
 > SOUTH                       [Church of All]
@@ -700,7 +700,7 @@ Corruption ticks while wearing it — remove it as soon as possible after.
 
 Equip the ring just before entering the Chuckle House.
 
-> WEAR RING                   [ring]
+> WEAR RING                   [You slip the ring on.]
 > EAST                        [The Entrance]
 > SOUTH                       [Rejection Mirror]
 > SOUTH                       [Shatter Trap Mirror]
@@ -775,7 +775,6 @@ Boggart reads the charter, vacates, drops the strongbox. Strength check
 auto-passes.
 
 > OPEN STRONGBOX              [Zenni]
-> TAKE ZENNI                  [Zenni]
 
 =============================================================================
 Q) Quest 32 — The Missing Gravestone (Middle Tier Key)
@@ -801,8 +800,8 @@ Trap 17 (the shelf of clay pots) is spotted and disarmed. The smoke jar
 and the small clay pot are on the shelf either way.
 
 > TAKE SALT                   [sack of salt]
-> TAKE PORTCULLIS BAR         [portcullis bar]
-> TAKE SMOKE JAR              [smoke jar]
+> TAKE PORTCULLIS BAR         [You take the portcullis bar.]
+> TAKE SMOKE JAR              [You take the smoke jar.]
 > TAKE CLAY POT               [small clay pot]
 > EAST                        [Ink Corridor]
 > SOUTH                       [Narrow Passageway]
@@ -810,7 +809,7 @@ and the small clay pot are on the shelf either way.
 
 Swap the idol for the sack of salt — the pedestal never notices.
 
-> SWAP IDOL WITH SALT         [idol]
+> SWAP IDOL WITH SALT         [You set the sack of salt on the pedestal and lift the idol away in]
 
 SAVE before going into the next room. The fight there can be lost —
 death is GAME OVER — and a save lets a player who loses RESTORE and
@@ -827,10 +826,10 @@ rings, the door opens, and he comes out. One round per KILL; he has 5
 hearts and always-max rolls win every round.
 
 > JUMP ON PLATE               [bell]
-> KILL WARDEN                 [Warden]
-> KILL WARDEN                 [Warden]
-> KILL WARDEN                 [Warden]
-> KILL WARDEN                 [Warden]
+> KILL WARDEN                 [You land a solid blow.]
+> KILL WARDEN                 [You land a solid blow.]
+> KILL WARDEN                 [You land a solid blow.]
+> KILL WARDEN                 [You land a solid blow.]
 > KILL WARDEN                 [lantern]
 > TAKE LANTERN                [Guardian's Lantern]
 
@@ -841,7 +840,7 @@ part of Quest 50 later.
 
 With Actually Enchanted Glasses the full depth of the alcove is revealed.
 
-> TAKE CROWBAR                [crowbar]
+> TAKE CROWBAR                [You take the crowbar.]
 > TAKE VIAL                   [vial of glacier melt]
 
 The portcullis carries an arcane charge — with Actually Enchanted
@@ -983,7 +982,7 @@ the Storage Area props the passage open. With the aqueduct repaired
 there's no flood, so the shortcut leads straight to the Rickety Bridge.
 
 > NORTH                       [Storage Area]
-> TAKE SUPPORT BEAM           [support beam]
+> TAKE SUPPORT BEAM           [You take the support beam.]
 > SOUTH                       [Collapsed Aqueduct]
 > SOUTH                       [Collapsed Gallery]
 > USE PICKAXE ON TIMBER       [first timber]
@@ -1042,7 +1041,7 @@ May has something for us now the cellar's dry: the Bartender's Boots
 (leg slot, +3 to trap disarm rolls).
 
 > TALK TO MAY                 [cellar dry]
-> WEAR BOOTS                  [boots]
+> WEAR BOOTS                  [You put on the Bartender's Boots.]
 > LOOK AT BOARD               [bone flute]
 
 Quest 25 complete.
@@ -1053,7 +1052,7 @@ V) Quest 40 — Shamus's Recipe
 We have bog thyme and the small clay pot. Deliver both to Shamus.
 
 > SOUTH                       [Kitchen]
-> GIVE BOG THYME TO SHAMUS    [thyme]
+> GIVE BOG THYME TO SHAMUS    [Shamus takes the thyme, crushes a leaf between his fingers and]
 > GIVE CLAY POT TO SHAMUS     [stew]
 
 Quest 40 complete. Hearty stew (2 hearts) now available for 2 Zenni.
@@ -1061,7 +1060,7 @@ Quest 40 complete. Hearty stew (2 hearts) now available for 2 Zenni.
 While we're here, buy the thin paper (2 Zenni) — it's for the
 Archivist's rubbing (Quest 28, next sections).
 
-> BUY THIN PAPER              [thin paper]
+> BUY THIN PAPER              [Shamus takes the Zenni and slides the thin paper across the counter.]
 
 =============================================================================
 W) Quest 4 — The Whispering Jar
@@ -1308,7 +1307,7 @@ The Pale Blade stays in the church until the ritual (QQ).
 > DROP PALE BLADE             [You drop the Pale Blade]
 > UNLOCK DOOR WITH KEYS       [third key]
 > WEST                        [Keeper's Chamber]
-> TAKE HOLY WATER             [holy water]
+> TAKE HOLY WATER             [You take the vial of holy water.]
 > POUR HOLY WATER ON STAKE    [silver drinks it]
 
 On to the Tower. The gold watch, the diamond brooch and the idol go in
@@ -1394,7 +1393,7 @@ We have all three rune stones: Bog-NE, Old Oak, Inscription Chamber.
 Deliver them to Ivanaar at the Viking Encampment.
 
 > EXAMINE PAINTING            [Tale and Ale]
-> WEAR GLASSES                [glasses]
+> WEAR GLASSES                [You put on the slightly glowing wire-rimmed glasses.]
 > NORTH                       [Town Square]
 > WEST                        [Main West]
 > WEST                        [Archery Range]
@@ -1544,7 +1543,7 @@ Return up through the Hole to Below and navigate to the Flooding Room.
 > WEST                        [Antechamber]
 > WEST                        [Pile of Rubble]
 > UP                          [Hole to Below]
-> TAKE SHOVEL                 [shovel]
+> TAKE SHOVEL                 [You take the shovel.]
 > WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
@@ -1615,7 +1614,7 @@ The apprentice follows us out. Quest completes on bog exit.
 
 Quest 50 complete. Apprentice's Gloves received.
 
-> WEAR GLOVES                 [gloves]
+> WEAR GLOVES                 [You put on the Apprentice's Gloves.]
 
 =============================================================================
 MM) Quest 49 — Crystal Bowl: Assemble at Fountain
@@ -1789,10 +1788,10 @@ of Town Hall.
 
 Deposit the remaining treasures:
 
-> PUT FORGOTTEN BLADE IN CASE          [Forgotten Blade]
-> PUT FUNERAL MASK IN CASE             [Funeral Mask]
-> PUT GOLDEN DRAGON SCALE IN CASE      [Golden Dragon Scale]
-> PUT GOLD NUGGET IN CASE              [Gold Nugget]
+> PUT FORGOTTEN BLADE IN CASE          [The Forgotten Blade settles into the velvet.]
+> PUT FUNERAL MASK IN CASE             [The Funeral Mask of Hammered Gold settles into the velvet.]
+> PUT GOLDEN DRAGON SCALE IN CASE      [The golden dragon scale settles into the velvet.]
+> PUT GOLD NUGGET IN CASE              [The gold nugget settles into the velvet.]
 > LOOK IN CASE                         [9 treasures on display]
 > SCORE                                [9 treasures on display]
 

@@ -527,6 +527,7 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 
 - **Spotted (perception, first time):** *Half-sunk in the mud at the water's edge, a slab of dressed stone lies face-down — too square to be anything the bog made. Someone dumped it here.*
 - **Room description (found, in the bog):** *A gravestone lies face-down in the mud.*
+- **Room description (tipped off the cart outside the bog):** *A gravestone lies face-down on the ground.* (In the four bog rooms the mud line above is used.)
 - **Examine:** *You tip up one edge far enough to read it: CALDER FINCH — EXPLORER.*
 - **`TAKE STONE`:** *It doesn't budge. Whatever carried this out here didn't carry it by hand.*
 - **`LOAD STONE ONTO CART` (no cart):** *You'll need something to put it on.*
