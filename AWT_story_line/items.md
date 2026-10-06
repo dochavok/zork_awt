@@ -756,10 +756,9 @@ Brotherhood weave, old but not worn. The runes along the hem and collar are fain
 ---
 
 ### Tip Journal
-**Weight:** 1
-**Location:** Purchased from Shamus (5 Zenni)
-**Quest use:** None — flavor item. Contains in-world tips and observations.
-On sale on Shamus's slate (2026-10-05). The journal's contents and `READ JOURNAL` (mechanics.md) aren't designed in detail or built yet — todo.md known issues.
+**Weight:** 0. The player isn't told; a journal is light, so it would be one of the last things dropped anyway, and keeping it never costs them anything.
+**Location:** Purchased from Shamus (5 Zenni), on his slate.
+**Quest use:** None. A live quest log: `READ JOURNAL` lists each discovered, unfinished quest by name with how it was found, and every hint bought from May for it (mechanics.md — Tip Journal).
 
 ---
 

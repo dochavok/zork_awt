@@ -104,7 +104,7 @@ def read(w: World) -> None:
     print(_HEADER)
     for q in shown:
         print(POSTINGS[q])
-        quests.discover(w, q)
+        quests.discover(w, q, "Board")
 
 
 def board_action(w: World) -> int:

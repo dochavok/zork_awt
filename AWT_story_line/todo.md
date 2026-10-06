@@ -168,9 +168,10 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - DROP ALL BUT that keeps back everything droppable: "That leaves nothing to drop." (it was silent); the ring's line and the worn-items line still come first (mechanics.md — Several objects). test_ring_keep.py.
 - The Archivist: Quest 28 (the rubbing) is his only role — the book-research mechanic was dropped in favor of it (locations.md — The Stacks, npcs.md).
 - Quest 34's soldier doesn't return to town — weapon training belongs to the Redcrosse Knight (Quest 54); the town return and its unreachable ambient line removed (npcs.md, quests.md, locations.md).
+- Tip Journal: READ / EXAMINE JOURNAL lists each discovered, unfinished quest by name in discovery order with [Board] / [May] / [Organic] and the hints bought from May (the Hollow Statue hint shows under the Undead Warden too); "You don't have a journal." / "The journal is empty."; weight 0 (mechanics.md — Tip Journal, items.md). content/journal.py, test_journal.py.
 
 **Known issues still open:**
-- Tip Journal: Shamus sells it (5 Zenni, on the slate), but it's an empty object — its contents and READ JOURNAL (mechanics.md: active discovered quests with purchased hints) aren't built.
+- None.
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 

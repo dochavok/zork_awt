@@ -16,7 +16,7 @@ a tip buys, one-tier and phased hints, hints before discovery), quests.md
   before discovery; doesn't discover it).
 - May's response follows the amount tipped; the hint follows it.
 
-State: HINTS-BOUGHT [hint id], CHUCKLE-VISITED, LOWER-TIER-ENTERED,
+State: HINTS-BOUGHT [hint id], HINT-LOG [(quest, tier, text)], CHUCKLE-VISITED, LOWER-TIER-ENTERED,
        LOWER-TIER-TURNS, LOWER-TIER-SINCE (world.moves on entry, or None)
 """
 
@@ -233,14 +233,15 @@ def tip(w: World, amount: int | None) -> None:
     _tier, q, hint_id, text = choices[random.randint(1, len(choices)) - 1]
     w.globals["zenni"] -= amount
     _bought(w).append(hint_id)
+    w.globals.setdefault("HINT-LOG", []).append((q, _tier, text))   # the Tip Journal
     name = w.globals.get("player_name", "")
     print(_RESPONSE[paid].format(name=name))
     print(f'"{text}"')
     if q == "19":
-        quests.discover(w, "19")
-        quests.discover(w, "30")
+        quests.discover(w, "19", "May")
+        quests.discover(w, "30", "May")
     elif q == "4":
-        quests.discover(w, "4")
+        quests.discover(w, "4", "May")
 
 
 # --- TIP MAY input hook --------------------------------------------------------

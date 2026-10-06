@@ -568,6 +568,8 @@ The message does **not** fire if the player has the Light spell but hasn't cast 
 
 ---
 
+## Tip Journal
+
 Purchasable from Shamus (Tale and Ale Kitchen) for 5 Zenni. Available to the player on request at any time.
 
 **Display verb:** `READ JOURNAL`
@@ -604,6 +606,17 @@ The Ruined Aqueduct    [Board]
 - Player has not purchased the journal: `READ JOURNAL` returns *"You don't have a journal."*
 - Player has the journal but no quests discovered yet: *"The journal is empty."*
 - Player has the journal and all active quests complete: *"The journal is empty."* (same message — no distinction)
+
+**Rules (decided 2026-10-05):**
+- Quests are shown by name only. Quest numbers are never shown to the player.
+- The discovery tag is the first way the quest was discovered, and never changes: `[Board]` — read on the Quest Board; `[May]` — discovered by buying her hint (The Hollow Statue, The Undead Warden, The Whispering Jar); `[Organic]` — everything else.
+- Quests are listed in the order they were discovered.
+- A hint that covers two quests (The Hollow Statue and The Undead Warden) is listed under both.
+- Phased quests (The Frozen Watch, The Missing Gravestone): hints from earlier phases stay. Each hint is labelled with the tier it was bought at, in purchase order, so a quest can read Tier 1, Tier 2, Tier 1.
+- The Frozen Soldier's late hint is bought before that quest is discovered; it shows under the quest once it is.
+- `READ JOURNAL` works with the journal carried or on the floor of the current room. Anywhere else: *You don't have a journal.* `EXAMINE JOURNAL` is the same as `READ JOURNAL`.
+- Layout: `JOURNAL`, a blank line, then the quests. Names are padded so the tags line up in one column. A blank line between quests.
+- Weight 0. The player isn't told; a journal is light, so it would be one of the last things dropped anyway, and keeping it never costs them anything.
 
 ---
 

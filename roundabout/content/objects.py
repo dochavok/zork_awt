@@ -391,7 +391,7 @@ def _make_sea_objects(world) -> None:
          "A broad-headed battle axe, balanced for a two-handed swing. Shamus keeps it "
          "behind the counter. It is not subtle.",
          ["axe", "battleaxe"], ["battle", "broad-headed"]),
-        ("TIP-JOURNAL", "Tip Journal", "",             # contents not built (todo.md)
+        ("TIP-JOURNAL", "Tip Journal", "",             # READ: content/journal.py
          ["journal"], ["tip"]),
     ):
         world.register_object(GameObject(name=name, desc=desc, examine=text,
@@ -1317,7 +1317,7 @@ _WEIGHTS = {
     "SUPPORT-BEAM": 4, "PORTCULLIS-BAR": 3, "MORTAR": 2, "SACK-OF-SALT": 4,
     "IDOL": 4, "SMOKE-JAR": 2, "SMALL-CLAY-POT": 1,
     "SCROLL-LIGHT": 1, "THIN-PAPER": 1, "TREASURE-MAP": 1, "PIE-RAT-COIN": 1, "FISHING-ROD": 2, "SHIP-IN-A-BOTTLE": 2,
-    "DAGGER": 1, "MACE": 2, "BATTLE-AXE": 3, "TIP-JOURNAL": 1,
+    "DAGGER": 1, "MACE": 2, "BATTLE-AXE": 3, "TIP-JOURNAL": 0,
     "BOG-RUNE-STONE": 2, "MUSIC-BOX-KEY": 1, "BOG-THYME": 1,
 }
 

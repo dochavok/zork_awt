@@ -58,14 +58,29 @@ def get_state(world: "World", quest_id: str) -> str:
     return world.globals.get("quest_states", {}).get(quest_id, UNDISCOVERED)
 
 
+def _log(world: "World", quest_id: str, source: str) -> None:
+    """mechanics.md — Tip Journal: discovery order and the first source."""
+    log = world.globals.setdefault("QUEST-LOG", [])
+    if all(q != quest_id for q, _s in log):
+        log.append((quest_id, source))
+
+
 def set_state(world: "World", quest_id: str, state: str) -> None:
     qs = world.globals.setdefault("quest_states", {})
+    if state != UNDISCOVERED:
+        _log(world, quest_id, "Organic")
     qs[quest_id] = state
 
 
-def discover(world: "World", quest_id: str) -> None:
-    """Mark quest discovered if not already progressed."""
+def name(quest_id: str) -> str:
+    return _QUEST_META[quest_id]["name"]
+
+
+def discover(world: "World", quest_id: str, source: str = "Organic") -> None:
+    """Mark quest discovered if not already progressed. source: Organic, Board
+    or May (the Tip Journal's tag)."""
     if get_state(world, quest_id) == UNDISCOVERED:
+        _log(world, quest_id, source)
         set_state(world, quest_id, DISCOVERED)
 
 

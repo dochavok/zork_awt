@@ -65,6 +65,9 @@ def initialize_world(world, game, seed=None) -> None:
     game.register_input_hook(buy_input_hook)         # BUY X from Shamus's stock
     from content.tavern import bar_input_hook
     game.register_input_hook(bar_input_hook)         # BUY DRINK / FOOD / STEW, RENT ROOM
+    from content import journal
+    game.register_input_hook(journal.journal_input_hook)   # READ JOURNAL without one
+    world.objects["TIP-JOURNAL"].action = journal.journal_action
     from content.trap_side import dream_input_hook
     game.register_input_hook(dream_input_hook)       # Dream Corridor menus
     from content.vikings import give_zenni_input_hook
