@@ -813,6 +813,7 @@ Described in the Toll Bridge's room description (no separate presence line).
 |-------|--------|----------|-------------|--------|
 | Light | Creates light source | Continuous while in dark rooms | None | Quest 12 — scroll in locked music box, Will's Tower (mechanics.md — Light Spell) |
 | Unbind Undead | Releases a bound spirit | Instant | 20 turns | Lighthouse — scroll on Silas Bryne's desk |
+| Fireball | Guaranteed 1 heart damage — no roll required | Instant | 10 turns | Quest 7 reward — Pyronicus, for the bone flute (mechanics.md — Fireball) |
 
 **Spell learning:**
 - Mages: read scroll directly (scroll consumed)
