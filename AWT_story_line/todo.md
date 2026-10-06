@@ -164,10 +164,10 @@ Full-score order after C (2026-10-04): D Pond, E Bog rune stone, F Music Box, G 
 - DROP ALL with nothing to drop: "You are empty-handed." / "You'll need to remove anything you want to drop." (only worn items) / the ring's line (only the ring) (mechanics.md). test_ring_keep.py.
 - Quest 50: Will is shaken on the first tower arrival afterwards — once, before the room description: "Thank you," he says, to the glass. Fires even if inked (npcs.md — Will Passion). test_will_shaken.py.
 - test_world.py trimmed to 7 tests (engine object/flag basics, starting state): the stale name lookups and arbitrary count thresholds from the original baseline removed — the walkthroughs cover them. The player now starts inside the White House (it had no location until the opening). Suite baseline: 0 failures.
+- Thin paper: the Flooding Room sweep (Trap 41) is the one thing that soaks the player — carried paper is destroyed ("The thin paper didn't survive the trip. …") and is back on Shamus's slate; the rubbing, scrolls and other paper survive (items.md, traps.md). test_thin_paper.py.
 
 **Known issues still open:**
 - The Archivist's book-research mechanic (TALK TO ARCHIVIST about a subject, READ BOOK) isn't built.
-- Thin paper "destroyed if player gets wet": no wetting events are defined yet.
 - Quest 34's soldier in town (npcs.md — The Soldier: weapon-training offer, the ambient line) isn't built.
 - Tip Journal: Shamus sells it (5 Zenni, on the slate), but it's an empty object — its contents and READ JOURNAL (mechanics.md: active discovered quests with purchased hints) aren't built.
 

@@ -540,6 +540,8 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 ### Thin Paper
 **Weight:** 1
 **Location:** Purchased from Shamus (2 Zenni). Destroyed if player gets wet — reappears for sale.
+**Getting wet:** only the Flooding Room sweep (Trap 41) soaks the player — knee-deep water before it doesn't. Carried through the sweep, the paper is destroyed; after the sweep text, before the Spillway: *The thin paper didn't survive the trip. What's left of it comes apart in your fingers.*
+It's back on Shamus's slate at 2 Zenni. Only the thin paper is affected — the rubbing, the scrolls and other paper survive (the charcoal can't be replaced, and the rubbing leads to the incantation scroll).
 **Examine:** *A few sheets of thin, almost translucent paper — the kind that takes a rubbing.*
 **Quest use:** Quest 28 — `RUB PAPER ON ENGRAVING` in Inscription Chamber with charcoal → produces rubbing for archivist.
 

@@ -140,8 +140,27 @@ def _pull(w: World, lever) -> None:
     print(_LEFT if lever.name == "LEVER-LEFT" else _RIGHT)
 
 
+_PAPER_RUINED = ("The thin paper didn't survive the trip. What's left of it comes apart "
+                 "in your fingers.")
+
+
+def _carried(w: World, obj) -> bool:
+    loc = obj.location
+    while loc is not None:
+        if loc is w.player:
+            return True
+        loc = getattr(loc, "location", None)
+    return False
+
+
 def _sweep(w: World) -> None:
     print(_SWEPT)
+    # items.md — Thin Paper: the sweep is the one thing that soaks the player.
+    # Out of the world, it's back on Shamus's slate.
+    paper = w.objects["THIN-PAPER"]
+    if _carried(w, paper):
+        w.move_object(paper, None)
+        print(_PAPER_RUINED)
     w.set_global("FLOOD-TURNS", None)
     w.game.enter_room(w.rooms["SPILLWAY"])
 
