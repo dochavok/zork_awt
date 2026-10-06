@@ -983,32 +983,35 @@ def _machine_f(world: "World") -> int:
 
 
 def _mswitch_function(world: "World") -> int:
-    if _verb(world, "V-TURN"):
-        coal = _obj(world, "COAL")
-        machine = _obj(world, "MACHINE")
-        coal_inside = coal and machine and coal.location is machine
-        if coal_inside:
-            world.move_object(coal, None)
-            diamond = _obj(world, "DIAMOND")
-            if diamond is None:
-                from engine.world import GameObject
-                diamond = GameObject(
-                    name="DIAMOND",
-                    desc="large diamond",
-                    synonyms=["diamond", "treasure"],
-                    adjectives=["large", "brilliant"],
-                    flags={"TAKEBIT"},
-                    value=10,
-                    tvalue=10,
-                )
-                world.register_object(diamond)
-            if machine:
-                world.move_object(diamond, machine)
-            print("The machine comes to life (figuratively) with a dazzling display of colored\nlights and bizarre noises. After a few moments, the excitement abates.")
-        else:
-            print("The machine grinds noisily for a moment, then stops.")
+    # 1actions.zil MSWITCH-FUNCTION
+    if not _verb(world, "V-TURN"):
+        return M_NOT_HANDLED
+    prsi = world.prsi
+    if prsi is not _obj(world, "SCREWDRIVER"):
+        print(f"It seems that a {prsi.desc if prsi else 'hand'} won't do.")
         return M_HANDLED
-    return M_NOT_HANDLED
+    machine = _obj(world, "MACHINE")
+    if machine.has_flag(OPENBIT):
+        print("The machine doesn't seem to want to do anything.")
+        return M_HANDLED
+    print("The machine comes to life (figuratively) with a dazzling display of colored\n"
+          "lights and bizarre noises. After a few moments, the excitement abates.")
+    coal = _obj(world, "COAL")
+    if coal.location is machine:
+        world.move_object(coal, None)
+        world.move_object(_obj(world, "DIAMOND"), machine)
+    else:
+        for o in list(machine.contents):
+            world.move_object(o, None)
+        world.move_object(_obj(world, "GUNK"), machine)
+    return M_HANDLED
+
+
+def _gunk_function(world: "World") -> int:
+    # 1actions.zil GUNK-FUNCTION: any touch crumbles it
+    world.move_object(_obj(world, "GUNK"), None)
+    print("The slag was rather insubstantial, and crumbles into dust at your touch.")
+    return M_HANDLED
 
 
 def _slide_function(world: "World") -> int:
@@ -2753,6 +2756,7 @@ ACTION_HANDLERS: dict = {
     "SANDWICH-BAG-FCN":   _sandwich_bag_fcn,
     "MACHINE-F":          _machine_f,
     "MSWITCH-FUNCTION":   _mswitch_function,
+    "GUNK-FUNCTION":      _gunk_function,
     "SLIDE-FUNCTION":     _slide_function,
     "ROBBER-FUNCTION":    _robber_function,
     "LARGE-BAG-F":        _large_bag_f,

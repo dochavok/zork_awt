@@ -308,17 +308,15 @@ class TestWalkthrough(unittest.TestCase):
         r.cmd("take diamond", "Taken.")
         self.assertTrue(r.has_item("DIAMOND"))
 
-    @unittest.expectedFailure   # port bug: any tool turns the switch
     def test_11_machine_switch_needs_the_screwdriver(self):
         # ZIL: <EQUAL? ,PRSI ,SCREWDRIVER> else "It seems that a <D PRSI> won't do."
         w = self._in_machine_room("COAL", "KNIFE")
         r = self.r
         r.cmd("open lid"); r.cmd("put coal in machine"); r.cmd("close lid")
-        r.cmd("turn switch with knife", "It seems that a knife won't do.")
+        r.cmd("turn switch with knife", "It seems that a nasty knife won't do.")
         r.assert_no_failures(self)
         self.assertIs(w.objects["COAL"].location, w.objects["MACHINE"])
 
-    @unittest.expectedFailure   # port bug: runs with the lid open
     def test_11_machine_does_nothing_with_the_lid_open(self):
         # ZIL: <FSET? ,MACHINE ,OPENBIT> -> "The machine doesn't seem to want to do anything."
         w = self._in_machine_room("COAL", "SCREWDRIVER")
@@ -328,7 +326,6 @@ class TestWalkthrough(unittest.TestCase):
         r.assert_no_failures(self)
         self.assertIs(w.objects["COAL"].location, w.objects["MACHINE"])
 
-    @unittest.expectedFailure   # port bug: no slag; the contents survive
     def test_11_machine_without_coal_makes_slag(self):
         # ZIL: no coal -> everything inside is removed and GUNK is moved in
         w = self._in_machine_room("GARLIC", "SCREWDRIVER")
@@ -338,6 +335,16 @@ class TestWalkthrough(unittest.TestCase):
         r.assert_no_failures(self)
         self.assertIsNone(w.objects["GARLIC"].location)
         self.assertIs(w.objects["GUNK"].location, w.objects["MACHINE"])
+
+    def test_11_slag_crumbles_at_a_touch(self):
+        # ZIL GUNK-FUNCTION: any verb removes it
+        w = self._in_machine_room("GARLIC", "SCREWDRIVER")
+        r = self.r
+        r.cmd("open lid"); r.cmd("put garlic in machine"); r.cmd("close lid")
+        r.cmd("turn switch with screwdriver"); r.cmd("open lid")
+        r.cmd("take slag", "crumbles into dust at your touch")
+        r.assert_no_failures(self)
+        self.assertIsNone(w.objects["GUNK"].location)
 
     def test_12_hades_puzzle(self):
         r = self.r
