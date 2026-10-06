@@ -4,11 +4,15 @@ SAVE / RESTORE — snapshot of the mutable game state.
 Behaviour (room/object actions, exit conditions, clock handlers) is code and
 is rebuilt by initialize_world; only data that play can change is saved:
 globals, object placement and text/flags, room visit state, the current room,
-score, clock timers, and description mode.
+score, the turn count, clock timers, and description mode.
+
+The file is named after the character: <name>.sav (mechanics.md — Save and
+Restore). DEFAULT_PATH is only for a game with no name yet.
 """
 
 from __future__ import annotations
 import copy
+import os
 import pickle
 from typing import TYPE_CHECKING
 
@@ -45,6 +49,7 @@ def snapshot(game: Game) -> dict:
                   for n, r in w.rooms.items()},
         "here": w.here.name if w.here else None,
         "score": w.score,
+        "moves": w.moves,          # turn-based timers store absolute turn numbers
         "clock": {n: (e.ticks, e.enabled) for n, e in game.clock._events.items()},
         "desc_mode": game.desc_mode,
     }
@@ -90,19 +95,51 @@ def apply(game: Game, data: dict) -> None:
 
     w.here = w.rooms.get(data["here"]) if data["here"] else None
     w.score = data["score"]
+    w.moves = data.get("moves", 0)     # saves from before the turn count was kept: 0
+    # Clock: a mid-game event the save had but this game lacks (always so in a
+    # fresh game) is rebuilt from its factory; one this game created after the
+    # save wasn't running then, so it's switched off.
+    clock = game.clock
+    for n, factory in game.clock_factories.items():
+        e = clock._events.get(n)
+        if n in data["clock"] and e is None:
+            factory(w)
+        elif n not in data["clock"] and e is not None:
+            e.enabled = False
     for n, (ticks, enabled) in data["clock"].items():
-        e = game.clock._events.get(n)
+        e = clock._events.get(n)
         if e is not None:
             e.ticks, e.enabled = ticks, enabled
     game.desc_mode = data["desc_mode"]
 
 
-def save(game: Game, path: str = DEFAULT_PATH) -> None:
+def path_for(name: str | None) -> str:
+    """The save file for a character: <name>.sav in the current folder. Only
+    letters, digits, spaces, hyphens, underscores and apostrophes are kept;
+    a name with none of them falls back to roundabout.sav."""
+    safe = "".join(c for c in (name or "") if c.isalnum() or c in " -_'").strip(" .")
+    return f"{safe}.sav" if safe else DEFAULT_PATH
+
+
+def find(name: str | None) -> str | None:
+    """The existing save file for `name`, matching the name in any case."""
+    want = path_for(name).lower()
+    for entry in os.listdir("."):
+        if entry.lower() == want and os.path.isfile(entry):
+            return entry
+    return None
+
+
+def save(game: Game, path: str | None = None) -> None:
+    path = path or path_for(game.world.globals.get("player_name"))
     with open(path, "wb") as fh:
         pickle.dump(snapshot(game), fh)
 
 
-def restore(game: Game, path: str = DEFAULT_PATH) -> bool:
+def restore(game: Game, path: str | None = None) -> bool:
+    path = path or find(game.world.globals.get("player_name"))
+    if path is None:
+        return False
     try:
         with open(path, "rb") as fh:
             data = pickle.load(fh)

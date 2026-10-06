@@ -269,11 +269,33 @@ def v_restore(world: World) -> int:
     if not savegame.restore(world.game):
         print("There's no saved game to restore.")
         return M_HANDLED
+    _restored(world)
+    return M_HANDLED
+
+
+def _restored(world: World) -> None:
     print("Restored.")
     world.game.desc_mode_override = True
     world.game.describe_room()
     world.game.desc_mode_override = False
-    return M_HANDLED
+
+
+def restore_named_input_hook(world: World, text: str):
+    """RESTORE <name>: load <name>.sav — another character's save (mechanics.md —
+    Save and Restore). A name isn't a parser word, so it's read from the raw
+    line. No turn, like SAVE and RESTORE."""
+    words = text.split()
+    if len(words) < 2 or words[0].lower() != "restore":
+        return False
+    from engine import savegame
+    from engine.game import HOOK_NO_TURN
+    name = " ".join(words[1:])
+    path = savegame.find(name)
+    if path is None or not savegame.restore(world.game, path):
+        print(f"There's no saved game for {name[:1].upper()}{name[1:].lower()}.")
+        return HOOK_NO_TURN
+    _restored(world)
+    return HOOK_NO_TURN
 
 
 # ---------------------------------------------------------------------------

@@ -69,7 +69,7 @@ Bringing the scroll to Will and issuing either `READ SCROLL` (in his presence) o
 Scroll consumed, spell learned permanently.
 Wearing the Enchanted Glasses in Will's presence is an instant fail state (Will attacks, no recovery) — see items.md. Remove them before entering the tower.
 
-**Can't pay (under 3 Zenni):** *"Three Zenni," Will says, without looking up. "I don't make the rules. Well. I do. Come back when you have it."* Scroll kept.
+Will teaches for free (decided 2026-10-05).
 
 **Teaching dialogue:**
 *Will glances at the scroll, then at you. He takes it without ceremony and unrolls it, reading silently for a moment. Then he reads it aloud — not to you, exactly, more as if the words need to be heard in the right kind of room. When he finishes, you understand it. You're not sure how. "Keep that," he says, nodding at the space where the scroll was. It's gone. "The knowing, I mean."*

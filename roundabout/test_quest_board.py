@@ -19,7 +19,10 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 import test_walkthrough_fullscore_v2 as fullscore
 from content import quests
-from content.quest_board import POSTINGS, BOUNTY_TURN, FLUTE_DELAY
+from content.quest_board import POSTINGS     # notice text — verbatim in mechanics.md
+
+BOUNTY_TURN = 100      # mechanics.md — Quest 51 bounty at 100 turns
+FLUTE_DELAY = 20       # mechanics.md — Quest 7, 20 turns after the ring hand-over
 
 _HEADER = "Notices are pinned to the board, newer ones over older:"
 _EMPTY = "The board holds nothing but pinholes"

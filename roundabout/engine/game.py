@@ -94,6 +94,10 @@ class Game:
         self._enter_hooks: list[Callable[[World, Room], None]] = []
         # walk checks: fn(world, destination) -> message to block the move, or None
         self._walk_checks: list[Callable[[World, Room], Optional[str]]] = []
+        # clock factories: event name -> fn(world) that registers that event.
+        # For events content creates mid-game; RESTORE uses them to rebuild
+        # events a fresh game doesn't have yet (engine/savegame.py).
+        self.clock_factories: dict[str, Callable[[World], None]] = {}
 
         self.desc_mode: int = BRIEF
         self._running:  bool = False
@@ -127,6 +131,10 @@ class Game:
     def register_enter_hook(self, hook: Callable[[World, Room], None]) -> None:
         """Register a hook run after every room entry (after the description)."""
         self._enter_hooks.append(hook)
+
+    def register_clock_factory(self, name: str, factory: Callable[[World], None]) -> None:
+        """Register how to (re)create a clock event content adds mid-game."""
+        self.clock_factories[name] = factory
 
     def register_input_hook(self, hook: Callable[[World, str], bool]) -> None:
         """Register a hook that may consume a raw input line before parsing."""

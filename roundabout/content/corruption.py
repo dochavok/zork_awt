@@ -134,14 +134,14 @@ def wear_ring(world: "World") -> None:
     g["ring_worn"] = True
 
     # Register corruption demon if not already registered; then arm it
-    _ensure_corruption_clock(world)
+    ensure_clock(world)
     event = world.game.clock.get("ring-corruption-clock")
     if event:
         event.enabled = True
         event.ticks = 1  # fire on next turn
 
 
-def _ensure_corruption_clock(world: "World") -> None:
+def ensure_clock(world: "World") -> None:
     """Register the per-turn corruption demon if not already registered."""
     clock = world.game.clock
     if clock.get("ring-corruption-clock") is not None:

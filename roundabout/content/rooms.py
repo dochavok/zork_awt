@@ -548,7 +548,7 @@ def _make_volcano(world) -> None:
     def volcano_action(w, msg=M_NOT_HANDLED):
         if msg == M_ENTER:
             # Silent check every visit until the staircase is found
-            reveal_exit_if_found(w, "VOLCANO", "down", HARD, "VOLCANO-STAIRS-FOUND")
+            reveal_exit_if_found(w, HARD, "VOLCANO-STAIRS-FOUND")
             return M_NOT_HANDLED
         if msg == M_LOOK:
             print(_VOLCANO_LDESC)

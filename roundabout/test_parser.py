@@ -1,189 +1,104 @@
 """
-Parser tests: verb parsing, synonym resolution, preposition handling.
+Parser (mechanics.md — Parser Verbs, Synonym Policy, Inventory Display).
+
+Commands are played in the Town Square: at the White House every command but
+OPEN MAILBOX gets the opening's joke, so tests there can't tell anything apart.
 Run with: pytest roundabout/test_parser.py  (from c:\\zork_awt)
-or: python test_parser.py  (from c:\\zork_awt\\roundabout)
 """
 
 import sys
 import os
+import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from engine.world import World, Room, GameObject, TAKEBIT
-from engine.clock import Clock
-from engine.parser import Parser
-from engine.game import Game
+from test_knight import _make_world, _do
 from content.vocabulary import make_vocabulary
-from content.syntax import make_syntax_rules
-from content.init import initialize_world
+
+DIRECTIONS = [("n", "north"), ("s", "south"), ("e", "east"), ("w", "west"),
+              ("u", "up"), ("d", "down"), ("ne", "northeast"), ("nw", "northwest"),
+              ("se", "southeast"), ("sw", "southwest")]
 
 
-def _make_game():
-    w = World()
-    p = Parser(make_vocabulary(), make_syntax_rules())
-    c = Clock()
-    g = Game(w, p, c)
-    initialize_world(w, g)
-    return g, w
+def _goto(w, room):
+    w.move_object(w.player, w.rooms[room])
+    w.here = w.rooms[room]
 
 
-# ---------------------------------------------------------------------------
-# Vocabulary coverage
-# ---------------------------------------------------------------------------
+# --- Synonym Policy ---------------------------------------------------------------
 
-def test_vocabulary_loads():
-    vocab = make_vocabulary()
-    assert vocab is not None
-
-
-def test_syntax_rules_load():
-    rules = make_syntax_rules()
-    assert len(rules) >= 30, f"Expected >= 30 syntax rules, got {len(rules)}"
-
-
-def test_canonical_verbs_present():
-    vocab = make_vocabulary()
-    # Check a sample of canonical verbs from mechanics.md
-    canon = ["take", "drop", "examine", "go", "look", "open", "close",
-             "wear", "remove", "read", "drink", "eat", "attack", "pray",
-             "fish", "rest", "buy", "talk", "give", "kill", "inventory"]
-    words = set(vocab.words.keys()) if hasattr(vocab, "words") else set()
-    if not words:
-        # Alternate vocabulary structure
-        words = set(str(v).lower() for v in vars(vocab).values()
-                    if isinstance(v, (str, list)))
-    # Just confirm the parser module builds without error
-    assert True
+@pytest.mark.parametrize("word,canonical", [
+    ("incant", "cast"), ("chant", "cast"),           # 5. cast owns incant / chant
+    ("banish", "exorcise"), ("begone", "exorcise"),  # 5. exorcise keeps banish / begone
+    ("moor", "dock"), ("angle", "fish"),
+    ("trade", "swap"), ("exchange", "swap"),
+    ("order", "buy"), ("purchase", "buy"), ("rent", "buy"),
+    ("lever", "pry"), ("jimmy", "pry"),
+    ("drive", "drive"), ("tip", "tip"), ("load", "load"), ("clear", "clear"),
+])
+def test_verb_synonyms(word, canonical):
+    assert make_vocabulary().canonical_verb(word) == canonical
 
 
-def test_synonyms_resolve():
-    vocab = make_vocabulary()
-    # "get" and "pick up" should resolve to TAKE-equivalent
-    # We can't inspect internals cleanly without knowing vocab structure,
-    # so test via game round-trip
-    g, w = _make_game()
-
-    import io
-    from unittest.mock import patch
-
-    buf = io.StringIO()
-    with patch("sys.stdout", buf):
-        g.do_turn("inventory")
-    out = buf.getvalue().lower()
-    # Should produce some output (not "i don't know that verb")
-    assert "don't know" not in out or "carrying" in out or "empty" in out
+def test_set_belongs_to_sail_not_turn():
+    v = make_vocabulary()
+    assert v.canonical_verb("turn") == "turn"
+    assert v.canonical_verb("set") != "turn"          # 6. SET SAIL -> sail
 
 
-def test_direction_synonyms():
-    g, w = _make_game()
-    import io
-    from unittest.mock import patch
-
-    for cmd in ("north", "n", "south", "s", "east", "e", "west", "w",
-                "up", "u", "down", "d"):
-        buf = io.StringIO()
-        with patch("sys.stdout", buf):
-            g.do_turn(cmd)
-        out = buf.getvalue()
-        # Should not crash; output may say "you can't go that way" but not "unknown verb"
-        assert out  # Some response produced
+@pytest.mark.parametrize("short,full", DIRECTIONS)
+def test_direction_abbreviations(short, full):
+    v = make_vocabulary()
+    assert v.canonical_direction(short) == v.canonical_direction(full) is not None
 
 
-# ---------------------------------------------------------------------------
-# Parser round-trip: command produces a response
-# ---------------------------------------------------------------------------
-
-def test_look_produces_output():
-    g, w = _make_game()
-    import io
-    from unittest.mock import patch
-
-    buf = io.StringIO()
-    with patch("sys.stdout", buf):
-        g.do_turn("look")
-    assert len(buf.getvalue()) > 10
+def test_abbreviation_moves_like_the_full_word():
+    w, g = _make_world()
+    _goto(w, "TOWN-SQUARE")
+    _do(g, "n")
+    via_short = w.here.name
+    _goto(w, "TOWN-SQUARE")
+    _do(g, "north")
+    assert w.here.name == via_short != "TOWN-SQUARE"
 
 
-def test_examine_object():
-    g, w = _make_game()
-    import io
-    from unittest.mock import patch
+# --- Responses -----------------------------------------------------------------------
 
-    # Create a simple object in current room
-    obj = GameObject(name="pebble", desc="A small pebble.", flags=frozenset({TAKEBIT}),
-                     synonyms=frozenset({"pebble", "stone", "rock"}))
-    w.register_object(obj)
-    if w.here:
-        w.move_object(obj, w.here)
-
-    buf = io.StringIO()
-    with patch("sys.stdout", buf):
-        g.do_turn("examine pebble")
-    out = buf.getvalue()
-    assert len(out) > 0
+def test_unknown_word():
+    w, g = _make_world()
+    assert 'I don\'t know the word "xyzzy".' in _do(g, "xyzzy")
 
 
-def test_unknown_verb_gives_response():
-    g, w = _make_game()
-    import io
-    from unittest.mock import patch
-
-    buf = io.StringIO()
-    with patch("sys.stdout", buf):
-        g.do_turn("xyzzy")
-    out = buf.getvalue()
-    # Parser should produce SOME response (even if just "I don't know that word")
-    assert len(out) > 0
+@pytest.mark.parametrize("cmd", ["i", "inventory"])
+def test_inventory_empty_handed_and_purse(cmd):
+    w, g = _make_world(zenni=0)
+    out = _do(g, cmd)
+    assert "You are empty-handed." in out
+    assert "You have no Zenni." in out
 
 
-def test_inventory_command():
-    g, w = _make_game()
-    import io
-    from unittest.mock import patch
-
-    buf = io.StringIO()
-    with patch("sys.stdout", buf):
-        g.do_turn("i")
-    assert len(buf.getvalue()) > 0
+def test_inventory_purse_counts():
+    w, g = _make_world(zenni=1)
+    assert "You have 1 Zenni." in _do(g, "i")
+    w.globals["zenni"] = 12
+    assert "You have 12 Zenni." in _do(g, "i")
 
 
-# ---------------------------------------------------------------------------
-# Prepositions
-# ---------------------------------------------------------------------------
+# --- Object lists (Synonym Policy 7) -----------------------------------------------------
 
-def test_put_in_preposition():
-    g, w = _make_game()
-    import io
-    from unittest.mock import patch
-
-    buf = io.StringIO()
-    with patch("sys.stdout", buf):
-        g.do_turn("put ring in bag")
-    # Should produce a response (even if "you're not carrying a ring")
-    assert len(buf.getvalue()) > 0
+def test_take_a_list_one_line_each():
+    w, g = _make_world()
+    _goto(w, "TOWN-SQUARE")
+    for name in ("ROPE", "SHOVEL"):
+        w.move_object(w.objects[name], w.here)
+    out = _do(g, "take rope and shovel")
+    assert w.objects["ROPE"].location is w.player
+    assert w.objects["SHOVEL"].location is w.player
+    assert len([l for l in out.splitlines() if l.strip()]) == 2
 
 
-def test_give_to_preposition():
-    g, w = _make_game()
-    import io
-    from unittest.mock import patch
-
-    buf = io.StringIO()
-    with patch("sys.stdout", buf):
-        g.do_turn("give coin to may")
-    assert len(buf.getvalue()) > 0
-
-
-if __name__ == "__main__":
-    import traceback
-    tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
-    passed = failed = 0
-    for fn in tests:
-        try:
-            fn()
-            print(f"PASS  {fn.__name__}")
-            passed += 1
-        except Exception as e:
-            print(f"FAIL  {fn.__name__}: {e}")
-            traceback.print_exc()
-            failed += 1
-    print(f"\n{passed} passed, {failed} failed")
+def test_get_is_take():
+    w, g = _make_world()
+    _goto(w, "TOWN-SQUARE")
+    w.move_object(w.objects["ROPE"], w.here)
+    _do(g, "get rope")
+    assert w.objects["ROPE"].location is w.player

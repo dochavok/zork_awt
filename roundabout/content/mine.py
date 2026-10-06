@@ -111,6 +111,11 @@ def light_gunpowder(w: World) -> None:
     w.game.clock.queue("mine-fuse", _explode, FUSE_TURNS + 1)
 
 
+def ensure_fuse_clock(w: World) -> None:
+    """RESTORE: rebuild the fuse's event (savegame.apply sets its timer)."""
+    w.game.clock.queue("mine-fuse", _explode, 0)
+
+
 def _explode(w: World) -> bool:
     w.set_global("MINE-BLOWN", True)
     w.set_global("PIE-RATS-GONE", True)

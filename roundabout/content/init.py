@@ -101,6 +101,23 @@ def initialize_world(world, game, seed=None) -> None:
     quest_board.setup(world)
     game.register_enter_hook(quest_board.on_enter)
 
+    # RESTORE <name>: another character's save (engine/savegame.py)
+    from content.verbs import restore_named_input_hook
+    game.register_input_hook(restore_named_input_hook)
+
+    # REST — Level 6: 1 heart, 50-turn reuse, not in a fight
+    from content import rest
+    game.register_input_hook(rest.rest_input_hook)
+
+    # Clock events created mid-game: RESTORE rebuilds them in a fresh game
+    # (engine/savegame.py). Every event added after setup needs one here.
+    from content import corruption, light, mine, ship
+    game.register_clock_factory("ring-corruption-clock", corruption.ensure_clock)
+    game.register_clock_factory("torch-clock", light.ensure_torch_clock)
+    game.register_clock_factory("dark-cast-window", light.ensure_cast_window)
+    game.register_clock_factory("mine-fuse", mine.ensure_fuse_clock)
+    game.register_clock_factory("map-clock", ship.ensure_map_clock)
+
     # May's hints: TIP MAY [#]; tracking for conditional hints
     from content import may_hints
     game.register_input_hook(may_hints.tip_input_hook)

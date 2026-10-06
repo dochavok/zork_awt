@@ -123,7 +123,7 @@ def _tick(w, g, left, where):
     if where != "carried":
         w.move_object(torch, w.rooms[where])
     w.set_global("TORCH-LIT-TIMER", left)
-    light._ensure_clock(w)
+    light.ensure_torch_clock(w)
     buf = io.StringIO()
     with patch("sys.stdout", buf):
         light._torch_demon(w)

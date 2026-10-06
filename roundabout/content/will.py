@@ -3,7 +3,7 @@ Will Passion — spell teaching and the glasses fail state.
 
 Design sources:
   mechanics.md — Warrior/Rogue scroll resistance; Spell training (Quest 56):
-                 3 Zenni per spell, Warriors and Rogues only
+                 free, Warriors and Rogues only
   npcs.md      — Will Passion: Spell teaching / Teaching dialogue
   items.md     — Enchanted Glasses: wearing them in Will's presence is an
                  instant fail state (Will attacks, no recovery)
@@ -22,8 +22,6 @@ SPELL_SCROLLS = {
     "SCROLL-LIGHT": "spell_light",
     "FIREBALL-SCROLL": "spell_fireball",
 }
-
-TEACHING_COST = 3
 
 _RESISTANCE = (
     "The words are legible. The meaning is not. Whatever is written here was "
@@ -44,11 +42,6 @@ _TEACHING = (
 _MAGE_READS = (
     "You read the scroll through once, and the words settle into you as if "
     "they had always meant to. The scroll crumbles to dust in your hands."
-)
-
-_CANT_PAY = (
-    '"Three Zenni," Will says, without looking up. "I don\'t make the rules. '
-    'Well. I do. Come back when you have it."'
 )
 
 _GLASSES_FAIL = (
@@ -86,12 +79,8 @@ def read_scroll(w: World, scroll) -> bool:
 
 
 def teach(w: World, scroll) -> None:
-    """Will teaches a spell scroll (READ SCROLL in his presence, or GIVE SCROLL TO WILL)."""
-    zenni = w.globals.get("zenni", 0)
-    if zenni < TEACHING_COST:
-        print(_CANT_PAY)
-        return
-    w.globals["zenni"] = zenni - TEACHING_COST
+    """Will teaches a spell scroll (READ SCROLL in his presence, or GIVE SCROLL TO WILL).
+    Free — no Zenni either way (quests.md — Quest 56)."""
     print(_TEACHING)
     _learn(w, scroll)
     from content.experience import award_xp

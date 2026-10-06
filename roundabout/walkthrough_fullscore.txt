@@ -433,7 +433,7 @@ Bog-NW. For Warriors, the Light scroll must be taken to Will to learn.
 
 We're still carrying the Unbind Undead scroll from the Lighthouse.
 Warriors can't read spell scrolls alone, so give it to Will while
-we're here; he teaches it for 3 Zenni. It's for the Chuckle House ghost.
+we're here; he teaches it for free. It's for the Chuckle House ghost.
 
 > GIVE SCROLL TO WILL         [The knowing, I mean]
 > LOOK AT MUSIC BOX           [music box]

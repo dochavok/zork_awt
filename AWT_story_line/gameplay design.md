@@ -96,6 +96,7 @@ Special mechanics are defined in `mechanics.md`. Systems covered there:
 - Undead Werewolf Chain
 - Echo Alcove — Cross-Tier Audio
 - Weight System (Rickety Bridge)
+- Save and Restore
 - Parser Verbs
 
 -----

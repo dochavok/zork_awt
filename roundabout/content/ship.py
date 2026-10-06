@@ -75,12 +75,17 @@ def on_enter(w: World, room: Room) -> None:
     if room.name in _ABOARD and room.name != "SHIP-DECK":
         w.set_global("SHIP-AWAY", True)
     if room.name in _ABOARD and not w.get_global("MAP-FOUND"):
-        clock = w.game.clock
-        if clock.get("map-clock") is None:
-            clock.add_demon("map-clock", _map_demon)
-        event = clock.get("map-clock")
+        ensure_map_clock(w)
+        event = w.game.clock.get("map-clock")
         event.enabled = True
         event.ticks = 1
+
+
+def ensure_map_clock(w: World) -> None:
+    """The map's per-turn perception check aboard (also rebuilt by RESTORE)."""
+    clock = w.game.clock
+    if clock.get("map-clock") is None:
+        clock.add_demon("map-clock", _map_demon)
 
 
 def _map_demon(w: World) -> bool:

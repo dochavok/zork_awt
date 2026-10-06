@@ -98,7 +98,7 @@ def on_enter(w: World, room: Room) -> None:
     if torch in w.player.contents and torch.has_flag("ONBIT"):
         w.set_global("TORCH-LIT-TIMER", TORCH_TURNS)
         print(_IGNITION)
-        _ensure_clock(w)
+        ensure_torch_clock(w)
 
 
 _DISCARD = "You toss the burnt-out torch aside. It's no good to anyone now."
@@ -118,7 +118,7 @@ def light_torch(w: World) -> None:
     w.set_global("TORCH-LIT-TIMER", None)
 
 
-def _ensure_clock(w: World) -> None:
+def ensure_torch_clock(w: World) -> None:
     clock = w.game.clock
     if clock.get("torch-clock") is None:
         clock.add_demon("torch-clock", _torch_demon)
@@ -177,6 +177,11 @@ def _burn_out(w: World) -> None:
         print(_BURNOUT_FATAL)
         w.set_global("GAME-OVER", True)
         w.game.quit()
+
+
+def ensure_cast_window(w: World) -> None:
+    """RESTORE: rebuild the cast window's event (savegame.apply sets its timer)."""
+    w.game.clock.queue("dark-cast-window", _cast_window_closed, 0)
 
 
 def _cast_window_closed(w: World) -> bool:

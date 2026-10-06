@@ -42,7 +42,7 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 | Inn Rest (full heal) | 5 Zenni |
 | Weapon training | 3 Zenni |
 | Archery training | 3 Zenni |
-| Spell training (Will) | 3 Zenni |
+| Spell training (Will) | Free (decided 2026-10-05) |
 | Gunpowder | 5 Zenni |
 | Fishing Rod | 8 Zenni |
 | Dagger | 5 Zenni |
@@ -217,7 +217,7 @@ Each class starts with one combat skill. The other two can be acquired through q
 **Spell training (Quest 56)** — Will Passion, Wizard Tower.
 Warriors and Rogues cannot read spell scrolls directly — resistance message points them to Will.
 Bring any spell scroll; Will teaches it aloud; scroll consumed, spell learned permanently. Repeatable for each new scroll.
-Cost: 3 Zenni per spell. Wearing the Enchanted Glasses in Will's presence is an instant fail state (Will attacks, no recovery) — see items.md. Remove them before entering the tower.
+No cost — Will teaches for free (decided 2026-10-05). Wearing the Enchanted Glasses in Will's presence is an instant fail state (Will attacks, no recovery) — see items.md. Remove them before entering the tower.
 Classes: Warrior, Rogue only.
 
 ---
@@ -348,6 +348,10 @@ Scroll is not consumed. Player retains it. Bringing the scroll to Will Passion i
 | Fireball | Guaranteed 1 heart damage — no roll required | Instant | 10 turns | Quest 7 reward — Pyronicus |
 
 **REST notes:** Outside combat only — hostile in room returns *"You can't rest now, there's fighting to be done!"* Before reuse timer expires returns *"What are you sitting around for, there's a dungeon to explore!"* Works while inked. Stacks with inn healing and food.
+- **Built (2026-10-05):** `REST` heals 1 heart and starts the 50-turn timer: *You sit with your back to the nearest wall and let your breathing slow. When you get up, some of the ache has gone with it.*
+- Before Level 6: *You're not tired.* At full hearts: *You're as rested as you're going to get.* (no timer started).
+- "Hostile in room" = a live enemy there: the spotted mugger, the Warden once he's out, the afflicted apprentice before he's freed, the living werewolf, a knight trial in progress.
+- Every refusal (before Level 6, in a fight, timer not up, full hearts) uses no turn.
 
 **Standard level-up message (all levels):** *"You hear music — a familiar melody. You have reached level [#]!"*
 
@@ -1111,6 +1115,17 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 
 ---
 
+### Save and Restore
+
+Decided 2026-10-05.
+- `SAVE` writes the game to a file named after the character, `<name>.sav` (e.g. `Tess.sav`), in the folder the game runs from: *Saved.* Saving again overwrites it.
+- `RESTORE` loads the current character's own file. A new launch always starts with character creation, so a returning player creates a character with the same name, then `RESTORE`s. No file: *There's no saved game to restore.*
+- `RESTORE <name>` loads that character's file (any case): *Restored.* No file: *There's no saved game for Boromir.* Play goes on as the saved character, so later SAVEs go to that name's file.
+- SAVE and RESTORE use no turn. After GAME OVER all input is refused, RESTORE included — relaunch and restore.
+- A restore brings back everything, the turn count and running timers included (ring corruption, the torch, a lit fuse).
+- File names keep only letters, digits, spaces, hyphens, underscores and apostrophes; a name with none of them saves as `roundabout.sav`.
+- The walkthrough tests play "Tester", so they write `Tester.sav`.
+
 ### Parser Verbs (Confirmed)
 
 **Object descriptions (global):** an item has a room line (where it's first placed), an optional listing for after it's been moved, and its examine text (items.md "Examine"). `EXAMINE` shows the examine text and never changes how the item is listed; with no examine text it shows the item's room line. A moved item with no designed listing is listed as "There is a [item] here."
@@ -1192,6 +1207,9 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 | `CLIMB TREE` | The Old Oak — retrieves kite + rune stone |
 | `LOOK AT MUSIC BOX` | Will's Tower — triggers quest discovery and hint sequence (Quest 12) |
 | `READ JOURNAL` | Tip Journal — displays all active discovered quests with purchased hints |
+| `REST` | Level 6+ — recovers 1 heart; 50-turn reuse; not with a live enemy in the room (Spell Mechanics — REST notes) |
+| `SAVE` | Saves to `<name>.sav`, named after the character; no turn (Save and Restore) |
+| `RESTORE` / `RESTORE <name>` | Loads the character's own save, or the named character's; no turn (Save and Restore) |
 | `OPEN CASE` / `CLOSE CASE` | Trophy Case in The Tower — case must be open to place items |
 | `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` | Trophy Case — places treasure permanently; case must be open |
 | `LOOK IN CASE` / `EXAMINE CASE` | Trophy Case — lists contents and count; visible through glass whether open or closed |

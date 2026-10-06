@@ -85,7 +85,7 @@ The key stays in the lock. The scroll lies in the box: *A folded scroll lies in 
 2. Search Bog-NW — perception check reveals hollow log. Inside: music box key.
 3. Return to tower → open music box with key → plays short melody → scroll inside. **Quest 12 completes here** (the scroll is found): 10 XP, 5 Zenni.
 4. **Mages:** Read scroll directly (consumed) → Light spell learned.
-5. **Warriors/Rogues:** Take scroll to Will (wearing Enchanted Glasses in Will's presence is an instant fail state) → scroll consumed, Light spell learned (Will's teaching: 3 Zenni, Quest 56 XP).
+5. **Warriors/Rogues:** Take scroll to Will (wearing Enchanted Glasses in Will's presence is an instant fail state) → scroll consumed, Light spell learned (Will's teaching: free, Quest 56 XP).
 
 **Reward:** 5 Zenni on finding the scroll. The scroll teaches the Light spell (mechanics.md — Light Spell: continuous while in dark rooms, no reuse timer).
 
@@ -644,9 +644,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 2. Travel to Will's Wizard Tower. `READ SCROLL` in Will's presence, or `GIVE SCROLL TO WILL`.
 3. Will reads it aloud. Scroll consumed. Spell learned permanently.
    - *"Will glances at the scroll, then at you. He takes it without ceremony and unrolls it, reading silently for a moment. Then he reads it aloud — not to you, exactly, more as if the words need to be heard in the right kind of room. When he finishes, you understand it. You're not sure how. 'Keep that,' he says, nodding at the space where the scroll was. It's gone. 'The knowing, I mean.'"*
-4. Pay 3 Zenni per spell taught.
-
-**Reward:** Spell learned permanently. 4 XP per spell. 3 Zenni per spell.
+**Reward:** Spell learned permanently. 4 XP per spell. No Zenni either way — Will teaches for free, and the spell is the reward (decided 2026-10-05).
 **Note:** Wearing the Enchanted Glasses in Will's presence is an instant fail state (Will attacks, no recovery) — see items.md. Remove them before entering the tower.
 
 ---
