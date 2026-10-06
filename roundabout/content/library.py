@@ -5,9 +5,7 @@ quests.md (Quest 28).
 
 GIVE RUBBING TO ARCHIVIST (or TALK TO ARCHIVIST carrying it): his line, the
 incantation scroll to the inventory, Quest 28 completes (3 Zenni, silent).
-
-Deferred: the Archivist's book-research mechanic (TALK TO ARCHIVIST about a
-subject, READ BOOK) — see todo.md.
+Quest 28 is the Archivist's only role; there is no book research.
 """
 
 from __future__ import annotations

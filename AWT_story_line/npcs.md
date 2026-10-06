@@ -740,6 +740,7 @@ He is already working when the player arrives.
 
 **Design notes:**
 - No name. "The Archivist" only.
+- Quest 28 is his only role. There is no book research (dropped in favor of the rubbing quest; locations.md — The Stacks).
 - His Quest 28 reward (the incantation scroll) is the only connection to Quest 34. The second-visit line is the nudge toward the Tool Alcove for players who found the door and don't know what to do next — or haven't found it yet.
 - Post-Quest-34 dialogue is optional flavor; only fires if player returns and speaks to him.
 

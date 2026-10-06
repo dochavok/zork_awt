@@ -413,8 +413,8 @@ Foundation is secretly a temple to Thoth; all staff are priests/clergy. Only Lit
 ### The Stacks
 **XP: 1**
 **NPCs:** The Archivist (full dialogue in npcs.md)
-**Items:** Research books (not takeable; read in place via TALK TO ARCHIVIST)
-**Quest Hooks:** Multiple quests — book research mechanic advances quests by topic; correct title advances relevant quest
+**Items:** None.
+**Quest Hooks:** Quest 28 (The Archivist's Request) only.
 **Connections:** West → Library (Main Hall).
 The Archivist's working space. Deeper in the collection than the Main Hall suggests is possible.
 
@@ -425,7 +425,7 @@ The Archivist's working space. Deeper in the collection than the Main Hall sugge
 
 **The Archivist** works here. Full dialogue in `npcs.md`. `TALK TO ARCHIVIST` to interact.
 
-**Book research mechanic:** `TALK TO ARCHIVIST` about a subject → he offers matching titles → `READ BOOK` on each in place (books cannot be taken). Only the correct title advances the relevant quest; wrong books yield flavor text. If player names the specific title, he retrieves it directly. Synonyms accepted. May's hints tie in: Tier 1–2 by topic, Tier 3 names the exact title.
+**The Archivist's role:** Quest 28 only — the rubbing for the incantation scroll — plus his follow-up lines pointing toward Quest 34. There is no book-research mechanic; it was dropped in favor of the rubbing quest. (Decided 2026-10-05.)
 
 ---
 
