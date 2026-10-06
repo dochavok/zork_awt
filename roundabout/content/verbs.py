@@ -479,6 +479,7 @@ def _set_glasses_state(world: World) -> None:
 
 _EMPTY_HANDED = "You are empty-handed."
 _ALL_WORN = "You'll need to remove anything you want to drop."
+_ALL_KEPT = "That leaves nothing to drop."
 
 
 def _drop_nothing(world: World) -> None:
@@ -492,6 +493,8 @@ def _drop_nothing(world: World) -> None:
     elif any(o.name == "RING" for o in carried):
         from content.ring import KEEP_CLOSE
         print(KEEP_CLOSE)
+    else:
+        print(_ALL_KEPT)       # ALL BUT kept back everything droppable
 
 
 def v_drop(world: World) -> int:

@@ -1114,6 +1114,7 @@ Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is miss
 **Several objects in one command** (`DROP ALL`, `TAKE ALL`, comma lists): one result per item. A result is labelled "[item]:" only when its line doesn't already name the item (refusals, special lines).
 - `TAKE ALL` (and `TAKE ALL BUT …`) leaves out what the player already carries; if nothing is left: "There's nothing here you can take." (as in Zork). `TAKE X` for a carried item still says "You already have the X."
 - `DROP ALL` (and `DROP ALL BUT …`) leaves out worn items and the ring. If nothing is left: carrying nothing at all — *You are empty-handed.*; worn items other than the ring — *You'll need to remove anything you want to drop.*; only the ring (worn or not) — the ring's line, *"Bring it to me, or keep it close," Will said. You keep it close.*
+- `DROP ALL BUT …` that keeps back everything droppable: *That leaves nothing to drop.* The ring's line and the worn-items line above take priority when they apply. (Decided 2026-10-05.)
 
 **A missing tool in a full sentence:** `SEAL JOINTS WITH MORTAR` without the mortar and `MIX CLAY WITH WATER` away from the fountain give the designed lines, the same as the short forms (`SEAL JOINTS`, `MIX CLAY`). Elsewhere a missing object after WITH still gets *You can't see any [word] here!* (Decided 2026-10-05.)
 

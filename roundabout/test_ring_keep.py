@@ -102,6 +102,33 @@ def test_drop_all_but_ring_unchanged():
     assert w.objects["KITE"].location is w.here
 
 
+KEPT = "That leaves nothing to drop."
+
+
+def test_drop_all_but_keeps_everything():
+    w, g = _make_world()
+    _carry(w, "SHOVEL")
+    assert _do(g, "drop all but shovel").strip() == KEPT
+    _carry(w, "ROPE")
+    assert _do(g, "drop all but shovel and rope").strip() == KEPT
+    assert w.objects["SHOVEL"].location is w.player
+    assert w.objects["ROPE"].location is w.player
+
+
+def test_drop_all_but_ring_line_comes_first():
+    w, g = _with_ring()
+    _carry(w, "SHOVEL")
+    assert _do(g, "drop all but shovel").strip() == KEEP
+
+
+def test_drop_all_but_worn_line_comes_first():
+    w, g = _with_ring()
+    _carry(w, "SHOVEL")
+    _carry(w, "ENCHANTED-GLASSES")
+    _do(g, "wear glasses")
+    assert _do(g, "drop all but shovel").strip() == "You'll need to remove anything you want to drop."
+
+
 def test_ring_weighs_nothing():
     w, _g = _with_ring()
     assert w.objects["RING"].size == 0
