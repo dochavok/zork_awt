@@ -1,0 +1,34 @@
+ROUNDABOUT: THE GOD-FORSAKEN RING
+Full-Score Walkthrough
+======================
+This walkthrough plays a Warrior through every active quest, all nine
+Trophy Case treasures, and the God-Forsaken Ring, ending at 300 of 300.
+
+Type each line that starts with > at the game prompt. The text in
+[brackets] beside a command is part of what the game should say back.
+If you see it, you're on track. Lines without a > are notes to help you
+along.
+
+-----------------------------------------------------------------------------
+A WORD ABOUT LUCK
+-----------------------------------------------------------------------------
+Unlike the original Zork, Roundabout has a fair amount of chance in it.
+Whether you notice something hidden, win a contest of strength or skill,
+or come out of a fight on top can all depend on luck. Your character's
+class and level shift the odds as well.
+
+This walkthrough always shows things going your way. If the game's reply
+doesn't match the [bracketed] text, luck probably wasn't with you that
+time. Nothing is broken. Try again:
+
+  - If something the walkthrough mentions isn't there, leave and come
+    back, or wait a moment, and look again.
+  - If you lose a contest, try it again. Some opponents want a short
+    break before a rematch.
+  - Fights can be lost, and death ends the game. SAVE before anything
+    dangerous so you can RESTORE and try again.
+
+Don't move on until a step works. Later steps often depend on it.
+
+A tip: the Enchanted Glasses you pick up early on are worth the trouble.
+Once they're properly enchanted, very little stays hidden from you.
