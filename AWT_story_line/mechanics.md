@@ -306,6 +306,7 @@ When the enemy wins a combat round and would deal 1 heart damage, the tunic fire
 - **Clean success:** *You remove the ring. Whatever it wants, it didn't get it this time.*
 - **Near-miss success:** *The ring comes off. It didn't want to. You're not sure you could have held out another moment.*
 - **Failure:** *You try to take the ring off. Your fingers find it. They don't do what you ask.*
+- **Failure at tick 49** (decided 2026-10-10): the ring stays on, so that same turn reaches 50 and the game ends. No failure line — the game-over text below answers the attempt on its own (*You reach for the ring. Your hand doesn't move…*). The same goes for a failed removal when placing the ring on the altar.
 
 **Game over message (tick 50) — a fail condition, no resurrection:** *You reach for the ring. Your hand doesn't move. You watch it not move. The ring is warm and patient and it has been waiting for exactly this. You are not going to take it off.*
 

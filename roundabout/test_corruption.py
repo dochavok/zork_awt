@@ -155,13 +155,51 @@ def test_removal_target_by_tick(tick, target):
     w, g = _ringed(tick=tick)
     with _removal_roll(target - 1):
         out = _do(g, "remove ring")
-    assert FAILED in out
     assert w.globals["ring_worn"] is True       # it stays on
+    if tick < 49:
+        assert FAILED in out                    # at 49 the game over answers it instead
 
     w, g = _ringed(tick=tick)
     with _removal_roll(target):
         _do(g, "remove ring")
     assert w.globals["ring_worn"] is False
+
+
+def test_failed_removal_at_49_is_answered_by_the_game_over():
+    # The ring stays on, so the same turn reaches 50: one reach, not two
+    w, g = _ringed(tick=49)
+    with _removal_roll(REMOVAL_TARGET[49] - 1):
+        out = _do(g, "remove ring")
+    assert GAME_OVER in out
+    assert FAILED not in out
+    assert out.count("You reach for the ring") == 1
+    assert w.get_global("GAME-OVER") is True
+
+
+def test_failed_altar_placement_at_49_is_answered_by_the_game_over():
+    w, g = _ringed(room="ALTAR", tick=49)
+    with _removal_roll(REMOVAL_TARGET[49] - 1):
+        out = _do(g, "put ring on altar")
+    assert GAME_OVER in out
+    assert FAILED not in out
+    assert w.get_global("GAME-OVER") is True
+
+
+def test_failed_removal_at_48_still_says_so():
+    w, g = _ringed(tick=48)
+    with _removal_roll(REMOVAL_TARGET[48] - 1):
+        out = _do(g, "remove ring")
+    assert FAILED in out
+    assert GAME_OVER not in out                # 49: still playing
+
+
+def test_removal_at_49_can_still_succeed():
+    w, g = _ringed(tick=49)
+    with _removal_roll(REMOVAL_TARGET[49] + 5):
+        out = _do(g, "remove ring")
+    assert CLEAN in out
+    assert GAME_OVER not in out
+    assert not w.get_global("GAME-OVER")
 
 
 def test_exactly_meeting_the_target_is_a_near_miss():

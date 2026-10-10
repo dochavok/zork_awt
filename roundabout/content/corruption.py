@@ -118,7 +118,10 @@ def try_remove_ring(world: "World") -> bool:
         _do_remove_ring(world)
         return True
     else:
-        print("You try to take the ring off. Your fingers find it. They don't do what you ask.")
+        # At 49 the ring stays on, so this turn reaches 50: the game-over text
+        # answers the attempt on its own (no "reach" twice)
+        if tick < 49:
+            print("You try to take the ring off. Your fingers find it. They don't do what you ask.")
         return False
 
 
