@@ -40,6 +40,9 @@ M_END     = 6   # end of turn (after verb dispatch)
 # (CAST before the spell is ready again).
 HOOK_NO_TURN = "no-turn"
 
+# Shown when the game ends on its own, before the program closes
+EXIT_PROMPT = "[Press ENTER to exit] "
+
 # Description modes
 VERBOSE     = 0   # always show long description + contents
 BRIEF       = 1   # long description on first visit only (default)
@@ -101,6 +104,7 @@ class Game:
 
         self.desc_mode: int = BRIEF
         self._running:  bool = False
+        self._player_quit: bool = False
 
         # Attach back-reference so content handlers can call game methods
         world.game = self
@@ -147,6 +151,7 @@ class Game:
     def run(self) -> None:
         """Read-eval-print loop: describe the starting room then process turns."""
         self._running = True
+        self._player_quit = False
         self.enter_room(self.world.here)
 
         while self._running:
@@ -154,9 +159,19 @@ class Game:
                 line = input("\n> ").strip()
             except (EOFError, KeyboardInterrupt):
                 print()
-                break
+                return
 
             self.do_turn(line)
+
+        # The game ended on its own (death, the ending): hold the last text on
+        # screen until ENTER, so a double-clicked console window doesn't close
+        # over it. A player who chose QUIT has already confirmed.
+        if not self._player_quit:
+            print()
+            try:
+                input(EXIT_PROMPT)
+            except (EOFError, KeyboardInterrupt):
+                print()
 
     def do_turn(self, input_text: str) -> int:
         """
@@ -548,9 +563,11 @@ class Game:
             print("\n**** You have died ****\n\nYou have not been granted the gift of resurrection.")
             self._running = False
 
-    def quit(self) -> None:
-        """Stop the game loop cleanly."""
+    def quit(self, by_player: bool = False) -> None:
+        """Stop the game loop cleanly. by_player: the player chose QUIT, so
+        there's no end-of-game text to hold on screen."""
         self._running = False
+        self._player_quit = by_player
 
 
 # ---------------------------------------------------------------------------

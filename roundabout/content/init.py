@@ -334,7 +334,7 @@ def _place_objects(world) -> None:
 
 def _wire_whitehouse_action(world, game) -> None:
     """
-    White House: any command except OPEN MAILBOX returns the Zork joke.
+    White House: any command except OPEN MAILBOX (or QUIT) returns the Zork joke.
     OPEN MAILBOX is handled by the mailbox object action (V-OPEN verb handler).
     """
     from engine.game import M_HANDLED, M_NOT_HANDLED, M_BEG
@@ -344,7 +344,7 @@ def _wire_whitehouse_action(world, game) -> None:
             # Block all verbs except V-OPEN targeting the mailbox
             if w.prsa == "V-OPEN" and w.prso is not None and w.prso.name == "MAILBOX-WHITE-HOUSE":
                 return M_NOT_HANDLED  # let V-OPEN proceed
-            if w.prsa not in (None, "V-WALK", "V-LOOK", "V-EXAMINE"):
+            if w.prsa not in (None, "V-WALK", "V-LOOK", "V-EXAMINE", "V-QUIT"):
                 print('What does this look like? A Great Underground Empire?')
                 return M_HANDLED
         return M_NOT_HANDLED

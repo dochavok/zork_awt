@@ -30,6 +30,9 @@ _RESP = {1: "That's worth something", 2: "That buys you something worth hearing"
 class MayHintsBase(unittest.TestCase):
 
     def setUp(self):
+        # Some tests call setUp() again mid-test for a fresh game; stop the
+        # patches already running first, or they outlive this file.
+        self.tearDown()
         self._patches = [
             patch("random.randint", fullscore._always_max),
             patch("content.char_create.input", fullscore._make_input_feed()),
@@ -49,8 +52,9 @@ class MayHintsBase(unittest.TestCase):
         self.go("BAR")
 
     def tearDown(self):
-        for p in self._patches:
+        for p in getattr(self, "_patches", []):
             p.stop()
+        self._patches = []
 
     def go(self, room):
         with patch("sys.stdout", io.StringIO()):

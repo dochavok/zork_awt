@@ -1126,6 +1126,13 @@ Decided 2026-10-05.
 - File names keep only letters, digits, spaces, hyphens, underscores and apostrophes; a name with none of them saves as `roundabout.sav`.
 - The walkthrough tests play "Tester", so they write `Tester.sav`.
 
+**Quitting** (decided 2026-10-09)
+- `QUIT` (or `Q`) asks: *Quit now? (type "no" to save first) [yes/no]* — it doesn't save. `YES` or `Y` (any case) ends the game at once, with no exit pause. Any other answer plays on, so the player can `SAVE` and quit again.
+- QUIT uses no turn and works anywhere: at West of House before the mailbox, and while Ty waits for a cargo choice.
+
+**The end of the game** (decided 2026-10-09)
+- When the game ends on its own (death, corruption, declining the adventure, the ending), the final text stays on screen with *[Press ENTER to exit]*; the game closes on ENTER. Without it, a console window opened by double-clicking the game closes before the player can read how it ended.
+
 ### Parser Verbs (Confirmed)
 
 **Object descriptions (global):** an item has a room line (where it's first placed), an optional listing for after it's been moved, and its examine text (items.md "Examine"). `EXAMINE` shows the examine text and never changes how the item is listed; with no examine text it shows the item's room line. A moved item with no designed listing is listed as "There is a [item] here."
@@ -1210,6 +1217,7 @@ Decided 2026-10-05.
 | `REST` | Level 6+ — recovers 1 heart; 50-turn reuse; not with a live enemy in the room (Spell Mechanics — REST notes) |
 | `SAVE` | Saves to `<name>.sav`, named after the character; no turn (Save and Restore) |
 | `RESTORE` / `RESTORE <name>` | Loads the character's own save, or the named character's; no turn (Save and Restore) |
+| `QUIT` / `Q` | Asks first; yes ends the game, anything else plays on; no turn (Save and Restore — Quitting) |
 | `OPEN CASE` / `CLOSE CASE` | Trophy Case in The Tower — case must be open to place items |
 | `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` | Trophy Case — places treasure permanently; case must be open |
 | `LOOK IN CASE` / `EXAMINE CASE` | Trophy Case — lists contents and count; visible through glass whether open or closed |

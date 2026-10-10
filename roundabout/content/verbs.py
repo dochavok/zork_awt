@@ -273,6 +273,22 @@ def v_restore(world: World) -> int:
     return M_HANDLED
 
 
+_QUIT_PROMPT = 'Quit now? (type "no" to save first) [yes/no] '
+
+
+def v_quit(world: World) -> int:
+    """QUIT asks first; yes ends the game, anything else plays on (mechanics.md —
+    Save and Restore). No turn. Input closed mid-question counts as yes."""
+    try:
+        answer = input(_QUIT_PROMPT)
+    except (EOFError, KeyboardInterrupt):
+        print()
+        answer = "yes"
+    if answer.strip().lower() in ("y", "yes"):
+        world.game.quit(by_player=True)
+    return M_HANDLED
+
+
 def _restored(world: World) -> None:
     print("Restored.")
     world.game.desc_mode_override = True
@@ -1767,6 +1783,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-INVENTORY",  v_inventory)
     game.register_verb("V-SAVE",       v_save)
     game.register_verb("V-RESTORE",    v_restore)
+    game.register_verb("V-QUIT",       v_quit)
     game.register_verb("V-TAKE",       v_take)
     game.register_verb("V-WEAR",       v_wear)
     game.register_verb("V-REMOVE",     v_remove)

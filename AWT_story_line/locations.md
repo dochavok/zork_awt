@@ -18,7 +18,7 @@ Each room's XP value is noted in its entry below.
 **Items:** None
 **Quest Hooks:** None (opening sequence only)
 **Connections:** Out → Will's Wizard Tower (Main Room) (one-way portal; never revisited)
-Opening area; homage to Zork. One room only. Any command except `OPEN MAILBOX` returns: *"What does this look like? A Great Underground Empire?"* Opening the mailbox triggers Will's appearance in the field. Will delivers opening text and asks "Are you up for an adventure?" No = game over, never leaves field. Yes = teleported to Will's Wizard Tower. Never revisited after opening sequence.
+Opening area; homage to Zork. One room only. Any command except `OPEN MAILBOX` (or `QUIT` — mechanics.md, Save and Restore) returns: *"What does this look like? A Great Underground Empire?"* Opening the mailbox triggers Will's appearance in the field. Will delivers opening text and asks "Are you up for an adventure?" No = game over, never leaves field. Yes = teleported to Will's Wizard Tower. Never revisited after opening sequence.
 
 ---
 
