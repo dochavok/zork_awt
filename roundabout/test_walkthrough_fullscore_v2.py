@@ -201,7 +201,7 @@ class TestFullScoreNarrative(unittest.TestCase):
             sections,
             f"No sections parsed from {_WALKTHROUGH_PATH} — check the file exists and has section headers.",
         )
-        # TODO #4: the full-score run enters every room worth XP. Entries are
+        # The full-score run enters every room worth XP. Entries are
         # recorded by an enter hook — some rooms reset room.visited to force
         # their full description, so the flag alone can't be trusted.
         entered = {self.world.here.name}
