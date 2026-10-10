@@ -171,7 +171,7 @@ def _dig(w: World) -> None:
         return
     print(_DUG)
     w.set_global("STORED-ROOM-DUG", True)
-    w.here.desc = "Hole to Below"
+    w.game.apply_room_names()                        # now the Hole to Below
     w.objects["SUPPORT-TIMBER"].clear_flag("INVISIBLE")
     dig_note(w)
 
@@ -265,6 +265,7 @@ def make_rooms(world) -> None:
     landing = room("KEY-DOOR-LANDING", "Key Door Landing", _LANDING)
     mine = room("MINE-PASSAGE", "Mine Passage", "")
     stored = room("STORED-ROOM", "Stored Room", "")
+    world.game.register_room_name("STORED-ROOM", "STORED-ROOM-DUG", "Hole to Below")
     crevice = room("THE-CREVICE", "The Crevice", "")
     rubble = room("PILE-OF-RUBBLE", "Pile of Rubble", _RUBBLE_PILE, value=2)
 

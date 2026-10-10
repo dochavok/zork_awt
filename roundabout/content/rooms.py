@@ -1072,6 +1072,7 @@ def _make_kevrys_island(world) -> None:
     )
     kevry_house.set_flag(ONBIT)
     world.register_room(kevry_house)
+    world.game.register_room_name("KEVRYS-HOUSE", "KEVRY-MET", "Kevry's House")
 
     captains_quarters = Room(
         name="CAPTAINS-QUARTERS",

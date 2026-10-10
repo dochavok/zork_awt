@@ -34,6 +34,19 @@ GAME_OVER = ("You reach for the ring. Your hand doesn't move. You watch it not m
              "The ring is warm and patient and it has been waiting for exactly this. "
              "You are not going to take it off.")
 
+# mechanics.md — Milestone messages, ticks 41–49: one line each tick
+LATE_LINES = {
+    41: "Take it off. You should take it off.",
+    42: "Take it off. Soon.",
+    43: "You could take it off. You could.",
+    44: "Take it — the thought slides away before you finish it.",
+    45: "Off. Take it… You lose the rest of the sentence.",
+    46: "You don't need to take it off. Do you?",
+    47: "Why would you take it off?",
+    48: "It's fine. The ring is fine.",
+    49: "The ring is warm, and you are warm, and everything is fine.",
+}
+
 # mechanics.md — Late-stage removal: target by tick
 REMOVAL_TARGET = {41: 5, 42: 7, 43: 9, 44: 11, 45: 13, 46: 15, 47: 17, 48: 19, 49: 21}
 
@@ -86,6 +99,36 @@ def test_milestone_lines(tick, text):
     assert text in _do(g, "wait")
     assert _tick(w) == tick
     assert text not in _do(g, "wait")          # once, at its tick only
+
+
+def test_each_late_tick_has_its_own_line():
+    # Worn from 40 to 49: every turn prints that tick's line, and only that one
+    w, g = _ringed(tick=40)
+    for tick in range(41, 50):
+        out = _do(g, "wait")
+        assert _tick(w) == tick
+        assert LATE_LINES[tick] in out, tick
+        others = [t for t, line in LATE_LINES.items() if t != tick and line in out]
+        assert others == [], (tick, others)
+
+
+def test_no_late_line_while_the_ring_is_off():
+    w, g = _ringed(tick=44)
+    with _removal_roll(99):
+        _do(g, "remove ring")
+    out = "".join(_do(g, "wait") for _ in range(3))
+    assert not any(line in out for line in LATE_LINES.values())
+    assert _tick(w) == 44
+    out = _do(g, "wear ring")                  # the turn it goes back on is a turn worn
+    assert _tick(w) == 45
+    assert LATE_LINES[45] in out               # resumes with the next tick's line
+
+
+def test_late_lines_stop_at_fifty():
+    w, g = _ringed(tick=49)
+    out = _do(g, "wait")
+    assert GAME_OVER in out
+    assert not any(line in out for line in LATE_LINES.values())
 
 
 def test_full_corruption_at_fifty_ends_the_game():

@@ -101,6 +101,9 @@ class Game:
         # For events content creates mid-game; RESTORE uses them to rebuild
         # events a fresh game doesn't have yet (engine/savegame.py).
         self.clock_factories: dict[str, Callable[[World], None]] = {}
+        # room name rules: room -> (built name, [(flag, name)]). A renamed
+        # room's name follows its flag, so RESTORE rebuilds it from any save.
+        self._room_names: dict[str, tuple[str, list[tuple[str, str]]]] = {}
 
         self.desc_mode: int = BRIEF
         self._running:  bool = False
@@ -139,6 +142,22 @@ class Game:
     def register_clock_factory(self, name: str, factory: Callable[[World], None]) -> None:
         """Register how to (re)create a clock event content adds mid-game."""
         self.clock_factories[name] = factory
+
+    def register_room_name(self, room: str, flag: str, name: str) -> None:
+        """The room is called `name` once global `flag` is set (e.g. the Stored
+        Room becomes the Hole to Below). The only way content renames a room."""
+        base, rules = self._room_names.setdefault(room, (self.world.rooms[room].desc, []))
+        rules.append((flag, name))
+
+    def apply_room_names(self) -> None:
+        """Set every renamed room's name from its flags: after a flag changes
+        in play, and after RESTORE."""
+        for room, (base, rules) in self._room_names.items():
+            desc = base
+            for flag, name in rules:
+                if self.world.get_global(flag):
+                    desc = name
+            self.world.rooms[room].desc = desc
 
     def register_input_hook(self, hook: Callable[[World, str], bool]) -> None:
         """Register a hook that may consume a raw input line before parsing."""

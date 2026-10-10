@@ -49,7 +49,7 @@ def _here_with_kevry(w: World) -> bool:
 def _met(w: World) -> None:
     if not w.get_global("KEVRY-MET"):
         w.set_global("KEVRY-MET", True)
-        w.rooms["KEVRYS-HOUSE"].desc = "Kevry's House"
+        w.game.apply_room_names()                    # now Kevry's House
 
 
 def quarters_action(w: World, msg: int = M_NOT_HANDLED) -> int:

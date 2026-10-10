@@ -30,6 +30,16 @@ _MILESTONE_MESSAGES = {
         "the way you're aware of a sound that hasn't stopped. "
         "You should take it off. You know you should take it off."
     ),
+    # 41-49: one line each tick, the player's own voice giving way
+    41: "Take it off. You should take it off.",
+    42: "Take it off. Soon.",
+    43: "You could take it off. You could.",
+    44: "Take it — the thought slides away before you finish it.",
+    45: "Off. Take it… You lose the rest of the sentence.",
+    46: "You don't need to take it off. Do you?",
+    47: "Why would you take it off?",
+    48: "It's fine. The ring is fine.",
+    49: "The ring is warm, and you are warm, and everything is fine.",
 }
 
 # Late-stage removal difficulty targets (ticks 41-49)

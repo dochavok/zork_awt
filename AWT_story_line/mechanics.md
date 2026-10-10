@@ -269,7 +269,7 @@ When the enemy wins a combat round and would deal 1 heart damage, the tunic fire
 | 10 | First warning |
 | 25 | Midpoint warning |
 | 40 | Urgent warning |
-| 41–49 | Challenge roll window — removal requires passing a roll; difficulty escalates each tick |
+| 41–49 | Challenge roll window — removal requires passing a roll; difficulty escalates each tick; a message each tick |
 | 50 | Full corruption — game over (failure ending), no roll offered |
 
 **Milestone messages:**
@@ -277,6 +277,16 @@ When the enemy wins a combat round and would deal 1 heart damage, the tunic fire
 - **Tick 10:** *The ring is warm. You hadn't noticed until just now. You're not sure when it started.*
 - **Tick 25:** *The ring is heavier than it was. Not in weight — in presence. It knows you're wearing it. You find yourself aware of it in a way you weren't before.*
 - **Tick 40:** *The ring is harder to ignore than it was. You are aware of it the way you're aware of a sound that hasn't stopped. You should take it off. You know you should take it off.*
+- **Ticks 41–49** (decided 2026-10-09): one line on each tick, the player's own voice giving way, so tick 50 lands as the end of a slide. Like every milestone, a line prints once, on the turn the ring reaches that tick — ticks only advance while the ring is worn.
+  - **41:** *Take it off. You should take it off.*
+  - **42:** *Take it off. Soon.*
+  - **43:** *You could take it off. You could.*
+  - **44:** *Take it — the thought slides away before you finish it.*
+  - **45:** *Off. Take it… You lose the rest of the sentence.*
+  - **46:** *You don't need to take it off. Do you?*
+  - **47:** *Why would you take it off?*
+  - **48:** *It's fine. The ring is fine.*
+  - **49:** *The ring is warm, and you are warm, and everything is fine.*
 
 **Late-stage removal (ticks 41–49):** Every attempt to remove the ring requires passing a challenge roll. Uses the player's current level dice only — no bonus applied. Higher-level players roll better dice and succeed more reliably. Difficulty increases by 2 each tick:
 
@@ -1123,6 +1133,7 @@ Decided 2026-10-05.
 - `RESTORE <name>` loads that character's file (any case): *Restored.* No file: *There's no saved game for Boromir.* Play goes on as the saved character, so later SAVEs go to that name's file.
 - SAVE and RESTORE use no turn. After GAME OVER all input is refused, RESTORE included — relaunch and restore.
 - A restore brings back everything, the turn count and running timers included (ring corruption, the torch, a lit fuse).
+- Rooms renamed in play take their name from the game's flags, so any save restores them right, saves from before 2026-10-09 included: the Stored Room is the Hole to Below once dug, and A House is Kevry's House once Kevry is met. Restoring an earlier save brings the earlier name back.
 - File names keep only letters, digits, spaces, hyphens, underscores and apostrophes; a name with none of them saves as `roundabout.sav`.
 - The walkthrough tests play "Tester", so they write `Tester.sav`.
 

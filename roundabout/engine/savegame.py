@@ -111,6 +111,7 @@ def apply(game: Game, data: dict) -> None:
         if e is not None:
             e.ticks, e.enabled = ticks, enabled
     game.desc_mode = data["desc_mode"]
+    game.apply_room_names()            # renamed rooms follow the restored flags
 
 
 def path_for(name: str | None) -> str:
