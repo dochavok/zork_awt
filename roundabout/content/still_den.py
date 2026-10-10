@@ -10,7 +10,9 @@ Chain), items.md (Werewolf's Amulet), experience.md (Trap 36: 3 XP; werewolf:
 - Antechamber: CLEAR BONES disarms Trap 36. EAST or SOUTH before clearing is
   death; WEST is always safe. SOUTH after clearing is the Skeleton Room —
   death on entry.
-- Still Den: no combat round on the entry turn; every later turn there while
+- Still Den: three descriptions — first visit, werewolf up (every LOOK and
+  every entry once it has risen, BRIEF or not), dead. It rises once, on the
+  first entry. No combat round on an entry turn; every later turn there while
   the werewolf lives is one round (it rolls 3d10 against the player; the
   player takes 1 heart on a loss, the werewolf never takes damage).
   DRIVE STAKE INTO WEREWOLF with the consecrated stake kills it outright; the
@@ -19,7 +21,7 @@ Chain), items.md (Werewolf's Amulet), experience.md (Trap 36: 3 XP; werewolf:
 - Lower Crossing north is the Tool Alcove (content/tool_alcove.py).
 - Lower Crossing south (Dark Room) is wired in content/dark_branch.py.
 
-State: BONES-CLEARED, DEN-JUST-ENTERED, WEREWOLF-DEAD
+State: BONES-CLEARED, DEN-JUST-ENTERED, WEREWOLF-RISEN, WEREWOLF-DEAD
 """
 
 from __future__ import annotations
@@ -75,12 +77,18 @@ _DEN = (
     "a rough oval, the path of something that has been pacing this space for "
     "longer than it can remember."
 )
-_DEN_ALIVE = " It is very still right now. That changes the moment you enter."
-_DEN_AFTER = " The scholar lies where the creature fell."
+_DEN_ALIVE = (" Something lies curled at the far end of the oval, grey and motionless. "
+              "That changes the moment you enter.")
+_DEN_UP = (
+    "A wide cave, low but not cramped, the walls gouged at every height. The werewolf "
+    "paces the worn oval in the floor, grey fur hanging from skin that hasn't been alive "
+    "in years. It hasn't taken its eyes off you."
+)
+_DEN_AFTER = " Nothing paces it now. The scholar lies where the creature fell, the stake still in him."
 _RISES = (
-    "At the far end of the oval, something unfolds from the floor — taller than a "
-    "man, long in the arm, its fur gone grey and patchy over skin that hasn't been "
-    "alive in years. It turns its head toward you and starts forward."
+    "The grey shape unfolds from the floor: a werewolf, taller than a man, long in the "
+    "arm, its fur gone patchy over skin that hasn't been alive in years. It turns its "
+    "head toward you and starts forward."
 )
 _CLAWS = "The werewolf's claws find you."
 _STAKE_HOME = (
@@ -161,15 +169,25 @@ class _SkeletonRoom(Exit):
 
 def den_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     dead = w.get_global("WEREWOLF-DEAD")
+    risen = w.get_global("WEREWOLF-RISEN")
     if msg == M_LOOK:
-        print(_DEN + (_DEN_AFTER if dead else _DEN_ALIVE))
+        if dead:
+            print(_DEN + _DEN_AFTER)
+        elif risen:
+            print(_DEN_UP)
+        else:
+            print(_DEN + _DEN_ALIVE)
         return M_HANDLED
     if msg == M_ENTER and not dead:
         w.set_global("DEN-JUST-ENTERED", True)
+        if risen:
+            w.rooms["STILL-DEN"].visited = False   # its full description on every entry
     elif msg == M_END and not dead and not w.get_global("GAME-OVER"):
         if w.get_global("DEN-JUST-ENTERED"):
             w.set_global("DEN-JUST-ENTERED", False)
-            print(_RISES)              # no round on the entry turn
+            if not risen:              # no round on the entry turn
+                print(_RISES)
+                w.set_global("WEREWOLF-RISEN", True)
         else:
             _werewolf_round(w)
     return M_NOT_HANDLED

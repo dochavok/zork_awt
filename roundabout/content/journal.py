@@ -65,9 +65,9 @@ def read(w: World) -> None:
     blocks = []
     for q, source in entries:
         lines = [f"{quests.name(q).ljust(width)}[{source}]"]
-        for hq, tier, text in hints:
+        for hq, _tier, text in hints:
             if hq == q or hq == _SHARED_HINT.get(q):
-                lines.append(f"  Tier {tier}: {text}")
+                lines.append(f"  Tip: {text}")        # tiers stay hidden
         blocks.append("\n".join(lines))
     print(_HEADER + "\n\n" + "\n\n".join(blocks))
 

@@ -581,7 +581,7 @@ Purchasable from Shamus (Tale and Ale Kitchen) for 5 Zenni. Available to the pla
 **What it records:**
 - Every discovered quest — does not appear until discovered; undiscovered quests are invisible
 - How the quest was discovered: `[Board]` (Quest Board posting), `[May]` (May's hint), or `[Organic]` (found in world)
-- Each hint tier purchased from May, in order, with the full hint text
+- Each hint purchased from May, in order, with the full hint text, labelled `Tip:` — never its tier number, which stays hidden from the player (decided 2026-10-09)
 
 **What it does not record:**
 - Completed quests — they drop off immediately on completion, keeping the journal a live action list
@@ -592,17 +592,17 @@ Purchasable from Shamus (Tale and Ale Kitchen) for 5 Zenni. Available to the pla
 JOURNAL
 
 The Bone Flute         [Board]
-  Tier 1: Check the dungeon mid-tier — there's a passage off the Inscription Chamber.
-  Tier 2: The cave creature isn't there. It's safe to go in.
+  Tip: Check the dungeon mid-tier — there's a passage off the Inscription Chamber.
+  Tip: The cave creature isn't there. It's safe to go in.
 
 The Whispering Jar     [Organic]
 
 The Ruined Aqueduct    [Board]
-  Tier 1: The aqueduct is southeast of town. The problem is visible from the road.
+  Tip: The aqueduct is southeast of town. The problem is visible from the road.
 ```
 
 - Quest name and discovery source on one line
-- Purchased hint tiers appear indented below, each on its own line, with the full text
+- Purchased hints appear indented below, each on its own line as `Tip:` and the full text
 - No hints purchased: nothing below the quest name — silence is implicit
 - Completed quests: removed from journal immediately on completion
 

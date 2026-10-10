@@ -1231,10 +1231,15 @@ def _make_mid_tier_objects(world) -> None:
     ))
     world.register_object(GameObject(
         name="WEREWOLF", desc="werewolf", synonyms=["werewolf", "creature", "wolf"],
+        examine="A werewolf, long dead and still moving. Old wounds cross its chest — "
+                "blade cuts, arrow holes, burns — and every one of them has closed.",
         adjectives=["undead"], flags={ACTORBIT, NDESCBIT, SACREDBIT},
     ))
     world.register_object(GameObject(
         name="SCHOLAR", desc="scholar", synonyms=["scholar", "body"],
+        examine="Just a man, thin and tired-looking, ink still worked into the creases "
+                "of his fingers. The stake is still in him. Whatever he came down here "
+                "to find, he found it.",
         flags={NDESCBIT, SACREDBIT},
     ))
     world.register_object(GameObject(

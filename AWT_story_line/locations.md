@@ -18,7 +18,8 @@ Each room's XP value is noted in its entry below.
 **Items:** None
 **Quest Hooks:** None (opening sequence only)
 **Connections:** Out → Will's Wizard Tower (Main Room) (one-way portal; never revisited)
-Opening area; homage to Zork. One room only. Any command except `OPEN MAILBOX` (or `QUIT` — mechanics.md, Save and Restore) returns: *"What does this look like? A Great Underground Empire?"* Opening the mailbox triggers Will's appearance in the field. Will delivers opening text and asks "Are you up for an adventure?" No = game over, never leaves field. Yes = teleported to Will's Wizard Tower. Never revisited after opening sequence.
+Opening area; homage to Zork. One room only. Any command except `OPEN MAILBOX` (or `QUIT` — mechanics.md, Save and Restore) returns: *"What does this look like? A Great Underground Empire?"*
+Opening the mailbox triggers Will's appearance in the field. Will delivers opening text and asks "Are you up for an adventure?" No = game over, never leaves field. Yes = teleported to Will's Wizard Tower. Never revisited after opening sequence.
 
 ---
 
@@ -2060,13 +2061,25 @@ Long narrow passage east of The Lower Crossing leading to The Still Den.
 **Connections:** West → The Narrow Pass.
 Undead werewolf — critical path. Cannot be harmed by conventional weapons. Only `DRIVE STAKE INTO WEREWOLF` (stake must be consecrated with holy water first) destroys it. Reverts to scholar appearance on death. Ivory Torch mounted on wall — take before leaving. Werewolf drops **Werewolf's Amulet** (ring ritual artifact, The Veil of the Arcane).
 
-**Room description (werewolf alive):** *A wide cave, low but not cramped. The walls are gouged at every height — long parallel marks, overlapping, years of them. The floor is worn smooth in a rough oval, the path of something that has been pacing this space for longer than it can remember. It is very still right now. That changes the moment you enter.*
+The description has three states (decided 2026-10-09). The werewolf is named in every state where it's up, so the player knows what the stake is for.
 
-**Room description (post-combat):** *A wide cave, low but not cramped. The walls are gouged at every height — long parallel marks, overlapping, years of them. The floor is worn smooth in a rough oval, the path of something that has been pacing this space for longer than it can remember. The scholar lies where the creature fell.*
+**Room description (first visit, before it rises):**
+*A wide cave, low but not cramped. The walls are gouged at every height — long parallel marks, overlapping, years of them. The floor is worn smooth in a rough oval, the path of something that has been pacing this space for longer than it can remember. Something lies curled at the far end of the oval, grey and motionless. That changes the moment you enter.*
+
+**On the first entry only, after the room description (it rises):**
+*The grey shape unfolds from the floor: a werewolf, taller than a man, long in the arm, its fur gone patchy over skin that hasn't been alive in years. It turns its head toward you and starts forward.*
+
+**Room description (werewolf up):** every LOOK after it has risen, and every return visit while it lives — shown in full on entry even in BRIEF mode, and the rising text doesn't play again.
+*A wide cave, low but not cramped, the walls gouged at every height. The werewolf paces the worn oval in the floor, grey fur hanging from skin that hasn't been alive in years. It hasn't taken its eyes off you.*
+
+**Room description (post-combat):**
+*A wide cave, low but not cramped. The walls are gouged at every height — long parallel marks, overlapping, years of them. The floor is worn smooth in a rough oval, the path of something that has been pacing this space for longer than it can remember. Nothing paces it now. The scholar lies where the creature fell, the stake still in him.*
 
 **Death/reversion text:** *The creature drops. Between one moment and the next, it is not the creature anymore. The scholar lies on the floor of the cave he came down here to find.*
 
-**On entry (werewolf alive), after the room description:** *At the far end of the oval, something unfolds from the floor — taller than a man, long in the arm, its fur gone grey and patchy over skin that hasn't been alive in years. It turns its head toward you and starts forward.*
+**`EXAMINE WEREWOLF`:** *A werewolf, long dead and still moving. Old wounds cross its chest — blade cuts, arrow holes, burns — and every one of them has closed.* (A turn like any other: that turn's round still happens.)
+
+**`EXAMINE SCHOLAR`** (after the kill): *Just a man, thin and tired-looking, ink still worked into the creases of his fingers. The stake is still in him. Whatever he came down here to find, he found it.*
 
 **Combat rounds:** no round on the entry turn. Every later turn in the room while the werewolf lives is one round (mechanics.md — Undead Werewolf Chain); a lost round: *The werewolf's claws find you.* (1 heart). The player can leave west; it doesn't follow.
 

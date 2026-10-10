@@ -102,21 +102,22 @@ def test_may_hint_discovers_statue_and_warden():
     statue = lines.index([l for l in lines if l.startswith("The Hollow Statue")][0])
     warden = lines.index([l for l in lines if l.startswith("The Undead Warden")][0])
     assert lines[statue].endswith("[May]") and lines[warden].endswith("[May]")
-    assert lines[statue + 1] == f"  Tier 1: {hint}"
-    assert lines[warden + 1] == f"  Tier 1: {hint}"
+    assert lines[statue + 1] == f"  Tip: {hint}"
+    assert lines[warden + 1] == f"  Tip: {hint}"
 
 
-def test_hints_in_purchase_order_with_their_tiers():
+def test_hints_in_purchase_order_labelled_tip():
     w, g = _world()
     quests.discover(w, "17")
     w.globals["HINT-LOG"] = [("17", 1, "First."), ("22", 1, "Other."),
                              ("17", 2, "Second."), ("17", 1, "Next phase.")]
     assert _lines(_do(g, "read journal"))[2:] == [
         "The Frozen Watch    [Organic]",
-        "  Tier 1: First.",
-        "  Tier 2: Second.",
-        "  Tier 1: Next phase.",
+        "  Tip: First.",
+        "  Tip: Second.",
+        "  Tip: Next phase.",
     ]
+    assert "tier" not in _do(g, "read journal").lower()     # tiers stay hidden
 
 
 def test_late_hint_shows_once_discovered():
@@ -124,7 +125,7 @@ def test_late_hint_shows_once_discovered():
     w.globals["HINT-LOG"] = [("34", 1, "Late.")]
     assert _do(g, "read journal").strip() == EMPTY
     quests.discover(w, "34")
-    assert "  Tier 1: Late." in _do(g, "read journal")
+    assert "  Tip: Late." in _do(g, "read journal")
 
 
 def test_completed_quests_drop_off():
