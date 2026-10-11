@@ -32,15 +32,18 @@ _NO_ROD = "You'd need a fishing rod."
 _NOWHERE = "There's nowhere to fish here."
 
 
-def on_enter(w: World, room: Room) -> None:
-    """Enter hook: silent sighting check on each visit until the bottle is seen."""
+def on_enter(w: World, room: Room) -> bool:
+    """Enter hook (and SEARCH): silent sighting check on each visit until the
+    bottle is seen. True if seen just now."""
     if room.name != "ROUNDABOUT-POND" or w.get_global("POND-BOTTLE-SEEN"):
-        return
+        return False
     from content.player import check_perception
-    if check_perception(w, SIGHT_DIFFICULTY):
-        w.set_global("POND-BOTTLE-SEEN", True)
-        w.objects["SHIP-IN-A-BOTTLE"].clear_flag(INVISIBLE)
-        print(BOTTLE_IN_POND)
+    if not check_perception(w, SIGHT_DIFFICULTY):
+        return False
+    w.set_global("POND-BOTTLE-SEEN", True)
+    w.objects["SHIP-IN-A-BOTTLE"].clear_flag(INVISIBLE)
+    print(BOTTLE_IN_POND)
+    return True
 
 
 def fish(w: World) -> None:

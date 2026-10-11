@@ -13,6 +13,42 @@ INTO_THE_SEA = ("The ocean offers no opinion on that idea, and neither does your
                 "survival instinct.")
 
 
+# ---------------------------------------------------------------------------
+# Perception checks run on entry and by SEARCH (content/search.py). Each
+# returns True if something was found just now.
+# ---------------------------------------------------------------------------
+
+def bedroom_door_check(w) -> bool:
+    """Will's tower: Easy, every visit until the bedroom door is found."""
+    if w.get_global("BEDROOM-DOOR-VISIBLE"):
+        return False
+    from content.perception import EASY
+    from content.player import check_perception
+    if not check_perception(w, EASY):
+        return False
+    from content import quests
+    w.set_global("BEDROOM-DOOR-VISIBLE", True)
+    print("You notice a door to the north you hadn't seen before.")
+    quests.discover(w, "53")
+    return True
+
+
+def volcano_stairs_check(w) -> bool:
+    """The Volcano: Hard, every visit until the staircase is found."""
+    from content.perception import HARD, reveal_exit_if_found
+    return reveal_exit_if_found(w, HARD, "VOLCANO-STAIRS-FOUND")
+
+
+def bog_sw_check(w) -> bool:
+    """Bog SW: the shrine bowl piece (Easy) and the bog thyme (Medium), each
+    every visit until found."""
+    from content.perception import EASY, reveal_if_found
+    from content import bog
+    piece = reveal_if_found(w, "BOWL-PIECE-BOG", EASY)
+    thyme = bog.reveal(w, "BOG-SW")
+    return piece or thyme
+
+
 def make_rooms(world) -> None:
     _make_opening(world)
     _make_tower(world)
@@ -122,14 +158,7 @@ def _make_tower(world) -> None:
             if quests.is_complete(w, "50") and not w.get_global("WILL-SHAKEN-SHOWN"):
                 w.set_global("WILL-SHAKEN-SHOWN", True)
                 print(_WILL_SHAKEN)
-            # Silent Easy perception check fires every visit until bedroom found
-            if not w.get_global("BEDROOM-DOOR-VISIBLE"):
-                from content.player import check_perception
-                if check_perception(w, EASY):
-                    from content import quests
-                    w.set_global("BEDROOM-DOOR-VISIBLE", True)
-                    print("You notice a door to the north you hadn't seen before.")
-                    quests.discover(w, "53")
+            bedroom_door_check(w)   # every visit until found (and SEARCH)
         return M_NOT_HANDLED
 
     main.action = tower_action
@@ -547,8 +576,7 @@ def _make_volcano(world) -> None:
 
     def volcano_action(w, msg=M_NOT_HANDLED):
         if msg == M_ENTER:
-            # Silent check every visit until the staircase is found
-            reveal_exit_if_found(w, HARD, "VOLCANO-STAIRS-FOUND")
+            volcano_stairs_check(w)   # every visit until found (and SEARCH)
             return M_NOT_HANDLED
         if msg == M_LOOK:
             print(_VOLCANO_LDESC)
@@ -732,11 +760,7 @@ def _make_pond_and_bog(world, archery) -> None:
 
     def bog_sw_action(w, msg=M_NOT_HANDLED):
         if msg == M_ENTER:
-            # Shrine bowl piece — Easy perception, every visit until found
-            from content.perception import EASY, reveal_if_found
-            reveal_if_found(w, "BOWL-PIECE-BOG", EASY)
-            from content import bog
-            bog.reveal(w, "BOG-SW")       # bog thyme
+            bog_sw_check(w)           # every visit until found (and SEARCH)
         return M_NOT_HANDLED
 
     def bog_find_action(room_name):

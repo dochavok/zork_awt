@@ -32,6 +32,8 @@ def initialize_world(world, game, seed=None) -> None:
     from content import zenni_rooms
     zenni_rooms.assign(world, random.Random(seed))
     game.register_enter_hook(zenni_rooms.on_enter)
+    from content import search
+    game.register_enter_hook(search.on_enter)      # SEARCH: once per visit
 
     # Lighting: dark rooms block entry without a light; torch timer
     from content import light

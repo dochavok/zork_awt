@@ -106,14 +106,24 @@ _WRONG_KEY = "That key doesn't fit."
 # Prayer Alcove
 # ---------------------------------------------------------------------------
 
+def niche_check(w: World) -> bool:
+    """Prayer Alcove: Easy, once per visit until the niche is found. Shown with
+    the room description."""
+    if w.get_global("NICHE-FOUND"):
+        return False
+    from content.player import check_perception
+    from content.perception import EASY
+    if not check_perception(w, EASY):
+        return False
+    w.set_global("NICHE-FOUND", "pending")
+    for name in ("CROWBAR", "GLACIER-MELT"):
+        w.objects[name].clear_flag("INVISIBLE")
+    return True
+
+
 def alcove_action(w: World, msg: int = M_NOT_HANDLED) -> int:
-    if msg == M_ENTER and not w.get_global("NICHE-FOUND"):
-        from content.player import check_perception
-        from content.perception import EASY
-        if check_perception(w, EASY):   # once per visit
-            w.set_global("NICHE-FOUND", "pending")
-            for name in ("CROWBAR", "GLACIER-MELT"):
-                w.objects[name].clear_flag("INVISIBLE")
+    if msg == M_ENTER:
+        niche_check(w)                  # once per visit (SEARCH: one more)
     elif msg == M_LOOK:
         print(_ALCOVE)
         if w.get_global("NICHE-FOUND") == "pending":
@@ -223,10 +233,15 @@ class _PortcullisExit(Exit):
 # Shrine Room, Rickety Bridge, Mid-Tier Key Door
 # ---------------------------------------------------------------------------
 
+def shrine_piece_check(w: World) -> bool:
+    """Shrine Room: the shrine bowl piece, Easy, every visit (and SEARCH)."""
+    from content.perception import EASY, reveal_if_found
+    return reveal_if_found(w, "BOWL-PIECE-SHRINE", EASY)
+
+
 def shrine_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_ENTER:
-        from content.perception import EASY, reveal_if_found
-        reveal_if_found(w, "BOWL-PIECE-SHRINE", EASY)
+        shrine_piece_check(w)
     return M_NOT_HANDLED
 
 

@@ -52,16 +52,25 @@ _PULLBACK = (
 )
 
 
+def alcove_check(w: World) -> bool:
+    """Tool Alcove: Medium, once per visit until found. Shown with the room
+    description."""
+    if w.get_global("ALCOVE-FOUND"):
+        return False
+    from content.perception import MEDIUM
+    from content.player import check_perception
+    if not check_perception(w, MEDIUM):
+        return False
+    from content import quests
+    quests.discover(w, "34")   # organic — the speaking door found
+    w.set_global("ALCOVE-FOUND", True)
+    w.set_global("ALCOVE-JUST-FOUND", True)
+    return True
+
+
 def alcove_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_ENTER:
-        if not w.get_global("ALCOVE-FOUND"):
-            from content.perception import MEDIUM
-            from content.player import check_perception
-            if check_perception(w, MEDIUM):
-                from content import quests
-                quests.discover(w, "34")   # organic — the speaking door found
-                w.set_global("ALCOVE-FOUND", True)
-                w.set_global("ALCOVE-JUST-FOUND", True)
+        alcove_check(w)                 # once per visit (SEARCH: one more)
         return M_NOT_HANDLED
     if msg == M_LOOK:
         if w.get_global("ALCOVE-OPEN"):

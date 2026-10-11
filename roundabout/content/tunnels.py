@@ -98,6 +98,19 @@ def crypt_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     return M_NOT_HANDLED
 
 
+def seal_check(w: World) -> bool:
+    """Toll Bridge: Medium, every visit (and SEARCH) until the seal is found.
+    Announced at the end of the turn."""
+    if w.get_global("SEAL-FOUND"):
+        return False
+    from content.player import check_perception
+    from content.perception import MEDIUM
+    if not check_perception(w, MEDIUM):
+        return False
+    w.set_global("SEAL-FOUND", "pending")
+    return True
+
+
 def bridge_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
         if not w.get_global("BOGGART-GONE"):
@@ -107,11 +120,8 @@ def bridge_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         else:
             print(_BRIDGE_STRONGBOX)
         return M_HANDLED
-    if msg == M_ENTER and not w.get_global("SEAL-FOUND"):
-        from content.player import check_perception
-        from content.perception import MEDIUM
-        if check_perception(w, MEDIUM):
-            w.set_global("SEAL-FOUND", "pending")
+    if msg == M_ENTER:
+        seal_check(w)
     elif msg == M_END and w.get_global("SEAL-FOUND") == "pending":
         from content import quests
         w.set_global("SEAL-FOUND", True)

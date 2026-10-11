@@ -56,15 +56,18 @@ def hidden_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     return M_NOT_HANDLED
 
 
-def on_enter(w: World, room) -> None:
-    """Enter hook: the Assay Room's perception check, every visit until found."""
+def on_enter(w: World, room) -> bool:
+    """Enter hook (and SEARCH): the Assay Room's perception check, every visit
+    until found. True if found just now."""
     if room.name != "ASSAY-ROOM" or w.get_global("ASSAY-GAP-FOUND"):
-        return
+        return False
     from content.perception import MEDIUM
     from content.player import check_perception
-    if check_perception(w, MEDIUM):
-        w.set_global("ASSAY-GAP-FOUND", True)
-        print(_GAP_FOUND)
+    if not check_perception(w, MEDIUM):
+        return False
+    w.set_global("ASSAY-GAP-FOUND", True)
+    print(_GAP_FOUND)
+    return True
 
 
 def make_rooms(world) -> None:

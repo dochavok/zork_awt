@@ -177,12 +177,21 @@ _PRIED = (
 _PRY_FAILED = "The crowbar bites, the slab shifts a fraction, and settles back. Not this time."
 
 
+def idol_plate_check(w: World) -> bool:
+    """Idol Room: Medium, every visit (and SEARCH) until the plate is spotted."""
+    if w.get_global("IDOL-PLATE-SPOTTED"):
+        return False
+    from content.player import check_perception
+    from content.perception import MEDIUM
+    if not check_perception(w, MEDIUM):
+        return False
+    w.set_global("IDOL-PLATE-SPOTTED", True)
+    return True
+
+
 def idol_action(w: World, msg: int = M_NOT_HANDLED) -> int:
-    if msg == M_ENTER and not w.get_global("IDOL-PLATE-SPOTTED"):
-        from content.player import check_perception
-        from content.perception import MEDIUM
-        if check_perception(w, MEDIUM):
-            w.set_global("IDOL-PLATE-SPOTTED", True)
+    if msg == M_ENTER:
+        idol_plate_check(w)
     if msg == M_LOOK:
         centre = _CENTRE_IDOL if _idol_on_pedestal(w) else _CENTRE_EMPTY
         print(_IDOL_BASE.format(centre=centre))

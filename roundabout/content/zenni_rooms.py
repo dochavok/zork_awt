@@ -73,15 +73,17 @@ def assign(world: World, rng: random.Random) -> None:
     world.set_global("ZENNI-ROOMS", rooms)
 
 
-def on_enter(world: World, room) -> None:
-    """Silent perception check on every visit until the room's Zenni is found."""
+def on_enter(world: World, room) -> bool:
+    """Silent perception check on every visit (and SEARCH) until the room's
+    Zenni is found. True if found just now."""
     entry = (world.get_global("ZENNI-ROOMS") or {}).get(room.name)
     if entry is None or entry["found"]:
-        return
+        return False
     from content.player import check_perception
     if not check_perception(world, entry["difficulty"]):
-        return
+        return False
     entry["found"] = True
     n = entry["zenni"]
     world.globals["zenni"] = world.globals.get("zenni", 0) + n
     print(_FOUND.format(n=n, it="it" if n == 1 else "them"))
+    return True

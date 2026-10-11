@@ -200,6 +200,12 @@ def swarm_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 # Roundabout Forest — Verdant Circle shrine, bowl piece (Easy perception)
 # ---------------------------------------------------------------------------
 
+def bowl_piece_check(w: World) -> bool:
+    """Roundabout Forest: the shrine bowl piece, Easy, every visit (and SEARCH)."""
+    from content.perception import EASY, reveal_if_found
+    return reveal_if_found(w, "BOWL-PIECE-FOREST", EASY)
+
+
 def forest_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     from content import shrine_bowl
     if msg == M_LOOK:
@@ -209,8 +215,7 @@ def forest_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         return shrine_bowl.forest_beg(w)
     if msg == M_ENTER:
         from content import quests
-        from content.perception import EASY, reveal_if_found
         quests.discover(w, "49")   # shrine is visible on entry
         # before the description, so a found piece is listed with the room
-        reveal_if_found(w, "BOWL-PIECE-FOREST", EASY)
+        bowl_piece_check(w)
     return M_NOT_HANDLED

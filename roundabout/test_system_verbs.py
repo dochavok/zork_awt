@@ -166,7 +166,7 @@ def test_restart_with_input_closed_plays_on():
 # A command the parser accepts but nothing handles used to print nothing at all
 # (VERBOSE, WAIT...). Each one left here still does — remove it once it's built.
 
-NOT_YET_BUILT = {"search"}
+NOT_YET_BUILT = set()
 
 
 def _bare_commands():

@@ -50,24 +50,26 @@ def _in_bedroom(w: World) -> bool:
     return w.here is not None and w.here.name == BEDROOM
 
 
-def check_sprig(w: World) -> None:
-    """Silent Very Hard check while the sprig is still hidden under the nightstand."""
+def check_sprig(w: World) -> bool:
+    """Silent Very Hard check while the sprig is still hidden under the
+    nightstand. True if found just now."""
     from content.perception import VERY_HARD
     from content.player import check_perception
     sprig = w.objects["DRAGON-NIP"]
     if INVISIBLE not in sprig.flags or sprig.location is not w.rooms[BEDROOM]:
-        return
-    if check_perception(w, VERY_HARD):
-        from content import quests
-        sprig.clear_flag(INVISIBLE)
-        print(SPRIG_FOUND)
-        quests.discover(w, "58")
+        return False
+    if not check_perception(w, VERY_HARD):
+        return False
+    from content import quests
+    sprig.clear_flag(INVISIBLE)
+    print(SPRIG_FOUND)
+    quests.discover(w, "58")
+    return True
 
 
-def on_enter(w: World, room: Room) -> None:
-    """Enter hook: the sprig check, after the room description."""
-    if room.name == BEDROOM:
-        check_sprig(w)
+def on_enter(w: World, room: Room) -> bool:
+    """Enter hook (and SEARCH): the sprig check, after the room description."""
+    return room.name == BEDROOM and check_sprig(w)
 
 
 def on_wear_glasses(w: World) -> None:

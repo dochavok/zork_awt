@@ -110,13 +110,16 @@ def cart_loaded(w: World) -> bool:
 # Bog-SE perception (called from dankhaus.bog_se_action)
 # ---------------------------------------------------------------------------
 
-def bog_se_enter(w: World) -> None:
+def bog_se_enter(w: World) -> bool:
+    """Easy, every visit (and SEARCH) until found; announced at end of turn."""
     if w.get_global("GRAVESTONE-FOUND") or _stone(w).location is not w.rooms["BOG-SE"]:
-        return
+        return False
     from content.player import check_perception
     from content.perception import EASY
-    if check_perception(w, EASY):
-        w.set_global("GRAVESTONE-FOUND", "pending")
+    if not check_perception(w, EASY):
+        return False
+    w.set_global("GRAVESTONE-FOUND", "pending")
+    return True
 
 
 def bog_se_end(w: World) -> None:

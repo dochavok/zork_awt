@@ -67,19 +67,29 @@ class _WardedExit(Exit):
         return super().resolve(world)
 
 
+def path_check(w: World) -> bool:
+    """Bog SE: Medium, every visit (and SEARCH) until the path to the Dankhaus
+    is found. Announced at the end of the turn."""
+    if w.get_global("DANKHAUS-PATH-FOUND"):
+        return False
+    from content.player import check_perception
+    from content.perception import MEDIUM
+    if not check_perception(w, MEDIUM):
+        return False
+    w.set_global("DANKHAUS-PATH-FOUND", True)
+    w.set_global("DANKHAUS-PATH-JUST-FOUND", True)
+    w.objects["DANKHAUS"].clear_flag("INVISIBLE")
+    return True
+
+
 def bog_se_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     from content import gravestone   # Quest 32 — the stone is here too
     if msg == M_ENTER:
         gravestone.bog_se_enter(w)
     elif msg == M_END:
         gravestone.bog_se_end(w)
-    if msg == M_ENTER and not w.get_global("DANKHAUS-PATH-FOUND"):
-        from content.player import check_perception
-        from content.perception import MEDIUM
-        if check_perception(w, MEDIUM):
-            w.set_global("DANKHAUS-PATH-FOUND", True)
-            w.set_global("DANKHAUS-PATH-JUST-FOUND", True)
-            w.objects["DANKHAUS"].clear_flag("INVISIBLE")
+    if msg == M_ENTER:
+        path_check(w)
         return M_NOT_HANDLED
     if msg == M_LOOK:
         print(BOG_SE_LDESC)

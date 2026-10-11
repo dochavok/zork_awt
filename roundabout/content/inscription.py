@@ -152,11 +152,17 @@ def _carried(w: World, name: str) -> bool:
 # Inscription Chamber — Trap 8 and the rubbing
 # ---------------------------------------------------------------------------
 
+def rune_stone_check(w: World) -> bool:
+    """Inscription Chamber: Medium, every visit (and SEARCH) until found."""
+    from content.perception import MEDIUM, reveal_if_found
+    return reveal_if_found(w, "DUNGEON-RUNE-STONE", MEDIUM)
+
+
 def chamber_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_ENTER:
-        from content.perception import MEDIUM, reveal_if_found
+        from content.perception import MEDIUM
         from content.player import check_perception
-        reveal_if_found(w, "DUNGEON-RUNE-STONE", MEDIUM)
+        rune_stone_check(w)
         if not w.get_global("CRAWLSPACE-FOUND"):
             if check_perception(w, MEDIUM):
                 w.set_global("INSCRIPTION-SNARE-SPOTTED", True)
@@ -248,13 +254,21 @@ class _CrawlspaceExit(Exit):
 # Magnetic Vault — Trap 15
 # ---------------------------------------------------------------------------
 
+def vault_check(w: World) -> bool:
+    """Magnetic Vault: Medium, every visit (and SEARCH) until the trap is seen."""
+    if w.get_global("VAULT-SPOTTED") or w.get_global("LODESTONE-STATE") is not None:
+        return False
+    from content.perception import MEDIUM
+    from content.player import check_perception
+    if not check_perception(w, MEDIUM):
+        return False
+    w.set_global("VAULT-SPOTTED", True)
+    return True
+
+
 def vault_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_ENTER:
-        if not w.get_global("VAULT-SPOTTED") and w.get_global("LODESTONE-STATE") is None:
-            from content.perception import MEDIUM
-            from content.player import check_perception
-            if check_perception(w, MEDIUM):
-                w.set_global("VAULT-SPOTTED", True)
+        vault_check(w)
         return M_NOT_HANDLED
     if msg == M_LOOK:
         if w.get_global("LODESTONE-STATE") is not None:

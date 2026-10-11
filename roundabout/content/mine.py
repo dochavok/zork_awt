@@ -54,15 +54,18 @@ _ENTRANCE_COLLAPSED = (
 # Weak point — enter hook, after the room description
 # ---------------------------------------------------------------------------
 
-def on_enter(w: World, room: Room) -> None:
+def on_enter(w: World, room: Room) -> bool:
+    """Easy, every visit (and SEARCH) until found. True if found just now."""
     if room.name != "MINE-TUNNELS" or w.get_global("WEAK-POINT-FOUND"):
-        return
+        return False
     from content.player import check_perception
     from content.perception import EASY
-    if check_perception(w, EASY):
-        w.set_global("WEAK-POINT-FOUND", True)
-        w.objects["WEAK-POINT"].clear_flag("INVISIBLE")
-        print(_WEAK_POINT_FOUND)
+    if not check_perception(w, EASY):
+        return False
+    w.set_global("WEAK-POINT-FOUND", True)
+    w.objects["WEAK-POINT"].clear_flag("INVISIBLE")
+    print(_WEAK_POINT_FOUND)
+    return True
 
 
 # ---------------------------------------------------------------------------

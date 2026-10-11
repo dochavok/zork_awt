@@ -23,13 +23,16 @@ _FINDS = {
 }
 
 
-def reveal(w: World, room_name: str) -> None:
-    """M_ENTER: silent Medium check until found (before the room description)."""
+def reveal(w: World, room_name: str) -> bool:
+    """M_ENTER (and SEARCH): silent Medium check until found (before the room
+    description). True if found just now."""
     from content.perception import MEDIUM, reveal_if_found
     names = _FINDS.get(room_name, ())
     if names and reveal_if_found(w, names[0], MEDIUM):
         for other in names[1:]:          # the key is found with its log
             w.objects[other].clear_flag("INVISIBLE")
+        return True
+    return False
 
 
 def key_taken(w: World) -> None:

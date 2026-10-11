@@ -127,10 +127,15 @@ def open_chest(w: World) -> None:
         w.globals["zenni"] = w.globals.get("zenni", 0) + CHEST_ZENNI
 
 
+def silver_dust_check(w: World) -> bool:
+    """Mine Passage: Medium, every visit (and SEARCH) until found."""
+    from content.perception import MEDIUM, reveal_if_found
+    return reveal_if_found(w, "SILVER-DUST", MEDIUM)
+
+
 def mine_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_ENTER:
-        from content.perception import MEDIUM, reveal_if_found
-        reveal_if_found(w, "SILVER-DUST", MEDIUM)
+        silver_dust_check(w)
     elif msg == M_LOOK:
         print(_MINE + " " + (_CHEST_OPEN if w.get_global("MINE-CHEST-OPEN") else _CHEST_SHUT))
         return M_HANDLED

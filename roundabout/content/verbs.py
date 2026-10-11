@@ -377,6 +377,12 @@ def v_diagnose(world: World) -> int:
     return M_HANDLED
 
 
+def v_search(world: World) -> int:
+    from content import search
+    search.search(world)
+    return M_HANDLED
+
+
 def v_version(world: World) -> int:
     from content import version
     print(version.line())
@@ -1938,6 +1944,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-DIAGNOSE",   v_diagnose)
     game.register_verb("V-BUY-WHAT",   v_buy_what)
     game.register_verb("V-VERSION",    v_version)
+    game.register_verb("V-SEARCH",     v_search)
     game.register_verb("V-FIND",       v_find)
     game.register_verb("V-SMELL",      v_smell)
     game.register_verb("V-WAVE",       v_wave)

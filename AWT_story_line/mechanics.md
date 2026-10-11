@@ -107,6 +107,12 @@ All perception checks are fully invisible to the player. The roll fires silently
 - **Second Glance (Level 5 ability):** On any failed perception check, the roll automatically fires a second time. Invisible — the player never knows it happened. They simply find things more reliably after Level 5.
 - **Enchanted Glasses:** Small bonus to all perception rolls. **Actually Enchanted Glasses:** Pass all perception checks automatically — no roll required.
 - **Class bonuses:** Mages and Rogues receive an inherent bonus to perception rolls. Applied silently to every check.
+- **`SEARCH` (decided 2026-10-11):** one deliberate extra look per visit, for a turn. It re-runs the room's checks that haven't succeeded yet — hidden items, hidden exits, hidden Zenni, the Idol Room plate, the Magnetic Vault trap — with the same difficulty, bonuses, Second Glance and glasses as on arrival.
+  - Includes the one-time-check rooms: SEARCH is their second roll that visit.
+  - Found: the check's own line. A find that only shows in the room description gets *Searching carefully, you notice something you missed.*, then the full description.
+  - Nothing found, nothing left to find, or already searched this visit: *You search carefully but find nothing unusual.* — the same line every time, so it never gives away whether something is there.
+  - Leaving and coming back makes SEARCH available again. In the dark: *It's too dark to see!* (no roll). `SEARCH <thing>` searches the room.
+  - Not re-run: the arrival traps (Traps 8, 16, 17, 19, 45, the Combat Room and Flooding Room plates, the mugger) — already resolved on the way in — and the ship's treasure map, which rolls every turn aboard anyway.
 
 **Difficulty tiers:**
 
@@ -1261,6 +1267,7 @@ Decided 2026-10-05.
 | `WAIT` / `Z` | *Time passes...* — one turn |
 | `PRAY` | *If you pray enough, your prayers may be answered.* In the Church of All: *You bow your head. The church receives it the way it receives everything — without asking which god it was meant for.* Flavor only — one turn |
 | `CURSE` / `DAMN` / `SHIT` / `FUCK` | Cursing and Notorious — Will fines it in his tower |
+| `SEARCH` / `SEARCH <thing>` | Re-runs the room's unfound perception checks, once per visit; one turn (Perception — SEARCH) |
 | `VERSION` | *Roundabout: The God-Forsaken Ring — [git tag]* — the tag the .exe was built from (operations.md). Works at West of House. No turn |
 | `DIAGNOSE` | Full hearts: *You are in perfect health — 5 of 5 hearts.* Otherwise: *You have 3 of 5 hearts.* The only place hearts are shown after character creation. No turn |
 | `DISEMBARK` | Same as `DOCK` / `LAND` |
@@ -1275,7 +1282,7 @@ Decided 2026-10-05.
 
 **Removed from the parser (decided 2026-10-11):** `ANSWER` / `REPLY`, `HELLO` / `HI`, `SAY`, `SCRIPT`, `UNSCRIPT`, `WAKE` / `AWAKE` / `SURPRISE` / `STARTLE` — the parser's *I don't know the word "…".*
 Haalvar's riddle still takes `ANSWER` / `SAY` / `REPLY <answer>` (read from the typed line, not the parser).
-Every other command the parser knows answers with something (test_system_verbs guard); `SEARCH` is still to be built.
+Every other command the parser knows answers with something (test_system_verbs guard).
 | `OPEN CASE` / `CLOSE CASE` | Trophy Case in The Tower — case must be open to place items |
 | `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` | Trophy Case — places treasure permanently; case must be open |
 | `LOOK IN CASE` / `EXAMINE CASE` | Trophy Case — lists contents and count; visible through glass whether open or closed |
