@@ -368,6 +368,13 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj2=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
+        # DRAG — Aylora only (locations.md — Fire Pit)                        #
+        # ------------------------------------------------------------------ #
+        SyntaxRule(verb="drag", action="V-DRAG",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="drag", action="V-DRAG"),
+
+        # ------------------------------------------------------------------ #
         # FIND                                                                #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="find", action="V-FIND",

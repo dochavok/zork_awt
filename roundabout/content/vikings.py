@@ -79,6 +79,10 @@ _IVANAAR_STATES = {
     ),
     1: '"Haalvar speaks well of you. That\'s not nothing. The circle is south."',
     2: '"Two down. The fire pit is west. Don\'t embarrass yourself."',
+    3: (
+        '"You\'re standing. That\'s something. But Aylora\'s not here to tell me '
+        'how it went — and I\'ll believe it when I see it."'
+    ),
 }
 
 _HANDOFF = (
@@ -144,7 +148,10 @@ def _ivanaar_state(w: World) -> int:
     0: nothing done, or only the circle ("Talk to Haalvar — north").
     1: riddle done, circle not ("The circle is south").
     2: both done ("The fire pit is west").
+    3: Aylora beaten but not brought back ("I'll believe it when I see it").
     """
+    if w.get_global("AYLORA-OUT"):
+        return 3
     if _first_two_done(w):
         return 2
     return 1 if w.get_global("RIDDLE-DONE") else 0
@@ -288,6 +295,10 @@ _CONTEST_WON = (
     "off the bench. Aylora passes out."
 )
 _AYLORA_SNORING = "Aylora is slumped on the bench, snoring."
+_CONTEST_WON_VIKING = (
+    'A nearby Viking stares at her, then at you. "Ivanaar won\'t believe that '
+    'unless he sees it."'
+)
 _CONTEST_LOST_VIKING = (
     'A nearby Viking: "Ha! Aylora strikes again. Don\'t feel bad — she\'s been '
     'doing this since she could reach the cup."'
@@ -336,6 +347,7 @@ def drink_contest(w: World) -> bool:
 
     if mine == 3:
         print(_CONTEST_WON)
+        print(_CONTEST_WON_VIKING)
         from content.combat import award_combat_xp
         award_combat_xp(w, "aylora", kill=False)   # 2 XP; she passes out — not a kill
         w.set_global("AYLORA-OUT", True)
@@ -357,6 +369,14 @@ def take_aylora(w: World) -> None:
         return
     print(_DRAG)
     w.set_global("AYLORA-DRAGGED", True)
+
+
+def drag(w: World, obj) -> None:
+    """DRAG — only Aylora can be dragged; it's TAKE AYLORA."""
+    if obj.name == "AYLORA":
+        take_aylora(w)
+    else:
+        print("You can't drag that.")
 
 
 # ---------------------------------------------------------------------------

@@ -23,6 +23,13 @@ SPELL_SCROLLS = {
     "FIREBALL-SCROLL": "spell_fireball",
 }
 
+# Spell flag -> name in the "[X spell learned.]" confirmation (mechanics.md)
+SPELL_NAMES = {
+    "spell_unbind_undead": "Unbind Undead",
+    "spell_light": "Light",
+    "spell_fireball": "Fireball",
+}
+
 _RESISTANCE = (
     "The words are legible. The meaning is not. Whatever is written here was "
     "meant for someone with a different kind of mind — or a different kind of "
@@ -90,8 +97,10 @@ def teach(w: World, scroll) -> None:
 
 
 def _learn(w: World, scroll) -> None:
-    w.globals[SPELL_SCROLLS[scroll.name]] = True
+    flag = SPELL_SCROLLS[scroll.name]
+    w.globals[flag] = True
     w.move_object(scroll, None)   # consumed
+    print(f"[{SPELL_NAMES[flag]} spell learned.]")
 
 
 def glasses_seen(w: World) -> bool:

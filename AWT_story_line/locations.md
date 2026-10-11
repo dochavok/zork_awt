@@ -722,6 +722,7 @@ Central hub. Fire pit, longhouses, Vikings going about their business.
 - 0 trials: *"You want something from us. They always want something. Prove yourself. Talk to Haalvar — north. If you can satisfy him, come back."*
 - 1 trial: *"Haalvar speaks well of you. That's not nothing. The circle is south."* (Riddle done, circle not. If only the circle is done, Ivanaar still gives the 0-trial line pointing to Haalvar.)
 - 2 trials: *"Two down. The fire pit is west. Don't embarrass yourself."*
+- Aylora beaten but not brought back: *"You're standing. That's something. But Aylora's not here to tell me how it went — and I'll believe it when I see it."*
 - 3 trials (runed metal handoff): See below.
 
 **Runed metal handoff (after all three trials):** Triggered when player drags Aylora back after Trial 3.
@@ -818,8 +819,8 @@ West of The Encampment. **Aylora** is the Viking champion. Best of five rounds; 
 - **`TALK TO AYLORA`:** *Aylora sets two cups on the bench and fills them from the barrel. "Thornbrew," she says. "Five cups. Last one standing." She pushes one toward you.*
 - **Round won:** *You drain the cup. Aylora matches you, but slower.*
 - **Round lost:** *Aylora drains hers without blinking. Yours fights back.*
-- **Contest won:** *Aylora sets down her cup with great care, looks at it, and slides gently off the bench. Aylora passes out.*
-- **`TAKE AYLORA` (drag):** *You get her under the arms and start to drag.* Aylora then follows the player.
+- **Contest won:** *Aylora sets down her cup with great care, looks at it, and slides gently off the bench. Aylora passes out.* Then the nudge to bring her back: *A nearby Viking stares at her, then at you. "Ivanaar won't believe that unless he sees it."*
+- **`TAKE AYLORA` / `DRAG AYLORA` (drag):** *You get her under the arms and start to drag.* Aylora then follows the player. DRAG works on Aylora only — anything else: *You can't drag that.* Bare `DRAG`: *Drag what?*
 
 - **Player wins:** Aylora passes out. Player drags her back to the encampment → triggers Ivanaar's runed metal handoff.
 - **Player loses:** Player passes out. Wakes up in the encampment two turns later. A nearby Viking: *"Ha! Aylora strikes again. Don't feel bad — she's been doing this since she could reach the cup."* Retryable.

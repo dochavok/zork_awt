@@ -357,6 +357,8 @@ Scroll is not consumed. Player retains it. Bringing the scroll to Will Passion i
 
 **Mage reads a spell scroll:** *You read the scroll through once, and the words settle into you as if they had always meant to. The scroll crumbles to dust in your hands.* Spell learned, scroll consumed.
 
+**Spell learned confirmation:** every way of learning a spell from a scroll (Mage reading it, Will teaching it) ends with a line naming the spell: *[Light spell learned.]*, *[Unbind Undead spell learned.]*, *[Fireball spell learned.]*
+
 | Spell | Effect | Duration | Reuse Timer | Source |
 |-------|--------|----------|-------------|--------|
 | Light | Creates light in darkness — see Lighting System | Continuous while in dark | None | Quest 12 — music box key in Bog-NW |
@@ -1215,6 +1217,7 @@ Decided 2026-10-05.
 | `LIGHT GUNPOWDER` | Pie Rat heist — requires flint and steel in inventory |
 | `CAST LIGHT` | Light spell — runs continuously while in darkness, no reuse timer |
 | `FISH` | Roundabout Pond; requires fishing rod |
+| `DRAG AYLORA` | Fire Pit — same as `TAKE AYLORA` after she passes out. Aylora only: anything else *You can't drag that.*; alone *Drag what?* |
 | `TURN DIAL LEFT` / `TURN DIAL RIGHT` | Church of All altar — cycles through 7 religions |
 | `BOARD SHIP` / `GET ON SHIP` / `CLIMB ABOARD` / `ENTER SHIP` | Boarding Pie Rat Ship (all synonyms) |
 | `SET SAIL` / `SAIL` | Begin sailing from Docks; directional movement (`GO EAST`, `SAIL EAST`) once underway |
@@ -1346,6 +1349,7 @@ All Roundabout commands mapped to their canonical verb. Use this as the spec for
 | `BUY DRINK` / `ORDER DRINK` / `ORDER FOOD` / `BUY STEW` / `RENT ROOM` / `BUY ROOM` | `buy` | `order`, `purchase`, `rent` | `V-BUY` (handler routes on object) |
 | `TIP MAY [#]` / `TIP MAY [#] ZENNI` | `tip` | — | `V-TIP` (handler reads numeric from raw input) |
 | `FISH` | `fish` | `angle` | `V-FISH` |
+| `DRAG AYLORA` | `drag` | — | `V-DRAG` (Aylora only) |
 | `DRIVE STAKE INTO WEREWOLF` | `drive` | — | `V-DRIVE-STAKE` |
 | `SWAP IDOL WITH SALT` | `swap` | `trade`, `exchange` | `V-SWAP` |
 | `CLEAR BONES` / `CLEAR DRAIN` | `clear` | — | `V-CLEAR` |

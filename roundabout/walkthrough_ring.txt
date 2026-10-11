@@ -427,7 +427,7 @@ scroll in Will's presence has him teach it (the glasses came off
 before the mailbox — wearing them in front of Will is an instant fail). The scroll
 is consumed; the spell is ours for the Chuckle House ghost later.
 
-> READ SCROLL                 [The knowing, I mean]
+> READ SCROLL                 [The knowing, I mean|Unbind Undead spell learned]
 
 =============================================================================
 E) Pale Blade — Viking Trust Trials (Quest 57)
@@ -495,7 +495,7 @@ Always-max random rolls means the player wins three straight rounds.
 
 > WEST                        [Fire Pit]
 > TALK TO AYLORA              [Thornbrew]
-> DRINK                       [Aylora passes out]
+> DRINK                       [Aylora passes out|unless he sees it]
 > TAKE AYLORA                 [drag]
 > EAST                        [Runed Metal added to inventory]
 

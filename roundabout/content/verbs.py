@@ -394,6 +394,15 @@ def v_buy_what(world: World) -> int:
     return M_HANDLED
 
 
+def v_drag(world: World) -> int:
+    if world.prso is None:
+        print("Drag what?")
+    else:
+        from content import vikings
+        vikings.drag(world, world.prso)
+    return M_HANDLED
+
+
 def v_find(world: World) -> int:
     print("Find what?" if world.prso is None else "You'll have to look for it yourself.")
     return M_HANDLED
@@ -1945,6 +1954,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-BUY-WHAT",   v_buy_what)
     game.register_verb("V-VERSION",    v_version)
     game.register_verb("V-SEARCH",     v_search)
+    game.register_verb("V-DRAG",       v_drag)
     game.register_verb("V-FIND",       v_find)
     game.register_verb("V-SMELL",      v_smell)
     game.register_verb("V-WAVE",       v_wave)

@@ -659,7 +659,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 2. **Trial 1 — The Riddle Stone** (Haalvar's Hut, north): Answer Haalvar's riddle. *"I have no legs but travel far. I have no mouth but swallow ships. I have no hands but I will take everything you own if you let me. What am I?"* Correct answer: `SEA`. Retryable on wrong answer.
 3. **Trial 2 — The Ritual Circle** (south of Encampment): Activate five elemental stones in correct order — Earth → Air → Fire → Water → Heart. Clue: `LOOK AT BANNER` in the Encampment reveals the first four. Heart stone is always last. Resets on wrong order.
    Trials 1 and 2 may be done in either order.
-4. **Trial 3 — The Drinking Challenge** (The Fire Pit, west): Must be last — Aylora won't start until Trials 1 and 2 are done. Best of five rounds of Thornbrew drinking against Aylora — strength-based challenge rolls. Warriors get a class bonus. Player wins when Aylora passes out; drag her back to the Encampment to trigger Ivanaar's reaction.
+4. **Trial 3 — The Drinking Challenge** (The Fire Pit, west): Must be last — Aylora won't start until Trials 1 and 2 are done. Best of five rounds of Thornbrew drinking against Aylora — strength-based challenge rolls. Warriors get a class bonus. Player wins when Aylora passes out; a nearby Viking says Ivanaar won't believe it unless he sees it. `TAKE AYLORA` or `DRAG AYLORA`, then drag her back to the Encampment to trigger Ivanaar's reaction. Returning without her, Ivanaar says he'll believe it when he sees it (locations.md — Ivanaar states).
    - **Player loses:** Wakes in the Encampment two turns later. Retryable.
 5. Ivanaar awards the runed metal after witnessing Aylora returned.
 

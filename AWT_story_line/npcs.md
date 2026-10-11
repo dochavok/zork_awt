@@ -75,6 +75,7 @@ Will teaches for free (decided 2026-10-05).
 
 **Teaching dialogue:**
 *Will glances at the scroll, then at you. He takes it without ceremony and unrolls it, reading silently for a moment. Then he reads it aloud — not to you, exactly, more as if the words need to be heard in the right kind of room. When he finishes, you understand it. You're not sure how. "Keep that," he says, nodding at the space where the scroll was. It's gone. "The knowing, I mean."*
+Followed by the spell confirmation, e.g. *[Light spell learned.]* (mechanics.md — Spell learned confirmation).
 
 **Inked player:** Will still engages but is disdainful.
 The first thing the player does with him while inked (teaching, the ring, the dragon-nip) gets this line, then goes ahead; after that he's normal until the player is inked again. `TALK TO WILL` gets it every time while inked.
