@@ -29,10 +29,14 @@ MUGGER_DICE = (1, 6)
 
 MUGGER_PRESENCE = (
     "A figure waits in the shadow of the crates, very still, weight on the "
-    "balls of their feet. They've seen you see them."
+    "balls of their feet. They've seen you see them. There's a cudgel in one "
+    "hand — this is the alley's mugger, and they mean business."
 )
 _MUGGED = "Something hits you from behind. The alley tilts, then goes away."
-_MUGGED_WAKE = "You come to in the Back Alley, lighter in the pocket and sore in the head."
+_MUGGED_WAKE = (
+    "You come to in the Back Alley, lighter in the pocket and sore in the head. "
+    "Mugged — and whoever did it is still out there."
+)
 _ROUND_WON = "You land a solid blow. The mugger staggers."
 _ROUND_LOST = "The mugger gets through your guard. You take a hit."
 _ROUND_TIE = "You trade blows. Both of you feel it."

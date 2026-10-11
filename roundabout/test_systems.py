@@ -31,7 +31,8 @@ SWAP = {
 OVERWEIGHT = ("The bridge groans under your load — a deep, unhappy sound from somewhere in "
               "the stone. It isn't going to hold. You'll need to lighten what you're carrying.")
 MUGGED = "Something hits you from behind. The alley tilts, then goes away."
-MUGGED_WAKE = "You come to in the Back Alley, lighter in the pocket and sore in the head."
+MUGGED_WAKE = ("You come to in the Back Alley, lighter in the pocket and sore in the head. "
+               "Mugged — and whoever did it is still out there.")
 BOUNTY = ("BOUNTY: someone's been robbing people in the back alley. Whoever puts a stop "
           "to it drinks free. — May")
 
