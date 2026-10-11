@@ -231,6 +231,21 @@ class Parser:
 
         # AGAIN buffer — stores words from last successful parse.
         self._again_words: list[str] = []
+        # The answered "Which X?" behind that command, if any — AGAIN repeats
+        # the answered command, not the question.
+        self._again_chosen: Optional[tuple] = None
+
+        # "Which X do you mean?" (ZIL P-OFLAG / ORPHAN-MERGE): the question
+        # just asked — (command words, ambiguous phrase, candidates, noun).
+        # The next input may answer it instead of being a new command.
+        self._which: Optional[tuple] = None
+        # While re-running an answered command: (phrase, chosen object).
+        self._chosen: Optional[tuple] = None
+
+    def forget_which(self) -> None:
+        """The pending "Which X do you mean?" no longer applies (input went
+        somewhere other than the parser)."""
+        self._which = None
 
     # ------------------------------------------------------------------ #
     # Public API                                                           #
@@ -244,16 +259,29 @@ class Parser:
         and returns None.
         """
         words = self._tokenize(input_text)
+        which, self._which = self._which, None
 
         if not words:
             print("I beg your pardon?")
             return None
+
+        # An answer to "Which X do you mean?" re-runs the asked command.
+        if which is not None:
+            answered, result = self._answer_which(which, words, world)
+            if answered:
+                return result
 
         # AGAIN / G: replay last successful command.
         if words[0] in ("again", "g"):
             if not self._again_words:
                 print("You haven't done anything yet!")
                 return None
+            if self._again_chosen is not None and self._chosen is None:
+                self._chosen = self._again_chosen
+                try:
+                    return self.parse(" ".join(self._again_words), world)
+                finally:
+                    self._chosen = None
             words = list(self._again_words)
 
         # Direction shortcut (bare direction or "go <dir>").
@@ -269,6 +297,7 @@ class Parser:
                 words=words,
             )
             self._again_words = words
+            self._again_chosen = self._chosen
             return result
 
         # Find the first verb token.
@@ -292,7 +321,38 @@ class Parser:
 
         if result is not None:
             self._again_words = words
+            self._again_chosen = self._chosen
         return result
+
+    def _answer_which(self, which: tuple, words: list[str], world: World) -> tuple:
+        """
+        ZIL ORPHAN-MERGE: an answer to "Which X do you mean?" whose every word
+        fits one of the candidates ("fireball", "fireball scroll", "the light
+        one") picks it and re-runs the asked command. Anything else is a new
+        command. Returns (answered, ParseResult or None).
+        """
+        command, phrase, candidates, noun = which
+        answer = [w for w in words if not self._vocab.is_buzz(w) and w != "one"]
+        if not answer:
+            return False, None
+        fits = [o for o in candidates
+                if all(w in o.adjectives or w in o.synonyms for w in answer)]
+        if not fits:
+            return False, None
+        if len(fits) > 1:
+            self._ask_which(command, phrase, fits, noun)
+            return True, None
+        self._chosen = (phrase, fits[0])
+        try:
+            return True, self.parse(" ".join(command), world)
+        finally:
+            self._chosen = None
+
+    def _ask_which(self, command: list[str], phrase: tuple, matched: list, noun: str) -> None:
+        options = ", ".join(f"the {o.desc}" for o in matched[:-1])
+        options += f", or the {matched[-1].desc}"
+        print(f"Which {noun} do you mean, {options}?")
+        self._which = (command, phrase, matched, noun)
 
     # ------------------------------------------------------------------ #
     # Tokenization                                                         #
@@ -387,6 +447,7 @@ class Parser:
                 with contextlib.redirect_stdout(buf):
                     result = self._resolve_rule(rule, nc1_raw, nc2_raw, world, original_words)
             except _ParseError:
+                self._which = None   # that attempt's question was never shown
                 continue
             print(buf.getvalue(), end="")
             return result
@@ -533,6 +594,7 @@ class Parser:
         """Resolve the actual game objects for a structurally-matched rule."""
         self._current_action = rule.action
         self._current_prso = None
+        self._current_words = original_words
         nc1_words = [t for t in nc1_raw if not self._vocab.is_buzz(t)]
         nc2_words = [t for t in nc2_raw if not self._vocab.is_buzz(t)]
 
@@ -720,6 +782,11 @@ class Parser:
         candidates = self._scope_objects(spec, world)
         matched = [o for o in candidates if self._matches_phrase(o, words)]
 
+        # Re-running a command whose "Which X?" was answered: the answer stands.
+        chosen = self._chosen
+        if chosen is not None and chosen[0] == tuple(words) and chosen[1] in matched:
+            return [chosen[1]]
+
         if not matched:
             noun = words[-1] if words else "object"
             if world.is_lit():
@@ -788,9 +855,7 @@ class Parser:
 
         if len(matched) > 1:
             noun = words[-1] if words else "object"
-            options = ", ".join(f"the {o.desc}" for o in matched[:-1])
-            options += f", or the {matched[-1].desc}"
-            print(f"Which {noun} do you mean, {options}?")
+            self._ask_which(list(self._current_words), tuple(words), matched, noun)
             raise _ParseError()
 
         return matched

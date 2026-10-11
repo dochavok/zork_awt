@@ -1185,6 +1185,11 @@ Decided 2026-10-05.
 **Keys:** `UNLOCK` / `OPEN [thing] WITH KEY` when several carried keys match "key": if only one of them fits that thing, it's used without asking (cellar door — cellar key, Mid-Tier Key Door — Middle Tier Key, Keeper's Chamber door — key ring, music box — music box key).
 **`GIVE [thing]` with several matches:** items meant for someone who is present are preferred (`GIVE SCROLL TO WILL` means a spell scroll, not the incantation scroll).
 **`READ SCROLL` with several scrolls carried:** every scroll is readable, so the parser asks which one (*Which scroll do you mean, the incantation scroll, or the Fireball scroll?*) — it never picks the incantation scroll on its own. `READ FIREBALL SCROLL` names it outright.
+**Answering "Which do you mean?"** (as Zork — ZIL ORPHAN-MERGE): the next input answers the question if every word in it fits one of the offered objects — `FIREBALL`, `FIREBALL SCROLL`, `THE LIGHT ONE`.
+The asked command then runs with that object.
+An answer that still fits several asks again with just those (`SPELL` → *Which scroll do you mean, the Fireball scroll, or the Light scroll?*).
+Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
+`AGAIN` after an answered question repeats the answered command (`EXAMINE SCROLL` → `FIREBALL` → `AGAIN` examines the Fireball scroll again); if that object is gone, it asks about what's left.
 **`GIVE` a set:** items handed over together count as one hand-over — `GIVE STONES` / `GIVE STONE TO IVANAAR` means all three rune stones ("stones" is a word for each of them). Spell scrolls aren't a set; Will still asks which one when two are carried.
 **NPC hand-overs:** an item an NPC gives the player goes straight to the inventory, with the line *[Item Name added to inventory.]* (the item's name, title case — e.g. *[Middle Tier Key added to inventory.]*). The player never `TAKE`s from an NPC.
 **`GIVE` refused:** *[NPC] doesn't take the [item].* NPCs known by a title or a common noun take "The" (*The Archivist doesn't take the rubbing.*, *The clerk …*); named NPCs don't (*Will Passion …*).

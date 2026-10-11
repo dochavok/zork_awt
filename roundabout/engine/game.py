@@ -213,6 +213,7 @@ class Game:
         for hook in self._input_hooks:
             handled = hook(w, input_text)
             if handled:
+                self.parser.forget_which()   # that input wasn't an answer
                 if handled != HOOK_NO_TURN:
                     self.clock.tick(w, command_parsed=True)
                 return M_HANDLED
