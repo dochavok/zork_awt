@@ -645,14 +645,12 @@ Training costs 3 Zenni. Archery skill unlocked, and Raznak hands over
 the bow.
 
 > PAY RAZNAK                  [This one's yours]
-> WEST                        [Viking Encampment]
 
 =============================================================================
 N) Ring Retrieval — Pyronicus
 =============================================================================
 Before the dungeon run, get the ring and trigger Will's second briefing.
 
-> EAST                        [Archery Range]
 > EAST                        [Main West]
 > EAST                        [Town Square]
 > EAST                        [Main East]
@@ -714,6 +712,11 @@ Equip the ring just before entering the Chuckle House.
 > SOUTH                       [Ghost's Room]
 > CAST UNBIND UNDEAD          [Thank you]
 > TAKE WATCH                  [pocket watch]
+
+Getting out of the Ghost's Room isn't always as simple as walking out.
+If something stops you, don't worry — just keep trying NORTH until you
+make it through.
+
 > NORTH                       [Shatter Trap Mirror]
 > NORTH                       [Rejection Mirror]
 > NORTH                       [The Entrance]
@@ -778,8 +781,9 @@ discovered.
 
 > GIVE CHARTER TO BOGGART     [Public property]
 
-Boggart reads the charter, vacates, drops the strongbox. Strength check
-auto-passes.
+Boggart reads the charter, vacates, drops the strongbox. Opening it is
+a Medium strength check — if the lid doesn't budge, OPEN STRONGBOX
+again.
 
 > OPEN STRONGBOX              [Zenni]
 

@@ -523,7 +523,7 @@ def _make_scrolls(world) -> None:
         fdesc="A scroll lies on the desk, weighted at one corner with a smooth stone.",
         examine="A spell scroll headed Unbind Undead, in a cramped, careful hand.",
         synonyms=["scroll", "spell"], adjectives=["unbind", "undead", "spell"],
-        flags={TAKEBIT},
+        flags={TAKEBIT, READBIT},
     ))
     # Quest 12 — in the locked music box (content/music_box.py)
     world.register_object(GameObject(
@@ -531,7 +531,7 @@ def _make_scrolls(world) -> None:
         fdesc="A folded scroll lies in the music box.",
         examine="A spell scroll headed Light, in a small, quick hand.",
         synonyms=["scroll", "spell"], adjectives=["light", "spell", "folded"],
-        flags={TAKEBIT, INVISIBLE},
+        flags={TAKEBIT, INVISIBLE, READBIT},
     ))
     # Quest 7 — Pyronicus's reward for the bone flute (content/inscription.py)
     world.register_object(GameObject(
@@ -539,7 +539,7 @@ def _make_scrolls(world) -> None:
         examine="A spell scroll headed Fireball, in a heavy, slanted hand. The paper "
                 "is warm to the touch.",
         synonyms=["scroll", "spell"], adjectives=["fireball", "spell"],
-        size=1, flags={TAKEBIT},
+        size=1, flags={TAKEBIT, READBIT},
     ))
     from content.music_box import BOX_LOCKED_LISTING
     world.register_object(GameObject(

@@ -66,3 +66,33 @@ def test_will_teaches_and_the_spell_is_named(cmd, scroll, flag, learned):
     assert out.index(TEACHING) < out.index(learned)
     assert w.globals.get(flag)
     assert w.objects[scroll].location is None   # consumed
+
+
+# READ SCROLL with the incantation scroll carried too: every scroll is readable,
+# so the parser asks instead of picking the incantation scroll.
+
+INCANTATION_AWAY = "Wherever these are meant to be spoken, it isn't here."
+
+
+@pytest.mark.parametrize("cls", ["mage", "warrior", "rogue"])
+@pytest.mark.parametrize("scroll,flag,learned", SCROLLS)
+def test_read_scroll_asks_which_when_the_incantation_is_carried(cls, scroll, flag, learned):
+    w, g = _at("TOWN-SQUARE", cls, scroll)
+    w.move_object(w.objects["INCANTATION-SCROLL"], w.player)
+    out = _do(g, "read scroll")
+    assert "Which scroll do you mean" in out
+    assert "the incantation scroll" in out
+    assert w.objects[scroll].desc in out
+    assert INCANTATION_AWAY not in out
+    assert not w.globals.get(flag)
+
+
+@pytest.mark.parametrize("scroll,flag,learned", SCROLLS)
+def test_mage_names_the_spell_scroll_beside_the_incantation(scroll, flag, learned):
+    w, g = _at("TOWN-SQUARE", "mage", scroll)
+    w.move_object(w.objects["INCANTATION-SCROLL"], w.player)
+    adjective = w.objects[scroll].adjectives[0]
+    out = _do(g, f"read {adjective} scroll")
+    assert learned in out
+    assert w.globals.get(flag)
+    assert w.objects["INCANTATION-SCROLL"].location is w.player
