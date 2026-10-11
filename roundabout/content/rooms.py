@@ -126,7 +126,7 @@ def _make_tower(world) -> None:
     )
     bedroom.set_flag(ONBIT)
     bedroom.exits["south"] = Exit(destination="WIZARDS-TOWER")
-    bedroom.global_objects = ["ENCHANTED-GLASSES", "PAINTING"]
+    bedroom.global_objects = ["ENCHANTED-GLASSES"]
     world.register_room(bedroom)
 
     # North exit is perception-gated; condition checks world global set by room action

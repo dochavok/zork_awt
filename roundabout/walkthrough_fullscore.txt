@@ -15,7 +15,8 @@ This walkthrough uses a Warrior. It gets the Enchanted Glasses in
 section B — as early as possible after the opening — before any sailing,
 so Kevry can enchant them into Actually Enchanted Glasses before the
 rest of the run. Actually Enchanted Glasses pass all perception checks
-automatically, removing randomness from the entire playthrough.
+automatically, so nothing hidden stays hidden after section C. Fights
+and contests still depend on luck.
 
 Quest coverage:
   Q4  The Whispering Jar
@@ -73,17 +74,21 @@ tower via the Tale and Ale mailbox.
 
 > OPEN MAILBOX                [tower]
 
-With always-max rolls the Easy perception check passes immediately.
+An Easy perception check reveals the bedroom door. It usually
+succeeds; if no door appears to the north, SEARCH.
 
 > NORTH                       [nightstand]
 > TAKE GLASSES                [wire-rimmed glasses]
-> WEAR GLASSES                [You put on the wire-rimmed glasses.]
 
-The glasses are now equipped in the head slot. We will sail to Kevry's
-island in section C to have him enchant them. For now, back to the
-Tale and Ale to continue setup.
+Don't put the glasses on yet. If Will sees you wearing them, he won't
+take it well, and the adventure ends right there. Carry them back
+through the tower and put them on once the painting has taken you to
+the Tale and Ale. We'll sail to Kevry's island in section C to have
+him enchant them.
 
+> SOUTH                       [Will's Wizard Tower]
 > EXAMINE PAINTING            [Tale and Ale]
+> WEAR GLASSES                [You put on the wire-rimmed glasses.]
 
 =============================================================================
 C) Sailing — Kevry's Island (Glasses Enchantment) & Shovel
@@ -136,7 +141,8 @@ The flint and steel for lighting the fuse is on the Assay Room workbench.
 > NORTH                       [Main Shaft]
 
 The Mine Tunnels hold the structural weak point where the gunpowder
-goes — an Easy perception check spots it (always-max rolls pass).
+goes — an Easy perception check spots it. If it doesn't, SEARCH (once
+per visit), or step out and come back in.
 
 > DOWN                        [Mine Tunnels|split along the grain]
 > NORTH                       [Rat's Nest]
@@ -173,7 +179,8 @@ Chuckle House ghost.
 > TAKE ROPE                   [You take the coil of rope.]
 
 The treasure map is hidden aboard, behind a Hard perception check that
-fires every turn on the ship. Always-max rolls find it on the first turn.
+fires every turn on the ship. It may take a few turns to turn up;
+WAIT on deck until it does.
 
 > BOARD SHIP                  [deck|oilcloth]
 > TAKE SHOVEL                 [You take the shovel.]
@@ -367,8 +374,8 @@ The coin is the Pie Rat Coin, a treasure.
 D) Roundabout Pond — Ship-in-a-Bottle (Treasure)
 =============================================================================
 The fishing rod and a successful Fishing challenge roll retrieves the
-Ship-in-a-Bottle from the pond. With always-max rolls, the Rogue class
-bonus doesn't matter — Warrior succeeds too.
+Ship-in-a-Bottle from the pond. Rogues are better at it, but a Warrior
+gets there too. If the line comes up empty, FISH again.
 
 Shamus sells the fishing rod (8 Zenni) — the Desert Island chest paid
 for it. Head back to town and stop in the Kitchen on the way.
@@ -565,8 +572,8 @@ K) Quest 59 — Beat Lynds (Heart Necklace + Dankhaus Access)
 =============================================================================
 Lynds is in the Tale and Ale. Arm wrestling is a single contested
 strength roll (ties reroll). At level 4 a Warrior wins about 70% of the
-time; always-max rolls win. A loss means a 20-turn wait before Lynds
-will go again.
+time. A loss means a 20-turn wait before Lynds will go again. SAVE
+first if you'd rather not wait.
 
 > EAST                        [Archery Range]
 > EAST                        [Main West]
@@ -823,7 +830,8 @@ threshold is revealed, and we get to choose. The Warden has the
 Guardian's Lantern (needed for the Dark Room), and his door to the
 Creature Den only opens when the plate fires — so jump on it. The bell
 rings, the door opens, and he comes out. One round per KILL; he has 5
-hearts and always-max rolls win every round.
+hearts. Some swings will miss and he hits back, so SAVE before jumping
+on the plate.
 
 > JUMP ON PLATE               [bell]
 > KILL WARDEN                 [You land a solid blow.]
