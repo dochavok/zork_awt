@@ -161,6 +161,19 @@ def _killed():
     return w, g
 
 
+def test_the_kill_shows_the_amulet_fall():
+    w, g = _pass()
+    w.set_global("STAKE-CONSECRATED", True)
+    _do(g, "east")
+    out = _do(g, "drive stake into werewolf")
+    reverts = "The scholar lies on the floor of the cave he came down here to find."
+    falls = ("Something slips loose from around his neck as he falls and comes to rest on "
+             "the stone beside him: a tarnished amulet, a seven-pointed star on its face.")
+    assert reverts in out and falls in out
+    assert out.index(reverts) < out.index(falls)
+    assert w.objects["WEREWOLFS-AMULET"].location is w.here
+
+
 def test_look_after_the_kill():
     w, g = _killed()
     out = _do(g, "look")

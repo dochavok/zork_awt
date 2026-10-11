@@ -99,6 +99,11 @@ _REVERTS = (
     "The creature drops. Between one moment and the next, it is not the creature "
     "anymore. The scholar lies on the floor of the cave he came down here to find."
 )
+# The amulet's fall, so the player knows it's there (approved 2026-10-11)
+_AMULET_FALLS = (
+    "Something slips loose from around his neck as he falls and comes to rest on "
+    "the stone beside him: a tarnished amulet, a seven-pointed star on its face."
+)
 # mechanics.md — Undead Werewolf, weapon failure messages
 FIREBALL_FAILS = (
     "The fire takes hold for a moment — then dies. Whatever this creature is made of, "
@@ -211,6 +216,7 @@ def drive_stake(w: World) -> bool:
     from content.combat import award_combat_xp
     print(_STAKE_HOME)
     print(_REVERTS)
+    print(_AMULET_FALLS)
     w.set_global("WEREWOLF-DEAD", True)
     w.move_object(stake, None)                       # stays in the body
     w.move_object(werewolf, None)

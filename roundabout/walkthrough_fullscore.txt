@@ -1471,7 +1471,7 @@ Vent Room is north, past the Lower Crypt.
 > EAST                        [Lower Crossing]
 > EAST                        [Narrow Pass]
 > EAST                        [Still Den]
-> DRIVE STAKE INTO WEREWOLF   [creature drops]
+> DRIVE STAKE INTO WEREWOLF   [creature drops|tarnished amulet]
 > TAKE AMULET                 [Werewolf's Amulet]
 
 The Ivory Torch on the wall is needed for Quest 34.

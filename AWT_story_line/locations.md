@@ -2078,6 +2078,7 @@ The description has three states (decided 2026-10-09). The werewolf is named in 
 *A wide cave, low but not cramped. The walls are gouged at every height — long parallel marks, overlapping, years of them. The floor is worn smooth in a rough oval, the path of something that has been pacing this space for longer than it can remember. Nothing paces it now. The scholar lies where the creature fell, the stake still in him.*
 
 **Death/reversion text:** *The creature drops. Between one moment and the next, it is not the creature anymore. The scholar lies on the floor of the cave he came down here to find.*
+Then the amulet's fall, so the player knows it's there: *Something slips loose from around his neck as he falls and comes to rest on the stone beside him: a tarnished amulet, a seven-pointed star on its face.*
 
 **`EXAMINE WEREWOLF`:** *A werewolf, long dead and still moving. Old wounds cross its chest — blade cuts, arrow holes, burns — and every one of them has closed.* (A turn like any other: that turn's round still happens.)
 

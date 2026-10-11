@@ -1034,7 +1034,7 @@ The Bone Crunch Floor trap must be cleared before passing.
 > EAST                        [Lower Crossing]
 > EAST                        [Narrow Pass]
 > EAST                        [Still Den]
-> DRIVE STAKE INTO WEREWOLF   [creature drops]
+> DRIVE STAKE INTO WEREWOLF   [creature drops|tarnished amulet]
 
 The werewolf drops the Werewolf's Amulet and reverts to scholar form.
 
