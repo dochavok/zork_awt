@@ -1142,8 +1142,30 @@ Decided 2026-10-05.
 - `QUIT` (or `Q`) asks: *Quit now? (type "no" to save first) [yes/no]* — it doesn't save. `YES` or `Y` (any case) ends the game at once, with no exit pause. Any other answer plays on, so the player can `SAVE` and quit again.
 - QUIT uses no turn and works anywhere: at West of House before the mailbox, and while Ty waits for a cargo choice.
 
+**Restarting** (decided 2026-10-10)
+- `RESTART` asks: *Start over from the beginning? Anything you haven't saved will be lost. [yes/no]* `YES` or `Y` starts a brand-new game at West of House (the opening plays again). Any other answer — or input closing at the question — plays on. No turn.
+
+**`EXIT` / `LEAVE`** (decided 2026-10-10): on their own, the same as `QUIT` (same question, no turn) — no room has an OUT exit, and going ashore is `DOCK`. `LEAVE <thing>` is `DROP <thing>`. `EXIT <thing>` (`EXIT SHIP`): *You can't go that way.*
+
 **The end of the game** (decided 2026-10-09)
 - When the game ends on its own (death, corruption, declining the adventure, the ending), the final text stays on screen with *[Press ENTER to exit]*; the game closes on ENTER. Without it, a console window opened by double-clicking the game closes before the player can read how it ended.
+
+### Cursing and Notorious (decided 2026-10-10)
+
+`CURSE` (also `DAMN` / `SHIT` / `FUCK`) takes a turn.
+- **Anywhere Will isn't:** *Such language in a high-class establishment like this! Why, you're lucky that you weren't within 10 feet of the guild hall. You know what happens then!* At a person (`CURSE PYRONICUS`): *Insults of this nature won't help you.* At a thing: *What a loony!*
+- **In the room with Will (his tower), carrying Zenni:** Will fines half the purse, rounded up (1 Zenni pays 1). Prompt and answers below.
+  - **The fine:** *Will sets down his pen. Very slowly, he removes his spectacles. "In my tower," he says. It isn't a question. "There is a fine for that. Half of what you carry — [N] Zenni. Or I make sure every guild in Roundabout knows your name, and not fondly."*
+  - Prompt *[pay/refuse]* — `P` / `R` also work; any other answer asks again; input closing counts as pay.
+  - **Pay:** *Will holds out a hand until the coins are in it. "Thank you." He replaces his spectacles and picks up his pen. It is as though nothing happened, except that you are poorer.*
+  - **Refuse:** one last chance — *"Are you SURE you want to do that?" (yes/no)*. **No** (or anything but yes) pays the fine after all. **Yes:** *"As you wish." Will doesn't raise his voice. He doesn't need to. "You are Notorious. Go on, then. See who still wants your help."* Nothing is taken.
+- **In the room with Will, empty purse:** no fine, no penalty — *Will sets down his pen. Very slowly, he removes his spectacles. "In my tower," he says. His eyes go to your empty purse and stay there a moment. "Nothing to fine. How convenient for you." He opens a small black ledger, writes one line in it, and closes it again. He doesn't explain.* (The ledger is flavor; nothing follows from it.)
+- Every curse in front of Will is a new fine — even once Notorious.
+
+**Notorious** (the AWT penalty for bad behavior) is **permanent** — there's no way to clear it.
+- Side quests still play out and still complete (doors, items and cascades are unchanged), but pay **no XP and no Zenni** — neither the quest's own reward nor Will's Teaching XP (Quest 56). Zenni found in the world (the Whispering Jar's coins, hidden Zenni rooms, chests) is unaffected.
+- The One Ring critical path is never affected.
+- `SCORE` and `READ JOURNAL` show *You are Notorious. Quests pay you nothing.* (SCORE after the other lines; the journal above its entries.)
 
 ### Parser Verbs (Confirmed)
 
@@ -1230,7 +1252,30 @@ Decided 2026-10-05.
 | `REST` | Level 6+ — recovers 1 heart; 50-turn reuse; not with a live enemy in the room (Spell Mechanics — REST notes) |
 | `SAVE` | Saves to `<name>.sav`, named after the character; no turn (Save and Restore) |
 | `RESTORE` / `RESTORE <name>` | Loads the character's own save, or the named character's; no turn (Save and Restore) |
-| `QUIT` / `Q` | Asks first; yes ends the game, anything else plays on; no turn (Save and Restore — Quitting) |
+| `QUIT` / `Q` (also `EXIT` / `LEAVE` on their own) | Asks first; yes ends the game, anything else plays on; no turn (Save and Restore — Quitting) |
+| `RESTART` | Asks first; yes starts a new game at West of House; no turn (Save and Restore — Restarting) |
+| `LEAVE <thing>` | Same as `DROP <thing>` |
+| `VERBOSE` | Full room description on every visit — *Maximum verbosity.* No turn |
+| `BRIEF` | Full description on the first visit only (the default) — *Brief descriptions.* No turn |
+| `SUPERBRIEF` / `SUPER` | Room name only — *Superbrief descriptions.* No turn |
+| `WAIT` / `Z` | *Time passes...* — one turn |
+| `PRAY` | *If you pray enough, your prayers may be answered.* In the Church of All: *You bow your head. The church receives it the way it receives everything — without asking which god it was meant for.* Flavor only — one turn |
+| `CURSE` / `DAMN` / `SHIT` / `FUCK` | Cursing and Notorious — Will fines it in his tower |
+| `VERSION` | *Roundabout: The God-Forsaken Ring — [git tag]* — the tag the .exe was built from (operations.md). Works at West of House. No turn |
+| `DIAGNOSE` | Full hearts: *You are in perfect health — 5 of 5 hearts.* Otherwise: *You have 3 of 5 hearts.* The only place hearts are shown after character creation. No turn |
+| `DISEMBARK` | Same as `DOCK` / `LAND` |
+| `SWIM` / `BATHE` / `WADE` | Sea, Open Ocean, Land, Ho!, ship deck, Docks, beaches, Desert Island, pond, Bog, Cellar, Flooding Room: *You don't want to swim in that!* Elsewhere: *There's nothing here to swim in.* One turn |
+| `BUY` (alone) | *Buy what?* No turn |
+| `FIND` | Alone: *Find what?* `FIND <thing>`: *You'll have to look for it yourself.* No turn |
+| `BACK` | *Sorry, my memory is poor. Please give a direction.* No turn |
+| `STAND` | *You are already standing, I think.* No turn |
+| `SMELL` | Alone: *You smell nothing unusual.* `SMELL <thing>`: *It smells like a [thing].* One turn |
+| `WAVE` | Alone: *You wave. Nobody waves back.* `WAVE <thing>`: *Waving the [thing] has no effect.* One turn |
+| `BLAST` / `EXORCISE` / `JUMP` / `KISS` / `PLAY` / `WISH` / `YELL` | Zork's lines, one turn each: *You can't blast anything by using words.* / *What a bizarre concept!* / *Wheeeeeeeeee!!!!!* / *I'd sooner kiss a pig.* / *That's silly!* / *With luck, your wish will come true.* / *Aaaarrrrgggghhhh!* (Object handlers — `JUMP ON PLATE` etc. — come first.) |
+
+**Removed from the parser (decided 2026-10-11):** `ANSWER` / `REPLY`, `HELLO` / `HI`, `SAY`, `SCRIPT`, `UNSCRIPT`, `WAKE` / `AWAKE` / `SURPRISE` / `STARTLE` — the parser's *I don't know the word "…".*
+Haalvar's riddle still takes `ANSWER` / `SAY` / `REPLY <answer>` (read from the typed line, not the parser).
+Every other command the parser knows answers with something (test_system_verbs guard); `SEARCH` is still to be built.
 | `OPEN CASE` / `CLOSE CASE` | Trophy Case in The Tower — case must be open to place items |
 | `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` | Trophy Case — places treasure permanently; case must be open |
 | `LOOK IN CASE` / `EXAMINE CASE` | Trophy Case — lists contents and count; visible through glass whether open or closed |

@@ -107,6 +107,10 @@ def complete(
 
     set_state(world, quest_id, COMPLETE)
 
+    from content.notorious import is_notorious
+    if is_notorious(world):             # mechanics.md — Notorious: no XP, no Zenni
+        return
+
     meta = _QUEST_META.get(quest_id, {})
     xp    = xp_override    if xp_override    is not None else meta.get("xp", 0)
     zenni = zenni_override if zenni_override is not None else meta.get("zenni", 0)

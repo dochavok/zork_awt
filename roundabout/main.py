@@ -8,11 +8,14 @@ from content.init import initialize_world
 
 
 def main() -> None:
-    w = World()
-    p = Parser(make_vocabulary(), make_syntax_rules())
-    g = Game(w, p, Clock())
-    initialize_world(w, g)
-    g.run()
+    while True:                     # RESTART builds a fresh game from scratch
+        w = World()
+        p = Parser(make_vocabulary(), make_syntax_rules())
+        g = Game(w, p, Clock())
+        initialize_world(w, g)
+        g.run()
+        if not g.restart_requested:
+            break
 
 
 if __name__ == "__main__":

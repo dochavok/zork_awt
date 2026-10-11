@@ -63,6 +63,8 @@ Will asks: *"Are you up for an adventure?"*
 4. *Will peers at you over his spectacles. "You found a mailbox in a field and opened it. I have every confidence you'll solve this."*
 5. *"Will once watched a student spend forty minutes in this room before finding the exit. 'I won't tell you how long you've been here,' he says. 'Yet.'"*
 
+**Cursing in his presence:** Will fines half the player's Zenni, or makes them Notorious (permanent: side quests pay no XP or Zenni). Full lines and flow: mechanics.md — Cursing and Notorious.
+
 **Spell teaching:**
 Warriors/Rogues who attempt `READ SCROLL` on a spell scroll are told the scroll resists them and names Will Passion as the one who can help.
 Bringing the scroll to Will and issuing either `READ SCROLL` (in his presence) or `GIVE SCROLL TO WILL` triggers the teaching interaction.

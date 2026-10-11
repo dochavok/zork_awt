@@ -14,6 +14,7 @@ All game design decisions are recorded in `c:\zork_awt\AWT_story_line\`:
 | `mechanics.md` | All confirmed game mechanics and systems (combat, corruption, dice, parser verbs, etc.) |
 | `ring-rituals.md` | One Ring critical path end-to-end: three artifact quest lines, Church of All rituals |
 | `gameplay design.md` | Core systems reference: classes, economy, combat framework, NPC deep dives, world overview |
+| `operations.md` | Not design: how to build, check and release `Roundabout.exe` (build script, versioning, GitHub release) |
 
 ## The Rule
 

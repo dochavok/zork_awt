@@ -75,13 +75,10 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("restore")
     v.add_verb("save")
     v.add_verb("score")
-    v.add_verb("script")
-    v.add_verb("unscript")
     v.add_verb("version")
 
     # Action verbs (alphabetical)
     v.add_verb("activate")
-    v.add_verb("answer", "reply")
     v.add_verb("apply")
     v.add_verb("attack", "fight", "hurt", "injure", "hit")
     v.add_verb("back")
@@ -127,7 +124,6 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("fish", "angle")                     # FISH at Roundabout Pond
     v.add_verb("follow", "pursue", "chase", "come")
     v.add_verb("give", "donate", "offer", "feed", "hand")
-    v.add_verb("hello", "hi")
     v.add_verb("inflate", "inflat")
     v.add_verb("jump", "leap", "dive")
     v.add_verb("kick", "taunt")
@@ -171,7 +167,6 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("rub", "touch", "feel", "pat", "pet")
     # sail: new canonical; set is NOT aliased here (prevents SET SAIL ambiguity)
     v.add_verb("sail")                              # SAIL / SAIL EAST / SET SAIL
-    v.add_verb("say")
     v.add_verb("search")
     v.add_verb("seal")
     v.add_verb("mix", "combine", "knead")           # MIX CLAY WITH WATER (Quest 49)                              # SEAL JOINTS WITH MORTAR (Quest 22)
@@ -206,7 +201,6 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("untie", "free", "release", "unfasten", "unattach", "unhook")
     v.add_verb("use")                               # USE PORTCULLIS BAR
     v.add_verb("wait", "z")
-    v.add_verb("wake", "awake", "surprise", "startle")
     v.add_verb("walk", "go", "run", "proceed", "step")
     v.add_verb("wave", "brandish")
     v.add_verb("wear")

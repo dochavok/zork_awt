@@ -84,7 +84,9 @@ def teach(w: World, scroll) -> None:
     print(_TEACHING)
     _learn(w, scroll)
     from content.experience import award_xp
-    award_xp(w, 4)   # Quest 56 — Will's Teaching: 4 XP per spell (experience.md)
+    from content.notorious import is_notorious
+    if not is_notorious(w):   # mechanics.md — Notorious: no quest XP
+        award_xp(w, 4)   # Quest 56 — Will's Teaching: 4 XP per spell (experience.md)
 
 
 def _learn(w: World, scroll) -> None:

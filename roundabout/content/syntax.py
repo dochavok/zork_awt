@@ -73,8 +73,6 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="restore",   action="V-RESTORE"),
         SyntaxRule(verb="save",      action="V-SAVE"),
         SyntaxRule(verb="score",     action="V-SCORE"),
-        SyntaxRule(verb="script",    action="V-SCRIPT"),
-        SyntaxRule(verb="unscript",  action="V-UNSCRIPT"),
         SyntaxRule(verb="version",   action="V-VERSION"),
 
         # ------------------------------------------------------------------ #
@@ -84,13 +82,6 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(find_flag=LIGHTBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="activate", action="V-ACTIVATE",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
-
-        # ------------------------------------------------------------------ #
-        # ANSWER                                                              #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="answer", action="V-ANSWER"),
-        SyntaxRule(verb="answer", action="V-REPLY",
-                   obj1=ObjectSpec()),
 
         # ------------------------------------------------------------------ #
         # APPLY                                                               #
@@ -192,7 +183,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="buy", action="V-BUY",
                    obj1=ObjectSpec(locations=_og_ir_held_car_have)),
-        SyntaxRule(verb="buy", action="V-BUY"),
+        SyntaxRule(verb="buy", action="V-BUY-WHAT"),     # bare BUY: "Buy what?", no turn
 
         # ------------------------------------------------------------------ #
         # CAST — new canonical: CAST LIGHT / CAST FIREBALL etc.             #
@@ -281,7 +272,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         # DISEMBARK                                                           #
         # ------------------------------------------------------------------ #
-        SyntaxRule(verb="disembark", action="V-DISEMBARK"),
+        SyntaxRule(verb="disembark", action="V-DOCK"),   # same as DOCK / LAND
 
         # ------------------------------------------------------------------ #
         # DOCK — return ship to harbor                                        #
@@ -343,7 +334,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="enter", action="V-ENTER"),
         SyntaxRule(verb="exit",  action="V-EXIT",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
-        SyntaxRule(verb="exit",  action="V-EXIT"),
+        SyntaxRule(verb="exit",  action="V-QUIT"),       # EXIT alone = QUIT (no OUT exits here)
 
         # ------------------------------------------------------------------ #
         # EXAMINE                                                             #
@@ -408,11 +399,6 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(locations=_held_car_og_ir_take)),
 
         # ------------------------------------------------------------------ #
-        # HELLO                                                               #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="hello", action="V-HELLO"),
-
-        # ------------------------------------------------------------------ #
         # INFLATE                                                             #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="inflate", action="V-INFLATE",
@@ -459,9 +445,9 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         # LEAVE                                                               #
         # ------------------------------------------------------------------ #
-        SyntaxRule(verb="leave", action="V-LEAVE",
-                   obj1=ObjectSpec(locations=_held_car_og_ir)),
-        SyntaxRule(verb="leave", action="V-LEAVE"),
+        SyntaxRule(verb="leave", action="V-QUIT"),      # LEAVE alone = QUIT (before the
+        SyntaxRule(verb="leave", action="V-DROP", preaction="PRE-DROP",   # many-rule, which
+                   obj1=ObjectSpec(locations=_held_car_many)),            # matches nothing too)
 
         # ------------------------------------------------------------------ #
         # LIGHT                                                               #
@@ -746,13 +732,6 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="sail", particle="west",  action="V-SAIL-WEST"),
 
         # ------------------------------------------------------------------ #
-        # SAY                                                                 #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="say", action="V-SAY",
-                   obj1=ObjectSpec(locations=_held_car_og_ir)),
-        SyntaxRule(verb="say", action="V-SAY"),
-
-        # ------------------------------------------------------------------ #
         # SEARCH                                                              #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="search", action="V-SEARCH",
@@ -979,13 +958,6 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # WAIT                                                                #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="wait", action="V-WAIT"),
-
-        # ------------------------------------------------------------------ #
-        # WAKE                                                                #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="wake", action="V-WAKE",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
-        SyntaxRule(verb="wake", action="V-WAKE"),
 
         # ------------------------------------------------------------------ #
         # WALK / GO                                                           #

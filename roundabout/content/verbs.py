@@ -289,6 +289,144 @@ def v_quit(world: World) -> int:
     return M_HANDLED
 
 
+_RESTART_PROMPT = "Start over from the beginning? Anything you haven't saved will be lost. [yes/no] "
+
+
+def v_restart(world: World) -> int:
+    """RESTART asks first; yes starts a new game at West of House (main.py
+    builds a fresh world). No turn. Input closed mid-question plays on."""
+    try:
+        answer = input(_RESTART_PROMPT)
+    except (EOFError, KeyboardInterrupt):
+        print()
+        return M_HANDLED
+    if answer.strip().lower() in ("y", "yes"):
+        world.game.restart_requested = True
+        world.game.quit(by_player=True)
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# VERBOSE / BRIEF / SUPERBRIEF / WAIT / CURSE / PRAY / EXIT <thing>
+# (mechanics.md — Parser Verbs: system and flavor commands)
+# ---------------------------------------------------------------------------
+
+def v_verbose(world: World) -> int:
+    from engine.game import VERBOSE
+    world.game.desc_mode = VERBOSE
+    print("Maximum verbosity.")
+    return M_HANDLED
+
+
+def v_brief(world: World) -> int:
+    from engine.game import BRIEF
+    world.game.desc_mode = BRIEF
+    print("Brief descriptions.")
+    return M_HANDLED
+
+
+def v_super_brief(world: World) -> int:
+    from engine.game import SUPER_BRIEF
+    world.game.desc_mode = SUPER_BRIEF
+    print("Superbrief descriptions.")
+    return M_HANDLED
+
+
+def v_wait(world: World) -> int:
+    print("Time passes...")
+    return M_HANDLED
+
+
+def v_curse(world: World) -> int:
+    from content import notorious
+    notorious.curse(world)
+    return M_HANDLED
+
+
+_PRAY = "If you pray enough, your prayers may be answered."
+_PRAY_CHURCH = (
+    "You bow your head. The church receives it the way it receives everything "
+    "— without asking which god it was meant for."
+)
+
+
+def v_pray(world: World) -> int:
+    in_church = world.here is not None and world.here.name == "CHURCH-NAVE"
+    print(_PRAY_CHURCH if in_church else _PRAY)
+    return M_HANDLED
+
+
+def v_exit(world: World) -> int:
+    """EXIT <thing> (EXIT SHIP): there are no OUT exits; DOCK goes ashore."""
+    print("You can't go that way.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
+# DIAGNOSE / BUY / FIND / BACK / STAND (no turn) and flavor commands
+# (mechanics.md — Parser Verbs)
+# ---------------------------------------------------------------------------
+
+def v_diagnose(world: World) -> int:
+    g = world.globals
+    hearts, most = g.get("hearts", 0), g.get("max_hearts", 0)
+    if hearts >= most:
+        print(f"You are in perfect health — {hearts} of {most} hearts.")
+    else:
+        print(f"You have {hearts} of {most} hearts.")
+    return M_HANDLED
+
+
+def v_version(world: World) -> int:
+    from content import version
+    print(version.line())
+    return M_HANDLED
+
+
+def v_buy_what(world: World) -> int:
+    print("Buy what?")
+    return M_HANDLED
+
+
+def v_find(world: World) -> int:
+    print("Find what?" if world.prso is None else "You'll have to look for it yourself.")
+    return M_HANDLED
+
+
+def _say(line: str):
+    def handler(world: World) -> int:
+        print(line)
+        return M_HANDLED
+    return handler
+
+
+def v_smell(world: World) -> int:
+    obj = world.prso
+    print("You smell nothing unusual." if obj is None else f"It smells like a {obj.desc}.")
+    return M_HANDLED
+
+
+def v_wave(world: World) -> int:
+    obj = world.prso
+    print("You wave. Nobody waves back." if obj is None else f"Waving the {obj.desc} has no effect.")
+    return M_HANDLED
+
+
+# Rooms with water to swim in (the rest: "There's nothing here to swim in.")
+_WATER_ROOMS = frozenset({
+    "SEA-WEST", "SEA-MID", "SEA-EAST", "LAND-HO", "SHIP-DECK", "DOCKS",
+    "ROUNDABOUT-BEACH", "EMPTY-BEACH", "DESERT-ISLAND", "ROUNDABOUT-POND",
+    "BOG-NE", "BOG-NW", "BOG-SE", "BOG-SW", "CELLAR", "FLOODING-ROOM",
+    *(f"OPEN-OCEAN-{i}" for i in range(1, 70)),
+})
+
+
+def v_swim(world: World) -> int:
+    wet = world.here is not None and world.here.name in _WATER_ROOMS
+    print("You don't want to swim in that!" if wet else "There's nothing here to swim in.")
+    return M_HANDLED
+
+
 def _restored(world: World) -> None:
     print("Restored.")
     world.game.desc_mode_override = True
@@ -1789,6 +1927,33 @@ def register_verbs(game) -> None:
     game.register_verb("V-SAVE",       v_save)
     game.register_verb("V-RESTORE",    v_restore)
     game.register_verb("V-QUIT",       v_quit)
+    game.register_verb("V-RESTART",    v_restart)
+    game.register_verb("V-VERBOSE",    v_verbose)
+    game.register_verb("V-BRIEF",      v_brief)
+    game.register_verb("V-SUPER-BRIEF", v_super_brief)
+    game.register_verb("V-WAIT",       v_wait)
+    game.register_verb("V-CURSE",      v_curse)
+    game.register_verb("V-PRAY",       v_pray)
+    game.register_verb("V-EXIT",       v_exit)
+    game.register_verb("V-DIAGNOSE",   v_diagnose)
+    game.register_verb("V-BUY-WHAT",   v_buy_what)
+    game.register_verb("V-VERSION",    v_version)
+    game.register_verb("V-FIND",       v_find)
+    game.register_verb("V-SMELL",      v_smell)
+    game.register_verb("V-WAVE",       v_wave)
+    game.register_verb("V-SWIM",       v_swim)
+    for action, line in (
+        ("V-BACK",     "Sorry, my memory is poor. Please give a direction."),
+        ("V-STAND",    "You are already standing, I think."),
+        ("V-BLAST",    "You can't blast anything by using words."),
+        ("V-EXORCISE", "What a bizarre concept!"),
+        ("V-JUMP",     "Wheeeeeeeeee!!!!!"),
+        ("V-KISS",     "I'd sooner kiss a pig."),
+        ("V-PLAY",     "That's silly!"),
+        ("V-WISH",     "With luck, your wish will come true."),
+        ("V-YELL",     "Aaaarrrrgggghhhh!"),
+    ):
+        game.register_verb(action, _say(line))
     game.register_verb("V-TAKE",       v_take)
     game.register_verb("V-WEAR",       v_wear)
     game.register_verb("V-REMOVE",     v_remove)

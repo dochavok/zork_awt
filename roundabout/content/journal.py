@@ -56,6 +56,9 @@ def _entries(w: World) -> list[tuple[str, str]]:
 
 def read(w: World) -> None:
     from content import quests
+    from content.notorious import is_notorious, STANDING
+    if is_notorious(w):
+        print(STANDING)
     entries = _entries(w)
     if not entries:
         print(_EMPTY)

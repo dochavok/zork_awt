@@ -67,6 +67,9 @@ def score(w: World, final: bool = False) -> None:
         print(f"Level {get_level(w)} ({xp} XP)")
         print(f"Zenni: {w.globals.get('zenni', 0)}")
         print(f"{count} treasure{'' if count == 1 else 's'} on display.")
+    from content.notorious import is_notorious, STANDING
+    if is_notorious(w):
+        print(STANDING)
 
 
 def return_ring(w: World) -> None:

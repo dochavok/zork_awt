@@ -16,3 +16,6 @@ __pycache__/
 # VS Code (project settings are committed; exclude user-specific overrides)
 .vscode/launch.json
 .vscode/tasks.json
+
+# Version stamp written by roundabout/build_exe.py during a build
+roundabout/content/_version.py

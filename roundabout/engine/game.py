@@ -53,6 +53,7 @@ _SKIP_CLOCK: frozenset[str] = frozenset({
     "V-SAVE", "V-RESTORE", "V-QUIT", "V-RESTART",
     "V-SCORE", "V-VERSION", "V-SCRIPT", "V-UNSCRIPT",
     "V-VERBOSE", "V-BRIEF", "V-SUPER-BRIEF",
+    "V-DIAGNOSE", "V-BUY-WHAT", "V-FIND", "V-BACK", "V-STAND",
 })
 
 
@@ -106,6 +107,8 @@ class Game:
         self._room_names: dict[str, tuple[str, list[tuple[str, str]]]] = {}
 
         self.desc_mode: int = BRIEF
+        # RESTART answered yes: main.py builds a fresh game when run() returns
+        self.restart_requested: bool = False
         self._running:  bool = False
         self._player_quit: bool = False
 
