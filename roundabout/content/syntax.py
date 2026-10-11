@@ -683,6 +683,11 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(locations=_held_car_og_ir_take_have),
                    prep="on",
                    obj2=ObjectSpec(find_flag=SURFACEBIT, locations=_held_car_og_ir)),
+        # PUT BAR UNDER PORTCULLIS (Trap 19) — same as USE PORTCULLIS BAR
+        SyntaxRule(verb="put", action="V-USE",
+                   obj1=ObjectSpec(locations=_held_car_og_ir_have),
+                   prep="under",
+                   obj2=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="put", action="V-DROP", preaction="PRE-DROP",
                    obj1=ObjectSpec(locations=_held_car_many)),
         # PLACE BLOCKS (Quest 22): "place" is a "put" synonym; things on the

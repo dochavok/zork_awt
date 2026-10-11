@@ -192,6 +192,12 @@ def lift(w: World) -> None:
             print(_LIFT_FAILS)
 
 
+def portcullis_held(w: World) -> bool:
+    """True right after a successful LIFT PORTCULLIS, while it's still up."""
+    return (w.here is not None and w.here.name == "PORTCULLIS-CORRIDOR"
+            and w.get_global("PORTCULLIS-HELD") is not None)
+
+
 def use_bar(w: World) -> bool:
     """USE PORTCULLIS BAR. Returns True if handled here."""
     if w.here is None or w.here.name != "PORTCULLIS-CORRIDOR":

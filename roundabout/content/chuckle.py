@@ -76,7 +76,12 @@ GHOST_PRESENCE = (
     "A figure stands among the reflections, grey and thin and turned toward "
     "you — the only thing in the room that isn't repeated."
 )
-_GHOST_FREED = '"Thank you. I can rest now."'
+_GHOST_FREED = (
+    '"Thank you. I can rest now."\n'
+    "The grey figure thins until the mirrors have nothing left to repeat. "
+    "Something falls where he stood and lands with a small metallic click — "
+    "a pocket watch."
+)
 
 
 def _visible(w: World) -> bool:

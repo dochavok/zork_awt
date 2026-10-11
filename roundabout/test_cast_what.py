@@ -47,3 +47,14 @@ def test_named_spell_still_casts():
     w, g = _make_world(cls="warrior")
     w.globals["spell_unbind_undead"] = True
     assert "Nothing here answers the spell." in _do(g, "cast unbind undead")
+
+
+def test_unbind_undead_frees_ghost_and_drops_watch():
+    w, g = _make_world(cls="warrior")
+    w.globals["spell_unbind_undead"] = True
+    w.move_object(w.player, w.rooms["GHOSTS-ROOM"])
+    w.here = w.rooms["GHOSTS-ROOM"]
+    out = _do(g, "cast unbind undead")
+    assert '"Thank you. I can rest now."' in out
+    assert "a pocket watch." in out
+    assert w.objects["POCKET-WATCH"].location is w.rooms["GHOSTS-ROOM"]

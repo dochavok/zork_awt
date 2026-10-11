@@ -250,6 +250,29 @@ def test_trap19_discharged_lift_needs_medium_strength():
     assert w.get_global("PORTCULLIS-HELD") is not None
 
 
+@pytest.mark.parametrize("command", [
+    "use portcullis bar", "use bar on gate", "put bar", "place bar",
+    "put bar under portcullis", "place iron bar beneath gate",
+])
+def test_trap19_bar_props_the_held_portcullis(command):
+    from content.shrine_path import _PROPPED
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", HIGH)      # spotted and discharged
+    w.move_object(w.objects["PORTCULLIS-BAR"], w.player)
+    _cmd(g, "lift portcullis", HIGH)
+    assert _PROPPED in _do(g, command)
+    assert w.get_global("PORTCULLIS") == "propped"
+    assert w.objects["PORTCULLIS-BAR"].location is None
+
+
+def test_trap19_put_bar_with_portcullis_down_just_drops_it():
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", HIGH)
+    w.move_object(w.objects["PORTCULLIS-BAR"], w.player)
+    assert "You drop the portcullis bar." in _do(g, "put bar")
+    assert w.objects["PORTCULLIS-BAR"].location is w.here
+
+
 @pytest.mark.parametrize("total,shown", [(LOW, False), (HIGH, True)])
 def test_trap33_plate_described_only_once_spotted(total, shown):
     from content.upper_tier import _IDOL_SPOTTED

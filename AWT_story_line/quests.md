@@ -114,7 +114,7 @@ The key stays in the lock. The scroll lies in the box: *A folded scroll lies in 
    - Warriors/Rogues: bring to Will Passion.
 3. Equip The God-Forsaken Ring (invisibility required — all Chuckle House mirrors repel visible players).
 4. Navigate Chuckle House: Entrance → Rejection Mirror → Shatter Trap Mirror → Ghost's Room.
-5. `CAST UNBIND UNDEAD` on ghost → ghost says *"Thank you. I can rest now."* and drops pocket watch.
+5. `CAST UNBIND UNDEAD` on ghost → ghost says *"Thank you. I can rest now."* and drops pocket watch: *The grey figure thins until the mirrors have nothing left to repeat. Something falls where he stood and lands with a small metallic click — a pocket watch.*
 6. `TAKE WATCH` (50% exit-fail mechanic persists even after ghost freed — disorientation on failed exit attempt).
 7. Deliver pocket watch to Records Room Worker → he gives town charter.
 
@@ -474,7 +474,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
    - If fountain dry: *"The fountain is dry. You'll need clean running water."*
    - Success: *You work the clay in your hands under the fountain's spill until it softens, then keeps softening, into something smooth and tacky that holds whatever it touches. Clay adhesive — enough for one careful job.*
    - Anywhere but the fountain: *You'll need water for that — clean and running.*
-5. `ASSEMBLE BOWL` (anywhere, holding all three pieces and the adhesive; all used up) → Repaired Bowl.
+5. `ASSEMBLE BOWL` (also `REPAIR BOWL` / `FIX BOWL` / `COMBINE PIECES`; anywhere, holding all three pieces and the adhesive; all used up) → Repaired Bowl.
    - Success: *You lay the three pieces out and work the adhesive into every edge, pressing them together one at a time. The seams hold. The etched line runs unbroken from one piece to the next, all the way around. It's a bowl again — not a pretty one, but whole.*
    - Missing pieces: *You don't have all of it. Some of the bowl is still out there.*
    - No adhesive: *The pieces fit, but nothing holds them together.*

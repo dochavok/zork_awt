@@ -624,7 +624,7 @@ Mirrors on all sides. The ghost of the Records Room Worker's missing relative ha
 **Room description:** *Mirrors on every wall, angled at each other so the room goes on in every direction at once. Your reflections are wrong by a fraction — a beat late, or a beat early. It is very cold.*
 **Ghost (presence, ring worn):** *A figure stands among the reflections, grey and thin and turned toward you — the only thing in the room that isn't repeated.*
 **Pocket watch (after freeing):** listing *A pocket watch lies on the floor where the ghost stood.* Examine: *A plain silver pocket watch, stopped. The inside of the lid is engraved, but too worn to read.*
-Ghost visible only while wearing the ring. `CAST UNBIND UNDEAD` releases the ghost; he says *"Thank you. I can rest now."* and drops the pocket watch.
+Ghost visible only while wearing the ring. `CAST UNBIND UNDEAD` releases the ghost; he says *"Thank you. I can rest now."* and drops the pocket watch: *The grey figure thins until the mirrors have nothing left to repeat. Something falls where he stood and lands with a small metallic click — a pocket watch.*
 **Exit mechanic:** 50% chance each attempt to leave fails — player returned to same room with a disorientation message. Permanent — does not end when ghost is freed.
 **Disorientation:** *You head for the door. The mirrors turn you around somewhere along the way, and you find yourself back in the middle of the room.*
 Post-freeing: mirrors no longer repel visible players anywhere in the Chuckle House.
@@ -1609,7 +1609,7 @@ South of Combat Room. A low stone alcove — looks like a dead end until examine
 South of Prayer Alcove. A metal portcullis blocks the corridor, carrying an arcane charge.
 Touching without disarming: 1 heart lightning damage, stunned one turn.
 Three ways through: (1) perception spots charge and discharge mechanism; (2) disarm check discharges safely; (3) strength check lifts — only after discharge.
-Portcullis Bar from Supply Room props it permanently open. Without the bar it drops when released. (Trap 19 — Medium perception, Medium disarm; `LIFT PORTCULLIS` Medium strength; the next command must be `USE PORTCULLIS BAR` or it drops)
+Portcullis Bar from Supply Room props it permanently open. Without the bar it drops when released. (Trap 19 — Medium perception, Medium disarm; `LIFT PORTCULLIS` Medium strength; the next command must be `USE PORTCULLIS BAR` — or `PUT` / `PLACE BAR` (optionally `UNDER PORTCULLIS`), or `DROP BAR` — or it drops)
 
 **Room description:** *A straight corridor, closed off halfway along by an iron portcullis. The air around the bars has a faint, dry crackle, and the hairs on your arms stand up as you get close.* (Discharged: without the crackle sentence. Propped: *…The portcullis is propped open with an iron bar.*)
 - **Shock** (touching/lifting while charged — 1 heart, lose a turn): *Your hands close on the bars and the charge goes through you — a white snap, a smell like a struck match. When you can think again, you're on the floor.*

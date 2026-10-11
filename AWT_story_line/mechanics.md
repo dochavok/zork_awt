@@ -1222,7 +1222,8 @@ Decided 2026-10-05.
 | `USE CROWBAR ON DRAIN` (also `PRY COVER` / `REMOVE COVER WITH CROWBAR`) | Quest 25 — removes the cellar drain cover from the Kitchen top step |
 | `JUMP ON PLATE` | Trap 29 — intentionally triggers Warden bell; opens the Creature Den door |
 | `PRY DOOR` | Trap 33 escape — crowbar + strength check |
-| `USE PORTCULLIS BAR` | Trap 19 — props portcullis open permanently |
+| `ASSEMBLE BOWL` (also `REASSEMBLE BOWL` / `REPAIR BOWL` / `FIX BOWL` / `COMBINE PIECES` / `COMBINE BOWL PIECES`) | Quest 49 — anywhere, holding all three bowl pieces and the clay adhesive → Repaired Bowl |
+| `USE PORTCULLIS BAR` (also `USE BAR ON PORTCULLIS` / `PUT BAR UNDER PORTCULLIS` / `PUT BAR` / `PLACE BAR` / `DROP BAR`) | Trap 19 — props portcullis open permanently; only straight after a successful `LIFT PORTCULLIS` (otherwise `PUT` / `PLACE` / `DROP BAR` just drops it) |
 | `CLIMB TREE` | The Old Oak — retrieves kite + rune stone |
 | `LOOK AT MUSIC BOX` | Will's Tower — triggers quest discovery and hint sequence (Quest 12) |
 | `READ JOURNAL` | Tip Journal — displays all active discovered quests with purchased hints |
@@ -1299,6 +1300,7 @@ All Roundabout commands mapped to their canonical verb. Use this as the spec for
 | `LOAD STONE ONTO CART` | `load` | — | `V-LOAD` |
 | `PRY DOOR` | `pry` | `lever`, `jimmy` | `V-PRY` |
 | `USE PORTCULLIS BAR` | `use` | — | `V-USE` |
+| `PUT BAR UNDER PORTCULLIS` | `put` | `place`, `stuff`, `insert`, `hide` | `V-USE` (prep `under`; plain `PUT BAR` goes to `V-DROP`, which props a held portcullis) |
 | `CAST LIGHT` / `CAST UNBIND UNDEAD` | `cast` | `incant`, `chant`, `spell` (remove these from `exorcise`) | `V-CAST` |
 
 #### SyntaxRule Addition Only (Canonical Exists, Particle Missing)

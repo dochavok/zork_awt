@@ -572,6 +572,11 @@ def v_drop(world: World) -> int:
                 and int(world.get_global("TIMBERS-DOWN") or 0) >= 3:
             aqueduct.prop_passage(world)
             return M_HANDLED
+    if obj.name == "PORTCULLIS-BAR":      # PUT BAR under the held portcullis props it (Trap 19)
+        from content import shrine_path
+        if shrine_path.portcullis_held(world):
+            shrine_path.use_bar(world)
+            return M_HANDLED
     if obj.name == "TORCH" and not obj.has_flag("ONBIT"):   # burnt out — back to Shamus's stock
         from content import light
         light.discard_burnt_out(world)

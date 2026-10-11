@@ -7,8 +7,8 @@ Bowl, The Crystal Bowl, Verdant Circle Shrine Bowl), locations.md (Town Square
 fountain; Roundabout Forest pedestal states), ring-rituals.md (Artifact 3).
 
 - MIX CLAY WITH WATER at the flowing Town Square fountain → clay adhesive.
-- ASSEMBLE BOWL anywhere with all three pieces and the adhesive → Repaired
-  Bowl. An input hook: every piece answers to "bowl", so the parser would
+- ASSEMBLE BOWL (REPAIR / FIX BOWL, COMBINE PIECES) anywhere with all three
+  pieces and the adhesive → Repaired Bowl. An input hook: every piece answers to "bowl", so the parser would
   otherwise ask which one.
 - PUT BOWL ON PEDESTAL, then PUT ZENNI ON PEDESTAL (OFFER / DROP ZENNI; COIN
   also works): 1 Zenni, the bowl becomes The Crystal Bowl, Quest 49 completes.
@@ -120,9 +120,14 @@ def assemble(w: World) -> None:
 
 
 def assemble_input_hook(w: World, text: str) -> bool:
-    """ASSEMBLE / REASSEMBLE [THE] BOWL."""
+    """ASSEMBLE / REASSEMBLE / REPAIR / FIX [THE] BOWL, COMBINE [THE] [BOWL] PIECES."""
     words = [x for x in text.lower().split() if x != "the"]
-    if words and words[0] in ("assemble", "reassemble") and words[1:] in ([], ["bowl"]):
+    if not words:
+        return False
+    verb, rest = words[0], words[1:]
+    if (verb in ("assemble", "reassemble") and rest in ([], ["bowl"])) \
+            or (verb in ("repair", "fix") and rest == ["bowl"]) \
+            or (verb == "combine" and rest in (["pieces"], ["bowl", "pieces"])):
         assemble(w)
         return True
     return False
