@@ -186,9 +186,27 @@ def v_examine(world: World) -> int:
 # V-LOOK (bare look — redescribe current room)
 # ---------------------------------------------------------------------------
 
+_NO_STAKE_TARGET = "There's nothing here that needs a stake through it."
+
+
 def v_drive_stake(world: World) -> int:
+    """DRIVE STAKE [INTO WEREWOLF] (still_den.py); otherwise mechanics.md —
+    Parser Verbs."""
     from content import still_den
-    return M_HANDLED if still_den.drive_stake(world) else M_NOT_HANDLED
+    if still_den.drive_stake(world):
+        return M_HANDLED
+    obj, target = world.prso, world.prsi
+    if obj is None:
+        return M_NOT_HANDLED
+    if target is not None and _fightable(world, target):
+        return world.game.perform("V-MELEE", target, obj)    # ATTACK target WITH obj
+    if target is not None and target.has_flag("ACTORBIT"):
+        print(f"{_npc_subject(target)} wouldn't appreciate that.")
+    elif obj.name == "SILVER-STAKE":
+        print(_NO_STAKE_TARGET)
+    else:
+        print(f"You can't drive the {obj.desc} into anything.")
+    return M_HANDLED
 
 
 def v_turn_dial_left(world: World) -> int:
@@ -211,7 +229,12 @@ def v_score(world: World) -> int:
 
 def v_mix(world: World) -> int:
     from content import shrine_bowl
-    return M_HANDLED if shrine_bowl.mix(world) else M_NOT_HANDLED
+    if shrine_bowl.mix(world):
+        return M_HANDLED
+    if world.prso is None:
+        return M_NOT_HANDLED
+    print("You can't mix that.")               # mechanics.md — Parser Verbs
+    return M_HANDLED
 
 
 def v_place(world: World) -> int:
@@ -259,7 +282,10 @@ def v_pour(world: World) -> int:
     if world.prso is not None and world.prso.name == "GLACIER-MELT":   # Quest 34 — only the pool
         print("You'd rather not waste it.")
         return M_HANDLED
-    return M_NOT_HANDLED
+    if world.prso is None:
+        return M_NOT_HANDLED
+    print("You can't pour that.")              # not a liquid (mechanics.md — Parser Verbs)
+    return M_HANDLED
 
 
 def v_apply(world: World) -> int:
@@ -1806,12 +1832,38 @@ def v_activate(world: World) -> int:
 # V-EAT  (EAT HONEY — Quest 24's enchanted honey)
 # ---------------------------------------------------------------------------
 
+# mechanics.md — Parser Verbs (EAT): the honey heals; the thyme and the sprig
+# can be eaten, and their quest is lost for good
+_EDIBLE = {
+    "ENCHANTED-HONEY": (None, "24"),
+    "BOG-THYME": ("You eat the thyme. It's sharp enough to make your eyes water. Shamus "
+                  "would have done something better with it.", "40"),
+    "DRAGON-NIP": ("The sprig crunches like toffee and tastes like a campfire. The glow fades "
+                   "from your fingers. It's possible that was important.", "58"),
+}
+
+
 def v_eat(world: World) -> int:
+    """EAT HONEY (Quest 24); otherwise mechanics.md — Parser Verbs."""
     obj = world.prso
-    if obj is None or obj.name != "ENCHANTED-HONEY" or obj not in world.player.contents:
+    if obj is None:
         return M_NOT_HANDLED
-    from content import old_oak
-    old_oak.eat_honey(world)
+    if obj.name in _EDIBLE:
+        if obj not in world.player.contents:
+            print(_LANTERN_NOT_HELD)          # "You'd have to pick it up first."
+        elif obj.name == "ENCHANTED-HONEY":
+            from content import old_oak
+            old_oak.eat_honey(world)
+        else:                                 # a quest's only item — the quest is lost
+            from content import quests
+            line, quest = _EDIBLE[obj.name]
+            print(line)
+            world.move_object(obj, None)
+            quests.fail(world, quest)
+    elif obj.has_flag("ACTORBIT"):
+        print(f"{_npc_subject(obj)} wouldn't appreciate that.")
+    else:
+        print(f"I don't think that the {obj.desc} would agree with you.")
     return M_HANDLED
 
 
@@ -2286,18 +2338,54 @@ def v_destroy(world: World) -> int:
         from content import aqueduct
         aqueduct.strike_timber(world)
         return M_HANDLED
-    return M_NOT_HANDLED
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    if _fightable(world, obj):          # DESTROY / BREAK / SMASH / CHOP (mechanics.md)
+        world.prsa = "V-MELEE"
+        return v_melee(world)
+    if obj.has_flag("ACTORBIT"):
+        print(f"{_npc_subject(obj)} wouldn't appreciate that.")
+    elif obj.name == "ICE-BLOCK":
+        print(_ICE_WINS)
+    else:
+        print("Nice try.")
+    return M_HANDLED
+
+
+_ICE_WINS = "You hit the ice. The ice wins. It's harder than ice has any right to be."
+
+
+_ALREADY_HOLDING = "The beam is already holding the passage up."
+_NOTHING_TO_PROP_WITH = "You'd need something to prop it with."
+_NOTHING_NEEDS_PROPPING = "There's nothing here that needs propping."
 
 
 def v_prop(world: World) -> int:
-    from content import aqueduct
+    """PROP / WEDGE X [WITH Y]: the Gallery passage (Quest 38), the portcullis
+    (Trap 19); otherwise mechanics.md — Parser Verbs."""
+    from content import aqueduct, shrine_path
+    if world.prso is None:
+        return M_NOT_HANDLED
     names = {o.name for o in (world.prso, world.prsi) if o is not None}
-    if aqueduct.in_gallery(world) and names & {"SUPPORT-BEAM", "GALLERY-TIMBERS"}:
-        if world.objects["SUPPORT-BEAM"] in world.player.contents \
-                or world.get_global("TIMBERS-CLEARED"):
+    held = world.player.contents
+    if aqueduct.in_gallery(world):
+        if world.get_global("TIMBERS-CLEARED"):
+            print(_ALREADY_HOLDING)
+        elif world.objects["SUPPORT-BEAM"] in held:
             aqueduct.prop_passage(world)
-            return M_HANDLED
-    return M_NOT_HANDLED
+        else:
+            print(_NOTHING_TO_PROP_WITH)
+    elif names & {"PORTCULLIS", "PORTCULLIS-BAR"} and world.here.name == "PORTCULLIS-CORRIDOR":
+        if shrine_path._state(world) == "propped":
+            print("It's already propped open.")
+        elif world.objects["PORTCULLIS-BAR"] in held:
+            shrine_path.use_bar(world)
+        else:
+            print(_NOTHING_TO_PROP_WITH)
+    else:
+        print(_NOTHING_NEEDS_PROPPING)
+    return M_HANDLED
 
 
 # ---------------------------------------------------------------------------

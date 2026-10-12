@@ -1,7 +1,8 @@
 """
 Quest state machine for Roundabout: The God-Forsaken Ring.
 
-States: UNDISCOVERED → DISCOVERED → IN_PROGRESS → COMPLETE
+States: UNDISCOVERED → DISCOVERED → IN_PROGRESS → COMPLETE, or FAILED when the
+only item it needs is gone (EAT THYME — Quest 40; EAT SPRIG — Quest 58).
 All quest IDs match the AWT_story_line/quests.md numbering.
 
 Sourced from AWT_story_line/quests.md and experience.md.
@@ -21,6 +22,7 @@ UNDISCOVERED = "undiscovered"
 DISCOVERED   = "discovered"
 IN_PROGRESS  = "in_progress"
 COMPLETE     = "complete"
+FAILED       = "failed"       # can never be finished; off the journal, May and the board
 
 # Quest metadata: {quest_id: {"name": str, "xp": int, "zenni": int}}
 _QUEST_META: dict[str, dict] = {
@@ -102,7 +104,7 @@ def complete(
     Mark quest complete. Award XP and Zenni. Board postings: content/quest_board.py.
     xp_override / zenni_override allow special-case values (Quest 53 variable XP).
     """
-    if get_state(world, quest_id) == COMPLETE:
+    if get_state(world, quest_id) in (COMPLETE, FAILED):
         return
 
     set_state(world, quest_id, COMPLETE)
@@ -118,6 +120,17 @@ def complete(
     award_xp(world, xp)
     if zenni:
         world.globals["zenni"] = world.globals.get("zenni", 0) + zenni
+
+
+def fail(world: "World", quest_id: str) -> None:
+    """The quest can never be finished (its one item is gone). Not logged:
+    a failed quest never shows in the Tip Journal."""
+    if get_state(world, quest_id) != COMPLETE:
+        world.globals.setdefault("quest_states", {})[quest_id] = FAILED
+
+
+def is_failed(world: "World", quest_id: str) -> bool:
+    return get_state(world, quest_id) == FAILED
 
 
 def is_complete(world: "World", quest_id: str) -> bool:

@@ -5,6 +5,8 @@ Update this file immediately when any quest detail is designed or changed.
 
 **Quest numbering note:** Not all quest numbers are used. Numbers marked "Quest Removed From Game" were retired or removed during design and must not be reused. All retired ideas are archived in `unused_quest_ideas.md` (separate directory). Next available number: 60.
 
+**Failed quests** (decided 2026-10-12): a quest whose only item is destroyed is **failed** for good — it drops off the Tip Journal, May's hints and the Quest Board, and can never complete. Two can fail this way: Quest 40 (`EAT THYME`) and Quest 58 (`EAT SPRIG`) — items.md.
+
 ---
 
 ## Quest 1 — Quest Removed From Game
@@ -391,6 +393,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 
 **Discovery:** Quest Board — posted early, one of the first quests available. Shamus also mentions it wistfully in conversation (`TALK TO SHAMUS` — line in npcs.md, Shamus).
 **Prerequisites:** Bog thyme (Bog-SW, perception check) + small clay pot (Supply Room, Dungeon Upper Tier — visible in Trap 17 wreckage).
+**Can fail:** eating the bog thyme (`EAT THYME`) fails the quest for good — see Failed quests, above.
 
 **Steps:**
 1. Find bog thyme via perception check in Bog-SW.
@@ -673,7 +676,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 On success: *"Something small glows faintly under the nightstand — easy to miss, impossible to unsee once noticed. A sprig of something, tucked against the baseboard as if it rolled there and was forgotten."*
 Actually Enchanted Glasses auto-succeed. They can't be worn through the tower's main room (wearing them in Will's presence is an instant fail), so the player removes them before the mailbox and puts them back on in the bedroom — putting them on in the bedroom fires the check too. No Quest Board posting. No May hints.
 **Prerequisites:** Access to Will's Bedroom (hidden door revealed via Quest 53 perception check).
-**Missability:** Extremely high. Hard perception check, no hints anywhere, no cascade from any other quest except the glasses connection.
+**Missability:** Extremely high. Hard perception check, no hints anywhere, no cascade from any other quest except the glasses connection.  Eating the sprig (`EAT SPRIG`) fails the quest for good — see Failed quests, above.
 
 **Steps:**
 1. Pass perception check in Will's Bedroom (Very Hard; auto-pass with Actually Enchanted Glasses — put them on once inside the bedroom).

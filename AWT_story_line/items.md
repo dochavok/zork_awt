@@ -73,6 +73,7 @@ Required to make ranged (bow) attacks in combat. `SHOOT` equips it (mechanics.md
 **Parser names:** dragon-nip, sprig, nip
 **Examine:** *A small sprig, three narrow leaves on a woody stem, giving off a faint golden glow. It smells of smoke and something sweet.*
 **Quest use:** Quest 58 — give to Will Passion for the Golden Dragon Scale. Consumed (Will keeps it). Never explained.
+**Can be eaten** (decided 2026-10-12): `EAT SPRIG` (carried) — *The sprig crunches like toffee and tastes like a campfire. The glow fades from your fingers. It's possible that was important.* The sprig is gone and Quest 58 is failed (quests.md): the Golden Dragon Scale is missed. **Missable.**
 
 ---
 
@@ -751,6 +752,7 @@ Brotherhood weave, old but not worn. The runes along the hem and collar are fain
 **Room description:** *A clump of thyme grows on a dry hummock among the reeds, improbably green.*
 **Examine:** *Small grey-green leaves with a smell sharp enough to cut through the bog. Almost.*
 **Quest use:** Quest 40 (Shamus's Recipe) — deliver with clay pot to Shamus for hearty stew menu upgrade.
+**Can be eaten** (decided 2026-10-12): `EAT THYME` (carried) — *You eat the thyme. It's sharp enough to make your eyes water. Shamus would have done something better with it.* The thyme is gone and Quest 40 is failed (quests.md): no hearty stew. **Missable.**
 
 ---
 
@@ -783,7 +785,7 @@ All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 | **The Forgotten Blade** | The Fountain Room, Dungeon Lower Tier | 3 | 60 | Most valuable treasure in game; not a combat weapon, ceremonial only. Straight to the inventory from the soldier. Examine: *A ceremonial sword, long and narrow, the blade unmarked by any use. The hilt is wrapped in faded cloth that might once have been a colour.* |
 | **Diamond Brooch** | Magnetic Vault, Dungeon Mid-Tier | 1 | 45 | Second most valuable treasure in game |
 | **Funeral Mask of Hammered Gold** | Burial Chamber, Dungeon Lower Tier | 3 | 36 | **Missable** — once the ring is bound, the Spirit Room can't be crossed (locations.md — Spirit Room). Spirits do not react to taking it. Examine: *A face of hammered gold, serene and thin-lipped, eyes closed. Heavier than it looks, and cold, as if it has been waiting a long time to be picked up.* |
-| **Golden Dragon Scale** | Reward from returning dragon-nip to Will | 1 | 36 | Dragon-nip hidden under nightstand in Will's Bedroom. Inventory description: "golden dragon scale". Examine: *A single scale, larger than your palm and heavier than gold has any right to be. It catches the light like a mirror that's decided to be something else.* |
+| **Golden Dragon Scale** | Reward from returning dragon-nip to Will | 1 | 36 | **Missable** — never earned if the player eats the dragon-nip. Dragon-nip hidden under nightstand in Will's Bedroom. Inventory description: "golden dragon scale". Examine: *A single scale, larger than your palm and heavier than gold has any right to be. It catches the light like a mirror that's decided to be something else.* |
 | **Chachapoyan Fertility Idol** | Idol Room, Dungeon Upper Tier | 4 | 30 | Safe swap required (sack of salt); same weight as sack of salt. Examine: *A small stone figurine, squat and round-bellied, worn smooth by hands that weren't yours. A Chachapoyan Fertility Idol, if you had to guess.* |
 | **Gold Pocket Watch** | The Crevice, Dungeon Mid-Tier | 1 | 30 | **Missable** — permanently inaccessible after Stored Room collapses |
 | **Ship-in-a-Bottle** | Roundabout Pond (fishing rod + challenge roll) | 2 | 24 | Plain treasure — no quest, no May hint |

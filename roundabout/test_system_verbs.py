@@ -191,6 +191,36 @@ def test_every_bare_command_answers(verb):
         assert not silent, f"{verb} printed nothing"
 
 
+def _object_commands():
+    """One sentence per syntax rule that takes an object (todo.md TODO #9): the
+    rule's verb, particle and preposition, with a carried crowbar and torch."""
+    from content.syntax import make_syntax_rules
+    seen = []
+    for r in make_syntax_rules():
+        if r.obj1 is None:
+            continue
+        words = [r.verb] + ([r.particle] if r.particle else []) + ["crowbar"]
+        if r.obj2 is not None:
+            words += [r.prep, "torch"]
+        cmd = " ".join(words)
+        if cmd not in seen:
+            seen.append(cmd)
+    return seen
+
+
+@pytest.mark.parametrize("command", _object_commands())
+def test_every_command_with_an_object_answers(command):
+    # An action the parser accepts but nothing handles prints nothing at all —
+    # every rule's action needs a default line (mechanics.md — Parser Verbs).
+    w, g = _make_world()
+    _goto(w, "TOWN-SQUARE")
+    for name in ("CROWBAR", "TORCH"):
+        obj = w.objects[name]
+        obj.clear_flag("INVISIBLE")
+        w.move_object(obj, w.player)
+    assert _do(g, command).strip(), f"{command!r} printed nothing"
+
+
 # --- Removed words -------------------------------------------------------------
 
 @pytest.mark.parametrize("word", [

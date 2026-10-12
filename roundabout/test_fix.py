@@ -166,3 +166,55 @@ def test_turn_anything_else(verb):
 def test_shut_is_close():
     w, g = _at("KITCHEN")
     assert "You can't close that." in _do(g, "shut door")
+
+
+# --- POUR (mechanics.md — Parser Verbs). The holy water is on the ring's
+# critical path (the amulet): it's never used up anywhere but on the stake.
+
+@pytest.mark.parametrize("cmd", ["pour holy water", "pour holy water on statue", "spill holy water",
+                                 "drink holy water", "eat holy water", "throw holy water at statue"])
+def test_the_holy_water_is_never_wasted(cmd):
+    w, g = _at("TOWN-SQUARE", "HOLY-WATER", "SILVER-STAKE")
+    _do(g, cmd)
+    assert w.objects["HOLY-WATER"].location is w.player
+    assert not w.get_global("STAKE-CONSECRATED")
+
+
+def test_pour_anything_else():
+    w, g = _at("TOWN-SQUARE", "CROWBAR", "TORCH")
+    assert "You can't pour that." in _do(g, "pour crowbar")
+    assert "You can't pour that." in _do(g, "spill crowbar on torch")
+
+
+# --- PROP and MIX (mechanics.md — Parser Verbs) ---------------------------------
+
+from content.verbs import _ALREADY_HOLDING, _NOTHING_TO_PROP_WITH, _NOTHING_NEEDS_PROPPING
+
+
+def test_prop_the_portcullis_is_use_bar():
+    from content import shrine_path
+    w, g = _at("PORTCULLIS-CORRIDOR", "PORTCULLIS-BAR")
+    w.set_global("PORTCULLIS-HELD", w.moves)          # just lifted
+    _do(g, "prop portcullis with bar")
+    assert shrine_path._state(w) == "propped"
+    assert "It's already propped open." in _do(g, "prop portcullis")
+
+
+def test_prop_without_the_tool():
+    w, g = _at("PORTCULLIS-CORRIDOR")
+    assert _NOTHING_TO_PROP_WITH in _do(g, "prop portcullis")
+    w, g = _at("COLLAPSED-GALLERY")
+    assert _NOTHING_TO_PROP_WITH in _do(g, "prop passage")
+
+
+def test_prop_the_gallery_once_propped():
+    w, g = _at("COLLAPSED-GALLERY")
+    w.set_global("TIMBERS-CLEARED", True)
+    assert _ALREADY_HOLDING in _do(g, "prop passage")
+
+
+def test_prop_and_mix_anything_else():
+    w, g = _at("TOWN-SQUARE", "CROWBAR")
+    assert _NOTHING_NEEDS_PROPPING in _do(g, "prop crowbar")
+    for verb in ("mix", "knead"):
+        assert "You can't mix that." in _do(g, f"{verb} crowbar")

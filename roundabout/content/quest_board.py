@@ -92,7 +92,7 @@ def notices(w: World) -> list[str]:
     removed = w.globals.get("BOARD-REMOVED", [])
     posted = _posted(w)
     return [q for q in sorted(posted, key=lambda q: posted[q])
-            if q not in removed and not quests.is_complete(w, q)]
+            if q not in removed and not quests.is_complete(w, q) and not quests.is_failed(w, q)]
 
 
 def read(w: World) -> None:

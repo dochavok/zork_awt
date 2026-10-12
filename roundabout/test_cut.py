@@ -174,3 +174,118 @@ def test_throw_at_anything_keeps_it(target):
     _give(w, "CROWBAR")
     assert "You'd rather keep hold of the crowbar." in _do(g, f"throw crowbar at {target}")
     assert w.objects["CROWBAR"].location is w.player
+
+
+# --- DESTROY / BREAK / SMASH / CHOP (mechanics.md — Parser Verbs) ---------------
+
+def test_smash_an_enemy_is_an_attack():
+    w, g = _at("BACK-ALLEY", "MUGGER-SPOTTED")
+    mugger = w.objects["MUGGER"]
+    mugger.clear_flag("INVISIBLE")
+    w.move_object(mugger, w.here)
+    seen = []
+    with patch("content.verbs._fight", lambda world, obj: seen.append((world.prsa, obj.name))):
+        _do(g, "smash mugger")
+    assert seen == [("V-MELEE", "MUGGER")]
+
+
+@pytest.mark.parametrize("verb", ["destroy", "break", "smash", "chop", "damage"])
+def test_break_an_npc_and_a_thing(verb):
+    w, g = _at("BAR")
+    _give(w, "CROWBAR")
+    assert "May wouldn't appreciate that." in _do(g, f"{verb} may")
+    assert "Nice try." in _do(g, f"{verb} crowbar")
+
+
+def test_break_the_ice():
+    from content.verbs import _ICE_WINS
+    w, g = _at("FOUNTAIN-ROOM")
+    assert _ICE_WINS in _do(g, "break ice")
+    assert w.objects["ICE-BLOCK"].location is w.here
+
+
+# --- DRIVE (mechanics.md — Parser Verbs) ----------------------------------------
+
+def test_drive_stake_with_no_werewolf():
+    from content.verbs import _NO_STAKE_TARGET
+    w, g = _at("TOWN-SQUARE")
+    _give(w, "SILVER-STAKE")
+    _give(w, "CROWBAR")
+    assert _NO_STAKE_TARGET in _do(g, "drive stake")
+    assert "You can't drive the crowbar into anything." in _do(g, "drive crowbar")
+
+
+def test_drive_into_an_npc():
+    w, g = _at("BAR")
+    _give(w, "SILVER-STAKE")
+    assert "May wouldn't appreciate that." in _do(g, "drive stake into may")
+
+
+def test_drive_something_else_into_the_werewolf_is_an_attack():
+    w, g = _at("STILL-DEN")
+    _give(w, "CROWBAR")
+    seen = []
+    with patch("content.verbs._fight",
+               lambda world, obj: seen.append((world.prsa, obj.name, world.prsi.name))):
+        _do(g, "drive crowbar into werewolf")
+    assert seen == [("V-MELEE", "WEREWOLF", "CROWBAR")]
+
+
+# --- EAT (mechanics.md — Parser Verbs) ------------------------------------------
+
+@pytest.mark.parametrize("verb", ["eat", "consume", "taste", "bite"])
+def test_eat_an_npc_and_a_thing(verb):
+    w, g = _at("BAR")
+    _give(w, "CROWBAR")
+    assert "May wouldn't appreciate that." in _do(g, f"{verb} may")
+    assert "I don't think that the crowbar would agree with you." in _do(g, f"{verb} crowbar")
+    assert w.objects["CROWBAR"].location is w.player
+
+
+def test_eat_honey_on_the_floor():
+    w, g = _at("TOWN-SQUARE")
+    honey = w.objects["ENCHANTED-HONEY"]
+    honey.clear_flag("INVISIBLE")
+    w.move_object(honey, w.here)
+    assert "You'd have to pick it up first." in _do(g, "eat honey")
+    assert honey.location is w.here
+
+
+# --- Eating a quest's only item fails the quest (quests.md — Failed quests) -----
+
+@pytest.mark.parametrize("item,word,quest,line", [
+    ("BOG-THYME", "thyme", "40", "Shamus would have done something better with it."),
+    ("DRAGON-NIP", "sprig", "58", "It's possible that was important."),
+])
+def test_eating_the_only_item_fails_the_quest(item, word, quest, line):
+    from content import quests
+    w, g = _at("TOWN-SQUARE")
+    quests.discover(w, quest)
+    _give(w, item)
+    assert line in _do(g, f"eat {word}")
+    assert w.objects[item].location is None
+    assert quests.is_failed(w, quest)
+    quests.complete(w, quest)                         # can never complete now
+    assert quests.is_failed(w, quest)
+    assert quest not in quests.active_quest_ids(w)
+
+
+def test_a_failed_quest_leaves_the_journal_and_the_board():
+    from content import quests, journal, quest_board
+    w, g = _at("KITCHEN")
+    quest_board.post(w, "40")
+    quests.discover(w, "40")
+    assert "40" in quest_board.notices(w)
+    _give(w, "BOG-THYME")
+    _do(g, "eat thyme")
+    assert "40" not in quest_board.notices(w)
+    assert all(q != "40" for q, _s in journal._entries(w))
+
+
+def test_eating_them_off_the_floor_needs_them_in_hand():
+    w, g = _at("TOWN-SQUARE")
+    thyme = w.objects["BOG-THYME"]
+    thyme.clear_flag("INVISIBLE")
+    w.move_object(thyme, w.here)
+    assert "You'd have to pick it up first." in _do(g, "eat thyme")
+    assert thyme.location is w.here
