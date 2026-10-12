@@ -534,7 +534,10 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 - **`LOAD STONE ONTO CART`:** *You tip the gravestone up out of the mud and walk it, corner by corner, onto the cart. The axle complains. The bog lets go of the stone with a sound you'd rather not have heard. The gravestone is loaded.*
 - **`UNLOAD STONE` at the Graveyard:** *You wheel the cart to the empty plot — a rectangle of disturbed earth with a broken stub of mortar at its head — and tip the gravestone back into place. It settles as if it remembers the spot. You leave the cart beside it; it's done its job.* Stone fixed in place; cart dropped.
 - **`UNLOAD STONE` anywhere else:** *You tip the gravestone off the cart. It lands face-down, which seems to be its preference.* Stone stays in that room; `LOAD` works again.
-- **Synonyms:** `UNLOAD STONE` / `UNLOAD GRAVESTONE` / `UNLOAD CART` / `UNLOAD STONE FROM CART` / `PUT STONE ON GRAVE` / `PLACE STONE` / `SET STONE` / `RETURN STONE` / `DROP STONE` / `DROP GRAVESTONE`.
+- **After the stone is back at the Graveyard, `LOAD` / `PUT STONE`:** *The gravestone is fixed in place.*
+- **Load synonyms** (decided 2026-10-12): `LOAD STONE` / `LOAD STONE ONTO CART` / `PUT STONE IN CART` / `PUT STONE ON CART` / `PLACE STONE IN CART` — same text and refusals as `LOAD`. `PUT STONE` / `PLACE STONE` alone unloads while the stone is on the cart and loads it otherwise.
+- **`PUT <anything else> IN CART`:** *The cart's for the gravestone.*
+- **Unload synonyms:** `UNLOAD STONE` / `UNLOAD GRAVESTONE` / `UNLOAD CART` / `UNLOAD STONE FROM CART` / `PUT STONE ON GRAVE` / `PLACE STONE` / `SET STONE` / `RETURN STONE` / `DROP STONE` / `DROP GRAVESTONE`.
 
 ---
 

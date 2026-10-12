@@ -157,6 +157,9 @@ def load(w: World) -> None:
     if stone.location is cart:
         print("It's already on the cart.")
         return
+    if w.get_global("GRAVESTONE-RETURNED"):
+        print("The gravestone is fixed in place.")
+        return
     if stone.location is not w.here:
         print("There's nothing here to load.")
         return

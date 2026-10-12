@@ -219,6 +219,10 @@ def v_place(world: World) -> int:
         from content import aqueduct
         aqueduct.place_blocks(world)
         return M_HANDLED
+    if world.prso is not None and world.prso.name == "GRAVESTONE":   # PUT STONE, not loaded
+        from content import gravestone
+        gravestone.load(world)
+        return M_HANDLED
     return M_NOT_HANDLED
 
 
@@ -1353,6 +1357,26 @@ def v_read(world: World) -> int:
 
 
 # ---------------------------------------------------------------------------
+# V-PUT-IN  (PUT STONE IN CART). The Trophy Case takes its own PUT IN
+# (trophy_case.py); every other container refuses, so PUT IN is never silent.
+# ---------------------------------------------------------------------------
+
+def v_put_in(world: World) -> int:
+    item, target = world.prso, world.prsi
+    if item is None or target is None:
+        return M_NOT_HANDLED
+    if target.name == "HAND-CART":
+        if item.name == "GRAVESTONE":   # Quest 32 — same as LOAD STONE
+            from content import gravestone
+            gravestone.load(world)
+        else:
+            print("The cart's for the gravestone.")
+        return M_HANDLED
+    print(f"That won't fit in the {target.desc}.")
+    return M_HANDLED
+
+
+# ---------------------------------------------------------------------------
 # V-PUT-ON  (PUT METAL ON FORGE)
 # ---------------------------------------------------------------------------
 
@@ -1361,9 +1385,12 @@ def v_put_on(world: World) -> int:
     if item is None or target is None:
         return M_NOT_HANDLED
 
-    if item.name == "GRAVESTONE":   # PUT STONE ON GRAVE — Quest 32
+    if item.name == "GRAVESTONE":   # PUT STONE ON GRAVE / ON CART — Quest 32
         from content import gravestone
-        gravestone.unload(world)
+        if target.name == "HAND-CART":
+            gravestone.load(world)
+        else:
+            gravestone.unload(world)
         return M_HANDLED
 
     player = world.player
@@ -1452,7 +1479,8 @@ def read_slate(world: World) -> None:
     for name, price in _SHAMUS_PRICES.items():
         obj = world.objects[name]
         sold = name != "TORCH" and obj.location is not None
-        label = _slate_name(obj.desc) + " "
+        # He always sells a fresh torch, whatever state the player's is in
+        label = ("Torch" if name == "TORCH" else _slate_name(obj.desc)) + " "
         print(f"  {label:.<17} {'(sold)' if sold else f'{price} Zenni'}")
     print("Under that, smaller: Ask about the stew.")
     print("Under that, smaller still: No refunds.")
@@ -1991,6 +2019,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-LIGHT",      v_light)
     game.register_verb("V-TURN-ON",    v_turn_on)
     game.register_verb("V-LAMP-ON",    v_turn_on)
+    game.register_verb("V-PUT-IN",     v_put_in)
     game.register_verb("V-PUT-ON",     v_put_on)
     game.register_verb("V-READ",       v_read)
     game.register_verb("V-CLIMB",      v_climb)

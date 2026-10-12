@@ -59,6 +59,23 @@ def test_bought_items_are_sold_but_torch_stays():
     assert "  Torch ........... 3 Zenni" in out
 
 
+@pytest.mark.parametrize("drop_first", [True, False])
+def test_burnt_out_torch_still_reads_torch_and_he_sells_a_fresh_one(drop_first):
+    from content import light
+    w, g = _kitchen()
+    _do(g, "buy torch")
+    light._go_out(w)                                # burnt out
+    if drop_first:
+        _do(g, "drop torch")                        # back into his stock
+    out = _do(g, "read slate")
+    assert "  Torch ........... 3 Zenni" in out
+    assert "Burnt-out" not in out
+    _do(g, "buy torch")                             # a sale, or the swap
+    torch = w.objects["TORCH"]
+    assert torch in w.player.contents and torch.desc == "torch"
+    assert torch.has_flag("ONBIT") and light.turns_left(w) == light.TORCH_TURNS
+
+
 def test_talk_points_at_the_slate():
     w, g = _kitchen()
     out = _do(g, "talk to shamus")

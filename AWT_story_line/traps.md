@@ -66,7 +66,7 @@ Perception spots the plate; disarming means pressing it slowly from the side to 
 **33. Weight-Sensitive Pedestal**
 A **Chachapoyan Fertility Idol** sits on a pressure-sensitive pedestal in the upper tier.
 Removing it without replacing it with something of equal weight triggers a heavy stone door to slam shut behind the player — the north doorway only. The way south stays open, so the player can go and find the crowbar (Prayer Alcove) and come back: `PRY DOOR` with the crowbar, **Medium** strength check, retries allowed.
-Perception **Medium** (every visit until found) shows the pressure plate in the room description. The safe swap counts as the disarm: 5 XP (+5 Rogue).
+Perception **Medium** (every visit until found) shows the pressure plate in the room description; once the idol is gone, that line says whether the plate fired or the salt holds it, and the room description shows the slab across the north doorway until it is pried. The safe swap counts as the disarm: 5 XP (+5 Rogue).
 Text in locations.md (Idol Room).
 Safe swap requires placing a **sack of salt** (found in the supply room, described as "looks like it weighs as much as a Chachapoyan Fertility Idol") on the pedestal simultaneously with `SWAP IDOL WITH SALT`.
 The idol is treasure — not required for the ring quest.

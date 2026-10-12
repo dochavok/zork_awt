@@ -281,6 +281,40 @@ def test_trap33_plate_described_only_once_spotted(total, shown):
     assert (_IDOL_SPOTTED in out) is shown
 
 
+def test_trap33_plate_line_after_taking_idol_without_salt():
+    from content.upper_tier import _IDOL_SPOTTED, _PLATE_FIRED, _SLAB_DOWN
+    w, g = _world()
+    _arrive(w, g, "IDOL-ROOM", HIGH)                # plate spotted
+    _do(g, "take idol")
+    out = _do(g, "look")
+    assert _PLATE_FIRED in out and _SLAB_DOWN in out
+    assert _IDOL_SPOTTED not in out
+    assert "holds a figurine" not in out
+
+
+def test_trap33_plate_line_after_salt_swap():
+    from content.upper_tier import _IDOL_SPOTTED, _PLATE_SALTED, _SLAB_DOWN
+    w, g = _world()
+    _arrive(w, g, "IDOL-ROOM", HIGH)
+    _give(w, "SACK-OF-SALT")
+    _cmd(g, "swap idol with salt", HIGH)
+    out = _do(g, "look")
+    assert _PLATE_SALTED in out
+    assert _IDOL_SPOTTED not in out and _SLAB_DOWN not in out
+
+
+def test_trap33_slab_described_until_pried_even_if_plate_unseen():
+    from content.upper_tier import _PLATE_FIRED, _SLAB_DOWN
+    w, g = _world()
+    _arrive(w, g, "IDOL-ROOM", LOW)                 # plate never spotted
+    _do(g, "take idol")
+    out = _do(g, "look")
+    assert _SLAB_DOWN in out and _PLATE_FIRED not in out
+    _give(w, "CROWBAR")
+    _cmd(g, "pry slab", HIGH)
+    assert _SLAB_DOWN not in _do(g, "look")
+
+
 def test_trap33_idol_without_swap_shuts_the_north_door():
     from content.upper_tier import SLAB_BLOCKS
     w, g = _world()

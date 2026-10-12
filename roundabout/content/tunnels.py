@@ -60,10 +60,10 @@ _SEAL_HAVE_CHARTER = "You remember something about a bridge in the town charter.
 
 _TOLL = (
     '"Toll," the Boggart says, holding out a hand without looking at it. "Two '
-    'hundred Zenni. Each way. Non-negotiable." He doesn\'t explain how he '
-    "arrived at the figure, and you get the impression he's never had to."
+    'hundred. Each way. Non-negotiable." He doesn\'t say two hundred of what, '
+    "and you get the impression he's never had to."
 )
-# The toll can't actually be paid
+# The toll can't actually be paid — he never says what the 200 are
 _PAY_REFUSED = (
     "He doesn't want your money. Whatever he wants 200 of, you don't have it."
 )

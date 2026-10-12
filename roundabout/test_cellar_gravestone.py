@@ -239,6 +239,59 @@ def test_unloading_at_the_graveyard_sets_it_and_leaves_the_cart():
     assert w.objects["GRAVESTONE"].location is w.rooms["GRAVEYARD"]   # fixed in place
 
 
+@pytest.mark.parametrize("command", [
+    "load stone", "put stone in cart", "put gravestone in cart", "put stone on cart",
+    "place stone in cart", "put stone",
+])
+@pytest.mark.parametrize("cart_held", [True, False])
+def test_put_stone_in_or_on_cart_loads_it(command, cart_held):
+    from content.gravestone import _LOADED
+    w, g = _stone_found()
+    cart = w.objects["HAND-CART"]
+    if cart_held:
+        _give(w, "HAND-CART")
+    else:
+        w.move_object(cart, w.here)
+    assert _LOADED in _do(g, command)
+    assert w.objects["GRAVESTONE"].location is cart
+
+
+@pytest.mark.parametrize("command,line", [
+    ("put stone", "You'll need something to put it on."),
+    ("put stone in cart", "You can't see any cart here!"),   # the parser answers
+])
+def test_put_stone_without_a_cart_is_refused(command, line):
+    w, g = _stone_found()
+    assert line in _do(g, command)
+    assert w.objects["GRAVESTONE"].location is w.rooms["BOG-SE"]
+
+
+def test_put_stone_alone_unloads_when_loaded():
+    from content.gravestone import _PLACED
+    w, g = _loaded()
+    _go(w, "GRAVEYARD")
+    assert _PLACED in _do(g, "put stone")
+    assert w.get_global("GRAVESTONE-RETURNED")
+
+
+@pytest.mark.parametrize("command", ["load stone", "put stone in cart", "put stone"])
+def test_returned_stone_cant_be_loaded_again(command):
+    w, g = _loaded()
+    _go(w, "GRAVEYARD")
+    _do(g, "unload stone")
+    _do(g, "take cart")
+    assert "The gravestone is fixed in place." in _do(g, command)
+    assert w.objects["GRAVESTONE"].location is w.rooms["GRAVEYARD"]
+
+
+def test_cart_takes_only_the_gravestone():
+    w, g = _stone_found()
+    _give(w, "HAND-CART")
+    _give(w, "CROWBAR")
+    assert "The cart's for the gravestone." in _do(g, "put crowbar in cart")
+    assert w.objects["CROWBAR"] in w.player.contents
+
+
 def _at_rowan(w):
     _go(w, "COUNCIL-CHAMBER")
 

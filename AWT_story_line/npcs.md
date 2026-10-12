@@ -365,7 +365,7 @@ Chalked on the slate, in a square, heavy hand:
 Under that, smaller: Ask about the stew.
 Under that, smaller still: No refunds.
 ```
-Anything already bought (except the torch, which he always has) shows as `(sold)` in place of its price.
+Anything already bought (except the torch, which he always has) shows as `(sold)` in place of its price. The torch line always reads `Torch`, even while the player's torch is burnt out — what he sells is always a fresh one (decided 2026-10-12).
 **Buying a weapon without Weapon Use** (a Mage or Rogue before Quest 54): the sale goes through, then *Shamus hands it over, then looks at the way you're holding it. "See the knight in the square before you swing that at anything."*
 His stock isn't on display — nothing in the Kitchen can be taken; `BUY X` there sells it (decided 2026-10-04). Buying an item the player already carries (not the torch — that's the exchange): *Shamus glances at the one you're holding. "You've already got one."* No charge.
 
@@ -802,7 +802,7 @@ Encased in magical ice in The Fountain Room (dungeon lower tier). Thawed by Ivor
 Claims squatter's rights on the bridge to the Dungeon Entrance. Charges extortionate toll. Gives no hints about what would satisfy him — gruff, legally creative, immovable. `GIVE CHARTER TO BOGGART` forces him out. Drops strongbox as he leaves. Permanently vacates after.
 Described in the Toll Bridge's room description (no separate presence line).
 
-**`TALK TO BOGGART`:** *"Toll," the Boggart says, holding out a hand without looking at it. "Two hundred Zenni. Each way. Non-negotiable." He doesn't explain how he arrived at the figure, and you get the impression he's never had to.* The toll can't actually be paid.
+**`TALK TO BOGGART`:** *"Toll," the Boggart says, holding out a hand without looking at it. "Two hundred. Each way. Non-negotiable." He doesn't say two hundred of what, and you get the impression he's never had to.* The toll can't actually be paid. He never names Zenni, so `PAY BOGGART` doesn't contradict him, and a player who has saved 200 Zenni (possible before the dungeon on a lucky seed) isn't cheated. (Decided 2026-10-12.)
 
 **`PAY BOGGART` (any attempt to pay):** *He doesn't want your money. Whatever he wants 200 of, you don't have it.*
 

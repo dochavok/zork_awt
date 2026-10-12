@@ -1374,7 +1374,7 @@ Final room before Graveyard Crypt entrance.
 A **Boggart** has claimed squatter's rights and charges an extortionate toll.
 Perception check (Medium; automatic with Actually Enchanted Glasses) reveals faded official seal — public property — triggering Quest 27 discovery and unlocking May's hint. Seal text: *Carved into the bridge's keystone, half worn away: the town's crest, and beneath it, PUBLIC PROPERTY.* If the player already has the town charter, it's followed by: *"You remember something about a bridge in the town charter."*
 `GIVE CHARTER TO BOGGART` forces him out; drops strongbox (Medium strength check to open; 10 Zenni). Bridge permanently free after. (Quest 27)
-The toll is 200 Zenni and can't actually be paid — the charter is the only way past him.
+The toll is 200 — of something he never names — and can't actually be paid; the charter is the only way past him.
 - **Trying to pass him:** *The Boggart doesn't move. Neither, it turns out, can you.*
 - **Strongbox opened:** *You get your fingers under the lid and heave. It gives with a shriek of rusted hinges. Inside: 10 Zenni. You pocket them.*
 - **Strongbox stuck:** *The lid doesn't budge. Whatever's holding it shut is stronger than you are, for now.*
@@ -1471,6 +1471,12 @@ South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a press
 *The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level.*
 *At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake.*
 *The pedestal has a pressure plate built into its surface — the figurine's weight is the only thing keeping it inactive.*
+
+**Pressure plate line once the idol is gone** (shown only once the plate has been spotted, in place of the line above; decided 2026-10-12):
+- Taken without the salt (the plate has fired): *The pressure plate in the pedestal's surface has sunk flush. Whatever it was waiting for, it's had it.*
+- Swapped for the salt: *The pedestal has a pressure plate built into its surface — the salt's weight is holding it down now.*
+
+**Slab line** (every player, after the plate line, while the slab is down; gone once pried): *A stone slab fills the north doorway.*
 
 ### Storage Area
 **XP: 1**

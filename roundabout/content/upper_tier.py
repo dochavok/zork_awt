@@ -158,6 +158,15 @@ _IDOL_SPOTTED = (
     "The pedestal has a pressure plate built into its surface — the figurine's "
     "weight is the only thing keeping it inactive."
 )
+_PLATE_FIRED = (
+    "The pressure plate in the pedestal's surface has sunk flush. Whatever it "
+    "was waiting for, it's had it."
+)
+_PLATE_SALTED = (
+    "The pedestal has a pressure plate built into its surface — the salt's "
+    "weight is holding it down now."
+)
+_SLAB_DOWN = "A stone slab fills the north doorway."
 _SWAPPED = (
     "You set the sack of salt on the pedestal and lift the idol away in the same "
     "motion. The pedestal doesn't so much as twitch."
@@ -196,7 +205,14 @@ def idol_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         centre = _CENTRE_IDOL if _idol_on_pedestal(w) else _CENTRE_EMPTY
         print(_IDOL_BASE.format(centre=centre))
         if w.get_global("IDOL-PLATE-SPOTTED"):
-            print(_IDOL_SPOTTED)
+            if _idol_on_pedestal(w):
+                print(_IDOL_SPOTTED)
+            elif w.get_global("IDOL-SWAPPED"):
+                print(_PLATE_SALTED)
+            else:
+                print(_PLATE_FIRED)
+        if w.get_global("IDOL-DOOR-SHUT"):
+            print(_SLAB_DOWN)
         return M_HANDLED
     return M_NOT_HANDLED
 

@@ -1254,7 +1254,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `SWAP IDOL WITH SALT` | Trap 33 — safe pedestal swap in Idol Room |
 | `CLEAR BONES` | Trap 36 — disarms Bone Crunch Floor Room |
 | `CLEAR DRAIN` | Quest 25 — unclogs cellar drain after cover removed |
-| `LOAD STONE ONTO CART` | Quest 32 — loads gravestone onto hand cart |
+| `LOAD STONE ONTO CART` (also `LOAD STONE` / `PUT STONE IN CART` / `PUT STONE ON CART` / `PLACE STONE IN CART`; plain `PUT STONE` when the stone isn't on the cart) | Quest 32 — loads gravestone onto hand cart |
 | `UNLOAD STONE` (also `UNLOAD GRAVESTONE` / `UNLOAD CART` / `UNLOAD STONE FROM CART` / `PUT STONE ON GRAVE` / `PLACE STONE` / `SET STONE` / `RETURN STONE` / `DROP STONE`) | Quest 32 — at the Graveyard, sets the gravestone back and leaves the cart |
 | `USE CROWBAR ON DRAIN` (also `PRY COVER` / `REMOVE COVER WITH CROWBAR`) | Quest 25 — removes the cellar drain cover from the Kitchen top step |
 | `JUMP ON PLATE` | Trap 29 — intentionally triggers Warden bell; opens the Creature Den door |
@@ -1294,6 +1294,7 @@ Haalvar's riddle still takes `ANSWER` / `SAY` / `REPLY <answer>` (read from the 
 Every other command the parser knows answers with something (test_system_verbs guard).
 | `OPEN CASE` / `CLOSE CASE` | Trophy Case in The Tower — case must be open to place items |
 | `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` | Trophy Case — places treasure permanently; case must be open |
+| `PUT <ITEM> IN <anything else>` | Refused: *That won't fit in the [container].* (the hand cart takes only the gravestone — items.md). Decided 2026-10-12 |
 | `LOOK IN CASE` / `EXAMINE CASE` | Trophy Case — lists contents and count; visible through glass whether open or closed |
 | `TAKE <ITEM> FROM CASE` | Trophy Case — always refused: *"That belongs to Roundabout now."* |
 
@@ -1360,6 +1361,7 @@ All Roundabout commands mapped to their canonical verb. Use this as the spec for
 | `SWAP IDOL WITH SALT` | `swap` | `trade`, `exchange` | `V-SWAP` |
 | `CLEAR BONES` / `CLEAR DRAIN` | `clear` | — | `V-CLEAR` |
 | `LOAD STONE ONTO CART` | `load` | — | `V-LOAD` |
+| `PUT STONE IN CART` / `PUT STONE ON CART` | `put` | `place` | `V-PUT-IN` / `V-PUT-ON` (same as `LOAD`); plain `PUT STONE` goes to `V-PLACE` |
 | `PRY DOOR` | `pry` | `lever`, `jimmy` | `V-PRY` |
 | `USE PORTCULLIS BAR` | `use` | — | `V-USE` |
 | `PUT BAR UNDER PORTCULLIS` | `put` | `place`, `stuff`, `insert`, `hide` | `V-USE` (prep `under`; plain `PUT BAR` goes to `V-DROP`, which props a held portcullis) |
