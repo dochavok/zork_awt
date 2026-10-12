@@ -1,19 +1,9 @@
 # Roundabout: The God-Forsaken Ring — Open Design Questions
 
 Consolidated from all source files. Update this file when items are resolved; record the resolution and the source file where it was written.
-Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9).
+Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13).
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
-
----
-
-### TODO #13 — Rules that only look in the room (found 2026-10-12)
-
-**Resolved 2026-10-12:** every rule now accepts carried items; the existing lines answer (mechanics.md — Parser Verbs, Carried or here). `PUT [thing]` on the floor: *You aren't holding the [thing].* The guard test runs every object rule carried and on the floor.
-
-Some rules only look at the room (`_og_ir`), so naming a carried item gives "You can't see any X here!" — fixed for `CROSS`, `HOLD NEAR`, `SEAL`, `SWING`, `THROW`, `TIP`; still so for `ATTACK` / `KILL` / `STAB` / `SHOOT`, `EXORCISE`, `DISARM`, `JUMP ON`, `WALK` (and `TALK` / `PAY` / `CHALLENGE` / `GIVE … TO`, where wanting a person here is reasonable).
-
-For each: should a carried item be accepted (most should — then the action needs a sensible line for it), or is "not here" the right answer (a person to talk to, pay or challenge)? Then widen the rule's locations and extend the guard test to cover held objects.
 
 ---
 
