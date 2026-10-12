@@ -28,7 +28,7 @@ if TYPE_CHECKING:
     from engine.world import World
 
 WARDEN_HEARTS = 5
-WARDEN_DICE = (2, 10)
+WARDEN_DICE = (3, 10)   # raised from 2d10 2026-10-12: it barely landed at Level 5
 
 _ROOM_BASE = (
     "A long, low room, wider than it is deep, the floor scarred and the walls "

@@ -199,8 +199,8 @@ Decided 2026-10-05. `EQUIP X` / `WIELD X` takes up the bow, the Dagger, the Mace
 | Back Alley Mugger | The Back Alley | 1 | 1d6 | 2 | Early game; winnable at Level 1 but not trivial |
 | Aylora | The Fire Pit, Viking Encampment | 2 | 2d6 | 3 | Strength challenge, best of five rounds; retryable |
 | Afflicted Apprentice | Lost Apprentice's Cell, mid-tier trap side | 3 | 2d8 | 3 | Missable; player may arrive at low level via Flooding Room |
-| The Warden | Combat Room, Dungeon Upper Tier | 4 | 2d10 | 5 | One-time fight; monstrous, former dungeon guardian |
-| Undead Werewolf | The Still Den, Dungeon Lower Tier | 5 | 3d10 | — | Cannot be harmed by conventional weapons; stake kill only — see Undead Werewolf Chain |
+| The Warden | Combat Room, Dungeon Upper Tier | 4 | 3d10 | 5 | One-time fight; monstrous, former dungeon guardian. Raised from 2d10 (2026-10-12): at Level 5, where both walkthroughs meet him, 2d10 cost ~0.2 hearts a fight; 3d10 costs ~1.5 (3+ in ~1 fight in 5). A critical-path player can arrive at Level 4 (~123 XP), where he is near-unbeatable (~7 hearts a fight) — flee (he resets) and come back at Level 5 |
+| Undead Werewolf | The Still Den, Dungeon Lower Tier | 5 | 3d20 | — | Cannot be harmed by conventional weapons; stake kill only — see Undead Werewolf Chain. Raised from 3d10 (2026-10-12): it landed on only ~20% of turns at Level 5 and ~1% at Level 8; 3d20 lands ~80% at Level 5, ~70% at 6, ~25% at 8 |
 
 ---
 

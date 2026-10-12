@@ -172,12 +172,14 @@ def _finishing_move(w: "World") -> bool:
     return True
 
 
-def defend(w: "World", dice: tuple[int, int], hit: str) -> None:
+def defend(w: "World", dice: tuple[int, int], hit: str) -> bool:
     """An enemy that can't be hurt this way (the werewolf): the roll, with every
-    bonus, only decides whether its blow lands."""
+    bonus, only decides whether its blow lands. True if it landed."""
     if _enemy_roll(dice) > player_roll(w):
         print(hit)
         take_damage(w, 1)
+        return True
+    return False
 
 
 # ---------------------------------------------------------------------------

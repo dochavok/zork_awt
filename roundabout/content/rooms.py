@@ -637,7 +637,7 @@ def _make_west_town(world) -> None:
     circle = room(
         "RITUAL-CIRCLE", "The Ritual Circle",
         "Five rune stones stand in a ring around a carved symbol in the earth: "
-        "Earth, Air, Fire, Water, and one marked with a heart. The ground "
+        "Air, Earth, Fire, Water, and one marked with a heart. The ground "
         "inside the ring is swept clean.",
     )
     fire_pit = room(

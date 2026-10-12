@@ -13,8 +13,9 @@ Chain), items.md (Werewolf's Amulet), experience.md (Trap 36: 3 XP; werewolf:
 - Still Den: three descriptions — first visit, werewolf up (every LOOK and
   every entry once it has risen, BRIEF or not), dead. It rises once, on the
   first entry. No combat round on an entry turn; every later turn there while
-  the werewolf lives is one round (it rolls 3d10 against the player; the
-  player takes 1 heart on a loss, the werewolf never takes damage).
+  the werewolf lives is one round (it rolls 3d20 against the player; the
+  player takes 1 heart on a loss, a won round gets a miss line, the werewolf
+  never takes damage).
   DRIVE STAKE INTO WEREWOLF with the consecrated stake kills it outright; the
   stake stays in the body and the amulet drops.
 - The Ivory Torch hangs on the Still Den wall (Quest 34); it's heat, not light.
@@ -33,7 +34,7 @@ from engine.world import Room, Exit, RLANDBIT
 if TYPE_CHECKING:
     from engine.world import World
 
-WEREWOLF_DICE = (3, 10)
+WEREWOLF_DICE = (3, 20)   # raised from 3d10 2026-10-12: it barely landed past Level 4
 
 _BONES = (
     "A low chamber, its floor carpeted wall to wall in dry bones — not scattered, "
@@ -91,6 +92,13 @@ _RISES = (
     "head toward you and starts forward."
 )
 _CLAWS = "The werewolf's claws find you."
+# A round the player wins, in turn (locations.md — The Still Den)
+_MISSES = (
+    "The werewolf lunges. You get clear — barely.",
+    "Claws rake the air where you were standing a moment ago.",
+    "It circles, feints, and comes in fast. You're not where it expected.",
+    "The werewolf's swipe catches nothing but the edge of your sleeve.",
+)
 _STAKE_HOME = (
     "You get inside its reach and drive the stake home. The sheen along the "
     "silver flares white."
@@ -200,7 +208,10 @@ def den_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 
 def _werewolf_round(w: World) -> None:
     from content import combat
-    combat.defend(w, WEREWOLF_DICE, _CLAWS)    # bonuses count; only the stake harms it
+    n = int(w.get_global("WEREWOLF-MISSES") or 0)
+    if not combat.defend(w, WEREWOLF_DICE, _CLAWS):   # bonuses count; only the stake harms it
+        print(_MISSES[n % len(_MISSES)])
+        w.set_global("WEREWOLF-MISSES", n + 1)
 
 
 def drive_stake(w: World) -> bool:

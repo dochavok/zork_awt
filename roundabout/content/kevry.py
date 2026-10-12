@@ -94,8 +94,9 @@ def enchant(w: World) -> None:
     g = _glasses(w)
     # Name: Actually Enchanted Glasses. Description (items.md):
     # "slightly glowing wire-rimmed glasses".
-    g.desc = "slightly glowing wire-rimmed glasses"
-    g.ldesc = "A pair of slightly glowing wire-rimmed glasses rests on the nightstand."
+    g.desc = "slightly glowing wire-rimmed glasses"   # the room line follows (objects._Glasses)
+    from content.objects import GLASSES_EXAMINE_ENCHANTED
+    g.examine = GLASSES_EXAMINE_ENCHANTED
     g.adjectives = ["wire-rimmed", "enchanted", "actually", "slightly", "glowing"]
     w.set_global("GLASSES-ENCHANTED", True)
     _set_glasses_state(w)

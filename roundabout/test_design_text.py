@@ -116,6 +116,8 @@ USED_BY_TESTS = [
     ("shrine_bowl", "_MIXED"),
     ("shrine_bowl", "_NO_WATER"),
     ("shrine_path", "_LIFT_FAILS"),
+    ("objects", "GLASSES_EXAMINE"),
+    ("objects", "GLASSES_EXAMINE_ENCHANTED"),
     ("shrine_path", "_PROPPED"),
     ("statue", "_PRIED"),
     ("still_den", "_BOW_FAILS"),

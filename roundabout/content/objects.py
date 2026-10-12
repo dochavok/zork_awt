@@ -11,6 +11,32 @@ from engine.world import (
 )
 
 
+# items.md — Enchanted Glasses. Kevry's enchantment swaps in the glowing one.
+GLASSES_EXAMINE = (
+    "Wire-rimmed glasses, the lenses a little smudged. They look perfectly ordinary."
+)
+GLASSES_EXAMINE_ENCHANTED = (
+    "Wire-rimmed glasses with a faint glow caught in the lenses, as if they've "
+    "just remembered something."
+)
+
+
+class _Glasses(GameObject):
+    """The room line follows where the glasses are: on the nightstand in
+    Will's Bedroom, plain anywhere else. desc carries "slightly glowing"."""
+
+    @property
+    def ldesc(self) -> str:
+        room = self.containing_room()
+        if room is not None and room.name == "WIZARDS-BEDROOM":
+            return f"A pair of {self.desc} rests on the nightstand."
+        return f"There is a pair of {self.desc} here."
+
+    @ldesc.setter
+    def ldesc(self, value: str) -> None:
+        pass   # derived — the dataclass init and save restore set it
+
+
 # npcs.md — Will Passion: Appearance. Shown on EXAMINE WILL.
 WILL_APPEARANCE = (
     "Will Passion sits with the unhurried stillness of a man who has "
@@ -109,14 +135,14 @@ def _make_tower_objects(world) -> None:
     _WEARABLE = "WEARABLE"
 
     # Enchanted Glasses — in bedroom, on nightstand
-    glasses = GameObject(
+    glasses = _Glasses(
         name="ENCHANTED-GLASSES",
         desc="wire-rimmed glasses",
         fdesc=(
             "A pair of wire-rimmed glasses sit on the nightstand. "
             "They look perfectly ordinary."
         ),
-        ldesc="A pair of wire-rimmed glasses rests on the nightstand.",
+        examine=GLASSES_EXAMINE,
         synonyms=["glasses", "spectacles", "specs"],
         adjectives=["wire-rimmed", "enchanted", "actually"],
         flags={TAKEBIT, _WEARABLE},

@@ -223,7 +223,7 @@ def test_gloves_count_in_the_warden_fight():
     w.move_object(w.objects["WARDEN"], w.here)
     hearts = w.globals["hearts"]
     with patch("content.player.roll", return_value=10), \
-         patch("content.combat.random.randint", lambda a, b: 6):    # 2d10 → 12
+         patch("content.combat.random.randint", lambda a, b: 4):    # 3d10 → 12
         combat_room.fight_round(w)
     assert w.globals["WARDEN-HEARTS"] == combat_room.WARDEN_HEARTS - 1   # 13 beats 12
     assert w.globals["hearts"] == hearts
@@ -325,7 +325,7 @@ def test_shot_miss_keeps_the_fights_line():
     warden = w.objects["WARDEN"]
     warden.flags.discard("INVISIBLE")
     w.move_object(warden, room)
-    out = _round(g, "shoot warden", 1, [10, 10])     # 6 against 20
+    out = _round(g, "shoot warden", 1, [10, 10, 10])  # 6 against 30
     assert combat_room._ROUND_LOST in out
 
 
@@ -338,8 +338,16 @@ def test_warden_hit_line_names_the_warden():
     warden = w.objects["WARDEN"]
     warden.flags.discard("INVISIBLE")
     w.move_object(warden, room)
-    out = _round(g, "shoot warden", 10, [1, 1])
+    out = _round(g, "shoot warden", 10, [1, 1, 1])
     assert "Your arrow finds its mark. The Warden staggers." in out
+
+
+def test_enemy_dice_match_the_stats_table():
+    # mechanics.md — Confirmed enemy stats (both raised 2026-10-12)
+    from content.combat_room import WARDEN_DICE
+    from content.still_den import WEREWOLF_DICE
+    assert WARDEN_DICE == (3, 10)
+    assert WEREWOLF_DICE == (3, 20)
 
 
 def test_kill_with_bow_is_a_shot():

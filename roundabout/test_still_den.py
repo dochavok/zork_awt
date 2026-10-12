@@ -93,6 +93,30 @@ def test_look_after_it_rises_shows_it_up_and_is_a_round():
     assert w.globals["hearts"] == 5
 
 
+MISSES = (
+    "The werewolf lunges. You get clear — barely.",
+    "Claws rake the air where you were standing a moment ago.",
+    "It circles, feints, and comes in fast. You're not where it expected.",
+    "The werewolf's swipe catches nothing but the edge of your sleeve.",
+)
+
+
+def test_a_won_round_still_shows_it_attacking_in_turn():
+    w, g = _pass()
+    _do(g, "east")
+    with patch("content.player.roll", return_value=99), \
+         patch("content.combat._enemy_roll", return_value=1):
+        outs = [_do(g, "wait") for _ in range(5)]
+    for out, line in zip(outs, MISSES + MISSES[:1]):
+        assert line in out and CLAWS not in out
+    assert w.globals["hearts"] == 6
+
+
+def test_werewolf_rolls_3d20():
+    from content.still_den import WEREWOLF_DICE
+    assert WEREWOLF_DICE == (3, 20)                 # mechanics.md — Confirmed enemy stats
+
+
 def test_return_visit_shows_it_up_in_brief_mode():
     from engine.game import BRIEF
     w, g = _pass()

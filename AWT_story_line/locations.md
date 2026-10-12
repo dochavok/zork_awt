@@ -790,7 +790,8 @@ North of The Encampment. **Haalvar** administers the trial. The hut contains a s
 **Items:** Five rune stones (Earth, Air, Fire, Water, Heart — in-room puzzle objects; not takeable)
 **Quest Hooks:** Viking Trial 2 — activate stones in correct order (Earth→Air→Fire→Water→Heart) to advance to Trial 3
 **Connections:** North → Viking Encampment.
-**Room description:** *Five rune stones stand in a ring around a carved symbol in the earth: Earth, Air, Fire, Water, and one marked with a heart. The ground inside the ring is swept clean.*
+**Room description:** *Five rune stones stand in a ring around a carved symbol in the earth: Air, Earth, Fire, Water, and one marked with a heart. The ground inside the ring is swept clean.*
+The four elemental stones are listed alphabetically so the room doesn't give away the order — the banner does. The heart stone stays last, the only hint that it goes last (decided 2026-10-12).
 
 South of The Encampment. An unnamed child administers the trial — he does not speak. Five rune stones arranged around a carved symbol: Earth, Air, Fire, Water, Heart.
 
@@ -1564,7 +1565,7 @@ South of Idol Room. Two squares wide on the map — the Creature Den is off its 
 **Plate:** at the north entrance; arriving unawares steps on it. Medium perception spots it — *Just inside the doorway, one flagstone sits a fraction higher than the rest — a pressure plate.* With Actually Enchanted Glasses it's revealed and the player chooses (`JUMP ON PLATE` / `DISARM PLATE`, Medium disarm); otherwise spotting it rolls the disarm automatically. Disarm: 3 XP.
 **Bell:** *Somewhere behind the heavy door, a bell rings — once, flat and loud. Something on the other side moves.*
 **The Warden emerges:** *The door at the east end grinds open. The thing that comes through it was a guard once — the scraps of a uniform still hang off it — but whatever it is now is mostly reach, teeth, and intent. The Warden.*
-**Warden (presence):** *The Warden stands between you and the open door, swaying, waiting for you to move.* One round per `KILL WARDEN` (2d10, 5 hearts); fleeing resets him to full hearts.
+**Warden (presence):** *The Warden stands between you and the open door, swaying, waiting for you to move.* One round per `KILL WARDEN` (3d10, 5 hearts); fleeing resets him to full hearts.
 **Rounds:** won — *You land a solid blow. The Warden staggers, and comes on anyway.* Lost — *The Warden's reach finds you. You take a hit.* Tie — *You trade blows. Both of you feel it.*
 **Warden dies:** *The Warden goes down hard and doesn't get up. Something rolls from its grip and clatters across the floor — a lantern, unlit, its glass faintly green.* A pressure plate in the corridor before this room rings a bell in the Creature Den — player hears the sound before entering.
 **The Warden** emerges: completely monstrous in appearance; standard combat; one-time fight.
@@ -2091,6 +2092,11 @@ Then the amulet's fall, so the player knows it's there: *Something slips loose f
 **`EXAMINE SCHOLAR`** (after the kill): *Just a man, thin and tired-looking, ink still worked into the creases of his fingers. The stake is still in him. Whatever he came down here to find, he found it.*
 
 **Combat rounds:** no round on the entry turn. Every later turn in the room while the werewolf lives is one round (mechanics.md — Undead Werewolf Chain); a lost round: *The werewolf's claws find you.* (1 heart). The player can leave west; it doesn't follow.
+A won round still shows it attacking — one of these, in turn (decided 2026-10-12; before this a won round printed nothing, so it looked like it wasn't attacking):
+- *The werewolf lunges. You get clear — barely.*
+- *Claws rake the air where you were standing a moment ago.*
+- *It circles, feints, and comes in fast. You're not where it expected.*
+- *The werewolf's swipe catches nothing but the edge of your sleeve.*
 
 - **`DRIVE STAKE INTO WEREWOLF` (consecrated):** *You get inside its reach and drive the stake home. The sheen along the silver flares white.* — then the death/reversion text. The stake stays in the body (leaves the inventory). 15 XP (Warrior +10).
 - **Amulet room line (on the floor):** *A tarnished amulet lies beside the scholar, a seven-pointed star on its face.*

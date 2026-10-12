@@ -52,6 +52,9 @@ Required to make ranged (bow) attacks in combat. `SHOOT` equips it (mechanics.md
 **Inventory description (regular):** "wire-rimmed glasses"
 **Inventory description (enchanted):** "slightly glowing wire-rimmed glasses"
 **In Will's Bedroom after DROP:** "a pair of wire-rimmed glasses rests on the nightstand" (or "slightly glowing" if enchanted)
+**Lying anywhere else** (decided 2026-10-12): *There is a pair of wire-rimmed glasses here.* (or *There is a pair of slightly glowing wire-rimmed glasses here.* if enchanted)
+**Examine (regular):** *Wire-rimmed glasses, the lenses a little smudged. They look perfectly ordinary.*
+**Examine (enchanted):** *Wire-rimmed glasses with a faint glow caught in the lenses, as if they've just remembered something.*
 
 - Enchanted Glasses: small bonus to perception checks.
 - Actually Enchanted Glasses: pass all perception checks automatically — no roll required.
