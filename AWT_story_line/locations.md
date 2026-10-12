@@ -2214,7 +2214,14 @@ Magical darkness fills the passage ahead. Hard block without Guardian's Lantern.
 **Ring on:** *The attention in the room drops all at once — not gradually, immediately. The shapes drift back to their own patterns. They have forgotten you entirely.*
 
 **Built (2026-10-04):**
-- Both exits are blocked while the player is visible. The ring is only consumed in the rituals, which end the game, so this can't strand anyone. Ink (Trap 45) cancels the ring here as it does in the Chuckle House.
+- Both exits are blocked while the player is visible. Ink (Trap 45) cancels the ring here as it does in the Chuckle House.
+- **Trapped — GAME OVER (decided 2026-10-12):** being visible here is only safe while putting the ring on would work. At the end of any turn in the room (the entry turn included) where the player is visible and can't turn invisible, the game ends. The first reason that applies, in the order the player would find it, is shown after the room description:
+  - No ring carried or on the floor here: *You reach for the ring. It isn't there.*
+  - Ring bound (Church of All binding): *You pull the ring out and try to slide it on. It stops at your knuckle and won't go further, like a door that's been shut from the other side. Whatever it used to do, it won't do it now.*
+  - Inked: *The ink on your skin holds you in plain sight. The ring could be the darkest thing in the world and it wouldn't matter now.*
+  - Then: *The shapes notice you, and keep noticing. They drift closer — not hurrying; there's nowhere you can go that they aren't already. The passage behind you is as far away as the one ahead. The last thing you feel is cold, and then not even that.* — GAME OVER.
+  - Before this, a player entering with a bound ring, inked, or without the ring was stuck with no way out. A working ring carried but not worn is safe: put it on.
+  - Consequence: binding the ring before taking the Funeral Mask makes the mask unreachable (items.md — Treasure Items).
 - **`REMOVE RING` here:** *The shapes stop drifting. One by one, they turn toward you.*
 - **`EXAMINE SPIRITS`** (also SHAPES): *Shapes, mostly. Sparse, irregular, never quite where you looked. Somewhere between six and nine of them; they won't hold still long enough to count.*
 - **Attacking them:** *Your weapon passes through the nearest shape without finding anything. It doesn't seem to mind. The others watch.*

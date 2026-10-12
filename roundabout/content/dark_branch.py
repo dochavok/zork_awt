@@ -13,6 +13,8 @@ System, Guardian's Lantern — Dark Room Interaction).
   Anywhere else the lantern only flickers.
 - Spirit Room: the spirits block both ways while the player is visible (the
   ring on, and not inked — as in the Chuckle House). They can't be harmed.
+  Visible there with no way to turn invisible (no ring, bound ring, inked):
+  GAME OVER at the end of the turn.
 - Burial Chamber: the Funeral Mask on its plinth. The spirits don't react.
 
 State: LANTERN-HUNG, MASK-MOVED
@@ -84,6 +86,24 @@ _SPIRITS_EXAMINE = (
 )
 _SPIRITS_ATTACK = ("Your weapon passes through the nearest shape without finding "
                    "anything. It doesn't seem to mind. The others watch.")
+# Visible with no way to turn invisible: trapped. The first reason that applies,
+# in the order the player would find it, then the end.
+_TRAPPED_NO_RING = "You reach for the ring. It isn't there."
+_TRAPPED_BOUND = (
+    "You pull the ring out and try to slide it on. It stops at your knuckle and won't "
+    "go further, like a door that's been shut from the other side. Whatever it used "
+    "to do, it won't do it now."
+)
+_TRAPPED_INKED = (
+    "The ink on your skin holds you in plain sight. The ring could be the darkest "
+    "thing in the world and it wouldn't matter now."
+)
+_TRAPPED_END = (
+    "The shapes notice you, and keep noticing. They drift closer — not hurrying; "
+    "there's nowhere you can go that they aren't already. The passage behind you is "
+    "as far away as the one ahead. The last thing you feel is cold, and then not "
+    "even that."
+)
 
 # --- Burial Chamber -----------------------------------------------------------
 
@@ -186,7 +206,31 @@ def spirit_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         elif sees and saw is False:
             print(_RING_OFF)
         w.set_global("SPIRITS-SAW", None)
+        reason = _trapped(w)
+        if reason and not w.get_global("GAME-OVER"):
+            print(reason)
+            print(_TRAPPED_END + "\n\n*** GAME OVER ***")
+            w.set_global("GAME-OVER", True)
+            w.game.quit()
     return M_NOT_HANDLED
+
+
+def _trapped(w: World) -> str | None:
+    """Visible here with no way to turn invisible: why, or None. A working
+    ring carried (or on the floor here) means the player can still put it on."""
+    if not _visible(w):
+        return None
+    ring = w.objects["RING"]
+    loc = ring.location
+    while loc is not None and loc is not w.player and loc is not w.here:
+        loc = getattr(loc, "location", None)
+    if loc is None:
+        return _TRAPPED_NO_RING
+    if w.globals.get("ring_bound"):
+        return _TRAPPED_BOUND
+    if w.get_global("INKED"):
+        return _TRAPPED_INKED
+    return None
 
 
 def burial_chamber_action(w: World, msg: int = M_NOT_HANDLED) -> int:
