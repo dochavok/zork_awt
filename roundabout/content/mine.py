@@ -40,6 +40,7 @@ _BOOM = (
 )
 _CAUGHT_INSIDE = "The mine finds its weak point. So does the ceiling above you."
 _BURIED = "The way down is buried under the collapse."
+_BURIED_UP = "The way up is buried under the collapse."
 _FUSE_BURNING = "The fuse is already hissing. Leaving would be a better use of your time."
 _LIT_TAKE = "Only a madman (or a Pie Rat) would pick that up!"
 
@@ -151,10 +152,14 @@ def _explode(w: World) -> bool:
 # ---------------------------------------------------------------------------
 
 def sealed_check(w: World, room: Room):
-    """Walk check: nothing goes down past the Mine Entrance once it's blown."""
-    if (w.get_global("MINE-BLOWN") and room.name == "MAIN-SHAFT"
-            and w.here is not None and w.here.name == "MINE-ENTRANCE"):
+    """Walk check: once it's blown, nothing passes between the Mine Entrance and the
+    Main Shaft — the way out is the way in, through the Hidden Secondary Entrance."""
+    if not w.get_global("MINE-BLOWN") or w.here is None:
+        return None
+    if room.name == "MAIN-SHAFT" and w.here.name == "MINE-ENTRANCE":
         return _BURIED
+    if room.name == "MINE-ENTRANCE" and w.here.name == "MAIN-SHAFT":
+        return _BURIED_UP
     return None
 
 

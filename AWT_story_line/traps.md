@@ -51,6 +51,7 @@ Three ways to pass:
 A **Portcullis Bar** is found in the dungeon supply room — no perception check needed there.
 Once the portcullis is lifted, `USE PORTCULLIS BAR` props it open permanently.
 Without the bar, the portcullis drops when released.
+It blocks the corridor from both sides: coming up from the Shrine Room by the Quest 38 shortcut, the way north is shut until it's propped (locations.md — Portcullis Corridor, Either side).
 *(Portcullis Corridor, upper tier.)*
 
 **29. Pressure Plate — Bell**

@@ -1049,7 +1049,7 @@ Pie Rats Mining Inc. — underground beneath Roundabout Forest. Legitimate minin
 **Items:** None
 **Quest Hooks:** None
 **Connections:** Up → Roundabout Forest. Down → Main Shaft.
-Forest floor entrance to Pie Rats Mining Inc. Sealed permanently after the cave-in explosion — Down is inaccessible post-explosion; Hidden Secondary Entrance remains the only way in.
+Forest floor entrance to Pie Rats Mining Inc. Sealed permanently after the cave-in explosion — Down is inaccessible post-explosion, and so is Up from the Main Shaft; Hidden Secondary Entrance remains the only way in or out.
 
 *The entrance to Pie Rats Mining Inc. is a ragged wound in the earth, shored up with timber and optimism. A sign above the opening reads: PIE RATS MINING INC. — AUTHORIZED PERSONNEL ONLY. Someone has added, in different handwriting: THIS MEANS YOU. In another hand: ME? And beneath that, in the first handwriting: NO, NOT YOU SLOTH.*
 
@@ -1062,7 +1062,8 @@ Forest floor entrance to Pie Rats Mining Inc. Sealed permanently after the cave-
 **NPCs:** None
 **Items:** Pickaxe (mining equipment; used for Quest 38 — clearing Collapsed Gallery timbers)
 **Quest Hooks:** Quest 38
-**Connections:** Up → Mine Entrance. South → Assay Room. Down → Mine Tunnels.
+**Connections:** Up → Mine Entrance (buried after the cave-in). South → Assay Room. Down → Mine Tunnels.
+**`UP` after the cave-in** (decided 2026-10-12): *The way up is buried under the collapse.* The way out is back through the Assay Room and the Hidden Secondary Entrance — anyone in the mine after the explosion came in that way.
 Central spine of the mine. Contains a pickaxe — mining equipment, obvious and takeable.
 
 *The main shaft drops away from the entrance in a single rough-cut passage, wide enough for two men and a cart. Timber supports run at intervals — functional, not decorative. The smell of rock dust and old torchsmoke is thick here.*
@@ -1620,7 +1621,7 @@ South of Combat Room. A low stone alcove — looks like a dead end until examine
 **NPCs:** None
 **Items:** None (portcullis bar brought from Supply Room props it permanently open)
 **Quest Hooks:** Quest 19 — portcullis bar required
-**Connections:** North → Prayer Alcove. South → Shrine Room.
+**Connections:** North → Prayer Alcove. South → Shrine Room. (Until propped, the portcullis blocks whichever way you didn't come in.)
 South of Prayer Alcove. A metal portcullis blocks the corridor, carrying an arcane charge.
 Touching without disarming: 1 heart lightning damage, stunned one turn.
 Three ways through: (1) perception spots charge and discharge mechanism; (2) disarm check discharges safely; (3) strength check lifts — only after discharge.
@@ -1630,6 +1631,7 @@ Portcullis Bar from Supply Room props it permanently open. Without the bar it dr
 - **Shock** (touching/lifting while charged — 1 heart, lose a turn): *Your hands close on the bars and the charge goes through you — a white snap, a smell like a struck match. When you can think again, you're on the floor.*
 - **Lift:** *You get under the portcullis and heave. It rises, grinding, until it's head-high — and stays there only as long as you hold it.* Fails: *You strain against the portcullis. It shifts an inch and settles back.*
 - **Let go:** *You let go. The portcullis slams back down.* **Propped:** *You wedge the iron bar under the portcullis. It takes the weight with a groan and holds. The way south is open.* **Blocked:** *The portcullis is down.*
+- **Either side** (decided 2026-10-12): the portcullis is halfway along, so you're on the side you came in from — north from the Prayer Alcove, south from the Shrine Room (the Quest 38 shortcut, up from the Rickety Bridge). Until it's propped, only the way back is open; the far side is *The portcullis is down.* Lifting, the shock, Trap 19 and the bar work the same from either side. Propped from the south side: *You wedge the iron bar under the portcullis. It takes the weight with a groan and holds. The way north is open.* (A save from before this has no side recorded and counts as the north side.)
 
 ### Shrine Room
 **XP: 1**

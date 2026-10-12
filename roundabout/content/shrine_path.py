@@ -63,6 +63,10 @@ _PROPPED = (
     "You wedge the iron bar under the portcullis. It takes the weight with a "
     "groan and holds. The way south is open."
 )
+_PROPPED_FROM_SOUTH = (
+    "You wedge the iron bar under the portcullis. It takes the weight with a "
+    "groan and holds. The way north is open."
+)
 _DOWN = "The portcullis is down."
 
 _SHRINE = (
@@ -218,13 +222,37 @@ def use_bar(w: World) -> bool:
     w.set_global("PORTCULLIS-HELD", None)
     w.set_global("PORTCULLIS", "propped")
     w.move_object(w.objects["PORTCULLIS-BAR"], None)   # stays in the portcullis
-    print(_PROPPED)
+    print(_PROPPED_FROM_SOUTH if _side(w) == "south" else _PROPPED)
     return True
 
 
-class _PortcullisExit(Exit):
+def _side(w: World) -> str:
+    """Which side of the portcullis the player is on: "north" (from the Prayer
+    Alcove) or "south" (from the Shrine Room, by the Quest 38 shortcut)."""
+    return w.get_global("PORTCULLIS-SIDE") or "north"
+
+
+class _IntoCorridor(Exit):
+    """Into the Portcullis Corridor: you arrive on the side you came from."""
+
     def resolve(self, world):
-        if _state(world) != "propped":
+        room, msg = super().resolve(world)
+        if room is not None:
+            from_south = world.here is not None and world.here.name == "SHRINE-ROOM"
+            world.set_global("PORTCULLIS-SIDE", "south" if from_south else "north")
+        return room, msg
+
+
+class _PortcullisExit(Exit):
+    """Out of the corridor past the portcullis — only the side you're on is open
+    until it's propped."""
+
+    def __init__(self, destination, beyond):
+        super().__init__(destination=destination)
+        self.beyond = beyond               # the side this exit leads to
+
+    def resolve(self, world):
+        if _state(world) != "propped" and _side(world) != self.beyond:
             return None, _DOWN
         return super().resolve(world)
 
@@ -310,9 +338,10 @@ def make_rooms(world) -> None:
     door = room("MID-TIER-KEY-DOOR", "Mid-Tier Key Door", _KEY_DOOR)
 
     world.rooms["COMBAT-ROOM"].exits["south"] = Exit(destination="PRAYER-ALCOVE")
-    alcove.exits.update(north=Exit(destination="COMBAT-ROOM"), south=Exit(destination="PORTCULLIS-CORRIDOR"))
-    port.exits.update(north=Exit(destination="PRAYER-ALCOVE"), south=_PortcullisExit(destination="SHRINE-ROOM"))
-    shrine.exits.update(north=Exit(destination="PORTCULLIS-CORRIDOR"), south=Exit(destination="RICKETY-BRIDGE"))
+    alcove.exits.update(north=Exit(destination="COMBAT-ROOM"), south=_IntoCorridor(destination="PORTCULLIS-CORRIDOR"))
+    port.exits.update(north=_PortcullisExit("PRAYER-ALCOVE", beyond="north"),
+                      south=_PortcullisExit("SHRINE-ROOM", beyond="south"))
+    shrine.exits.update(north=_IntoCorridor(destination="PORTCULLIS-CORRIDOR"), south=Exit(destination="RICKETY-BRIDGE"))
     # Rickety Bridge west → Collapsed Gallery is gated by Quest 38
     bridge.exits.update(north=Exit(destination="SHRINE-ROOM"), south=_BridgeExit(destination="MID-TIER-KEY-DOOR"))
     # Key Door north crosses the bridge too; south → Key Door Landing (mid tier, content/mid_tier.py)
