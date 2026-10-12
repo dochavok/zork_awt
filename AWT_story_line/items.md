@@ -148,6 +148,7 @@ Found in a carved niche in the Prayer Alcove — perception check reveals the al
 `TURN ON LANTERN` or `LIGHT LANTERN` both work. Flickers but does not light anywhere except the Dark Room — it is not a substitute for a torch or Light spell in ordinary dark rooms. In the Dark Room, it collapses magical darkness instantly and opens the passage south. Hangs permanently on wall hook in Dark Room once lit there — not takeable after.
 
 **Lit anywhere else:** *The lantern flickers, as if it wants to light and can't decide where. Not here, apparently.*
+**Turning it on or off otherwise:** mechanics.md — Parser Verbs (Lights on and off).
 
 ---
 
@@ -401,7 +402,7 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 **Quest use:** Quest 4 — restored with the wax seal, silver dust and the inscription etched on its base.
 
 **Built (2026-10-04):** steps go in order — seal, dust, read. The seal and the dust are used up.
-- **`PRESS SEAL`** (also `PRESS SEAL ON JAR`, `PUT SEAL ON JAR`): *You press the wax seal over the crack. The wax gives, then takes — it spreads along the line of the crack and sets, red against the blue-grey glaze. The hum steadies.* Then: *Something clinks inside the jar. Five Zenni sit in the bottom, kept there by the crack until now. You pocket them.* (The quest's 5 Zenni.)
+- **`PRESS SEAL`** (also `PRESS SEAL ON JAR`, `PUT SEAL ON JAR`; and, decided 2026-10-12, `REPAIR` / `FIX` / `PATCH` / `PLUG` / `GLUE` / `SEAL JAR` or `CRACK` [`WITH SEAL`] — without the seal: *You've nothing to fill the crack with.*; once sealed: *The crack is already sealed.*): *You press the wax seal over the crack. The wax gives, then takes — it spreads along the line of the crack and sets, red against the blue-grey glaze. The hum steadies.* Then: *Something clinks inside the jar. Five Zenni sit in the bottom, kept there by the crack until now. You pocket them.* (The quest's 5 Zenni.)
 - **`DUST JAR`** (also `SPRINKLE DUST ON JAR`, `PUT DUST ON JAR`): with no silver dust — *You have nothing to dust it with.* Before the seal — *The dust would only sift into the crack.* After — *You sprinkle the silver dust over the jar. It clings to the glaze and settles into the etched letters around the base, and for a moment the whole jar glints.*
 - **`READ INSCRIPTION`** (also `READ LETTERS` / `ETCHING` / `WORDS` / `BASE` / `JAR`): Medium perception check every time. Failed: *The letters are worn almost smooth. You can't make them out.* Before seal and dust: *Around the base, worn almost smooth: "Hold what was heard. Speak what was held." You say the words aloud. The jar hums on, unchanged.* After both (Quest 4 completes; the same text on every later read): *You read the words around the base aloud: "Hold what was heard. Speak what was held." The hum rises, wavers, and stops. In the silence, a voice no louder than breath: "The ceiling of the thermal vent holds a secret." Then nothing.*
 - **`LISTEN`** / **`LISTEN TO JAR`:** before — *A low, steady hum. Up close, it almost sounds like a voice holding a single note.* After — *Nothing. The jar is quiet now.*
@@ -536,7 +537,7 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 - **`LOAD STONE ONTO CART` (no cart):** *You'll need something to put it on.*
 - **`LOAD STONE ONTO CART`:** *You tip the gravestone up out of the mud and walk it, corner by corner, onto the cart. The axle complains. The bog lets go of the stone with a sound you'd rather not have heard. The gravestone is loaded.*
 - **`UNLOAD STONE` at the Graveyard:** *You wheel the cart to the empty plot — a rectangle of disturbed earth with a broken stub of mortar at its head — and tip the gravestone back into place. It settles as if it remembers the spot. You leave the cart beside it; it's done its job.* Stone fixed in place; cart dropped.
-- **`UNLOAD STONE` anywhere else:** *You tip the gravestone off the cart. It lands face-down, which seems to be its preference.* Stone stays in that room; `LOAD` works again.
+- **`UNLOAD STONE` anywhere else:** *You tip the gravestone off the cart. It lands face-down, which seems to be its preference.* Stone stays in that room; `LOAD` works again. `TIP STONE` / `TIP CART` with the stone loaded is the same as `UNLOAD STONE` (decided 2026-10-12).
 - **After the stone is back at the Graveyard, `LOAD` / `PUT STONE`:** *The gravestone is fixed in place.*
 - **Load synonyms** (decided 2026-10-12): `LOAD STONE` / `LOAD STONE ONTO CART` / `PUT STONE IN CART` / `PUT STONE ON CART` / `PLACE STONE IN CART` — same text and refusals as `LOAD`. `PUT STONE` / `PLACE STONE` alone unloads while the stone is on the cart and loads it otherwise.
 - **`PUT <anything else> IN CART`:** *The cart's for the gravestone.*

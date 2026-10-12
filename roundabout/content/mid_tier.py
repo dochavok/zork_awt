@@ -105,11 +105,6 @@ def _game_over(w: World, text: str) -> None:
     w.game.quit()
 
 
-def _walk(w: World, direction: str) -> int:
-    w.walk_dir = direction
-    return w.game.perform("V-WALK")
-
-
 # ---------------------------------------------------------------------------
 # Mine Passage
 # ---------------------------------------------------------------------------
@@ -224,14 +219,12 @@ def stored_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if w.prsa == "V-TIE" and w.prso is rope:
         _tie_rope(w)
         return M_HANDLED
-    if w.prsa in ("V-UNTIE", "V-TAKE") and w.prso is rope and w.get_global("ROPE-TIED"):
+    if w.prsa in ("V-UNTIE", "V-TAKE", "V-CUT") and w.prso is rope and w.get_global("ROPE-TIED"):
         print(_ROPE_STAYS)
         return M_HANDLED
     if w.prsa == "V-JUMP" and dug:
         _game_over(w, _JUMP)
         return M_HANDLED
-    if w.prsa == "V-CLIMB-DOWN" and dug:
-        return _walk(w, "down")
     return M_NOT_HANDLED
 
 
@@ -251,8 +244,11 @@ class _HoleExit(Exit):
 # ---------------------------------------------------------------------------
 
 def rubble_action(w: World, msg: int = M_NOT_HANDLED) -> int:
-    if msg == M_BEG and w.prsa == "V-CLIMB-UP":
-        return _walk(w, "up")
+    """TAKE / UNTIE / CUT ROPE from below: the same answer as above."""
+    if msg == M_BEG and w.prsa in ("V-TAKE", "V-UNTIE", "V-CUT") \
+            and w.prso is w.objects["HANGING-ROPE"]:
+        print(_ROPE_STAYS)
+        return M_HANDLED
     return M_NOT_HANDLED
 
 

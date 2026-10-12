@@ -18,7 +18,7 @@ from engine.world import (
     TAKEBIT, CONTBIT, OPENBIT, TRYTAKEBIT, NDESCBIT, BURNBIT, READBIT,
     TURNBIT, ACTORBIT, WEAPONBIT, CLIMBBIT, DRINKBIT, DOORBIT, TOOLBIT,
     INVISIBLE, SACREDBIT, SURFACEBIT, TOUCHBIT, RMUNGBIT, TRANSBIT,
-    WEARBIT, VEHBIT, SEARCHBIT, FIGHTBIT, STAGGERED, ONBIT,
+    WEARBIT, SEARCHBIT, FIGHTBIT, STAGGERED, ONBIT,
 )
 
 # Flags not in engine/world.py
@@ -38,11 +38,9 @@ _og_ir_many              = frozenset({LOC_ON_GROUND, LOC_IN_ROOM, LOC_MANY})
 _held_many_have          = frozenset({LOC_HELD, LOC_MANY, LOC_HAVE})
 _held_car                = frozenset({LOC_HELD, LOC_CARRIED})
 _held_car_have           = frozenset({LOC_HELD, LOC_CARRIED, LOC_HAVE})
-_og_ir_held_car          = frozenset({LOC_ON_GROUND, LOC_IN_ROOM, LOC_HELD, LOC_CARRIED})
 _og_ir_held_car_have     = frozenset({LOC_ON_GROUND, LOC_IN_ROOM, LOC_HELD, LOC_CARRIED, LOC_HAVE})
 _held_car_og_ir_take_have = frozenset({LOC_HELD, LOC_CARRIED, LOC_ON_GROUND, LOC_IN_ROOM, LOC_TAKE, LOC_HAVE})
 _many                    = frozenset({LOC_MANY})
-_have                    = frozenset({LOC_HAVE})
 _take                    = frozenset({LOC_TAKE})
 _in_room                 = frozenset({LOC_IN_ROOM})
 _held_car_og_ir_take     = frozenset({LOC_HELD, LOC_CARRIED, LOC_ON_GROUND, LOC_IN_ROOM, LOC_TAKE})
@@ -86,8 +84,12 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         # APPLY                                                               #
         # ------------------------------------------------------------------ #
-        SyntaxRule(verb="apply", action="V-PUT", preaction="PRE-PUT",
-                   obj1=ObjectSpec(), prep="to", obj2=ObjectSpec()),
+        SyntaxRule(verb="apply", action="V-APPLY",
+                   obj1=ObjectSpec(locations=_held_car_og_ir), prep="to",
+                   obj2=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="apply", action="V-APPLY",
+                   obj1=ObjectSpec(locations=_held_car_og_ir), prep="on",
+                   obj2=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # ATTACK / KILL / STAB — combat                                       #
@@ -140,20 +142,12 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="blow", particle="out", action="V-LAMP-OFF",
                    obj1=ObjectSpec()),
-        SyntaxRule(verb="blow", particle="up", action="V-INFLATE",
-                   obj1=ObjectSpec(),
-                   prep="with",
-                   obj2=ObjectSpec(find_flag=TOOLBIT, locations=_og_ir_held_car)),
         SyntaxRule(verb="blow", particle="up", action="V-BLAST",
-                   obj1=ObjectSpec()),
-        SyntaxRule(verb="blow", particle="in", action="V-BREATHE",
                    obj1=ObjectSpec()),
 
         # ------------------------------------------------------------------ #
-        # BOARD — vehicle + "aboard" synonym + CLIMB ABOARD particle         #
+        # BOARD — the ship only + "aboard" synonym + CLIMB ABOARD particle   #
         # ------------------------------------------------------------------ #
-        SyntaxRule(verb="board", action="V-BOARD", preaction="PRE-BOARD",
-                   obj1=ObjectSpec(find_flag=VEHBIT, locations=_og_ir)),
         SyntaxRule(verb="board", particle="ship", action="V-BOARD-SHIP"),
         SyntaxRule(verb="board", action="V-BOARD-SHIP"),  # no obj: board the ship
         SyntaxRule(verb="climb", particle="aboard", action="V-BOARD-SHIP"),
@@ -169,32 +163,14 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    prep="with", obj2=ObjectSpec()),
 
         # ------------------------------------------------------------------ #
-        # BURN                                                                #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="burn", action="V-BURN",
-                   obj1=ObjectSpec(find_flag=BURNBIT, locations=_held_car_og_ir),
-                   prep="with",
-                   obj2=ObjectSpec(find_flag=FLAMEBIT, locations=_held_car_og_ir)),
-        SyntaxRule(verb="burn", action="V-BURN",
-                   obj1=ObjectSpec(find_flag=BURNBIT, locations=_held_car_og_ir)),
-
-        # ------------------------------------------------------------------ #
         # BUY — new canonical: BUY DRINK / ORDER FOOD / RENT ROOM           #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="buy", action="V-BUY",
                    obj1=ObjectSpec(locations=_og_ir_held_car_have)),
         SyntaxRule(verb="buy", action="V-BUY-WHAT"),     # bare BUY: "Buy what?", no turn
 
-        # ------------------------------------------------------------------ #
-        # CAST — new canonical: CAST LIGHT / CAST FIREBALL etc.             #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="cast", action="V-CAST",
-                   obj1=ObjectSpec(locations=_have)),
-        SyntaxRule(verb="cast", action="V-CAST"),
-        SyntaxRule(verb="cast", action="V-CAST",
-                   obj1=ObjectSpec(locations=_have),
-                   prep="at",
-                   obj2=ObjectSpec(locations=_og_ir)),
+        # CAST: no rules — content/spells.py reads every CAST line itself (its
+        # refusals take no turn, which a verb handler can't choose; todo.md TODO #12)
 
         # ------------------------------------------------------------------ #
         # CLEAR — CLEAR BONES / CLEAR DRAIN                                 #
@@ -232,7 +208,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # CROSS                                                               #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="cross", action="V-CROSS",
-                   obj1=ObjectSpec(locations=_og_ir)),
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # CURSE                                                               #
@@ -390,12 +366,6 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="fish", action="V-FISH"),
 
         # ------------------------------------------------------------------ #
-        # FOLLOW                                                              #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="follow", action="V-FOLLOW",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir_held_car_have)),
-
-        # ------------------------------------------------------------------ #
         # GIVE                                                                #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="give", action="V-GIVE",
@@ -404,16 +374,6 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj2=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
         SyntaxRule(verb="give", action="V-GIVE",
                    obj1=ObjectSpec(locations=_held_car_og_ir_take)),
-
-        # ------------------------------------------------------------------ #
-        # INFLATE                                                             #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="inflate", action="V-INFLATE",
-                   obj1=ObjectSpec(),
-                   prep="with",
-                   obj2=ObjectSpec(find_flag=TOOLBIT, locations=_og_ir_held_car)),
-        SyntaxRule(verb="inflate", action="V-INFLATE",
-                   obj1=ObjectSpec()),
 
         # ------------------------------------------------------------------ #
         # JUMP                                                                #
@@ -442,11 +402,19 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="knock", action="V-KNOCK",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="knock", particle="on", action="V-KNOCK",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="knock", particle="at", action="V-KNOCK",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # LEAN                                                                #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="lean", action="V-LEAN",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="lean", particle="on", action="V-LEAN",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="lean", particle="against", action="V-LEAN",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
@@ -523,16 +491,6 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
-        # LUBRICATE                                                           #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="lubricate", action="V-LUBRICATE",
-                   obj1=ObjectSpec(locations=_held_car_og_ir),
-                   prep="with",
-                   obj2=ObjectSpec(locations=_held_car_have)),
-        SyntaxRule(verb="lubricate", action="V-LUBRICATE",
-                   obj1=ObjectSpec(locations=_held_car_og_ir)),
-
-        # ------------------------------------------------------------------ #
         # MAKE                                                                #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="make", action="V-MAKE",
@@ -550,7 +508,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # HOLD TORCH NEAR ICE ("hold" is a TAKE word) — Quest 34
         SyntaxRule(verb="take", action="V-HOLD-NEAR",
                    obj1=ObjectSpec(locations=_held_car_have),
-                   prep="near", obj2=ObjectSpec(locations=_og_ir)),
+                   prep="near", obj2=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # MOVE                                                                #
@@ -589,7 +547,8 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="plug", action="V-PLUG",
                    obj1=ObjectSpec(locations=_held_car_og_ir),
                    prep="with",
-                   obj2=ObjectSpec(locations=_held_car_have)),
+                   obj2=ObjectSpec(locations=_held_car_have),
+                   obj2_optional=True),          # no mortar / seal → the designed line
         SyntaxRule(verb="plug", action="V-PLUG",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
 
@@ -631,16 +590,6 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="pull", action="V-PULL",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="struggle", action="V-STRUGGLE"),
-
-        # ------------------------------------------------------------------ #
-        # PUMP                                                                #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="pump", action="V-PUMP",
-                   obj1=ObjectSpec(locations=_held_car_og_ir),
-                   prep="with",
-                   obj2=ObjectSpec(find_flag=TOOLBIT, locations=_held_car_have)),
-        SyntaxRule(verb="pump", action="V-PUMP",
-                   obj1=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # PUSH                                                                #
@@ -702,16 +651,8 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="read", action="V-READ",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
 
-        # ------------------------------------------------------------------ #
-        # REST — Level 6+ spell; no object needed                            #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="rest", action="V-REST"),
-
-        # ------------------------------------------------------------------ #
-        # RING                                                                #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="ring", action="V-RING",
-                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        # REST: no rule — content/rest.py reads the line itself (its refusals
+        # take no turn, which a verb handler can't choose; todo.md TODO #12)
 
         # ------------------------------------------------------------------ #
         # ROLL                                                                #
@@ -725,6 +666,10 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="rub", action="V-RUB",
                    obj1=ObjectSpec(locations=_held_car_og_ir),
                    prep="on",
+                   obj2=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="rub", action="V-RUB",
+                   obj1=ObjectSpec(locations=_held_car_og_ir),
+                   prep="with",
                    obj2=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="rub", action="V-RUB",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
@@ -746,29 +691,11 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="search", action="V-SEARCH"),
 
         # ------------------------------------------------------------------ #
-        # SHAKE                                                               #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="shake", action="V-SHAKE",
-                   obj1=ObjectSpec(locations=_held_car_og_ir)),
-
-        # ------------------------------------------------------------------ #
         # SMELL                                                               #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="smell", action="V-SMELL",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="smell", action="V-SMELL"),
-
-        # ------------------------------------------------------------------ #
-        # SPIN                                                                #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="spin", action="V-SPIN",
-                   obj1=ObjectSpec(locations=_held_car_og_ir)),
-
-        # ------------------------------------------------------------------ #
-        # SQUEEZE                                                             #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="squeeze", action="V-SQUEEZE",
-                   obj1=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # STAND                                                               #
@@ -804,7 +731,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="swing", action="V-SWING",
                    obj1=ObjectSpec(locations=_held_car_og_ir),
                    prep="at",
-                   obj2=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj2=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="swing", action="V-SWING",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
 
@@ -814,7 +741,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="take", action="V-TAKE", preaction="PRE-TAKE",
                    obj1=ObjectSpec(find_flag=TAKEBIT, locations=_held_car_og_ir_take_have_many)),
         SyntaxRule(verb="take", action="V-TAKE-FROM",
-                   obj1=ObjectSpec(find_flag=TAKEBIT, locations=_held_car_og_ir_take_have_many),
+                   obj1=ObjectSpec(find_flag=TAKEBIT, locations=_held_car_og_ir_many),   # no implicit take: V-TAKE-FROM checks first
                    prep="from",
                    obj2=ObjectSpec(find_flag=CONTBIT, locations=_held_car_og_ir)),
 
@@ -828,7 +755,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="remove", action="V-REMOVE",
                    obj1=ObjectSpec(locations=_held_car_og_ir_take)),
         SyntaxRule(verb="remove", action="V-TAKE-FROM",
-                   obj1=ObjectSpec(find_flag=TAKEBIT, locations=_held_car_og_ir_take_have_many),
+                   obj1=ObjectSpec(find_flag=TAKEBIT, locations=_held_car_og_ir_many),   # no implicit take: V-TAKE-FROM checks first
                    prep="from",
                    obj2=ObjectSpec(find_flag=CONTBIT, locations=_held_car_og_ir)),
 
@@ -860,7 +787,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="throw", action="V-THROW",
                    obj1=ObjectSpec(locations=_held_car_have),
                    prep="at",
-                   obj2=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj2=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="throw", action="V-THROW",
                    obj1=ObjectSpec(locations=_held_car_have)),
 
@@ -878,7 +805,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # TIP — TIP MAY [#] / TIP MAY [#] ZENNI                             #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="tip", action="V-TIP",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="tip", action="V-TIP"),
 
         # ------------------------------------------------------------------ #
@@ -943,12 +870,12 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # SEAL — SEAL JOINTS WITH MORTAR (Quest 22)                          #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="seal", action="V-SEAL",
-                   obj1=ObjectSpec(locations=_og_ir),
+                   obj1=ObjectSpec(locations=_held_car_og_ir),
                    prep="with",
                    obj2=ObjectSpec(locations=_held_car_have),
                    obj2_optional=True),          # no mortar → the designed line
         SyntaxRule(verb="seal", action="V-SEAL",
-                   obj1=ObjectSpec(locations=_og_ir)),
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # USE — USE PORTCULLIS BAR                                           #
@@ -987,12 +914,6 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(find_flag=WEARABLE, locations=_held_car_og_ir_take)),
         SyntaxRule(verb="wear", action="V-WEAR",
                    obj1=ObjectSpec(locations=_held_car_og_ir_take)),
-
-        # ------------------------------------------------------------------ #
-        # WIND                                                                #
-        # ------------------------------------------------------------------ #
-        SyntaxRule(verb="wind", action="V-WIND",
-                   obj1=ObjectSpec(find_flag=TURNBIT, locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # WISH                                                                #

@@ -341,6 +341,22 @@ def test_trap33_pry_needs_crowbar_and_medium_strength_with_retries():
     assert not w.get_global("IDOL-DOOR-SHUT")
 
 
+def test_trap33_lift_slab_pries_with_the_crowbar():
+    from content.upper_tier import _LIFT_BARE, _NOT_BLOCKED, _PRIED, _PRY_FAILED
+    w, g = _world()
+    _arrive(w, g, "IDOL-ROOM", LOW)
+    assert _NOT_BLOCKED in _do(g, "lift slab")       # not down yet
+    _do(g, "take idol")
+    assert _LIFT_BARE in _cmd(g, "lift slab", HIGH)  # no crowbar
+    assert w.get_global("IDOL-DOOR-SHUT")
+    _give(w, "CROWBAR")
+    assert _PRY_FAILED in _cmd(g, "raise slab", LOW)
+    assert w.get_global("IDOL-DOOR-SHUT")
+    assert _PRIED in _cmd(g, "lift slab", HIGH)
+    assert not w.get_global("IDOL-DOOR-SHUT")
+    assert _NOT_BLOCKED in _do(g, "lift slab")       # already pried
+
+
 @pytest.mark.parametrize("direction", ["east", "south"])
 def test_trap36_bones_kill_without_clearing(direction):
     w, g = _world()

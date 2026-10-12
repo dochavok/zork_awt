@@ -31,10 +31,6 @@ def cast_input_hook(w: World, text: str) -> bool:
     words = text.strip().lower().split()
     if not words or words[0] not in ("cast", "incant", "chant"):
         return False
-    if len(words) == 1:
-        from engine.game import HOOK_NO_TURN
-        _cast_what(w)
-        return HOOK_NO_TURN
     rest = " ".join(words[1:])
     name = rest.split(" at ")[0].split(" on ")[0].strip()
     target = rest[len(name):].strip()
@@ -42,7 +38,10 @@ def cast_input_hook(w: World, text: str) -> bool:
         if target.startswith(prep):
             target = target[len(prep):].strip()
     if name not in _SPELLS:
-        return False   # let the parser handle anything else
+        # CAST alone, or with anything that isn't a spell: the same list
+        from engine.game import HOOK_NO_TURN
+        _cast_what(w)
+        return HOOK_NO_TURN
     flag, reuse = _SPELLS[name]
     if not w.globals.get(flag):
         print("You don't know that spell.")
@@ -73,7 +72,7 @@ def cast_input_hook(w: World, text: str) -> bool:
     return True
 
 
-# Plain CAST lists what's known (mechanics.md — Spells)
+# CAST alone (or with anything but a spell) lists what's known (mechanics.md — Parser Verbs)
 _LISTED = (("light", "Light"), ("unbind undead", "Unbind Undead"), ("fireball", "Fireball"))
 
 

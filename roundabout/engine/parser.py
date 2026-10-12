@@ -303,7 +303,7 @@ class Parser:
         # Find the first verb token.
         verb_pos, canonical_verb = self._find_verb(words)
         if canonical_verb is None:
-            unknown = self._first_unknown(words)
+            unknown = self._first_unknown(words, world)
             if unknown:
                 print(f"I don't know the word \"{unknown}\".")
             else:
@@ -391,9 +391,15 @@ class Parser:
                 return i, canon
         return -1, None
 
-    def _first_unknown(self, words: list[str]) -> Optional[str]:
+    def _first_unknown(self, words: list[str], world: World) -> Optional[str]:
+        """The first word the game doesn't know. Object names and adjectives
+        are known words (as in Zork): STATUE alone has no verb, not an unknown word."""
+        names = set()
+        for obj in world.objects.values():
+            names.update(obj.synonyms)
+            names.update(obj.adjectives)
         for w in words:
-            if not (self._vocab.is_buzz(w) or self._vocab.is_known(w)):
+            if not (self._vocab.is_buzz(w) or self._vocab.is_known(w) or w in names):
                 return w
         return None
 

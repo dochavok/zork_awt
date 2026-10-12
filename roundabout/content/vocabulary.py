@@ -87,16 +87,15 @@ def make_vocabulary() -> Vocabulary:
     # board: add "aboard" as synonym for BOARD SHIP/CLIMB ABOARD
     v.add_verb("board", "aboard")
     v.add_verb("brush", "clean")
-    v.add_verb("burn", "incinerate", "ignite")
     # buy: new canonical for BUY DRINK / ORDER FOOD / RENT ROOM
     v.add_verb("buy", "order", "purchase", "rent")
-    v.add_verb("cast", "incant", "chant", "spell")  # takes incant/chant/spell from exorcise
+    v.add_verb("cast", "incant", "chant")  # takes incant/chant from exorcise; never "spell" (spelling)
     v.add_verb("clear")                             # CLEAR BONES / CLEAR DRAIN
     v.add_verb("climb", "sit")
     v.add_verb("challenge", "wrestle")              # CHALLENGE LYNDS
     v.add_verb("pay")                               # PAY BOGGART
     v.add_verb("disarm", "defuse")                  # DISARM PLATE
-    v.add_verb("close")
+    v.add_verb("close", "shut")
     v.add_verb("command")
     v.add_verb("count")
     v.add_verb("cross", "ford")
@@ -123,23 +122,20 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("fill")
     v.add_verb("find", "where", "seek", "see")
     v.add_verb("fish", "angle")                     # FISH at Roundabout Pond
-    v.add_verb("follow", "pursue", "chase", "come")
     v.add_verb("give", "donate", "offer", "feed", "hand")
-    v.add_verb("inflate", "inflat")
     v.add_verb("jump", "leap", "dive")
-    v.add_verb("kick", "taunt")
+    v.add_verb("kick")
     v.add_verb("kill", "murder", "slay", "dispatch")
     v.add_verb("kiss")
     v.add_verb("knock", "rap")
     v.add_verb("lean")
     v.add_verb("leave")
-    v.add_verb("light")
+    v.add_verb("light", "burn", "incinerate", "ignite")
     v.add_verb("listen")
     v.add_verb("load")                              # LOAD STONE ONTO CART
     v.add_verb("lock")
     v.add_verb("look", "l", "stare", "gaze")
     v.add_verb("lower")
-    v.add_verb("lubricate", "oil", "grease")
     v.add_verb("make")
     v.add_verb("melt", "liquify", "thaw")
     v.add_verb("move")
@@ -154,7 +150,6 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("pry", "lever", "jimmy")             # PRY DOOR (crowbar)
     v.add_verb("pull", "tug", "yank")
     v.add_verb("struggle", "wriggle", "squirm", "thrash")   # Trap 8 snare
-    v.add_verb("pump")
     v.add_verb("push", "press")
     v.add_verb("dust")
     v.add_verb("sprinkle", "scatter")
@@ -163,7 +158,6 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("read", "skim")
     v.add_verb("repent")
     v.add_verb("rest")                              # REST spell (Level 6+)
-    v.add_verb("ring", "peal")
     v.add_verb("roll")
     v.add_verb("rub", "touch", "feel", "pat", "pet")
     # sail: new canonical; set is NOT aliased here (prevents SET SAIL ambiguity)
@@ -171,13 +165,10 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("search")
     v.add_verb("seal")
     v.add_verb("mix", "combine", "knead")           # MIX CLAY WITH WATER (Quest 49)                              # SEAL JOINTS WITH MORTAR (Quest 22)
-    v.add_verb("shake")
     v.add_verb("skip", "hop")
     v.add_verb("slide")
     v.add_verb("smell", "sniff")
-    v.add_verb("spin")
     v.add_verb("spray")
-    v.add_verb("squeeze")
     v.add_verb("stab")
     v.add_verb("shoot")                             # SHOOT X (WITH BOW)
     v.add_verb("equip", "wield")                    # EQUIP BOW / EQUIP MACE
@@ -196,7 +187,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("tie", "fasten", "secure", "attach")
     v.add_verb("tip")                               # TIP MAY [#]
     # turn: "set" removed — SET SAIL must route through "sail" canonical
-    v.add_verb("turn", "flip", "shut")
+    v.add_verb("turn", "flip", "spin")
     v.add_verb("unlock")
     v.add_verb("unload", "return")                 # UNLOAD STONE (Quest 32)
     v.add_verb("untie", "free", "release", "unfasten", "unattach", "unhook")
@@ -205,7 +196,6 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("walk", "go", "run", "proceed", "step")
     v.add_verb("wave", "brandish")
     v.add_verb("wear")
-    v.add_verb("wind")
     v.add_verb("wish")
     v.add_verb("yell", "scream", "shout")
 

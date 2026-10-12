@@ -19,6 +19,7 @@ Each room's XP value is noted in its entry below.
 **Quest Hooks:** None (opening sequence only)
 **Connections:** Out → Will's Wizard Tower (Main Room) (one-way portal; never revisited)
 Opening area; homage to Zork. One room only. Any command except `OPEN MAILBOX` (or `QUIT` — mechanics.md, Save and Restore; or `VERSION`) returns: *"What does this look like? A Great Underground Empire?"*
+`KNOCK ON DOOR` (or `HOUSE`) — the one command besides the mailbox that gets its own answer (decided 2026-10-12): *Knock knock. Nobody's home — nobody's been home since about 1980. The mailbox, on the other hand, looks expectant.* The house and its boarded door are scenery: anything else aimed at them gets the joke.
 Opening the mailbox triggers Will's appearance in the field. Will delivers opening text and asks "Are you up for an adventure?" No = game over, never leaves field. Yes = teleported to Will's Wizard Tower. Never revisited after opening sequence.
 
 ---
@@ -49,7 +50,8 @@ Hidden room inside the tower.
 Equipping the glasses in Will's presence triggers an instant fail state — Will attacks, no recovery. The bedroom is safe because Will is not there.
 `DROP GLASSES` or `PUT GLASSES ON NIGHTSTAND` places them on the nightstand — description persists, and the first time completes Quest 53 (quests.md).
 The nightstand is scenery: it can be examined and things can be put on it.
-Contains **dragon-nip** — a glowing sprig hidden under the nightstand. Silent Very Hard (18) perception check (raised from Hard 2026-10-05: a Level 3 Mage found it on ~56% of tries) on every entry (after the room description) and again when the glasses are put on in the bedroom; Actually Enchanted Glasses auto-pass.
+The bed is scenery too (decided 2026-10-12): `EXAMINE BED` — *Narrow, and made with the perfunctory neatness of someone who knows they'll be up again soon.* `LOOK UNDER BED` — *Nothing under the bed but dust and a sock that has given up.*
+Contains **dragon-nip** — a glowing sprig hidden under the nightstand. `LOOK UNDER NIGHTSTAND` finds it outright, no roll — the same found line (decided 2026-10-12); once it has been taken, *There is nothing but dust there.* Silent Very Hard (18) perception check (raised from Hard 2026-10-05: a Level 3 Mage found it on ~56% of tries) on every entry (after the room description) and again when the glasses are put on in the bedroom; Actually Enchanted Glasses auto-pass.
 Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn't ask.
 
 **Room description:**
@@ -860,7 +862,8 @@ All four bog rooms display the same room title to the player: **"The Bog of Eter
 The Dankhaus is east of here. Dankhaus hidden here — dense brush conceals the path; perception check (Medium) required each visit until discovered. Once discovered, path is permanently visible.
 - **Path spotted (first time):** *Off to the east, the brush isn't quite as dense as it should be. Behind it, a path — narrow, deliberate — leads to something low and round. A yurt, improbably dry.*
 - **Added to the room description once found:** *A narrow path leads east through the brush to a low, round yurt.*
-- `EAST` or `ENTER DANKHAUS` / `ENTER YURT` goes in (ward-gated until Lynds's invitation). The ring (worn, not inked) gets an uninvited player past the ward — see npcs.md, Litlock, for what happens inside.
+- `EAST` or `ENTER DANKHAUS` / `ENTER YURT` / `ENTER DOOR` goes in (ward-gated until Lynds's invitation). The ring (worn, not inked) gets an uninvited player past the ward — see npcs.md, Litlock, for what happens inside.
+- `KNOCK ON DOOR` / `KNOCK ON YURT` (path found; decided 2026-10-12) — inked: the inked line (npcs.md — Litlock); not yet invited: *You rap on the doorframe. From inside, a cheerful voice: "Don't know you! Lovely knock, though."*; invited: *From inside, Litlock's voice: "It's open!"* One turn; knocking never moves the player.
 
 **Room description:** *The bog stretches in every direction, dark water between clumps of soggy earth. The smell is comprehensive and personal. Reeds crowd the edges of every dry patch. Something is moving just out of sight, or was.*
 
@@ -1098,7 +1101,9 @@ Below Main Shaft. Torch sconces on walls; the torches in them are scenery.
 - **Room listing afterwards:** *A split timber support sags under the rock above it.*
 - **`DROP GUNPOWDER` here, weak point found:** *You wedge the gunpowder in against the split timber.* (Before it's found, or anywhere else, it's an ordinary drop.)
 - **`LIGHT GUNPOWDER`:** still holding it — *Not while you're holding it.*; not at the weak point — *That would just make a mess. It needs to be somewhere that matters.*; no flint and steel — *You've nothing to light it with.*
+- **A torch instead of flint and steel** (decided 2026-10-12) — `LIGHT GUNPOWDER WITH TORCH`, `HOLD TORCH NEAR GUNPOWDER`, or `LIGHT GUNPOWDER` carrying a torch but no flint and steel (the Ivory Torch counts as a torch): *You bring the torch close and think better of it. An open flame and loose powder — it'd go up in your hand. A fuse wants a spark.* Only flint and steel lights the fuse.
 - **Lit:** *You strike the flint. The fuse catches with a sharp hiss. The gunpowder is burning. Time to leave.* The fuse runs five more turns.
+- **`LIGHT GUNPOWDER` again, fuse already lit:** *The fuse is already hissing. Leaving would be a better use of your time.* (One turn.)
 - **`TAKE GUNPOWDER` with the fuse lit:** *Only a madman (or a Pie Rat) would pick that up!*
 - **Still in the mine when it goes:** *The mine finds its weak point. So does the ceiling above you.* — GAME OVER.
 - **Out of the mine when it goes:** *A muffled BOOM shakes the ground beneath your feet. Dust and splinters billow from the mine entrance as it collapses inward. The Pie Rats go running to investigate — and the ship is unguarded.*
@@ -1465,6 +1470,7 @@ South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a press
 - **Once the idol is gone** (swapped or taken), the room description's second line reads *At the center stands a stone pedestal.* in place of *At the center, a stone pedestal holds a figurine.*
 - **`TAKE IDOL` unswapped:** *You lift the idol. Somewhere under the pedestal something clicks, and a slab of stone drops into the doorway with a boom you feel in your teeth. The way out is gone.* North while shut: *The stone slab fills the doorway. It isn't moving.*
 - **`PRY DOOR`:** success — *You work the crowbar into the gap and heave. The slab grinds up a hand's width, then enough. You squeeze through before it changes its mind.* Failure — *The crowbar bites, the slab shifts a fraction, and settles back. Not this time.* Without the crowbar — *You can't get any leverage on that.*
+- **`LIFT SLAB` / `RAISE SLAB`:** with the crowbar held, the same as `PRY DOOR`. Without it — *The slab won't budge for bare hands. You'd need something to lever it with.* With no slab down (never fired, or already pried) — *Nothing is blocking the doorway.*
 
 **Room description (default):** *The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level. At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake.*
 
@@ -1519,7 +1525,7 @@ The last two sentences change as blocks go in:
 - **Strength check failed:** *The block gets as far as your knees and no further. You set it down before it sets you down.*
 - **`PLACE BLOCKS` with all three in:** *The blocks are all in place. The joints still need sealing.* After the seal: *The aqueduct is whole.*
 - **`TAKE BLOCK`:** *They're far too heavy to carry off. They belong in the channel.*
-- **`SEAL JOINTS WITH MORTAR`** (also `USE MORTAR ON JOINTS` / `BLOCKS` / `AQUEDUCT`): *You work the mortar into every joint, pressing it in with your thumbs until the seeping stops. For a moment the channel is silent. Then the water finds its way through — the whole length of the aqueduct, running toward town.* Quest 22 completes; mortar used up.
+- **`SEAL JOINTS WITH MORTAR`** (also `USE MORTAR ON JOINTS` / `BLOCKS` / `AQUEDUCT`; and `REPAIR` / `FIX` / `PATCH` / `PLUG` / `GLUE` the joints, blocks or aqueduct, decided 2026-10-12): *You work the mortar into every joint, pressing it in with your thumbs until the seeping stops. For a moment the channel is silent. Then the water finds its way through — the whole length of the aqueduct, running toward town.* Quest 22 completes; mortar used up.
 - **Seal before all three are placed:** *There's still a gap. Mortar won't hold back that much water.*
 - **Seal without the mortar:** *You'd need something to seal them with.*
 
@@ -1662,7 +1668,7 @@ Short connecting passage between Shrine Room and Mid-Tier Key Door. Quest 38 sho
 **Connections:** North → Rickety Bridge. South → Key Door Landing.
 South end of Rickety Bridge. Heavy iron door. *The door is iron, set deep into the stone. The lock is substantial — no amount of forcing will open this. It wants a key.*
 
-Lockpick attempt returns: "This lock can't be picked." Seeing this door (from the Rickety Bridge) triggers Quest 32 discovery and unlocks May's three-tier hints. Middle Tier Key (Quest 32 reward) is the only way through.
+`PICK LOCK` / `PICK DOOR` returns: *This lock can't be picked.* (built 2026-10-12; the cellar door and the Keeper's door answer the same). Seeing this door (from the Rickety Bridge) triggers Quest 32 discovery and unlocks May's three-tier hints. Middle Tier Key (Quest 32 reward) is the only way through.
 
 `UNLOCK DOOR WITH KEY` leaves the key in the lock (like May's cellar key) and the door stays open.
 
@@ -1706,7 +1712,7 @@ Worked cave section, old support timbers and rusting tools. Contains: charcoal (
 
 - **Charcoal (always listed until taken):** *A few lumps of charcoal lie in a cold fire ring near the tools.*
 - **Silver dust:** Medium perception check on every visit until found (glasses: automatic).
-- **Iron chest:** `OPEN CHEST` (with or without `WITH LOCKPICKS`) or `UNLOCK CHEST` while carrying the lockpicks: *The lockpicks find the pins one by one, and the lid comes up with a groan. Inside are 20 Zenni, which you pocket.* The Zenni are pocketed directly (like the cashbox and the buried chest).
+- **Iron chest:** `OPEN CHEST` (with or without `WITH LOCKPICKS`), `UNLOCK CHEST`, or `PICK LOCK` / `PICK CHEST` (decided 2026-10-12) while carrying the lockpicks: *The lockpicks find the pins one by one, and the lid comes up with a groan. Inside are 20 Zenni, which you pocket.* The Zenni are pocketed directly (like the cashbox and the buried chest).
 - **Without the lockpicks:** *The chest is locked. The lock looks pickable — if you had the tools.*
 - **Already open:** *The chest is empty.* The room description's last sentence becomes *A large iron chest is bolted to the floor against one wall, its lid open.*
 
@@ -1730,7 +1736,8 @@ After the dig the room is named **Hole to Below**. A support timber over the edg
 - **Rope tied, added line:** *A rope is knotted around the timber, hanging down into the dark.*
 - **`TIE ROPE TO BEAM` / `TIMBER`:** *You knot the rope around the timber and pay it out over the edge. It goes taut, then slack — the far end is resting on something solid.*
 - **`TIE ROPE` before the dig:** *There's nothing here to tie it to.*
-- **`UNTIE ROPE`:** *You'd like a way back up. The rope stays.*
+- **`UNTIE ROPE` / `TAKE ROPE` / `CUT ROPE` (once tied):** *You'd like a way back up. The rope stays.*
+- **`LOWER ROPE`** (decided 2026-10-12): rope carried, hole dug, not yet tied — *You'd want it tied to something first. That timber looks sturdy.*; once tied (here or from below) — *It's already hanging down into the dark.*
 - **`DIG` without the shovel:** *The fill is packed too tight to move by hand. You'd need a shovel.*
 - **`DIG` after the collapse:** *The floor is already gone.*
 - **Will's DIG note** (mechanics.md — Shovel & Dig) can follow the DIG response.
@@ -1954,6 +1961,8 @@ Lowest point on trap side. Shallow pool. No confirmed items.
 **Connections:** Up → Stored Room (rope required). North → Lower Crypt. East → Antechamber. South → The Encampment.
 Bottom of Hole to Below. Rope anchor point for return to mid tier.
 
+- **The rope from below** (scenery, not in the room description): `EXAMINE ROPE` — *The rope hangs down through the hole above, tied to the timber at the top.* `CLIMB ROPE` / `CLIMB UP ROPE` — the same as `UP`. `TAKE` / `UNTIE` / `CUT ROPE` — the Stored Room's line: *You'd like a way back up. The rope stays.* (Up in the Stored Room, `CLIMB ROPE` once it's tied is `DOWN`.)
+
 *The ceiling is a jagged wound — stone and packed earth hanging at the edge where the floor above used to be. Below that: the rubble that was the floor, now a rough-graded pile you're standing on. The air smells of disturbed earth and something older underneath it. Passages lead north, east, and south.*
 
 ### Lower Crypt (Room 2)
@@ -2111,7 +2120,7 @@ A won round still shows it attacking — one of these, in turn (decided 2026-10-
 Quest 34 barrier room. North of The Lower Crossing. Speaking door disguised as back wall. Perception check required for discovery — Medium, every visit until found (glasses: automatic).
 
 - Found: the bracket description, then the "notices you" line (that visit only), then the persistent line. Found on a return visit (short description): the two lines print after the room title.
-- `EXAMINE WALL` / `LISTEN` once found: the persistent line. `EXAMINE WALL` before: the before-discovery description. Open: the open-state line.
+- `EXAMINE WALL` / `LISTEN` / `KNOCK ON WALL` once found (and not yet open): the persistent line. `EXAMINE WALL` before: the before-discovery description. Open: the open-state line.
 
 **Before discovery:** *"The passage ends at a shallow recess lined with iron brackets — the kind used to hang tools or equipment. The brackets are empty. The back wall is flat and featureless."*
 
@@ -2169,6 +2178,7 @@ He doesn't return to town — weapon training belongs to the Redcrosse Knight (Q
 
 **Built (2026-10-04):**
 - `HOLD TORCH NEAR ICE` or `MELT ICE WITH TORCH` (also `THAW`), with the Ivory Torch: Turn 1, then Turn 2 + the soldier handoff + *[The Forgotten Blade added to inventory.]* Quest 34 completes (8 Zenni, silent).
+- **`MELT ICE` / `THAW ICE` with no tool named** (decided 2026-10-12): the Ivory Torch if carried, else the ordinary torch (its lines below), else *You've nothing hot enough to make a dent in it.* **`MELT ICE WITH` anything but a torch:** *The [thing] won't melt anything.*
 - **The ordinary torch:** lit — *You hold the torch to the ice. The flame gutters against the frost and leaves no mark. Whatever holds this ice, ordinary fire isn't going to move it.* Burnt out — *The torch is burnt out. It wouldn't have been enough anyway.*
 - **`EXAMINE ICE`** (also SOLDIER / FIGURE): before — *Frosted thick. Inside, a soldier stands composed, eyes open, waiting.* After Turn 1 — *A small clear window has opened in the frost. The soldier inside hasn't moved.*
 - **Room description, after the thaw:** *The fountain to your left is still frozen mid-pour. Where the block of ice stood, there's only a spreading wet patch on the floor and a few sheets of ice melting at its edges.*

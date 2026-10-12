@@ -65,6 +65,12 @@ def initialize_world(world, game, seed=None) -> None:
     game.register_input_hook(make_land_input_hook)   # MAKE LAND = LAND
     from content.verbs import buy_input_hook
     game.register_input_hook(buy_input_hook)         # BUY X from Shamus's stock
+    from content.verbs import count_input_hook
+    game.register_input_hook(count_input_hook)       # COUNT ZENNI: the purse, no turn
+    from content.verbs import cross_input_hook
+    game.register_input_hook(cross_input_hook)       # CROSS on a bridge: just go north or south
+    from content.verbs import turn_dial_input_hook
+    game.register_input_hook(turn_dial_input_hook)   # TURN DIAL with no direction: ask
     from content.tavern import bar_input_hook
     game.register_input_hook(bar_input_hook)         # BUY DRINK / FOOD / STEW, RENT ROOM
     from content import journal
@@ -182,10 +188,12 @@ def _init_player_state(world) -> None:
 
 def _place_objects(world) -> None:
     world.move_object(world.objects["MAILBOX-WHITE-HOUSE"], world.rooms["WHITE-HOUSE"])
+    world.move_object(world.objects["WHITE-HOUSE-DOOR"], world.rooms["WHITE-HOUSE"])
     world.move_object(world.objects["PAINTING"],            world.rooms["WIZARDS-TOWER"])
     world.move_object(world.objects["MAILBOX-TOWER"],       world.rooms["TALE-AND-ALE"])
     world.move_object(world.objects["ENCHANTED-GLASSES"],   world.rooms["WIZARDS-BEDROOM"])
     world.move_object(world.objects["NIGHTSTAND"],          world.rooms["WIZARDS-BEDROOM"])
+    world.move_object(world.objects["WILLS-BED"],           world.rooms["WIZARDS-BEDROOM"])
     world.move_object(world.objects["QUEST-BOARD"],         world.rooms["BAR"])
     world.move_object(world.objects["DRAGON-NIP"],          world.rooms["WIZARDS-BEDROOM"])
     world.move_object(world.objects["RING"],                world.objects["PYRONICUS"])
@@ -286,7 +294,7 @@ def _place_objects(world) -> None:
                       ("DUNGEON-RUNE-STONE", "INSCRIPTION-CHAMBER"), ("BONE-FLUTE", "CAVE-CREATURES-LAIR"),
                       ("VAULT-CHEST", "MAGNETIC-VAULT"), ("LODESTONE", "MAGNETIC-VAULT"),
                       ("DEEP-LOCK", "DEEP-LOCK-DOOR"),
-                      ("SUPPORT-TIMBER", "STORED-ROOM"), ("KEY-RING", "LOWER-CRYPT"),
+                      ("SUPPORT-TIMBER", "STORED-ROOM"), ("HANGING-ROPE", "PILE-OF-RUBBLE"), ("KEY-RING", "LOWER-CRYPT"),
                       ("SKELETON", "LOWER-CRYPT"), ("KEEPER-SEAL", "LOWER-CRYPT"),
                       ("PENDULUM-BLADE", "LOWER-CRYPT"), ("FIRE-CLAY", "THERMAL-VENT-ROOM"),
                       ("VENT-CEILING", "THERMAL-VENT-ROOM"), ("KEEPER-DOOR", "CHURCH-NAVE"),
@@ -334,6 +342,10 @@ def _place_objects(world) -> None:
     # RUNED-METAL is handed over by Ivanaar; PALE-BLADE is forged by Pyronicus
 
 
+WHITE_HOUSE_KNOCK = ("Knock knock. Nobody's home — nobody's been home since about 1980. "
+                     "The mailbox, on the other hand, looks expectant.")
+
+
 def _wire_whitehouse_action(world, game) -> None:
     """
     White House: any command except OPEN MAILBOX (or QUIT, VERSION) returns the Zork joke.
@@ -346,7 +358,11 @@ def _wire_whitehouse_action(world, game) -> None:
             # Block all verbs except V-OPEN targeting the mailbox
             if w.prsa == "V-OPEN" and w.prso is not None and w.prso.name == "MAILBOX-WHITE-HOUSE":
                 return M_NOT_HANDLED  # let V-OPEN proceed
-            if w.prsa not in (None, "V-WALK", "V-LOOK", "V-EXAMINE", "V-QUIT", "V-VERSION"):
+            house = w.prso is not None and w.prso.name == "WHITE-HOUSE-DOOR"
+            if house and w.prsa == "V-KNOCK":    # locations.md — the knock is rewarded
+                print(WHITE_HOUSE_KNOCK)
+                return M_HANDLED
+            if house or w.prsa not in (None, "V-WALK", "V-LOOK", "V-EXAMINE", "V-QUIT", "V-VERSION"):
                 print('What does this look like? A Great Underground Empire?')
                 return M_HANDLED
         return M_NOT_HANDLED

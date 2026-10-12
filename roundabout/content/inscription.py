@@ -185,7 +185,8 @@ def chamber_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 
     if w.get_global("SNARE-HANGING"):
         return _hanging_turn(w)
-    if w.prsa == "V-RUB" and w.objects["ENGRAVING"] in (w.prso, w.prsi):
+    rubbing = (w.objects["ENGRAVING"], w.objects["THIN-PAPER"], w.objects["CHARCOAL"])
+    if w.prsa == "V-RUB" and (w.prso in rubbing or w.prsi in rubbing):
         _rub(w)
         return M_HANDLED
     return M_NOT_HANDLED

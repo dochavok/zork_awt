@@ -223,3 +223,28 @@ def test_play_again_right_away():
     _play(g, "bet 3", _TY_FAIL + [1] * 15)
     out = _play(g, "play cargo 3", _TY_FAIL + [1] * 15)
     assert cargo._PUSH in out
+
+
+# --- ROLL is PLAY at the table (mechanics.md — Ty's Casino Corner) --------------
+
+def test_roll_with_no_stake_asks_for_one():
+    w, g = _table()
+    for cmd in ("roll", "roll dice"):
+        assert cargo._STAKE_FIRST in _do(g, cmd)
+    assert w.globals["zenni"] == 20
+
+
+def test_roll_with_a_stake_plays_a_round():
+    w, g = _table()
+    for cmd, zenni in (("roll dice for 5", 25), ("roll 3", 28)):
+        out = _play(g, cmd, _TY_FAIL + [6, 5, 4, 1, 1])      # Ty 0, you 2: a win
+        assert cargo._WIN in out
+        assert w.globals["zenni"] == zenni
+
+
+def test_roll_away_from_the_table():
+    w, g = _make_world()
+    crowbar = w.objects["CROWBAR"]
+    crowbar.clear_flag("INVISIBLE")
+    w.move_object(crowbar, w.player)
+    assert "Rolling the crowbar has no obvious effect." in _do(g, "roll crowbar")

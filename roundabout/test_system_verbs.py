@@ -246,6 +246,19 @@ def test_diagnose_hurt():
     ("smell shovel", "It smells like a shovel."),
     ("wave", "You wave. Nobody waves back."),
     ("wave shovel", "Waving the shovel has no effect."),
+    ("brush shovel", "If you wish, but heaven only knows why."),
+    ("clean shovel with shovel", "If you wish, but heaven only knows why."),
+    ("close shovel", "You can't close that."),
+    ("cross shovel", "You can't cross that!"),
+    ("enchant shovel", "You don't know how to enchant anything."),
+    ("disenchant shovel", "You don't know how to enchant anything."),
+    ("fill shovel", "You can't fill that."),
+    ("fill shovel with shovel", "You can't fill that."),
+    ("hold shovel near shovel", "Nothing happens."),
+    ("lean shovel", "Getting tired?"),
+    ("lean on shovel", "Getting tired?"),
+    ("lean against shovel", "Getting tired?"),
+    ("make shovel", "You can't do that."),
 ])
 def test_flavor_lines(command, line):
     w, g = _make_world()

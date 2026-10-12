@@ -24,6 +24,10 @@ WEAK_POINT_LISTING = "A split timber support sags under the rock above it."
 _WEDGED = "You wedge the gunpowder in against the split timber."
 _MAKES_A_MESS = "That would just make a mess. It needs to be somewhere that matters."
 _NO_FLINT = "You've nothing to light it with."
+_TORCH_NO = (
+    "You bring the torch close and think better of it. An open flame and loose "
+    "powder — it'd go up in your hand. A fuse wants a spark."
+)
 _HOLDING = "Not while you're holding it."
 _LIT = (
     "You strike the flint. The fuse catches with a sharp hiss. The gunpowder is "
@@ -36,6 +40,7 @@ _BOOM = (
 )
 _CAUGHT_INSIDE = "The mine finds its weak point. So does the ceiling above you."
 _BURIED = "The way down is buried under the collapse."
+_FUSE_BURNING = "The fuse is already hissing. Leaving would be a better use of your time."
 _LIT_TAKE = "Only a madman (or a Pie Rat) would pick that up!"
 
 _ENTRANCE = (
@@ -95,18 +100,27 @@ def gunpowder_taken(w: World) -> None:
     w.set_global("GUNPOWDER-PLACED", False)
 
 
+def is_torch(obj) -> bool:
+    return obj is not None and obj.name in ("TORCH", "IVORY-TORCH")
+
+
 def light_gunpowder(w: World) -> None:
     gunpowder = w.objects["GUNPOWDER"]
+    if w.get_global("FUSE-LIT"):
+        print(_FUSE_BURNING)
+        return
     if gunpowder in w.player.contents:
         print(_HOLDING)
         return
     if not w.get_global("GUNPOWDER-PLACED") or gunpowder.location is not w.rooms["MINE-TUNNELS"]:
         print(_MAKES_A_MESS)
         return
-    if w.objects["FLINT-AND-STEEL"] not in w.player.contents:
-        print(_NO_FLINT)
+    if is_torch(w.prsi):                   # LIGHT GUNPOWDER WITH TORCH
+        print(_TORCH_NO)
         return
-    if w.get_global("FUSE-LIT"):
+    if w.objects["FLINT-AND-STEEL"] not in w.player.contents:
+        torch = any(is_torch(o) for o in w.player.contents)
+        print(_TORCH_NO if torch else _NO_FLINT)
         return
     print(_LIT)
     w.set_global("FUSE-LIT", True)

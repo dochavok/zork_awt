@@ -284,7 +284,7 @@ def _number(words) -> int | None:
 
 
 def input_hook(w: World, text: str) -> bool:
-    """PLAY [CARGO] [n] / BET n / WAGER n; REROLL / STAND while choosing."""
+    """PLAY / ROLL [CARGO] [n] / BET n / WAGER n; REROLL / STAND while choosing."""
     from engine.game import HOOK_NO_TURN
     words = [x for x in text.lower().replace(",", " ").split()
              if x not in ("the", "a", "zenni", "coin", "coins", "die", "dice")]
@@ -301,7 +301,7 @@ def input_hook(w: World, text: str) -> bool:
         return HOOK_NO_TURN
     if not _here(w) or not words:
         return False
-    if words[0] == "play":
+    if words[0] in ("play", "roll"):          # ROLL [DICE] [n] — "dice" is dropped above
         rest = [x for x in words[1:] if x not in ("cargo", "for", "with", "ty")]
         if any(x not in _NUMBERS and not x.isdigit() for x in rest):
             return False                     # PLAY something else — the parser

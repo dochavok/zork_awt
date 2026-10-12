@@ -11,6 +11,9 @@ from engine.world import (
 )
 
 
+# locations.md — Pile of Rubble: the tied rope from below
+HANGING_ROPE_EXAMINE = "The rope hangs down through the hole above, tied to the timber at the top."
+
 # items.md — Enchanted Glasses. Kevry's enchantment swaps in the glowing one.
 GLASSES_EXAMINE = (
     "Wire-rimmed glasses, the lenses a little smudged. They look perfectly ordinary."
@@ -99,6 +102,14 @@ def _make_opening_objects(world) -> None:
     )
     mailbox.set_flag(NDESCBIT)   # suppressed from room listing (covered by ldesc above)
     world.register_object(mailbox)
+    # The house and its boarded door — scenery for the opening's joke, and
+    # KNOCK ON DOOR (content/init.py, _wire_whitehouse_action)
+    world.register_object(GameObject(
+        name="WHITE-HOUSE-DOOR", desc="white house",
+        synonyms=["house", "door", "boards", "doorframe"],
+        adjectives=["white", "front", "boarded"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
 
 
 # ---------------------------------------------------------------------------
@@ -164,6 +175,12 @@ def _make_tower_objects(world) -> None:
                 "through several emergencies.",
         synonyms=["nightstand", "stand"], adjectives=["small", "wooden", "night"],
         flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="WILLS-BED", desc="bed",
+        examine="Narrow, and made with the perfunctory neatness of someone who "
+                "knows they'll be up again soon.",
+        synonyms=["bed"], adjectives=["narrow"], flags={NDESCBIT, SACREDBIT},
     ))
     world.register_object(GameObject(
         name="DRAGON-NIP", desc="glowing sprig",
@@ -386,7 +403,7 @@ def _make_sea_objects(world) -> None:
         examine="A ceramic jar, glazed blue-grey, a crack running from lip to base. It "
                 "hums — a low, steady note you feel more than hear. Letters are etched "
                 "around its base, worn almost smooth.",
-        synonyms=["jar", "inscription", "letters", "base", "words", "etching"],
+        synonyms=["jar", "inscription", "letters", "base", "words", "etching", "crack"],
         adjectives=["ceramic", "cracked", "whispering", "blue-grey", "mended", "etched"],
         flags={SACREDBIT},
     ))
@@ -716,7 +733,7 @@ def _make_lynds_objects(world) -> None:
 def _make_dankhaus_objects(world) -> None:
     # The yurt seen from Bog-SE — hidden until the path is found
     world.register_object(GameObject(
-        name="DANKHAUS", desc="yurt", synonyms=["dankhaus", "yurt", "path", "house"],
+        name="DANKHAUS", desc="yurt", synonyms=["dankhaus", "yurt", "path", "house", "door", "doorframe"],
         adjectives=["low", "round"], flags={NDESCBIT, SACREDBIT, INVISIBLE},
     ))
     # Litlock is described in the Common Room's room description
@@ -1002,7 +1019,7 @@ def _make_shrine_path_objects(world) -> None:
 
 def _make_mid_tier_objects(world) -> None:
     world.register_object(GameObject(
-        name="MINE-CHEST", desc="iron chest", synonyms=["chest"],
+        name="MINE-CHEST", desc="iron chest", synonyms=["chest", "lock"],
         adjectives=["large", "iron", "bolted"], flags={NDESCBIT, SACREDBIT},
     ))
     world.register_object(GameObject(
@@ -1334,6 +1351,13 @@ def _make_mid_tier_objects(world) -> None:
     world.register_object(GameObject(
         name="SUPPORT-TIMBER", desc="support timber", synonyms=["timber", "beam"],
         adjectives=["support", "old"], flags={NDESCBIT, SACREDBIT, INVISIBLE},
+    ))
+    # The tied rope seen from below (Pile of Rubble) — the player can only be
+    # down there once it's tied
+    world.register_object(GameObject(
+        name="HANGING-ROPE", desc="rope", synonyms=["rope", "line"],
+        adjectives=["hanging"], flags={NDESCBIT, CLIMBBIT, SACREDBIT},
+        examine=HANGING_ROPE_EXAMINE,
     ))
 
 

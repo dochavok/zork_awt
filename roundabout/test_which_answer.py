@@ -71,7 +71,7 @@ def test_the_question_is_answered_only_once():
     w, g = _mage_with_scrolls()
     _do(g, "read scroll")
     _do(g, "fireball")
-    assert 'I don\'t know the word "fireball".' in _do(g, "fireball")
+    assert "There was no verb in that sentence!" in _do(g, "fireball")   # a known word, not an answer
 
 
 def test_the_question_lapses_after_another_command():

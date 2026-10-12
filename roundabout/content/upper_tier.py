@@ -184,6 +184,8 @@ _PRIED = (
     "width, then enough. You squeeze through before it changes its mind."
 )
 _PRY_FAILED = "The crowbar bites, the slab shifts a fraction, and settles back. Not this time."
+_LIFT_BARE = "The slab won't budge for bare hands. You'd need something to lever it with."
+_NOT_BLOCKED = "Nothing is blocking the doorway."
 
 
 def idol_plate_check(w: World) -> bool:
@@ -270,6 +272,16 @@ def pry_idol_door(w: World) -> None:
         print(_PRIED)
     else:
         print(_PRY_FAILED)
+
+
+def lift_idol_door(w: World) -> None:
+    """LIFT SLAB — PRY DOOR if the crowbar is held."""
+    if not w.get_global("IDOL-DOOR-SHUT"):
+        print(_NOT_BLOCKED)
+    elif w.objects["CROWBAR"] not in w.player.contents:
+        print(_LIFT_BARE)
+    else:
+        pry_idol_door(w)
 
 
 class _IdolNorthExit(Exit):

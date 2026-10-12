@@ -57,6 +57,8 @@ _MENDED_EXAMINE = (
     "shimmer clings to the letters around its base. It doesn't hum any more."
 )
 _NO_JAR_SEAL = "There's nothing here to press it on."
+_NO_FILL = "You've nothing to fill the crack with."
+_ALREADY_SEALED = "The crack is already sealed."
 _NO_JAR_DUST = "There's nothing here worth dusting."
 _NOTHING_TO_DUST = "You have nothing to dust it with."
 
@@ -110,6 +112,16 @@ def pipe_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     jar = w.objects["WHISPERING-JAR"]
     seal, dust = w.objects["WAX-SEAL"], w.objects["SILVER-DUST"]
     prsa, prso, prsi = w.prsa, w.prso, w.prsi
+    # REPAIR / FIX / PATCH / PLUG / GLUE / SEAL JAR (or CRACK) [WITH SEAL]: the
+    # seal step is the repair
+    if prsa in ("V-PLUG", "V-SEAL") and prso is jar and prsi in (None, seal):
+        if w.get_global("JAR-SEALED"):
+            print(_ALREADY_SEALED)
+        elif _held(w, "WAX-SEAL"):
+            _press(w)
+        else:
+            print(_NO_FILL)
+        return M_HANDLED
     if prsi not in (None, jar):
         return M_NOT_HANDLED
     if prsa in ("V-PUSH", "V-PUT-ON") and prso is seal and _held(w, "WAX-SEAL"):

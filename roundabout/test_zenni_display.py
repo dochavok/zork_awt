@@ -6,6 +6,7 @@ Run with: pytest roundabout/test_zenni_display.py  (from c:\\zork_awt)
 
 import sys
 import os
+import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
 from test_knight import _make_world, _do
@@ -54,3 +55,24 @@ def test_score_shows_zenni():
     lines = [l.strip() for l in out.splitlines() if l.strip()]
     i = next(n for n, l in enumerate(lines) if l.startswith("Level "))
     assert lines[i + 1] == "Zenni: 12"
+
+
+@pytest.mark.parametrize("cmd", ["count", "count zenni", "count money", "count my coins", "COUNT CASH"])
+def test_count_zenni_is_the_purse_line_no_turn(cmd):
+    w, g = _make_world(cls="warrior", zenni=12)
+    moves = w.moves
+    assert "You have 12 Zenni." in _do(g, cmd)
+    assert w.moves == moves
+
+
+def test_count_with_no_zenni():
+    w, g = _make_world(cls="warrior", zenni=0)
+    assert "You have no Zenni." in _do(g, "count zenni")
+
+
+def test_count_anything_else():
+    w, g = _make_world(cls="warrior")
+    w.move_object(w.objects["ROPE"], w.player)
+    moves = w.moves
+    assert "You have lost your mind." in _do(g, "count rope")
+    assert w.moves == moves + 1

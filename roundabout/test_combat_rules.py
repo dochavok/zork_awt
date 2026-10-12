@@ -267,7 +267,7 @@ def test_shoot_non_enemy():
     _give(w, "BOW")
     w.move_object(w.player, w.rooms["BAR"])
     w.here = w.rooms["BAR"]
-    assert "You can't fight the" in _do(g, "shoot may")
+    assert "You can't fight May." in _do(g, "shoot may")      # named: no "the"
     assert not w.globals.get("EQUIPPED")
 
 

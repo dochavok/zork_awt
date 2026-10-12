@@ -261,9 +261,14 @@ def tip_input_hook(w: World, text: str) -> bool:
         return False
     others = [x for x in words[1:]
               if x not in _MAY and x not in _NUMBERS and not x.isdigit()
-              and x not in ("zenni", "coin", "coins", "to")]
+              and x not in ("zenni", "coin", "coins", "to", "the")]
     if others:
-        return False
+        if _amount(words[1:]) is None:
+            return False                  # TIP IDOL / TIP SHAMUS — tip over (verbs.v_tip)
+        from engine.game import HOOK_NO_TURN
+        from content.verbs import _ONLY_MAY
+        print(_ONLY_MAY)                  # TIP SHAMUS 5 — money for someone else
+        return HOOK_NO_TURN
     tip(w, _amount(words[1:]))
     return True
 

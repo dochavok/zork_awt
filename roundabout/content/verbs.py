@@ -227,11 +227,29 @@ def v_place(world: World) -> int:
 
 
 def v_seal(world: World) -> int:
+    """SEAL X [WITH Y]: the aqueduct (Quest 22). The Whispering Jar answers
+    first (whispering_jar.py)."""
     from content import aqueduct
+    if world.prso is None:
+        return M_NOT_HANDLED
     if aqueduct.is_aqueduct_part(world.prso):
         aqueduct.seal(world)
         return M_HANDLED
-    return M_NOT_HANDLED
+    print("You can't seal that.")
+    return M_HANDLED
+
+
+def v_plug(world: World) -> int:
+    """PLUG / PATCH / REPAIR / FIX / GLUE X [WITH Y] (mechanics.md — Parser
+    Verbs): the aqueduct is SEAL; the jar and the bowl answer first."""
+    from content import aqueduct
+    if world.prso is None:
+        return M_NOT_HANDLED
+    if aqueduct.is_aqueduct_part(world.prso):
+        aqueduct.seal(world)
+        return M_HANDLED
+    print("You can't fix that.")
+    return M_HANDLED
 
 
 def v_pour(world: World) -> int:
@@ -242,6 +260,24 @@ def v_pour(world: World) -> int:
         print("You'd rather not waste it.")
         return M_HANDLED
     return M_NOT_HANDLED
+
+
+def v_apply(world: World) -> int:
+    """APPLY X TO / ON Y (mechanics.md — Parser Verbs): wherever the action
+    belongs — the jar's seal and dust (PUT ON), mortar (SEAL), holy water (POUR)."""
+    obj, target = world.prso, world.prsi
+    if obj is None or target is None:
+        return M_NOT_HANDLED
+    from content import aqueduct
+    if obj.name in ("WAX-SEAL", "SILVER-DUST") and target.name == "WHISPERING-JAR":
+        return world.game.perform("V-PUT-ON", obj, target)
+    if obj.name == "MORTAR" and aqueduct.is_aqueduct_part(target):
+        aqueduct.seal(world)
+        return M_HANDLED
+    if obj.name == "HOLY-WATER" and target.name == "SILVER-STAKE":
+        return world.game.perform("V-POUR", obj, target)
+    print(f"You can't apply the {obj.desc} to the {target.desc}.")
+    return M_HANDLED
 
 
 def v_look_up(world: World) -> int:
@@ -476,12 +512,51 @@ def restore_named_input_hook(world: World, text: str):
 # Item names are the items.md "inventory description" (obj.desc).
 # ---------------------------------------------------------------------------
 
+def _purse(world: World) -> str:
+    zenni = world.globals.get("zenni", 0)
+    return f"You have {zenni} Zenni." if zenni else "You have no Zenni."
+
+
+_COUNT_PURSE = {"zenni", "money", "coins", "coin", "cash", "my", "the"}
+
+
+def count_input_hook(world: World, text: str):
+    """COUNT alone, or COUNT ZENNI / MONEY / COINS / CASH: the purse line, no
+    turn (mechanics.md — Parser Verbs). COUNT anything else is V-COUNT."""
+    words = text.strip().lower().split()
+    if not words or words[0] != "count" or any(w not in _COUNT_PURSE for w in words[1:]):
+        return False
+    from engine.game import HOOK_NO_TURN
+    print(_purse(world))
+    return HOOK_NO_TURN
+
+
+_BRIDGES = {"TOLL-BRIDGE", "RICKETY-BRIDGE"}
+_JUST_GO = "Just go north or south."
+
+
+def cross_input_hook(world: World, text: str):
+    """CROSS [anything] on a bridge (mechanics.md — Parser Verbs): the bridges
+    are rooms, so point the way, no turn. With the Boggart still on the Toll
+    Bridge, it's walking south into him: his refusal, as a move would."""
+    words = text.strip().lower().split()
+    if not words or words[0] != "cross" or world.here is None \
+            or world.here.name not in _BRIDGES:
+        return False
+    if world.here.name == "TOLL-BRIDGE" and not world.get_global("BOGGART-GONE"):
+        world.walk_dir = "south"
+        world.game.perform("V-WALK")
+        return True
+    from engine.game import HOOK_NO_TURN
+    print(_JUST_GO)
+    return HOOK_NO_TURN
+
+
 def v_inventory(world: World) -> int:
     from engine.world import WEARBIT
     player = world.player
     items = [o for o in (player.contents if player else []) if o is not player]
-    zenni = world.globals.get("zenni", 0)
-    purse = f"You have {zenni} Zenni." if zenni else "You have no Zenni."
+    purse = _purse(world)
     if not items:
         print("You are empty-handed.")
         print(purse)
@@ -1039,6 +1114,13 @@ def _npc_subject(npc) -> str:
     return npc.desc
 
 
+def _npc_object(obj) -> str:
+    """After a verb: 'May', 'the Archivist', 'the clerk' — and 'the crowbar'."""
+    if obj.has_flag("ACTORBIT") and not (obj.name in _TITLED_NPCS or obj.desc[:1].islower()):
+        return obj.desc
+    return f"the {obj.desc}"
+
+
 # ---------------------------------------------------------------------------
 # V-LISTEN — the default when no room or object answers (mechanics.md).
 # LISTEN is passive: it never stands in for TALK TO.
@@ -1099,6 +1181,10 @@ def v_raise(world: World) -> int:
     if obj is not None and obj.name == "PORTCULLIS":
         from content import shrine_path
         shrine_path.lift(world)
+        return M_HANDLED
+    if obj is not None and obj.name == "IDOL-DOOR":
+        from content import upper_tier
+        upper_tier.lift_idol_door(world)
         return M_HANDLED
     print("Nothing happens.")
     return M_HANDLED
@@ -1242,6 +1328,275 @@ def _fight(world: World, obj) -> None:
         knight.attack(world)
 
 
+def _blow(thing_line: str):
+    """CUT / KICK X (mechanics.md — Parser Verbs): an attack on something you
+    can fight, refused for other NPCs, thing_line for anything else.
+    CUT CORD and CUT ROPE are room actions."""
+    def handler(world: World) -> int:
+        obj = world.prso
+        if obj is None:
+            return M_NOT_HANDLED
+        if _fightable(world, obj):
+            world.prsa = "V-MELEE"
+            return v_melee(world)
+        if obj.has_flag("ACTORBIT"):
+            print(f"{_npc_subject(obj)} wouldn't appreciate that.")
+        else:
+            print(thing_line.format(obj=obj.desc))
+        return M_HANDLED
+    return handler
+
+
+v_cut = _blow("Strange concept, cutting the {obj}...")
+v_kick = _blow("Kicking the {obj} has no obvious effect.")
+
+
+def v_take_from(world: World) -> int:
+    """TAKE / REMOVE X FROM Y (mechanics.md — Parser Verbs): TAKE X if it's in
+    or on Y. The Trophy Case answers first (trophy_case.py)."""
+    obj, source = world.prso, world.prsi
+    if obj is None or source is None:
+        return M_NOT_HANDLED
+    if obj.location is not source:
+        print(f"The {obj.desc} isn't in the {source.desc}.")
+        return M_HANDLED
+    return world.game.perform("V-TAKE", obj)
+
+
+def v_throw(world: World) -> int:
+    """THROW / HURL / CHUCK / TOSS X [AT Y] (mechanics.md — Parser Verbs):
+    alone it's DROP X; at anything, it isn't thrown. The ring refuses first."""
+    if world.prso is None:
+        return M_NOT_HANDLED
+    if world.prsi is not None:
+        print(f"You'd rather keep hold of the {world.prso.desc}.")
+        return M_HANDLED
+    return world.game.perform("V-DROP", world.prso)
+
+
+def v_tie(world: World) -> int:
+    """TIE X [TO Y] (mechanics.md — Parser Verbs). The Stored Room's rope and
+    timber answer first (mid_tier.py)."""
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    from content import mid_tier
+    if obj.name in ("ROPE", "HANGING-ROPE"):
+        print(mid_tier._ROPE_HANGS if world.get_global("ROPE-TIED") else mid_tier._NOTHING_TO_TIE)
+    elif world.prsi is not None:
+        print(f"You can't tie the {obj.desc} to that.")
+    else:
+        print(f"You can't tie the {obj.desc}.")
+    return M_HANDLED
+
+
+def v_untie(world: World) -> int:
+    """UNTIE / FREE / RELEASE X (mechanics.md — Parser Verbs). The tied rope
+    answers first (mid_tier.py)."""
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    if obj.has_flag("ACTORBIT"):
+        print(f"{_npc_subject(obj)} isn't tied up.")
+    elif obj.name == "ROPE":                  # a loose coil
+        print("It isn't tied to anything.")
+    else:
+        print("This cannot be tied, so it cannot be untied!")
+    return M_HANDLED
+
+
+_ONLY_MAY = "May's the only one who takes tips."
+_IDOL_NUDGED = ("You nudge the idol. It rocks on its base and settles back — still on the "
+                "pedestal, still pressing down on whatever's beneath it.")
+
+
+def v_tip(world: World) -> int:
+    """TIP X — "tip over" for things (mechanics.md — Parser Verbs). TIP MAY [#]
+    is may_hints.tip_input_hook."""
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    from content import gravestone
+    if obj.has_flag("ACTORBIT"):
+        print(_ONLY_MAY)
+    elif obj.name in ("GRAVESTONE", "HAND-CART") and gravestone.cart_loaded(world):
+        gravestone.unload(world)          # the game's own word: tip it off the cart
+    elif obj.name == "IDOL" and obj.location is world.rooms["IDOL-ROOM"]:
+        print(_IDOL_NUDGED)
+    else:
+        print("You can't tip that over.")
+    return M_HANDLED
+
+
+_WHICH_WAY = "Which way — left or right?"
+
+
+def turn_dial_input_hook(world: World, text: str):
+    """TURN / SPIN DIAL with no direction, at the altar: ask, no turn."""
+    words = [x for x in text.strip().lower().split() if x != "the"]
+    if words not in (["turn", "dial"], ["spin", "dial"], ["flip", "dial"]) \
+            or world.objects["DIAL"].location is not world.here:
+        return False
+    from engine.game import HOOK_NO_TURN
+    print(_WHICH_WAY)
+    return HOOK_NO_TURN
+
+
+def v_turn(world: World) -> int:
+    """TURN / SPIN / FLIP X (mechanics.md — Parser Verbs). TURN DIAL LEFT /
+    RIGHT is V-TURN-DIAL; TURN DIAL alone is turn_dial_input_hook."""
+    if world.prso is None:
+        return M_NOT_HANDLED
+    print("You can't turn that.")
+    return M_HANDLED
+
+
+def v_swing(world: World) -> int:
+    """SWING / THRUST X [AT Y] (mechanics.md — Parser Verbs): at Y it's
+    ATTACK Y WITH X; alone, Zork's Whoosh!"""
+    if world.prso is None:
+        return M_NOT_HANDLED
+    if world.prsi is None:
+        print("Whoosh!")
+        return M_HANDLED
+    return world.game.perform("V-MELEE", world.prsi, world.prso)
+
+
+def v_rub(world: World) -> int:
+    """RUB / TOUCH / FEEL / PAT / PET X [ON / WITH Y] (mechanics.md — Parser
+    Verbs). The Inscription Chamber's rubbing answers first (inscription.py)."""
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    if obj.has_flag("ACTORBIT"):
+        print(f"{_npc_subject(obj)} wouldn't appreciate that.")
+    else:
+        print(f"Fiddling with the {obj.desc} has no effect.")
+    return M_HANDLED
+
+
+def v_roll(world: World) -> int:
+    """ROLL X — Zork's line. ROLL [DICE] [n] at Ty's table is PLAY (cargo.py)."""
+    if world.prso is None:
+        return M_NOT_HANDLED
+    print(f"Rolling the {world.prso.desc} has no obvious effect.")
+    return M_HANDLED
+
+
+_DOORS = {"CELLAR-DOOR", "TUNNEL-DOOR-CELLAR", "TUNNEL-DOOR-BONE", "MID-TIER-DOOR",
+          "KEEPER-DOOR", "DEEP-LOCK", "IDOL-DOOR"}
+_LITLOCK_UNKNOWN = ('You rap on the doorframe. From inside, a cheerful voice: '
+                    '"Don\'t know you! Lovely knock, though."')
+_LITLOCK_OPEN = 'From inside, Litlock\'s voice: "It\'s open!"'
+
+
+def v_knock(world: World) -> int:
+    """KNOCK [ON] X (mechanics.md — Parser Verbs). The White House door is the
+    opening's own (init.py)."""
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    if obj.name in _DOORS:
+        print("Nobody's home.")
+    elif obj.name == "ALCOVE-WALL" and world.get_global("ALCOVE-FOUND") \
+            and not world.get_global("ALCOVE-OPEN"):
+        from content import tool_alcove
+        print(tool_alcove._ASKS)          # it answers — with its question
+    elif obj.name == "DANKHAUS":
+        if world.get_global("INKED"):
+            from content.ink import LITLOCK_DOOR
+            print(LITLOCK_DOOR)
+        elif world.get_global("DANKHAUS-INVITED"):
+            print(_LITLOCK_OPEN)
+        else:
+            print(_LITLOCK_UNKNOWN)
+    else:
+        print(f"Why knock on the {obj.desc}?")
+    return M_HANDLED
+
+
+def v_look_inside(world: World) -> int:
+    """LOOK IN X (mechanics.md — Parser Verbs): EXAMINE X. The Trophy Case and
+    the Quest Board answer first."""
+    if world.prso is None:
+        return M_NOT_HANDLED
+    return world.game.perform("V-EXAMINE", world.prso)
+
+
+def v_look_under(world: World) -> int:
+    """LOOK UNDER X — Zork's dust; under the nightstand, the dragon-nip."""
+    from content import bedroom
+    if world.prso is not None and world.prso.name == "NIGHTSTAND":
+        bedroom.look_under_nightstand(world)
+    elif world.prso is not None and world.prso.name == "WILLS-BED":
+        print(bedroom.UNDER_BED)
+    else:
+        print(bedroom.NOTHING_UNDER)
+    return M_HANDLED
+
+
+_LOWER_UNTIED = "You'd want it tied to something first. That timber looks sturdy."
+_LOWER_TIED = "It's already hanging down into the dark."
+
+
+_UNPICKABLE = "This lock can't be picked."
+
+
+def v_pick(world: World) -> int:
+    """PICK X (mechanics.md — Parser Verbs): the iron chest's lock is the one
+    the lockpicks open; keyed doors can't be picked; PICK a takeable thing is
+    TAKE. The Deep Lock door answers first (inscription.py)."""
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    if obj.name == "MINE-CHEST":
+        from content import mid_tier
+        mid_tier.open_chest(world)
+    elif obj.name in _KEYED_DOORS:
+        print(_UNPICKABLE)
+    elif obj.has_flag("TAKEBIT"):
+        return world.game.perform("V-TAKE", obj)
+    else:
+        print("You can't pick that.")
+    return M_HANDLED
+
+
+def v_melt(world: World) -> int:
+    """MELT X [WITH Y] — Zork's line; the Fountain Room ice answers first
+    (frozen_soldier.py)."""
+    if world.prso is None:
+        return M_NOT_HANDLED
+    print(f"It's not clear that the {world.prso.desc} can be melted.")
+    return M_HANDLED
+
+
+def v_lower(world: World) -> int:
+    """LOWER X (mechanics.md — Parser Verbs); LOWER ROPE at the Hole to Below
+    (locations.md — Stored Room)."""
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    if obj.name in ("ROPE", "HANGING-ROPE") and world.get_global("ROPE-TIED"):
+        print(_LOWER_TIED)
+    elif obj.name == "ROPE" and world.here is not None and world.here.name == "STORED-ROOM" \
+            and world.get_global("STORED-ROOM-DUG") and obj in world.player.contents:
+        print(_LOWER_UNTIED)
+    else:
+        print(f"Playing in this way with the {obj.desc} has no obvious effect.")
+    return M_HANDLED
+
+
+def v_hold_near(world: World) -> int:
+    """HOLD X NEAR Y (mechanics.md — Parser Verbs): a torch near the gunpowder
+    is refused (only flint and steel lights it); anything else, nothing."""
+    from content import mine
+    if mine.is_torch(world.prso) and world.prsi is world.objects["GUNPOWDER"]:
+        print(mine._TORCH_NO)
+    else:
+        print("Nothing happens.")
+    return M_HANDLED
+
+
 def v_melee(world: World) -> int:
     if world.prso is not None and world.prso.name == "GALLERY-TIMBERS":   # HIT TIMBER
         from content import aqueduct
@@ -1255,7 +1610,7 @@ def v_melee(world: World) -> int:
         world.prsa = "V-SHOOT"
         return v_shoot(world)
     if not _fightable(world, obj):
-        print(f"You can't fight the {obj.desc}.")
+        print(f"You can't fight {_npc_object(obj)}.")
         return M_HANDLED
     # KILL X WITH Y: a usable weapon is taken up first, same turn
     from content import combat
@@ -1281,7 +1636,7 @@ def v_shoot(world: World) -> int:
         print("That won't shoot anything.")
         return M_HANDLED
     if not _fightable(world, obj):
-        print(f"You can't fight the {obj.desc}.")
+        print(f"You can't fight {_npc_object(obj)}.")
         return M_HANDLED
     if combat.equipped(world) is not bow:
         combat.equip(world, bow)
@@ -1322,6 +1677,19 @@ def v_climb_tree(world: World) -> int:
     return M_HANDLED
 
 
+def _climb(direction: str):
+    """CLIMB UP / CLIMB DOWN [X] — UP / DOWN, whatever X is (as Zork);
+    CLIMB UP TREE is CLIMB TREE."""
+    def handler(world: World) -> int:
+        if direction == "up" and world.prso is not None and world.prso.name == "OAK-TREE":
+            from content import old_oak
+            old_oak.climb_tree(world)
+            return M_HANDLED
+        world.walk_dir = direction
+        return world.game.perform("V-WALK")
+    return handler
+
+
 def v_climb(world: World) -> int:
     obj = world.prso
     if obj is None:
@@ -1330,6 +1698,11 @@ def v_climb(world: World) -> int:
         from content import old_oak
         old_oak.climb_tree(world)
         return M_HANDLED
+    # CLIMB ROPE: down the hole from the Stored Room, up it from below
+    if obj.name == "HANGING-ROPE":
+        return _climb("up")(world)
+    if obj.name == "ROPE" and world.get_global("ROPE-TIED"):
+        return _climb("down")(world)
     print(f"You can't climb the {obj.desc}.")
     return M_HANDLED
 
@@ -1796,14 +2169,48 @@ def make_land_input_hook(world: World, text: str) -> bool:
 
 # ---------------------------------------------------------------------------
 # V-TURN-ON / V-LAMP-ON  (TURN ON LANTERN — the Guardian's Lantern)
+# V-LAMP-OFF / V-TURN-OFF  (BLOW OUT / EXTINGUISH / TURN OFF)
 # ---------------------------------------------------------------------------
+
+_ALREADY_LIT = "It's already lit."
+_IVORY_HEAT = "It doesn't need lighting. The heat is already there."
+_TORCH_STAYS_LIT = "A torch burns until it's done. There's no putting it out."
+_LANTERN_STAYS_LIT = "The lantern stays lit. It's part of the room now."
+_NOT_LIT = "It isn't lit."
+_LANTERN_NOT_HELD = "You'd have to pick it up first."
+
 
 def v_turn_on(world: World) -> int:
     obj = world.prso
-    if obj is None or obj.name != "GUARDIANS-LANTERN" or obj not in world.player.contents:
+    if obj is None:
         return M_NOT_HANDLED
-    from content import dark_branch
-    dark_branch.light_lantern(world)
+    if obj.name == "GUARDIANS-LANTERN":
+        if world.get_global("LANTERN-HUNG"):
+            print(_ALREADY_LIT)
+        elif obj not in world.player.contents:
+            print(_LANTERN_NOT_HELD)
+        else:
+            from content import dark_branch
+            dark_branch.light_lantern(world)
+    elif obj.name == "TORCH":
+        print(_ALREADY_LIT)
+    elif obj.name == "IVORY-TORCH":
+        print(_IVORY_HEAT)
+    else:
+        print("You can't turn that on.")
+    return M_HANDLED
+
+
+def v_turn_off(world: World) -> int:
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    if obj.name == "TORCH":
+        print(_TORCH_STAYS_LIT)
+    elif obj.name == "GUARDIANS-LANTERN":
+        print(_LANTERN_STAYS_LIT if world.get_global("LANTERN-HUNG") else _NOT_LIT)
+    else:
+        print("You can't turn that off.")
     return M_HANDLED
 
 
@@ -1827,7 +2234,11 @@ def v_light(world: World) -> int:
         return M_HANDLED
 
     if obj.name == "IVORY-TORCH":         # a source of heat, never of light
-        print("It doesn't need lighting. The heat is already there.")
+        print(_IVORY_HEAT)
+        return M_HANDLED
+
+    if obj.name == "TORCH":
+        print(_ALREADY_LIT)
         return M_HANDLED
 
     print(f"You can't light the {obj.desc}.")
@@ -1923,6 +2334,22 @@ def v_unload(world: World) -> int:
     return M_HANDLED
 
 
+# Doors a key opens, and the global set once it has
+_KEYED_DOORS = {"CELLAR-DOOR": "CELLAR-DOOR-UNLOCKED", "MID-TIER-DOOR": "KEY-DOOR-UNLOCKED",
+                "KEEPER-DOOR": "KEEPER-DOOR-UNLOCKED"}
+_RELOCK = "After all that trouble you went to in unlocking it?"
+
+
+def v_lock(world: World) -> int:
+    """LOCK X [WITH Y] (mechanics.md — Parser Verbs): nothing is ever locked again."""
+    obj = world.prso
+    if obj is None:
+        return M_NOT_HANDLED
+    flag = _KEYED_DOORS.get(obj.name)
+    print(_RELOCK if flag and world.get_global(flag) else "You can't lock that.")
+    return M_HANDLED
+
+
 def v_unlock(world: World) -> int:
     obj = world.prso
     if obj is not None and obj.name == "CELLAR-DOOR":
@@ -1959,12 +2386,14 @@ def register_verbs(game) -> None:
     game.register_verb("V-LOOK",       v_look)
     game.register_verb("V-LOOK-UP",    v_look_up)
     game.register_verb("V-POUR",       v_pour)
+    game.register_verb("V-APPLY",      v_apply)
     game.register_verb("V-PLACE",      v_place)
     game.register_verb("V-MIX",        v_mix)
     game.register_verb("V-SCORE",      v_score)
     game.register_verb("V-TURN-DIAL-LEFT",  v_turn_dial_left)
     game.register_verb("V-TURN-DIAL-RIGHT", v_turn_dial_right)
     game.register_verb("V-SEAL",       v_seal)
+    game.register_verb("V-PLUG",       v_plug)
     game.register_verb("V-DRIVE-STAKE", v_drive_stake)
     game.register_verb("V-INVENTORY",  v_inventory)
     game.register_verb("V-SAVE",       v_save)
@@ -1991,6 +2420,14 @@ def register_verbs(game) -> None:
         ("V-BACK",     "Sorry, my memory is poor. Please give a direction."),
         ("V-STAND",    "You are already standing, I think."),
         ("V-BLAST",    "You can't blast anything by using words."),
+        ("V-BRUSH",    "If you wish, but heaven only knows why."),
+        ("V-CLOSE",    "You can't close that."),     # the Trophy Case closes (trophy_case.py)
+        ("V-COUNT",    "You have lost your mind."),  # COUNT ZENNI: count_input_hook
+        ("V-CROSS",    "You can't cross that!"),
+        ("V-ENCHANT",  "You don't know how to enchant anything."),
+        ("V-FILL",     "You can't fill that."),
+        ("V-LEAN",     "Getting tired?"),
+        ("V-MAKE",     "You can't do that."),          # MAKE LAND: make_land_input_hook
         ("V-EXORCISE", "What a bizarre concept!"),
         ("V-JUMP",     "Wheeeeeeeeee!!!!!"),
         ("V-KISS",     "I'd sooner kiss a pig."),
@@ -2019,12 +2456,20 @@ def register_verbs(game) -> None:
     game.register_verb("V-LIGHT",      v_light)
     game.register_verb("V-TURN-ON",    v_turn_on)
     game.register_verb("V-LAMP-ON",    v_turn_on)
+    game.register_verb("V-TURN-OFF",   v_turn_off)
+    game.register_verb("V-LAMP-OFF",   v_turn_off)
     game.register_verb("V-PUT-IN",     v_put_in)
     game.register_verb("V-PUT-ON",     v_put_on)
     game.register_verb("V-READ",       v_read)
     game.register_verb("V-CLIMB",      v_climb)
     game.register_verb("V-CLIMB-TREE", v_climb_tree)
+    game.register_verb("V-CLIMB-UP",   _climb("up"))
+    game.register_verb("V-CLIMB-DOWN", _climb("down"))
     game.register_verb("V-MELEE",      v_melee)
+    game.register_verb("V-CUT",        v_cut)
+    game.register_verb("V-KICK",       v_kick)
+    game.register_verb("V-KNOCK",      v_knock)
+    game.register_verb("V-HOLD-NEAR",  v_hold_near)   # HOLD TORCH NEAR ICE: frozen_soldier.py
     game.register_verb("V-SHOOT",      v_shoot)
     game.register_verb("V-EQUIP",      v_equip)
     game.register_verb("V-UNEQUIP",    v_unequip)
@@ -2046,6 +2491,21 @@ def register_verbs(game) -> None:
     game.register_verb("V-LOAD",       v_load)
     game.register_verb("V-UNLOAD",     v_unload)
     game.register_verb("V-UNLOCK",     v_unlock)
+    game.register_verb("V-LOCK",       v_lock)
+    game.register_verb("V-LOOK-INSIDE", v_look_inside)
+    game.register_verb("V-LOOK-UNDER", v_look_under)
+    game.register_verb("V-LOWER",      v_lower)
+    game.register_verb("V-MELT",       v_melt)
+    game.register_verb("V-PICK",       v_pick)
+    game.register_verb("V-ROLL",       v_roll)
+    game.register_verb("V-RUB",        v_rub)
+    game.register_verb("V-SWING",      v_swing)
+    game.register_verb("V-TAKE-FROM",  v_take_from)
+    game.register_verb("V-THROW",      v_throw)
+    game.register_verb("V-TIE",        v_tie)
+    game.register_verb("V-UNTIE",      v_untie)
+    game.register_verb("V-TIP",        v_tip)
+    game.register_verb("V-TURN",       v_turn)
     game.register_verb("V-ENTER",      v_enter)
     from content.dankhaus import litlock_input_hook
     game.register_input_hook(litlock_input_hook)

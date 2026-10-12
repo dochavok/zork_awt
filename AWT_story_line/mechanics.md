@@ -160,7 +160,7 @@ Dice-based, scales with player level. Warriors start proficient with melee; Rogu
 - Shot lines: hit — *Your arrow finds its mark. The [mugger / Warden / apprentice] staggers.* Tie — *You loose an arrow as it closes on you. Both of you feel it.* A miss uses the fight's own "you take a hit" line.
 - The +5 applies only when the fight's first round since it last reset (leaving resets the mugger, Warden and apprentice) is a bow shot. Swing first and later shots get nothing.
 - `SHOOT` equips the bow if it's carried but not equipped (the equip line prints, then the round). No bow carried: *You've nothing to shoot with.*
-- `SHOOT X WITH` something other than the bow: *That won't shoot anything.* Shooting a non-enemy: *You can't fight the X.*
+- `SHOOT X WITH` something other than the bow: *That won't shoot anything.* Shooting (or `ATTACK`ing) a non-enemy: *You can't fight the X.* — a named NPC without "the" (*You can't fight May.*), as for `GIVE` refused (Parser Verbs).
 - The werewolf: its bow line (Undead Werewolf, below); that turn's werewolf round still happens. The knight: his bow line (npcs.md); no turn used.
 - The Archery Range targets take no SHOOT commands.
 
@@ -345,7 +345,7 @@ Spells learned permanently once acquired.
 **Casting (`CAST <spell>`):**
 - Nothing to affect: *"Nothing here answers the spell."* — the reuse timer does not start.
 - Reuse timer still running: *"You reach for the spell and find it isn't ready yet."*
-- Spell not learned: *"You don't know that spell."*
+- Spell not learned: *"You don't know that spell."* (a spell name only — any other word gets the `CAST` alone list, Parser Verbs)
 
 **Spell scrolls vs. use-item scrolls:** Spell scrolls teach a spell permanently (Light, Unbind Undead, Fireball). Use-item scrolls teach nothing and aren't used up (incantation scroll — Quest 28/34 speaking door; full rules in items.md). The resistance mechanic below applies to spell scrolls only; use-item scrolls work for all classes.
 
@@ -536,7 +536,7 @@ Purchased from Shamus (Kitchen, Tale and Ale) for 3 Zenni. Weight: 2.
 | 15 | *The torch gutters. You don't have much time left on it.* |
 | 0 | Burnout — see below |
 
-**Torch burnout (turn 0):** Once lit, the torch can't be put out — the timer runs every turn after the first dark room entry.
+**Torch burnout (turn 0):** Once lit, the torch can't be put out — the timer runs every turn after the first dark room entry. `TURN OFF` / `EXTINGUISH` / `BLOW OUT TORCH`: *A torch burns until it's done. There's no putting it out.*
 - **Game over** only if the player is in a dark room **and** no exit from it leads straight to a lit room: *The torch goes out. In the dark, something shifts. You never find out what.*
 - **Otherwise** (in a lit area, or one move from one, or with the Light spell already lit) the torch just goes out: *The torch gutters and goes out.* The player can walk back to the light.
 - **Light spell known but not lit** (stranded as above): not game over, but the player must cast it fast — *The torch goes out. The dark closes in fast — if you're going to cast something, now would be the time.* `CAST LIGHT` within the next two commands (commands the parser doesn't understand don't count). Otherwise: *In the dark, something shifts. You never find out what.* — GAME OVER.
@@ -918,7 +918,7 @@ Multi-step quest chain that grants access to the Pie Rat Ship.
 2. Buy gunpowder from Shamus (5 Zenni).
 3. Take the flint and steel from the Assay Room workbench.
 4. Find the structural weak point in the Mine Tunnels (Easy perception, every visit until found), then `DROP GUNPOWDER` there.
-5. `LIGHT GUNPOWDER` (flint and steel carried; gunpowder at the weak point) — fuse catches. Five turns to get out.
+5. `LIGHT GUNPOWDER` (flint and steel carried; gunpowder at the weak point) — fuse catches. Five turns to get out. A torch won't do (locations.md — Mine Tunnels).
 6. Still inside the mine (Mine Entrance, Main Shaft, Assay Room, Mine Tunnels, Rat's Nest) when it goes: death, GAME OVER.
 7. Explosion — cave-in seals main mine entrance permanently.
 Text (locations.md — Mine Tunnels, Mine Entrance) covers the weak point, the drop, the refusals, the fuse, the explosion and the death line.
@@ -974,7 +974,7 @@ If the player's cargo already beats Ty's score — straight off the sequence or 
 **Ty's rerolls (decided 2026-10-05):** while rolls remain, he keeps any cargo die showing 4–6 and rerolls any showing 1–3; both 4+ means he stands. (Simulated with a player who chooses well: player wins ~38%, Ty ~37%, push ~24%.)
 
 **Commands (the Casino Corner):**
-- `PLAY CARGO [n]` / `PLAY [n]` / `BET n` / `WAGER n` start a round at stake n. `TALK TO TY` gives his intro.
+- `PLAY CARGO [n]` / `PLAY [n]` / `ROLL [DICE] [n]` (decided 2026-10-12) / `BET n` / `WAGER n` start a round at stake n; with no n, Ty's *"Stake first."* `TALK TO TY` gives his intro.
 - While the player's choice is open: `REROLL BOTH`, `REROLL n` (the die showing n; with a pair, one of them), `STAND`.
 - Bare `REROLL`, a number not on the cargo dice, or any other command gets Ty's waiting line and uses no turn (SAVE / RESTORE / QUIT still work).
 
@@ -1211,6 +1211,10 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 - `LISTEN TO` an object: *The [object] makes no sound.* (as in Zork).
 - `LISTEN TO` an NPC: *[Name] isn't saying anything right now.* LISTEN is passive: it never stands in for TALK TO, so it can't discover quests or start hand-overs.
 
+**Lights on and off** (decided 2026-10-12):
+- `TURN ON` / `LIGHT` / `ACTIVATE` the torch: *It's already lit.* The Ivory Torch: *It doesn't need lighting. The heat is already there.* The Guardian's Lantern: lights it if carried (items.md); not carried — *You'd have to pick it up first.*; once hung — *It's already lit.* Anything else (`TURN ON`): *You can't turn that on.*
+- `TURN OFF` / `EXTINGUISH` / `BLOW OUT` the torch: *A torch burns until it's done. There's no putting it out.* The Guardian's Lantern once hung: *The lantern stays lit. It's part of the room now.*; before that — *It isn't lit.* Anything else: *You can't turn that off.*
+
 **`PULL` / `MOVE` / `PUSH` defaults** (decided 2026-10-05; where no room or object has its own line — the Flooding Room levers, the wax seal, the Magnetic Vault's stuck items, the Supply Cache rubble do):
 - `PULL` / `TUG` / `YANK` / `MOVE` a takeable object: *Moving the [object] reveals nothing.* A fixed object: *You can't move the [object].* (as in Zork).
 - `PUSH` any object: *Pushing the [object] has no effect.*
@@ -1220,11 +1224,11 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 |------|---------|
 | `OPEN MAILBOX` | White House / Tale and Ale — portal to Will's Tower |
 | `DIG` | Shovel required; three confirmed uses plus beach flavor |
-| `LIGHT GUNPOWDER` | Pie Rat heist — requires flint and steel in inventory |
+| `LIGHT GUNPOWDER` (also `BURN` / `IGNITE` / `INCINERATE` — synonyms of `LIGHT` everywhere, decided 2026-10-12) | Pie Rat heist — requires flint and steel in inventory |
 | `CAST LIGHT` | Light spell — runs continuously while in darkness, no reuse timer |
 | `FISH` | Roundabout Pond; requires fishing rod |
 | `DRAG AYLORA` | Fire Pit — same as `TAKE AYLORA` after she passes out. Aylora only: anything else *You can't drag that.*; alone *Drag what?* |
-| `TURN DIAL LEFT` / `TURN DIAL RIGHT` | Church of All altar — cycles through 7 religions |
+| `TURN DIAL LEFT` / `TURN DIAL RIGHT` | Church of All altar — cycles through 7 religions. `SPIN` is a synonym of `TURN` (decided 2026-10-12) |
 | `BOARD SHIP` / `GET ON SHIP` / `CLIMB ABOARD` / `ENTER SHIP` | Boarding Pie Rat Ship (all synonyms) |
 | `SET SAIL` / `SAIL` | Begin sailing from Docks; directional movement (`GO EAST`, `SAIL EAST`) once underway |
 | `DOCK` | Going ashore — same action as `LAND` / `MOOR` / `MAKE LAND` (locations.md — Pie Rat Ship) |
@@ -1242,15 +1246,15 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `POUR HOLY WATER ON STAKE` | Creates consecrated silver stake |
 | `DRIVE STAKE INTO WEREWOLF` | Destroys undead werewolf |
 | `CAST UNBIND UNDEAD` | Releases ghost in Ghost's Room (Chuckle House) |
-| `CAST` (no spell) | No turn. Lists known spells in the order Light, Unbind Undead, Fireball: *Cast what? You know Light, Unbind Undead and Fireball.* / *Cast what? You know Light.* None: *You don't know any spells.* (2026-10-05) |
-| `HOLD TORCH NEAR ICE` | Quest 34 — two turns to thaw frozen soldier |
+| `CAST` alone, or with anything that isn't a spell name (`CAST CROWBAR`, `CAST HEAL`) | No turn. Lists known spells in the order Light, Unbind Undead, Fireball: *Cast what? You know Light, Unbind Undead and Fireball.* / *Cast what? You know Light.* None: *You don't know any spells.* (2026-10-05; anything-but-a-spell 2026-10-12). `SPELL` is not a synonym — it reads as spelling. |
+| `HOLD TORCH NEAR ICE` | Quest 34 — two turns to thaw frozen soldier. `HOLD TORCH NEAR GUNPOWDER`: the torch refusal (locations.md — Mine Tunnels). `HOLD <thing> NEAR <anything else>` (carried or here): *Nothing happens.* One turn (decided 2026-10-12) |
 | `POUR VIAL IN WATER` | Quest 34 — freezes dark pool in mid room |
 | `READ SCROLL` | Quest 34 — answers speaking door (all classes); spell scrolls — Mage only (Warriors/Rogues get resistance message pointing to Will); in Will's Tower, triggers spell teaching for Warriors/Rogues |
 | `GIVE SCROLL TO WILL` | Synonym for `READ SCROLL` in Will's Tower — Warriors/Rogues; both work |
 | `TURN ON LANTERN` / `LIGHT LANTERN` | Guardian's Lantern — dispels Dark Room darkness |
 | `TIE ROPE TO BEAM` | Hole to Below — enables bidirectional travel |
-| `CLIMB DOWN ROPE` / `CLIMB UP ROPE` | Hole to Below traversal (also `DOWN` / `UP`) |
-| `RUB PAPER ON ENGRAVING` | Quest 28 — produces rubbing in Inscription Chamber |
+| `CLIMB DOWN ROPE` / `CLIMB UP ROPE` | Hole to Below traversal (also `DOWN` / `UP`). Everywhere, `CLIMB UP [thing]` / `CLIMB DOWN [thing]` is `UP` / `DOWN` (as Zork) — the exit decides; `CLIMB UP TREE` at the Old Oak is `CLIMB TREE` (decided 2026-10-12) |
+| `RUB PAPER ON ENGRAVING` | Quest 28 — produces rubbing in Inscription Chamber. Also `RUB ENGRAVING`, `RUB PAPER`, `RUB CHARCOAL`, `RUB … WITH …` there (decided 2026-10-12) |
 | `SWAP IDOL WITH SALT` | Trap 33 — safe pedestal swap in Idol Room |
 | `CLEAR BONES` | Trap 36 — disarms Bone Crunch Floor Room |
 | `CLEAR DRAIN` | Quest 25 — unclogs cellar drain after cover removed |
@@ -1259,7 +1263,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `USE CROWBAR ON DRAIN` (also `PRY COVER` / `REMOVE COVER WITH CROWBAR`) | Quest 25 — removes the cellar drain cover from the Kitchen top step |
 | `JUMP ON PLATE` | Trap 29 — intentionally triggers Warden bell; opens the Creature Den door |
 | `PRY DOOR` | Trap 33 escape — crowbar + strength check |
-| `ASSEMBLE BOWL` (also `REASSEMBLE BOWL` / `REPAIR BOWL` / `FIX BOWL` / `COMBINE PIECES` / `COMBINE BOWL PIECES`) | Quest 49 — anywhere, holding all three bowl pieces and the clay adhesive → Repaired Bowl |
+| `ASSEMBLE BOWL` (also `REASSEMBLE BOWL` / `REPAIR BOWL` / `FIX BOWL` / `GLUE BOWL` / `PATCH BOWL` / `COMBINE PIECES` / `COMBINE BOWL PIECES`) | Quest 49 — anywhere, holding all three bowl pieces and the clay adhesive → Repaired Bowl |
 | `USE PORTCULLIS BAR` (also `USE BAR ON PORTCULLIS` / `PUT BAR UNDER PORTCULLIS` / `PUT BAR` / `PLACE BAR` / `DROP BAR`) | Trap 19 — props portcullis open permanently; only straight after a successful `LIFT PORTCULLIS` (otherwise `PUT` / `PLACE` / `DROP BAR` just drops it) |
 | `CLIMB TREE` | The Old Oak — retrieves kite + rune stone |
 | `LOOK AT MUSIC BOX` | Will's Tower — triggers quest discovery and hint sequence (Quest 12) |
@@ -1287,12 +1291,42 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `STAND` | *You are already standing, I think.* No turn |
 | `SMELL` | Alone: *You smell nothing unusual.* `SMELL <thing>`: *It smells like a [thing].* One turn |
 | `WAVE` | Alone: *You wave. Nobody waves back.* `WAVE <thing>`: *Waving the [thing] has no effect.* One turn |
+| `BRUSH <thing>` / `CLEAN <thing>` (also `… WITH <thing>`) | Zork's line: *If you wish, but heaven only knows why.* One turn |
+| `COUNT` (alone) / `COUNT ZENNI` / `MONEY` / `COINS` / `CASH` | The purse line from `INVENTORY`: *You have 12 Zenni.* / *You have no Zenni.* No turn. `COUNT <anything else>`: Zork's *You have lost your mind.* One turn. Decided 2026-10-12 |
+| `CROSS <thing>` | Zork's line: *You can't cross that!* One turn. On the Toll Bridge or the Rickety Bridge, `CROSS` with anything (or alone): *Just go north or south.* No turn. While the Boggart still holds the Toll Bridge, it's a walk south into him instead: his refusal (*The Boggart doesn't move. Neither, it turns out, can you.*), as a move. Decided 2026-10-12 |
+| `CUT <thing>` [`WITH <thing>`] (also `SLICE` / `PIERCE`) | Something the player can fight: the same as `ATTACK` (`CUT MUGGER WITH SWORD`). Any other NPC: *[Name] wouldn't appreciate that.* Anything else: Zork's *Strange concept, cutting the [thing]...* One turn. (`CUT CORD` in the snare and `CUT ROPE` at the Hole to Below have their own lines.) Decided 2026-10-12 |
+| `KICK <thing>` | As `CUT`: something the player can fight — the same as `ATTACK`; any other NPC — *[Name] wouldn't appreciate that.*; anything else — Zork's *Kicking the [thing] has no obvious effect.* One turn. (Zork's `TAUNT` synonym is dropped — *I don't know the word "taunt".*) Decided 2026-10-12 |
+| `KNOCK <thing>` / `KNOCK ON` / `KNOCK AT` (also `RAP`) | A door (cellar door, tunnel doors, Mid-Tier iron door, Keeper's narrow door, Deep Lock door, Idol Room slab): Zork's *Nobody's home.* The Tool Alcove's speaking wall, found and not yet open: its question (locations.md — Tool Alcove). The Dankhaus door and the White House door: their own lines (locations.md — Bog of Eternal Stench (SE), West of House). Anything else: *Why knock on the [thing]?* One turn. Decided 2026-10-12 |
+| `LEAN <thing>` / `LEAN ON` / `LEAN AGAINST` | Zork's line: *Getting tired?* One turn. Decided 2026-10-12 |
+| `LOCK <thing>` [`WITH <thing>`] | A door the player unlocked with its key (cellar door, Mid-Tier iron door, Keeper's narrow door): *After all that trouble you went to in unlocking it?* Anything else (those doors still locked included): *You can't lock that.* One turn. Decided 2026-10-12 |
+| `LOOK IN <thing>` | The same as `EXAMINE <thing>` (the Trophy Case and the Quest Board have their own). Decided 2026-10-12 |
+| `LOOK UNDER <thing>` | Zork's *There is nothing but dust there.* One turn. Under the nightstand in Will's Bedroom: the dragon-nip (locations.md). Decided 2026-10-12 |
+| `LOWER <thing>` | Zork's *Playing in this way with the [thing] has no obvious effect.* One turn. `LOWER ROPE` at the Hole to Below: its own lines (locations.md — Stored Room). Decided 2026-10-12 |
+| `MAKE <thing>` | Zork's *You can't do that.* One turn. (`MAKE LAND` is `LAND`.) Crafting has its own verbs: `ASSEMBLE BOWL`, `MIX CLAY WITH WATER`, `POUR HOLY WATER ON STAKE`. Decided 2026-10-12 |
+| `MELT <thing>` [`WITH <thing>`] (also `THAW` / `LIQUIFY`) | Zork's *It's not clear that the [thing] can be melted.* One turn. The Fountain Room ice: its own lines (locations.md — The Fountain Room). Decided 2026-10-12 |
+| `PICK <thing>` | The iron chest in the Mine Passage (`PICK LOCK` / `PICK CHEST`): as `OPEN CHEST`. A keyed door (cellar door, Mid-Tier iron door, Keeper's narrow door): *This lock can't be picked.* A takeable thing (`PICK THYME`): `TAKE`. Anything else: *You can't pick that.* One turn. (`PICK UP` is `TAKE`.) Decided 2026-10-12 |
+| `PLUG <thing>` [`WITH <thing>`] (also `PATCH` / `REPAIR` / `FIX` / `GLUE`) | The aqueduct (`REPAIR AQUEDUCT`, `FIX JOINTS`): the same as `SEAL JOINTS` (Quest 22). The Whispering Jar: its seal step (items.md). The bowl: `ASSEMBLE BOWL`. Anything else: *You can't fix that.* One turn. `SEAL <anything else>`: *You can't seal that.* Decided 2026-10-12 |
+| `APPLY <thing> TO <thing>` (also `APPLY … ON`) | Wherever the action belongs: the wax seal or silver dust on the Whispering Jar — `PUT … ON JAR`; mortar on the aqueduct — `SEAL`; holy water on the silver stake — `POUR`. Anything else: *You can't apply the [thing] to the [thing].* One turn. Decided 2026-10-12 |
+| `ROLL <thing>` | Zork's *Rolling the [thing] has no obvious effect.* One turn. At Ty's table, `ROLL` / `ROLL DICE [n]` is `PLAY [n]` (Cargo). Decided 2026-10-12 |
+| `RUB <thing>` [`ON` / `WITH <thing>`] (also `TOUCH` / `FEEL` / `PAT` / `PET`) | An NPC: *[Name] wouldn't appreciate that.* Anything else: Zork's *Fiddling with the [thing] has no effect.* One turn. (The Inscription Chamber rubbing comes first.) Decided 2026-10-12 |
+| `SWING <thing> AT <thing>` (also `THRUST`) | The same as `ATTACK [target] WITH [thing]`. `SWING <thing>` alone: Zork's *Whoosh!* One turn. Decided 2026-10-12 |
+| `TAKE <thing> FROM <thing>` (also `REMOVE … FROM`) | `TAKE [thing]` if it's in or on the other; otherwise Zork's *The [thing] isn't in the [thing].* — nothing is picked up first. (The Trophy Case keeps its own refusal.) Decided 2026-10-12 |
+| `THROW <thing>` (also `HURL` / `CHUCK` / `TOSS`) | Alone: the same as `DROP` (designed drops and the ring's refusal included). `THROW <thing> AT <anything>`: *You'd rather keep hold of the [thing].* — nothing is thrown (no thrown-weapon combat; the bow is the ranged weapon). One turn. Decided 2026-10-12 |
+| `TIE <thing>` [`TO <thing>`] (also `FASTEN` / `SECURE` / `ATTACH`) | The rope anywhere but the Hole to Below's timber: *There's nothing here to tie it to.* (once tied: its hanging line). Anything else: *You can't tie the [thing].* / with a target, Zork's *You can't tie the [thing] to that.* One turn. Decided 2026-10-12 |
+| `UNTIE <thing>` (also `FREE` / `RELEASE` / `UNFASTEN` / `UNATTACH` / `UNHOOK`) | An NPC: *[Name] isn't tied up.* The loose rope: *It isn't tied to anything.* Anything else: Zork's *This cannot be tied, so it cannot be untied!* One turn. (The tied rope keeps *You'd like a way back up. The rope stays.*) Decided 2026-10-12 |
+| `TIP <thing>` | "Tip over", for things: the gravestone or the hand cart with the stone loaded — `UNLOAD STONE`; the idol on its pedestal — *You nudge the idol. It rocks on its base and settles back — still on the pedestal, still pressing down on whatever's beneath it.* (no trap); anything else — *You can't tip that over.* One turn. Anyone but May (`TIP SHAMUS`, `TIP SHAMUS 5`): *May's the only one who takes tips.* Decided 2026-10-12 |
+| `TURN <thing>` (also `SPIN` / `FLIP`) | *You can't turn that.* One turn. `TURN DIAL` at the altar with no direction: *Which way — left or right?* No turn. (`SHUT` is `CLOSE`, not `TURN`.) Decided 2026-10-12 |
+| `ENCHANT <thing>` / `DISENCHANT <thing>` | *You don't know how to enchant anything.* One turn. (Only Kevry enchants — the glasses, items.md.) Decided 2026-10-12 |
+| `FILL <thing>` [`WITH <thing>`] | *You can't fill that.* One turn. Nothing in Roundabout is filled; water is used through its own verbs (`MIX CLAY WITH WATER`, `POUR HOLY WATER ON STAKE`). Decided 2026-10-12 |
 | `BLAST` / `EXORCISE` / `JUMP` / `KISS` / `PLAY` / `WISH` / `YELL` | Zork's lines, one turn each: *You can't blast anything by using words.* / *What a bizarre concept!* / *Wheeeeeeeeee!!!!!* / *I'd sooner kiss a pig.* / *That's silly!* / *With luck, your wish will come true.* / *Aaaarrrrgggghhhh!* (Object handlers — `JUMP ON PLATE` etc. — come first.) |
 
 **Removed from the parser (decided 2026-10-11):** `ANSWER` / `REPLY`, `HELLO` / `HI`, `SAY`, `SCRIPT`, `UNSCRIPT`, `WAKE` / `AWAKE` / `SURPRISE` / `STARTLE` — the parser's *I don't know the word "…".*
+Also (decided 2026-10-12): `INFLATE`; `FOLLOW` / `PURSUE` / `CHASE` / `COME` (no NPC walks off to be followed); `LUBRICATE` / `OIL` / `GREASE` (no oil anywhere); `PUMP` (Zork's boat); `SHAKE` (nothing is shaken); `SQUEEZE`; `WIND` (the music box plays once, on opening); `RING` / `PEAL` (Zork's brass bell; no bell here — `RING` alone is the ring's noun, so *There was no verb in that sentence!*) — *I don't know the word "…".* `BOARD <thing>`, `BLOW IN <thing>` and `BLOW UP <thing> WITH <thing>` (Zork's boat; nothing in Roundabout is a vehicle or inflatable) — *That sentence isn't one I recognize.* `BOARD` / `BOARD SHIP` still board the Pie Rat Ship, and `BLOW UP <thing>` is still Zork's `BLAST` line.
 Haalvar's riddle still takes `ANSWER` / `SAY` / `REPLY <answer>` (read from the typed line, not the parser).
 Every other command the parser knows answers with something (test_system_verbs guard).
-| `OPEN CASE` / `CLOSE CASE` | Trophy Case in The Tower — case must be open to place items |
+**No verb** (decided 2026-10-12): a sentence starting with a word the game knows that isn't a verb — an object's name or adjective, like `STATUE` or `RING CROWBAR` — gets Zork's *There was no verb in that sentence!* Only words the game doesn't know at all get *I don't know the word "…".*
+| `OPEN CASE` / `CLOSE CASE` (or `SHUT CASE`) | Trophy Case in The Tower — case must be open to place items |
+| `CLOSE <anything else>` (also `SHUT`) | *You can't close that.* One turn. Everything else that opens (doors, chests, boxes, the cabinet, mailboxes) opens for good. Decided 2026-10-12 |
 | `PUT <ITEM> IN CASE` / `DROP <ITEM> IN CASE` | Trophy Case — places treasure permanently; case must be open |
 | `PUT <ITEM> IN <anything else>` | Refused: *That won't fit in the [container].* (the hand cart takes only the gravestone — items.md). Decided 2026-10-12 |
 | `LOOK IN CASE` / `EXAMINE CASE` | Trophy Case — lists contents and count; visible through glass whether open or closed |

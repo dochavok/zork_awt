@@ -120,13 +120,13 @@ def assemble(w: World) -> None:
 
 
 def assemble_input_hook(w: World, text: str) -> bool:
-    """ASSEMBLE / REASSEMBLE / REPAIR / FIX [THE] BOWL, COMBINE [THE] [BOWL] PIECES."""
+    """ASSEMBLE / REASSEMBLE / REPAIR / FIX / GLUE / PATCH [THE] BOWL, COMBINE [THE] [BOWL] PIECES."""
     words = [x for x in text.lower().split() if x != "the"]
     if not words:
         return False
     verb, rest = words[0], words[1:]
     if (verb in ("assemble", "reassemble") and rest in ([], ["bowl"])) \
-            or (verb in ("repair", "fix") and rest == ["bowl"]) \
+            or (verb in ("repair", "fix", "glue", "patch") and rest == ["bowl"]) \
             or (verb == "combine" and rest in (["pieces"], ["bowl", "pieces"])):
         assemble(w)
         return True

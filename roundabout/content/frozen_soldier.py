@@ -91,6 +91,7 @@ _PLAIN_TORCH_LIT = (
     "mark. Whatever holds this ice, ordinary fire isn't going to move it."
 )
 _PLAIN_TORCH_OUT = "The torch is burnt out. It wouldn't have been enough anyway."
+_NO_HEAT = "You've nothing hot enough to make a dent in it."
 
 
 def _hurt(w: World) -> None:
@@ -166,8 +167,17 @@ def fountain_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         print(_ICE_WINDOW if w.get_global("ICE-THAW", 0) == 1 else _ICE)
         return M_HANDLED
     # MELT ICE WITH TORCH / HOLD TORCH NEAR ICE
-    if w.prsa == "V-MELT" and w.prso is ice and w.prsi is not None:
-        return M_HANDLED if _thaw(w, w.prsi) else M_NOT_HANDLED
+    if w.prsa == "V-MELT" and w.prso is ice:
+        tool = w.prsi
+        if tool is None:                 # MELT ICE: whatever torch is carried
+            held = w.player.contents
+            tool = next((w.objects[n] for n in ("IVORY-TORCH", "TORCH")
+                         if w.objects[n] in held), None)
+        if tool is None:
+            print(_NO_HEAT)
+        elif not _thaw(w, tool):
+            print(f"The {tool.desc} won't melt anything.")
+        return M_HANDLED
     if w.prsa == "V-HOLD-NEAR" and w.prsi is ice and w.prso is not None:
         return M_HANDLED if _thaw(w, w.prso) else M_NOT_HANDLED
     return M_NOT_HANDLED

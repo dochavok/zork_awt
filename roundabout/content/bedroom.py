@@ -30,6 +30,8 @@ SPRIG_FOUND = (
     "baseboard as if it rolled there and was forgotten."
 )
 SPRIG_LDESC = "A sprig of something glows faintly under the nightstand."
+NOTHING_UNDER = "There is nothing but dust there."
+UNDER_BED = "Nothing under the bed but dust and a sock that has given up."
 
 _GLASSES_RETURNED = "You set the glasses back on the nightstand, where they were."
 
@@ -60,11 +62,27 @@ def check_sprig(w: World) -> bool:
         return False
     if not check_perception(w, VERY_HARD):
         return False
+    _reveal(w)
+    return True
+
+
+def _reveal(w: World) -> None:
     from content import quests
-    sprig.clear_flag(INVISIBLE)
+    w.objects["DRAGON-NIP"].clear_flag(INVISIBLE)
     print(SPRIG_FOUND)
     quests.discover(w, "58")
-    return True
+
+
+def look_under_nightstand(w: World) -> None:
+    """LOOK UNDER NIGHTSTAND: looking in the right place finds the sprig, no
+    roll (locations.md — Will Passion's Bedroom)."""
+    sprig = w.objects["DRAGON-NIP"]
+    if sprig.location is not w.rooms[BEDROOM] or sprig.touched:   # taken from under it
+        print(NOTHING_UNDER)
+    elif INVISIBLE in sprig.flags:
+        _reveal(w)
+    else:
+        print(SPRIG_LDESC)
 
 
 def on_enter(w: World, room: Room) -> bool:
