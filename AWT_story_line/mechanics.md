@@ -1130,7 +1130,7 @@ Shown at game end alongside player level. Based on total points deposited in the
 | 240–299 | Roundabout's Unhinged Treasure Enthusiast |
 | 300 | Calder Finch |
 
-Total possible: 300 points (9 treasures). The Gold Pocket Watch (30 pts) is missable — permanently inaccessible after the Stored Room collapses. A thorough player who misses one high-value item or two low-value items will land in the 240–299 tier.
+Total possible: 300 points (9 treasures). Two are missable: the Gold Pocket Watch (30 pts) — permanently inaccessible after the Stored Room collapses — and the Funeral Mask of Hammered Gold (36 pts) — unreachable once the ring is bound, because the Spirit Room can't be crossed (locations.md — Spirit Room). A thorough player who misses one high-value item or two low-value items will land in the 240–299 tier.
 
 ---
 
