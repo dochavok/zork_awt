@@ -140,13 +140,37 @@ def test_choice_reroll_one_then_stand():
 
 def test_choice_reroll_both_twice_must_keep():
     w, g = _table()
-    _play(g, "bet 3", _TY_9 + [6, 5, 4, 6, 6])   # 12, two rolls left
+    _play(g, "bet 3", _TY_9 + [6, 5, 4, 3, 4])   # 7, two rolls left
     out = _play(g, "reroll both", [1, 1])
     assert "You roll the cargo again: 1 and 1 — 2." in out
     out = _play(g, "reroll both", [2, 1])
     assert "You roll the cargo again: 2 and 1 — 3." in out
     assert cargo._LOSE in out                    # no rolls left: settles on 3
     assert w.get_global("CARGO-ROUND") is None
+
+
+def test_sequence_already_ahead_settles_at_once():
+    w, g = _table()
+    out = _play(g, "bet 3", _TY_9 + [6, 5, 4, 6, 6])   # 12 against 9, rolls left
+    assert "Ship, Captain and Crew. Your cargo: 6 and 6 — 12." in out
+    assert cargo._CHOOSE not in out
+    assert cargo._WIN in out
+    assert w.get_global("CARGO-ROUND") is None
+
+
+def test_reroll_that_gets_ahead_settles_with_a_roll_left():
+    w, g = _table()
+    # Ty 7 — 6 5 4 then 3 4, rerolls the 3 twice (3, then 3): out of rolls at 7.
+    ty = [6, 5, 4, 3, 4, 3, 3]
+    out = _play(g, "bet 5", ty + [5, 4, 2, 6, 4])      # sequence first roll, cargo 2 and 4
+    assert "Ty's cargo: 7." in out
+    assert "Your cargo: 2 and 4 — 6. Reroll one, both, or stand?" in out
+    out = _play(g, "reroll 2", [5])
+    assert "You roll the 2 again: 5. Your cargo: 5 and 4 — 9." in out
+    assert cargo._CHOOSE not in out                    # 9 beats 7: no more rerolls
+    assert cargo._WIN in out
+    assert w.get_global("CARGO-ROUND") is None
+    assert w.globals["zenni"] == 25
 
 
 def test_ty_scored_zero_sequence_wins_outright():

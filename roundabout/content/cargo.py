@@ -177,7 +177,7 @@ def _player_turn(w: World, stake: int, ty: int) -> None:
         _settle(w, stake, ty, 0)
         return
     a, b = cargo
-    if left == 0 or ty == 0:                 # Ty missed 6-5-4: the sequence wins outright
+    if left == 0 or a + b > ty:              # already ahead (Ty's 0 included): a reroll could only lose
         print(_SEQUENCE.format(a=a, b=b, n=a + b))
         _settle(w, stake, ty, a + b)
         return
@@ -214,7 +214,7 @@ def _choice(w: World, words: list[str]) -> bool:
             b = new
         print(_REROLL_ONE.format(old=old, new=new, a=a, b=b, n=a + b))
     rnd.update(a=a, b=b, left=rnd["left"] - 1)
-    if rnd["left"] > 0:
+    if rnd["left"] > 0 and a + b <= rnd["ty"]:   # ahead now: the round settles
         print(_CHOOSE)
         w.set_global("CARGO-ROUND", rnd)
         return True

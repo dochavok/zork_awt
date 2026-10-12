@@ -969,7 +969,7 @@ Built 2026-10-05 (content/cargo.py). Fair d6 — no level dice, no Lucky. The fa
 - **The rerolled result must be kept, even if lower.** This is the only player decision in the game.
 
 **Order:** Ty rolls first, then the player — the player knows the score to beat. Ties (including both 0) are a push: stakes back.
-If Ty misses 6-5-4 (scores 0) and the player makes it, the player wins outright — no reroll choice, the round settles at once.
+If the player's cargo already beats Ty's score — straight off the sequence or after a reroll — the round settles at once, no further choice: a reroll must be kept, so it could only lose the round. This covers Ty missing 6-5-4 (scores 0). A tie still gets the choice (a reroll can turn the push into a win). (Decided 2026-10-12; before this the player was asked to reroll while already ahead.)
 
 **Ty's rerolls (decided 2026-10-05):** while rolls remain, he keeps any cargo die showing 4–6 and rerolls any showing 1–3; both 4+ means he stands. (Simulated with a player who chooses well: player wins ~38%, Ty ~37%, push ~24%.)
 
@@ -1001,8 +1001,8 @@ If Ty misses 6-5-4 (scores 0) and the player makes it, the player wins outright 
 **The player's roll:**
 
 - *Each roll:* First roll: 6, 2, 5, 3, 1. You set aside the six and the five. (Second / Third roll show only the dice rolled.) Nothing locked: Nothing to set aside.
-- *Sequence done, rolls left:* Ship, Captain and Crew. Your cargo: 2 and 6 — 8. Reroll one, both, or stand? (on the last roll, without the question — the round settles)
-- *Reroll one:* You roll the 2 again: 5. Your cargo: 6 and 5 — 11. *Both:* You roll the cargo again: 6 and 4 — 10. Rolls still left: Reroll one, both, or stand?
+- *Sequence done, rolls left:* Ship, Captain and Crew. Your cargo: 2 and 6 — 8. Reroll one, both, or stand? (without the question on the last roll or when the cargo already beats Ty's — the round settles)
+- *Reroll one:* You roll the 2 again: 5. Your cargo: 6 and 5 — 11. *Both:* You roll the cargo again: 6 and 4 — 10. Rolls still left and not yet ahead of Ty: Reroll one, both, or stand?
 - *No full sequence:* No crew. Your score: 0. (or No ship / No captain — the first slot missing)
 - *Bare REROLL:* Ty waits. "Both, or just the [lowest]?" (REROLL BOTH, REROLL [lowest], or STAND)
 - *Anything else while choosing:* Ty waits. "Reroll or stand?" (REROLL BOTH, REROLL [lowest], or STAND)
