@@ -169,8 +169,8 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(locations=_og_ir_held_car_have)),
         SyntaxRule(verb="buy", action="V-BUY-WHAT"),     # bare BUY: "Buy what?", no turn
 
-        # CAST: no rules — content/spells.py reads every CAST line itself (its
-        # refusals take no turn, which a verb handler can't choose; todo.md TODO #12)
+        # CAST: no rules — content/spells.py reads every CAST line itself: spell
+        # names (LIGHT, UNBIND UNDEAD) are words, not objects the parser can find
 
         # ------------------------------------------------------------------ #
         # CLEAR — CLEAR BONES / CLEAR DRAIN                                 #
@@ -651,8 +651,10 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="read", action="V-READ",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
 
-        # REST: no rule — content/rest.py reads the line itself (its refusals
-        # take no turn, which a verb handler can't choose; todo.md TODO #12)
+        # ------------------------------------------------------------------ #
+        # REST — Level 6 (content/rest.py); refusals take no turn (M_NO_TURN)  #
+        # ------------------------------------------------------------------ #
+        SyntaxRule(verb="rest", action="V-REST"),
 
         # ------------------------------------------------------------------ #
         # ROLL                                                                #

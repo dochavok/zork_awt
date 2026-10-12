@@ -551,7 +551,8 @@ _COUNT_PURSE = {"zenni", "money", "coins", "coin", "cash", "my", "the"}
 
 def count_input_hook(world: World, text: str):
     """COUNT alone, or COUNT ZENNI / MONEY / COINS / CASH: the purse line, no
-    turn (mechanics.md — Parser Verbs). COUNT anything else is V-COUNT."""
+    turn (mechanics.md — Parser Verbs). COUNT anything else is V-COUNT. A hook,
+    not a verb: Zenni is a number, not an object the parser can find."""
     words = text.strip().lower().split()
     if not words or words[0] != "count" or any(w not in _COUNT_PURSE for w in words[1:]):
         return False
@@ -567,7 +568,8 @@ _JUST_GO = "Just go north or south."
 def cross_input_hook(world: World, text: str):
     """CROSS [anything] on a bridge (mechanics.md — Parser Verbs): the bridges
     are rooms, so point the way, no turn. With the Boggart still on the Toll
-    Bridge, it's walking south into him: his refusal, as a move would."""
+    Bridge, it's walking south into him: his refusal, as a move would.
+    A hook, not a verb: the bridge is the room, not an object to name."""
     words = text.strip().lower().split()
     if not words or words[0] != "cross" or world.here is None \
             or world.here.name not in _BRIDGES:
@@ -1460,22 +1462,15 @@ def v_tip(world: World) -> int:
 _WHICH_WAY = "Which way — left or right?"
 
 
-def turn_dial_input_hook(world: World, text: str):
-    """TURN / SPIN DIAL with no direction, at the altar: ask, no turn."""
-    words = [x for x in text.strip().lower().split() if x != "the"]
-    if words not in (["turn", "dial"], ["spin", "dial"], ["flip", "dial"]) \
-            or world.objects["DIAL"].location is not world.here:
-        return False
-    from engine.game import HOOK_NO_TURN
-    print(_WHICH_WAY)
-    return HOOK_NO_TURN
-
-
 def v_turn(world: World) -> int:
     """TURN / SPIN / FLIP X (mechanics.md — Parser Verbs). TURN DIAL LEFT /
-    RIGHT is V-TURN-DIAL; TURN DIAL alone is turn_dial_input_hook."""
+    RIGHT is V-TURN-DIAL; TURN DIAL alone asks which way, no turn."""
     if world.prso is None:
         return M_NOT_HANDLED
+    if world.prso.name == "DIAL":
+        from engine.game import M_NO_TURN
+        print(_WHICH_WAY)
+        return M_NO_TURN
     print("You can't turn that.")
     return M_HANDLED
 

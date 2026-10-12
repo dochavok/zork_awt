@@ -27,6 +27,9 @@ if TYPE_CHECKING:
 M_FATAL       = 2
 M_HANDLED     = 1
 M_NOT_HANDLED = 0
+# Handled, but no turn passes: no clock tick and no M-END (REST refused,
+# TURN DIAL with no direction). The _SKIP_CLOCK actions are always this.
+M_NO_TURN     = 3
 
 # Room/object message types sent to action handlers
 M_BEG     = 1   # start of turn (before verb dispatch)
@@ -224,14 +227,17 @@ class Game:
         v = M_NOT_HANDLED
         if command_parsed:
             v = self._dispatch(result)
-            # M-END: room end-of-turn notification, outside the perform chain
-            if v != M_FATAL and w.here is not None and w.here.action is not None:
-                w.here.action(w, M_END)
 
-        # Advance the clock unless the action explicitly bypasses it
-        is_meta = command_parsed and result.action in _SKIP_CLOCK
-        if not is_meta:
-            self.clock.tick(w, command_parsed=command_parsed)
+        # No turn (a _SKIP_CLOCK action, or a handler's M_NO_TURN): no M-END and
+        # no clock — nothing in the room gets a move (the werewolf's round is M-END)
+        no_turn = command_parsed and (result.action in _SKIP_CLOCK or v == M_NO_TURN)
+        if no_turn:
+            return M_HANDLED if v == M_NO_TURN else v
+
+        # M-END: room end-of-turn notification, outside the perform chain
+        if command_parsed and v != M_FATAL and w.here is not None and w.here.action is not None:
+            w.here.action(w, M_END)
+        self.clock.tick(w, command_parsed=command_parsed)
 
         return v
 

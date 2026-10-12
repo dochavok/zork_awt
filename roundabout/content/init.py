@@ -69,8 +69,6 @@ def initialize_world(world, game, seed=None) -> None:
     game.register_input_hook(count_input_hook)       # COUNT ZENNI: the purse, no turn
     from content.verbs import cross_input_hook
     game.register_input_hook(cross_input_hook)       # CROSS on a bridge: just go north or south
-    from content.verbs import turn_dial_input_hook
-    game.register_input_hook(turn_dial_input_hook)   # TURN DIAL with no direction: ask
     from content.tavern import bar_input_hook
     game.register_input_hook(bar_input_hook)         # BUY DRINK / FOOD / STEW, RENT ROOM
     from content import journal
@@ -115,7 +113,7 @@ def initialize_world(world, game, seed=None) -> None:
 
     # REST — Level 6: 1 heart, 50-turn reuse, not in a fight
     from content import rest
-    game.register_input_hook(rest.rest_input_hook)
+    game.register_verb("V-REST", rest.v_rest)
 
     # Clock events created mid-game: RESTORE rebuilds them in a fresh game
     # (engine/savegame.py). Every event added after setup needs one here.

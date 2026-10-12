@@ -50,24 +50,23 @@ def hostile_here(w: World) -> bool:
     return False
 
 
-def rest_input_hook(w: World, text: str):
-    if text.strip().lower() != "rest":
-        return False
-    from engine.game import HOOK_NO_TURN
+def v_rest(w: World) -> int:
+    """REST (V-REST). Refusals return M_NO_TURN: no turn passes."""
+    from engine.game import M_HANDLED, M_NO_TURN
     g = w.globals
     if not g.get("spell_rest"):
         print(_NOT_TIRED)
-        return HOOK_NO_TURN
+        return M_NO_TURN
     if hostile_here(w):
         print(_FIGHTING)
-        return HOOK_NO_TURN
+        return M_NO_TURN
     if w.moves < int(w.get_global("COOLDOWN-spell_rest") or 0):
         print(_TOO_SOON)
-        return HOOK_NO_TURN
+        return M_NO_TURN
     if g.get("hearts", 0) >= g.get("max_hearts", 0):
         print(_FULL)
-        return HOOK_NO_TURN
+        return M_NO_TURN
     g["hearts"] += 1
     w.set_global("COOLDOWN-spell_rest", w.moves + REST_REUSE)
     print(_RESTED)
-    return True
+    return M_HANDLED
