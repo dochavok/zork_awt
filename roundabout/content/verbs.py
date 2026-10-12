@@ -246,7 +246,10 @@ def v_place(world: World) -> int:
         from content import gravestone
         gravestone.load(world)
         return M_HANDLED
-    return M_NOT_HANDLED
+    if world.prso is None:
+        return M_NOT_HANDLED
+    print(f"You aren't holding the {world.prso.desc}.")   # PUT X, X on the floor
+    return M_HANDLED
 
 
 def v_seal(world: World) -> int:

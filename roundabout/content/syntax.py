@@ -95,31 +95,31 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ATTACK / KILL / STAB — combat                                       #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="attack", action="V-MELEE",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir),
                    prep="with",
                    obj2=ObjectSpec(find_flag=WEAPONBIT, locations=_held_car_have)),
         SyntaxRule(verb="attack", action="V-MELEE",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="kill", action="V-MELEE",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir),
                    prep="with",
                    obj2=ObjectSpec(find_flag=WEAPONBIT, locations=_held_car_have)),
         SyntaxRule(verb="kill", action="V-MELEE",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="stab", action="V-MELEE",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir),
                    prep="with",
                    obj2=ObjectSpec(find_flag=WEAPONBIT, locations=_held_car_have)),
         SyntaxRule(verb="stab", action="V-MELEE",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
 
         # SHOOT — bow attack
         SyntaxRule(verb="shoot", action="V-SHOOT",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir),
                    prep="with",
                    obj2=ObjectSpec(locations=_held_car_have)),
         SyntaxRule(verb="shoot", action="V-SHOOT",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
 
         # EQUIP / WIELD / UNEQUIP — one weapon or the bow at a time
         SyntaxRule(verb="equip", action="V-EQUIP",
@@ -268,7 +268,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="drive", action="V-DRIVE-STAKE",
                    obj1=ObjectSpec(locations=_held_car_have),
                    prep="in",          # "into" is a synonym of "in"
-                   obj2=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj2=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="drive", action="V-DRIVE-STAKE",
                    obj1=ObjectSpec(locations=_held_car_have)),
 
@@ -322,7 +322,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # EXORCISE                                                            #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="exorcise", action="V-EXORCISE",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="exorcise", action="V-EXORCISE"),
 
         # ------------------------------------------------------------------ #
@@ -371,7 +371,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="give", action="V-GIVE",
                    obj1=ObjectSpec(locations=_held_car_og_ir_take),
                    prep="to",
-                   obj2=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj2=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="give", action="V-GIVE",
                    obj1=ObjectSpec(locations=_held_car_og_ir_take)),
 
@@ -382,7 +382,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="jump", action="V-JUMP"),
         SyntaxRule(verb="jump", particle="on", action="V-JUMP-ON",
-                   obj1=ObjectSpec(locations=_og_ir)),
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # KICK                                                                #
@@ -763,23 +763,23 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # TALK / TELL / ASK                                                  #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="disarm", action="V-DISARM",
-                   obj1=ObjectSpec(locations=_og_ir)),
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="pay", action="V-PAY",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="pay", action="V-PAY"),
         SyntaxRule(verb="challenge", action="V-CHALLENGE",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="talk", particle="to",
                    action="V-TALK",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="talk", action="V-TALK",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
         SyntaxRule(verb="tell", action="V-TALK",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir),
                    prep="about",
                    obj2=ObjectSpec(locations=_held_car_og_ir_have)),
         SyntaxRule(verb="tell", action="V-TALK",
-                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_og_ir)),
+                   obj1=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # THROW                                                               #
@@ -897,7 +897,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # WALK / GO                                                           #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="walk", action="V-WALK",
-                   obj1=ObjectSpec(locations=_og_ir)),
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="walk", action="V-WALK"),
 
         # ------------------------------------------------------------------ #

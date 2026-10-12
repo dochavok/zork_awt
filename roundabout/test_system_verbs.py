@@ -208,17 +208,22 @@ def _object_commands():
     return seen
 
 
+@pytest.mark.parametrize("where", ["carried", "on the floor"])
 @pytest.mark.parametrize("command", _object_commands())
-def test_every_command_with_an_object_answers(command):
+def test_every_command_with_an_object_answers(command, where):
     # An action the parser accepts but nothing handles prints nothing at all —
     # every rule's action needs a default line (mechanics.md — Parser Verbs).
+    # Carried, no rule may say "can't see" (todo.md TODO #13).
     w, g = _make_world()
     _goto(w, "TOWN-SQUARE")
     for name in ("CROWBAR", "TORCH"):
         obj = w.objects[name]
         obj.clear_flag("INVISIBLE")
-        w.move_object(obj, w.player)
-    assert _do(g, command).strip(), f"{command!r} printed nothing"
+        w.move_object(obj, w.player if where == "carried" else w.here)
+    out = _do(g, command)
+    assert out.strip(), f"{command!r} printed nothing ({where})"
+    if where == "carried":
+        assert "You can't see any" not in out, f"{command!r}: {out.strip()}"
 
 
 # --- Removed words -------------------------------------------------------------

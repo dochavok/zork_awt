@@ -9,6 +9,8 @@ Resolved items are removed; their history is in git (last full lists: commit 7ee
 
 ### TODO #13 — Rules that only look in the room (found 2026-10-12)
 
+**Resolved 2026-10-12:** every rule now accepts carried items; the existing lines answer (mechanics.md — Parser Verbs, Carried or here). `PUT [thing]` on the floor: *You aren't holding the [thing].* The guard test runs every object rule carried and on the floor.
+
 Some rules only look at the room (`_og_ir`), so naming a carried item gives "You can't see any X here!" — fixed for `CROSS`, `HOLD NEAR`, `SEAL`, `SWING`, `THROW`, `TIP`; still so for `ATTACK` / `KILL` / `STAB` / `SHOOT`, `EXORCISE`, `DISARM`, `JUMP ON`, `WALK` (and `TALK` / `PAY` / `CHALLENGE` / `GIVE … TO`, where wanting a person here is reasonable).
 
 For each: should a carried item be accepted (most should — then the action needs a sensible line for it), or is "not here" the right answer (a person to talk to, pay or challenge)? Then widen the rule's locations and extend the guard test to cover held objects.
