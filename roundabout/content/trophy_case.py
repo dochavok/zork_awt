@@ -34,7 +34,8 @@ TREASURE_POINTS = {
 _TOWER_TOP = (
     "The tower room is round, the walls following the cone of the roof above. A "
     "single window looks out over the town square, narrow enough that the view is "
-    "more suggestion than panorama."
+    "more suggestion than panorama. The narrow stair winds back down to the hall "
+    "below."
 )
 _CASE_EMPTY = (
     "The Trophy Case dominates the far wall — old wood and glass, built into the "

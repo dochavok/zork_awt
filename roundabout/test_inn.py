@@ -145,7 +145,9 @@ def test_guest_room_one_way_out():
     _do(g, "rent room")
     _do(g, "south")
     assert w.here.name == "UPSTAIRS-HALL"
-    assert "You can't go that way." in _do(g, "north")
+    from content.tavern import ROOMS_RENTED
+    assert ROOMS_RENTED in _do(g, "north")     # the door back in stays shut
+    assert w.here.name == "UPSTAIRS-HALL"
 
 
 def test_rent_room_full_hearts_refused():

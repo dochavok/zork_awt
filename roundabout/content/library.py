@@ -17,6 +17,8 @@ _MAIN_HALL = (
     "between.\n"
     "A card catalogue occupies one wall. The other holds a reading table, lamp "
     "burning low, a cup of something gone cold.\n"
+    "At the east end, one of the gaps between the shelves runs back further than "
+    "the building should allow. The red doors to the street are south.\n"
     "The librarian looks up when you enter. Unlike every librarian you have ever "
     "imagined, she appears to want to talk to you."
 )

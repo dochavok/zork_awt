@@ -63,8 +63,11 @@ _SKELETONS = (
 
 _CROSSING = (
     "The passage widens here into a rough crossing, the stone walls bearing the "
-    "marks of tools long since abandoned. Three directions offer themselves "
-    "without comment. The floor is grit and old dust."
+    "marks of tools long since abandoned. The floor is grit and old dust. Three "
+    "ways lead on from here, none of them encouraging. North, a short passage "
+    "ends in a cramped alcove. East, the walls close in toward a long, narrow "
+    "pass. South, the dark is thicker than it has any right to be. The "
+    "bone-strewn antechamber is back to the west."
 )
 _NARROW_PASS = (
     "A long passage, barely wide enough for your shoulders. The walls are close "

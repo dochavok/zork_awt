@@ -18,7 +18,20 @@ _MAP_FOUND = (
     "hand-drawn map: a small island just off the sea lane, a dotted line, and an X "
     "near the trees. You tuck it away."
 )
-_NO_SHOVEL = "The sand just slides back into the hole. You'd need a shovel."
+_DECK = (
+    "The deck is cluttered in the way of a working vessel — coils of line, "
+    "barrels lashed to the rail, a general smell of fish and salt and something "
+    "that has been at sea too long. This is a ship that wants to move."
+)
+DECK_AT_DOCKS = (
+    "The gangplank leads back west to the docks; beyond the bow, open water runs "
+    "east, if you were to set sail."
+)
+DECK_OFF_ISLAND = (
+    "The island's beach is close enough to land on; beyond it, the open sea waits "
+    "for you to set sail."
+)
+_NO_SHOVEL ="The sand just slides back into the hole. You'd need a shovel."
 _DUG_WITH_MAP = (
     "You pace it out from the map — up the beach, toward the trees, to where the X "
     "should be. Two feet down, the shovel hits wood: a small chest, iron-banded and "
@@ -154,6 +167,17 @@ def gangplank_refusal(w: World):
     if not w.get_global("PIE-RATS-GONE"):
         return _CREW_ABOARD
     return None
+
+
+def deck_action(w: World, msg=None):
+    """The deck: moored at the Docks, or lying off an island after BOARD SHIP
+    there (SHIP-OCEAN-POS set) — the way off differs."""
+    from engine.game import M_LOOK, M_HANDLED, M_NOT_HANDLED
+    if msg == M_LOOK:
+        print(_DECK)
+        print(DECK_AT_DOCKS if w.get_global("SHIP-OCEAN-POS") is None else DECK_OFF_ISLAND)
+        return M_HANDLED
+    return M_NOT_HANDLED
 
 
 def gangplank_check(w: World, room: Room):

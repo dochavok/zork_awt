@@ -39,6 +39,15 @@ _BOOM = (
     "investigate — and the ship is unguarded."
 )
 _CAUGHT_INSIDE = "The mine finds its weak point. So does the ceiling above you."
+_SHAFT = (
+    "The main shaft drops away from the entrance in a single rough-cut passage, "
+    "wide enough for two men and a cart. Timber supports run at intervals — "
+    "functional, not decorative. The smell of rock dust and old torchsmoke is "
+    "thick here. A side room opens to the south, and the shaft itself goes on "
+    "down into the workings below."
+)
+SHAFT_UP_OPEN = "Daylight shows faintly back up the way to the entrance."
+SHAFT_UP_BURIED = "Above, the way back up to the entrance is choked with fallen rock."
 _BURIED = "The way down is buried under the collapse."
 _BURIED_UP = "The way up is buried under the collapse."
 _FUSE_BURNING = "The fuse is already hissing. Leaving would be a better use of your time."
@@ -47,12 +56,15 @@ _LIT_TAKE = "Only a madman (or a Pie Rat) would pick that up!"
 _ENTRANCE = (
     "The entrance to Pie Rats Mining Inc. is a ragged wound in the earth, shored up "
     "with timber and optimism. A sign above the opening reads: PIE RATS MINING INC. "
-    "— AUTHORIZED PERSONNEL ONLY."
+    "— AUTHORIZED PERSONNEL ONLY. Someone has added, in different handwriting: "
+    "THIS MEANS YOU. In another hand: ME? And beneath that, in the first "
+    "handwriting: NO, NOT YOU SLOTH. Past the sign, the shaft drops down into the "
+    "dark; the forest is back up the slope."
 )
 _ENTRANCE_COLLAPSED = (
     "The entrance is gone. The explosion brought the whole thing down — timbers, "
     "signage, and a significant quantity of rock. Whatever was inside is inside "
-    "permanently, or accessible some other way."
+    "permanently, or accessible some other way. The forest is back up the slope."
 )
 
 
@@ -161,6 +173,15 @@ def sealed_check(w: World, room: Room):
     if room.name == "MINE-ENTRANCE" and w.here.name == "MAIN-SHAFT":
         return _BURIED_UP
     return None
+
+
+def shaft_action(w: World, msg=None):
+    from engine.game import M_LOOK, M_HANDLED, M_NOT_HANDLED
+    if msg == M_LOOK:
+        print(_SHAFT)
+        print(SHAFT_UP_BURIED if w.get_global("MINE-BLOWN") else SHAFT_UP_OPEN)
+        return M_HANDLED
+    return M_NOT_HANDLED
 
 
 def entrance_action(w: World, msg=None):

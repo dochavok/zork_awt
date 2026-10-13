@@ -15,7 +15,7 @@ State: KEVRY-MET, GLASSES-ENCHANTED (with content/verbs._set_glasses_state)
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from engine.game import M_NOT_HANDLED, M_ENTER, M_END
+from engine.game import M_NOT_HANDLED, M_HANDLED, M_ENTER, M_END, M_LOOK
 
 if TYPE_CHECKING:
     from engine.world import World
@@ -27,7 +27,23 @@ _ENCHANT = (
     "them that you don't quite follow. When he hands them back they feel "
     'different. Lighter, somehow, and more certain. "There. Don\'t lose them."'
 )
-_CARRIED = '"You\'ve got something in there," Kevry says, not looking up. "I know you brought them."'
+_CARRIED = ('"You\'ve got something in there," Kevry says, his eyes on your pack. '
+            '"I know you brought them."')
+_QUARTERS = (
+    "A small back room, all table and charts and the smell of ink. The doorway "
+    "back into the house is west."
+)
+_FIRST_SEEN = (
+    "A weathered man sits hunched over a map, muttering. He doesn't hear you "
+    "come in. When he finally looks up, his face does something complicated — "
+    "surprise, then recognition of the type that doesn't require prior "
+    'acquaintance, then a wide and genuine grin. "Kevry," he says, by way of hello.'
+)
+_SEEN_AGAIN = "Kevry sits hunched over his map, muttering. He looks up and grins."
+_SEEN_ENCHANTED = (
+    "Kevry sits hunched over his map. He looks up long enough to check you still "
+    "have the glasses."
+)
 _NO_GLASSES = (
     '"Hold still." Kevry leans in and studies you — eyes, nose, the bridge of '
     "the nose specifically — with the focus of a man reading a chart. Then he "
@@ -53,7 +69,20 @@ def _met(w: World) -> None:
 
 
 def quarters_action(w: World, msg: int = M_NOT_HANDLED) -> int:
-    """On arrival (after the room description, where Kevry looks up)."""
+    """The room, then Kevry's line (he introduces himself the first time);
+    the glasses reaction follows at the end of the arrival turn."""
+    if msg == M_LOOK:
+        print(_QUARTERS)
+        if not _here_with_kevry(w):
+            return M_HANDLED
+        if not w.get_global("KEVRY-MET"):
+            print(_FIRST_SEEN)
+            _met(w)                                  # he's said his name
+        elif w.get_global("GLASSES-ENCHANTED"):
+            print(_SEEN_ENCHANTED)
+        else:
+            print(_SEEN_AGAIN)
+        return M_HANDLED
     if msg == M_ENTER:
         w.set_global("ARRIVED-CAPTAINS-QUARTERS", True)
         return M_NOT_HANDLED

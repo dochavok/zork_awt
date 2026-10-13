@@ -35,7 +35,7 @@ def _kitchen(cls="warrior", zenni=200):
 
 def test_kitchen_mentions_the_slate():
     w, g = _kitchen()
-    assert "Prices are chalked on a slate by the door." in _do(g, "look")
+    assert "Prices are chalked on a slate by the door that leads back north to the bar." in _do(g, "look")
 
 
 @pytest.mark.parametrize("cmd", ["read slate", "look at slate", "examine slate",

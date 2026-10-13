@@ -26,7 +26,8 @@ def guard(w: World) -> int:
     if w.prsa not in _PARTING or ring is None or ring.name != "RING" \
             or ring.location is not w.player:
         return M_NOT_HANDLED
-    if w.prsa == "V-PUT-ON" and w.prsi is not None and w.prsi.name == "ALTAR-STONE":
-        return M_NOT_HANDLED          # the binding ritual (altar.py)
+    if w.prsa == "V-PUT-ON" and w.prsi is not None \
+            and w.prsi.name in ("ALTAR-STONE", "ALTAR-GLIMPSE"):
+        return M_NOT_HANDLED          # the binding ritual (altar.py); from the nave, keeper.py
     print(KEEP_CLOSE)
     return M_HANDLED

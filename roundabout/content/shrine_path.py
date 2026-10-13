@@ -84,8 +84,11 @@ SHRINE_PIECE = (
 _BRIDGE = (
     "A narrow stone bridge over a gap in the dungeon floor. The bridge is old — "
     "the stones have shifted slightly in their mortar, the edges worn. It looks "
-    "crossable. It probably is. The far side leads south to a heavy iron door."
+    "crossable. It probably is. The far side leads south to a heavy iron door. "
+    "To the north, a carved doorway leads into an older room."
 )
+BRIDGE_WEST_SHUT = "A side passage to the west is choked with debris."
+_BRIDGE_WEST_OPEN = "To the west, a side passage leads back toward the Collapsed Gallery."
 _OVERWEIGHT = (
     "The bridge groans under your load — a deep, unhappy sound from somewhere "
     "in the stone. It isn't going to hold. You'll need to lighten what you're carrying."
@@ -291,6 +294,11 @@ def bridge_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         # The iron door is in sight from the bridge — Quest 32 is discovered
         from content import quests
         quests.discover(w, "32")
+    elif msg == M_LOOK:
+        from content.aqueduct import shortcut_open
+        print(_BRIDGE)
+        print(_BRIDGE_WEST_OPEN if shortcut_open(w) else BRIDGE_WEST_SHUT)
+        return M_HANDLED
     return M_NOT_HANDLED
 
 
@@ -334,7 +342,7 @@ def make_rooms(world) -> None:
     alcove = room("PRAYER-ALCOVE", "Prayer Alcove", "", value=2)
     port = room("PORTCULLIS-CORRIDOR", "Portcullis Corridor", "")
     shrine = room("SHRINE-ROOM", "Shrine Room", _SHRINE)
-    bridge = room("RICKETY-BRIDGE", "Rickety Bridge", _BRIDGE)
+    bridge = room("RICKETY-BRIDGE", "Rickety Bridge", "")   # bridge_action: the west line changes
     door = room("MID-TIER-KEY-DOOR", "Mid-Tier Key Door", _KEY_DOOR)
 
     world.rooms["COMBAT-ROOM"].exits["south"] = Exit(destination="PRAYER-ALCOVE")

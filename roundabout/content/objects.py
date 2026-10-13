@@ -1347,6 +1347,12 @@ def _make_mid_tier_objects(world) -> None:
         name="DIAL", desc="dial", synonyms=["dial"], adjectives=["brass"],
         flags={NDESCBIT, SACREDBIT},
     ))
+    # The altar and dial as glimpsed from the nave (logic: content/keeper.py)
+    world.register_object(GameObject(
+        name="ALTAR-GLIMPSE", desc="altar", synonyms=["altar", "dial"],
+        adjectives=["stone", "plain", "brass"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
     # Over the edge of the hole once the Stored Room floor is dug out
     world.register_object(GameObject(
         name="SUPPORT-TIMBER", desc="support timber", synonyms=["timber", "beam"],

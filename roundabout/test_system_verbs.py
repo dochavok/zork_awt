@@ -54,9 +54,9 @@ def test_verbose_shows_the_full_room_on_return():
     _goto(w, "CHURCH-NAVE")                         # a plain ldesc room
     room = w.rooms["CHURCH-NAVE"]
     room.visited = True
-    assert "brass dial" not in _describe(g)         # BRIEF: name only on return
+    assert "low archway" not in _describe(g)        # BRIEF: name only on return
     _do(g, "verbose")
-    assert "brass dial" in _describe(g)
+    assert "low archway" in _describe(g)
 
 
 def test_superbrief_shows_only_the_room_name_even_first_time():
@@ -66,7 +66,7 @@ def test_superbrief_shows_only_the_room_name_even_first_time():
     _do(g, "superbrief")
     out = _describe(g)
     assert "Church of All" in out
-    assert "brass dial" not in out
+    assert "low archway" not in out
 
 
 # --- WAIT, PRAY ----------------------------------------------------------------

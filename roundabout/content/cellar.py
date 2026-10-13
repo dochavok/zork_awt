@@ -51,7 +51,7 @@ _KITCHEN = (
     "measure — if you need something, he's worth asking.\n"
     "Dried herbs hang from the ceiling in loose bundles. A scarred wooden table "
     "dominates the center.\n"
-    "Prices are chalked on a slate by the door."
+    "Prices are chalked on a slate by the door that leads back north to the bar."
 )
 _DOOR_LOCKED = (
     "The cellar door is set into the floor near the far wall; a faint smell of "

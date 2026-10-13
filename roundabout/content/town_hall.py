@@ -74,7 +74,8 @@ def make_rooms(world) -> None:
         "are solid oak and very heavy.\n"
         "Inside, the foyer is wide and echoing, the floor worn smooth in a path "
         "from the doors to the stairs. The Council Chamber opens to the east, the "
-        "Records Room to the west, and a staircase climbs to the floor above.",
+        "Records Room to the west, and a staircase climbs to the floor above. "
+        "The heavy doors open south onto the square.",
     )
     council = room(
         "COUNCIL-CHAMBER", "Council Chamber",
@@ -82,7 +83,8 @@ def make_rooms(world) -> None:
         "say the room where Roundabout sits in chairs and argues.\n"
         "A long table dominates the center — solid oak, scarred from use. The "
         "chairs around it are mismatched in the way of things that have been "
-        "replaced one at a time over many years.\n"
+        "replaced one at a time over many years. The door back to the foyer is "
+        "west.\n"
         "A man sits at the far end with the bearing of someone who has inherited "
         "both the title and the table.",
     )
@@ -91,7 +93,7 @@ def make_rooms(world) -> None:
         "Floor-to-ceiling shelves on every wall, packed with ledgers and rolled "
         "documents in an order that apparently makes sense to someone.\n"
         "The room smells of old paper and the particular dust of things that "
-        "have not been touched in years.\n"
+        "have not been touched in years. The door back to the foyer is east.\n"
         "A clerk sits at a desk near the window, surrounded by more of the same. "
         "He looks up when you enter with the expression of a man who was hoping "
         "you wouldn't.",
@@ -101,7 +103,9 @@ def make_rooms(world) -> None:
         "The second floor is quieter than the ground floor in the way that second "
         "floors always are — the noise of official business doesn't quite reach "
         "here.\n"
-        "A long hall with a runner of carpet gone thin at the center.\n"
+        "A long hall with a runner of carpet gone thin at the center. At its far "
+        "end, a narrower stair turns upward into the tower; the main staircase "
+        "leads back down to the foyer.\n"
         "A display cabinet stands against the wall, unlocked, glass-fronted, "
         "holding an assortment of old civic documents and artifacts. The kind of "
         "things a town keeps because no one has decided to throw them away.",
@@ -110,7 +114,8 @@ def make_rooms(world) -> None:
         "TOWN-HALL-TOWER", "The Tower",
         "The tower room is round, the walls following the cone of the roof above. "
         "A single window looks out over the town square, narrow enough that the "
-        "view is more suggestion than panorama.\n"
+        "view is more suggestion than panorama. The narrow stair winds back down "
+        "to the hall below.\n"
         "The Trophy Case dominates the far wall — old wood and glass, built into "
         "the stone as if someone planned for it from the start. It is empty.\n"
         "The placard mounted below it reads: CALDER FINCH — EXPLORER. DONATED IN "

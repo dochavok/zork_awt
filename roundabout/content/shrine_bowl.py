@@ -45,9 +45,10 @@ _NO_ADHESIVE = "The pieces fit, but nothing holds them together."
 
 _FOREST_TOP = (
     "You wouldn't know, walking through here, that the ground beneath you is "
-    "hollow. The forest is peaceful — birdsong, dappled light, the smell of pine.\n"
-    "The mine entrance sits somewhere among the roots and undergrowth, easy to "
-    "miss if you don't know to look.\n"
+    "hollow. The forest is peaceful — birdsong, dappled light, the smell of pine. "
+    "Back to the south, the trees thin out toward the old oak.\n"
+    "The mine entrance sits among the roots and undergrowth, a dark mouth "
+    "leading down into the ground — easy to miss if you don't know to look.\n"
     "A stone shrine stands at the edge of the trees — old enough that the forest "
     "has started to take it back. A carved pedestal, still solid."
 )

@@ -29,16 +29,18 @@ STRONGBOX_ZENNI = 10
 _CRYPT = {
     1: ("The crypt has not been visited recently. Dust lies undisturbed on the "
         "stone floor, on the alcoves, on the remains within them. It is very "
-        "quiet. Very cold. At the far end a rough-cut passage opens into "
-        "darkness — older than the crypt itself, by the look of the stonework."),
+        "quiet. Very cold. At the far end a rough-cut passage slopes down into "
+        "darkness — older than the crypt itself, by the look of the stonework. "
+        "Steps climb up to the mausoleum."),
     2: ("The crypt is quiet and cold. Dust lies on the stone floor — a set of "
         "footprints visible in it, the only sign anything has changed. The "
         "alcoves hold their dead without comment. At the far end the passage "
-        "leads on into the dark."),
+        "slopes down into the dark. Steps climb up to the mausoleum."),
     3: ("The crypt is quiet and cold. Dust lies on the stone floor — several "
         "sets of footprints visible in it. For a crypt, it's practically a "
         "thoroughfare. The alcoves hold their dead without comment. At the far "
-        "end the passage leads on into the dark."),
+        "end the passage slopes down into the dark. Steps climb up to the "
+        "mausoleum."),
 }
 
 _BRIDGE_BOGGART = (
@@ -173,11 +175,11 @@ def make_rooms(world) -> None:
     crypt = room("CRYPT", "The Crypt", "")
     charnel = room(
         "CHARNEL-WALK", "Charnel Walk",
-        "The passage ends at a low arch ahead — beyond it, the crypt. The air is "
-        "colder here, noticeably so, as if the temperature has been coming down "
-        "gradually and this is where it arrives. The walls are older stone, "
-        "darker with moisture. The silence has a different quality than the "
-        "tunnels behind you.",
+        "The passage ends at a low arch, and beyond it worn steps climb up into "
+        "the crypt. The air is colder here, noticeably so, as if the temperature "
+        "has been coming down gradually and this is where it arrives. The walls "
+        "are older stone, darker with moisture. The silence has a different "
+        "quality than the tunnels running back to the north.",
     )
     bone = room(
         "BONE-PASSAGE", "The Bone Passage",

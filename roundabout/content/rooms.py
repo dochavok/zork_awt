@@ -177,8 +177,14 @@ def _make_tale_and_ale(world) -> None:
             "through the door — woodsmoke, something cooking, the low sound "
             "of people who have decided their evening is going well.\n"
             "Tables fill most of the floor, a mix of occupied and merely claimed. "
-            "The bar is south. A staircase climbs to the upper floor. A mailbox "
-            "sits near the door, entirely out of place and acknowledged by no one."
+            "The bar is south. A staircase climbs to the upper floor.\n"
+            "To the east, a doorway leads to a quieter room and the smell of pipe "
+            "smoke. In the far northwest corner, someone is throwing dice. The "
+            "street door opens north onto the square.\n"
+            "The whole room has the quality of a place that has been exactly like "
+            "this for a long time and intends to stay that way.\n"
+            "Against the wall near the entrance, entirely at odds with everything "
+            "around it, stands a mailbox. No one looks at it."
         ),
         value=1,
     )
@@ -193,11 +199,12 @@ def _make_tale_and_ale(world) -> None:
         ldesc=(
             "The bar runs the length of the south wall — solid oak, worn smooth "
             "at the elbows. Bottles line the shelf behind it in an arrangement "
-            "that suggests a system only May understands.\n"
+            "that suggests a system only the bartender understands.\n"
             "She works the bar with the efficiency of someone who has answered "
             "every question before and will answer them all again without complaint.\n"
             "A board on the wall to one side holds notices — quest postings, local "
-            "announcements, things people want found or done. The kitchen is further south."
+            "announcements, things people want found or done. The kitchen is further "
+            "south, and the main room is back to the north."
         ),
         value=1,
     )
@@ -229,7 +236,11 @@ def _make_tale_and_ale(world) -> None:
             "The pipe room is quieter than the rest of the tavern, which appears "
             "to be the point.\n"
             "A few low chairs, a side table, the particular haze of an evening's "
-            "worth of smoke that has nowhere urgent to be."
+            "worth of smoke that has nowhere urgent to be.\n"
+            "Conversations here are conducted at a volume that doesn't carry. The "
+            "kind of room where people come to think, or to be seen thinking, or to "
+            "say things they'd rather not say at the bar. The noise of the main room "
+            "drifts in faintly through the doorway to the west."
         ),
         value=1,
     )
@@ -246,8 +257,8 @@ def _make_tale_and_ale(world) -> None:
             "Ty sits at the head of it — or what he has decided is the head — "
             "presiding over the dice with the calm of a man who has never once "
             "worried about the outcome.\n"
-            "The noise from the main room reaches here as a comfortable murmur. The "
-            "game is Cargo: Ship, Captain, and Crew. The stakes are in Zenni."
+            "The noise from the main room, back to the southeast, reaches here as a "
+            "comfortable murmur. The game is Cargo: Ship, Captain, and Crew. The stakes are in Zenni."
         ),
         value=1,
     )
@@ -305,7 +316,8 @@ def _make_town(world) -> None:
         "without quite deciding to. Cobblestones, worn smooth at the center.\n"
         "The Town Hall anchors the north end with the authority of a building "
         "that has never doubted its own importance. The tavern faces it from "
-        "the south, which seems about right."
+        "the south, which seems about right. Main Street runs off east and "
+        "west, and to the southwest a gap between buildings leads into an alley."
     )
     _FOUNTAIN_DRY = (
         "A fountain stands in the middle — dry, the basin cracked at one edge, "
@@ -359,7 +371,8 @@ def _make_town(world) -> None:
             "Main Street ends here, or nearly does. The buildings thin out toward "
             "the east — a few shuttered fronts, a sign that's lost its lettering, "
             "the church standing apart to the south as though it chose its distance "
-            "deliberately. The wasteland begins where the cobblestones stop."
+            "deliberately. The wasteland begins to the east, where the cobblestones "
+            "stop. Back to the west, the street opens into the town square."
         ),
         value=1,
     )
@@ -375,8 +388,12 @@ def _make_town(world) -> None:
             "relative. Something went very wrong here, and not recently.\n"
             "The ground doesn't grow anything. The structures that remain are shells. "
             "Whatever happened, it happened thoroughly.\n"
+            "The cause is a matter of some local sensitivity. The prevailing theory "
+            "among residents involves adventurers, which explains why no one wants "
+            "to discuss it in detail.\n"
             "To the south, a volcano rises against the sky — large, dark, and "
-            "entirely convincing."
+            "entirely convincing. Eastward, a rutted road leaves the wreckage behind "
+            "and heads for the smell of salt; the town is back to the west."
         ),
         value=1,
     )
@@ -388,8 +405,11 @@ def _make_town(world) -> None:
         name="BEACH-ROAD",
         desc="Beach Road",
         ldesc=(
-            "A road that forks — south toward Roundabout Beach, north toward "
-            "Roundabout Forest via The Old Oak."
+            "The rutted track out of the wasteland firms up here into something a "
+            "cart could use, and then can't decide where to go. South, it runs "
+            "down toward the beach and the smell of salt. North, it climbs toward "
+            "a great old oak at the edge of the forest. The wasteland is back to "
+            "the west."
         ),
         value=1,
     )
@@ -421,7 +441,9 @@ def _make_town(world) -> None:
             "Roundabout Beach opens up as the town falls behind you — a generous "
             "sweep of sand, the water catching whatever light the sky offers. The "
             "docks stretch east to where the Pie Rat Ship is moored, close enough "
-            "to read the name on its hull."
+            "to read the name on its hull. The lighthouse stands to the northeast "
+            "on a finger of rock, its lamp turning slowly. Beach Road runs back "
+            "north toward the trees. It smells like freedom, or at least like salt."
         ),
         value=1,
     )
@@ -434,9 +456,11 @@ def _make_town(world) -> None:
         desc="The Docks",
         ldesc=(
             "The boards flex slightly underfoot, worn smooth by years of boots "
-            "and cargo. Bollards thick with rope line the edge. A coil of rope "
-            "sits loose on the nearest bollard. The Pie Rat Ship sits in her "
-            "berth like she owns it."
+            "and cargo. Bollards thick with rope line the edge. The Pie Rat Ship "
+            "sits in her berth to the east like she owns it, which she more or "
+            "less does — the only vessel worth the name in Roundabout's harbor. "
+            "The smell is fish and brine and honest work. The beach is back to "
+            "the west."
         ),
         value=1,
     )
@@ -449,10 +473,11 @@ def _make_town(world) -> None:
         desc="The Lighthouse",
         ldesc=(
             "The keeper's room is small and round, the walls curving with the "
-            "tower. A narrow stair spirals up toward the lamp. A desk sits under "
-            "the one window, papers stacked with more care than anything else in "
-            "the room — whoever works here left in the middle of something and "
-            "meant to come back."
+            "tower. A narrow stair spirals up toward the lamp, a chain hung across "
+            "its foot. A desk sits under the one window, papers stacked with more "
+            "care than anything else in the room — whoever works here left in the "
+            "middle of something and meant to come back. The door out to the "
+            "beach is southwest."
         ),
         value=1,
     )
@@ -480,6 +505,7 @@ def _make_town(world) -> None:
     roundabout_beach.exits["east"]  = Exit(destination="DOCKS")
     roundabout_beach.exits["northeast"] = Exit(destination="LIGHTHOUSE")
     lighthouse.exits["southwest"] = Exit(destination="ROUNDABOUT-BEACH")
+    lighthouse.exits["up"] = Exit(message=LIGHTHOUSE_CHAIN)   # the lamp stair, chained off
     docks.exits["west"] = Exit(destination="ROUNDABOUT-BEACH")
 
     cottage = Room(
@@ -489,7 +515,8 @@ def _make_town(world) -> None:
             "A low wooden cottage sits at the edge of the trees, almost part of "
             "the forest. Stacked hive boxes line the south wall, painted in fading "
             "colours. The smell of beeswax and woodsmoke is pleasant in a specific, "
-            "unhurried way. The beekeeper is here — a broad woman with patience in "
+            "unhurried way. The old oak's clearing is back to the east. The "
+            "beekeeper is here — a broad woman with patience in "
             "her posture and a concerning number of sting marks on her forearms."
         ),
         value=1,
@@ -521,11 +548,16 @@ def _make_town(world) -> None:
 # Volcano & Pyronicus's Forge
 # ---------------------------------------------------------------------------
 
+LIGHTHOUSE_CHAIN = (
+    "A tag on the chain reads: KEEPER ONLY. Whoever the keeper is, they'd "
+    "clearly rather you didn't."
+)
+
 _VOLCANO_LDESC = (
     "The volcano fills the sky above you — black rock streaked with old flows, "
     "a thread of smoke rising from the summit, heat rolling down the slope in "
     "slow waves. It is large, dark, and entirely convincing. There is no way in "
-    "that you can see."
+    "that you can see. The wasteland is back to the north."
 )
 
 _VOLCANO_STAIRS = (
@@ -556,7 +588,8 @@ def _make_volcano(world) -> None:
             "with the steady purpose of something that has never been allowed "
             "to go out.\n"
             "The heat it produces rises through the rock above, feeding an "
-            "illusion so convincing that even the smoke smells right.\n"
+            "illusion so convincing that even the smoke smells right. The uneven "
+            "stairs climb back up into it.\n"
             "Pyronicus built this room first. The volcano came after."
         ),
         value=2,
@@ -609,7 +642,7 @@ def _make_west_town(world) -> None:
         "slightly as if making room for something that never arrived. The "
         "library stands to the north, solid and unhurried. The road continues "
         "west toward the archery range. To the southeast, a gap between "
-        "buildings leads into the alley.",
+        "buildings leads into the alley. The town square is back to the east.",
     )
     archery = room(
         "ARCHERY-RANGE", "Archery Range",
@@ -617,7 +650,9 @@ def _make_west_town(world) -> None:
         "with arrows. The range is well-used.\n"
         "The Vikings from the encampment to the west use it freely — and "
         "apparently consider the entire field fair game, including the parts "
-        "you're standing in.",
+        "you're standing in.\n"
+        "The road back to town runs east. To the north, a footpath slips away "
+        "through the reeds toward lower, wetter ground.",
     )
     encampment = room(
         "VIKING-ENCAMPMENT", "Viking Encampment",
@@ -626,25 +661,29 @@ def _make_west_town(world) -> None:
         "in thread gone dark with weather.\n"
         "Vikings go about their business — mending, sharpening, arguing — and "
         "keep half an eye on you while they do it. Paths lead north to a hut, "
-        "south to a ring of stones, and west toward the glow of a fire pit.",
+        "south to a ring of stones, and west toward the glow of a fire pit; "
+        "the archery range is back to the east.",
     )
     hut = room(
         "HAALVARS-HUT", "Haalvar's Hut",
         "The hut is close and warm and smells of tallow. In the center sits a "
         "stone carved with runes — solid to the touch, but its surface moves "
-        "like dark water, as if something underneath is breathing.",
+        "like dark water, as if something underneath is breathing. The door "
+        "flap opens south onto the encampment.",
     )
     circle = room(
         "RITUAL-CIRCLE", "The Ritual Circle",
         "Five rune stones stand in a ring around a carved symbol in the earth: "
         "Air, Earth, Fire, Water, and one marked with a heart. The ground "
-        "inside the ring is swept clean.",
+        "inside the ring is swept clean. The path back to the encampment runs "
+        "north.",
     )
     fire_pit = room(
         "FIRE-PIT", "The Fire Pit",
         "A great fire burns in a stone-lined pit, benches drawn up close "
         "around it. Cups, a barrel, and a smell that could strip paint. This "
-        "is where the encampment settles its arguments.",
+        "is where the encampment settles its arguments. The longhouses are "
+        "back to the east.",
     )
 
     # Main West: north → Library, southeast → The Alley (not yet built)
@@ -657,14 +696,18 @@ def _make_west_town(world) -> None:
     alley = room(
         "ALLEY", "The Alley",
         "The gap between buildings is narrow enough that the sky above is just "
-        "a strip. Cobblestones give way to packed dirt underfoot. The tavern's "
-        "back wall runs along the south side. It smells like kitchen waste and "
+        "a strip. Cobblestones give way to packed dirt underfoot. At the north "
+        "end the alley splits — northeast back to the town square, northwest to "
+        "Main West.\n"
+        "The tavern's back wall runs along the south side. It smells like kitchen "
+        "waste and "
         "something less identifiable. Further south, the alley deepens.",
     )
     back_alley = room(
         "BACK-ALLEY", "The Back Alley",
         "Darker than the alley, smaller, and considerably less welcoming. The "
-        "tavern's back wall seals the south end. Broken crates and barrels have "
+        "tavern's back wall seals the south end. The only way out is back north, "
+        "which is worth remembering. Broken crates and barrels have "
         "accumulated here the way things do when no one is watching. The ground "
         "is stained. The air is close. This is where things happen that don't "
         "happen on Main Street.",
@@ -714,7 +757,8 @@ def _make_pond_and_bog(world, archery) -> None:
     pond = room(
         "ROUNDABOUT-POND", "Roundabout Pond",
         "The pond is easy to walk past without noticing. It sits low between the "
-        "town path and the bog, ringed with reeds and the occasional frog. The "
+        "town path to the south and the bog to the north, ringed with reeds and "
+        "the occasional frog. The "
         "water is dark and calm.",
     )
     bog_se = room(
@@ -733,7 +777,7 @@ def _make_pond_and_bog(world, archery) -> None:
         "BOG-SW", _BOG_TITLE,
         "A flat expanse of bog, grey-green and indifferent. The water is still "
         "except where it isn't. The smell arrived before you did and will be "
-        "here long after you leave.",
+        "here long after you leave. The pond lies back to the south.",
     )
     bog_nw = room(
         "BOG-NW", _BOG_TITLE,
@@ -862,11 +906,7 @@ def _make_mine(world) -> None:
     main_shaft = Room(
         name="MAIN-SHAFT",
         desc="Main Shaft",
-        ldesc=(
-            "The main shaft drops away from the entrance in a single rough-cut "
-            "passage, wide enough for two men and a cart. Timber supports run at "
-            "intervals. The smell of rock dust and old torchsmoke is thick here."
-        ),
+        ldesc="",   # content/mine.shaft_action (the way up changes after the cave-in)
         value=1,
     )
     main_shaft.set_flag(ONBIT)
@@ -876,7 +916,8 @@ def _make_mine(world) -> None:
         name="ASSAY-ROOM",
         desc="Assay Room",
         ldesc=(
-            "A side room off the main shaft, fitted out for testing ore samples. "
+            "A side room off the main shaft, which lies back to the north, fitted "
+            "out for testing ore samples. "
             "A long workbench runs the length of one wall, scarred with acid burns "
             "and impact marks. Scales, tongs, crucibles — the tools of a working "
             "assay operation, left mid-use. Whatever the Pie Rats were mining, "
@@ -929,6 +970,7 @@ def _make_mine(world) -> None:
     # Heist: weak point, fuse, cave-in — content/mine.py
     from content import mine
     mine_entrance.action = mine.entrance_action
+    main_shaft.action = mine.shaft_action
 
 
 # ---------------------------------------------------------------------------
@@ -940,15 +982,13 @@ def _make_beach_and_sea(world) -> None:
     ship_deck = Room(
         name="SHIP-DECK",
         desc="Pie Rat Ship — Deck",
-        ldesc=(
-            "The deck is cluttered in the way of a working vessel — coils of line, "
-            "barrels lashed to the rail, a general smell of fish and salt and "
-            "something that has been at sea too long. This is a ship that wants to move."
-        ),
+        ldesc="",   # content/ship.deck_action (the way off depends on where she's moored)
         value=1,
     )
     ship_deck.set_flag(ONBIT)
     world.register_room(ship_deck)
+    from content import ship
+    ship_deck.action = ship.deck_action
 
     # Sea rooms
     sea_west = Room(
@@ -956,7 +996,7 @@ def _make_beach_and_sea(world) -> None:
         desc="Western Roundabout Sea",
         ldesc=(
             "The smell of the town still reaches you here — smoke and bread "
-            "underneath the salt. The beach stretches behind you, the lighthouse "
+            "underneath the salt. The beach stretches away to the west, the lighthouse "
             "standing watch to the north. The water is choppier than it looked "
             "from shore."
         ),
@@ -1021,7 +1061,7 @@ def _make_beach_and_sea(world) -> None:
             "does not comfort you.\n"
             "Nothing here is threatening and nothing here is welcoming. The island "
             "feels like a place that has been waiting — not for you specifically, "
-            "but for someone."
+            "but for someone. The ship rides at anchor just offshore."
         ),
         value=1,
     )
@@ -1074,8 +1114,11 @@ def _make_kevrys_island(world) -> None:
         desc="Empty Beach",
         ldesc=(
             "The beach is long and quiet, the sand unmarked. A line of scrubby "
-            "trees runs along the inland edge. Somewhere beyond them, half-hidden, "
-            "a small structure."
+            "trees runs along the inland edge. Somewhere beyond them to the east, "
+            "half-hidden, a small structure. The ship rides at anchor just "
+            "offshore. The only sounds are the water behind you and the wind "
+            "doing very little. It feels like a place that has been left alone "
+            "for a long time and is content with that."
         ),
         value=5,
     )
@@ -1090,7 +1133,9 @@ def _make_kevrys_island(world) -> None:
             "The interior is cluttered in the way that only makes sense to its "
             "owner. Charts pinned to every surface, ropes coiled with obsessive "
             "care, a hammock in the corner. A lantern hangs from a beam. Someone "
-            "has been here a long time and made their peace with it."
+            "has been here a long time and made their peace with it. The beach is "
+            "back out to the west, and a doorway to the east leads into a smaller "
+            "back room."
         ),
         value=5,
     )
@@ -1101,13 +1146,7 @@ def _make_kevrys_island(world) -> None:
     captains_quarters = Room(
         name="CAPTAINS-QUARTERS",
         desc="Captain's Quarters",
-        ldesc=(
-            "A small back room, all table and charts and the smell of ink. "
-            "A weathered man sits hunched over a map, muttering. He doesn't hear "
-            "you come in. When he finally looks up, his face does something "
-            "complicated — surprise, then recognition of the type that doesn't "
-            "require prior acquaintance, then a wide and genuine grin."
-        ),
+        ldesc="",   # content/kevry.quarters_action (the room, then Kevry's line)
         value=5,
     )
     captains_quarters.set_flag(ONBIT)

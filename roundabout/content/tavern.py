@@ -208,8 +208,13 @@ _GUEST_ROOMS = {
 }
 
 
+DOOR_OUT = "The door out to the hall is {}."
+ROOMS_RENTED = "The rooms are rented from the bartender downstairs."
+_OPPOSITE = {"east": "west", "west": "east", "south": "north"}
+
+
 def _guest_action(n: int):
-    _, ldesc, wake = _GUEST_ROOMS[n]
+    exit_dir, ldesc, wake = _GUEST_ROOMS[n]
 
     def action(w: World, msg: int = M_NOT_HANDLED) -> int:
         if msg == M_LOOK:
@@ -219,6 +224,7 @@ def _guest_action(n: int):
                 print(wake)
             else:
                 print(ldesc)
+            print(DOOR_OUT.format(exit_dir))
             return M_HANDLED
         return M_NOT_HANDLED
     return action
@@ -226,9 +232,12 @@ def _guest_action(n: int):
 
 def make_guest_rooms(world) -> None:
     """Three guest rooms off the Upstairs Hall. 0 XP; not in the Zenni pool."""
+    hall = world.rooms["UPSTAIRS-HALL"]
     for n, (exit_dir, _ldesc, _wake) in _GUEST_ROOMS.items():
         r = Room(name=f"GUEST-ROOM-{n}", desc=f"Guest Room {n}", ldesc="", value=0)
         r.set_flag(ONBIT)
         r.action = _guest_action(n)
         r.exits[exit_dir] = Exit(destination="UPSTAIRS-HALL")
         world.register_room(r)
+        # From the hall the doors stay shut: the rooms are rented, not walked into
+        hall.exits[_OPPOSITE[exit_dir]] = Exit(message=ROOMS_RENTED)

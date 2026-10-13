@@ -247,12 +247,18 @@ class _GalleryEast(Exit):
         return super().resolve(world)
 
 
+def shortcut_open(w: World) -> bool:
+    """The Quest 38 shortcut: timbers cleared (38) and the flood stopped (22)."""
+    return bool(w.get_global("TIMBERS-CLEARED") and w.get_global("AQUEDUCT-SEALED"))
+
+
 class _BridgeWest(Exit):
     """Rickety Bridge WEST → Collapsed Gallery: the same two gates from the other side."""
 
     def resolve(self, world):
-        if not (world.get_global("TIMBERS-CLEARED") and world.get_global("AQUEDUCT-SEALED")):
-            return None, "You can't go that way."
+        if not shortcut_open(world):
+            from content.shrine_path import BRIDGE_WEST_SHUT
+            return None, BRIDGE_WEST_SHUT
         return super().resolve(world)
 
 

@@ -240,10 +240,12 @@ Optional — not required for completion. **Enchants the Enchanted Glasses** if 
 **Glasses equipped on arrival (Quest 53):**
 *Kevry looks at the glasses, then at you, then at the glasses again. "Will sent you." It isn't a question. He takes them gently. "Interesting that he didn't come himself." He does something brief and private with them that you don't quite follow. When he hands them back they feel different. Lighter, somehow, and more certain. "There. Don't lose them."*
 
-Fires automatically on arrival in the Captain's Quarters (after the room description, where he looks up) when the glasses are worn.
+**First meeting** (decided 2026-10-12): he introduces himself in his line after the room description — *…then a wide and genuine grin. "Kevry," he says, by way of hello.* (locations.md — Captain's Quarters has all three of his lines). The glasses reactions below follow it.
+
+Fires automatically on arrival in the Captain's Quarters (after the room description and Kevry's line) when the glasses are worn.
 
 **Glasses in inventory but not equipped on arrival:**
-*"You've got something in there," Kevry says, not looking up. "I know you brought them."* — the dead giveaway. `WEAR GLASSES` in front of him starts the enchantment (same text as above). `TALK TO KEVRY` repeats the line.
+*"You've got something in there," Kevry says, his eyes on your pack. "I know you brought them."* (Not "not looking up": he has just looked up and grinned.) — the dead giveaway. `WEAR GLASSES` in front of him starts the enchantment (same text as above). `TALK TO KEVRY` repeats the line.
 
 **No glasses (`TALK TO KEVRY`):** hints at the quest without spelling it out.
 *"Hold still." Kevry leans in and studies you — eyes, nose, the bridge of the nose specifically — with the focus of a man reading a chart. Then he sits back. "No. At first I thought you were who Will sent to bring them." He shrugs. "Never mind. Nobody's brought them in years. Doesn't stop me hoping."*

@@ -125,8 +125,9 @@ def make_rooms(world, bog_se: Room) -> None:
     hearth = room(
         "DANKHAUS-HEARTH-ROOM", "Dankhaus Hearth Room",
         "A working hearth room — herbs drying overhead, something on the fire, "
-        "the garden accessible through the east door. It smells like it has "
-        "always smelled like this.",
+        "the garden accessible through the east door. The common room is back "
+        "to the west, and a door to the south stands half open on a good deal "
+        "of clutter. It smells like it has always smelled like this.",
     )
     garden = room(
         "DANKHAUS-GARDEN", "Dankhaus Garden",
@@ -141,26 +142,28 @@ def make_rooms(world, bog_se: Room) -> None:
         "A plain room — bed, chest, a low shelf of things that don't announce "
         "themselves. Nothing here suggests the man who laughed until he had to "
         "put something down. That version of Litlock lives in the common room. "
-        "This one is private.",
+        "This one is private. A narrower door in the east wall leads further in; "
+        "the common room is back to the south.",
     )
     study = room(
         "LITLOCKS-STUDY", "Litlock's Study",
         "The study is where Litlock keeps the part of himself he doesn't lead "
         "with. Shelves of books and things that aren't books. A desk with papers "
-        "in an order that makes sense to someone. A candle burned low. The "
-        "jovial man from the common room was entirely real — so is this room, "
+        "in an order that makes sense to someone. A candle burned low. The only "
+        "door is the one you came through, to the west. The jovial man from the common room was entirely real — so is this room, "
         "and they belong to the same person.",
     )
     lynds_room = room(
         "LYNDS-ROOM", "Lynds's Room",
         "Lynds's room. Large, untidy, comfortable. The furniture has been "
-        "through some things.",
+        "through some things. The hearth room is back to the north.",
     )
     aurix_room = room(
         "AURIX-ROOM", "Aurix's Room",
         "Small bed, small shelf, the accumulated objects of a child who picks "
         "things up and keeps them. The chalk marks on the floor have been there "
-        "long enough that no one is going to do anything about them.",
+        "long enough that no one is going to do anything about them. The common "
+        "room is back through the door to the north.",
     )
 
     bog_se.exits["east"] = _WardedExit(destination="DANKHAUS-COMMON-ROOM")
@@ -278,10 +281,12 @@ def _start(w: World, text: str) -> None:
 
 
 COMMON_LDESC = (
-    "Litlock fills whatever room he's in without trying to. The common room "
-    "is large enough, and he's in it — near the fireplace, which is also "
-    "large, and burning steadily. Chairs, a table, shelves. The kind of room "
-    "that works because the people in it make it work. He looks up."
+    "The common room is large, and so is the fireplace, burning steadily "
+    "against the far wall. Chairs, a table, shelves. The kind of room that "
+    "works because the people in it make it work. Doors lead off it to the "
+    "north, south and east, and the front door opens west onto the bog.\n"
+    "Litlock fills whatever room he's in without trying to, and he fills this "
+    "one from a chair near the fire. He looks up."
 )
 
 # Invisible in the Dankhaus (npcs.md — Litlock, invisible entry)

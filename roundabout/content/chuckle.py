@@ -209,9 +209,9 @@ def make_rooms(world) -> None:
         "The church is plain inside — stone floor, wooden pews worn smooth, "
         "light coming through narrow windows in thin bars. It could belong to "
         "any faith. That appears to be the point.\n"
-        "At the far end, where an altar would normally hold a single symbol, "
-        "there is instead a stone altar with a brass dial mounted at its face. "
-        "Seven marks around the dial. Whatever is currently selected glows faintly.",
+        "To the east, through a low archway, a stone altar stands in a space of "
+        "its own, something brass catching the light at its face. The street "
+        "door is north; a side door to the south lets out into the graveyard.",
     )
     graveyard = room("GRAVEYARD", "Graveyard", "")
     mausoleum = room(
@@ -220,7 +220,7 @@ def make_rooms(world) -> None:
         "age and moisture, the carved details worn to suggestions. The door is "
         "heavy iron, pitted with rust but still on its hinges. Whatever family "
         "name was once above the entrance has been lost to weather. Steps descend "
-        "inside toward the crypt below.",
+        "inside toward the crypt below. The graveyard lies back to the north.",
     )
     entrance = room(
         "CHUCKLE-ENTRANCE", "The Entrance",
@@ -231,6 +231,8 @@ def make_rooms(world) -> None:
         "or hats once hung, empty now.\n"
         "A ticket booth stands to one side, the glass cracked, the stool inside "
         "still in place as if whoever left simply forgot to come back.\n"
+        "Past the booth, a narrow passage leads south, deeper into the building. "
+        "The door you came in by opens west onto the graveyard.\n"
         "The building has the quality of a held breath.",
     )
     rejection = room(
@@ -238,19 +240,21 @@ def make_rooms(world) -> None:
         "A narrow room with a single tall mirror filling the far wall, its frame "
         "carved with grinning faces. The glass is old and silvered at the edges. "
         "The doorway to the south is beside it — you'd have to pass right in "
-        "front of it to get there.",
+        "front of it to get there. The entrance hall is back to the north.",
     )
     shatter = room(
         "SHATTER-TRAP-MIRROR", "The Shatter Trap Mirror",
         "Another mirror, another frame of carved smiles. This one is larger than "
         "the last, the glass faintly rippled with age, so your reflection wavers "
-        "as you move. The way on is past it, to the south.",
+        "as you move. The way on is past it, to the south. The first mirror's "
+        "room is back to the north.",
     )
     ghost_room = room(
         "GHOSTS-ROOM", "Ghost's Room",
         "Mirrors on every wall, angled at each other so the room goes on in "
         "every direction at once. Your reflections are wrong by a fraction — a "
-        "beat late, or a beat early. It is very cold.",
+        "beat late, or a beat early. Somewhere among them is the one real "
+        "doorway, back the way you came. It is very cold.",
     )
 
     # Main East ↔ Nave ↔ Graveyard ↔ Mausoleum. Nave east (Altar), west

@@ -44,7 +44,7 @@ _NO_KEY = "You don't have the key to it."
 _CHAMBER = (
     "A small room, plainly kept. A narrow bed, a writing desk, a shelf of "
     "religious texts. The kind of room that belongs to someone who doesn't spend "
-    "much time in it."
+    "much time in it. The door back to the nave is east."
 )
 _DESK_VIAL = (
     " On the desk: a vial of clear liquid, and a note in a careful hand. Whatever "
@@ -81,6 +81,11 @@ def nave_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
         print(_nave_base)
         print(nave_line(w))
+        return M_HANDLED
+    if msg == M_BEG and "ALTAR-GLIMPSE" in (getattr(w.prso, "name", None),
+                                           getattr(w.prsi, "name", None)):
+        from content.altar import ALTAR_EAST
+        print(ALTAR_EAST)                  # the altar and dial are in the next room
         return M_HANDLED
     return M_NOT_HANDLED
 
@@ -171,5 +176,6 @@ def make_rooms(world) -> None:
     _nave_base, nave.ldesc = nave.ldesc, ""   # an ldesc would bypass the action
     nave.exits["west"] = _KeeperDoor(destination="KEEPERS-CHAMBER")
     nave.action = nave_action
+    nave.global_objects.append("ALTAR-GLIMPSE")
     chamber.exits["east"] = Exit(destination="CHURCH-NAVE")
     chamber.action = chamber_action

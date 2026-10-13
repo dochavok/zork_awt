@@ -158,7 +158,8 @@ _SWARM = "The swarm boils out of the hollow before you can do anything useful. Y
 _TREE = (
     "A broad-trunked tree at the forest edge, older than the others around it. A low "
     "drone comes from a dark gap in the bark at chest height. The air nearby has a "
-    "quality that suggests strongly you should not approach without a plan."
+    "quality that suggests strongly you should not approach without a plan. "
+    "The oak's clearing is back to the west, at a more comfortable distance."
 )
 _SETTLED = "The bees drift in and out of the hollow, slow and drowsy, paying you no mind."
 _SMOKE = (

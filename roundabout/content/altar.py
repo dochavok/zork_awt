@@ -47,8 +47,10 @@ _ALTAR = (
     "The altar is plain stone, unadorned. The dial dominates it — brass, worn at the "
     "edges from use, seven symbols arranged around its face. The currently selected "
     "religion is marked in a faint glow. The air here feels slightly different from "
-    "the nave. Not sacred, exactly. Attentive."
+    "the nave. Not sacred, exactly. Attentive. The archway leads back west into "
+    "the nave."
 )
+ALTAR_EAST = "The altar is through the archway to the east."   # from the nave
 _PLACED = "You set the {name} on the altar. It rests on the bare stone. Nothing happens — yet."
 _DOESNT_BELONG = "That doesn't belong on the altar."
 _NOT_YET = "Nothing happens. Something is missing from the ritual. You pick up the ring."
@@ -92,6 +94,9 @@ def _light_matching(w: World) -> None:
 
 
 def turn_dial(w: World, step: int) -> None:
+    if w.here is not None and w.here.name == "CHURCH-NAVE":
+        print(ALTAR_EAST)
+        return
     if w.here is None or w.here.name != "ALTAR":
         print("There's no dial here.")
         return

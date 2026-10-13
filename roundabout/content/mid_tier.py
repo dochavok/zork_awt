@@ -41,7 +41,9 @@ _LANDING = (
 _MINE = (
     "A worked section of cave — support timbers at intervals, rusting tools left "
     "where they were dropped. The smell of old rock dust is thick here. Someone "
-    "mined this passage, or used it as a route through to something being mined."
+    "mined this passage, or used it as a route through to something being mined. "
+    "The stairs are back to the north; the passage runs on to the south, and a "
+    "narrower side passage opens to the east."
 )
 _CHEST_SHUT = "A large iron chest is bolted to the floor against one wall."
 _CHEST_OPEN = "A large iron chest is bolted to the floor against one wall, its lid open."
