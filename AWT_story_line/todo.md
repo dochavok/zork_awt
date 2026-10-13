@@ -13,7 +13,7 @@ A player using ESET couldn't open the v2.5 .exe (permission error, most likely q
 
 ### TODO #14 — Revealed connections are hidden by BRIEF mode (found 2026-10-12)
 
-From the 2026-10 playtest (`roundabout_playtest/feedback.md`, "Litlock's 'see things differently' reveals a building in the graveyard, but brief mode hides it").
+From the 2026-10 playtest (`roundabout_playtest/feedback-2026-10-12.md`, "Litlock's 'see things differently' reveals a building in the graveyard, but brief mode hides it").
 When an exit appears in a room the player has already visited, BRIEF mode (the default) shows only the room name on the next visit, so the line announcing the new way on is never seen.
 The Graveyard after Litlock's reveal (the Chuckle House, east) is the reported case.
 Others to check: perception-found connections (the volcano stairs, the Dankhaus path, the Hidden Secondary Entrance from the mine side), and state changes that open a way (the Tool Alcove wall, the frozen Flooded Passage, the Stored Room hole, the Rickety Bridge west shortcut, the Keeper's door).
@@ -21,7 +21,7 @@ Decide on one rule — e.g. the first visit after a room's exits change shows th
 
 ### TODO #15 — Parser and scenery items noted during the exits pass (found 2026-10-12)
 
-Small items from the 2026-10 playtest, found while fixing room exits (theme 1) and set aside for the parser/scenery pass (theme 2 in `roundabout_playtest/feedback.md`). Add to this list as more turn up.
+Small items from the 2026-10 playtest, found while fixing room exits (theme 1) and set aside for the parser/scenery pass (theme 2 in `roundabout_playtest/feedback-2026-10-12.md`). Add to this list as more turn up.
 - `ENTER MINE` at Roundabout Forest should go down to the Mine Entrance, as `DOWN` does (the playtester tried it first; feedback "'enter mine' fails; 'down' works").
 - `EXAMINE ALTAR` in The Altar answers "You see nothing special about the altar." — it should give the altar's own description.
 - **Forest shrine, the repaired bowl** (feedback "Where does the repaired bowl go?" and "(ASSISTED) The shrine needs `put bowl on pedestal` then `put zenni on pedestal`"):
@@ -51,7 +51,7 @@ Small items from the 2026-10 playtest, found while fixing room exits (theme 1) a
 
 ### TODO #16 — Exits in room descriptions: the remaining rooms (found 2026-10-12)
 
-Playtest theme 1 (`roundabout_playtest/feedback.md`: exits and rooms the text never mentions). The surface world is done (2026-10-12; `roundabout/test_room_exits.py`). This is the rest, prepared so each room is a quick review: approve or change the proposed text, settle any note, then update locations.md and the engine and add the room to test_room_exits.py.
+Playtest theme 1 (`roundabout_playtest/feedback-2026-10-12.md`: exits and rooms the text never mentions). The surface world is done (2026-10-12; `roundabout/test_room_exits.py`). This is the rest, prepared so each room is a quick review: approve or change the proposed text, settle any note, then update locations.md and the engine and add the room to test_room_exits.py.
 
 **How to read an entry.** *Current* is what the game prints now; long descriptions quote only the part that changes (the rest stays as it is). In *Proposed*, new or changed words are in bold. *Notes* are decisions beyond a text change. Rooms marked "No change" already name their exits.
 
