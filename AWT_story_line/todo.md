@@ -1,7 +1,7 @@
 # Roundabout: The God-Forsaken Ring — Open Design Questions
 
 Consolidated from all source files. Update this file when items are resolved; record the resolution and the source file where it was written.
-Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15).
+Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20).
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 
@@ -47,12 +47,6 @@ From the 2026-10 playtest (theme 2 and the session 4 entries), set aside from TO
   - Suggested: make the letters unreadable until dusted (*"worn almost to nothing; you can make out the shape of words but not the words"*), and let the dust's description or May's tip lean that way.
   - The same entry reports the in-between states as stale: after sealing (and before speaking) the room and `EXAMINE JAR` still say "cracked".
 - **The Lighthouse — the torch burns down in a room with a window** (moved from TODO #15). A question for the light rules (mechanics.md): does a windowed room count as lit, and should a torch burn there?
-
-### TODO #20 — The hand cart sometimes missing from room listings (found 2026-10-14)
-
-The 2026-10 playtest summary ("Also worth fixing — Display") says dropped items sometimes don't appear in room listings: *the hand cart, the bowl*.
-The bowl was fixed in TODO #15 (2026-10-14): an implicit "(Taken)" off the shrine pedestal left it with NDESCBIT, so it vanished wherever it was dropped.
-The hand cart hasn't been reproduced yet. Check whether it keeps a hidden flag the same way (e.g. after loading or unloading the gravestone) and where it fails to list.
 
 ### TODO #23 — ENTER for the other buildings and places (found 2026-10-14)
 
