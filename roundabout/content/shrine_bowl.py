@@ -62,8 +62,38 @@ _ON_PEDESTAL_CRYSTAL = "A crystal bowl sits on the pedestal, clear as still wate
 _BARE = "The pedestal is bare."
 
 _BOWL_PLACED = (
-    "The bowl is placed. The shrine is unmoved. Devotion is appreciated. "
-    "Contributions pay the bills."
+    "The bowl settles into place. Nothing happens, but the quiet has changed. "
+    "It feels like the shrine is waiting for an offering."
+)
+_ALREADY_PLACED = "The bowl is already on the pedestal."
+_PEDESTAL = (
+    "The shrine's pedestal is worn smooth on top, a shallow ring where something "
+    "has rested for a long time. The symbol on it is a sprouting seed inside a "
+    "circle of leaves."
+)
+_PRAY_BROKEN = (
+    "You bow your head before the shrine. The carved seed looks back at you, "
+    "patient. Whatever was offered here, it was offered in a bowl."
+)
+_PRAY_PLACED = (
+    "You bow your head. The bowl sits empty on the pedestal. Prayers are "
+    "welcome; an offering is expected."
+)
+_PRAY_DONE = (
+    "You bow your head. Birdsong, pine, dappled light. The shrine has what it "
+    "wanted."
+)
+
+# The underground Shrine Room's plinth (scenery; the bowl doesn't go here)
+PLINTH = (
+    "A waist-high stone plinth, finer work than anything around it. The "
+    "depression in its top is bowl-shaped and empty, the stone inside worn "
+    "smooth. Carved into its side, small and faded: a seed inside a circle of "
+    "leaves."
+)
+_NOT_THIS_SHRINE = (
+    "It would fit. But the symbol on the plinth is the forest shrine's, and the "
+    "bowl belongs there."
 )
 _TRANSFORMED = (
     "The coin settles on the pedestal. For a moment, nothing. Then the bowl begins "
@@ -138,17 +168,35 @@ def assemble_input_hook(w: World, text: str) -> bool:
 # The shrine pedestal (Roundabout Forest)
 # ---------------------------------------------------------------------------
 
-def forest_look(w: World) -> None:
-    print(_FOREST_TOP)
+def _bowl_placed(w: World) -> bool:
+    """The repaired bowl is on the pedestal. The location is checked too, so a
+    save where the flag outlived the bowl (an old auto-take) reads correctly."""
+    bowl = w.objects["REPAIRED-BOWL"]
+    return bool(w.get_global("BOWL-ON-PEDESTAL")) and bowl.location is w.rooms["ROUNDABOUT-FOREST"]
+
+
+def _pedestal_state(w: World) -> str:
     crystal = w.objects["CRYSTAL-BOWL"]
     if w.get_global("BOWL-TRANSFORMED"):
-        print(_ON_PEDESTAL_CRYSTAL if crystal.location is w.here and crystal.has_flag("NDESCBIT")
-              else _BARE)
-    elif w.get_global("BOWL-ON-PEDESTAL"):
-        print(_ON_PEDESTAL_REPAIRED)
-    else:
-        print(_REMAINS)
+        return (_ON_PEDESTAL_CRYSTAL if crystal.location is w.here and crystal.has_flag("NDESCBIT")
+                else _BARE)
+    if _bowl_placed(w):
+        return _ON_PEDESTAL_REPAIRED
+    # Once the bowl is mended, its remains aren't on the pedestal any more
+    return _BARE if w.objects["REPAIRED-BOWL"].location is not None else _REMAINS
+
+
+def forest_look(w: World) -> None:
+    print(_FOREST_TOP)
+    print(_pedestal_state(w))
     print(_SYMBOL)
+
+
+def _pray(w: World) -> None:
+    if w.get_global("BOWL-TRANSFORMED"):
+        print(_PRAY_DONE)
+    else:
+        print(_PRAY_PLACED if _bowl_placed(w) else _PRAY_BROKEN)
 
 
 def _offer(w: World) -> None:
@@ -157,7 +205,7 @@ def _offer(w: World) -> None:
         print(_NO_COIN)
         return
     w.globals["zenni"] = zenni - 1             # an offering — it's gone
-    if not w.get_global("BOWL-ON-PEDESTAL") or w.get_global("BOWL-TRANSFORMED"):
+    if not _bowl_placed(w) or w.get_global("BOWL-TRANSFORMED"):
         print(_JUST_A_COIN)
         return
     from content import quests
@@ -172,23 +220,57 @@ def forest_beg(w: World) -> int:
     """Forest M-BEG: the pedestal, the Zenni offering, taking the Crystal Bowl."""
     zenni, pedestal = w.objects["SHRINE-ZENNI"], w.objects["SHRINE-PEDESTAL"]
     bowl, crystal = w.objects["REPAIRED-BOWL"], w.objects["CRYSTAL-BOWL"]
+    put = w.prsa in ("V-PUT-ON", "V-PUT-IN")   # IN or ON: the player means the same
+    if w.prsa == "V-PRAY":
+        _pray(w)
+        return M_HANDLED
+    if w.prsa == "V-EXAMINE" and w.prso is pedestal:
+        print(_PEDESTAL)
+        print(_pedestal_state(w))
+        return M_HANDLED
     if w.prso is zenni and (w.prsa in ("V-GIVE", "V-DROP")
-                            or (w.prsa == "V-PUT-ON" and w.prsi is pedestal)):
+                            or (put and (w.prsi is pedestal
+                                         or (w.prsi is bowl and _bowl_placed(w))))):
         _offer(w)
         return M_HANDLED
-    if w.prsa == "V-PUT-ON" and w.prso is bowl and w.prsi is pedestal:
+    if put and w.prso is bowl and w.prsi is pedestal:
+        if _bowl_placed(w):
+            print(_ALREADY_PLACED)
+            return M_HANDLED
         if bowl not in w.player.contents:
             return M_NOT_HANDLED
         print(_BOWL_PLACED)
         w.set_global("BOWL-ON-PEDESTAL", True)
         w.move_object(bowl, w.here)
         bowl.set_flag("NDESCBIT")
+        bowl.set_flag("TRYTAKEBIT")           # no implicit "(Taken)" off the pedestal
         return M_HANDLED
     if w.prsa == "V-TAKE" and w.prso is crystal and crystal.location is w.here:
         crystal.clear_flag("NDESCBIT")        # an ordinary item from here on
         return M_NOT_HANDLED
     if w.prsa == "V-TAKE" and w.prso is bowl and bowl.location is w.here:
         bowl.clear_flag("NDESCBIT")
+        bowl.clear_flag("TRYTAKEBIT")
         w.set_global("BOWL-ON-PEDESTAL", False)
         return M_NOT_HANDLED
+    return M_NOT_HANDLED
+
+
+def offer_input_hook(w: World, text: str) -> bool:
+    """Bare OFFER / DONATE at the forest shrine: one Zenni. Elsewhere the parser
+    answers as before."""
+    if w.here is None or w.here.name != "ROUNDABOUT-FOREST":
+        return False
+    if text.lower().split() not in (["offer"], ["donate"]):
+        return False
+    _offer(w)
+    return True
+
+
+def plinth_action(w: World) -> int:
+    """The Shrine Room plinth: PUT BOWL IN DEPRESSION / ON PLINTH points home."""
+    if w.prsa in ("V-PUT-ON", "V-PUT-IN") and w.prsi is w.objects["SHRINE-PLINTH"] \
+            and w.prso is w.objects["REPAIRED-BOWL"] and w.prso in w.player.contents:
+        print(_NOT_THIS_SHRINE)
+        return M_HANDLED
     return M_NOT_HANDLED

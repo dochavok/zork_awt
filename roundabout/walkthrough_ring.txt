@@ -1116,7 +1116,7 @@ Navigate to the Verdant Circle shrine in Roundabout Forest.
 > EAST                        [Beach Road]
 > NORTH                       [Old Oak]
 > NORTH                       [Roundabout Forest]
-> PUT BOWL ON PEDESTAL        [bowl is placed]
+> PUT BOWL ON PEDESTAL        [waiting for an offering]
 > PUT ZENNI ON PEDESTAL       [no longer what you put there]
 > TAKE BOWL                   [Crystal Bowl]
 

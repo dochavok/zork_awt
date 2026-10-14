@@ -91,7 +91,7 @@ def storage_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 # and the small clay pot are then on the shelf (traps.md, locations.md).
 # ---------------------------------------------------------------------------
 
-_TRAP17 = "an unstable arrangement of clay pots, one of them the trigger"
+_TRAP17 = "a trigger hidden among an unstable arrangement of clay pots"
 _SMOKE = (
     "Your foot catches on something in the floor. On the shelf beside you a clay "
     "pot tips, falls and bursts, and the room fills with choking grey smoke. When "
@@ -104,17 +104,21 @@ _SUPPLY_BASE = (
     "was keeping this dungeon supplied. It smells of old wood and something "
     "chemical underneath. The doorway back to the corridor is east."
 )
-_SUPPLY_SPOTTED = (
-    "One of the shelves near the entrance has a trip mechanism built into the "
-    "floor in front of it — barely visible. Whatever it triggers, it isn't subtle."
+# How the trap was resolved (2026-10-14; the old "spotted" warning only ever
+# showed afterwards, since spotting and resolving share a turn)
+_SUPPLY_DISARMED = (
+    "One of the shelves near the entrance has a trip mechanism set into the floor "
+    "in front of it, wedged now and harmless."
 )
+_SUPPLY_FIRED = "Shards of a burst clay pot lie scattered in front of the shelf near the entrance."
 
 
 def supply_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
         print(_SUPPLY_BASE)
-        if w.get_global("TRAP17-SPOTTED"):
-            print(_SUPPLY_SPOTTED)
+        state = w.get_global("TRAP17-STATE")
+        if state:
+            print(_SUPPLY_DISARMED if state == "disarmed" else _SUPPLY_FIRED)
         return M_HANDLED
     if msg == M_END and not w.get_global("TRAP17-DONE"):
         w.set_global("TRAP17-DONE", True)
@@ -130,6 +134,7 @@ def supply_action(w: World, msg: int = M_NOT_HANDLED) -> int:
                 fired = False
             else:
                 print(_TRAP_BOTCHED.format(d=_TRAP17))
+        w.set_global("TRAP17-STATE", "fired" if fired else "disarmed")
         if fired:
             print(_SMOKE)
         for name in ("SMOKE-JAR", "SMALL-CLAY-POT"):

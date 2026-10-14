@@ -51,6 +51,10 @@ _SEAL_STAYS = "It's the Keeper's. You leave it with him."
 
 def look_up(w: World) -> None:
     """LOOK UP / LOOK AT CEILING: the fire clay in the Thermal Vent Room."""
+    if w.here is not None and w.here.name == "CHUCKLE-ENTRANCE":   # the painted ceiling
+        from content.scenery import ENTRANCE_CEILING
+        print(ENTRANCE_CEILING)
+        return
     if w.here is None or w.here.name != "THERMAL-VENT-ROOM":
         from content.verbs import v_look
         v_look(w)

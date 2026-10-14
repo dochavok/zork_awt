@@ -44,6 +44,11 @@ Accessed via mailbox portal from White House (opening sequence) or via mailbox i
 
 Contains a painting of the Tale and Ale — `LOOK AT PAINTING` teleports player back to Tale and Ale Main Room. Painting hangs slightly crooked; Will never straightens it.
 
+**The desk and papers** (2026-10-14; playtest: `EXAMINE DESK` / `READ PAPERS` couldn't see either):
+- `EXAMINE DESK`: *A broad old desk, scarred by years of elbows and spilled ink. Every inch of it is papers, except the corner where Will rests his pen.*
+- `READ PAPERS` / `EXAMINE PAPERS` / `SEARCH DESK`, Will at his desk: *Will slides a sheet over the top of the pile without looking up. "Correspondence," he says. "Mostly unanswered."*
+- The same with Will away: *Notes in Will's small, fast hand, on subjects you'd need a year to follow. You put them back where they were.*
+
 ### Will Passion's Bedroom
 **XP: 1**
 **NPCs:** None (Will is not present here)
@@ -57,7 +62,8 @@ Equipping the glasses in Will's presence triggers an instant fail state — Will
 `DROP GLASSES` or `PUT GLASSES ON NIGHTSTAND` places them on the nightstand — description persists, and the first time completes Quest 53 (quests.md).
 The nightstand is scenery: it can be examined and things can be put on it.
 The bed is scenery too (decided 2026-10-12): `EXAMINE BED` — *Narrow, and made with the perfunctory neatness of someone who knows they'll be up again soon.* `LOOK UNDER BED` — *Nothing under the bed but dust and a sock that has given up.*
-Contains **dragon-nip** — a glowing sprig hidden under the nightstand. `LOOK UNDER NIGHTSTAND` finds it outright, no roll — the same found line (decided 2026-10-12); once it has been taken, *There is nothing but dust there.* Silent Very Hard (18) perception check (raised from Hard 2026-10-05: a Level 3 Mage found it on ~56% of tries) on every entry (after the room description) and again when the glasses are put on in the bedroom; Actually Enchanted Glasses auto-pass.
+Contains **dragon-nip** — a glowing sprig hidden under the nightstand. `LOOK UNDER NIGHTSTAND` finds it outright, no roll — the same found line (decided 2026-10-12); once it has been taken, *There is nothing but dust there.* Silent Very Hard (18) perception check (raised from Hard 2026-10-05:
+a Level 3 Mage found it on ~56% of tries) on every entry (after the room description) and again when the glasses are put on in the bedroom; Actually Enchanted Glasses auto-pass.
 Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn't ask.
 
 **Room description:**
@@ -119,6 +125,10 @@ Center of town. Contains a **fountain** — dry until Quest 22 (The Ruined Aqued
 **Room description (fountain flowing — Quest 22 complete):** *The fountain has been running long enough now that people have stopped remarking on it. The square sounds different with water in it.* (Statue state as above — independent.)
 
 **Statue states are independent of fountain state — combine as appropriate.**
+
+**`EXAMINE FOUNTAIN`** (also `BASIN`; 2026-10-14 — it answered "nothing special"):
+- Dry: *Dry for years. The basin is cracked at one edge, and the spout is furred with old lime. Whatever fed it came from somewhere underground.* (The aqueduct, Quest 22.)
+- Running: *Water runs from the spout into the basin, clear and cold. The crack at the edge weeps a little, but it holds.*
 
 ### Main East
 **XP: 1**
@@ -208,6 +218,8 @@ Ground floor, off the Main Entrance. Dusty and bureaucratic. Contains the **town
 *The room smells of old paper and the particular dust of things that have not been touched in years. The door back to the foyer is east.*
 *A clerk sits at a desk near the window, surrounded by more of the same. He looks up when you enter with the expression of a man who was hoping you wouldn't.*
 
+**Window** (2026-10-14; mechanics.md — Windows): *The window looks onto the square. The clerk's desk is placed so that he can't see out of it, which may be deliberate.*
+
 ### Upper Hall
 **XP: 1**
 **NPCs:** None
@@ -236,6 +248,8 @@ Accessed from the Upper Hall. Top of the conical tower, overlooking Roundabout T
 *The Trophy Case dominates the far wall — old wood and glass, built into the stone as if someone planned for it from the start. It is empty.*
 *The placard mounted below it reads: CALDER FINCH — EXPLORER. DONATED IN PERPETUITY FOR THE GLORY OF ROUNDABOUT.*
 *The case has not been added to in some time.*
+
+**Window** (2026-10-14; mechanics.md — Windows): *A slice of the square below — the fountain, the tops of heads, a cart turning. More suggestion than panorama.*
 
 **Trophy Case — examine (`LOOK AT CASE` / `EXAMINE CASE`):**
 *The case is well-made — solid glass panels, brass fittings, velvet lining gone slightly pale with age. Whoever built it expected it to hold things worth looking at.*
@@ -338,7 +352,8 @@ Back-of-house. **Shamus** works here — cook and unofficial vendor. `BUY X` buy
 - **`UNLOCK DOOR WITH KEY`:** *The key turns stiffly. The lock hasn't been asked to do anything in years. You leave it where it is.*
 - **`OPEN DOOR` (flooded):** *The cellar door comes up on a breath of cold, wet air. Stone steps lead down — three of them, then water, still and clear, filling the cellar nearly to the beams. At the foot of the steps, through the water, you can make out the square iron cover of a drain.*
 - **`USE CROWBAR ON DRAIN` (door open; also `PRY COVER`, `REMOVE COVER WITH CROWBAR`):** *You lie flat on the top step and reach the crowbar down through the water, feeling along the bottom step until the lip catches the edge of the grate. You lean on it. The cover comes up with a jolt and slides off into the dark.*
-- **`CLEAR DRAIN` (cover off):** *You work the crowbar down into the open drain and lever. Something gives — a fist of rotted sacking and root comes up through the water — and the whole cellar starts to turn. The water drops a step, then another, then goes all at once with a long, sucking roar you feel through the kitchen floor. When it's quiet again, the stairs go all the way down.* Quest 25 completes.
+- **`CLEAR DRAIN` (cover off):** *You work the crowbar down into the open drain and lever. Something gives — a fist of rotted sacking and root comes up through the water — and the whole cellar starts to turn. The water drops a step, then another, then goes all at once with a long, sucking roar you feel through the kitchen floor. When it's quiet again, the stairs go all the way down.*
+  Quest 25 completes.
 - **`DOWN` before the drain is cleared (instant drowning, GAME OVER):** *You start down the steps. On the fourth there isn't a step — only water, colder than it has any right to be. The kitchen's light shrinks to a square above you, and then it doesn't.*
 
 ### Upstairs Hall
@@ -351,6 +366,11 @@ Connects the three guest rooms. Accessed via staircase from Main Room. Guest roo
 
 **Room description:** *The upstairs hall is narrow and low-ceilinged, the floorboards announcing every step. Three doors lead off it — the guest rooms. A window at the far end looks out over the alley below. The stairs down creak in a specific sequence that regular guests have learned to navigate quietly.*
 - **Walking into a guest-room door** (`WEST`, `EAST`, `NORTH` from the hall; decided 2026-10-12): *The rooms are rented from the bartender downstairs.* (Not "May": a player can come up here before meeting her.)
+- **The doors** (2026-10-14): `EXAMINE DOORS` — *Three plain doors, each with a brass number gone brown with handling.* `OPEN` / `KNOCK ON DOOR` — the same rented line.
+- **`EXAMINE FLOORBOARDS`** (2026-10-14): *They creak whatever you do. Regular guests have learned where not to step; you haven't.*
+- **Window** (2026-10-14; a tester's `LOOK OUT WINDOW` wasn't understood; mechanics.md — Windows), over the Back Alley:
+  - Mugger alive: *Below, the alley runs narrow and dim between the backs of buildings. In one doorway something that might be a man stands very still, watching the street end.*
+  - Mugger dead: *Below, the alley runs narrow and dim between the backs of buildings. Nothing moves in it now, and it looks the better for it.*
 
 ### Guest Room 1
 **XP: 0** (rest-only room — entered via May's random assignment, not exploration)
@@ -363,6 +383,7 @@ One of three guest rooms off the Upstairs Hall. Assigned randomly by May when th
 **Room description:** *A plain room, honestly kept. Bed, washstand, a window that looks out over the street. The kind of room that asks nothing of you.*
 
 **Wake-up description:** *You come around slowly. The bed is better than it had any reason to be. Light comes through the window — enough to know you slept. You feel considerably more capable than you did.*
+**Window** (2026-10-14; mechanics.md — Windows): *The street below, carts and people going about the day. From up here the town looks like it knows what it's doing.*
 **Door line** (after both the room description and the wake-up description; decided 2026-10-12): *The door out to the hall is east.*
 
 ### Guest Room 2
@@ -376,6 +397,7 @@ One of three guest rooms off the Upstairs Hall. Assigned randomly by May when th
 **Room description:** *A corner room, slightly larger than it needs to be. Two windows, a wardrobe that doesn't quite close, a rag rug that was once a specific color. Comfortable in an unassuming way.*
 
 **Wake-up description:** *The wardrobe door has drifted open in the night. You close it out of habit. Whatever was wrong with you yesterday, sleep has addressed most of it.*
+**Windows** (2026-10-14; mechanics.md — Windows): *One window gives on the street, the other on the square. Between them you can see most of Roundabout going about its business.*
 **Door line** (after both the room description and the wake-up description; decided 2026-10-12): *The door out to the hall is west.*
 
 ### Guest Room 3
@@ -428,6 +450,12 @@ Medieval exterior with startling red double doors. Interior feels ancient — Ba
 Foundation is secretly a temple to Thoth; all staff are priests/clergy. Only Litlock and long-time patrons know the true nature.
 **The Librarian** (half-elf, half-Kenku) works here. Full dialogue in `npcs.md`.
 
+**Scenery** (2026-10-14; playtest: the catalogue, the ledger and the shelves couldn't be referenced):
+- `EXAMINE CATALOGUE` / `CARD CATALOGUE`: *Hundreds of small drawers, each labelled in faded ink. The drawer marked V sits a little open, as if someone has been in it more than most.*
+- `SEARCH` / `OPEN CATALOGUE`: *Under 'Veil of the Arcane' there's a single card. The borrower's line has been filled in by the same hand, over and over, down the whole card — and then nothing.* (The scholar stays unnamed.)
+- `EXAMINE SHELVES` / `BOOKS`: *Floor to ceiling, packed in columns. The gaps between them are narrow, and one at the east end runs back further than it should.*
+- `READ LEDGER` / `EXAMINE LEDGER`, only after her first scene (before it there's no ledger to see): *She keeps a hand on it. "The application," she says, in someone else's voice. "There's a date. There's no return date."* It stays flavor, never a pickup.
+
 ### The Stacks
 **XP: 1**
 **NPCs:** The Archivist (full dialogue in npcs.md)
@@ -462,6 +490,8 @@ Appears as a normal medieval church from the outside. Near the Graveyard. The al
 *The church is plain inside — stone floor, wooden pews worn smooth, light coming through narrow windows in thin bars. It could belong to any faith. That appears to be the point.*
 *To the east, through a low archway, a stone altar stands in a space of its own, something brass catching the light at its face. The street door is north; a side door to the south lets out into the graveyard.*
 
+**Windows** (2026-10-14; mechanics.md — Windows): *The windows are narrow, more slit than glass. Thin bars of light, and beyond them only sky.*
+
 **Keeper's Chamber door (west wall)** — last line of the room description:
 - **Locked:** *In the west wall, a narrow door of dark wood is shut tight, a heavy lock beneath the latch.*
 - **Open:** *The narrow door in the west wall stands open, a ring of keys hanging from its lock.*
@@ -483,6 +513,12 @@ Separate sub-room inside the Church of All. Contains the attunement dial and the
 **Attunement line (updates on each dial turn):** *The dial is set to [religion name].*
 
 **Default attunement:** The Keepers of the Lantern.
+
+**`EXAMINE ALTAR`** (2026-10-14; it answered "nothing special"): the room's own first two sentences, *The altar is plain stone, unadorned. The dial dominates it — brass, worn at the edges from use, seven symbols arranged around its face.*
+**`EXAMINE DIAL`** (also `SYMBOLS` / `MARKS`; 2026-10-14): *Seven symbols ring its brass face, left to right: a sprouting seed inside a circle of leaves; a seven-pointed star with a void at its center; a white sword on a black field; three threads braided into one; a coin with a question mark; a lit lantern with an open door; a fire inside a house.* Then the current setting:
+*The glow sits on the [symbol] — [religion].*
+- [symbol] by religion, in dial order: seed, star, sword, threads, coin, lantern, fire (e.g. *The glow sits on the lantern — The Keepers of the Lantern.*).
+- Turning the dial and examining it teaches which symbol is which faith — the link from the shrine's seed, the amulet's star and the Pale Blade.
 
 **Dial turn feedback:** The altar shimmers. Room description does not otherwise change. Direction, glow, placement and listing text: ring-rituals.md — The Church of All Altar.
 
@@ -537,7 +573,8 @@ Lit (part of the church — not on the dark room list).
 **Connections:** North → Church of All (Nave). South → The Mausoleum. East → The Entrance (Chuckle House; post-bonk only).
 East exit to Chuckle House appears only after Litlock's bonk (Quest 52) — absent from description until then.
 
-**Quest 32 — gravestone returned:** `UNLOAD STONE` here puts Calder Finch's gravestone back and leaves the cart (text in `items.md` — Gravestone). From then on this line is added after the description (pre- or post-bonk): *One headstone near the path stands straighter than the others, newly scrubbed of mud: CALDER FINCH — EXPLORER. An empty hand cart stands beside it.* (Cart clause drops if the player takes the cart.)
+**Quest 32 — gravestone returned:** `UNLOAD STONE` here puts Calder Finch's gravestone back and leaves the cart (text in `items.md` — Gravestone). From then on this line is added after the description (pre- or post-bonk): *One headstone near the path stands straighter than the others, newly scrubbed of mud: CALDER FINCH — EXPLORER. An empty hand cart stands beside it.*
+(Cart clause drops if the player takes the cart.)
 
 **Pre-bonk description:** *The graves here are old, most of them. Headstones lean at angles that suggest the ground beneath has shifted, or decided it no longer agrees with what's above it. The church stands to the north. The mausoleum sits at the far end to the south, grey and patient. The air is still in a way that has nothing to do with wind.*
 
@@ -563,7 +600,8 @@ May's tier 1 hint (fires only if player has not yet examined the statue): *"Some
 **Items:** None
 **Quest Hooks:** None (passage to The Crypt and Secret Tunnels)
 **Connections:** North → Graveyard. Down → The Crypt.
-*The mausoleum is older than anything around it. The stone is dark with age and moisture, the carved details worn to suggestions. The door is heavy iron, pitted with rust but still on its hinges. Whatever family name was once above the entrance has been lost to weather. Steps descend inside toward the crypt below. The graveyard lies back to the north.* South of the Graveyard. Weathered and decrepit. Stairs lead down to The Crypt.
+*The mausoleum is older than anything around it. The stone is dark with age and moisture, the carved details worn to suggestions. The door is heavy iron, pitted with rust but still on its hinges. Whatever family name was once above the entrance has been lost to weather. Steps descend inside toward the crypt below. The graveyard lies back to the north.* South of the Graveyard.
+Weathered and decrepit. Stairs lead down to The Crypt.
 
 ### The Crypt
 **XP: 1**
@@ -604,6 +642,11 @@ No mirrors in this room — mirror mechanic begins in the Rejection Mirror. The 
 
 **On entry (first visit only):** *Something in the walls makes a sound as you cross the threshold — not quite a creak, not quite a welcome.*
 
+**Scenery** (2026-10-14; playtest: the stool, runner and ceiling couldn't be seen; the hooks and booth already answered):
+- `EXAMINE STOOL`: *A tall wooden stool, worn pale where someone sat for years selling tickets. It's still pushed in at exactly the angle they left it.*
+- `EXAMINE RUNNER` / `PATTERN`: *Faded to the colour of dust. Up close the pattern is faces after all — small, grinning, repeated down the length of the hall.*
+- `EXAMINE CEILING`, and `LOOK UP` here: *Painted once with a sky full of laughing moons. Most of the paint has flaked away; the laughing hasn't.*
+
 **Ticket booth (EXAMINE BOOTH / LOOK AT BOOTH):** *The ticket window is cracked but intact. A small wooden sign on the ledge reads: ADMISSION. Below it, in smaller text: EVERYONE GETS IN. The booth is empty. Whoever collected the tickets isn't collecting anymore.*
 
 **Hooks on wall (EXAMINE HOOKS / LOOK AT HOOKS):** *Empty brackets where something square once hung — the right shape for mirrors, though whatever was here is long gone. The hooks in the deeper rooms still have their tenants.*
@@ -620,6 +663,11 @@ A mirror that repels visible players — stepping in front of it while visible s
 
 **Mirror repels (visible player, any Chuckle House mirror):** *The mirror finds you. Your reflection looks back at you with an expression you aren't making — and then you are back where you started, with no memory of turning around.*
 
+**The mirror** (2026-10-14; `EXAMINE` / `LOOK IN MIRROR`, also `FRAME`, `REFLECTION`; the visibility rule is the ghost's — no ring, or inked, is visible). `BREAK` / `TOUCH MIRROR`: the Ghost's Room lines.
+- Visible: *A tall mirror in a frame of grinning faces, the silvering gone at the edges. Your reflection watches you a moment longer than you watch it. It doesn't look pleased to see you.*
+- Invisible: *A tall mirror in a frame of grinning faces. It shows the room, the doorway, the faces. It doesn't show you.*
+- Ghost freed: *A tall mirror in a frame of grinning faces. Your reflection keeps time with you now, which is somehow worse.*
+
 ### The Shatter Trap Mirror
 **XP: 1**
 **NPCs:** None
@@ -629,6 +677,11 @@ A mirror that repels visible players — stepping in front of it while visible s
 A mirror that repels visible players. Also rigged with a crossbow behind the frame (Trap 16). Fires at any player passing through — visible or invisible. Perception check spots the firing pin and disarms it before it fires; otherwise the crossbow fires once and is spent. Mirror still repels visible players until the ghost is freed.
 
 **Room description (no hint of the trap):** *Another mirror, another frame of carved smiles. This one is larger than the last, the glass faintly rippled with age, so your reflection wavers as you move. The way on is past it, to the south. The first mirror's room is back to the north.*
+
+**The mirror** (2026-10-14; as the Rejection Mirror's — states, verbs and the Ghost's Room break and touch lines; it doesn't mention the crossbow):
+- Visible: *Larger than the last, the glass rippled with age. Your reflection wavers as you move, as if it's deciding whether to let you by.*
+- Invisible: *Larger than the last, the glass rippled with age. The ripples move across an empty room.*
+- Ghost freed: *Larger than the last, the glass rippled with age. Your reflection wavers, but it lets you be.*
 
 ### Ghost's Room
 **XP: 1**
@@ -645,6 +698,12 @@ Ghost visible only while wearing the ring. `CAST UNBIND UNDEAD` releases the gho
 **Exit mechanic:** 50% chance each attempt to leave fails — player returned to same room with a disorientation message. Permanent — does not end when ghost is freed.
 **Disorientation:** *You head for the door. The mirrors turn you around somewhere along the way, and you find yourself back in the middle of the room.*
 Post-freeing: mirrors no longer repel visible players anywhere in the Chuckle House.
+
+**The mirrors** (2026-10-14; playtest: "the mirrors can't be seen"). `EXAMINE` / `LOOK IN MIRROR(S)`, `EXAMINE REFLECTION`:
+- Visible player (no ring, or inked — as the ghost's own rule): *Your reflections crowd every surface, each a beat late or a beat early. Look long enough and one of them seems to be watching something just behind you.*
+- Ring worn, ghost still here: *The mirrors repeat the room and nothing else. You aren't in any of them. Only the grey figure stands outside them, unrepeated.*
+- Ghost freed: *Just mirrors now, and just you in them, keeping time properly.*
+- `BREAK MIRROR`: *Seven years' bad luck, times however many of these there are. You leave them be.* `TOUCH MIRROR`: *Cold glass. Colder than the room.*
 
 **May's hints — Ghost/Watch quest:**
 - Before visiting — Tier 1: People say the mirrors in the Chuckle House show more than they should. Most folks don't go back a second time.
@@ -866,7 +925,8 @@ Each visit fires a silent perception check (**Medium, 9**). On success: "You see
 - **Bottle already out:** *The pond has given up the only thing worth catching.*
 - **No rod:** *You'd need a fishing rod.* **Anywhere but the pond:** *There's nowhere to fish here.*
 
-All four bog rooms display the same room title to the player: **"The Bog of Eternal Stench"** — directional designations (SE/NE/SW/NW) are internal design references only, never shown to the player. Rooms are arranged in a 2×2 grid; diagonal movement is permitted between all four. The exits inside the grid are deliberately not named in the room descriptions (decided 2026-10-12): the bog is a small maze. Only the ways out are named — the pond from SW, and the Dankhaus path from SE once it's found.
+All four bog rooms display the same room title to the player: **"The Bog of Eternal Stench"** — directional designations (SE/NE/SW/NW) are internal design references only, never shown to the player. Rooms are arranged in a 2×2 grid; diagonal movement is permitted between all four. The exits inside the grid are deliberately not named in the room descriptions (decided 2026-10-12):
+the bog is a small maze. Only the ways out are named — the pond from SW, and the Dankhaus path from SE once it's found.
 
 ### Bog of Eternal Stench (SE)
 **XP: 1**
@@ -1020,7 +1080,8 @@ Between Beach Road and Roundabout Forest. A large oak dominates this spot. A chi
 **Items:** Enchanted honey (Quest 24 reward)
 **Quest Hooks:** Quest 24 — smoke equipment lost in tunnels; retrieve it to reclaim swarm at Swarm Tree
 **Connections:** East → The Old Oak.
-*A low wooden cottage sits at the edge of the trees, almost part of the forest. Stacked hive boxes line the south wall, painted in fading colours. The smell of beeswax and woodsmoke is pleasant in a specific, unhurried way. The old oak's clearing is back to the east. The beekeeper is here — a broad woman with patience in her posture and a concerning number of sting marks on her forearms.* Spur west off The Old Oak, at the forest edge.
+*A low wooden cottage sits at the edge of the trees, almost part of the forest. Stacked hive boxes line the south wall, painted in fading colours. The smell of beeswax and woodsmoke is pleasant in a specific, unhurried way. The old oak's clearing is back to the east. The beekeeper is here — a broad woman with patience in her posture and a concerning number of sting marks on her forearms.*
+Spur west off The Old Oak, at the forest edge.
 
 **Beekeeper (NPC):** On first visit, explains that a swarm escaped and nested in a hollow tree at the forest edge — she gestures east. She can't get near it without her smoke equipment, which is somewhere in the tunnels below. Quest 24 discovered on first visit. After quest: warm, gives enchanted honey reward.
 
@@ -1036,7 +1097,8 @@ Between Beach Road and Roundabout Forest. A large oak dominates this spot. A chi
 **With smoke jar:** `USE SMOKE JAR` — bees settle. Queen vial visible in hollow. `TAKE VIAL` completes the collection step.
 
 **Built (2026-10-04):**
-- Carrying the smoke jar keeps the swarm in the hollow (no attack, no line); `USE SMOKE JAR` settles them for good, and the jar is used up: *You break the wax and tip the jar toward the hollow. Grey smoke spills out, thick and slow, and pours into the gap in the bark. The drone falters and drops to a low, drowsy hum. The bees settle. Just inside the hollow, something small and glass catches the light.* Elsewhere: *Nothing happens.*
+- Carrying the smoke jar keeps the swarm in the hollow (no attack, no line); `USE SMOKE JAR` settles them for good, and the jar is used up: *You break the wax and tip the jar toward the hollow. Grey smoke spills out, thick and slow, and pours into the gap in the bark. The drone falters and drops to a low, drowsy hum. The bees settle.
+  Just inside the hollow, something small and glass catches the light.* Elsewhere: *Nothing happens.*
 - **Once settled** (after the room description): *The bees drift in and out of the hollow, slow and drowsy, paying you no mind.*
 
 ### Roundabout Forest
@@ -1057,7 +1119,15 @@ The crumbled Verdant Circle shrine is visible on entry — no perception check r
 
 **Bowl piece (Easy perception check, every visit until found):** room listing *Among the shards on the pedestal, one piece is larger than the rest — a curved section of the rim, still whole.*
 
-**Pedestal states:** the "remains of a ceramic bowl" sentence stays until the repaired bowl is placed; then the bowl's own line replaces it (*The repaired bowl sits on the pedestal.* / *A crystal bowl sits on the pedestal, clear as still water.*). After the Crystal Bowl is taken: *The pedestal is bare.*
+**Pedestal states:** the "remains of a ceramic bowl" sentence stays until the bowl is repaired (2026-10-14: it used to stay until the bowl was placed, describing the pieces the player was carrying); then *The pedestal is bare.* until it's placed, and the bowl's own line replaces it (*The repaired bowl sits on the pedestal.* / *A crystal bowl sits on the pedestal, clear as still water.*).
+After the Crystal Bowl is taken: *The pedestal is bare.*
+
+**`EXAMINE PEDESTAL` / `EXAMINE SHRINE`** (2026-10-14): *The shrine's pedestal is worn smooth on top, a shallow ring where something has rested for a long time. The symbol on it is a sprouting seed inside a circle of leaves.* Then the current pedestal state line (the remains, the repaired bowl, the crystal bowl, or bare).
+
+**`PRAY` at the shrine** (2026-10-14; elsewhere the default reply):
+- Bowl not yet placed: *You bow your head before the shrine. The carved seed looks back at you, patient. Whatever was offered here, it was offered in a bowl.*
+- Repaired bowl on the pedestal: *You bow your head. The bowl sits empty on the pedestal. Prayers are welcome; an offering is expected.*
+- After the transformation: *You bow your head. Birdsong, pine, dappled light. The shrine has what it wanted.*
 
 Pie Rats Mining Inc. — underground beneath Roundabout Forest. Legitimate mining facade; actually a smuggling front for the Pie Rats pirate faction.
 
@@ -1069,7 +1139,8 @@ Pie Rats Mining Inc. — underground beneath Roundabout Forest. Legitimate minin
 **Connections:** Up → Roundabout Forest. Down → Main Shaft.
 Forest floor entrance to Pie Rats Mining Inc. Sealed permanently after the cave-in explosion — Down is inaccessible post-explosion, and so is Up from the Main Shaft; Hidden Secondary Entrance remains the only way in or out.
 
-*The entrance to Pie Rats Mining Inc. is a ragged wound in the earth, shored up with timber and optimism. A sign above the opening reads: PIE RATS MINING INC. — AUTHORIZED PERSONNEL ONLY. Someone has added, in different handwriting: THIS MEANS YOU. In another hand: ME? And beneath that, in the first handwriting: NO, NOT YOU SLOTH. Past the sign, the shaft drops down into the dark; the forest is back up the slope.*
+*The entrance to Pie Rats Mining Inc. is a ragged wound in the earth, shored up with timber and optimism. A sign above the opening reads: PIE RATS MINING INC. — AUTHORIZED PERSONNEL ONLY. Someone has added, in different handwriting: THIS MEANS YOU. In another hand: ME? And beneath that, in the first handwriting: NO, NOT YOU SLOTH. Past the sign, the shaft drops down into the dark;
+the forest is back up the slope.*
 
 **`DOWN` after the cave-in:** *The way down is buried under the collapse.*
 
@@ -1098,7 +1169,8 @@ Followed by the up line (decided 2026-10-12):
 **Items:** Flint and steel (on the workbench) — *A flint and steel striker lies on the workbench among the crucibles.*
 Where ore samples were tested. The far wall has a gap that connects to the tunnel network.
 
-*A side room off the main shaft, which lies back to the north, fitted out for testing ore samples. A long workbench runs the length of one wall, scarred with acid burns and impact marks. Scales, tongs, crucibles — the tools of a working assay operation, left mid-use. Whatever the Pie Rats were mining, someone was genuinely checking its quality. The far wall has a gap in it that doesn't look entirely accidental.*
+*A side room off the main shaft, which lies back to the north, fitted out for testing ore samples. A long workbench runs the length of one wall, scarred with acid burns and impact marks. Scales, tongs, crucibles — the tools of a working assay operation, left mid-use. Whatever the Pie Rats were mining, someone was genuinely checking its quality.
+The far wall has a gap in it that doesn't look entirely accidental.*
 The gap deliberately gets no direction here (decided 2026-10-12): it's the clue for the perception-gated Hidden Secondary Entrance, and the found line names east.
 
 ### Hidden Secondary Entrance
@@ -1109,7 +1181,8 @@ The gap deliberately gets no direction here (decided 2026-10-12): it's the clue 
 **Connections:** West → Assay Room. East → Forgotten Shaft.
 Perception check required from mine side; auto-discovered from tunnel side. Coming through from the tunnel side also reveals the gap in the Assay Room wall. Remains accessible after cave-in.
 
-**Built (2026-10-04):** Dark (tunnel network). From the mine side: Medium perception on every Assay Room visit until found (Actually Enchanted Glasses pass it) — *Looking closer, the gap in the far wall goes further back than it should — a rough passage, just wide enough to squeeze through, running east into the dark.* `EAST` before it's found: *It's just a crack in the wall. Nothing you could get through.* Arriving here from the Forgotten Shaft finds it without a line.
+**Built (2026-10-04):** Dark (tunnel network). From the mine side: Medium perception on every Assay Room visit until found (Actually Enchanted Glasses pass it) — *Looking closer, the gap in the far wall goes further back than it should — a rough passage, just wide enough to squeeze through, running east into the dark.* `EAST` before it's found:
+*It's just a crack in the wall. Nothing you could get through.* Arriving here from the Forgotten Shaft finds it without a line.
 
 *The gap in the assay room wall, to the west, opens into a rough passage that runs east toward the tunnel network below. It does not appear on any official plan of the mine. It would not.*
 
@@ -1140,6 +1213,8 @@ Below Main Shaft. Torch sconces on walls; the torches in them are scenery.
 **Quest Hooks:** Ship heist — disguise required to board Pie Rat Ship without being turned away
 **Connections:** South → Mine Tunnels.
 North of Mine Tunnels. Hidden storage for Pie Rat contraband.
+- **Crates and barrels** (2026-10-14; playtest: `EXAMINE CRATES` / `SEARCH BARRELS` couldn't see them): `EXAMINE` — *Stencilled PIE RATS MINING INC. — ORE, though nothing in them rattles like ore. Most are nailed shut.* `SEARCH` / `OPEN` — *The lids are nailed down tight, and the ones that aren't hold sacking, rope and salted fish. Whatever's worth stealing here, it isn't in the crates.*
+  (The disguise is listed on its own, among the contraband.)
 
 *A widening in the tunnel that someone has decided is a room. Crates and barrels are stacked with more care than the surroundings suggest — this is storage, not clutter. The Pie Rats keep their surplus here: things that aren't ore, things that don't show up on manifests, things that would raise questions on a dock. The tunnel runs back south.*
 
@@ -1153,7 +1228,8 @@ North of Mine Tunnels. Hidden storage for Pie Rat contraband.
 **Items:** None
 **Quest Hooks:** None
 **Connections:** North → Beach Road. Northeast → The Lighthouse. East → The Docks.
-*Roundabout Beach opens out below the town — a generous sweep of sand, the water catching whatever light the sky offers. The docks stretch east to where the Pie Rat Ship is moored, close enough to read the name on its hull. The lighthouse stands to the northeast on a finger of rock, its lamp turning slowly. Beach Road runs back north toward the trees. It smells like freedom, or at least like salt.*
+*Roundabout Beach opens out below the town — a generous sweep of sand, the water catching whatever light the sky offers. The docks stretch east to where the Pie Rat Ship is moored, close enough to read the name on its hull. The lighthouse stands to the northeast on a finger of rock, its lamp turning slowly. Beach Road runs back north toward the trees.
+It smells like freedom, or at least like salt.*
 
 Players carrying a shovel will likely attempt to dig. `DIG` succeeds up to 5 times with flavor text (nothing but wet sand); 6th attempt: "The beach is littered with holes. There's nowhere else to dig."
 
@@ -1165,6 +1241,13 @@ Players carrying a shovel will likely attempt to dig. `DIG` succeeds up to 5 tim
 **Connections:** Southwest → Roundabout Beach.
 **Room description:** *The keeper's room is small and round, the walls curving with the tower. A narrow stair spirals up toward the lamp, a chain hung across its foot. A desk sits under the one window, papers stacked with more care than anything else in the room — whoever works here left in the middle of something and meant to come back. The door out to the beach is southwest.*
 - **`UP`** (the lamp stair, chained off; decided 2026-10-12): *A tag on the chain reads: KEEPER ONLY. Whoever the keeper is, they'd clearly rather you didn't.*
+- **The smooth stone** (2026-10-14; it used to be only words in the scroll's listing, and `TAKE STONE` found the player's rune stone): scenery on the desk, never taken. While the scroll is there, the scroll's listing covers it (*A scroll lies on the desk, weighted at one corner with a smooth stone.*). Once the scroll has been taken: *A smooth stone sits on the desk where the scroll was.*
+  - `EXAMINE STONE`: *A smooth grey stone from the beach, worn flat by the sea. Someone picked it out for exactly this job.*
+  - `TAKE STONE`: *You leave it. It's keeping the keeper's papers in order, and someone's coming back for them.*
+  - Here, "stone" means this one, ahead of a carried rune stone.
+- **Window** (2026-10-14; mechanics.md — Windows): *Grey water, the beach curving away to the southwest. Far to the east, on the horizon, a smudge that might be cloud and might not.* A nudge toward the second island, which the playtester missed after the sea's *Open ocean in every direction. Nothing else.*
+- **`EXAMINE DESK`** (2026-10-14): *A plain desk under the window, its top worn pale where an elbow rests. The papers on it are a keeper's log, tide tables and lamp hours, all in the same careful hand.*
+- **`READ PAPERS`** / `READ LOG` (2026-10-14): *Tides, lamp hours, oil used, a ship sighted. Near the bottom, squeezed into the margin: 'Found the scroll in the cove. Can't make head nor tail of it. Leaving it here till someone can.' — S.B.* It echoes May's Quest 17 Tier 2 hint about Silas Bryne. The papers stay on the desk.
 
 Dead-end room off Roundabout Beach to the northeast. Open, unattended. A desk holds a scroll — the **Unbind Undead spell**, left by Silas Bryne (unmet NPC, referenced only in May's Quest 17 hints). No quest assigned beyond the scroll. Quests 14 and 23 both retired.
 
@@ -1417,7 +1500,8 @@ Final room before Graveyard Crypt entrance.
 **Quest Hooks:** Quest 27 — GIVE CHARTER TO BOGGART forces him out; perception check reveals faded official seal triggering quest discovery
 **Connections:** North → The Junction. South → Dungeon Entrance.
 A **Boggart** has claimed squatter's rights and charges an extortionate toll.
-Perception check (Medium; automatic with Actually Enchanted Glasses) reveals faded official seal — public property — triggering Quest 27 discovery and unlocking May's hint. Seal text: *Carved into the bridge's keystone, half worn away: the town's crest, and beneath it, PUBLIC PROPERTY.* If the player already has the town charter, it's followed by: *"You remember something about a bridge in the town charter."*
+Perception check (Medium; automatic with Actually Enchanted Glasses) reveals faded official seal — public property — triggering Quest 27 discovery and unlocking May's hint. Seal text: *Carved into the bridge's keystone, half worn away: the town's crest, and beneath it, PUBLIC PROPERTY.* If the player already has the town charter, it's followed by:
+*"You remember something about a bridge in the town charter."*
 `GIVE CHARTER TO BOGGART` forces him out; drops strongbox (Medium strength check to open; 10 Zenni). Bridge permanently free after. (Quest 27)
 The toll is 200 — of something he never names — and can't actually be paid; the charter is the only way past him.
 - **Trying to pass him:** *The Boggart doesn't move. Neither, it turns out, can you.*
@@ -1479,16 +1563,16 @@ Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility
 **Item listings:** portcullis bar — *A heavy iron bar leans in the corner, notched at one end — the kind of thing made to hold something open.* Mortar — *A sealed tub of mortar compound sits on a low shelf.* Salt — *A fat sack of salt slumps against the shelves.*
 **Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar and small clay pot (Quest 40) visible in wreckage either way. Perception spots the unstable arrangement.
 The small clay pot is the one intact pot that survives the collapse.
-- **Trap 17:** fires on first entry; Medium perception, Medium disarm. Fired text in traps.md. The perception-passed room description shows once the trap has been spotted.
+- **Trap 17:** fires on first entry; Medium perception, Medium disarm. Fired text in traps.md. Spotting and resolving happen on the same turn, so the room description shows how it was resolved (below), not a warning.
 - **Smoke jar listing:** *A squat glass jar sits among the clay pots, stoppered with wax.* **Small clay pot listing:** *One small clay pot sits on the shelf, the only one without a crack.* (Both appear once the trap is resolved, fired or disarmed.)
 The sack of salt is what makes the Idol Room swap safe (`SWAP IDOL WITH SALT`); taking the idol without it triggers Trap 33. Nothing forces a visit first — the Supply Room is a dead end west of the Ink Corridor, and the Idol Room is reachable without it.
 
 **Room description (default):** *A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned. The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath. The doorway back to the corridor is east.*
 
-**Room description (perception check passed):**
-*A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned.*
-*The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath. The doorway back to the corridor is east.*
-*One of the shelves near the entrance has a trip mechanism built into the floor in front of it — barely visible. Whatever it triggers, it isn't subtle.*
+**After Trap 17** (2026-10-14), one line after the default description:
+- Disarmed: *One of the shelves near the entrance has a trip mechanism set into the floor in front of it, wedged now and harmless.*
+- Fired (spotted and botched, or not spotted): *Shards of a burst clay pot lie scattered in front of the shelf near the entrance.*
+- Before this, a "perception check passed" line (*…a trip mechanism… Whatever it triggers, it isn't subtle.*) showed after a disarm or a botch — never while the trap was live — and nothing showed after an unspotted fire. (A save from before this shows neither line.)
 
 ### Narrow Passageway
 **XP: 1**
@@ -1549,7 +1633,8 @@ The equipment sentence follows what is still in the room (the rest of the descri
 **Items:** Three fallen stone blocks (scenery — never carried; `PLACE BLOCKS`)
 **Quest Hooks:** Quest 22 — the collapsed aqueduct section
 **Connections:** North → Storage Area. South → Collapsed Gallery.
-Split out of the Collapsed Gallery (2026-10-03). The aqueduct channel runs through this room; a section has given way and its three blocks lie on the floor. `PLACE BLOCKS` three times (one Medium strength check each — a failure makes no progress, no damage), then `SEAL JOINTS WITH MORTAR` (mortar used up) → Quest 22 complete; the Town Square fountain flows. Until sealed, the spill runs south and floods the far end of the Collapsed Gallery.
+Split out of the Collapsed Gallery (2026-10-03). The aqueduct channel runs through this room; a section has given way and its three blocks lie on the floor. `PLACE BLOCKS` three times (one Medium strength check each — a failure makes no progress, no damage), then `SEAL JOINTS WITH MORTAR` (mortar used up) → Quest 22 complete; the Town Square fountain flows.
+Until sealed, the spill runs south and floods the far end of the Collapsed Gallery.
 Not in the Zenni room pool (kept out so the seeded Zenni placement doesn't change).
 `EAST` / `WEST`, along the channel (2026-10-13): *The channel runs into the stone at both ends. You'd have to be water.*
 
@@ -1568,7 +1653,10 @@ The state sentences change as blocks go in; every state ends with *The storage c
 - **Strength check failed:** *The block gets as far as your knees and no further. You set it down before it sets you down.*
 - **`PLACE BLOCKS` with all three in:** *The blocks are all in place. The joints still need sealing.* After the seal: *The aqueduct is whole.*
 - **`TAKE BLOCK`:** *They're far too heavy to carry off. They belong in the channel.*
-- **`SEAL JOINTS WITH MORTAR`** (also `USE MORTAR ON JOINTS` / `BLOCKS` / `AQUEDUCT`; and `REPAIR` / `FIX` / `PATCH` / `PLUG` / `GLUE` the joints, blocks or aqueduct, decided 2026-10-12): *You work the mortar into every joint, pressing it in with your thumbs until the seeping stops. For a moment the channel is silent. Then the water finds its way through — the whole length of the aqueduct, running toward town.* Quest 22 completes; mortar used up.
+- **Other phrasings of `PLACE BLOCKS`** (2026-10-14; playtest: only `PLACE` worked): `PUT BLOCK`, `LIFT` / `RAISE` / `HEAVE` / `REPLACE` / `MOVE` / `PUSH BLOCK`, `PUT BLOCK IN` / `ON` the gap, channel or aqueduct, and `PUSH BLOCK INTO GAP`. Same strength check, same lines.
+- **`EXAMINE BLOCKS` / `GAP` / `AQUEDUCT` / `CHANNEL`** (2026-10-14): the room's current state sentence (0–3 placed, above). After the seal: *The aqueduct is whole.*
+- **`SEAL JOINTS WITH MORTAR`** (also `USE MORTAR ON JOINTS` / `BLOCKS` / `AQUEDUCT`; and `REPAIR` / `FIX` / `PATCH` / `PLUG` / `GLUE` the joints, blocks or aqueduct, decided 2026-10-12):
+  *You work the mortar into every joint, pressing it in with your thumbs until the seeping stops. For a moment the channel is silent. Then the water finds its way through — the whole length of the aqueduct, running toward town.* Quest 22 completes; mortar used up.
 - **Seal before all three are placed:** *There's still a gap. Mortar won't hold back that much water.*
 - **Seal without the mortar:** *You'd need something to seal them with.*
 
@@ -1591,6 +1679,10 @@ South of the Collapsed Aqueduct. Timbers wedged across it blocking a secondary e
 - **Quest 38 timbers** (pickaxe, Hard strength each, retries): first — *You set the pickaxe into the first timber and lever. It groans, splinters, and comes down. Behind it, the second shifts.*
   second — *The second timber is wedged tighter. It gives anyway, all at once, and the third sags loose.* third — *The last timber comes away in two pieces. The way east is open — though the rock overhead creaks, and a little dust drifts down.*
 - Failed swing: *You swing at the timber. It shudders and holds.* No pickaxe: *You'd need something to break them with.* All three down: *There are no timbers left to clear.*
+- `PRY` / `LEVER TIMBER` with the pickaxe held is a swing too (2026-10-14; the success line says "lever", but `PRY` used to answer *"You can't get any leverage on that."*).
+- **The crowbar** (`PRY` / `LEVER TIMBER`, `USE CROWBAR ON TIMBER`; no pickaxe used; 2026-10-14): *You work the crowbar into a gap and heave. The timber doesn't so much as creak. It's wedged too tight to pry; it'll have to be broken.* Before this, "no leverage" pushed the playtester off the idea.
+- **`EXAMINE TIMBERS`** (none down yet; 2026-10-14): *Three heavy timbers, wedged across the passage at angles no collapse would leave. The wood is old but solid. Too tight to pry loose; they'd have to come down the hard way.* All three down: *There are no timbers left to clear.*
+  - One down: *Two timbers are still wedged across the passage; the third lies splintered on the floor. The wood is old but solid.* Two down: *One timber is left, wedged at an angle across the passage. The other two lie splintered on the floor.*
 - **All three down, not yet propped** (room description in place of the blocked one): *The passage runs east. The timbers are down, but the rock overhead sags where they were, and it creaks.* `EAST` then: *The overhang creaks every time you move. It needs propping before you'd trust it.*
 - **Support beam:** before the timbers are down — *There's nowhere to fit it with the timbers still in the way.* After — *You wrestle the support beam upright and wedge it under the worst of the overhang. The creaking stops.* The beam stays in place; the cleared description takes over.
 
@@ -1621,7 +1713,8 @@ South of Idol Room. Two squares wide on the map — the Creature Den is off its 
 **Warden dies:** *The Warden goes down hard and doesn't get up. Something rolls from its grip and clatters across the floor — a lantern, unlit, its glass faintly green.* A pressure plate in the corridor before this room rings a bell in the Creature Den — player hears the sound before entering.
 **The Warden** emerges: completely monstrous in appearance; standard combat; one-time fight.
 **Trap interaction:** Perception check spots the plate; disarming it avoids the ambush but leaves the Den door shut; `JUMP ON PLATE` triggers it deliberately. Enchanted Glasses auto-reveal the plate and let the player choose.
-**Den door:** The door from the Combat Room east to the Creature Den is closed and opens only when the Trap 29 plate fires — stepping on it unawares, or `JUMP ON PLATE` on purpose. The bell rings, the door opens, and the Warden comes out to fight in the Combat Room. If the plate has been disarmed, the door stays shut until the player jumps on it. Once the Warden is defeated the door stays open, giving access to the Creature Den and the Flooding Room beyond it.
+**Den door:** The door from the Combat Room east to the Creature Den is closed and opens only when the Trap 29 plate fires — stepping on it unawares, or `JUMP ON PLATE` on purpose. The bell rings, the door opens, and the Warden comes out to fight in the Combat Room. If the plate has been disarmed, the door stays shut until the player jumps on it.
+Once the Warden is defeated the door stays open, giving access to the Creature Den and the Flooding Room beyond it.
 East to the Creature Den (Flooding Room beyond it, to the north). Connects south to Prayer Alcove. (Trap 29)
 
 ### The Warden's Drop
@@ -1642,7 +1735,8 @@ Perception check *before entry* spots the suspiciously clean pressure plate; dis
 **Room description:** *A low cave, the floor dipping toward the middle and slick with old silt. Three iron levers stand in a row on the north wall — left, middle, right — above a grated sluice mouth. The only way out is back south.*
 
 **Built (2026-10-04):**
-- The plate works like Trap 29's: Medium perception on arrival. Missed — stepped on unawares. Spotted with Actually Enchanted Glasses — *In the middle of the floor, one stone is cleaner than everything around it — no silt, no grime. A pressure plate.* — and the player chooses (`JUMP ON PLATE` / `DISARM PLATE`). Spotted without them — the disarm rolls automatically (Trap 41 descriptor). Once spotted, the player walks around it.
+- The plate works like Trap 29's: Medium perception on arrival. Missed — stepped on unawares. Spotted with Actually Enchanted Glasses — *In the middle of the floor, one stone is cleaner than everything around it — no silt, no grime. A pressure plate.* — and the player chooses (`JUMP ON PLATE` / `DISARM PLATE`). Spotted without them — the disarm rolls automatically (Trap 41 descriptor).
+  Once spotted, the player walks around it.
 - **Plate fires:** *Something clicks underfoot. Behind the grate the sluice bangs open, and water comes through fast and cold, spreading across the floor.*
 - Any command counts as a turn. After the first, the warning; after the second: *The water closes over your head and the floor drops away. The current takes you down through the sluice, turning you over in the dark, and lets go.* — then The Spillway.
 - **Middle lever** while flooding: *The middle lever comes down with a heavy clunk. Behind the grate the sluice slams shut, and the water drains away through the floor.* The plate re-arms (`JUMP ON PLATE` floods it again), so closing the sluice doesn't lock the player out of Quest 50. The left and right levers stay spent.
@@ -1678,7 +1772,8 @@ Portcullis Bar from Supply Room props it permanently open. Without the bar it dr
 - **Lift:** *You get under the portcullis and heave. It rises, grinding, until it's head-high — and stays there only as long as you hold it.* Fails: *You strain against the portcullis. It shifts an inch and settles back.*
 - **Let go:** *You let go. The portcullis slams back down.* (After any command but the bar; walking out of the corridor while holding it lets go too, the line printing before the next room — fixed 2026-10-13, it used to fire on the player's return.)
 - **Propped:** *You wedge the iron bar under the portcullis. It takes the weight with a groan and holds. The way south is open.* **Blocked:** *The portcullis is down.*
-- **Either side** (decided 2026-10-12): the portcullis is halfway along, so you're on the side you came in from — north from the Prayer Alcove, south from the Shrine Room (the Quest 38 shortcut, up from the Rickety Bridge). Until it's propped, only the way back is open; the far side is *The portcullis is down.* Lifting, the shock, Trap 19 and the bar work the same from either side. Propped from the south side: *You wedge the iron bar under the portcullis. It takes the weight with a groan and holds. The way north is open.* (A save from before this has no side recorded and counts as the north side.)
+- **Either side** (decided 2026-10-12): the portcullis is halfway along, so you're on the side you came in from — north from the Prayer Alcove, south from the Shrine Room (the Quest 38 shortcut, up from the Rickety Bridge). Until it's propped, only the way back is open; the far side is *The portcullis is down.* Lifting, the shock, Trap 19 and the bar work the same from either side.
+  Propped from the south side: *You wedge the iron bar under the portcullis. It takes the weight with a groan and holds. The way north is open.* (A save from before this has no side recorded and counts as the north side.)
 
 ### Shrine Room
 **XP: 1**
@@ -1695,6 +1790,10 @@ South of Portcullis Corridor. A small carved stone room, older than surrounding 
 *The room is older than the dungeon around it — the stonework finer, the walls carved rather than cut. Someone built this with intention.*
 *A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time. A corridor leads north; to the south, the floor gives way to a narrow stone bridge.*
 *Something catches your eye near the base of the plinth — a curved fragment, stone, fitting the bowl's edge exactly.*
+
+**`EXAMINE PLINTH` / `EXAMINE DEPRESSION`** (2026-10-14; one scenery object): *A waist-high stone plinth, finer work than anything around it. The depression in its top is bowl-shaped and empty, the stone inside worn smooth. Carved into its side, small and faded: a seed inside a circle of leaves.*
+The symbol ties the room to the forest shrine (the Verdant Circle), so the plinth points the repaired bowl home rather than looking like its destination.
+- **`PUT BOWL IN DEPRESSION` / `ON PLINTH`** (the repaired bowl): *It would fit. But the symbol on the plinth is the forest shrine's, and the bowl belongs there.* The bowl stays in hand.
 
 ### Rickety Bridge
 **XP: 1**
@@ -1757,7 +1856,8 @@ Base of the key door staircase. Rough-cut cave room.
 **Connections:** North → Key Door Landing. East → Stored Room. South → Inscription Chamber.
 Worked cave section, old support timbers and rusting tools. Contains: charcoal (Quest 28, no perception check); silver dust (Quest 4, perception check); large iron chest bolted to floor — lockpick-only (Back Alley mugger's lockpicks), contains 20 Zenni.
 
-**Room description (default):** *A worked section of cave — support timbers at intervals, rusting tools left where they were dropped. The smell of old rock dust is thick here. Someone mined this passage, or used it as a route through to something being mined. The stairs are back to the north; the passage runs on to the south, and a narrower side passage opens to the east. A large iron chest is bolted to the floor against one wall.*
+**Room description (default):** *A worked section of cave — support timbers at intervals, rusting tools left where they were dropped. The smell of old rock dust is thick here. Someone mined this passage, or used it as a route through to something being mined. The stairs are back to the north; the passage runs on to the south, and a narrower side passage opens to the east.
+A large iron chest is bolted to the floor against one wall.*
 
 **Room description (perception check passed):**
 *A worked section of cave — support timbers at intervals, rusting tools left where they were dropped. The smell of old rock dust is thick here.*
@@ -1948,7 +2048,8 @@ Quest 50: combat with afflicted apprentice; post-combat `USE SHOVEL` finishes ho
 
 **Built (2026-10-04):**
 - The tunnel to Bog-NW is in the wall, angling up. Apprentice text and the fight: npcs.md — The Afflicted Apprentice.
-- **`USE SHOVEL`** (also `DIG`, `DIG WITH SHOVEL`, `DIG TUNNEL`), once he's freed: *You climb into the tunnel and dig. The earth is soft and wet and close, and it doesn't take long — a few strokes, then a few more, and the shovel breaks through into grey light and a smell you'd know anywhere. The bog. The apprentice is right behind you.* Before he's freed: *He's not going to let you near it.* No shovel: *You'd need something to dig with.*
+- **`USE SHOVEL`** (also `DIG`, `DIG WITH SHOVEL`, `DIG TUNNEL`), once he's freed: *You climb into the tunnel and dig. The earth is soft and wet and close, and it doesn't take long — a few strokes, then a few more, and the shovel breaks through into grey light and a smell you'd know anywhere. The bog. The apprentice is right behind you.* Before he's freed: *He's not going to let you near it.*
+  No shovel: *You'd need something to dig with.*
 - **`UP` before it's dug:** *The tunnel isn't through. You can see where it ends, a little short of anything.*
 - **`UP` once dug** (one-way): the apprentice's farewell and *[Apprentice's Gloves added to inventory.]* (npcs.md), then Bog-NW. Quest 50 completes (12 XP, 5 Zenni, silent). No hole on the bog side.
 
@@ -2027,6 +2128,7 @@ Bottom of Hole to Below. Rope anchor point for return to mid tier.
 
 - **The rope from below** (scenery; the room description's last line names it — added 2026-10-13 so the way up is named, since the player is only ever here with it tied):
   `EXAMINE ROPE` — *The rope hangs down through the hole above, tied to the timber at the top.* `CLIMB ROPE` / `CLIMB UP ROPE` — the same as `UP`. `TAKE` / `UNTIE` / `CUT ROPE` — the Stored Room's line: *You'd like a way back up. The rope stays.* (Up in the Stored Room, `CLIMB ROPE` once it's tied is `DOWN`.)
+- **The rubble** (2026-10-14; playtest: "the rubble isn't a noun"): `EXAMINE RUBBLE` — *Broken flagstones, packed earth and splintered timber, settled into a rough slope. It was the floor upstairs, until you came along.* `SEARCH` / `DIG` / `MOVE RUBBLE` — *You turn over a few stones. Nothing under them but more stones.* `CLIMB RUBBLE` — *You're standing on it already. The way up is the rope.*
 
 *The ceiling is a jagged wound — stone and packed earth hanging at the edge where the floor above used to be. Below that: the rubble that was the floor, now a rough-graded pile you're standing on. The air smells of disturbed earth and something older underneath it. Passages lead north, east, and south. Your rope hangs down through the hole above.*
 
@@ -2065,6 +2167,12 @@ Scholar and Keeper's research area. Makeshift — bedrolls, scattered equipment,
 **Room description:** *The camp is old but not abandoned — abandoned implies a choice. Bedrolls still laid out. Equipment set down mid-use. Journals open to pages no one finished. Whatever happened here, no one saw it coming. The only way out is back north, to the rubble.*
 
 No mechanical trigger — context and lore only.
+
+**Scenery** (2026-10-14; playtest: none of it could be referenced, and `EXAMINE JOURNAL` found the player's Tip Journal — *You don't have a journal.*):
+- `READ` / `EXAMINE JOURNALS` (also "journal" here): *Two hands share the pages. One is cramped and hurried, full of a seven-pointed star; it stops mid-sentence. The other is careful, and goes on a few pages more: 'He is not himself. I will go for silver.'* — the scholar and the Keeper; the scholar stays unnamed.
+- `TAKE JOURNALS`: *You leave them where they are. Someone meant to come back to them.*
+- `EXAMINE BEDROLLS`: *Two bedrolls, side by side, long since gone flat. Nobody has slept in them for years.*
+- `EXAMINE` / `SEARCH EQUIPMENT`: *Lamps with no oil, a surveyor's chain, a hammer and chisel set down beside a half-cut sample. Everything here was put down to be picked up again.*
 
 ### Thermal Vent Room (Room 4)
 **XP: 2**
@@ -2123,7 +2231,8 @@ Dead end south of Antechamber. 6–9 undead skeletons. Instant death on entry. N
 **Connections:** West → Antechamber. North → Tool Alcove. East → The Narrow Pass. South → Dark Room.
 Navigational fork east of Antechamber.
 
-*The passage widens here into a rough crossing, the stone walls bearing the marks of tools long since abandoned. The floor is grit and old dust. Three ways lead on from here, none of them encouraging. North, a short passage ends in a cramped alcove. East, the walls close in toward a long, narrow pass. South, the dark is thicker than it has any right to be. The bone-strewn antechamber is back to the west.*
+*The passage widens here into a rough crossing, the stone walls bearing the marks of tools long since abandoned. The floor is grit and old dust. Three ways lead on from here, none of them encouraging. North, a short passage ends in a cramped alcove. East, the walls close in toward a long, narrow pass. South, the dark is thicker than it has any right to be.
+The bone-strewn antechamber is back to the west.*
 
 **50/50 text — fires when player exits Tool Alcove (Room 10) south into The Lower Crossing, before Tool Alcove discovery only. One of two variants selected at random:**
 - *"As you step back into the crossing, you're not sure why, but you feel like you left something unfinished back there."*
@@ -2170,6 +2279,10 @@ Then the amulet's fall, so the player knows it's there: *Something slips loose f
 **`EXAMINE WEREWOLF`:** *A werewolf, long dead and still moving. Old wounds cross its chest — blade cuts, arrow holes, burns — and every one of them has closed.* (A turn like any other: that turn's round still happens.)
 
 **`EXAMINE SCHOLAR`** (after the kill): *Just a man, thin and tired-looking, ink still worked into the creases of his fingers. The stake is still in him. Whatever he came down here to find, he found it.*
+
+**The stake, after the kill** (2026-10-14): it stays in the room, in the scholar, and can't be taken.
+- `EXAMINE STAKE`: *It stands out of his chest, the silver gone dull. Whatever it was holding down, it's holding it still.*
+- `TAKE STAKE` / `PULL STAKE` (wording decided 2026-10-13): *You dare not remove it.*
 
 **Combat rounds:** no round on the entry turn. Every later turn in the room while the werewolf lives is one round (mechanics.md — Undead Werewolf Chain); a lost round: *The werewolf's claws find you.* (1 heart). The player can leave west; it doesn't follow.
 A won round still shows it attacking — one of these, in turn (decided 2026-10-12; before this a won round printed nothing, so it looked like it wasn't attacking):

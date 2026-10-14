@@ -59,6 +59,35 @@ WILL_APPEARANCE = (
     "You can't quite make it out."
 )
 
+# items.md — Town Charter: READ CHARTER (2026-10-14). The clause the Boggart
+# "reads twice"; "above ground and below" points at the Toll Bridge.
+CHARTER_TEXT = (
+    "Most of it is the language of people who expected to be argued with: "
+    "boundaries, rights of way, who mends the well. One clause has been underlined "
+    "by a later hand: the town's bridges and crossings, above ground and below, are "
+    "PUBLIC PROPERTY — free of toll, and free of anyone who'd charge one."
+)
+
+# locations.md — The Lighthouse: the paperweight, the desk and the keeper's log
+LIGHTHOUSE_STONE = (
+    "A smooth grey stone from the beach, worn flat by the sea. Someone picked it "
+    "out for exactly this job."
+)
+LIGHTHOUSE_STONE_STAYS = (
+    "You leave it. It's keeping the keeper's papers in order, and someone's "
+    "coming back for them."
+)
+LIGHTHOUSE_DESK = (
+    "A plain desk under the window, its top worn pale where an elbow rests. The "
+    "papers on it are a keeper's log, tide tables and lamp hours, all in the same "
+    "careful hand."
+)
+LIGHTHOUSE_LOG = (
+    "Tides, lamp hours, oil used, a ship sighted. Near the bottom, squeezed into "
+    "the margin: 'Found the scroll in the cove. Can't make head nor tail of it. "
+    "Leaving it here till someone can.' — S.B."
+)
+
 
 def make_objects(world) -> None:
     _make_opening_objects(world)
@@ -568,6 +597,91 @@ def _make_scrolls(world) -> None:
         synonyms=["scroll", "spell"], adjectives=["unbind", "undead", "spell"],
         flags={TAKEBIT, READBIT},
     ))
+    # The Lighthouse desk (content/lighthouse.py)
+    # TAKEBIT so TAKE STONE finds it ahead of a carried rune stone (TAKE prefers
+    # TAKEBIT objects); the room's M-BEG refuses it, TRYTAKEBIT stops "(Taken)".
+    world.register_object(GameObject(
+        name="LIGHTHOUSE-STONE", desc="smooth stone",
+        ldesc="A smooth stone sits on the desk where the scroll was.",
+        examine=LIGHTHOUSE_STONE, synonyms=["stone", "paperweight", "rock"],
+        adjectives=["smooth", "grey", "gray"], flags={NDESCBIT, TAKEBIT, TRYTAKEBIT},
+    ))
+    world.register_object(GameObject(
+        name="LIGHTHOUSE-DESK", desc="desk", examine=LIGHTHOUSE_DESK,
+        synonyms=["desk"], adjectives=["plain", "keeper's", "keepers"],
+        flags={NDESCBIT, SURFACEBIT},
+    ))
+    # Stairs and places (content/ways.py) — room globals, wired in init.py
+    from content.ways import stairs_action, ARCH
+    world.register_object(GameObject(
+        name="STAIRS", desc="stairs",
+        synonyms=["stairs", "staircase", "stair", "steps", "stairwell"],
+        flags={NDESCBIT}, action=stairs_action,
+    ))
+    world.register_object(GameObject(
+        name="FOREST-MINE", desc="mine entrance",
+        examine=("The mine entrance sits among the roots and undergrowth, a dark mouth "
+                 "leading down into the ground — easy to miss if you don't know to look."),
+        synonyms=["mine", "entrance", "mouth"], adjectives=["mine", "dark"],
+        flags={NDESCBIT},
+    ))
+    world.register_object(GameObject(
+        name="CRYPT-ARCH", desc="arch", examine=ARCH,
+        synonyms=["arch", "archway", "crypt"], adjectives=["low"],
+        flags={NDESCBIT},
+    ))
+    # Surface scenery (content/scenery.py; placed in init.py)
+    from content import scenery as sc
+    for name, desc, examine, syns, adjs, action in (
+        ("TOWER-DESK", "desk", sc.TOWER_DESK, ["desk"], ["broad", "old", "will's", "wills"],
+         sc.tower_desk_action),
+        ("TOWER-PAPERS", "papers", "", ["papers", "notes", "correspondence", "pile"],
+         ["will's", "wills"], sc.tower_papers_action),
+        ("LIBRARY-CATALOGUE", "card catalogue", sc.CATALOGUE,
+         ["catalogue", "catalog", "drawers", "drawer", "cards"], ["card"], sc.catalogue_action),
+        ("LIBRARY-SHELVES", "shelves", sc.SHELVES, ["shelves", "shelf", "shelving", "books"],
+         [], None),
+        ("HALL-DOORS", "doors", sc.HALL_DOORS, ["doors", "door", "numbers"],
+         ["guest", "plain"], sc.hall_doors_action),
+        ("FLOORBOARDS", "floorboards", sc.FLOORBOARDS, ["floorboards", "boards", "floorboard"],
+         [], None),
+        ("WINDOW", "window", "", ["window", "windows"], [], sc.window_action),
+        # Underground
+        ("RUBBLE", "rubble", sc.RUBBLE, ["rubble", "flagstones", "debris", "pile", "slope"],
+         ["broken"], sc.rubble_action),
+        ("CAMP-JOURNALS", "journals", "", ["journals", "journal", "pages", "notebooks"],
+         [], sc.journals_action),
+        ("BEDROLLS", "bedrolls", sc.BEDROLLS, ["bedrolls", "bedroll", "bedding"], [], None),
+        ("CAMP-EQUIPMENT", "equipment", sc.EQUIPMENT,
+         ["equipment", "lamps", "chain", "hammer", "chisel", "sample", "tools"],
+         ["surveyor's", "surveyors"], sc.equipment_action),
+        ("CRATES", "crates", sc.CRATES, ["crates", "crate", "barrels", "barrel", "boxes"],
+         [], sc.crates_action),
+        ("STOOL", "stool", sc.STOOL, ["stool"], ["tall", "wooden"], None),
+        ("RUNNER", "runner", sc.RUNNER, ["runner", "pattern", "carpet", "rug", "faces"],
+         ["faded"], None),
+        ("ENTRANCE-CEILING", "ceiling", sc.ENTRANCE_CEILING, ["ceiling", "moons", "paint"],
+         ["painted", "low"], None),
+        ("GHOST-MIRRORS", "mirrors", "", ["mirrors", "mirror", "reflection", "reflections",
+                                         "glass"], [], sc.mirrors_action),
+        ("REJECTION-GLASS", "mirror", "", ["mirror", "reflection", "frame", "glass"],
+         ["tall", "old"], sc.mirrors_action),
+        ("SHATTER-GLASS", "mirror", "", ["mirror", "reflection", "frame", "glass"],
+         ["large", "rippled"], sc.mirrors_action),
+    ):
+        world.register_object(GameObject(
+            name=name, desc=desc, examine=examine, synonyms=syns, adjectives=adjs,
+            flags={NDESCBIT}, action=action,
+        ))
+    world.register_object(GameObject(
+        name="LIBRARY-LEDGER", desc="ledger", examine=sc.LEDGER, text=sc.LEDGER,
+        synonyms=["ledger", "application"], adjectives=["thin"], flags={NDESCBIT, READBIT},
+    ))
+    world.register_object(GameObject(
+        name="LIGHTHOUSE-PAPERS", desc="keeper's papers", examine=LIGHTHOUSE_LOG,
+        text=LIGHTHOUSE_LOG, synonyms=["papers", "log", "logbook", "tables"],
+        adjectives=["keeper's", "keepers", "tide"], flags={NDESCBIT, READBIT},
+    ))
     # Quest 12 — in the locked music box (content/music_box.py)
     world.register_object(GameObject(
         name="SCROLL-LIGHT", desc="Light scroll",
@@ -841,7 +955,8 @@ def _make_town_hall_objects(world) -> None:
         examine="A rolled document tied with faded ribbon. The town seal is pressed "
               "into the wax at the bottom, and the handwriting is the careful kind "
               "that expects to be read for a long time.",
-        synonyms=["charter", "document"], adjectives=["town", "rolled"], flags={TAKEBIT},
+        text=CHARTER_TEXT,
+        synonyms=["charter", "document"], adjectives=["town", "rolled"], flags={TAKEBIT, READBIT},
     ))
 
 
@@ -1337,6 +1452,13 @@ def _make_mid_tier_objects(world) -> None:
     world.register_object(GameObject(
         name="SHRINE-ZENNI", desc="Zenni", synonyms=["zenni", "coin", "coins"],
         flags={NDESCBIT, SACREDBIT},
+    ))
+    # Shrine Room plinth (upper tier) — scenery; the bowl belongs to the forest shrine
+    from content.shrine_bowl import PLINTH, plinth_action
+    world.register_object(GameObject(
+        name="SHRINE-PLINTH", desc="plinth", synonyms=["plinth", "depression", "hollow"],
+        adjectives=["stone", "shallow", "bowl"], examine=PLINTH,
+        flags={NDESCBIT, SACREDBIT, SURFACEBIT}, action=plinth_action,
     ))
     # Church of All altar (logic: content/altar.py)
     world.register_object(GameObject(

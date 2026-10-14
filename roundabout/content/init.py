@@ -57,6 +57,11 @@ def initialize_world(world, game, seed=None) -> None:
     # Quest 49: ASSEMBLE BOWL (every bowl piece answers to "bowl")
     from content import shrine_bowl
     game.register_input_hook(shrine_bowl.assemble_input_hook)
+    game.register_input_hook(shrine_bowl.offer_input_hook)
+
+    # The Still Den: STAKE WEREWOLF ("stake" is otherwise only a noun)
+    from content import still_den
+    game.register_input_hook(still_den.stake_input_hook)
 
     # Pie Rat Ship: treasure map check aboard, ship away from harbor
     from content import ship
@@ -240,6 +245,36 @@ def _place_objects(world) -> None:
     world.move_object(world.objects["STATUE"], world.rooms["TOWN-SQUARE"])
     world.move_object(world.objects["KNIGHT"], world.rooms["TOWN-SQUARE"])
     world.move_object(world.objects["SCROLL-UNBIND-UNDEAD"], world.rooms["LIGHTHOUSE"])
+    from content import lighthouse                 # the desk, its stone and the log
+    world.rooms["LIGHTHOUSE"].action = lighthouse.room_action
+    for name in ("LIGHTHOUSE-STONE", "LIGHTHOUSE-DESK", "LIGHTHOUSE-PAPERS"):
+        world.move_object(world.objects[name], world.rooms["LIGHTHOUSE"])
+    # Stairs and places (content/ways.py): room globals, the stairs by state
+    from content import ways
+    for room in ways.STAIRS:
+        world.rooms[room].global_objects.append("STAIRS")
+    for room, (place, _way) in ways.PLACES.items():
+        world.rooms[room].global_objects.append(place)
+    world.global_filter = ways.global_filter
+    # Surface scenery (content/scenery.py)
+    from content import scenery
+    for obj, room in (("TOWER-DESK", "WIZARDS-TOWER"), ("TOWER-PAPERS", "WIZARDS-TOWER"),
+                      ("LIBRARY-CATALOGUE", "LIBRARY"), ("LIBRARY-SHELVES", "LIBRARY"),
+                      ("HALL-DOORS", "UPSTAIRS-HALL"), ("FLOORBOARDS", "UPSTAIRS-HALL"),
+                      ("RUBBLE", "PILE-OF-RUBBLE"), ("CAMP-JOURNALS", "LOWER-ENCAMPMENT"),
+                      ("BEDROLLS", "LOWER-ENCAMPMENT"), ("CAMP-EQUIPMENT", "LOWER-ENCAMPMENT"),
+                      ("CRATES", "RATS-NEST"), ("STOOL", "CHUCKLE-ENTRANCE"),
+                      ("RUNNER", "CHUCKLE-ENTRANCE"), ("ENTRANCE-CEILING", "CHUCKLE-ENTRANCE"),
+                      ("GHOST-MIRRORS", "GHOSTS-ROOM"), ("REJECTION-GLASS", "REJECTION-MIRROR"),
+                      ("SHATTER-GLASS", "SHATTER-TRAP-MIRROR")):
+        world.move_object(world.objects[obj], world.rooms[room])
+    world.rooms["LIBRARY"].global_objects.append("LIBRARY-LEDGER")   # after her first scene
+    for room in scenery.WINDOW_ROOMS:
+        world.rooms[room].global_objects.append("WINDOW")
+    world.objects["FOUNTAIN"].action = scenery.fountain_action
+    world.objects["DIAL"].action = scenery.dial_action
+    world.objects["DIAL"].synonyms += ["symbols", "symbol", "marks", "face"]
+    world.objects["ALTAR-STONE"].examine = scenery.ALTAR_EXAMINE
     world.move_object(world.objects["MUSIC-BOX"],    world.rooms["WIZARDS-TOWER"])
     world.move_object(world.objects["SCROLL-LIGHT"], world.rooms["WIZARDS-TOWER"])
     # Old Oak area (KITE and OLD-OAK-RUNE-STONE appear on CLIMB TREE)
@@ -302,6 +337,7 @@ def _place_objects(world) -> None:
                       ("TROPHY-CASE", "TOWN-HALL-TOWER"),
                       ("AQUEDUCT-BLOCKS", "COLLAPSED-AQUEDUCT"), ("AQUEDUCT", "COLLAPSED-AQUEDUCT"),
                       ("FOUNTAIN", "TOWN-SQUARE"), ("SHRINE-PEDESTAL", "ROUNDABOUT-FOREST"),
+                      ("SHRINE-PLINTH", "SHRINE-ROOM"),
                       ("ALTAR-STONE", "ALTAR"), ("DIAL", "ALTAR")):
         world.move_object(world.objects[obj], world.rooms[room])
     # Trap 15: the diamond brooch waits inside the Magnetic Vault chest

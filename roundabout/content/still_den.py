@@ -28,7 +28,7 @@ State: BONES-CLEARED, DEN-JUST-ENTERED, WEREWOLF-RISEN, WEREWOLF-DEAD
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from engine.game import M_HANDLED, M_NOT_HANDLED, M_ENTER, M_LOOK, M_END
+from engine.game import M_HANDLED, M_NOT_HANDLED, M_ENTER, M_LOOK, M_END, M_BEG
 from engine.world import Room, Exit, RLANDBIT
 
 if TYPE_CHECKING:
@@ -132,9 +132,16 @@ FIREBALL_FAILS = (
     "it isn't interested in burning."
 )
 _MELEE_FAILS = (
-    "Your blade finds its mark. The creature doesn't notice. It turns toward you "
+    "Your {weapon} finds its mark. The creature doesn't notice. It turns toward you "
     "with the patience of something that has been waiting a very long time."
 )
+_STAKE_NUDGE = " The stake at your belt feels heavier."
+# The stake after the kill: it stays in the scholar (decided 2026-10-13 / 10-14)
+_STAKE_IN_HIM = (
+    "It stands out of his chest, the silver gone dull. Whatever it was holding "
+    "down, it's holding it still."
+)
+_DARE_NOT = "You dare not remove it."
 _PLAIN_STAKE = (
     "The stake pierces flesh. The werewolf snarls — pain, but not the right kind. "
     "It pulls free and the wound closes. You need something more than silver."
@@ -202,9 +209,43 @@ class _SkeletonRoom(Exit):
 # The Still Den
 # ---------------------------------------------------------------------------
 
+_STAKE_VERBS = ("V-USE", "V-PUT-IN", "V-PUT-ON", "V-PUSH")
+
+
+def _stake_named(w: World) -> bool:
+    """The stake, held, named against the werewolf by any verb but DRIVE:
+    USE / PUT / PUSH STAKE IN(TO) WEREWOLF, ATTACK / STAB / KILL WEREWOLF WITH STAKE."""
+    werewolf, stake = w.objects["WEREWOLF"], w.objects["SILVER-STAKE"]
+    if werewolf.location is not w.here or stake not in w.player.contents:
+        return False
+    return ((w.prsa in _STAKE_VERBS and w.prso is stake and w.prsi is werewolf)
+            or (w.prsa == "V-MELEE" and w.prso is werewolf and w.prsi is stake))
+
+
+def _stake_in_scholar(w: World) -> int:
+    """After the kill the stake stays in him: EXAMINE answers, TAKE / PULL refuse."""
+    stake = w.objects["SILVER-STAKE"]
+    if w.prso is not stake or stake.location is not w.here:
+        return M_NOT_HANDLED
+    if w.prsa == "V-EXAMINE":
+        print(_STAKE_IN_HIM)
+        return M_HANDLED
+    if w.prsa in ("V-TAKE", "V-PULL", "V-MOVE"):
+        print(_DARE_NOT)
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
 def den_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     dead = w.get_global("WEREWOLF-DEAD")
     risen = w.get_global("WEREWOLF-RISEN")
+    if msg == M_BEG:
+        if dead:
+            return _stake_in_scholar(w)
+        if _stake_named(w):
+            _stake_home(w)
+            return M_HANDLED
+        return M_NOT_HANDLED
     if msg == M_LOOK:
         if dead:
             print(_DEN + _DEN_AFTER)
@@ -243,15 +284,25 @@ def drive_stake(w: World) -> bool:
     if w.prso is not stake or werewolf.location is not w.here \
             or w.prsi not in (None, werewolf):
         return False
+    _stake_home(w)
+    return True
+
+
+def _stake_home(w: World) -> None:
+    """The stake into the werewolf, however it was phrased."""
+    werewolf = w.objects["WEREWOLF"]
+    stake = w.objects["SILVER-STAKE"]
     if not w.get_global("STAKE-CONSECRATED"):
         print(_PLAIN_STAKE)
-        return True
+        return
     from content.combat import award_combat_xp
     print(_STAKE_HOME)
     print(_REVERTS)
     print(_AMULET_FALLS)
     w.set_global("WEREWOLF-DEAD", True)
-    w.move_object(stake, None)                       # stays in the body
+    w.move_object(stake, w.here)                     # stays in the body
+    stake.set_flag("NDESCBIT")                       # the room text says so
+    stake.set_flag("TRYTAKEBIT")                     # no implicit "(Taken)"
     w.move_object(werewolf, None)
     w.move_object(w.objects["SCHOLAR"], w.here)
     w.move_object(w.objects["WEREWOLFS-AMULET"], w.here)
@@ -259,7 +310,19 @@ def drive_stake(w: World) -> bool:
     from content import quests                       # the chain ends here
     quests.complete(w, "19")
     quests.complete(w, "30")
-    return True
+
+
+def stake_input_hook(w: World, text: str):
+    """STAKE [THE] WEREWOLF: "stake" is a noun to the parser, so this is the
+    same turn as DRIVE STAKE INTO WEREWOLF."""
+    if text.lower().split() not in (["stake", "werewolf"], ["stake", "the", "werewolf"]):
+        return False
+    if w.here is None or w.here.name != "STILL-DEN" \
+            or w.objects["SILVER-STAKE"] not in w.player.contents:
+        return False
+    from engine.game import HOOK_NO_TURN
+    w.game.do_turn("drive stake into werewolf")      # its own turn and round
+    return HOOK_NO_TURN
 
 
 _BOW_FAILS = (
@@ -274,8 +337,16 @@ def shot(w: World) -> None:
 
 
 def melee(w: World) -> None:
-    """KILL / ATTACK WEREWOLF: conventional weapons do nothing."""
-    print(_MELEE_FAILS)
+    """KILL / ATTACK WEREWOLF: conventional weapons do nothing. The line names
+    what was used; carrying the stake but not using it, a nudge."""
+    from content import combat
+    weapon = w.prsi or combat.equipped(w)
+    if weapon is not None and weapon.name == "BOW":
+        weapon = None
+    line = _MELEE_FAILS.format(weapon=weapon.desc if weapon is not None else "fist")
+    if w.objects["SILVER-STAKE"] in w.player.contents:
+        line += _STAKE_NUDGE
+    print(line)
 
 
 # ---------------------------------------------------------------------------

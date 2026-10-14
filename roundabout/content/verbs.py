@@ -1203,6 +1203,9 @@ def v_enter(world: World) -> int:
         from content import dankhaus
         dankhaus.enter_dankhaus(world)
         return M_HANDLED
+    from content import ways                    # ENTER MINE, GO THROUGH ARCH, ENTER
+    if ways.enter(world):
+        return M_HANDLED
     print("You can't go in there.")
     return M_HANDLED
 
@@ -1713,6 +1716,15 @@ def _climb(direction: str):
             from content import old_oak
             old_oak.climb_tree(world)
             return M_HANDLED
+        from content import ways                # mechanics.md — Stairs and places
+        if world.prso is not None and world.prso.name == "STAIRS":
+            return ways.take_stairs(world, direction)
+        # Bare ASCEND / DESCEND / CLIMB UP: no plain exit that way, but stairs here
+        # (the Key Door Landing's go north) — the stairs
+        if (world.prso is None and world.here is not None
+                and direction not in world.here.exits
+                and any(o.name == "STAIRS" for o in world.global_objects_for())):
+            return ways.take_stairs(world, direction)
         world.walk_dir = direction
         return world.game.perform("V-WALK")
     return handler
@@ -1726,6 +1738,9 @@ def v_climb(world: World) -> int:
         from content import old_oak
         old_oak.climb_tree(world)
         return M_HANDLED
+    if obj.name == "STAIRS":                    # CLIMB STAIRS: the way they go
+        from content import ways
+        return ways.take_stairs(world)
     # CLIMB ROPE: down the hole from the Stored Room, up it from below
     if obj.name == "HANGING-ROPE":
         return _climb("up")(world)
@@ -2606,5 +2621,9 @@ def register_verbs(game) -> None:
     game.register_verb("V-EAT",        v_eat)
     from content.vikings import riddle_input_hook
     game.register_input_hook(riddle_input_hook)
-    # Preaction intercepts GO EAST/WEST and LAND while at sea
-    game.register_preaction("V-WALK",  _pre_walk_at_sea)
+    # Preaction intercepts GO EAST/WEST and LAND while at sea; bare IN takes
+    # the room's one place (content/ways.py)
+    def _pre_walk(world: World) -> int:
+        from content import ways
+        return _pre_walk_at_sea(world) or ways.pre_walk_in(world)
+    game.register_preaction("V-WALK",  _pre_walk)

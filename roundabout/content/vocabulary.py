@@ -21,6 +21,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_buzz(
         "a", "an", "the", "is", "and", "of", "then", "all", "one",
         "but", "except", "yes", "no", "y", "here",
+        "my",                                       # READ MY JOURNAL (2026-10-14)
     )
 
     # Prepositions
@@ -49,8 +50,8 @@ def make_vocabulary() -> Vocabulary:
     v.add_direction("south", "s")
     v.add_direction("east", "e")
     v.add_direction("west", "w")
-    v.add_direction("down", "d")
-    v.add_direction("up", "u")
+    v.add_direction("down", "d", "downstairs")     # UPSTAIRS / DOWNSTAIRS (2026-10-14)
+    v.add_direction("up", "u", "upstairs")
     v.add_direction("northwest", "nw")
     v.add_direction("northeast", "ne", "northe")
     v.add_direction("southwest", "sw")
@@ -92,6 +93,8 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("cast", "incant", "chant")  # takes incant/chant from exorcise; never "spell" (spelling)
     v.add_verb("clear")                             # CLEAR BONES / CLEAR DRAIN
     v.add_verb("climb", "sit")
+    v.add_verb("ascend")                            # ASCEND [STAIRS] = CLIMB UP (2026-10-14)
+    v.add_verb("descend")                           # DESCEND [STAIRS] = CLIMB DOWN
     v.add_verb("challenge", "wrestle")              # CHALLENGE LYNDS
     v.add_verb("pay")                               # PAY BOGGART
     v.add_verb("disarm", "defuse")                  # DISARM PLATE
@@ -108,7 +111,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("disembark")
     v.add_verb("disenchant")
     v.add_verb("drink", "imbibe", "swallow")
-    v.add_verb("drive")                             # DRIVE STAKE INTO WEREWOLF
+    v.add_verb("drive", "plunge")                   # DRIVE STAKE INTO WEREWOLF (THRUST: see swing)
     v.add_verb("drop")
     v.add_verb("dock", "moor")                      # DOCK / MOOR = LAND (go ashore)
     v.add_verb("eat", "consume", "taste", "bite")
@@ -153,8 +156,8 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("push", "press")
     v.add_verb("dust")
     v.add_verb("sprinkle", "scatter")
-    v.add_verb("put", "stuff", "insert", "place", "hide")
-    v.add_verb("raise", "lift")
+    v.add_verb("put", "stuff", "insert", "place", "hide", "replace")   # REPLACE BLOCK (Quest 22)
+    v.add_verb("raise", "lift", "heave")
     v.add_verb("read", "skim")
     v.add_verb("repent")
     v.add_verb("rest")                              # REST spell (Level 6+)

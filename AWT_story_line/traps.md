@@ -32,7 +32,8 @@ The mirror also repels visible players until the Chuckle House ghost is freed.
 *(Chuckle House — The Shatter Trap Mirror.)*
 
 **17. Smoke Bomb Cache**
-**Descriptor:** an unstable arrangement of clay pots, one of them the trigger
+**Descriptor:** a trigger hidden among an unstable arrangement of clay pots
+(2026-10-14: was "an unstable arrangement of clay pots, one of them the trigger", whose inner comma broke the disarm line: *You spot … one of them the trigger and are able to disarm it*.)
 A shelf of old clay pots in the dungeon supply room appears harmless. The smoke jar (Quest 24) is hidden among them.
 Disturbing the shelf without disarming triggers one pot to smash, dealing 1 heart of **smoke damage** — and revealing the smoke jar, now visible among the wreckage.
 Perception spots the unstable arrangement and identifies which pot is the trigger; disarming means carefully removing the trigger pot first, after which the smoke jar can be safely retrieved.
@@ -66,8 +67,10 @@ Perception spots the plate; disarming means pressing it slowly from the side to 
 
 **33. Weight-Sensitive Pedestal**
 A **Chachapoyan Fertility Idol** sits on a pressure-sensitive pedestal in the upper tier.
-Removing it without replacing it with something of equal weight triggers a heavy stone door to slam shut behind the player — the north doorway only. The way south stays open, so the player can go and find the crowbar (Prayer Alcove) and come back: `PRY DOOR` with the crowbar, **Medium** strength check, retries allowed. `LIFT SLAB` / `RAISE SLAB` with the crowbar held is the same as `PRY DOOR` (text in locations.md, Idol Room).
-Perception **Medium** (every visit until found) shows the pressure plate in the room description; once the idol is gone, that line says whether the plate fired or the salt holds it, and the room description shows the slab across the north doorway until it is pried. The safe swap counts as the disarm: 5 XP (+5 Rogue). `TIP IDOL` on the pedestal only nudges it (mechanics.md — Parser Verbs): no trap.
+Removing it without replacing it with something of equal weight triggers a heavy stone door to slam shut behind the player — the north doorway only. The way south stays open, so the player can go and find the crowbar (Prayer Alcove) and come back: `PRY DOOR` with the crowbar, **Medium** strength check, retries allowed.
+`LIFT SLAB` / `RAISE SLAB` with the crowbar held is the same as `PRY DOOR` (text in locations.md, Idol Room).
+Perception **Medium** (every visit until found) shows the pressure plate in the room description; once the idol is gone, that line says whether the plate fired or the salt holds it, and the room description shows the slab across the north doorway until it is pried. The safe swap counts as the disarm: 5 XP (+5 Rogue). `TIP IDOL` on the pedestal only nudges it (mechanics.md — Parser Verbs):
+no trap.
 Text in locations.md (Idol Room).
 Safe swap requires placing a **sack of salt** (found in the supply room, described as "looks like it weighs as much as a Chachapoyan Fertility Idol") on the pedestal simultaneously with `SWAP IDOL WITH SALT`.
 The idol is treasure — not required for the ring quest.

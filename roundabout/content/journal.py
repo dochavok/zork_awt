@@ -86,8 +86,20 @@ _ASK = re.compile(r"^\s*(read|examine|x|look at|l at)\s+(the\s+|my\s+)?(tip\s+)?
 
 
 def journal_input_hook(w: World, text: str) -> bool:
-    """READ JOURNAL with no journal within reach."""
-    if not _ASK.match(text.lower()) or _within_reach(w):
+    """READ JOURNAL with no journal within reach. In the Encampment, a plain
+    "journal" is the camp's journals (TIP JOURNAL / MY JOURNAL is still this one)."""
+    m = _ASK.match(text.lower())
+    if not m:
+        return False
+    mine = (m.group(2) or "").strip() == "my" or bool(m.group(3))
+    if w.here is not None and w.here.name == "LOWER-ENCAMPMENT" and not mine:
+        from content.scenery import JOURNALS
+        print(JOURNALS)
+        return True
+    if _within_reach(w):
+        if mine:                      # MY / TIP JOURNAL: this one, even beside the camp's
+            read(w)
+            return True
         return False
     print(_NONE)
     return True

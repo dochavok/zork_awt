@@ -307,6 +307,8 @@ Left by Calder Finch. *"He left a key. Said it led to a lower level — wouldn't
 **Weight:** 1
 **Location:** Records Room, Town Hall — awarded by Records Room Worker after returning the pocket watch
 **Examine:** *A rolled document tied with faded ribbon. The town seal is pressed into the wax at the bottom, and the handwriting is the careful kind that expects to be read for a long time.*
+**Read** (2026-10-14; was *There's nothing written on the town charter.*): *Most of it is the language of people who expected to be argued with: boundaries, rights of way, who mends the well. One clause has been underlined by a later hand: the town's bridges and crossings, above ground and below, are PUBLIC PROPERTY — free of toll, and free of anyone who'd charge one.*
+"Above ground and below" points at the Toll Bridge; PUBLIC PROPERTY matches its keystone seal (locations.md — The Toll Bridge).
 **Quest use:** Required for Quest 27 (The Toll Bridge Operator). `GIVE CHARTER TO BOGGART` clears the bridge to the dungeon.
 **After Quest 27:** the Boggart hands it back, so it stays in the inventory. It has no further use; the player can drop it anywhere. (Decided 2026-10-05.)
 
@@ -403,9 +405,11 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 **Quest use:** Quest 4 — restored with the wax seal, silver dust and the inscription etched on its base.
 
 **Built (2026-10-04):** steps go in order — seal, dust, read. The seal and the dust are used up.
-- **`PRESS SEAL`** (also `PRESS SEAL ON JAR`, `PUT SEAL ON JAR`; and, decided 2026-10-12, `REPAIR` / `FIX` / `PATCH` / `PLUG` / `GLUE` / `SEAL JAR` or `CRACK` [`WITH SEAL`] — without the seal: *You've nothing to fill the crack with.*; once sealed: *The crack is already sealed.*): *You press the wax seal over the crack. The wax gives, then takes — it spreads along the line of the crack and sets, red against the blue-grey glaze. The hum steadies.* Then: *Something clinks inside the jar. Five Zenni sit in the bottom, kept there by the crack until now. You pocket them.* (The quest's 5 Zenni.)
+- **`PRESS SEAL`** (also `PRESS SEAL ON JAR`, `PUT SEAL ON JAR`; and, decided 2026-10-12, `REPAIR` / `FIX` / `PATCH` / `PLUG` / `GLUE` / `SEAL JAR` or `CRACK` [`WITH SEAL`] — without the seal: *You've nothing to fill the crack with.*; once sealed: *The crack is already sealed.*):
+  *You press the wax seal over the crack. The wax gives, then takes — it spreads along the line of the crack and sets, red against the blue-grey glaze. The hum steadies.* Then: *Something clinks inside the jar. Five Zenni sit in the bottom, kept there by the crack until now. You pocket them.* (The quest's 5 Zenni.)
 - **`DUST JAR`** (also `SPRINKLE DUST ON JAR`, `PUT DUST ON JAR`): with no silver dust — *You have nothing to dust it with.* Before the seal — *The dust would only sift into the crack.* After — *You sprinkle the silver dust over the jar. It clings to the glaze and settles into the etched letters around the base, and for a moment the whole jar glints.*
-- **`READ INSCRIPTION`** (also `READ LETTERS` / `ETCHING` / `WORDS` / `BASE` / `JAR`): Medium perception check every time. Failed: *The letters are worn almost smooth. You can't make them out.* Before seal and dust: *Around the base, worn almost smooth: "Hold what was heard. Speak what was held." You say the words aloud. The jar hums on, unchanged.* After both (Quest 4 completes; the same text on every later read): *You read the words around the base aloud: "Hold what was heard. Speak what was held." The hum rises, wavers, and stops. In the silence, a voice no louder than breath: "The ceiling of the thermal vent holds a secret." Then nothing.*
+- **`READ INSCRIPTION`** (also `READ LETTERS` / `ETCHING` / `WORDS` / `BASE` / `JAR`): Medium perception check every time. Failed: *The letters are worn almost smooth. You can't make them out.* Before seal and dust: *Around the base, worn almost smooth: "Hold what was heard. Speak what was held." You say the words aloud. The jar hums on, unchanged.* After both (Quest 4 completes;
+  the same text on every later read): *You read the words around the base aloud: "Hold what was heard. Speak what was held." The hum rises, wavers, and stops. In the silence, a voice no louder than breath: "The ceiling of the thermal vent holds a secret." Then nothing.*
 - **`LISTEN`** / **`LISTEN TO JAR`:** before — *A low, steady hum. Up close, it almost sounds like a voice holding a single note.* After — *Nothing. The jar is quiet now.*
 - **Restored room line:** *A mended ceramic jar sits on the side table, quiet.*
 - **Restored examine:** *A ceramic jar, glazed blue-grey, its crack sealed with red wax. A fine silver shimmer clings to the letters around its base. It doesn't hum any more.*
@@ -673,7 +677,7 @@ It's back on Shamus's slate at 2 Zenni. Only the thin paper is affected — the 
 **Location:** `ASSEMBLE BOWL` — three bowl pieces + clay adhesive
 **Examine / inventory:** *A ceramic bowl, pieced back together, the seams of red clay still visible. A faint etched line runs around the rim without a break.*
 **On the shrine pedestal:** *The repaired bowl sits on the pedestal.*
-**Quest use:** Quest 49 — `PUT BOWL ON PEDESTAL`, then a Zenni offering → The Crystal Bowl.
+**Quest use:** Quest 49 — `PUT BOWL ON PEDESTAL`, then a Zenni offering → The Crystal Bowl. On the pedestal it can't be auto-taken ("(Taken)") by another verb; only `TAKE BOWL` lifts it (2026-10-14: an auto-take left the room saying the bowl was still there, and the bowl unlisted wherever it was dropped).
 
 ---
 

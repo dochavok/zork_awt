@@ -191,6 +191,18 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(locations=_og_ir_held_car_have)),
         SyntaxRule(verb="climb", particle="up", action="V-CLIMB-UP"),
         SyntaxRule(verb="climb", particle="tree", action="V-CLIMB-TREE"),
+        # CLIMB OUT / THROUGH WINDOW (the window refuses; mechanics.md — Windows)
+        SyntaxRule(verb="climb", particle="out", action="V-CLIMB",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="climb", prep="with", action="V-CLIMB",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        # ASCEND / DESCEND [STAIRS] = CLIMB UP / DOWN (mechanics.md — Stairs and places)
+        SyntaxRule(verb="ascend", action="V-CLIMB-UP",
+                   obj1=ObjectSpec(locations=_og_ir_held_car_have)),
+        SyntaxRule(verb="ascend", action="V-CLIMB-UP"),
+        SyntaxRule(verb="descend", action="V-CLIMB-DOWN",
+                   obj1=ObjectSpec(locations=_og_ir_held_car_have)),
+        SyntaxRule(verb="descend", action="V-CLIMB-DOWN"),
 
         # ------------------------------------------------------------------ #
         # CLOSE                                                               #
@@ -483,6 +495,12 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="look", particle="at", prep="ceiling",
                    action="V-LOOK-UP"),
+        # LOOK OUT [OF] / THROUGH WINDOW = EXAMINE (mechanics.md — Windows;
+        # "of" is a buzz word, "through" reads as "with")
+        SyntaxRule(verb="look", prep="out", action="V-EXAMINE",
+                   obj1=ObjectSpec(locations=_held_car_og_ir_have)),
+        SyntaxRule(verb="look", prep="with", action="V-EXAMINE",
+                   obj1=ObjectSpec(locations=_held_car_og_ir_have)),
 
         # ------------------------------------------------------------------ #
         # LOWER                                                               #
@@ -603,6 +621,10 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="push", action="V-PUSH",
                    obj1=ObjectSpec(locations=_held_car_og_ir),
                    prep="into", obj2=ObjectSpec(locations=_held_car_og_ir)),
+        # PUSH STAKE INTO WEREWOLF ("into" reaches the parser as "in")
+        SyntaxRule(verb="push", action="V-PUSH",
+                   obj1=ObjectSpec(locations=_held_car_og_ir),
+                   prep="in", obj2=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # DUST / SPRINKLE (Quest 4 — the Whispering Jar)                      #
@@ -736,6 +758,11 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj2=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="swing", action="V-SWING",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
+        # THRUST STAKE INTO WEREWOLF ("thrust" is a swing synonym) = DRIVE
+        SyntaxRule(verb="swing", action="V-DRIVE-STAKE",
+                   obj1=ObjectSpec(locations=_held_car_have),
+                   prep="in",
+                   obj2=ObjectSpec(find_flag=ACTORBIT, locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
         # TAKE                                                                #
@@ -898,6 +925,16 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         # WALK / GO                                                           #
         # ------------------------------------------------------------------ #
+        # GO UP / DOWN STAIRS = CLIMB UP / DOWN; GO INTO / IN / THROUGH [place] =
+        # ENTER (mechanics.md — Stairs and places; "through" reads as "with")
+        SyntaxRule(verb="walk", particle="up", action="V-CLIMB-UP",
+                   obj1=ObjectSpec(locations=_og_ir_held_car_have)),
+        SyntaxRule(verb="walk", particle="down", action="V-CLIMB-DOWN",
+                   obj1=ObjectSpec(locations=_og_ir_held_car_have)),
+        SyntaxRule(verb="walk", action="V-ENTER", prep="in",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="walk", action="V-ENTER", prep="with",
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="walk", action="V-WALK",
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
         SyntaxRule(verb="walk", action="V-WALK"),

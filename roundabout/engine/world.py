@@ -283,6 +283,10 @@ class World:
         # Back-reference to the Game instance (set by Game.__init__)
         self.game: Optional[object] = None
 
+        # Content may hide a room's global object by state (the Kitchen's
+        # stairs while the cellar door is shut): (world, room, obj) -> bool
+        self.global_filter: Optional[Callable] = None
+
         # Score and turn counter
         self.score:     int = 0
         self.score_max: int = 350
@@ -381,7 +385,7 @@ class World:
         result = []
         for name in r.global_objects:
             obj = self.objects.get(name)
-            if obj is not None:
+            if obj is not None and (self.global_filter is None or self.global_filter(self, r, obj)):
                 result.append(obj)
         return result
 

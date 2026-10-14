@@ -120,7 +120,8 @@ Each time the player passes through Bog-SE, a perception check (Medium, 9) occur
 
 A 2×2×2 dialogue-tree puzzle. One path per tier succeeds; the other fails and loops back to Tier 1.
 
-**Interface:** after each Litlock line the player picks from a numbered menu (type the number): Tier 1 — 1. Tell a joke / 2. Do something physical; Tier 2A — 1. A pun / 2. An absurd observation; Tier 2B — 1. Something dignified / 2. Something committed and ridiculous; Tier 3 — 1. Push further / 2. Explain it. The player must find the correct path through all three tiers to make Litlock laugh fully.
+**Interface:** after each Litlock line the player picks from a numbered menu (type the number): Tier 1 — 1. Tell a joke / 2. Do something physical; Tier 2A — 1. A pun / 2. An absurd observation; Tier 2B — 1. Something dignified / 2. Something committed and ridiculous; Tier 3 — 1. Push further / 2. Explain it.
+The player must find the correct path through all three tiers to make Litlock laugh fully.
 
 **Reward:** Litlock bonks the player firmly on the head with two knuckles — a magical side effect that makes the Chuckle House (east of the Graveyard) visible. The building cannot be found by any other means — no perception check, no hint. The bonk is the only way. Litlock offers no explanation.
 
@@ -274,7 +275,8 @@ Lives in a single large obsidian room built around an ancient forge. Will told P
 
 **Pale Blade forging:** When player brings runed metal from the Viking Encampment, Pyronicus forges it into the Pale Blade. Full forge scene confirmed — see `ring-rituals.md` (Artifact 1, Step 3).
 
-**Quest 7 — bone flute returned (`GIVE FLUTE TO PYRONICUS`):** *Pyronicus takes the flute and turns it once in the forge light. "Not the creature's," he says. "Someone played this for it." He sets it on the workbench with more care than you expected, then hands you a scroll sealed with a dab of black wax. "Fire. You'll want it below."* *[Fireball scroll added to inventory.]* Quest 7 completes whether or not it's been posted (3 Zenni, silent).
+**Quest 7 — bone flute returned (`GIVE FLUTE TO PYRONICUS`):** *Pyronicus takes the flute and turns it once in the forge light. "Not the creature's," he says. "Someone played this for it." He sets it on the workbench with more care than you expected, then hands you a scroll sealed with a dab of black wax. "Fire. You'll want it below."*
+*[Fireball scroll added to inventory.]* Quest 7 completes whether or not it's been posted (3 Zenni, silent).
 
 Role is ring retrieval, Pale Blade forging and Quest 7 (the bone flute). No other quest hooks.
 
@@ -332,7 +334,8 @@ Not while inked: an inked player can always rent a room, even at full hearts —
 
 **Quest 51 reward (`TALK TO MAY` after the mugger is slain):** *May glances up. "Heard the back alley's gone quiet." She sets a glass on the bar. "That one's on the house."* Free drink, 1 heart. Quest 51 itself completes when the mugger dies (6 XP, 3 Zenni).
 
-**Quest 25 — cellar key (`TALK TO MAY` while carrying the crowbar, cellar not yet offered; fires once):** *May's eyes drop to the crowbar and stay there. "Now that's useful." She reaches under the bar and sets an iron key on the counter. "Cellar. It flooded years back — the drain clogged, and we shut the door and stopped thinking about it. If you can get the cover off that drain, it's yours to clear." She slides the key over. "Do it from the top of the stairs. Nobody goes down into that water."* Cellar key to inventory; Quest 25 discovered.
+**Quest 25 — cellar key (`TALK TO MAY` while carrying the crowbar, cellar not yet offered; fires once):** *May's eyes drop to the crowbar and stay there. "Now that's useful." She reaches under the bar and sets an iron key on the counter. "Cellar. It flooded years back — the drain clogged, and we shut the door and stopped thinking about it.
+If you can get the cover off that drain, it's yours to clear." She slides the key over. "Do it from the top of the stairs. Nobody goes down into that water."* Cellar key to inventory; Quest 25 discovered.
 
 **Quest 25 — Bartender's Boots (`TALK TO MAY` after the cellar is drained; fires once):** *May looks you over — the wet sleeves, the silt. "You got the cellar dry." She ducks under the bar and comes up with a pair of tall leather boots, salt-stained and broken in. "Forgot I had these. Should have given them to you BEFORE you cleaned up the cellar."* Boots to inventory.
 
@@ -604,7 +607,8 @@ Administers Trial 3 (Thornbrew drinking challenge). Passes out if player wins. F
 **Inked player:** an active quest giver — refuses everything (TALK, GIVE, challenges) until the ink is gone (traps.md — Trap 45): *{Name} takes one look at the ink and wants nothing to do with you until it's gone.*
 **Quest:** Quest 24 — The Beekeeper's Swarm (discovered on first visit).
 **First visit / `TALK TO BEEKEEPER`:** *"You'll want to keep clear of the tree east of the oak," she says, before you've said anything. "Swarm got loose and nested in a hollow there. I'd fetch them back, but my smoke kit's gone — somewhere in the tunnels under town, last I knew." She shrugs. "If you come across it."*
-**`GIVE VIAL TO BEEKEEPER`:** *She takes the vial in both hands and holds it up to the light. "There she is," she says softly, to the bee rather than to you. When she looks up, she's smiling. "The rest will follow her home. Here — you've earned this." She presses a small jar of honey into your hands. It's faintly warm.* — *[Enchanted honey added to inventory.]* Quest 24 completes (Zenni paid silently).
+**`GIVE VIAL TO BEEKEEPER`:** *She takes the vial in both hands and holds it up to the light. "There she is," she says softly, to the bee rather than to you. When she looks up, she's smiling. "The rest will follow her home. Here — you've earned this." She presses a small jar of honey into your hands. It's faintly warm.*
+— *[Enchanted honey added to inventory.]* Quest 24 completes (Zenni paid silently).
 **`TALK TO BEEKEEPER` afterwards:** *"They're settling back in," she says, nodding toward the hives. "Took them a day to forgive me. Bees hold grudges."*
 
 ---
@@ -791,7 +795,8 @@ Will's missing apprentice, found in the Lost Apprentice's Cell (mid-tier trap si
 - **Freed:** *He goes down on one knee and stays there. When he looks up, his eyes are his own again — red-rimmed, frightened, very young. "I was digging," he says. "I was digging for so long." He looks at his hands as if they belong to someone else.*
 - **Freed (presence):** *The apprentice sits against the wall, arms around his knees, looking at the tunnel as if he's not sure he dug it.*
 - **`TALK TO APPRENTICE`, freed:** *"It's nearly through," he says, nodding at the tunnel. "I could hear the bog. I could smell it. I just couldn't—" He stops. "I don't know what I was doing, at the end."*
-- **Surfacing in Bog-NW:** *You haul yourself out into the reeds, and the apprentice climbs out after you, blinking at the sky. He stands there a long moment, breathing the stench like it's fresh air. Then he pulls off his gloves and presses them into your hands. "They were for digging," he says. "I won't be doing that again." He heads off toward town without looking back.* — *[Apprentice's Gloves added to inventory.]*
+- **Surfacing in Bog-NW:** *You haul yourself out into the reeds, and the apprentice climbs out after you, blinking at the sky. He stands there a long moment, breathing the stench like it's fresh air. Then he pulls off his gloves and presses them into your hands. "They were for digging," he says. "I won't be doing that again." He heads off toward town without looking back.*
+  — *[Apprentice's Gloves added to inventory.]*
 
 ### The Soldier (Quest 34)
 Encased in magical ice in The Fountain Room (dungeon lower tier). Thawed by Ivory Torch over two turns. Hands over the Forgotten Blade without ceremony. Wanders off dazed. He doesn't return to town — weapon training belongs to the Redcrosse Knight (Quest 54). (Decided 2026-10-05.) Intentionally unnamed — referred to only as "the soldier."
@@ -804,7 +809,8 @@ Encased in magical ice in The Fountain Room (dungeon lower tier). Thawed by Ivor
 Claims squatter's rights on the bridge to the Dungeon Entrance. Charges extortionate toll. Gives no hints about what would satisfy him — gruff, legally creative, immovable. `GIVE CHARTER TO BOGGART` forces him out. Drops strongbox as he leaves. Permanently vacates after.
 Described in the Toll Bridge's room description (no separate presence line).
 
-**`TALK TO BOGGART`:** *"Toll," the Boggart says, holding out a hand without looking at it. "Two hundred. Each way. Non-negotiable." He doesn't say two hundred of what, and you get the impression he's never had to.* The toll can't actually be paid. He never names Zenni, so `PAY BOGGART` doesn't contradict him, and a player who has saved 200 Zenni (possible before the dungeon on a lucky seed) isn't cheated. (Decided 2026-10-12.)
+**`TALK TO BOGGART`:** *"Toll," the Boggart says, holding out a hand without looking at it. "Two hundred. Each way. Non-negotiable." He doesn't say two hundred of what, and you get the impression he's never had to.* The toll can't actually be paid.
+He never names Zenni, so `PAY BOGGART` doesn't contradict him, and a player who has saved 200 Zenni (possible before the dungeon on a lucky seed) isn't cheated. (Decided 2026-10-12.)
 
 **`PAY BOGGART` (any attempt to pay):** *He doesn't want your money. Whatever he wants 200 of, you don't have it.*
 

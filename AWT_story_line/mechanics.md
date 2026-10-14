@@ -171,7 +171,8 @@ Dice-based, scales with player level. Warriors start proficient with melee; Rogu
 - Nothing to hit: *Nothing here answers the spell.* No timer.
 - **Any spell cast before it's ready:** *You reach for the spell and find it isn't ready yet.* — doesn't use a turn.
 
-**Melee weapons:** Warriors may use melee weapons from the start. Mages and Rogues require the Weapon Use skill (Quest 54) before any weapon provides a bonus — without it, `KILL X` defaults to unarmed (+0) regardless of inventory. Three weapons are sold by Shamus (Kitchen, Tale and Ale): Dagger (+2, 5 Zenni), Mace (+4, 25 Zenni), Battle Axe (+6, 100 Zenni). The combat roll for a melee attack is the player's base roll plus the equipped weapon's bonus (Equipping weapons, below).
+**Melee weapons:** Warriors may use melee weapons from the start. Mages and Rogues require the Weapon Use skill (Quest 54) before any weapon provides a bonus — without it, `KILL X` defaults to unarmed (+0) regardless of inventory. Three weapons are sold by Shamus (Kitchen, Tale and Ale): Dagger (+2, 5 Zenni), Mace (+4, 25 Zenni), Battle Axe (+6, 100 Zenni).
+The combat roll for a melee attack is the player's base roll plus the equipped weapon's bonus (Equipping weapons, below).
 
 **Gear bonuses (decided 2026-10-05):** one set of combat rules (content/combat.py) serves every fight — the mugger, the Warden, the apprentice, the knight and the werewolf.
 - Melee roll = level dice + the equipped melee weapon (+2 / +4 / +6) + the Apprentice's Gloves (+3, only while worn).
@@ -750,7 +751,8 @@ Key Door Landing, Stored Room, Inscription Chamber, Cave Creature's Lair, Echo A
 Lower Crypt, The Encampment, Thermal Vent Room, The Lower Crossing, The Narrow Pass, The Still Den, Tool Alcove, The Flooded Passage, The Fountain Room, Spirit Room, Burial Chamber
 
 **Excluded rooms (not eligible):**
-All four Bog rooms, all Sea / Open Ocean squares, Desert Island, Kevry's Island, Pie Rat Ship Hold, Flooding Room, Dream Corridor, Dark Room, Hole to Below / Pile of Rubble, Rickety Bridge, Collapsed Aqueduct, all Chuckle House rooms (Entrance, Rejection Mirror, Shatter Trap Mirror, Ghost's Room), Mine Passage, The Crevice (has dedicated treasure — gold pocket watch), Skeleton Room (instant death on entry)
+All four Bog rooms, all Sea / Open Ocean squares, Desert Island, Kevry's Island, Pie Rat Ship Hold, Flooding Room,
+Dream Corridor, Dark Room, Hole to Below / Pile of Rubble, Rickety Bridge, Collapsed Aqueduct, all Chuckle House rooms (Entrance, Rejection Mirror, Shatter Trap Mirror, Ghost's Room), Mine Passage, The Crevice (has dedicated treasure — gold pocket watch), Skeleton Room (instant death on entry)
 Also excluded: Guest Rooms 1–3 (Tale and Ale) — entered only by renting a room, with a random room each time.
 
 ---
@@ -1065,7 +1067,10 @@ Chain:
 **Round timing:** no round on the turn the player enters The Still Den. Every later turn there while the werewolf lives is one round; on a loss: *The werewolf's claws find you.* (1 heart). Ties and wins do nothing. An attack command prints its weapon failure message and is that turn's round.
 
 **Weapon failure messages:**
-- **Melee:** *Your blade finds its mark. The creature doesn't notice. It turns toward you with the patience of something that has been waiting a very long time.*
+- **Melee:** *Your [weapon] finds its mark. The creature doesn't notice. It turns toward you with the patience of something that has been waiting a very long time.*
+  - [weapon] is the thing named with `WITH`, else the equipped melee weapon, else *fist* (2026-10-14: was always "blade", even empty-handed or with a mace).
+  - Carrying the stake but not using it, the line ends: *The stake at your belt feels heavier.*
+  - Naming the stake is never melee: `ATTACK` / `KILL` / `STAB` / `HIT WEREWOLF WITH STAKE`, `USE STAKE ON WEREWOLF`, `PUT STAKE IN WEREWOLF`, `PUSH` / `THRUST` / `PLUNGE STAKE INTO WEREWOLF` and `STAKE WEREWOLF` all mean `DRIVE STAKE INTO WEREWOLF` (2026-10-14; before this, `STAB WEREWOLF WITH STAKE` printed the melee line even with the consecrated stake).
 - **Bow:** *The arrow strikes true and stays there. The werewolf looks at it briefly, then at you. It does not appear concerned.*
 - **Fireball:** *The fire takes hold for a moment — then dies. Whatever this creature is made of, it isn't interested in burning.*
 - **Unconsecrated stake:** *The stake pierces flesh. The werewolf snarls — pain, but not the right kind. It pulls free and the wound closes. You need something more than silver.*
@@ -1151,7 +1156,8 @@ Shown at game end alongside player level. Based on total points deposited in the
 | 240–299 | Roundabout's Unhinged Treasure Enthusiast |
 | 300 | Calder Finch |
 
-Total possible: 300 points (9 treasures). Three are missable: the Gold Pocket Watch (30 pts) — permanently inaccessible after the Stored Room collapses; the Funeral Mask of Hammered Gold (36 pts) — unreachable once the ring is bound, because the Spirit Room can't be crossed (locations.md — Spirit Room); and the Golden Dragon Scale (36 pts) — never earned if the player eats the dragon-nip (items.md — Dragon-Nip). A thorough player who misses one high-value item or two low-value items will land in the 240–299 tier.
+Total possible: 300 points (9 treasures). Three are missable: the Gold Pocket Watch (30 pts) — permanently inaccessible after the Stored Room collapses; the Funeral Mask of Hammered Gold (36 pts) — unreachable once the ring is bound, because the Spirit Room can't be crossed (locations.md — Spirit Room);
+and the Golden Dragon Scale (36 pts) — never earned if the player eats the dragon-nip (items.md — Dragon-Nip). A thorough player who misses one high-value item or two low-value items will land in the 240–299 tier.
 
 ---
 
@@ -1265,7 +1271,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `LOOK UP` / `LOOK AT CEILING` | Thermal Vent Room — reveals fire clay on ceiling (synonyms). Anywhere else it acts as a plain `LOOK`. |
 | `ACTIVATE [ELEMENT] STONE` | Ritual Circle (Trial 2) — also accepts LOVE/LIFE for Heart |
 | `POUR HOLY WATER ON STAKE` | Creates consecrated silver stake |
-| `DRIVE STAKE INTO WEREWOLF` | Destroys undead werewolf. Otherwise (decided 2026-10-12): `DRIVE STAKE` with no werewolf here — *There's nothing here that needs a stake through it.*; `DRIVE` anything `INTO` an NPC you can't fight — *[Name] wouldn't appreciate that.*; anything but the stake `INTO` an enemy — `ATTACK [enemy] WITH [thing]`; `DRIVE` anything else — *You can't drive the [thing] into anything.* |
+| `DRIVE STAKE INTO WEREWOLF` | Destroys undead werewolf (other phrasings: Undead Werewolf Chain). Otherwise (decided 2026-10-12): `DRIVE STAKE` with no werewolf here — *There's nothing here that needs a stake through it.*; `DRIVE` anything `INTO` an NPC you can't fight — *[Name] wouldn't appreciate that.*; anything but the stake `INTO` an enemy — `ATTACK [enemy] WITH [thing]`; `DRIVE` anything else — *You can't drive the [thing] into anything.* |
 | `CAST UNBIND UNDEAD` | Releases ghost in Ghost's Room (Chuckle House) |
 | `CAST` alone, or with anything that isn't a spell name (`CAST CROWBAR`, `CAST HEAL`) | No turn. Lists known spells in the order Light, Unbind Undead, Fireball: *Cast what? You know Light, Unbind Undead and Fireball.* / *Cast what? You know Light.* None: *You don't know any spells.* (2026-10-05; anything-but-a-spell 2026-10-12). `SPELL` is not a synonym — it reads as spelling. |
 | `HOLD TORCH NEAR ICE` | Quest 34 — two turns to thaw frozen soldier. `HOLD TORCH NEAR GUNPOWDER`: the torch refusal (locations.md — Mine Tunnels). `HOLD <thing> NEAR <anything else>` (carried or here): *Nothing happens.* One turn (decided 2026-10-12) |
@@ -1274,7 +1280,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `GIVE SCROLL TO WILL` | Synonym for `READ SCROLL` in Will's Tower — Warriors/Rogues; both work |
 | `TURN ON LANTERN` / `LIGHT LANTERN` | Guardian's Lantern — dispels Dark Room darkness |
 | `TIE ROPE TO BEAM` | Hole to Below — enables bidirectional travel |
-| `CLIMB DOWN ROPE` / `CLIMB UP ROPE` | Hole to Below traversal (also `DOWN` / `UP`). Everywhere, `CLIMB UP [thing]` / `CLIMB DOWN [thing]` is `UP` / `DOWN` (as Zork) — the exit decides; `CLIMB UP TREE` at the Old Oak is `CLIMB TREE` (decided 2026-10-12) |
+| `CLIMB DOWN ROPE` / `CLIMB UP ROPE` | Hole to Below traversal (also `DOWN` / `UP`). Everywhere, `CLIMB UP [thing]` / `CLIMB DOWN [thing]` is `UP` / `DOWN` (as Zork) — the exit decides; `CLIMB UP TREE` at the Old Oak is `CLIMB TREE` (decided 2026-10-12). Stairs: Stairs and places, below |
 | `RUB PAPER ON ENGRAVING` | Quest 28 — produces rubbing in Inscription Chamber. Also `RUB ENGRAVING`, `RUB PAPER`, `RUB CHARCOAL`, `RUB … WITH …` there (decided 2026-10-12) |
 | `SWAP IDOL WITH SALT` | Trap 33 — safe pedestal swap in Idol Room |
 | `CLEAR BONES` | Trap 36 — disarms Bone Crunch Floor Room |
@@ -1299,7 +1305,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `BRIEF` | Full description on the first visit only (the default) — *Brief descriptions.* No turn |
 | `SUPERBRIEF` / `SUPER` | Room name only — *Superbrief descriptions.* No turn |
 | `WAIT` / `Z` | *Time passes...* — one turn |
-| `PRAY` | *If you pray enough, your prayers may be answered.* In the Church of All: *You bow your head. The church receives it the way it receives everything — without asking which god it was meant for.* Flavor only — one turn |
+| `PRAY` | *If you pray enough, your prayers may be answered.* In the Church of All: *You bow your head. The church receives it the way it receives everything — without asking which god it was meant for.* At the forest shrine: a line per Quest 49 state (locations.md, Roundabout Forest). Flavor only — one turn |
 | `CURSE` / `DAMN` / `SHIT` / `FUCK` | Cursing and Notorious — Will fines it in his tower |
 | `SEARCH` / `SEARCH <thing>` | Re-runs the room's unfound perception checks, once per visit; one turn (Perception — SEARCH) |
 | `VERSION` | *Roundabout: The God-Forsaken Ring — [git tag]* — the tag the .exe was built from (operations.md). Works at West of House. No turn |
@@ -1347,11 +1353,15 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `BLAST` / `EXORCISE` / `JUMP` / `KISS` / `PLAY` / `WISH` / `YELL` | Zork's lines, one turn each: *You can't blast anything by using words.* / *What a bizarre concept!* / *Wheeeeeeeeee!!!!!* / *I'd sooner kiss a pig.* / *That's silly!* / *With luck, your wish will come true.* / *Aaaarrrrgggghhhh!* (Object handlers — `JUMP ON PLATE` etc. — come first.) |
 
 **Removed from the parser (decided 2026-10-11):** `ANSWER` / `REPLY`, `HELLO` / `HI`, `SAY`, `SCRIPT`, `UNSCRIPT`, `WAKE` / `AWAKE` / `SURPRISE` / `STARTLE` — the parser's *I don't know the word "…".*
-Also (decided 2026-10-12): `INFLATE`; `FOLLOW` / `PURSUE` / `CHASE` / `COME` (no NPC walks off to be followed); `LUBRICATE` / `OIL` / `GREASE` (no oil anywhere); `PUMP` (Zork's boat); `SHAKE` (nothing is shaken); `SQUEEZE`; `WIND` (the music box plays once, on opening); `RING` / `PEAL` (Zork's brass bell; no bell here — `RING` alone is the ring's noun, so *There was no verb in that sentence!*) — *I don't know the word "…".* `BOARD <thing>`, `BLOW IN <thing>` and `BLOW UP <thing> WITH <thing>` (Zork's boat; nothing in Roundabout is a vehicle or inflatable) — *That sentence isn't one I recognize.* `BOARD` / `BOARD SHIP` still board the Pie Rat Ship, and `BLOW UP <thing>` is still Zork's `BLAST` line.
+Also (decided 2026-10-12): `INFLATE`; `FOLLOW` / `PURSUE` / `CHASE` / `COME` (no NPC walks off to be followed); `LUBRICATE` / `OIL` / `GREASE` (no oil anywhere); `PUMP` (Zork's boat); `SHAKE` (nothing is shaken); `SQUEEZE`; `WIND` (the music box plays once, on opening); `RING` / `PEAL` (Zork's brass bell; no bell here — `RING` alone is the ring's noun, so *There was no verb in that sentence!*)
+— *I don't know the word "…".* `BOARD <thing>`, `BLOW IN <thing>` and `BLOW UP <thing> WITH <thing>` (Zork's boat; nothing in Roundabout is a vehicle or inflatable) — *That sentence isn't one I recognize.* `BOARD` / `BOARD SHIP` still board the Pie Rat Ship, and `BLOW UP <thing>` is still Zork's `BLAST` line.
 Haalvar's riddle still takes `ANSWER` / `SAY` / `REPLY <answer>` (read from the typed line, not the parser).
 Every other command the parser knows answers with something (test_system_verbs guard).
-**No turn** (decided 2026-10-12): a command that uses no turn — SAVE, SCORE, DIAGNOSE, VERSION, VERBOSE / BRIEF / SUPERBRIEF, a refused REST or CAST, COUNT ZENNI, CROSS on a bridge, TURN DIAL with no direction… — moves nothing: no clock, and nothing in the room acts (the werewolf gets no round). Before this, the no-clock commands still gave the room its end of turn, so DIAGNOSE in the Still Den cost a heart. Commands are verbs where the words after them name objects (REST, TURN); CAST, COUNT ZENNI, CROSS on a bridge, TIP MAY [#] and the Cargo bets read the typed words instead, because what follows isn't an object (a spell name, a number, the room itself).
-**Carried or here** (decided 2026-10-12): every command that takes an object accepts one the player is carrying as well as one in the room — never *You can't see any [thing] here!* for something in hand. Verbs meant for people or targets answer an object with their own line (`ATTACK CROWBAR` — *You can't fight the crowbar.*; `TALK TO CROWBAR` — *There's no response from the crowbar.*). `PUT [thing]` lying here, not held: *You aren't holding the [thing].* (test_system_verbs guard, both ways.)
+**No turn** (decided 2026-10-12): a command that uses no turn — SAVE, SCORE, DIAGNOSE, VERSION, VERBOSE / BRIEF / SUPERBRIEF, a refused REST or CAST, COUNT ZENNI, CROSS on a bridge, TURN DIAL with no direction… — moves nothing: no clock, and nothing in the room acts (the werewolf gets no round).
+Before this, the no-clock commands still gave the room its end of turn, so DIAGNOSE in the Still Den cost a heart. Commands are verbs where the words after them name objects (REST, TURN); CAST, COUNT ZENNI, CROSS on a bridge, TIP MAY [#] and the Cargo bets read the typed words instead, because what follows isn't an object (a spell name, a number, the room itself).
+**Carried or here** (decided 2026-10-12): every command that takes an object accepts one the player is carrying as well as one in the room — never *You can't see any [thing] here!* for something in hand. Verbs meant for people or targets answer an object with their own line (`ATTACK CROWBAR` — *You can't fight the crowbar.*; `TALK TO CROWBAR` — *There's no response from the crowbar.*).
+`PUT [thing]` lying here, not held: *You aren't holding the [thing].* (test_system_verbs guard, both ways.)
+**MY** (decided 2026-10-14) is ignored, like THE: `READ MY JOURNAL`, `EXAMINE MY TORCH`. Before this, any "my" made the object unfindable (*You can't see any journal here!*).
 **No verb** (decided 2026-10-12): a sentence starting with a word the game knows that isn't a verb — an object's name or adjective, like `STATUE` or `RING CROWBAR` — gets Zork's *There was no verb in that sentence!* Only words the game doesn't know at all get *I don't know the word "…".*
 | `OPEN CASE` / `CLOSE CASE` (or `SHUT CASE`) | Trophy Case in The Tower — case must be open to place items |
 | `CLOSE <anything else>` (also `SHUT`) | *You can't close that.* One turn. Everything else that opens (doors, chests, boxes, the cabinet, mailboxes) opens for good. Decided 2026-10-12 |
@@ -1359,6 +1369,30 @@ Every other command the parser knows answers with something (test_system_verbs g
 | `PUT <ITEM> IN <anything else>` | Refused: *That won't fit in the [container].* (the hand cart takes only the gravestone — items.md). Decided 2026-10-12 |
 | `LOOK IN CASE` / `EXAMINE CASE` | Trophy Case — lists contents and count; visible through glass whether open or closed |
 | `TAKE <ITEM> FROM CASE` | Trophy Case — always refused: *"That belongs to Roundabout now."* |
+
+#### Stairs and places (decided 2026-10-14, TODO #15)
+
+**Stairs.** One "stairs" scenery object (also `STAIRCASE`, `STAIR`, `STEPS`, `STEP`, `STAIRWELL`) in every room whose text has stairs or steps. Each room says which way its stairs go:
+- Up: Tale and Ale, Town Hall, Charnel Walk, the Crypt (its way down is a sloping passage, not stairs), Cellar, Pyronicus's Forge, the Lighthouse (the chained stair — its `UP` refusal).
+- Down: Upstairs Hall, The Tower, the Mausoleum, the Kitchen (only while the cellar door is open), the Volcano (only once its stairs are found).
+- Both: the Upper Hall.
+- Mid-Tier Key Door: down, to the south (once unlocked). Key Door Landing: up, to the north. (The Mine Passage only mentions the Landing's stairs; it has none of its own.)
+
+Commands: `CLIMB STAIRS`, `CLIMB UP` / `DOWN STAIRS`, `GO UP` / `DOWN STAIRS`, `WALK UP` / `DOWN STAIRS`, `ASCEND` / `DESCEND [STAIRS]`, `TAKE STAIRS`, `USE STAIRS`. `UPSTAIRS` / `DOWNSTAIRS` (also `GO UPSTAIRS`) are `UP` / `DOWN` everywhere. Bare `ASCEND` / `DESCEND` (and `CLIMB UP` / `CLIMB DOWN`) are `UP` / `DOWN` too, except where there's no exit that way but there are stairs:
+then the stairs (the Key Door Landing's `ASCEND` goes north; the Tale and Ale's `DESCEND` gets *The stairs only go up.*).
+- With a direction, the stairs go that way if they can; the exit then answers as usual (a flooded cellar is still deadly).
+- Without one, they go the only way they go. Where they run both ways: *Up or down?* (no turn, as `TURN DIAL`; `UP` or `DOWN` is the answer).
+- The wrong way: *The stairs only go up.* / *The stairs only go down.*
+- `EXAMINE STAIRS`: *The stairs lead up.* / *The stairs lead down.* / *The stairs lead up and down.*
+
+**Places.** `ENTER [place]`, `GO INTO` / `GO IN` / `GO THROUGH [place]` take the way into a place named in the room. Bare `ENTER` / `IN` use the room's one place, if it has one.
+- Roundabout Forest: the mine (`MINE`, `MINE ENTRANCE`, `MOUTH`) — `DOWN`. `EXAMINE MINE`: the room's own sentence, *The mine entrance sits among the roots and undergrowth, a dark mouth leading down into the ground — easy to miss if you don't know to look.*
+- Charnel Walk: the crypt and the arch — `UP` (playtest: `ENTER CRYPT` and `GO THROUGH ARCH` both failed there). `EXAMINE ARCH`: *A low arch of older stone, its keystone worn smooth. Beyond it, steps climb up into the crypt.*
+- Other buildings and places (tavern, lighthouse, church…): TODO #23.
+
+**Windows** (2026-10-14; a tester's `LOOK OUT WINDOW` wasn't understood). One "window" scenery object (also `WINDOWS`) in every room whose text has one: the Upstairs Hall, Guest Rooms 1 and 2, the Records Room, The Tower, the Church nave and the Lighthouse.
+- `LOOK OUT WINDOW`, `LOOK OUT OF WINDOW`, `LOOK THROUGH WINDOW` and `EXAMINE WINDOW` give that room's view (text in locations.md, under each room).
+- `OPEN` / `BREAK` / `CLIMB OUT WINDOW`: *The window doesn't open, and you're not about to start breaking things.*
 
 ---
 

@@ -71,11 +71,13 @@ To replace the .exe on an existing release (same tag), use `gh release upload vX
 
 A new build is an unsigned file nobody has run yet, and a PyInstaller one-file .exe unpacks Python into a temp folder when it starts. Some antivirus products flag that on sight.
 
-**What happened with v2.5 (2026-10-12):** Norton's Behavioral Protection quarantined the first test run of the new .exe as `IDP.HELU.PSD11` ("Threat type: Miscellaneous", "file risk: High", "Unknown" users and release). That's a generic heuristic plus no reputation, not a malware signature. The same file was already attached to the release. VirusTotal showed **3 of 68** engines flagging it. Shortly after, Norton was fine with it: its cloud analysis had cleared the file. No rebuild was needed.
+**What happened with v2.5 (2026-10-12):** Norton's Behavioral Protection quarantined the first test run of the new .exe as `IDP.HELU.PSD11` ("Threat type: Miscellaneous", "file risk: High", "Unknown" users and release). That's a generic heuristic plus no reputation, not a malware signature. The same file was already attached to the release. VirusTotal showed **3 of 68** engines flagging it.
+Shortly after, Norton was fine with it: its cloud analysis had cleared the file. No rebuild was needed.
 
 **When a new build gets flagged:**
 1. Check the hash on VirusTotal (`sha256sum`), or upload the .exe. The release asset is public anyway. A handful of engines (around 3 of 68) is the normal baseline for this build: leave it.
 2. Optionally, report each flagging engine as a false positive (each vendor has a submission form; Norton's is submit.norton.com).
-3. If many engines flag it (a dozen or more), the build method is the problem. Try a one-folder build shipped as a zip first: it runs without unpacking to temp, and it's one switch in `build_exe.py` (`--onedir` in place of `--onefile`). Rebuilding PyInstaller's bootloader from source helps only with static detection and needs a C compiler, which this machine doesn't have. Code-signing is the only fix for the reputation problem, and it costs money.
+3. If many engines flag it (a dozen or more), the build method is the problem. Try a one-folder build shipped as a zip first: it runs without unpacking to temp, and it's one switch in `build_exe.py` (`--onedir` in place of `--onefile`). Rebuilding PyInstaller's bootloader from source helps only with static detection and needs a C compiler, which this machine doesn't have.
+   Code-signing is the only fix for the reputation problem, and it costs money.
 
 Test runs of a new build may be quarantined. Keep the `dist\` copy, and run copies from `play\`.

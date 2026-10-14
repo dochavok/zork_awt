@@ -107,10 +107,24 @@ def aqueduct_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         else:
             print(_CHANNEL + _BLOCKS_STATE[_placed(w)] + " " + _BACK_NORTH)
         return M_HANDLED
-    if msg == M_BEG and w.prsa == "V-TAKE" and w.prso is w.objects["AQUEDUCT-BLOCKS"]:
+    if msg != M_BEG:
+        return M_NOT_HANDLED
+    blocks = w.objects["AQUEDUCT-BLOCKS"]
+    if w.prsa == "V-TAKE" and w.prso is blocks:
         print(_TOO_HEAVY)
         return M_HANDLED
+    if w.prso is blocks and w.prsa in _PLACE_VERBS:   # every way of saying PLACE BLOCKS
+        place_blocks(w)
+        return M_HANDLED
+    if w.prsa == "V-EXAMINE" and is_aqueduct_part(w.prso):
+        print(_WHOLE if w.get_global("AQUEDUCT-SEALED") else _BLOCKS_STATE[_placed(w)])
+        return M_HANDLED
     return M_NOT_HANDLED
+
+
+# PUT / LIFT / RAISE / HEAVE / REPLACE / MOVE / PUSH BLOCK, PUT BLOCK IN / ON GAP,
+# PUSH BLOCK INTO GAP (2026-10-14; playtest: only PLACE worked)
+_PLACE_VERBS = ("V-PLACE", "V-RAISE", "V-MOVE", "V-PUSH", "V-PUT-IN", "V-PUT-ON")
 
 
 def place_blocks(w: World) -> None:
@@ -184,6 +198,22 @@ _PROPPED = (
     "You wrestle the support beam upright and wedge it under the worst of the "
     "overhang. The creaking stops."
 )
+# The crowbar is the near miss, so it names the way: break them (2026-10-14)
+_CROWBAR_WONT = (
+    "You work the crowbar into a gap and heave. The timber doesn't so much as "
+    "creak. It's wedged too tight to pry; it'll have to be broken."
+)
+_TIMBERS = (
+    "Three heavy timbers, wedged across the passage at angles no collapse would "
+    "leave. The wood is old but solid. Too tight to pry loose; they'd have to come "
+    "down the hard way."
+)
+_TIMBERS_LEFT = (            # EXAMINE TIMBERS with one, then two, down (2026-10-14)
+    "Two timbers are still wedged across the passage; the third lies splintered on the "
+    "floor. The wood is old but solid.",
+    "One timber is left, wedged at an angle across the passage. The other two lie "
+    "splintered on the floor.",
+)
 
 
 def strike_timber(w: World) -> None:
@@ -240,7 +270,34 @@ def gallery_action(w: World, msg: int = M_NOT_HANDLED) -> int:
             print(_FLOOD)
         print(_GALLERY_BACK_NORTH)
         return M_HANDLED
+    if msg == M_BEG:
+        return _timber_beg(w)
     return M_NOT_HANDLED
+
+
+def _timber_beg(w: World) -> int:
+    """PRY / LEVER TIMBER (the pickaxe swings; the crowbar won't), USE CROWBAR ON
+    TIMBER, EXAMINE TIMBERS."""
+    timbers = w.objects["GALLERY-TIMBERS"]
+    down = int(w.get_global("TIMBERS-DOWN") or 0)
+    held = w.player.contents
+    pickaxe, crowbar = w.objects["PICKAXE"], w.objects["CROWBAR"]
+    if w.prsa == "V-EXAMINE" and w.prso is timbers:
+        print(_NO_TIMBERS if down >= 3 else (_TIMBERS, *_TIMBERS_LEFT)[down])
+        return M_HANDLED
+    pry = w.prsa == "V-PRY" and w.prso is timbers
+    use_crowbar = w.prsa == "V-USE" and w.prso is crowbar and w.prsi is timbers
+    if not (pry or use_crowbar):
+        return M_NOT_HANDLED
+    if down >= 3:
+        print(_NO_TIMBERS)
+    elif pry and pickaxe in held and w.prsi in (None, pickaxe):
+        strike_timber(w)
+    elif use_crowbar or (crowbar in held and w.prsi in (None, crowbar)):
+        print(_CROWBAR_WONT)
+    else:
+        return M_NOT_HANDLED
+    return M_HANDLED
 
 
 class _GalleryEast(Exit):

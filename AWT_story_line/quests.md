@@ -202,7 +202,7 @@ Both quests are discovered at the statue (`LOOK AT STATUE`, or prying it open) a
 **Steps:**
 1. Find the Collapsed Aqueduct (Dungeon Upper Tier — south of the Storage Area).
 2. Three fallen stone blocks lie in the room under the gap.
-3. `PLACE BLOCKS` three times — one Medium strength check each (a failure makes no progress, no damage).
+3. `PLACE BLOCKS` three times — one Medium strength check each (a failure makes no progress, no damage). `PUT` / `LIFT` / `RAISE` / `HEAVE` / `REPLACE` / `MOVE` / `PUSH BLOCK` work the same (locations.md — Collapsed Aqueduct).
 4. Seal joints with mortar from Supply Room (`SEAL JOINTS WITH MORTAR`; mortar used up) → aqueduct restored.
 Until sealed, the spill floods the far end of the Collapsed Gallery — the Quest 38 shortcut to the Rickety Bridge also needs this quest.
 
@@ -324,7 +324,8 @@ Going `DOWN` into the cellar before it's drained, or opening the tunnel door fro
 
 Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Cart and gravestone text is in `items.md`; the Bog-SE and Graveyard text is in `locations.md`.
 
-**Reward interaction:** *"I went out to the cemetery this morning," Rowan says. "Grandfather's stone is back where it belongs." Then, flatly: "That cart you left by the grave came from the dungeon. Don't bother denying it — I've seen it before, in my grandfather's papers." He studies you for a moment. "He left a key. Said it led to a lower level — wouldn't say what was down there." He holds it out. "Take it. It was never meant for me."*
+**Reward interaction:** *"I went out to the cemetery this morning," Rowan says. "Grandfather's stone is back where it belongs." Then, flatly: "That cart you left by the grave came from the dungeon. Don't bother denying it — I've seen it before, in my grandfather's papers." He studies you for a moment. "He left a key. Said it led to a lower level — wouldn't say what was down there."
+He holds it out. "Take it. It was never meant for me."*
 
 **Reward:** Middle Tier Key — opens Mid-Tier Key Door, gates access to key side of mid-tier dungeon. 5 Zenni.
 
@@ -378,7 +379,7 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 **Steps:**
 1. Find Collapsed Gallery (east branch off Ink Corridor — Storage Area → Collapsed Aqueduct → Collapsed Gallery).
 2. Get pickaxe from mine.
-3. Three strength checks (**Hard, 14**, retries allowed) — one per main timber. After each success, another loosens. Commands: `USE PICKAXE ON TIMBER`, `HIT` / `CHOP` / `BREAK TIMBER (WITH PICKAXE)`.
+3. Three strength checks (**Hard, 14**, retries allowed) — one per main timber. After each success, another loosens. Commands: `USE PICKAXE ON TIMBER`, `HIT` / `CHOP` / `BREAK` / `PRY` / `LEVER TIMBER (WITH PICKAXE)`. The crowbar won't do (locations.md — Collapsed Gallery).
 4. After clearing all three, prop passage with support beam (`USE SUPPORT BEAM`, `PROP PASSAGE WITH BEAM`, `PUT BEAM` in the Gallery). The way east opens only once it's propped. Quest 38 completes then. Text in locations.md (Collapsed Gallery).
 
 **Reward:** Permanent shortcut — passage exits into Rickety Bridge, placing player between Shrine Room and Mid-Tier Key Door, bypassing everything above. Significantly speeds dungeon traversal. 5 Zenni.
@@ -481,8 +482,11 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
    - Success: *You lay the three pieces out and work the adhesive into every edge, pressing them together one at a time. The seams hold. The etched line runs unbroken from one piece to the next, all the way around. It's a bowl again — not a pretty one, but whole.*
    - Missing pieces: *You don't have all of it. Some of the bowl is still out there.*
    - No adhesive: *The pieces fit, but nothing holds them together.*
-6. Return to shrine → `PUT BOWL ON PEDESTAL` — shrine does not respond. Text: *"The bowl is placed. The shrine is unmoved. Devotion is appreciated. Contributions pay the bills."*
-7. `PUT ZENNI ON PEDESTAL` (or `OFFER ZENNI`, `DROP ZENNI`; `COIN` also accepted) — costs 1 Zenni → transformation text fires → bowl becomes The Crystal Bowl (ring ritual artifact). Quest 49 completes. `TAKE BOWL` to pick it up.
+6. Return to shrine → `PUT BOWL ON PEDESTAL` (also `IN`; `SHRINE` works for `PEDESTAL`). Text: *The bowl settles into place. Nothing happens, but the quiet has changed. It feels like the shrine is waiting for an offering.*
+   - (2026-10-14: was *"The bowl is placed. The shrine is unmoved. Devotion is appreciated. Contributions pay the bills."*, which the playtester read as a brush-off; "unmoved" suggested a wrong move.)
+   - Already placed: *The bowl is already on the pedestal.* While it sits there it can't be taken implicitly (no "(Taken)" from `PUT BOWL IN SHRINE`); only `TAKE BOWL` lifts it off.
+7. `PUT ZENNI ON PEDESTAL` (or `OFFER ZENNI`, `DONATE ZENNI`, `GIVE ZENNI TO SHRINE`, `DROP ZENNI`, bare `OFFER` / `DONATE`, `PUT ZENNI IN BOWL` / `IN SHRINE` / `IN PEDESTAL`; `COIN` also accepted) — costs 1 Zenni → transformation text fires → bowl becomes The Crystal Bowl (ring ritual artifact). Quest 49 completes. `TAKE BOWL` to pick it up.
+   - The in-bowl and bare forms were added 2026-10-14 (playtest: `put zenni in bowl` was the most natural phrasing). `PUT ZENNI IN BOWL` counts only while the bowl is on the pedestal.
    - No bowl on the pedestal (the Zenni is still taken): *The coin settles on the pedestal and stays there. The shrine accepts contributions at any time.*
    - No Zenni: *You don't have a coin to offer.*
    - "Zenni" is only an object at the shrine — elsewhere the player's money is a count, not an item.
@@ -610,7 +614,8 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 1. Speak to the Redcrosse Knight in the Town Square. He acknowledges the player and invites them to return when ready.
 2. Initiate the trial — `FIGHT KNIGHT` or `CHALLENGE KNIGHT`. Full combat begins.
 3. Combat runs until one side reaches 1 heart. The Knight stops the fight before the killing blow in either direction.
-   - **Mechanics:** `FIGHT`/`CHALLENGE`/`KILL KNIGHT` starts the trial (he draws); each further attack is one round (mechanics.md — Combat). The Knight rolls 2d8 and has 4 hearts (three hits bring him to 1). Hearts the player loses are real. If a tie brings both sides to 1 heart, the player wins. He won't start a trial while the player is at 1 heart. Fireball does nothing in the trial (his line in npcs.md). Leaving the square abandons a trial in progress; the next starts fresh.
+   - **Mechanics:** `FIGHT`/`CHALLENGE`/`KILL KNIGHT` starts the trial (he draws); each further attack is one round (mechanics.md — Combat). The Knight rolls 2d8 and has 4 hearts (three hits bring him to 1). Hearts the player loses are real. If a tie brings both sides to 1 heart, the player wins. He won't start a trial while the player is at 1 heart.
+     Fireball does nothing in the trial (his line in npcs.md). Leaving the square abandons a trial in progress; the next starts fresh.
    - Speaking to him (Level 3+) discovers the quest; so does starting the trial.
    - **Player loses (reaches 1 heart):** *"He steps back and lowers his weapon. 'You fought well enough to keep your feet. That's not nothing.' He studies you for a moment. 'Come back. I'll be here.'"* Quest remains open — retryable.
    - **Player wins (Knight reaches 1 heart):** *"He holds still for a moment after you land the deciding blow. Then something in his posture shifts — subtle, but real. 'Good, [Name],' he says. Just that. He sheathes his weapon and nods toward an open space in the square. 'Again — this time I'll show you what you did right.'"*
@@ -662,7 +667,8 @@ Rowan's dialogue states (start, in progress, reward, after) are in `npcs.md`. Ca
 2. **Trial 1 — The Riddle Stone** (Haalvar's Hut, north): Answer Haalvar's riddle. *"I have no legs but travel far. I have no mouth but swallow ships. I have no hands but I will take everything you own if you let me. What am I?"* Correct answer: `SEA`. Retryable on wrong answer.
 3. **Trial 2 — The Ritual Circle** (south of Encampment): Activate five elemental stones in correct order — Earth → Air → Fire → Water → Heart. Clue: `LOOK AT BANNER` in the Encampment reveals the first four. Heart stone is always last. Resets on wrong order.
    Trials 1 and 2 may be done in either order.
-4. **Trial 3 — The Drinking Challenge** (The Fire Pit, west): Must be last — Aylora won't start until Trials 1 and 2 are done. Best of five rounds of Thornbrew drinking against Aylora — strength-based challenge rolls. Warriors get a class bonus. Player wins when Aylora passes out; a nearby Viking says Ivanaar won't believe it unless he sees it. `TAKE AYLORA` or `DRAG AYLORA`, then drag her back to the Encampment to trigger Ivanaar's reaction. Returning without her, Ivanaar says he'll believe it when he sees it (locations.md — Ivanaar states).
+4. **Trial 3 — The Drinking Challenge** (The Fire Pit, west): Must be last — Aylora won't start until Trials 1 and 2 are done. Best of five rounds of Thornbrew drinking against Aylora — strength-based challenge rolls. Warriors get a class bonus. Player wins when Aylora passes out; a nearby Viking says Ivanaar won't believe it unless he sees it.
+   `TAKE AYLORA` or `DRAG AYLORA`, then drag her back to the Encampment to trigger Ivanaar's reaction. Returning without her, Ivanaar says he'll believe it when he sees it (locations.md — Ivanaar states).
    - **Player loses:** Wakes in the Encampment two turns later. Retryable.
 5. Ivanaar awards the runed metal after witnessing Aylora returned.
 

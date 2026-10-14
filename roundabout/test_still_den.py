@@ -15,6 +15,8 @@ from contextlib import contextmanager
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
+import pytest
+
 from test_knight import _make_world, _do
 
 _BASE = ("A wide cave, low but not cramped. The walls are gouged at every height — long "
@@ -220,3 +222,81 @@ def test_return_after_the_kill_follows_brief_mode():
     assert "The Still Den" in out
     assert DEAD not in out and UP not in out and RISES not in out
     assert DEAD in _do(g, "look")
+
+
+# --- The stake by any name; the melee line names its weapon (TODO #15, 2026-10-14) ---
+
+MELEE = ("{} finds its mark. The creature doesn't notice. It turns toward you with the "
+         "patience of something that has been waiting a very long time.")
+NUDGE = " The stake at your belt feels heavier."
+PLAIN_STAKE = ("The stake pierces flesh. The werewolf snarls — pain, but not the right kind. "
+               "It pulls free and the wound closes. You need something more than silver.")
+STAKE_IN_HIM = ("It stands out of his chest, the silver gone dull. Whatever it was holding "
+                "down, it's holding it still.")
+DARE_NOT = "You dare not remove it."
+
+
+def _den(consecrated=True):
+    """In the Still Den, the werewolf up, the stake carried."""
+    w, g = _pass(hearts=9)
+    w.set_global("STAKE-CONSECRATED", consecrated)
+    _do(g, "east")
+    return w, g
+
+
+@pytest.mark.parametrize("command", [
+    "attack werewolf with stake", "kill werewolf with stake", "stab werewolf with stake",
+    "hit werewolf with stake", "use stake on werewolf", "put stake in werewolf",
+    "push stake into werewolf", "thrust stake into werewolf", "plunge stake into werewolf",
+    "stake werewolf", "stake the werewolf",
+])
+def test_every_stake_phrasing_drives_it_home(command):
+    w, g = _den()
+    _do(g, command)
+    assert w.get_global("WEREWOLF-DEAD")
+
+
+@pytest.mark.parametrize("command", ["stab werewolf with stake", "use stake on werewolf",
+                                     "stake werewolf"])
+def test_unconsecrated_stake_by_any_name_still_fails(command):
+    w, g = _den(consecrated=False)
+    with _always_hit():
+        out = _do(g, command)
+    assert PLAIN_STAKE in out
+    assert not w.get_global("WEREWOLF-DEAD")
+    assert CLAWS in out                                # still that turn's round
+
+
+def test_melee_empty_handed_is_a_fist():
+    w, g = _den()
+    w.move_object(w.objects["SILVER-STAKE"], None)
+    out = _do(g, "attack werewolf")
+    assert MELEE.format("Your fist") in out
+    assert "blade" not in out and NUDGE.strip() not in out
+
+
+def test_melee_names_the_weapon_used():
+    w, g = _den()
+    w.move_object(w.objects["SILVER-STAKE"], None)
+    w.move_object(w.objects["MACE"], w.player)
+    assert MELEE.format("Your mace") in _do(g, "attack werewolf with mace")
+
+
+@pytest.mark.parametrize("command", ["attack werewolf", "stab werewolf", "kill werewolf"])
+def test_melee_with_the_stake_carried_nudges(command):
+    w, g = _den()
+    out = _do(g, command)
+    assert MELEE.format("Your fist") + NUDGE in out
+    assert not w.get_global("WEREWOLF-DEAD")
+
+
+def test_the_stake_stays_in_the_scholar():
+    w, g = _killed()
+    stake = w.objects["SILVER-STAKE"]
+    assert stake.location is w.here
+    assert DARE_NOT in _do(g, "take stake")
+    assert DARE_NOT in _do(g, "pull stake")
+    assert STAKE_IN_HIM in _do(g, "examine stake")
+    _do(g, "take all")
+    assert stake.location is w.here
+    assert "silver stake" not in _do(g, "look").replace("the stake still in him", "")
