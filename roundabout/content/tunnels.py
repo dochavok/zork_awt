@@ -151,6 +151,7 @@ def give_charter(w: World) -> None:
     from content import quests
     print(_EVICTED)
     w.set_global("BOGGART-GONE", True)
+    w.ways_changed("TOLL-BRIDGE")
     w.move_object(w.objects["BOGGART"], None)
     w.move_object(w.objects["STRONGBOX"], w.rooms["TOLL-BRIDGE"])
     quests.complete(w, "27")

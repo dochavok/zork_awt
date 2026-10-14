@@ -94,6 +94,7 @@ def alcove_action(w: World, msg: int = M_NOT_HANDLED) -> int:
             and not w.get_global("ALCOVE-OPEN")):
         print(_ANSWERED)
         w.set_global("ALCOVE-OPEN", True)
+        w.ways_changed("TOOL-ALCOVE")
         return M_HANDLED
     if (w.prsa == "V-EXAMINE" and w.prso is wall) or w.prsa == "V-LISTEN":
         if w.get_global("ALCOVE-OPEN"):

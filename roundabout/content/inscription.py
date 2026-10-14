@@ -176,6 +176,7 @@ def chamber_action(w: World, msg: int = M_NOT_HANDLED) -> int:
             if check_perception(w, MEDIUM):
                 w.set_global("INSCRIPTION-SNARE-SPOTTED", True)
                 w.set_global("CRAWLSPACE-FOUND", True)
+                w.ways_changed("INSCRIPTION-CHAMBER")
                 _rogue_xp(w, 3)
             else:
                 w.set_global("SNARE-PENDING", True)   # fires after the description
@@ -207,6 +208,7 @@ def on_enter(w: World, room) -> None:
         return
     w.set_global("SNARE-PENDING", False)
     w.set_global("SNARE-FIRED", True)
+    w.ways_changed("INSCRIPTION-CHAMBER")      # the crawlspace, revealed
     w.set_global("SNARE-HANGING", True)
     w.set_global("CRAWLSPACE-FOUND", True)
     print(_SNARE_FIRES)

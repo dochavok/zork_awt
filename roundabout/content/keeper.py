@@ -103,6 +103,7 @@ def unlock_door(w: World) -> None:
         return
     print(_UNLOCKED)
     w.set_global("KEEPER-DOOR-UNLOCKED", True)
+    w.ways_changed("CHURCH-NAVE")
     w.move_object(keys, w.objects["KEEPER-DOOR"])   # stays in the lock
 
 

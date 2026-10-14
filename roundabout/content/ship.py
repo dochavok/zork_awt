@@ -85,8 +85,9 @@ _ABOARD = frozenset({
 def on_enter(w: World, room: Room) -> None:
     """Enter hook: arm the map check when the player comes aboard; mark the
     ship away from harbor once it reaches open water."""
-    if room.name in _ABOARD and room.name != "SHIP-DECK":
+    if room.name in _ABOARD and room.name != "SHIP-DECK" and not w.get_global("SHIP-AWAY"):
         w.set_global("SHIP-AWAY", True)
+        w.ways_changed("SHIP-DECK")            # no longer at the docks
     if room.name in _ABOARD and not w.get_global("MAP-FOUND"):
         ensure_map_clock(w)
         event = w.game.clock.get("map-clock")

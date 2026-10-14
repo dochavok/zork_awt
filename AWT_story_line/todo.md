@@ -77,3 +77,13 @@ Review the trap's difficulty against the levels players actually arrive at (trap
   - `DISARM PORTCULLIS` gives *"There's nothing here to disarm."*, `SEARCH` doesn't re-check, `EXAMINE PORTCULLIS` gives *"You see nothing special about the portcullis."*, and every `LIFT` shocks (1 heart, a lost turn).
   - The north route to the Shrine Room is then closed for good; only the Quest 38 shortcut (Collapsed Gallery → Rickety Bridge) gets past. traps.md says the disarm check is one of the "ways to pass", which implies it can be retried.
   - Fix with the other two: e.g. allow `DISARM PORTCULLIS` (and SEARCH) to retry once the charge is known — the room text's crackle line already tells every player it's charged.
+
+### TODO #18 — The ring: warnings come too late to budget invisibility (found 2026-10-13)
+
+From the 2026-10 playtest (`roundabout_playtest/feedback-2026-10-12.md`: "The ring's growing 'presence' is good foreshadowing", "The ring's countdown on the way out was excellent", "The ring's 'you can't take it off' game over is random").
+The playtester didn't get enough early warning, didn't take the ring off soon enough, and ran short of corruption ticks in the end game, where invisibility is needed (the Spirit Room).
+- What they saw: the first hint is at tick 10 of 50 and the next at 25. They couldn't tell whether there was a real cost, or that the timer pauses but never resets (feedback: "I'd still like a hint that the timer doesn't reset when I take the ring off").
+- The removal rolls at ticks 41–49 felt random: the same `REMOVE RING` from the same save gave a game over about 2 times in 3 ("A random game over isn't something a player can learn from").
+- **Constraint:** corruption is sacred (mechanics.md — The God-Forsaken Ring). Nothing here may reduce, slow or mitigate it; the 50-tick budget stays. Only what the player is told, and when, is open.
+- Options to weigh: an early, explicit warning that each wearing spends from one budget (Will, before or after the ring is handed over: e.g. "each time you wear it, it takes less time to take hold"); earlier or more frequent milestone lines; a line on each `REMOVE RING` that hints how far it has gone; and whether the 41–49 window should end on a clear point of no return rather than a roll.
+- Also review where the game needs invisibility (Chuckle House, Spirit Room and back, the Burial Chamber) against 50 ticks, so a careful player can plan the budget.

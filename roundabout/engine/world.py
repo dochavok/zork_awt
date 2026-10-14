@@ -467,6 +467,16 @@ class World:
     def set_global(self, name: str, value: object) -> None:
         self.globals[name] = value
 
+    def ways_changed(self, *room_names: str) -> None:
+        """A way out of these rooms opened, closed or was found: the next
+        arrival shows the full description, even in BRIEF (mechanics.md —
+        Room Descriptions Name Their Exits). Called during M_ENTER, it covers
+        the arrival in progress."""
+        for name in room_names:
+            room = self.rooms.get(name)
+            if room is not None:
+                room.visited = False
+
     def flag_set(self, obj_name: str, flag: str) -> bool:
         """Convenience: check a named object's flag (used in Exit conditions)."""
         obj = self.objects.get(obj_name)

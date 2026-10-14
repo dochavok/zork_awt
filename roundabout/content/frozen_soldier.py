@@ -123,6 +123,7 @@ def passage_action(w: World, msg: int = M_NOT_HANDLED) -> int:
             and vial in w.player.contents and not w.get_global("POOL-FROZEN")):
         w.move_object(vial, None)            # used up
         w.set_global("POOL-FROZEN", True)
+        w.ways_changed("FLOODED-PASSAGE")
         print(_FREEZE)
         return M_HANDLED
     if not w.get_global("POOL-FROZEN") and (

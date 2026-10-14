@@ -143,6 +143,7 @@ def light_lantern(w: World) -> None:
     lantern.clear_flag(TAKEBIT)
     w.move_object(lantern, w.here)
     w.set_global("LANTERN-HUNG", True)
+    w.ways_changed("DARK-ROOM")
     print(_REVEAL)
 
 

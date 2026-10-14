@@ -32,6 +32,7 @@ def bedroom_door_check(w) -> bool:
     if not check_perception(w, EASY):
         return False
     w.set_global("BEDROOM-DOOR-VISIBLE", "pending")
+    w.ways_changed("WIZARDS-TOWER")
     return True
 
 

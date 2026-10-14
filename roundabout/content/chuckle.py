@@ -187,6 +187,7 @@ def free_ghost(w: World) -> bool:
         return False
     print(_GHOST_FREED)
     w.set_global("GHOST-FREED", True)    # mirrors stop repelling everywhere
+    w.ways_changed("CHUCKLE-ENTRANCE", "REJECTION-MIRROR", "SHATTER-TRAP-MIRROR")
     w.move_object(w.objects["GHOST"], None)
     w.move_object(w.objects["POCKET-WATCH"], w.rooms["GHOSTS-ROOM"])
     return True

@@ -234,6 +234,7 @@ def take_idol(w: World) -> bool:
     w.move_object(idol, w.player)
     idol.clear_flag(NDESCBIT)
     w.set_global("IDOL-DOOR-SHUT", True)
+    w.ways_changed("IDOL-ROOM")
     print(_SLAM)
     return True
 
@@ -271,6 +272,7 @@ def pry_idol_door(w: World) -> None:
     from content.perception import MEDIUM
     if check_strength(w, MEDIUM):
         w.set_global("IDOL-DOOR-SHUT", False)
+        w.ways_changed("IDOL-ROOM")
         print(_PRIED)
     else:
         print(_PRY_FAILED)

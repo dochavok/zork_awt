@@ -231,6 +231,7 @@ def use_bar(w: World) -> bool:
         return True
     w.set_global("PORTCULLIS-HELD", None)
     w.set_global("PORTCULLIS", "propped")
+    w.ways_changed("PORTCULLIS-CORRIDOR")
     w.move_object(w.objects["PORTCULLIS-BAR"], None)   # stays in the portcullis
     print(_PROPPED_FROM_SOUTH if _side(w) == "south" else _PROPPED)
     return True
@@ -334,6 +335,7 @@ def unlock_key_door(w: World) -> None:
         return
     print(_KEY_TURNS)
     w.set_global("KEY-DOOR-UNLOCKED", True)
+    w.ways_changed("MID-TIER-KEY-DOOR")
     w.move_object(key, w.objects["MID-TIER-DOOR"])   # stays in the lock
 
 

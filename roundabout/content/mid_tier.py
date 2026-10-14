@@ -182,6 +182,7 @@ def _dig(w: World) -> None:
         return
     print(_DUG)
     w.set_global("STORED-ROOM-DUG", True)
+    w.ways_changed("STORED-ROOM")
     w.game.apply_room_names()                        # now the Hole to Below
     w.objects["SUPPORT-TIMBER"].clear_flag("INVISIBLE")
     dig_note(w)
@@ -204,6 +205,7 @@ def _tie_rope(w: World) -> None:
         print(_TIED)
         rope = w.objects["ROPE"]
         w.set_global("ROPE-TIED", True)
+        w.ways_changed("STORED-ROOM")
         w.move_object(rope, w.here)
         rope.set_flag(NDESCBIT)      # the room description carries it
         rope.clear_flag(TAKEBIT)

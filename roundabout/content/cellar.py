@@ -191,6 +191,7 @@ def open_cellar_door(w: World) -> None:
         print("It's already open.")
         return
     w.set_global("CELLAR-DOOR-OPEN", True)
+    w.ways_changed("KITCHEN")
     if w.get_global("CELLAR-DRAINED"):
         print("The cellar door comes up. Stone steps lead down into the cellar.")
     else:
@@ -228,6 +229,7 @@ def clear_drain(w: World) -> None:
     from content import quests
     print(_DRAINED)
     w.set_global("CELLAR-DRAINED", True)
+    w.ways_changed("KITCHEN")
     w.move_object(w.objects["DRAIN"], w.rooms["CELLAR"])
     w.objects["CASHBOX"].clear_flag("INVISIBLE")
     quests.complete(w, "25")
@@ -264,6 +266,7 @@ def open_tunnel_door(w: World) -> None:
         _game_over(w, _DROWN_TUNNEL)
         return
     w.set_global("TUNNEL-DOOR-OPEN", True)
+    w.ways_changed("CELLAR", "BONE-PASSAGE")
     print(_TUNNEL_OPENED_BONE if w.here.name == "BONE-PASSAGE" else _TUNNEL_OPENED_CELLAR)
 
 

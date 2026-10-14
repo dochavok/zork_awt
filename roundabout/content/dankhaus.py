@@ -77,6 +77,7 @@ def path_check(w: World) -> bool:
     if not check_perception(w, MEDIUM):
         return False
     w.set_global("DANKHAUS-PATH-FOUND", True)
+    w.ways_changed("BOG-SE")
     w.set_global("DANKHAUS-PATH-JUST-FOUND", True)
     w.objects["DANKHAUS"].clear_flag("INVISIBLE")
     return True
@@ -402,4 +403,5 @@ def _bonk(w: World) -> None:
     w.set_global("LITLOCK-TIER", None)
     w.set_global("LITLOCK-BONKED", True)
     w.set_global("CHUCKLE-HOUSE-VISIBLE", True)
+    w.ways_changed("GRAVEYARD")                # the Chuckle House, east
     quests.complete(w, "52")

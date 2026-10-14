@@ -47,4 +47,6 @@ def reveal_exit_if_found(world: "World", difficulty: int, flag_key: str) -> bool
     if not check_perception(world, difficulty):
         return False
     world.globals[flag_key] = True
+    if world.here is not None:
+        world.ways_changed(world.here.name)   # found on arrival: this description is full
     return True

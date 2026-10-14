@@ -380,6 +380,7 @@ def _dig(w: World) -> None:
         print(_NO_SHOVEL)
         return
     w.set_global("TUNNEL-DUG", True)
+    w.ways_changed("LOST-APPRENTICES-CELL")
     print(_DIG)
 
 

@@ -148,6 +148,7 @@ def ensure_fuse_clock(w: World) -> None:
 
 def _explode(w: World) -> bool:
     w.set_global("MINE-BLOWN", True)
+    w.ways_changed("MINE-ENTRANCE", "MAIN-SHAFT")
     w.set_global("PIE-RATS-GONE", True)
     w.move_object(w.objects["GUNPOWDER"], None)
     if w.here is not None and w.here.name in INSIDE:

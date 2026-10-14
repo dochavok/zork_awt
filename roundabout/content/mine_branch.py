@@ -52,7 +52,9 @@ class _GapExit(Exit):
 
 def hidden_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_ENTER:
-        w.set_global("ASSAY-GAP-FOUND", True)   # found from the tunnel side
+        if not w.get_global("ASSAY-GAP-FOUND"):
+            w.set_global("ASSAY-GAP-FOUND", True)   # found from the tunnel side
+            w.ways_changed("ASSAY-ROOM")
     return M_NOT_HANDLED
 
 
@@ -66,6 +68,7 @@ def on_enter(w: World, room) -> bool:
     if not check_perception(w, MEDIUM):
         return False
     w.set_global("ASSAY-GAP-FOUND", True)
+    w.ways_changed("ASSAY-ROOM")
     print(_GAP_FOUND)
     return True
 

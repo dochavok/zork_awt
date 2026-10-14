@@ -173,6 +173,7 @@ def clear_bones(w: World) -> None:
     from content.experience import award_xp
     print(_CLEARED)
     w.set_global("BONES-CLEARED", True)
+    w.ways_changed("ANTECHAMBER")
     award_xp(w, 3 + (5 if w.globals.get("player_class") == "rogue" else 0))
 
 

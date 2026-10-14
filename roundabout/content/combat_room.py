@@ -118,6 +118,7 @@ def _disarmed(w: World) -> None:
 
 def _fire_plate(w: World) -> None:
     w.set_global("PLATE-STATE", "fired")
+    w.ways_changed("COMBAT-ROOM")              # the Den door is open now
     print(_BELL)
     print(_WARDEN_EMERGES)
     w.set_global("WARDEN-OUT", True)

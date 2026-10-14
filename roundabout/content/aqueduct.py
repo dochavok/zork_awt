@@ -146,6 +146,7 @@ def seal(w: World) -> None:
     print(_SEALED)
     w.move_object(mortar, None)            # used up
     w.set_global("AQUEDUCT-SEALED", True)
+    w.ways_changed("COLLAPSED-AQUEDUCT", "COLLAPSED-GALLERY", "RICKETY-BRIDGE")
     w.set_global("FOUNTAIN-RUNNING", True)
     w.set_global("FOOD-DISCOUNT", True)    # Quest 22 reward: Bar food, drink and stew 1 Zenni
     quests.complete(w, "22")
@@ -200,6 +201,8 @@ def strike_timber(w: World) -> None:
         return
     print(_TIMBER_DOWN[down])
     w.set_global("TIMBERS-DOWN", down + 1)
+    if down + 1 >= 3:
+        w.ways_changed("COLLAPSED-GALLERY")
 
 
 def prop_passage(w: World) -> None:
@@ -214,6 +217,7 @@ def prop_passage(w: World) -> None:
     beam.set_flag("NDESCBIT")          # the cleared description carries it
     beam.clear_flag("TAKEBIT")
     w.set_global("TIMBERS-CLEARED", True)
+    w.ways_changed("COLLAPSED-GALLERY", "RICKETY-BRIDGE")
     print(_PROPPED)
     from content import quests
     quests.discover(w, "38")
