@@ -1,7 +1,7 @@
 # Roundabout: The God-Forsaken Ring — Open Design Questions
 
 Consolidated from all source files. Update this file when items are resolved; record the resolution and the source file where it was written.
-Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16).
+Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14).
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 
@@ -10,15 +10,6 @@ Resolved items are removed; their history is in git (last full lists: commit 7ee
 ### TODO #10 — Pre-release antivirus steps in operations.md (found 2026-10-12)
 
 A player using ESET couldn't open the v2.5 .exe (permission error, most likely quarantine). The .exe was uploaded to VirusTotal afterwards; waiting to hear whether their next download gets through. Once known, add to operations.md (Antivirus false positives) whichever steps actually helped: e.g. uploading each new build to VirusTotal before announcing it, and submitting false positives to the engines that flag it (ESET: in-product Tools → Submit sample for analysis, or samples@eset.com).
-
-### TODO #14 — Revealed connections are hidden by BRIEF mode (found 2026-10-12)
-
-From the 2026-10 playtest (`roundabout_playtest/feedback-2026-10-12.md`, "Litlock's 'see things differently' reveals a building in the graveyard, but brief mode hides it").
-When an exit appears in a room the player has already visited, BRIEF mode (the default) shows only the room name on the next visit, so the line announcing the new way on is never seen.
-The Graveyard after Litlock's reveal (the Chuckle House, east) is the reported case.
-Others to check: perception-found connections (the volcano stairs, Will's bedroom door in the Wizard Tower, the Dankhaus path, the Hidden Secondary Entrance from the mine side), and state changes that open a way (the Tool Alcove wall, the frozen Flooded Passage, the Stored Room hole, the Rickety Bridge west shortcut, the Keeper's door).
-The Wizard Tower's bedroom door (2026-10-13): the find line shows in every mode, but its lasting line (*"A door in the north wall stands where you'd have sworn there wasn't one."*) is in the long description only.
-Decide on one rule — e.g. the first visit after a room's exits change shows the full description — and record it in mechanics.md (Description modes).
 
 ### TODO #15 — Parser and scenery items noted during the exits pass (found 2026-10-12)
 
