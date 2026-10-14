@@ -1232,6 +1232,13 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 - An item on the floor shows its first-sight line until it has been in the player's hands (taken, bought or handed over), then its own line, else *There is a/an [item] here.*
 - Plural names: *There are [item] here.* (lockpicks, Apprentice's Gloves, Bartender's Boots).
 - Mass names: *There is some [item] here.* (charcoal, silver dust, bog thyme, fire clay, clay adhesive, enchanted honey, mortar compound, thin paper, runed metal).
+- **Anything that can be carried is listed wherever it's dropped** (2026-10-14, TODO #20). An item is left out of the listing only while it lies where its own room's text describes it:
+  - the hand cart and support beam in the Storage Area; the cart at the Graveyard once the gravestone is back; the beam propping the Collapsed Gallery;
+  - the gold pocket watch in the Crevice; the Crystal Bowl, Werewolf's Amulet and Pale Blade on the altar (the Crystal Bowl on the forest pedestal too).
+  - Before this, those items stayed hidden everywhere: a hand cart dropped on the Rickety Bridge vanished from LOOK (playtest), and a loaded cart hid Calder Finch's gravestone with it.
+  - A loaded cart dropped anywhere lists as its loaded examine line: *The cart sits low on its axle under Calder Finch's gravestone.* Empty: *There is a hand cart here.*
+- **"(Taken)" is a real TAKE** (2026-10-14). A verb that picks its object up first (`WEAR`, `DRINK`, `EAT`, `GIVE`, `PUT … IN` / `ON`, `SPRINKLE`, `REMOVE`) takes it the way `TAKE` does, so the room reacts as it would to `TAKE`: the Keeper's Chamber desk stops showing the vial after `DRINK HOLY WATER`, an altar artifact's glow goes out after `WEAR AMULET`, the weight limit applies.
+  - Its plain *You take the [item].* shows as *(Taken)*; any other line the take gives is kept. Refused (too heavy, fixed in place), the refusal shows and the command stops there.
 
 **`LISTEN` defaults** (decided 2026-10-05; where no room or object has its own line — the Whispering Jar and the Tool Alcove do):
 - Plain `LISTEN`: *You hear nothing out of the ordinary.*

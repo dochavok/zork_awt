@@ -256,6 +256,8 @@ def _place_objects(world) -> None:
     for room, (place, _way) in ways.PLACES.items():
         world.rooms[room].global_objects.append(place)
     world.global_filter = ways.global_filter
+    from content import listing                    # what a room's own text describes
+    world.listing_filter = listing.listing_filter
     # Surface scenery (content/scenery.py)
     from content import scenery
     for obj, room in (("TOWER-DESK", "WIZARDS-TOWER"), ("TOWER-PAPERS", "WIZARDS-TOWER"),

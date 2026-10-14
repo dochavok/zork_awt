@@ -287,6 +287,11 @@ class World:
         # stairs while the cellar door is shut): (world, room, obj) -> bool
         self.global_filter: Optional[Callable] = None
 
+        # Content may say a room's own text describes an object where it lies:
+        # (world, obj) -> True (don't list it), False (list it, NDESCBIT or not)
+        # or None (the flags decide).
+        self.listing_filter: Optional[Callable] = None
+
         # Score and turn counter
         self.score:     int = 0
         self.score_max: int = 350

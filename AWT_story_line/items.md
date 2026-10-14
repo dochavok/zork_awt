@@ -527,6 +527,8 @@ Carried like any item. While loaded:
 
 After the stone is back at the Graveyard the cart stays there (still takeable — nothing else uses it).
 
+**Listing** (2026-10-14, TODO #20; mechanics.md — Floor listings): the Storage Area's text describes it there, and the Graveyard's once the stone is back. Dropped anywhere else it's listed: *There is a hand cart here.*, or loaded, *The cart sits low on its axle under Calder Finch's gravestone.* (Before this it was never listed outside those two rooms, and a loaded cart hid the gravestone too.)
+
 ---
 
 ### Gravestone (Calder Finch)

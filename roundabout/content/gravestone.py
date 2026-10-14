@@ -170,6 +170,7 @@ def load(w: World) -> None:
         w.move_object(cart, w.player)   # you take the handles to push it
     print(_LOADED)
     w.move_object(stone, cart)
+    cart.ldesc = _EXAMINE_LOADED        # dropped loaded, its listing shows the stone
     w.set_global("CART-ROLLED", False)
 
 
@@ -179,6 +180,7 @@ def unload(w: World) -> None:
         print("There's nothing on the cart.")
         return
     here = w.here
+    cart.ldesc = ""                     # empty again: "There is a hand cart here."
     if here.name == "GRAVEYARD":
         print(_PLACED)
         w.move_object(stone, here)

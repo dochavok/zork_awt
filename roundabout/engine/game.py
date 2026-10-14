@@ -284,9 +284,13 @@ class Game:
         prsi = result.prsi[0] if result.prsi else None
 
         # Auto-take: ZIL ITAKE-CHECK — if syntax has TAKE and prso is not
-        # directly held, silently move it to inventory and print "(Taken)".
-        # Only applies when the object has TAKEBIT but not TRYTAKEBIT.
-        # Not for TAKE itself — the verb does its own taking and reporting.
+        # directly held, take it first and print "(Taken)". Only applies when
+        # the object has TAKEBIT but not TRYTAKEBIT. Not for TAKE itself.
+        # The take is a real V-TAKE (2026-10-14): the room's own TAKE handling
+        # runs (a description that stops covering it, a glow that goes out, the
+        # weight limit), so WEAR / DRINK / PUT can't skip it. Its plain
+        # "You take the X." becomes "(Taken)"; anything else it says is kept.
+        # Refused, the refusal shows and the command stops there.
         if (prso is not None
                 and result.action != "V-TAKE"
                 and result.syntax is not None
@@ -296,8 +300,21 @@ class Game:
                 and prso not in w.player.contents):
             from engine.world import TAKEBIT, TRYTAKEBIT
             if prso.has_flag(TAKEBIT) and not prso.has_flag(TRYTAKEBIT):
-                w.move_object(prso, w.player)
+                import io
+                import sys
+                from contextlib import redirect_stdout
+                buf = io.StringIO()
+                with redirect_stdout(buf):
+                    r = self.perform("V-TAKE", prso)
+                out = buf.getvalue()
+                if r == M_FATAL:
+                    sys.stdout.write(out)
+                    return M_FATAL
+                if prso not in w.player.contents:
+                    sys.stdout.write(out)          # refused: say why, go no further
+                    return M_HANDLED
                 print("(Taken)")
+                sys.stdout.write(out.replace(f"You take the {prso.desc}.\n", "", 1))
 
         return self.perform(result.action, prso, prsi)
 
@@ -523,7 +540,10 @@ class Game:
             for obj in list(container.contents):
                 if w.winner is not None and obj is w.winner:
                     continue
-                if obj.has_flag(INVISIBLE) or obj.has_flag(NDESCBIT):
+                if obj.has_flag(INVISIBLE):
+                    continue
+                described = w.listing_filter(w, obj) if w.listing_filter else None
+                if described is True or (described is None and obj.has_flag(NDESCBIT)):
                     continue
                 if depth == 0:
                     if not obj.touched and obj.fdesc:
