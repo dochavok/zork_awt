@@ -755,6 +755,23 @@ Also excluded: Guest Rooms 1–3 (Tale and Ale) — entered only by renting a ro
 
 ---
 
+## Room Descriptions Name Their Exits
+
+Decided 2026-10-12/13 (playtest 2026-10-12, theme 1: "exits and rooms the text never mentions"). Applies to every room; `roundabout/test_room_exits.py` checks each one.
+
+- **Name every exit the player can use now**, in the room's long description: a direction (*Passages lead north and south.*), or a direction plus what lies there (*the junction is back to the north*). Where an exit opens or closes with the story, the text follows the state (the portcullis, the Stored Room dig, the Tool Alcove wall).
+- **Room first, then exits, then people.** The exit line ends the room's own text, before any NPC line or item listing. Exception: where the room's last line is its beat (the Fountain Room's frozen figure, the Dungeon Entrance), the exit line goes earlier.
+- **Perception-hidden exits get no direction until found.** Before then, the direction answers *You can't go that way.*, the same as no exit at all. The found line names the direction (the Assay Room gap, the Inscription Chamber crawlspace, Will's bedroom door), and a found exit keeps a lasting line in the description (the Volcano stairs, the bedroom door).
+- **A way the text shows but the player can't take gets its own refusal**, never the generic one: the Lighthouse chain, the guest-room doors, the Deep Lock Door (*There is no south…*), the Spirit Room's shapes, the Rickety Bridge west.
+- **Don't assume where the player came from.** Avoid "behind you", "back toward", "deposits you", "the way you came" unless the room has only one way in, or the first arrival is always from that side.
+- **Don't name a person before the player has heard the name** (a role title like "the Archivist" is fine; "the Keeper" in the Lower Crypt is a deliberate exception: the title is the clue).
+- **A find announced on entry prints after the room description**, at the end of the turn, never above the room title.
+- **Deliberate exceptions** (no exit line by design):
+  - West of House (the mailbox is the way in); the Bog's interior, the Open Ocean and Land, Ho! (navigation is the puzzle); the Dark Room before the lantern (the dark is absolute).
+  - The Dream Corridor (its numbered choices are the navigation); the Still Den's first visit (the rising is the moment); the Wizard Tower's painting (it's described, not a direction); the Ghost's Room (a mirror maze: *the one real doorway, back the way you came*).
+
+---
+
 ## Hidden Connections (Phase 2 Only)
 
 Certain passages or connections between rooms are hidden and require a perception check to discover. Once discovered, they are permanently visible for that playthrough. Global rule — applies to any hidden connection anywhere in the world.
@@ -1055,7 +1072,7 @@ Chain:
 
 Echo Alcove (mid-tier key side) is a one-way acoustic listener. Same text every visit: *"A faint grinding drifts up from somewhere far below — bone on stone."*
 
-This sound originates from the Antechamber (lower tier) / Bone Crunch Floor Room — warning text there mirrors the echo: *"The sound is coming from beyond that doorway — bone grinding on stone, steady and unhurried. You get the distinct impression that silence is not optional here."*
+This sound originates from the Antechamber (lower tier) / Bone Crunch Floor Room — warning text there mirrors the echo: *"The sound is coming from beyond the south doorway — bone grinding on stone, steady and unhurried. You get the distinct impression that silence is not optional here."*
 
 No commands available in the Echo Alcove.
 

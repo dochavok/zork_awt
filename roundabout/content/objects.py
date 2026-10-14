@@ -1195,7 +1195,7 @@ def _make_mid_tier_objects(world) -> None:
         flags={TAKEBIT},
     ))
     world.register_object(GameObject(
-        name="DEEP-LOCK", desc="door", synonyms=["door"],
+        name="DEEP-LOCK", desc="door", synonyms=["door", "lock", "keyhole"],   # PICK LOCK: there isn't one
         adjectives=["sealed", "deep"], flags={NDESCBIT, SACREDBIT},
     ))
     world.register_object(GameObject(

@@ -63,7 +63,7 @@ _LANTERN_HUNG = "The lantern stays on its hook. It seems to belong there now."
 _SPIRITS_SEE = (
     "The room is silent. Shapes drift through it — sparse, irregular, neither here nor "
     "entirely anywhere. They are not human. They are not entirely not human. They take "
-    "note of you the moment you enter. The passages on either side are visible. "
+    "note of you the moment you enter. The passages north and south are visible. "
     "Getting to them is another matter."
 )
 _SPIRITS_IGNORE = (
@@ -112,7 +112,8 @@ _CHAMBER = (
     "by the look of them, rendered in a style no living hand in Roundabout would "
     "recognize. Niches hold candles that have not burned in centuries, wax melted flat "
     "and cold. {plinth} Everything in this room was arranged deliberately, long ago, by "
-    "people who are not coming back."
+    "people who are not coming back. The only way out is north, back through the shapes. "
+    "Whatever they were, they let you pass once — unseen. You'd like to keep it that way."
 )
 _PLINTH_MASK = "The plinth at the center holds the mask."
 _PLINTH_EMPTY = "The plinth at the center stands empty."

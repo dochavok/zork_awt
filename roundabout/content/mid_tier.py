@@ -33,10 +33,10 @@ if TYPE_CHECKING:
     from engine.world import World
 
 _LANDING = (
-    "The staircase deposits you in a rough cave at the bottom — low ceiling, "
-    "unworked stone, the kind of room that exists because something had to be at "
-    "the bottom of the stairs. The air is cooler here, damper. The passage "
-    "continues south."
+    "The staircase ends in a rough cave — low ceiling, unworked stone, the kind "
+    "of room that exists because something had to be at the bottom of the "
+    "stairs. The air is cooler here, damper. The passage continues south, and "
+    "the stairs climb back north to the iron door."
 )
 _MINE = (
     "A worked section of cave — support timbers at intervals, rusting tools left "
@@ -63,10 +63,17 @@ _CREVICE_WATCH = (
     "pocket watch on a chain."
 )
 _CREVICE_EMPTY = "One arm hangs back toward you, the finger empty now."
+_CREVICE_EXIT = "The only way out is back west."
+CREVICE_EAST = "The crack is far too narrow. He found that out."
 _TOO_WIDE = "The gap where the floor used to be is far too wide to cross."
 _STORED = (
     "The floor is packed tight with rubble — not the chaotic scatter of a cave-in, "
-    "but deliberate, careful fill. Someone put this here on purpose."
+    "but deliberate, careful fill. Someone put this here on purpose. A narrow "
+    "passage carries on east beyond it; the mine passage is back to the west."
+)
+_HOLE_EXITS = (
+    "The passage east is out of reach across the gap now. The mine passage is "
+    "back to the west."
 )
 _HOLE = (
     "Apparently the \"something\" being covered was a giant hole. The floor is "
@@ -78,7 +85,8 @@ _RUBBLE_PILE = (
     "The ceiling is a jagged wound — stone and packed earth hanging at the edge "
     "where the floor above used to be. Below that: the rubble that was the floor, "
     "now a rough-graded pile you're standing on. The air smells of disturbed "
-    "earth and something older underneath it. Passages lead north, east, and south."
+    "earth and something older underneath it. Passages lead north, east, and south. "
+    "Your rope hangs down through the hole above."
 )
 
 _DUG = (
@@ -146,7 +154,8 @@ def mine_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 def crevice_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
         watch_here = w.objects["GOLD-WATCH"] in w.here.contents
-        print(_CREVICE + " " + (_CREVICE_WATCH if watch_here else _CREVICE_EMPTY))
+        print(_CREVICE + " " + (_CREVICE_WATCH if watch_here else _CREVICE_EMPTY)
+              + " " + _CREVICE_EXIT)
         return M_HANDLED
     return M_NOT_HANDLED
 
@@ -209,6 +218,7 @@ def stored_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
             print(_TIMBER)
             if w.get_global("ROPE-TIED"):
                 print(_ROPE_HANGS)
+            print(_HOLE_EXITS)
         return M_HANDLED
     if msg != M_BEG:
         return M_NOT_HANDLED
@@ -277,7 +287,8 @@ def make_rooms(world) -> None:
     mine.exits.update(north=Exit(destination="KEY-DOOR-LANDING"), east=Exit(destination="STORED-ROOM"))
     stored.exits.update(west=Exit(destination="MINE-PASSAGE"), east=_CreviceExit(destination="THE-CREVICE"),
                         down=_HoleExit(destination="PILE-OF-RUBBLE"))
-    crevice.exits.update(west=Exit(destination="STORED-ROOM"))
+    crevice.exits.update(west=Exit(destination="STORED-ROOM"),
+                         east=Exit(message=CREVICE_EAST))   # the crack the skeleton is wedged in
     # The rope is always tied by the time the player is down here
     rubble.exits.update(up=Exit(destination="STORED-ROOM"))
 

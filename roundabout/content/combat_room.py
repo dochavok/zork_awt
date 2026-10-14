@@ -36,6 +36,7 @@ _ROOM_BASE = (
 )
 _ROOM_SHUT = "At the east end a heavy door is set into the stone, shut. "
 _ROOM_OPEN = "At the east end the heavy door stands open. "
+_ROOM_EXITS = "Doorways lead north and south. "
 _ROOM_END = "Whatever happened in here happened more than once."
 
 _TRAP29 = "a pressure plate set into the corridor floor"
@@ -76,7 +77,7 @@ class _DenDoor(Exit):
 def combat_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
         door = _ROOM_OPEN if w.get_global("PLATE-STATE") == "fired" else _ROOM_SHUT
-        print(_ROOM_BASE + door + _ROOM_END)
+        print(_ROOM_BASE + door + _ROOM_EXITS + _ROOM_END)
         return M_HANDLED
     if msg == M_ENTER:
         w.set_global("ARRIVED-COMBAT", True)
@@ -187,7 +188,8 @@ def make_rooms(world) -> None:
         name="CREATURE-DEN", desc="Creature Den", value=1,
         ldesc=("A low den that stinks of old straw and older meat. Bones are piled "
                "in one corner with a care that's somehow worse than if they'd been "
-               "scattered. A passage leads on to the north."),
+               "scattered. A passage leads on to the north; the combat room is "
+               "back through the door to the west."),
     )
     den.set_flag(RLANDBIT)
     world.register_room(den)

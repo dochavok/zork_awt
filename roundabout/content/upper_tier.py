@@ -42,9 +42,10 @@ _STORAGE_BOTH = "Equipment has been left here: a hand cart against one wall, a h
 _STORAGE_BEAM = "Equipment has been left here: a heavy support beam laid across the floor. "
 _STORAGE_CART = "Equipment has been left here: a hand cart against one wall. "
 _STORAGE_NONE = "Scuffs in the dust show where equipment once stood. "
+STORAGE_EAST = "The east wall is solid rock. It was solid when you read it, too."
 _STORAGE_END = (
     "The east wall is solid. A passage leads south, and from somewhere down it "
-    "comes the sound of water."
+    "comes the sound of water. The corridor is back to the west."
 )
 
 
@@ -101,7 +102,7 @@ _SUPPLY_BASE = (
     "most still holding whatever was left here when this place was abandoned.\n"
     "The contents are various: tools, containers, materials that suggest someone "
     "was keeping this dungeon supplied. It smells of old wood and something "
-    "chemical underneath."
+    "chemical underneath. The doorway back to the corridor is east."
 )
 _SUPPLY_SPOTTED = (
     "One of the shelves near the entrance has a trip mechanism built into the "
@@ -148,7 +149,8 @@ def supply_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 
 _IDOL_BASE = (
     "The room is small and oddly formal — the stonework here is more deliberate "
-    "than the corridors outside, the walls smoothed, the floor level.\n"
+    "than the corridors outside, the walls smoothed, the floor level. Doorways "
+    "lead north and south.\n"
     "{centre} The room has the feeling of something that has been waiting for "
     "someone to make a mistake."
 )
@@ -175,8 +177,8 @@ _NO_SWAP = "You'd need something of the same weight to put in its place."
 SALT_ON_PEDESTAL = "A sack of salt sits on the pedestal where the idol was."
 _SLAM = (
     "You lift the idol. Somewhere under the pedestal something clicks, and a slab "
-    "of stone drops into the doorway with a boom you feel in your teeth. The way "
-    "out is gone."
+    "of stone drops into the north doorway with a boom you feel in your teeth. "
+    "The way back is gone."
 )
 SLAB_BLOCKS = "The stone slab fills the doorway. It isn't moving."
 _PRIED = (
@@ -304,7 +306,8 @@ def make_rooms(world) -> None:
         "INK-CORRIDOR", "Ink Corridor",
         "The corridor is narrow and plain — bare stone, low ceiling, torch "
         "brackets empty. It feels like an entrance to something, which it is. "
-        "The passage splits ahead — west, east, and on to the south.",
+        "The passage splits ahead — west, east, and on to the south; the dungeon "
+        "entrance is back to the north.",
     )
     supply = room(
         "SUPPLY-ROOM", "Supply Room",
@@ -312,19 +315,20 @@ def make_rooms(world) -> None:
         "collapsed, most still holding whatever was left here when this place "
         "was abandoned. The contents are various: tools, containers, materials "
         "that suggest someone was keeping this dungeon supplied. It smells of "
-        "old wood and something chemical underneath.",
+        "old wood and something chemical underneath. The doorway back to the "
+        "corridor is east.",
     )
     narrow = room(
         "NARROW-PASSAGEWAY", "Narrow Passageway",
-        "A short passage, plain stone, lower-ceilinged than the corridor behind "
-        "you. It goes south and ends at a doorway. The kind of passage that "
+        "A short passage, plain stone, lower-ceilinged than the corridor to the "
+        "north. It goes south and ends at a doorway. The kind of passage that "
         "exists to connect two places and has no opinion about either of them.",
     )
     idol = room(
         "IDOL-ROOM", "Idol Room",
         "The room is small and oddly formal — the stonework here is more "
         "deliberate than the corridors outside, the walls smoothed, the floor "
-        "level. At the center, a stone pedestal holds a figurine. The room has "
+        "level. Doorways lead north and south. At the center, a stone pedestal holds a figurine. The room has "
         "the feeling of something that has been waiting for someone to make a "
         "mistake.",
     )
@@ -339,6 +343,7 @@ def make_rooms(world) -> None:
     idol.exits["north"] = _IdolNorthExit(destination="NARROW-PASSAGEWAY")
     # Storage Area south → Collapsed Aqueduct is wired in content/aqueduct.py
     storage.exits["west"] = Exit(destination="INK-CORRIDOR")
+    storage.exits["east"] = Exit(message=STORAGE_EAST)   # "The east wall is solid."
 
     ink.action = ink_corridor_action
     storage.action = storage_action

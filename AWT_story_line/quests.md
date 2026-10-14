@@ -173,7 +173,7 @@ Charter Tiers 1 and 2 and the special rule are retired — they date from when t
 2. `USE CROWBAR ON STATUE BASE` → reveals silver stake + folded note with Keeper's emerald wax seal.
 3. Descend to Lower Crypt (Dungeon Lower Tier via Hole to Below) → find Keeper's skeleton under inert pendulum blade.
    - Robes and emerald seal match the statue note. Key ring on skeleton.
-   - Room description: *"A rough cave, low-ceilinged and close. A pendulum blade hangs motionless from the ceiling — triggered long ago, dried blood on the edge. Beneath it, a skeleton in robes. Whatever the Keeper came down here to do, this is as far as he got."*
+   - Room description: *"A rough cave, low-ceilinged and close. A pendulum blade hangs motionless from the ceiling — triggered long ago, dried blood on the edge. Beneath it, a skeleton in robes. Whatever the Keeper came down here to do, this is as far as he got. A passage leads on north; you see rubble to the south."*
 4. `TAKE KEYS` from skeleton.
 5. Return to Church of All → use Keeper's keys on Keeper's Chamber door.
 6. Inside Keeper's Chamber: find vial of holy water + Keeper's note (reveals scholar became undead werewolf; holy water must consecrate the stake).

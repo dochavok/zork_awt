@@ -104,7 +104,8 @@ _CELLAR = (
     "The cellar is still wet — the walls dark to shoulder height, a tide line of "
     "silt marking where the water stood for years. Barrels lie where the flood "
     "left them, staves sprung. The drain gurgles now and then, like it's still "
-    "thinking about it. In the west wall is a low door of black oak that nobody "
+    "thinking about it. Steps climb back up to the kitchen. In the west wall is "
+    "a low door of black oak that nobody "
     "upstairs has mentioned."
 )
 _TUNNEL_OPENED_CELLAR = (
@@ -112,6 +113,10 @@ _TUNNEL_OPENED_CELLAR = (
     "smell of old earth."
 )
 _TUNNEL_OPENED_BONE = "The door swings open onto the tavern cellar. Somewhere above, someone is cooking."
+_BONE_DOOR_SEEP = (
+    "The wood is dark and swollen, and a thin seep of cold water spreads across "
+    "the floor beneath it."
+)
 _CASHBOX_OPENED = (
     "The lid gives on the third try. Inside, wrapped in oilcloth and perfectly "
     f"dry: {CACHE_ZENNI} Zenni. Somebody planned for the flood better than they "
@@ -260,6 +265,15 @@ def open_tunnel_door(w: World) -> None:
         return
     w.set_global("TUNNEL-DOOR-OPEN", True)
     print(_TUNNEL_OPENED_BONE if w.here.name == "BONE-PASSAGE" else _TUNNEL_OPENED_CELLAR)
+
+
+def examine_tunnel_door(w: World, obj) -> bool:
+    """EXAMINE the black oak door from the Bone Passage: the flood behind it
+    shows until the cellar drains. True if handled."""
+    if obj.name != "TUNNEL-DOOR-BONE" or w.get_global("CELLAR-DRAINED"):
+        return False
+    print(_BONE_DOOR_SEEP)
+    return True
 
 
 def open_cashbox(w: World) -> None:

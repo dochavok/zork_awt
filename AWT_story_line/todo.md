@@ -16,7 +16,8 @@ A player using ESET couldn't open the v2.5 .exe (permission error, most likely q
 From the 2026-10 playtest (`roundabout_playtest/feedback-2026-10-12.md`, "Litlock's 'see things differently' reveals a building in the graveyard, but brief mode hides it").
 When an exit appears in a room the player has already visited, BRIEF mode (the default) shows only the room name on the next visit, so the line announcing the new way on is never seen.
 The Graveyard after Litlock's reveal (the Chuckle House, east) is the reported case.
-Others to check: perception-found connections (the volcano stairs, the Dankhaus path, the Hidden Secondary Entrance from the mine side), and state changes that open a way (the Tool Alcove wall, the frozen Flooded Passage, the Stored Room hole, the Rickety Bridge west shortcut, the Keeper's door).
+Others to check: perception-found connections (the volcano stairs, Will's bedroom door in the Wizard Tower, the Dankhaus path, the Hidden Secondary Entrance from the mine side), and state changes that open a way (the Tool Alcove wall, the frozen Flooded Passage, the Stored Room hole, the Rickety Bridge west shortcut, the Keeper's door).
+The Wizard Tower's bedroom door (2026-10-13): the find line shows in every mode, but its lasting line (*"A door in the north wall stands where you'd have sworn there wasn't one."*) is in the long description only.
 Decide on one rule — e.g. the first visit after a room's exits change shows the full description — and record it in mechanics.md (Description modes).
 
 ### TODO #15 — Parser and scenery items noted during the exits pass (found 2026-10-12)
@@ -47,7 +48,35 @@ Small items from the 2026-10 playtest, found while fixing room exits (theme 1) a
   - Collapsed Gallery: the crowbar's *"You can't get any leverage on that"* pushed the playtester away from levering; the pickaxe is the answer (feedback "The pickaxe was the answer for the timbers").
   - Combat Room: the east door isn't an object, and only `JUMP ON PLATE` triggers the plate (not step, stand, press or trigger).
   - The Still Den: `ATTACK`, `STAB` and `USE` on the werewolf all print *"Your blade finds its mark"*, even with no blade held; only `DRIVE STAKE INTO WEREWOLF` works.
+  - The Still Den, after the kill: the text says *"the stake still in him"*, but `TAKE STAKE` answers *"You can't see any stake here!"* Answer instead: *"You dare not remove it."* (wording decided 2026-10-13).
   - Pile of Rubble: the rubble isn't a noun (feedback "Shovel, hole, timber, rope: a good chain, but the rubble isn't a noun").
+  - Supply Room: the Trap 17 spotted line (*"…a trip mechanism… Whatever it triggers, it isn't subtle."*) keeps showing after the trap has fired or been disarmed — `TRAP17-SPOTTED` is set whenever perception passes, even when the disarm then botches. It should go (or change) once the trap is resolved.
+  - The Encampment (lower tier): the journals (*"Journals open to pages no one finished"*), bedrolls and equipment aren't nouns — `READ JOURNALS` / `EXAMINE BEDROLLS` answer *"You can't see any … here!"*, and `EXAMINE JOURNAL` answers *"You don't have a journal."* (another journal object elsewhere is matched). The room is "lore and context only" — the journals could carry a line of lore.
+  - The Rat's Nest: the crates and barrels in the description aren't nouns — `EXAMINE CRATES` / `SEARCH BARRELS` answer *"You can't see any crates here!"* (the playtester tried both).
+
+### TODO #17 — Trap 45 (Ink Corridor) barely fires at the level players reach it (found 2026-10-13)
+
+Level 4 is about the lowest level a player can be on reaching the dungeon.
+At level 4 (2d10+3 with Lucky), a warrior without glasses passes the Medium (9) perception check 95.7% of the time and the Medium disarm the same, so the trap inks them only ~8.4% of the time (exact; a 20,000-run engine simulation gave 8.7%).
+Rogues and mages, with +3, almost never trigger it. For comparison, a warrior is inked ~83% of the time at level 2 and ~41% at level 3 — levels that don't get here.
+Review the trap's difficulty against the levels players actually arrive at (traps.md, Trap 45). The ink is what negates invisibility, so how often it fires matters beyond this room. Check the other upper-tier traps for the same problem.
+- **Trap 29 (Combat Room plate) — the auto-disarm locks out the Guardian's Lantern.**
+  - Also Medium perception + Medium disarm, so a level-4 warrior without glasses auto-disarms it ~92% of the time.
+  - Then the Warden never comes out, the Den door stays shut (*"The door is shut."*), and the Guardian's Lantern (needed for the lower-tier Dark Room) is unreachable unless the player thinks to `JUMP ON PLATE`.
+  - Nothing connects the plate to the door: the disarm line is only *"You spot a pressure plate set into the corridor floor and are able to disarm it, neutralizing it."*
+  - Same shape as the Flooding Room decision (TODO #16, #20), but it hits nearly every player, not just Rogues.
+  - Decide together: e.g. make the auto-disarm a choice (as with Actually Enchanted Glasses), have the disarmed plate or the shut door hint at the link, or let the door be opened another way.
+- **Trap 41 (Flooding Room plate) — the auto-disarm locks out the trap side** (moved here from TODO #16 #20, playtest theme 4, feedback "The Flooding Room's levers and its plate").
+  - Disarming jams the plate; the levers then give no feedback (left grinds, middle does nothing, right snaps off), so Quest 50 and the gold nugget treasure are locked out.
+  - The design's re-arm after the middle lever doesn't help a player who never saw the plate fire.
+  - Also Medium + Medium, so ~92% of level-4 warriors (and nearly every Rogue) auto-disarm it — not just Rogues, as first reported.
+  - Options: let `JUMP ON PLATE` still fire a jammed plate; make the auto-disarm a choice here; or put a clue on the sluice grate. Settle with Trap 29 so the fix is consistent.
+- **Trap 19 (Portcullis Corridor) — a failed check leaves the portcullis charged for good** (found 2026-10-13).
+  - Same Medium + Medium odds (~8.4% failure for a level-4 warrior), but the failure is permanent, not a nuisance. `_check_trap19` runs once (`TRAP19-CHECKED`).
+  - If perception fails (~4.3%) — or it's spotted and the disarm botches (~4.1%; the player is shocked) — the portcullis stays charged, and nothing can discharge it afterwards.
+  - `DISARM PORTCULLIS` gives *"There's nothing here to disarm."*, `SEARCH` doesn't re-check, `EXAMINE PORTCULLIS` gives *"You see nothing special about the portcullis."*, and every `LIFT` shocks (1 heart, a lost turn).
+  - The north route to the Shrine Room is then closed for good; only the Quest 38 shortcut (Collapsed Gallery → Rickety Bridge) gets past. traps.md says the disarm check is one of the "ways to pass", which implies it can be retried.
+  - Fix with the other two: e.g. allow `DISARM PORTCULLIS` (and SEARCH) to retry once the charge is known — the room text's crackle line already tells every player it's charged.
 
 ### TODO #16 — Exits in room descriptions: the remaining rooms (found 2026-10-12)
 
@@ -368,6 +397,5 @@ Playtest theme 1 (`roundabout_playtest/feedback-2026-10-12.md`: exits and rooms 
   - Deliberate exceptions: the bog's interior, the Open Ocean, and the Dark Room before the lantern.
   - A way the text shows but the player can't take gets its own refusal (the Lighthouse chain, the Rickety Bridge west, the guest-room doors).
 - **Make it a test.** Turn the scratch sweep used for this pass into a test over every room, with the exceptions above listed explicitly, so a new room can't ship without its exits.
-- **The reverse check.** Sweep for directions the text names that have no exit (the Lighthouse stair was one) and give each a refusal message.
-- **Engine-versus-design drift.** Several rooms had lines the engine had silently dropped from the design (the Wasteland, Pipe Room, Mine Entrance sign, Empty Beach; Mine Tunnels and the Rat's Nest above). A check comparing each room's engine text with its locations.md description would catch the rest.
-- **Text that assumes where the player came from** ("behind you", "back toward", "deposits you"): fixed where found; worth one grep across all room text once the pass is done.
+- **The reverse check.** Sweep for directions the text names that have no exit (the Lighthouse stair was one) and give each a refusal message. Noted during the pass: the Crevice's crack in the far wall (`EAST`: default refusal; e.g. *"The crack is far too narrow. He found that out."*); the Collapsed Aqueduct's channel running "east to west" (probably fine as is — it's waist-high, not a passage).
+- **Engine-versus-design drift.** Several rooms had lines the engine had silently dropped from the design (the Wasteland, Pipe Room, Mine Entrance sign, Empty Beach; Mine Tunnels and the Rat's Nest above). A check comparing each room's engine text with its locations.md description would catch the rest.- **Text that assumes where the player came from** ("behind you", "back toward", "deposits you"): fixed where found; worth one grep across all room text once the pass is done.

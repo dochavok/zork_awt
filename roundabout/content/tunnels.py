@@ -43,9 +43,13 @@ _CRYPT = {
         "mausoleum."),
 }
 
+# Printed in every state, before the state line
+_BRIDGE = (
+    "A narrow stone bridge, solid-looking for all its age, spans a ravine in the "
+    "tunnel floor — the drop below is deep enough that the bottom isn't visible. "
+    "Across it, the tunnel runs on south; the junction is back to the north."
+)
 _BRIDGE_BOGGART = (
-    "A narrow stone bridge spans a ravine in the tunnel floor — the drop below "
-    "is deep enough that the bottom isn't visible. The bridge looks solid.\n"
     "A small, dense figure has planted itself at the center of it with the "
     "unmistakable air of someone who intends to stay.\n"
     "He eyes you with the satisfaction of a man whose position has never once "
@@ -115,6 +119,7 @@ def seal_check(w: World) -> bool:
 
 def bridge_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
+        print(_BRIDGE)
         if not w.get_global("BOGGART-GONE"):
             print(_BRIDGE_BOGGART)
         elif w.get_global("STRONGBOX-OPEN"):
@@ -185,7 +190,7 @@ def make_rooms(world) -> None:
         "BONE-PASSAGE", "The Bone Passage",
         "The stonework here is older than the rest of the tunnels — rougher cut, "
         "the joints wider, the walls slightly damp to the touch. The passage runs "
-        "south. Whatever built this part didn't build it at the same time as the "
+        "south, and west toward the junction. Whatever built this part didn't build it at the same time as the "
         "rest. The name feels earned.\n"
         "In the east wall, a low door of black oak is set into the older stone.",
     )
@@ -193,7 +198,8 @@ def make_rooms(world) -> None:
         "JUNCTION", "The Junction",
         "The tunnel opens up here — not much, but enough to feel like a decision "
         "point. Rough stone walls, a ceiling low enough to notice. Passages branch "
-        "three ways. The one to the east runs back toward the cellar. The air is "
+        "three ways: east toward the cellar, north toward the old mine workings, "
+        "and south, where the floor drops away toward a ravine. The air is "
         "damp and smells of old earth and something faintly mineral. Down here, "
         "sound doesn't carry the way it should.",
     )
@@ -202,13 +208,15 @@ def make_rooms(world) -> None:
         "A wide passage, rough-hewn and unfinished, the kind of digging done in a "
         "hurry by people who knew where they were going. The walls are close "
         "enough that two people could pass but would have to mean it. The floor "
-        "is uneven underfoot. The air is heavier here, deeper-smelling.",
+        "is uneven underfoot. The air is heavier here, deeper-smelling. The "
+        "passage runs north toward older, narrower stone, and south to where "
+        "the tunnels meet.",
     )
     bridge = room("TOLL-BRIDGE", "The Toll Bridge", "")
     entrance = room(
         "DUNGEON-ENTRANCE", "Dungeon Entrance",
-        "The tunnel ends at a threshold — stone floor, stone walls, a passage "
-        "leading south into darkness. Whatever is ahead doesn't announce itself. "
+        "The tunnel ends at a threshold — stone floor, stone walls, the bridge "
+        "back to the north, and a passage leading south into darkness. Whatever is ahead doesn't announce itself. "
         "The air is different here: stiller, older, with a quality that suggests "
         "the dark ahead has been dark for a very long time. This is the end of the "
         "tunnels. The dungeon begins.",

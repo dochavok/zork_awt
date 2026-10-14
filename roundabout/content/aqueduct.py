@@ -47,8 +47,10 @@ _SEALED_ROOM = (
     "A stone channel runs through the room at waist height, east to west — an "
     "aqueduct, old work and good work, with a mended section in the middle where "
     "the mortar is still pale. Water moves through it quietly, on its way to "
-    "somewhere it's needed."
+    "somewhere it's needed. A passage leads on south."
 )
+_BACK_NORTH = "The storage chamber is back to the north."
+CHANNEL_ENDS = "The channel runs into the stone at both ends. You'd have to be water."   # EAST / WEST
 _PLACED = [
     "You get your arms under the first block and heave it up into the gap. It "
     "grinds into place. Water finds its way around it, but less of it.",
@@ -79,8 +81,10 @@ _GALLERY_BLOCKED = (
 )
 _GALLERY_CLEARED = (
     "The passage runs east, clear now. The timbers that blocked it are gone, the "
-    "support beam holding the way open. The shortcut saves time — significant time."
+    "support beam holding the way open. Beyond, the passage runs on toward an "
+    "old bridge over a gap in the floor."
 )
+_GALLERY_BACK_NORTH = "The aqueduct room is back to the north."
 _FLOOD = (
     "Water from the passage north pools across the floor here and runs on into "
     "the dark, deep enough at the far end that there's no telling what's under it."
@@ -99,9 +103,9 @@ def _placed(w: World) -> int:
 def aqueduct_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
         if w.get_global("AQUEDUCT-SEALED"):
-            print(_SEALED_ROOM)
+            print(_SEALED_ROOM + " " + _BACK_NORTH)
         else:
-            print(_CHANNEL + _BLOCKS_STATE[_placed(w)])
+            print(_CHANNEL + _BLOCKS_STATE[_placed(w)] + " " + _BACK_NORTH)
         return M_HANDLED
     if msg == M_BEG and w.prsa == "V-TAKE" and w.prso is w.objects["AQUEDUCT-BLOCKS"]:
         print(_TOO_HEAVY)
@@ -230,6 +234,7 @@ def gallery_action(w: World, msg: int = M_NOT_HANDLED) -> int:
             print(_GALLERY_BLOCKED)
         if not w.get_global("AQUEDUCT-SEALED"):
             print(_FLOOD)
+        print(_GALLERY_BACK_NORTH)
         return M_HANDLED
     return M_NOT_HANDLED
 
@@ -277,7 +282,8 @@ def make_rooms(world) -> None:
     gallery = room("COLLAPSED-GALLERY", "Collapsed Gallery")
 
     world.rooms["STORAGE-AREA"].exits["south"] = Exit(destination="COLLAPSED-AQUEDUCT")
-    aqueduct.exits.update(north=Exit(destination="STORAGE-AREA"), south=Exit(destination="COLLAPSED-GALLERY"))
+    aqueduct.exits.update(north=Exit(destination="STORAGE-AREA"), south=Exit(destination="COLLAPSED-GALLERY"),
+                          east=Exit(message=CHANNEL_ENDS), west=Exit(message=CHANNEL_ENDS))
     gallery.exits.update(north=Exit(destination="COLLAPSED-AQUEDUCT"),
                          east=_GalleryEast(destination="RICKETY-BRIDGE"))
     world.rooms["RICKETY-BRIDGE"].exits["west"] = _BridgeWest(destination="COLLAPSED-GALLERY")

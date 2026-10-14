@@ -191,8 +191,15 @@ _CORRIDOR_PLAIN = ("A low, wet corridor running north and south. There are footp
 
 _CELL = (
     "A cramped cell cut into the rock, more burrow than room. Scraps of bedding are heaped "
-    "in one corner. Low in the west wall a tunnel has been dug — clawed, almost — angling "
-    "steeply up into the dark. Passages lead north and south."
+    "in one corner. Low in the weakest stretch of wall, where the rock gives way to packed "
+    "earth, someone has clawed out a tunnel, angling steeply up into the dark — and "
+    "stopping a little short of anything. Passages lead north and south."
+)
+_CELL_DUG = (
+    "A cramped cell cut into the rock, more burrow than room. Scraps of bedding are heaped "
+    "in one corner. Low in the weakest stretch of wall, where the rock gives way to packed "
+    "earth, the tunnel angles steeply up to a ragged patch of grey light. Passages lead "
+    "north and south."
 )
 APPRENTICE_ATTACKS = (
     "A young man crouches at the mouth of the tunnel, dirt to the elbows, scraping at the "
@@ -245,7 +252,8 @@ _NOTHING_ELSE = "There's nothing else under there."
 _SUMP = (
     "The passage ends here in a low chamber, the floor wet — a shallow pool covers most of "
     "it, fed by seepage through the walls. The water is still and dark. The ceiling is "
-    "close. This is the lowest point down here, and it feels like it."
+    "close. This is the lowest point down here, and it feels like it. The only way out is "
+    "back north."
 )
 
 
@@ -393,7 +401,7 @@ class _TunnelUp(Exit):
 
 def cell_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
-        print(_CELL)
+        print(_CELL_DUG if w.get_global("TUNNEL-DUG") else _CELL)
         return M_HANDLED
     if msg == M_ENTER:
         if _afflicted(w):

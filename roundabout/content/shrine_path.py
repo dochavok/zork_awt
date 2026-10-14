@@ -34,8 +34,9 @@ if TYPE_CHECKING:
 WEIGHT_LIMIT = 12
 
 _ALCOVE = (
-    "A low stone alcove, barely deep enough to stand in. A carved niche is set "
-    "into the back wall, its edges worn smooth by hands. It looks like a dead end."
+    "A low stone alcove off a passage that runs north and south, barely deep "
+    "enough to stand in. A carved niche is set into the back wall, its edges worn "
+    "smooth by hands."
 )
 _NICHE_FOUND = (
     "The niche goes back further than it looks. Behind the carved lip there's a "
@@ -46,6 +47,8 @@ _PORT_BASE = "A straight corridor, closed off halfway along by an iron portculli
 _PORT_CHARGE = (" The air around the bars has a faint, dry crackle, and the hairs on "
                 "your arms stand up as you get close.")
 _PORT_PROPPED = " The portcullis is propped open with an iron bar."
+_PORT_EXITS_SHUT = " The corridor runs north and south; the bars stand between you and the far end."
+_PORT_EXITS_OPEN = " The corridor runs north and south, the way through clear now."
 _TRAP19 = "an arcane charge running through the portcullis, the discharge mechanism set into the wall beside it"
 _TRAP_DISARMED = "You spot {d} and are able to disarm it, neutralizing it."
 _TRAP_BOTCHED = "You see {d}, but your attempt to disarm it fails miserably."
@@ -74,7 +77,8 @@ _SHRINE = (
     "walls carved rather than cut. Someone built this with intention. A shallow "
     "bowl depression is set into a stone plinth at the center. The air is "
     "stiller here than in the corridors outside, as if the room has been "
-    "holding its breath for a long time."
+    "holding its breath for a long time. A corridor leads north; to the south, "
+    "the floor gives way to a narrow stone bridge."
 )
 SHRINE_PIECE = (
     "Something catches your eye near the base of the plinth — a curved "
@@ -101,6 +105,7 @@ _KEY_DOOR_OPEN = (
     "The iron door stands open, the finch key still in its lock. Stone stairs "
     "lead down to the south."
 )
+_KEY_DOOR_BACK = "The bridge is back to the north."   # LOOK only — _KEY_DOOR is also the refusal
 _KEY_TURNS = (
     "The finch key goes in stiffly and turns with a sound like a dropped anvil. "
     "The iron door swings inward under its own weight. Beyond it, stone stairs "
@@ -150,8 +155,10 @@ def _state(w: World) -> str:
 
 def portcullis_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
-        extra = {"charged": _PORT_CHARGE, "discharged": "", "propped": _PORT_PROPPED}[_state(w)]
-        print(_PORT_BASE + extra)
+        state = _state(w)
+        extra = {"charged": _PORT_CHARGE, "discharged": "", "propped": _PORT_PROPPED}[state]
+        exits = _PORT_EXITS_OPEN if state == "propped" else _PORT_EXITS_SHUT
+        print(_PORT_BASE + extra + exits)
         return M_HANDLED
     if msg == M_ENTER:
         w.set_global("ARRIVED-PORTCULLIS", True)
@@ -257,7 +264,11 @@ class _PortcullisExit(Exit):
     def resolve(self, world):
         if _state(world) != "propped" and _side(world) != self.beyond:
             return None, _DOWN
-        return super().resolve(world)
+        room, msg = super().resolve(world)
+        if room is not None and world.get_global("PORTCULLIS-HELD") is not None:
+            world.set_global("PORTCULLIS-HELD", None)   # walking off lets go
+            print(_DROPS)
+        return room, msg
 
 
 # ---------------------------------------------------------------------------
@@ -304,7 +315,8 @@ def bridge_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 
 def key_door_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
-        print(_KEY_DOOR_OPEN if w.get_global("KEY-DOOR-UNLOCKED") else _KEY_DOOR)
+        door = _KEY_DOOR_OPEN if w.get_global("KEY-DOOR-UNLOCKED") else _KEY_DOOR
+        print(door + " " + _KEY_DOOR_BACK)
         return M_HANDLED
     return M_NOT_HANDLED
 
@@ -343,7 +355,7 @@ def make_rooms(world) -> None:
     port = room("PORTCULLIS-CORRIDOR", "Portcullis Corridor", "")
     shrine = room("SHRINE-ROOM", "Shrine Room", _SHRINE)
     bridge = room("RICKETY-BRIDGE", "Rickety Bridge", "")   # bridge_action: the west line changes
-    door = room("MID-TIER-KEY-DOOR", "Mid-Tier Key Door", _KEY_DOOR)
+    door = room("MID-TIER-KEY-DOOR", "Mid-Tier Key Door", "")   # key_door_action: locked / open
 
     world.rooms["COMBAT-ROOM"].exits["south"] = Exit(destination="PRAYER-ALCOVE")
     alcove.exits.update(north=Exit(destination="COMBAT-ROOM"), south=_IntoCorridor(destination="PORTCULLIS-CORRIDOR"))

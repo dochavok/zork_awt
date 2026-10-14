@@ -23,8 +23,8 @@ _MAIN_HALL = (
     "imagined, she appears to want to talk to you."
 )
 _STACKS = (
-    "The passage from the Main Hall opens into something that shouldn't fit "
-    "inside this building.\n"
+    "The passage from the Main Hall, back to the west, opens into something that "
+    "shouldn't fit inside this building.\n"
     "The shelves here are older — darker wood, no labels, arranged in a logic "
     "that isn't immediately obvious and may not be alphabetical. The ceiling is "
     "lost somewhere above the lamplight.\n"

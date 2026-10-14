@@ -29,12 +29,13 @@ _CRYPT = (
     "A rough cave, low-ceilinged and close. A pendulum blade hangs motionless "
     "from the ceiling — triggered long ago, dried blood on the edge. Beneath it, "
     "a skeleton in robes. Whatever the Keeper came down here to do, this is as "
-    "far as he got."
+    "far as he got. A passage leads on north; you see rubble to the south."
 )
 _ENCAMPMENT = (
     "The camp is old but not abandoned — abandoned implies a choice. Bedrolls "
     "still laid out. Equipment set down mid-use. Journals open to pages no one "
-    "finished. Whatever happened here, no one saw it coming."
+    "finished. Whatever happened here, no one saw it coming. The only way out is "
+    "back north, to the rubble."
 )
 _VENT = (
     "A dead end, and a warm one. Heat rises from fissures in the floor, faint but "

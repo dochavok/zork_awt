@@ -31,12 +31,12 @@ _POOL = (
     "thin lines, runs down the stone, disappears into the dark surface below. The "
     "ceiling drips. The pool fills the room wall to wall — narrow, long, bottomless "
     "as far as you can tell. The passage north is visible on the other side. The "
-    "water is between you and it."
+    "water is between you and it. The alcove is back to the south."
 )
 _POOL_FROZEN = (
     "The pool fills the room wall to wall, frozen solid. Water still seeps down the "
     "walls and stops where it meets the ice. The passage north is on the other side, "
-    "and nothing stands between you and it now."
+    "and nothing stands between you and it now. The alcove is back to the south."
 )
 _SWIM = (
     "The moment you enter, the water is inside you somehow — not wet, not cold, just "
@@ -53,14 +53,14 @@ _FREEZE = (
 
 _FOUNTAIN = (
     "Cold stops you at the threshold — not wind, just cold, settled and absolute. The "
-    "fountain to your left has been frozen mid-pour for what might be a very long "
+    "flooded passage is back to the south. The fountain to your left has been frozen mid-pour for what might be a very long "
     "time. The block of ice in the center of the room is frosted thick, but not so "
     "thick you can't see the shape inside it. A person. Standing. Composed."
 )
 _FOUNTAIN_AFTER = (
     "The fountain to your left is still frozen mid-pour. Where the block of ice stood, "
     "there's only a spreading wet patch on the floor and a few sheets of ice melting "
-    "at its edges."
+    "at its edges. The flooded passage is back to the south."
 )
 _THAW_1 = (
     "The ivory torch throws heat that seems wrong for its size. Where the flame meets "

@@ -34,7 +34,13 @@ Opening the mailbox triggers Will's appearance in the field. Will delivers openi
 **Connections:** In ← White House (one-way portal in); North → Will Passion's Bedroom (perception-gated); Painting → Tale and Ale Main Room (one-way teleport out). There is no mailbox in the Tower — `OPEN MAILBOX` here gets the parser's usual not-here reply.
 Accessed via mailbox portal from White House (opening sequence) or via mailbox in Tale and Ale Main Room.
 
-**First impression:** *The tower doesn't announce itself. It simply is — books, firelight, the low hum of something you can't quite locate. A desk dominates one end, buried under papers that somehow manage to look organized. A painting hangs on the wall, slightly crooked. The room has the feeling of a place where important things happen without any particular fuss.*
+**First impression:** *The tower doesn't announce itself. It simply is — books, firelight, the low hum of something you can't quite locate. A desk dominates one end, buried under papers that somehow manage to look organized. A painting of a tavern hangs on the wall, slightly crooked. The room has the feeling of a place where important things happen without any particular fuss.*
+("Of a tavern" added 2026-10-13: the painting is the tower's only ordinary way out, and nothing else says what it shows — its listing isn't printed and `EXAMINE` teleports first.)
+
+**Bedroom door** (Easy perception, every visit until found; `SEARCH` too):
+- **Found** — at the end of the turn, after the room description (2026-10-13; it used to print before the room title): *You notice a door to the north you hadn't seen before.* Discovers Quest 53.
+- **Afterwards**, a line after the room text on every full description: *A door in the north wall stands where you'd have sworn there wasn't one.*
+- `NORTH` before it's found: *You can't go that way.*
 
 Contains a painting of the Tale and Ale — `LOOK AT PAINTING` teleports player back to Tale and Ale Main Room. Painting hangs slightly crooked; Will never straightens it.
 
@@ -59,6 +65,7 @@ Will has been looking for it everywhere. Returning it to Will earns the **Golden
 *Books here are not organized — they are stacked, wedged, balanced, and in at least one case load-bearing.*
 *A narrow bed sits against the far wall, made with the perfunctory neatness of someone who knows they'll be up again soon.*
 *A nightstand holds a half-melted candle and a ring left by a cup that was never there long enough to matter.*
+*The door back to the tower is south.*
 
 The glasses are described by their own line below, so the room description stays right after they're taken.
 *The rest of the room is Will's business and clearly has been for a very long time.*
@@ -132,6 +139,7 @@ Eastern end of Main Street. Church of All to the south. Roundabout Wasteland to 
 *The gap between buildings is narrow enough that the sky above is just a strip. Cobblestones give way to packed dirt underfoot. At the north end the alley splits — northeast back to the town square, northwest to Main West.*
 *The tavern's back wall runs along the south side. It smells like kitchen waste and something less identifiable. Further south, the alley deepens.*
 Accessible from Roundabout Town Square (southwest) and Main West (southeast).
+`NORTH` (2026-10-13 — the text names the north end, where the alley splits): *The alley splits here — northeast to the town square, northwest to Main West.*
 
 ### The Back Alley
 **XP: 1**
@@ -140,6 +148,7 @@ Accessible from Roundabout Town Square (southwest) and Main West (southeast).
 **Quest Hooks:** Quest Board bounty (posted by May after 100 turns if mugger not yet slain); free drink reward on kill
 **Connections:** North → The Alley. (Dead end — tavern back wall seals south)
 *Darker than the alley, smaller, and considerably less welcoming. The tavern's back wall seals the south end. The only way out is back north, which is worth remembering. Broken crates and barrels have accumulated here the way things do when no one is watching. The ground is stained. The air is close. This is where things happen that don't happen on Main Street.* Dead end behind the tavern.
+`SOUTH` (2026-10-13): *The tavern's back wall. It isn't going anywhere, and neither are you.*
 
 **Mugger mechanic:** A shadowy figure lurks here. Perception check (**Medium, 9**) fires every visit until the mugger is spotted and slain. Combat is one round per `KILL MUGGER` (mugger 1d6, 2 hearts); leaving mid-fight resets him to full hearts.
 - **Spotted (presence line):** *A figure waits in the shadow of the crates, very still, weight on the balls of their feet. They've seen you see them. There's a cudgel in one hand — this is the alley's mugger, and they mean business.*
@@ -391,11 +400,11 @@ One of three guest rooms off the Upstairs Hall. Assigned randomly by May when th
 Below the kitchen; accessed via a cellar door in the kitchen. Bartender holds the key.
 Starts flooded — drain must be unclogged (crowbar required) before the room is usable.
 Once drained, reveals a door to the Secret Tunnel. Tunnel door stays in whatever state the player leaves it. Travel bidirectional once drained.
-Entering from either direction before draining = instant drowning fail state (water damage, no warning, no roll).
+Entering from either direction before draining = instant drowning fail state (water damage, no roll; the only warning is `EXAMINE DOOR` on the Bone Passage side, decided 2026-10-13).
 The flood is obvious from the kitchen doorway — no perception check on entry. The drain is worked from the top step in the Kitchen (text under Kitchen). Lit (part of the inn — not on the dark room list).
 **Items:** Cashbox (Quest 25 Zenni cache — 10 Zenni; `items.md`).
 
-**Room description (drained):** *The cellar is still wet — the walls dark to shoulder height, a tide line of silt marking where the water stood for years. Barrels lie where the flood left them, staves sprung. The drain gurgles now and then, like it's still thinking about it. In the west wall is a low door of black oak that nobody upstairs has mentioned.*
+**Room description (drained):** *The cellar is still wet — the walls dark to shoulder height, a tide line of silt marking where the water stood for years. Barrels lie where the flood left them, staves sprung. The drain gurgles now and then, like it's still thinking about it. Steps climb back up to the kitchen. In the west wall is a low door of black oak that nobody upstairs has mentioned.*
 
 **Tunnel door:** starts closed. `OPEN DOOR` from the cellar: *The door swings inward onto dark stone. Cold air comes through it, and the smell of old earth.* `WEST` → The Bone Passage while open. Bone Passage side text under The Bone Passage.
 
@@ -427,7 +436,7 @@ Foundation is secretly a temple to Thoth; all staff are priests/clergy. Only Lit
 **Connections:** West → Library (Main Hall).
 The Archivist's working space. Deeper in the collection than the Main Hall suggests is possible.
 
-*The passage from the Main Hall opens into something that shouldn't fit inside this building.*
+*The passage from the Main Hall, back to the west, opens into something that shouldn't fit inside this building.*
 *The shelves here are older — darker wood, no labels, arranged in a logic that isn't immediately obvious and may not be alphabetical. The ceiling is lost somewhere above the lamplight.*
 *At the far end, a large table holds the controlled wreckage of ongoing work: rolled maps weighted open at the corners, books splayed face-down, sheets of careful notation in a hand that doesn't waste space.*
 *The Archivist sits at the center of it, or rather the work surrounds him and he happens to be there too.*
@@ -1102,7 +1111,7 @@ Perception check required from mine side; auto-discovered from tunnel side. Comi
 
 **Built (2026-10-04):** Dark (tunnel network). From the mine side: Medium perception on every Assay Room visit until found (Actually Enchanted Glasses pass it) — *Looking closer, the gap in the far wall goes further back than it should — a rough passage, just wide enough to squeeze through, running east into the dark.* `EAST` before it's found: *It's just a crack in the wall. Nothing you could get through.* Arriving here from the Forgotten Shaft finds it without a line.
 
-*The gap in the assay room wall opens into a rough passage that connects to the tunnel network below. It does not appear on any official plan of the mine. It would not.*
+*The gap in the assay room wall, to the west, opens into a rough passage that runs east toward the tunnel network below. It does not appear on any official plan of the mine. It would not.*
 
 ### Mine Tunnels
 **XP: 1**
@@ -1122,7 +1131,7 @@ Below Main Shaft. Torch sconces on walls; the torches in them are scenery.
 - **Still in the mine when it goes:** *The mine finds its weak point. So does the ceiling above you.* — GAME OVER.
 - **Out of the mine when it goes:** *A muffled BOOM shakes the ground beneath your feet. Dust and splinters billow from the mine entrance as it collapses inward. The Pie Rats go running to investigate — and the ship is unguarded.*
 
-*The working tunnels branch off the main shaft in two directions, following veins of ore that may or may not have been the point. Torch sconces are fixed to the walls at intervals — the torches in them are real and lit. The smell of fresh-cut rock is strongest here. The floor is rutted with cart tracks.*
+*The working tunnels branch off the main shaft, following veins of ore that may or may not have been the point. Torch sconces are fixed to the walls at intervals — the torches in them are real and lit. The smell of fresh-cut rock is strongest here. The cart tracks rutting the floor run off to the north; the shaft climbs back up to the main level.*
 
 ### The Rat's Nest
 **XP: 1**
@@ -1132,7 +1141,7 @@ Below Main Shaft. Torch sconces on walls; the torches in them are scenery.
 **Connections:** South → Mine Tunnels.
 North of Mine Tunnels. Hidden storage for Pie Rat contraband.
 
-*A widening in the tunnel that someone has decided is a room. Crates and barrels are stacked with more care than the surroundings suggest — this is storage, not clutter. The Pie Rats keep their surplus here: things that aren't ore, things that don't show up on manifests, things that would raise questions on a dock.*
+*A widening in the tunnel that someone has decided is a room. Crates and barrels are stacked with more care than the surroundings suggest — this is storage, not clutter. The Pie Rats keep their surplus here: things that aren't ore, things that don't show up on manifests, things that would raise questions on a dock. The tunnel runs back south.*
 
 ---
 
@@ -1144,7 +1153,7 @@ North of Mine Tunnels. Hidden storage for Pie Rat contraband.
 **Items:** None
 **Quest Hooks:** None
 **Connections:** North → Beach Road. Northeast → The Lighthouse. East → The Docks.
-*Roundabout Beach opens up as the town falls behind you — a generous sweep of sand, the water catching whatever light the sky offers. The docks stretch east to where the Pie Rat Ship is moored, close enough to read the name on its hull. The lighthouse stands to the northeast on a finger of rock, its lamp turning slowly. Beach Road runs back north toward the trees. It smells like freedom, or at least like salt.*
+*Roundabout Beach opens out below the town — a generous sweep of sand, the water catching whatever light the sky offers. The docks stretch east to where the Pie Rat Ship is moored, close enough to read the name on its hull. The lighthouse stands to the northeast on a finger of rock, its lamp turning slowly. Beach Road runs back north toward the trees. It smells like freedom, or at least like salt.*
 
 Players carrying a shovel will likely attempt to dig. `DIG` succeeds up to 5 times with flavor text (nothing but wet sand); 6th attempt: "The beach is littered with holes. There's nowhere else to dig."
 
@@ -1226,7 +1235,9 @@ Three Roundabout Sea rooms + 69 Open Ocean squares to Kevry's island. Requires b
 **Items:** None
 **Quest Hooks:** None
 **Connections:** West → The Docks. East → Roundabout Sea (Middle).
-*The smell of the town still reaches you here — smoke and bread underneath the salt. The beach stretches away to the west, the lighthouse standing watch to the north. The water is choppier than it looked from shore. Ahead, the coast begins to fall away.*
+*The smell of the town still reaches you here — smoke and bread underneath the salt. The beach stretches away to the west, the lighthouse standing watch to the north. The water is choppier than it looked from shore. Eastward, the coast begins to fall away.*
+(2026-10-13: "Ahead" became "Eastward" to name the way on; the engine had dropped this sentence.)
+`NORTH`, toward the lighthouse (2026-10-13): *The lighthouse stands on rocks. There's nowhere there to bring a boat in.*
 
 ### Roundabout Sea (Middle)
 **XP: 1**
@@ -1234,7 +1245,7 @@ Three Roundabout Sea rooms + 69 Open Ocean squares to Kevry's island. Requires b
 **Items:** None
 **Quest Hooks:** None
 **Connections:** West → Western Roundabout Sea. East → Eastern Roundabout Sea.
-*The coast is gone. There is nothing in any direction but open water and sky. The sea moves in long slow swells that lift and drop the hull with a steady indifference. You are very small out here.*
+*The coast is gone. There is nothing in any direction but open water and sky. The sea moves in long slow swells that lift and drop the hull with a steady indifference. You are very small out here. West is the way home, if you trust your bearings. Whatever's east, you'll find out.*
 
 ### Eastern Roundabout Sea
 **XP: 1**
@@ -1242,7 +1253,8 @@ Three Roundabout Sea rooms + 69 Open Ocean squares to Kevry's island. Requires b
 **Items:** None
 **Quest Hooks:** None (Desert Island spur visible; Open Ocean continues east)
 **Connections:** West → Roundabout Sea (Middle). East → Open Ocean (square 1). Desert Island by `LAND` / `DOCK` (no walking exit).
-*Is that — yes. An island. Small, tree-lined, a beach curving around the side facing you. The water around it is shallow and clear. Nothing out here suggested this was coming. It sits quietly off the bow, waiting to be noticed. East of it, the sea continues without comment.*
+*Is that — yes. An island. Small, tree-lined, a beach curving around the side facing you. The water around it is shallow and clear. Nothing out here suggested this was coming. It sits quietly off the bow, waiting to be noticed. East of it, the sea continues without comment. West, the swells run back toward town.*
+(2026-10-13: the west line added; the engine had dropped the two middle sentences, now restored.)
 
 `DOCK`, `LAND`, `MOOR`, or `MAKE LAND` puts the player ashore on the Desert Island. Continuing east enters the Open Ocean.
 
@@ -1307,7 +1319,7 @@ The last sea square, off Kevry's island (decided 2026-10-04) — the player is s
 **Items:** None
 **Quest Hooks:** None
 **Connections:** Ship by `BOARD SHIP` (moored off Land, Ho!). East → A House.
-*The beach is long and quiet, the sand unmarked. A line of scrubby trees runs along the inland edge. Somewhere beyond them to the east, half-hidden, a small structure. The ship rides at anchor just offshore. The only sounds are the water behind you and the wind doing very little. It feels like a place that has been left alone for a long time and is content with that.*
+*The beach is long and quiet, the sand unmarked. A line of scrubby trees runs along the inland edge. Somewhere beyond them to the east, half-hidden, a small structure. The ship rides at anchor just offshore. The only sounds are the surf and the wind doing very little. It feels like a place that has been left alone for a long time and is content with that.*
 
 ### A House / Kevry's House
 **XP: 5**
@@ -1349,7 +1361,7 @@ Underground pre-dungeon level connecting the Tavern Cellar, the mine, the Gravey
 **Connections:** East → Bone Passage. North → Undercroft. South → Toll Bridge.
 Hub — branches toward the mine (north via Undercroft), the Bone Passage (east — Tavern Cellar and Graveyard Crypt beyond it), and the dungeon (south via Toll Bridge).
 
-*The tunnel opens up here — not much, but enough to feel like a decision point. Rough stone walls, a ceiling low enough to notice. Passages branch three ways. The one to the east runs back toward the cellar. The air is damp and smells of old earth and something faintly mineral. Down here, sound doesn't carry the way it should.*
+*The tunnel opens up here — not much, but enough to feel like a decision point. Rough stone walls, a ceiling low enough to notice. Passages branch three ways: east toward the cellar, north toward the old mine workings, and south, where the floor drops away toward a ravine. The air is damp and smells of old earth and something faintly mineral. Down here, sound doesn't carry the way it should.*
 
 ### The Undercroft
 **XP: 1**
@@ -1359,7 +1371,7 @@ Hub — branches toward the mine (north via Undercroft), the Bone Passage (east 
 **Connections:** South → The Junction. North → Forgotten Shaft.
 Wide rough-hewn passage on the mine branch.
 
-*A wide passage, rough-hewn and unfinished, the kind of digging done in a hurry by people who knew where they were going. The walls are close enough that two people could pass but would have to mean it. The floor is uneven underfoot. The air is heavier here, deeper-smelling.*
+*A wide passage, rough-hewn and unfinished, the kind of digging done in a hurry by people who knew where they were going. The walls are close enough that two people could pass but would have to mean it. The floor is uneven underfoot. The air is heavier here, deeper-smelling. The passage runs north toward older, narrower stone, and south to where the tunnels meet.*
 
 ### The Forgotten Shaft
 **XP: 1**
@@ -1369,7 +1381,7 @@ Wide rough-hewn passage on the mine branch.
 **Connections:** South → The Undercroft. West → Hidden Secondary Entrance.
 Narrowing abandoned passage.
 
-*The passage narrows as it goes — not dangerously, but noticeably. The stonework changes here, older and less deliberate, as if this part of the tunnel predates whoever dug the rest. To the west, a rougher passage breaks off and climbs toward the mine.*
+*The passage narrows as it goes — not dangerously, but noticeably. The stonework changes here, older and less deliberate, as if this part of the tunnel predates whoever dug the rest. To the west, a rougher passage breaks off and climbs toward the mine. Southward, the passage widens again.*
 
 ### The Bone Passage
 **XP: 1**
@@ -1379,10 +1391,12 @@ Narrowing abandoned passage.
 **Connections:** West → The Junction. East → Tavern Cellar (tunnel door). South → Charnel Walk.
 Crossroads east of the Junction: Tavern Cellar to the east, the Graveyard Crypt branch (Charnel Walk) to the south. Older stonework.
 
-*The stonework here is older than the rest of the tunnels — rougher cut, the joints wider, the walls slightly damp to the touch. The passage runs south. Whatever built this part didn't build it at the same time as the rest. The name feels earned.*
+*The stonework here is older than the rest of the tunnels — rougher cut, the joints wider, the walls slightly damp to the touch. The passage runs south, and west toward the junction. Whatever built this part didn't build it at the same time as the rest. The name feels earned.*
 *In the east wall, a low door of black oak is set into the older stone.*
 
-The door line is the same before and after the cellar drains — no warning sign. `EAST` needs the door open.
+The door line is the same before and after the cellar drains: the room description gives no warning. `EAST` needs the door open.
+- **`EXAMINE DOOR` before the cellar is drained** (decided 2026-10-13, playtest theme 3, feedback "Instant death behind the black oak door, with no fair warning"; the drowning stays, but a careful player can see it coming):
+  *The wood is dark and swollen, and a thin seep of cold water spreads across the floor beneath it.* After the drain, the ordinary *You see nothing special about the black oak door.*
 - **`OPEN DOOR` before the cellar is drained (instant drowning, GAME OVER):** *You lift the latch. The door doesn't open so much as leave — the water behind it takes it off its hinges and you with it. The Bone Passage fills in the time it takes to understand what's happening.*
 - **`OPEN DOOR` after the drain:** *The door swings open onto the tavern cellar. Somewhere above, someone is cooking.*
 
@@ -1410,14 +1424,16 @@ The toll is 200 — of something he never names — and can't actually be paid; 
 - **Strongbox opened:** *You get your fingers under the lid and heave. It gives with a shriek of rusted hinges. Inside: 10 Zenni. You pocket them.*
 - **Strongbox stuck:** *The lid doesn't budge. Whatever's holding it shut is stronger than you are, for now.*
 
-**Room description (Boggart present):**
-*A narrow stone bridge spans a ravine in the tunnel floor — the drop below is deep enough that the bottom isn't visible. The bridge looks solid.*
+**Room description** — the bridge line prints in every state (2026-10-13; before, the post-Boggart lines replaced it), then the state line below:
+*A narrow stone bridge, solid-looking for all its age, spans a ravine in the tunnel floor — the drop below is deep enough that the bottom isn't visible. Across it, the tunnel runs on south; the junction is back to the north.*
+
+**Boggart present:**
 *A small, dense figure has planted itself at the center of it with the unmistakable air of someone who intends to stay.*
 *He eyes you with the satisfaction of a man whose position has never once been successfully argued with.*
 
-**Room description (Boggart gone, strongbox present):** *The bridge is empty now. The strongbox sits where he was.*
+**Boggart gone, strongbox present:** *The bridge is empty now. The strongbox sits where he was.*
 
-**Room description (strongbox opened/looted):** *The bridge is empty. The open strongbox sits where he was, lid thrown back.*
+**Strongbox opened/looted:** *The bridge is empty. The open strongbox sits where he was, lid thrown back.*
 
 ### Dungeon Entrance
 **XP: 1**
@@ -1427,7 +1443,7 @@ The toll is 200 — of something he never names — and can't actually be paid; 
 **Connections:** North → The Toll Bridge. South → Ink Corridor.
 Threshold between Secret Tunnels and Dungeon Upper Tier.
 
-*The tunnel ends at a threshold — stone floor, stone walls, a passage leading south into darkness. Whatever is ahead doesn't announce itself. The air is different here: stiller, older, with a quality that suggests the dark ahead has been dark for a very long time. This is the end of the tunnels. The dungeon begins.*
+*The tunnel ends at a threshold — stone floor, stone walls, the bridge back to the north, and a passage leading south into darkness. Whatever is ahead doesn't announce itself. The air is different here: stiller, older, with a quality that suggests the dark ahead has been dark for a very long time. This is the end of the tunnels. The dungeon begins.*
 
 ---
 
@@ -1448,9 +1464,9 @@ Threshold between Secret Tunnels and Dungeon Upper Tier.
 First room past the Dungeon Entrance. A thin cord stretched at chest height carries an ink bladder — triggering it douses the player in ink (negates invisibility). No warning; cord invisible until hit. Splits west to Supply Room, east to Storage Area, south to the Narrow Passageway. (Trap 45 — Medium perception, Medium disarm)
 **Inked:** *Something snags across your chest — a thread, there and gone. Above you, something bursts. Ink comes down in a cold black sheet and doesn't stop until you're wearing all of it.*
 
-**Room description (default):** *The corridor is narrow and plain — bare stone, low ceiling, torch brackets empty. It feels like an entrance to something, which it is. The passage splits ahead — west, east, and on to the south.*
+**Room description:** *The corridor is narrow and plain — bare stone, low ceiling, torch brackets empty. It feels like an entrance to something, which it is. The passage splits ahead — west, east, and on to the south; the dungeon entrance is back to the north.*
 
-**Room description (perception check passed):** *The corridor is narrow and plain — bare stone, low ceiling, torch brackets empty. It feels like an entrance to something, which it is. The passage splits ahead — west, east, and on to the south. A thin cord stretches across the passage at chest height — easy to miss. Something is attached to it.*
+One description in every state (decided 2026-10-13): Trap 45 resolves in a single end-of-turn message on the first pass (disarmed, botched, or inked), so the old "(perception check passed)" variant with the cord line was never shown and is dropped. If the Trap 45 review (todo.md TODO #17) adds a spotted-but-not-disarmed state, it can come back.
 
 ### Supply Room
 **XP: 1**
@@ -1467,11 +1483,11 @@ The small clay pot is the one intact pot that survives the collapse.
 - **Smoke jar listing:** *A squat glass jar sits among the clay pots, stoppered with wax.* **Small clay pot listing:** *One small clay pot sits on the shelf, the only one without a crack.* (Both appear once the trap is resolved, fired or disarmed.)
 The sack of salt is what makes the Idol Room swap safe (`SWAP IDOL WITH SALT`); taking the idol without it triggers Trap 33. Nothing forces a visit first — the Supply Room is a dead end west of the Ink Corridor, and the Idol Room is reachable without it.
 
-**Room description (default):** *A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned. The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath.*
+**Room description (default):** *A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned. The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath. The doorway back to the corridor is east.*
 
 **Room description (perception check passed):**
 *A storage room, wide and low. Shelves run along three walls — some collapsed, most still holding whatever was left here when this place was abandoned.*
-*The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath.*
+*The contents are various: tools, containers, materials that suggest someone was keeping this dungeon supplied. It smells of old wood and something chemical underneath. The doorway back to the corridor is east.*
 *One of the shelves near the entrance has a trip mechanism built into the floor in front of it — barely visible. Whatever it triggers, it isn't subtle.*
 
 ### Narrow Passageway
@@ -1482,7 +1498,7 @@ The sack of salt is what makes the Idol Room swap safe (`SWAP IDOL WITH SALT`); 
 **Connections:** North → Ink Corridor. South → Idol Room.
 Short connecting passage between the Ink Corridor and the Idol Room.
 
-**Room description:** *A short passage, plain stone, lower-ceilinged than the corridor behind you. It goes south and ends at a doorway. The kind of passage that exists to connect two places and has no opinion about either of them.*
+**Room description:** *A short passage, plain stone, lower-ceilinged than the corridor to the north. It goes south and ends at a doorway. The kind of passage that exists to connect two places and has no opinion about either of them.*
 
 ### Idol Room
 **XP: 1**
@@ -1493,14 +1509,14 @@ Short connecting passage between the Ink Corridor and the Idol Room.
 South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a pressure-sensitive pedestal. Removing without replacing with equal weight slams a stone slab over the north doorway; the way south stays open, so the crowbar can be fetched (`PRY DOOR`, Medium strength, retries). Safe swap: `SWAP IDOL WITH SALT` with sack of salt. Idol is treasure. Connects south to Combat Room. (Trap 33)
 - **`SWAP IDOL WITH SALT`:** *You set the sack of salt on the pedestal and lift the idol away in the same motion. The pedestal doesn't so much as twitch.* Without the salt: *You'd need something of the same weight to put in its place.* Afterwards the salt stays on the pedestal (can't be taken back): *A sack of salt sits on the pedestal where the idol was.*
 - **Once the idol is gone** (swapped or taken), the room description's second line reads *At the center stands a stone pedestal.* in place of *At the center, a stone pedestal holds a figurine.*
-- **`TAKE IDOL` unswapped:** *You lift the idol. Somewhere under the pedestal something clicks, and a slab of stone drops into the doorway with a boom you feel in your teeth. The way out is gone.* North while shut: *The stone slab fills the doorway. It isn't moving.*
+- **`TAKE IDOL` unswapped:** *You lift the idol. Somewhere under the pedestal something clicks, and a slab of stone drops into the north doorway with a boom you feel in your teeth. The way back is gone.* (2026-10-13: was "the doorway… The way out is gone.", which read as sealed in, though south stays open.) North while shut: *The stone slab fills the doorway. It isn't moving.*
 - **`PRY DOOR`:** success — *You work the crowbar into the gap and heave. The slab grinds up a hand's width, then enough. You squeeze through before it changes its mind.* Failure — *The crowbar bites, the slab shifts a fraction, and settles back. Not this time.* Without the crowbar — *You can't get any leverage on that.*
 - **`LIFT SLAB` / `RAISE SLAB`:** with the crowbar held, the same as `PRY DOOR`. Without it — *The slab won't budge for bare hands. You'd need something to lever it with.* With no slab down (never fired, or already pried) — *Nothing is blocking the doorway.*
 
-**Room description (default):** *The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level. At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake.*
+**Room description (default):** *The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level. Doorways lead north and south. At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake.*
 
 **Room description (perception check passed):**
-*The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level.*
+*The room is small and oddly formal — the stonework here is more deliberate than the corridors outside, the walls smoothed, the floor level. Doorways lead north and south.*
 *At the center, a stone pedestal holds a figurine. The room has the feeling of something that has been waiting for someone to make a mistake.*
 *The pedestal has a pressure plate built into its surface — the figurine's weight is the only thing keeping it inactive.*
 
@@ -1518,7 +1534,8 @@ South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a press
 **Connections:** West → Ink Corridor. South → Collapsed Aqueduct.
 East branch off Ink Corridor. Wide chamber. Contains: hand cart (Quest 32), support beam (Quest 38). South to the Collapsed Aqueduct (Quest 22), then the Collapsed Gallery (Quest 38 shortcut).
 
-**Room description:** *A wide chamber, larger than expected — the dungeon opens up here before closing back down. The walls are rough, the floor uneven. Equipment has been left here: a hand cart against one wall, a heavy support beam laid across the floor. The east wall is solid. A passage leads south, and from somewhere down it comes the sound of water.*
+**Room description:** *A wide chamber, larger than expected — the dungeon opens up here before closing back down. The walls are rough, the floor uneven. Equipment has been left here: a hand cart against one wall, a heavy support beam laid across the floor. The east wall is solid. A passage leads south, and from somewhere down it comes the sound of water. The corridor is back to the west.*
+`EAST` (2026-10-13): *The east wall is solid rock. It was solid when you read it, too.*
 
 The equipment sentence follows what is still in the room (the rest of the description is unchanged):
 - **Cart and beam:** *Equipment has been left here: a hand cart against one wall, a heavy support beam laid across the floor.*
@@ -1534,15 +1551,16 @@ The equipment sentence follows what is still in the room (the rest of the descri
 **Connections:** North → Storage Area. South → Collapsed Gallery.
 Split out of the Collapsed Gallery (2026-10-03). The aqueduct channel runs through this room; a section has given way and its three blocks lie on the floor. `PLACE BLOCKS` three times (one Medium strength check each — a failure makes no progress, no damage), then `SEAL JOINTS WITH MORTAR` (mortar used up) → Quest 22 complete; the Town Square fountain flows. Until sealed, the spill runs south and floods the far end of the Collapsed Gallery.
 Not in the Zenni room pool (kept out so the seeded Zenni placement doesn't change).
+`EAST` / `WEST`, along the channel (2026-10-13): *The channel runs into the stone at both ends. You'd have to be water.*
 
-**Room description (0 blocks placed):** *A stone channel runs through the room at waist height, east to west — an aqueduct, old work and good work, until here. A section of it has given way. Three of its blocks lie tumbled on the floor below the gap, and water spills from the broken end, runs across the stone and away down the passage south.*
+**Room description (0 blocks placed):** *A stone channel runs through the room at waist height, east to west — an aqueduct, old work and good work, until here. A section of it has given way. Three of its blocks lie tumbled on the floor below the gap, and water spills from the broken end, runs across the stone and away down the passage south. The storage chamber is back to the north.*
 
-The last two sentences change as blocks go in:
+The state sentences change as blocks go in; every state ends with *The storage chamber is back to the north.* (2026-10-13):
 - **1 placed:** *One block sits back in the gap; the other two lie on the floor below it. Water still spills through what's left of the break and away down the passage south.*
 - **2 placed:** *Two blocks sit back in the gap; the last lies on the floor below it. Water still spills through what's left of the break and away down the passage south.*
 - **3 placed, unsealed:** *All three blocks sit back in the gap, but water seeps through every joint and runs away down the passage south.*
 
-**Room description (sealed):** *A stone channel runs through the room at waist height, east to west — an aqueduct, old work and good work, with a mended section in the middle where the mortar is still pale. Water moves through it quietly, on its way to somewhere it's needed.*
+**Room description (sealed):** *A stone channel runs through the room at waist height, east to west — an aqueduct, old work and good work, with a mended section in the middle where the mortar is still pale. Water moves through it quietly, on its way to somewhere it's needed. A passage leads on south. The storage chamber is back to the north.*
 
 - **`PLACE BLOCKS` (1st):** *You get your arms under the first block and heave it up into the gap. It grinds into place. Water finds its way around it, but less of it.*
 - **`PLACE BLOCKS` (2nd):** *The second block is heavier, or you're more tired. It goes in beside the first with a sound like a door shutting.*
@@ -1564,7 +1582,9 @@ South of the Collapsed Aqueduct. Timbers wedged across it blocking a secondary e
 
 **Room description (blocked):** *The passage runs east but doesn't get far. Heavy timbers have come down across it — not from collapse exactly, more like someone wedged them there deliberately. The wood is old but solid. Beyond them, darkness.*
 
-**Room description (cleared):** *The passage runs east, clear now. The timbers that blocked it are gone, the support beam holding the way open. The shortcut saves time — significant time.*
+**Room description (cleared):** *The passage runs east, clear now. The timbers that blocked it are gone, the support beam holding the way open. Beyond, the passage runs on toward an old bridge over a gap in the floor.* (Decided 2026-10-13: replaces "The shortcut saves time — significant time.", which read like a designer's note.)
+
+**Exit line, last in every state** (after the flood line when it shows; 2026-10-13): *The aqueduct room is back to the north.*
 
 **Flood line (until Quest 22 is complete), added to either description:** *Water from the passage north pools across the floor here and runs on into the dark, deep enough at the far end that there's no telling what's under it.*
 - **`EAST` while flooded (timbers cleared):** *The water's too deep at the far end to wade, and it's moving fast.* While the timbers are up, they block first: *The timbers block the way.*
@@ -1580,7 +1600,7 @@ South of the Collapsed Aqueduct. Timbers wedged across it blocking a secondary e
 **Items:** None (the Warden's Guardian's Lantern drops where he's defeated — the Combat Room)
 **Quest Hooks:** None (combat encounter; lantern is critical path item)
 **Connections:** West → Combat Room (door — opens when the Trap 29 plate fires; stays open after the Warden is defeated). North → Flooding Room.
-**Room description:** *A low den that stinks of old straw and older meat. Bones are piled in one corner with a care that's somehow worse than if they'd been scattered. A passage leads on to the north.*
+**Room description:** *A low den that stinks of old straw and older meat. Bones are piled in one corner with a care that's somehow worse than if they'd been scattered. A passage leads on to the north; the combat room is back through the door to the west.*
 **Insignia (examine):** *Pinned to the wall, almost lost under the grime: a faded insignia and the rags of a uniform. This was a guard post once.*
 East of the Combat Room — the only way in is through the Combat Room's door. Lair of **The Warden** — permanently empty after defeat. On examination post-fight: remnants of a uniform/insignia mark this as an official post. The Warden drops the **Guardian's Lantern** on defeat.
 
@@ -1592,7 +1612,7 @@ East of the Combat Room — the only way in is through the Combat Room's door. L
 **Connections:** North → Idol Room. East → Creature Den (door — closed until the plate fires). South → Prayer Alcove.
 South of Idol Room. Two squares wide on the map — the Creature Den is off its east end.
 
-**Room description:** *A long, low room, wider than it is deep, the floor scarred and the walls pocked with old damage. At the east end a heavy door is set into the stone, shut. Whatever happened in here happened more than once.* (Once the door is open: *…At the east end the heavy door stands open.*)
+**Room description:** *A long, low room, wider than it is deep, the floor scarred and the walls pocked with old damage. At the east end a heavy door is set into the stone, shut. Doorways lead north and south. Whatever happened in here happened more than once.* (Once the door is open: *…At the east end the heavy door stands open. Doorways lead north and south. …*)
 **Plate:** at the north entrance; arriving unawares steps on it. Medium perception spots it — *Just inside the doorway, one flagstone sits a fraction higher than the rest — a pressure plate.* With Actually Enchanted Glasses it's revealed and the player chooses (`JUMP ON PLATE` / `DISARM PLATE`, Medium disarm); otherwise spotting it rolls the disarm automatically. Disarm: 3 XP.
 **Bell:** *Somewhere behind the heavy door, a bell rings — once, flat and loud. Something on the other side moves.*
 **The Warden emerges:** *The door at the east end grinds open. The thing that comes through it was a guard once — the scraps of a uniform still hang off it — but whatever it is now is mostly reach, teeth, and intent. The Warden.*
@@ -1634,9 +1654,10 @@ Perception check *before entry* spots the suspiciously clean pressure plate; dis
 **Items:** Crowbar (Quests 19, 25, 30; Trap 33 escape); vial of glacier melt (Quest 34 — freezes pool in Mid Room)
 **Quest Hooks:** Quest 19, 25, 30, 34 — items sourced here
 **Connections:** North → Combat Room. South → Portcullis Corridor.
-South of Combat Room. A low stone alcove — looks like a dead end until examined. Carved niche in the back wall. Contains: **crowbar** (Quests 19&30, 25; Trap 33 escape); **vial of glacier melt** (Quest 34 mid room freeze). Perception check (Easy, once per visit) reveals full depth. Connects south to Portcullis Corridor.
+South of Combat Room. A low stone alcove off the passage; its niche looks shallow until examined. Carved niche in the back wall. Contains: **crowbar** (Quests 19&30, 25; Trap 33 escape); **vial of glacier melt** (Quest 34 mid room freeze). Perception check (Easy, once per visit) reveals full depth. Connects south to Portcullis Corridor.
 
-**Room description:** *A low stone alcove, barely deep enough to stand in. A carved niche is set into the back wall, its edges worn smooth by hands. It looks like a dead end.*
+**Room description:** *A low stone alcove off a passage that runs north and south, barely deep enough to stand in. A carved niche is set into the back wall, its edges worn smooth by hands.*
+Decided 2026-10-13: the alcove is a recess off a through-passage (the critical path runs south); "looks like a dead end" means the niche, not the room. The old closing line *It looks like a dead end.* was dropped — it was wrong for the room, stayed after the niche gave up its contents, and drew May's Quest 34 hint ("a room that looks like a dead end", meant for the Tool Alcove) here.
 **Niche found:** *The niche goes back further than it looks. Behind the carved lip there's a gap — and inside it, things that were put there on purpose.*
 **Listings:** crowbar — *A crowbar lies in the recess, one end flattened from use.* Vial — *A small stoppered vial sits beside it, the glass frosted despite the damp.*
 
@@ -1651,10 +1672,12 @@ Touching without disarming: 1 heart lightning damage, stunned one turn.
 Three ways through: (1) perception spots charge and discharge mechanism; (2) disarm check discharges safely; (3) strength check lifts — only after discharge.
 Portcullis Bar from Supply Room props it permanently open. Without the bar it drops when released. (Trap 19 — Medium perception, Medium disarm; `LIFT PORTCULLIS` Medium strength; the next command must be `USE PORTCULLIS BAR` — or `PUT` / `PLACE BAR` (optionally `UNDER PORTCULLIS`), or `DROP BAR` — or it drops)
 
-**Room description:** *A straight corridor, closed off halfway along by an iron portcullis. The air around the bars has a faint, dry crackle, and the hairs on your arms stand up as you get close.* (Discharged: without the crackle sentence. Propped: *…The portcullis is propped open with an iron bar.*)
+**Room description:** *A straight corridor, closed off halfway along by an iron portcullis. The air around the bars has a faint, dry crackle, and the hairs on your arms stand up as you get close. The corridor runs north and south; the bars stand between you and the far end.*
+(Discharged: without the crackle sentence. Propped: *…The portcullis is propped open with an iron bar. The corridor runs north and south, the way through clear now.*) Exit lines added 2026-10-13.
 - **Shock** (touching/lifting while charged — 1 heart, lose a turn): *Your hands close on the bars and the charge goes through you — a white snap, a smell like a struck match. When you can think again, you're on the floor.*
 - **Lift:** *You get under the portcullis and heave. It rises, grinding, until it's head-high — and stays there only as long as you hold it.* Fails: *You strain against the portcullis. It shifts an inch and settles back.*
-- **Let go:** *You let go. The portcullis slams back down.* **Propped:** *You wedge the iron bar under the portcullis. It takes the weight with a groan and holds. The way south is open.* **Blocked:** *The portcullis is down.*
+- **Let go:** *You let go. The portcullis slams back down.* (After any command but the bar; walking out of the corridor while holding it lets go too, the line printing before the next room — fixed 2026-10-13, it used to fire on the player's return.)
+- **Propped:** *You wedge the iron bar under the portcullis. It takes the weight with a groan and holds. The way south is open.* **Blocked:** *The portcullis is down.*
 - **Either side** (decided 2026-10-12): the portcullis is halfway along, so you're on the side you came in from — north from the Prayer Alcove, south from the Shrine Room (the Quest 38 shortcut, up from the Rickety Bridge). Until it's propped, only the way back is open; the far side is *The portcullis is down.* Lifting, the shock, Trap 19 and the bar work the same from either side. Propped from the south side: *You wedge the iron bar under the portcullis. It takes the weight with a groan and holds. The way north is open.* (A save from before this has no side recorded and counts as the north side.)
 
 ### Shrine Room
@@ -1665,11 +1688,12 @@ Portcullis Bar from Supply Room props it permanently open. Without the bar it dr
 **Connections:** North → Portcullis Corridor. South → Rickety Bridge.
 South of Portcullis Corridor. A small carved stone room, older than surrounding dungeon stonework. Contains one of three Verdant Circle shrine bowl pieces (Quest 49) — visible on a perception check (Easy). Connects south into the Rickety Bridge.
 
-**Room description (default):** *The room is older than the dungeon around it — the stonework finer, the walls carved rather than cut. Someone built this with intention. A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time.*
+**Room description (default):** *The room is older than the dungeon around it — the stonework finer, the walls carved rather than cut. Someone built this with intention.*
+*A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time. A corridor leads north; to the south, the floor gives way to a narrow stone bridge.*
 
 **Room description (perception check passed):**
 *The room is older than the dungeon around it — the stonework finer, the walls carved rather than cut. Someone built this with intention.*
-*A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time.*
+*A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time. A corridor leads north; to the south, the floor gives way to a narrow stone bridge.*
 *Something catches your eye near the base of the plinth — a curved fragment, stone, fitting the bowl's edge exactly.*
 
 ### Rickety Bridge
@@ -1703,6 +1727,7 @@ South end of Rickety Bridge. Heavy iron door. *The door is iron, set deep into t
 
 - **`UNLOCK DOOR WITH KEY` (Middle Tier Key):** *The finch key goes in stiffly and turns with a sound like a dropped anvil. The iron door swings inward under its own weight. Beyond it, stone stairs lead down. You leave the key in the lock.*
 - **Room description once unlocked:** *The iron door stands open, the finch key still in its lock. Stone stairs lead down to the south.*
+- **Exit line** (2026-10-13), after the door text in both states, on LOOK only (not when the door text answers `SOUTH` or a keyless unlock): *The bridge is back to the north.*
 - **Wrong key:** *That key doesn't fit.*
 - **No key / `SOUTH` while locked:** the door text above (*…It wants a key.*)
 
@@ -1722,7 +1747,7 @@ South end of Rickety Bridge. Heavy iron door. *The door is iron, set deep into t
 **Connections:** North → Mid-Tier Key Door. South → Mine Passage.
 Base of the key door staircase. Rough-cut cave room.
 
-**Room description:** *The staircase deposits you in a rough cave at the bottom — low ceiling, unworked stone, the kind of room that exists because something had to be at the bottom of the stairs. The air is cooler here, damper. The passage continues south.*
+**Room description:** *The staircase ends in a rough cave — low ceiling, unworked stone, the kind of room that exists because something had to be at the bottom of the stairs. The air is cooler here, damper. The passage continues south, and the stairs climb back north to the iron door.*
 
 #### Mine Passage
 **XP: 1**
@@ -1753,7 +1778,8 @@ Worked cave section, old support timbers and rusting tools. Contains: charcoal (
 **Connections:** West → Mine Passage. East → The Crevice (permanently inaccessible after dig — hole too wide to cross). Down → Pile of Rubble (after dig; rope required).
 Deliberate rubble fill hiding a hole. Spur east to The Crevice. After digging, this room becomes the Hole to Below.
 
-**Before digging:** *The floor is packed tight with rubble — not the chaotic scatter of a cave-in, but deliberate, careful fill. Someone put this here on purpose.*
+**Before digging:** *The floor is packed tight with rubble — not the chaotic scatter of a cave-in, but deliberate, careful fill. Someone put this here on purpose. A narrow passage carries on east beyond it; the mine passage is back to the west.*
+Decided 2026-10-13: naming the east passage is the only warning before the dig that cuts off the Crevice (and its gold watch). No hint that the floor will give way — exploring before digging holes is what's rewarded.
 
 **DIG response:** *The shovel bites into the packed rubble and the floor gives way — the fill cascades into the darkness below. You scramble back from the edge. A gaping hole now separates you from the eastern passage.*
 
@@ -1763,6 +1789,7 @@ After the dig the room is named **Hole to Below**. A support timber over the edg
 
 - **After-dig description, added line:** *One of the old support timbers juts out over the edge, still sound.*
 - **Rope tied, added line:** *A rope is knotted around the timber, hanging down into the dark.*
+- **Exit line, last after the dig** (2026-10-13): *The passage east is out of reach across the gap now. The mine passage is back to the west.*
 - **`TIE ROPE TO BEAM` / `TIMBER`:** *You knot the rope around the timber and pay it out over the edge. It goes taut, then slack — the far end is resting on something solid.*
 - **`TIE ROPE` before the dig:** *There's nothing here to tie it to.*
 - **`UNTIE ROPE` / `TAKE ROPE` / `CUT ROPE` (once tied):** *You'd like a way back up. The rope stays.*
@@ -1781,11 +1808,13 @@ After the dig the room is named **Hole to Below**. A support timber over the edg
 **Connections:** West → Stored Room (permanently inaccessible after dig).
 Dead-end spur east of Stored Room. Permanently inaccessible once the Stored Room floor collapses (`DIG`) — a player who digs first loses the watch. A skeleton is wedged in a narrow crack — tried to squeeze through and failed. Gold pocket watch hangs from one outstretched finger. `TAKE WATCH` (Trophy Case treasure). **Missable.**
 
-**Room description:** *The passage pinches down to a crack in the far wall, and a skeleton is wedged into it at the shoulders — someone who tried to squeeze through and didn't fit. One arm hangs back toward you, and from its outstretched finger dangles a gold pocket watch on a chain.*
+**Room description:** *The passage pinches down to a crack in the far wall, and a skeleton is wedged into it at the shoulders — someone who tried to squeeze through and didn't fit. One arm hangs back toward you, and from its outstretched finger dangles a gold pocket watch on a chain. The only way out is back west.*
 
-**After the watch is taken**, the last sentence becomes: *One arm hangs back toward you, the finger empty now.*
+**After the watch is taken**, the watch sentence becomes: *One arm hangs back toward you, the finger empty now.* (The exit line still follows it.)
 
 **`EAST` from the Hole to Below (after the dig):** *The gap where the floor used to be is far too wide to cross.*
+
+**`EAST` here, into the crack** (2026-10-13): *The crack is far too narrow. He found that out.*
 
 #### Inscription Chamber
 **XP: 1**
@@ -1795,7 +1824,7 @@ Dead-end spur east of Stored Room. Permanently inaccessible once the Stored Room
 **Connections:** North → Mine Passage. East → Cave Creature's Lair (crawlspace; perception-gated). South → Echo Alcove.
 Ancient inscription on cave wall (Quest 28: `RUB PAPER ON ENGRAVING` with thin paper + charcoal). Rune stone (Quest 42, perception check). Crawlspace in east wall leads to Cave Creature's Lair — revealed by Trap 8 (Rope Snare) trigger or perception check.
 
-**Room description (default):** *A cave room, wider than the passage leading to it. One wall has been worked — smoothed and carved with an inscription, old enough that the edges have softened. The other walls are natural stone, unmodified.*
+**Room description (default):** *A cave room, wider than the passages running north and south from it. One wall has been worked — smoothed and carved with an inscription, old enough that the edges have softened. The other walls are natural stone, unmodified.*
 
 **Room description (rune stone found):** *...A small pale stone near the base of the carved wall catches your eye — etched with faint lines.*
 
@@ -1826,7 +1855,7 @@ Both perception checks are independent — either, both, or neither may fire on 
 **Connections:** West → Inscription Chamber (crawlspace).
 Accessed via crawlspace off Inscription Chamber. Creature absent, never encountered. Bone flute on floor (Quest 7).
 
-**Room description:** *A low, rank-smelling hollow at the end of the crawlspace. The floor is matted with old bedding — grass, fur, things that were once other things — and gnawed bones are pushed against the walls. Whatever lives here isn't home. It hasn't been for a while, or it's only just left.*
+**Room description:** *A low, rank-smelling hollow at the end of the crawlspace. The floor is matted with old bedding — grass, fur, things that were once other things — and gnawed bones are pushed against the walls. Whatever lives here isn't home. It hasn't been for a while, or it's only just left. The crawlspace leads back west.*
 
 #### Echo Alcove
 **XP: 1**
@@ -1846,14 +1875,14 @@ Listening station. One-way acoustic connection to the Antechamber in the lower t
 **Connections:** North → Echo Alcove. South → Deep Lock Door.
 Heavily magnetic room. Trap 15 (Magnetic Chest) on central chest — opening without disarming yanks all metal items to the chest. Perception reveals metallic filings in ring around latch; disarm removes lodestone from lid. Diamond brooch inside (second most valuable treasure in game).
 
-**Room description (default):** *A square room, stone walls, a single chest at the center on a low stone platform. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn. A nail in the wall points toward it. Dust has settled in a faint ring around the latch.*
+**Room description (default):** *A square room, stone walls, a single chest at the center on a low stone platform. Passages lead north and south. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn. A nail in the wall points toward it. Dust has settled in a faint ring around the latch.*
 
 **Room description (perception check passed):**
-*A square room, stone walls, a single chest at the center on a low stone platform. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn.*
+*A square room, stone walls, a single chest at the center on a low stone platform. Passages lead north and south. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn.*
 *A nail in the wall points toward it. The ring of metallic filings around the latch is deliberate — a lodestone is built into the lid. Opening the chest without removing it first would be a problem.*
 
 **Room description (after the trap — lodestone out or pulse fired):**
-*A square room, stone walls, a single chest at the center on a low stone platform. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn.*
+*A square room, stone walls, a single chest at the center on a low stone platform. Passages lead north and south. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn.*
 *A nail in the wall still points toward it, though nothing pulls at it now. The filings lie in a loose scatter below the latch.*
 
 **Trap 15 (traps.md):** Medium perception on every visit until spotted (glasses: automatic). Once the lodestone is out or the pulse has fired, the room uses the after-the-trap description.
@@ -1875,9 +1904,13 @@ Heavily magnetic room. Trap 15 (Magnetic Chest) on central chest — opening wit
 **Connections:** North → Magnetic Vault.
 End of key side critical path. Permanently sealed — no key, no lockpicks, dead end. Lower tier reached only via Hole to Below.
 
-**Room description:** *The passage ends at a door set deep into the stone. It is sealed absolutely — no lock visible, no handle, no gap at the frame. Whatever mechanism holds it closed is on the other side, or nowhere. This door does not open. The passage ends here.*
+**Room description:** *The passage ends at a door set deep into the stone. It is sealed absolutely — no lock visible, no handle, no gap at the frame. Whatever mechanism holds it closed is on the other side, or nowhere. This door does not open. The passage ends here; the only way is back north.*
 
-`OPEN` / `UNLOCK` / `PICK` the door: *This door does not open.*
+A deliberate dead end, with no purpose later (decided 2026-10-13, after the playtester listed it among things they'd missed). Every answer is final:
+- `OPEN` / `UNLOCK` the door: *This door does not open.*
+- `SOUTH`: *There is no south. There is a door, and the door does not open.*
+- `EXAMINE DOOR`: *Smooth, cold, and complete. You look for a keyhole, a hinge, a scratch from someone who tried before you. There's nothing. Nobody has ever gotten through this door, and the door seems to know it.*
+- `PICK LOCK` / `PICK DOOR` ("lock" and "keyhole" name the door): *There's no lock to pick. That's rather the point.*
 
 ### Trap Side (5 rooms — entered via Flooding Room sweep only)
 
@@ -1889,7 +1922,7 @@ End of key side critical path. Permanently sealed — no key, no lockpicks, dead
 **Connections:** South → Dream Corridor.
 Wet, low-ceilinged chamber at base of sluice. Entered only by the one-way sweep from the Flooding Room above (Trap 41) — there's no way back up. No exits except south.
 
-**Room description:** *The sluice deposits you here — wet stone, low ceiling, the sound of water draining somewhere below. The chamber is small and close. There's no way back up. The passage continues south.*
+**Room description:** *The sluice deposited you here — wet stone, low ceiling, the sound of water draining somewhere below. The chamber is small and close. There's no way back up. The passage continues south.*
 
 
 
@@ -1909,7 +1942,9 @@ Liminal branching passage. 2×3×2 decision tree — 12 outcomes (6 success, 6 f
 **Connections:** North → Dream Corridor. South → Supply Cache. Up → Bog of Eternal Stench (NW) (Quest 50; shovel required; one-way).
 Quest 50: combat with afflicted apprentice; post-combat `USE SHOVEL` finishes hole to Bog-NW; apprentice follows player out; Apprentice's Gloves reward (hands slot, +3); quest completes on bog exit.
 
-**Room description:** *A cramped cell cut into the rock, more burrow than room. Scraps of bedding are heaped in one corner. Low in the west wall a tunnel has been dug — clawed, almost — angling steeply up into the dark. Passages lead north and south.*
+**Room description** (two states, 2026-10-13 — the old single text said "a tunnel has been dug" in the "west wall", though it isn't through until the dig and `WEST` went nowhere):
+- **Before the dig:** *A cramped cell cut into the rock, more burrow than room. Scraps of bedding are heaped in one corner. Low in the weakest stretch of wall, where the rock gives way to packed earth, someone has clawed out a tunnel, angling steeply up into the dark — and stopping a little short of anything. Passages lead north and south.*
+- **After the dig:** *A cramped cell cut into the rock, more burrow than room. Scraps of bedding are heaped in one corner. Low in the weakest stretch of wall, where the rock gives way to packed earth, the tunnel angles steeply up to a ragged patch of grey light. Passages lead north and south.*
 
 **Built (2026-10-04):**
 - The tunnel to Bog-NW is in the wall, angling up. Apprentice text and the fight: npcs.md — The Afflicted Apprentice.
@@ -1936,7 +1971,7 @@ Partially collapsed side room. Contains a **gold nugget** — buried in rubble, 
 **Connections:** North → Supply Cache.
 Lowest point on trap side. Shallow pool. No confirmed items.
 
-**Room description:** *The passage ends here in a low chamber, the floor wet — a shallow pool covers most of it, fed by seepage through the walls. The water is still and dark. The ceiling is close. This is the lowest point down here, and it feels like it.*
+**Room description:** *The passage ends here in a low chamber, the floor wet — a shallow pool covers most of it, fed by seepage through the walls. The water is still and dark. The ceiling is close. This is the lowest point down here, and it feels like it. The only way out is back north.*
 
 ---
 
@@ -1990,9 +2025,10 @@ Lowest point on trap side. Shallow pool. No confirmed items.
 **Connections:** Up → Stored Room (rope required). North → Lower Crypt. East → Antechamber. South → The Encampment.
 Bottom of Hole to Below. Rope anchor point for return to mid tier.
 
-- **The rope from below** (scenery, not in the room description): `EXAMINE ROPE` — *The rope hangs down through the hole above, tied to the timber at the top.* `CLIMB ROPE` / `CLIMB UP ROPE` — the same as `UP`. `TAKE` / `UNTIE` / `CUT ROPE` — the Stored Room's line: *You'd like a way back up. The rope stays.* (Up in the Stored Room, `CLIMB ROPE` once it's tied is `DOWN`.)
+- **The rope from below** (scenery; the room description's last line names it — added 2026-10-13 so the way up is named, since the player is only ever here with it tied):
+  `EXAMINE ROPE` — *The rope hangs down through the hole above, tied to the timber at the top.* `CLIMB ROPE` / `CLIMB UP ROPE` — the same as `UP`. `TAKE` / `UNTIE` / `CUT ROPE` — the Stored Room's line: *You'd like a way back up. The rope stays.* (Up in the Stored Room, `CLIMB ROPE` once it's tied is `DOWN`.)
 
-*The ceiling is a jagged wound — stone and packed earth hanging at the edge where the floor above used to be. Below that: the rubble that was the floor, now a rough-graded pile you're standing on. The air smells of disturbed earth and something older underneath it. Passages lead north, east, and south.*
+*The ceiling is a jagged wound — stone and packed earth hanging at the edge where the floor above used to be. Below that: the rubble that was the floor, now a rough-graded pile you're standing on. The air smells of disturbed earth and something older underneath it. Passages lead north, east, and south. Your rope hangs down through the hole above.*
 
 ### Lower Crypt (Room 2)
 **XP: 2**
@@ -2002,7 +2038,8 @@ Bottom of Hole to Below. Rope anchor point for return to mid tier.
 **Connections:** South → Pile of Rubble. North → Thermal Vent Room.
 Keeper's skeleton under inert pendulum blade. Key ring on skeleton.
 
-**Room description:** *A rough cave, low-ceilinged and close. A pendulum blade hangs motionless from the ceiling — triggered long ago, dried blood on the edge. Beneath it, a skeleton in robes. Whatever the Keeper came down here to do, this is as far as he got.*
+**Room description:** *A rough cave, low-ceilinged and close. A pendulum blade hangs motionless from the ceiling — triggered long ago, dried blood on the edge. Beneath it, a skeleton in robes. Whatever the Keeper came down here to do, this is as far as he got. A passage leads on north; you see rubble to the south.*
+"The Keeper" is named here on purpose (decided 2026-10-13), though most players haven't heard the name yet (only May's paid Quest 19/30 tier-1 hint gives it; the statue note is unsigned). The title is the hint: the keys on him and the robes point to the church, where his chamber explains who he was.
 
 **Key item descriptions:**
 - Keys on skeleton (in room): *"The skeleton's fingers are curled loosely around a ring of keys."*
@@ -2025,7 +2062,7 @@ The skeleton, the seal and the pendulum blade are scenery (the seal is not takea
 **Connections:** North → Pile of Rubble.
 Scholar and Keeper's research area. Makeshift — bedrolls, scattered equipment, journals piled without order.
 
-**Room description:** *The camp is old but not abandoned — abandoned implies a choice. Bedrolls still laid out. Equipment set down mid-use. Journals open to pages no one finished. Whatever happened here, no one saw it coming.*
+**Room description:** *The camp is old but not abandoned — abandoned implies a choice. Bedrolls still laid out. Equipment set down mid-use. Journals open to pages no one finished. Whatever happened here, no one saw it coming. The only way out is back north, to the rubble.*
 
 No mechanical trigger — context and lore only.
 
@@ -2051,7 +2088,7 @@ Dead-end spur. Warm air rises from fissures in the floor. Fire clay (Quest 49) p
 **Connections:** West → Pile of Rubble. East → The Lower Crossing. South → Skeleton Room.
 Trap 36. Dry bones arranged plainly on the floor — no perception check needed.
 
-**Warning text:** *"The sound is coming from beyond that doorway — bone grinding on stone, steady and unhurried. You get the distinct impression that silence is not optional here."*
+**Warning text:** *"The sound is coming from beyond the south doorway — bone grinding on stone, steady and unhurried. You get the distinct impression that silence is not optional here."*
 
 `CLEAR BONES` disarms. Moving through without clearing: instant death.
 
@@ -2059,9 +2096,11 @@ Trap 36. Dry bones arranged plainly on the floor — no perception check needed.
 
 **Movement:** `EAST` or `SOUTH` before `CLEAR BONES` → the death text above (GAME OVER). `WEST` (back to the Pile of Rubble) is always safe. `SOUTH` after clearing → Skeleton Room (instant death on entry).
 
-**Room description (before clearing):** *A low chamber, its floor carpeted wall to wall in dry bones — not scattered, laid, every one of them placed. Doorways lead east and south; the way you came is west.* Followed by the warning text.
+**Room description (before clearing):** *A low chamber, its floor carpeted wall to wall in dry bones — not scattered, laid, every one of them placed. Doorways lead east and south, and the rubble lies to the west.* Followed by the warning text.
 
-**Room description (after clearing):** the bones line becomes *A narrow path of bare stone runs through the bones, east to west.* The warning text stays.
+**Room description (after clearing):** *A low chamber, its floor carpeted wall to wall in dry bones — except for a narrow path of bare stone that now runs through them, east to west. Doorways lead east and south, and the rubble lies to the west.* The warning text stays.
+
+Decided 2026-10-13 (playtest theme 3, "was the south room unwinnable?"): the deaths stay, with no extra warning on `SOUTH`. The warning now names the south doorway (it said "that doorway", which pointed nowhere after clearing), and the cleared state keeps the doorways in the text. "The way you came is west" was dropped — wrong coming back from the Lower Crossing.
 
 - **`CLEAR BONES`:** *You crouch and work slowly, lifting the bones aside one at a time and setting each down without a sound, until a narrow path of bare stone runs across the room. Beyond the south doorway, the grinding goes on, unbothered.* Trap 36 disarmed (3 XP; Rogue +5).
 - **`CLEAR BONES` again:** *The path is already clear.*
@@ -2098,7 +2137,9 @@ Navigational fork east of Antechamber.
 **Connections:** West → The Lower Crossing. East → The Still Den.
 Long narrow passage east of The Lower Crossing leading to The Still Den.
 
-*A long passage, barely wide enough for your shoulders. The walls are close and the ceiling drops as you move east. Somewhere ahead, something breathes — slow and irregular, like sleep that isn't quite sleep.*
+Two states (2026-10-13 — the single text kept the breathing after the kill, and "ahead" was wrong walking back west):
+- **Werewolf alive:** *A long passage, barely wide enough for your shoulders. The walls are close and the ceiling drops toward the east. Somewhere that way, something breathes — slow and irregular, like sleep that isn't quite sleep. The crossing is back to the west.*
+- **After the kill:** *A long passage, barely wide enough for your shoulders. The walls are close and the ceiling drops toward the east, where the den lies quiet now. The crossing is back to the west.*
 
 ### The Still Den / Werewolf's Room (Room 9)
 **XP: 2**
@@ -2117,10 +2158,11 @@ The description has three states (decided 2026-10-09). The werewolf is named in 
 *The grey shape unfolds from the floor: a werewolf, taller than a man, long in the arm, its fur gone patchy over skin that hasn't been alive in years. It turns its head toward you and starts forward.*
 
 **Room description (werewolf up):** every LOOK after it has risen, and every return visit while it lives — shown in full on entry even in BRIEF mode, and the rising text doesn't play again.
-*A wide cave, low but not cramped, the walls gouged at every height. The werewolf paces the worn oval in the floor, grey fur hanging from skin that hasn't been alive in years. It hasn't taken its eyes off you.*
+*A wide cave, low but not cramped, the walls gouged at every height. The werewolf paces the worn oval in the floor, grey fur hanging from skin that hasn't been alive in years. It hasn't taken its eyes off you. The narrow pass is back to the west.*
 
 **Room description (post-combat):**
-*A wide cave, low but not cramped. The walls are gouged at every height — long parallel marks, overlapping, years of them. The floor is worn smooth in a rough oval, the path of something that has been pacing this space for longer than it can remember. Nothing paces it now. The scholar lies where the creature fell, the stake still in him.*
+*A wide cave, low but not cramped. The walls are gouged at every height — long parallel marks, overlapping, years of them. The floor is worn smooth in a rough oval, the path of something that has been pacing this space for longer than it can remember. Nothing paces it now. The scholar lies where the creature fell, the stake still in him. The narrow pass is back to the west.*
+(Exit line added to the risen and after-kill states 2026-10-13; the first-visit text has none — the rising is the moment.)
 
 **Death/reversion text:** *The creature drops. Between one moment and the next, it is not the creature anymore. The scholar lies on the floor of the cave he came down here to find.*
 Then the amulet's fall, so the player knows it's there: *Something slips loose from around his neck as he falls and comes to rest on the stone beside him: a tarnished amulet, a seven-pointed star on its face.*
@@ -2159,7 +2201,9 @@ Quest 34 barrier room. North of The Lower Crossing. Speaking door disguised as b
 
 **`READ SCROLL` response:** *"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."* — the scroll isn't used up (it can be left behind); passage north opens permanently. Before the door is found, `READ SCROLL` here gets the scroll's away-from-the-door line (items.md).
 
-**Open state (all future visits):** *"The passage ends at a shallow recess lined with empty iron brackets. The back wall stands open. It has nothing left to ask."*
+**Open state (all future visits):** *"The passage ends at a shallow recess lined with empty iron brackets. The back wall stands open onto a passage north. It has nothing left to ask."*
+
+**Exit line** (2026-10-13), on LOOK only, straight after the bracket text or the open-state text (before the wall's own lines when found): *The crossing is back to the south.* Not part of the `EXAMINE WALL` / `LISTEN` answers, which reuse those texts.
 
 **Pull-back mechanics (before discovery only):**
 - 50/50 text on Lower Crossing exit — see The Lower Crossing (Room 7) above.
@@ -2172,7 +2216,7 @@ Quest 34 barrier room. North of The Lower Crossing. Speaking door disguised as b
 **Connections:** South → Tool Alcove. North → The Fountain Room (quest-gated; POUR VIAL IN WATER freezes pool).
 North of Tool Alcove. A channel of dark water fills the room wall to wall — narrow but uncrossable.
 
-**Room description:** *Everything in this room is becoming the pool. Water seeps through the walls in thin lines, runs down the stone, disappears into the dark surface below. The ceiling drips. The pool fills the room wall to wall — narrow, long, bottomless as far as you can tell. The passage north is visible on the other side. The water is between you and it.*
+**Room description:** *Everything in this room is becoming the pool. Water seeps through the walls in thin lines, runs down the stone, disappears into the dark surface below. The ceiling drips. The pool fills the room wall to wall — narrow, long, bottomless as far as you can tell. The passage north is visible on the other side. The water is between you and it. The alcove is back to the south.*
 
 **Swimming penalty:** *The moment you enter, the water is inside you somehow — not wet, not cold, just wrong. The pain that follows is real and serious and spreads fast. You are back at the doorway, bleeding from nowhere you can see.* (1 heart arcane damage; player returned to doorway automatically.)
 
@@ -2181,7 +2225,7 @@ North of Tool Alcove. A channel of dark water fills the room wall to wall — na
 **Built (2026-10-04):**
 - `NORTH`, `SWIM` or `ENTER POOL` before the freeze: the swimming penalty above — 1 heart (arcane, not combat: the tunic doesn't apply); the player stays in the room.
 - **`POUR VIAL IN WATER`** (the vial is used up): *You unstopper the vial and tip it over the pool. The glacier melt hits the surface and the cold spreads out from it in a white rush, wall to wall, faster than water should freeze. The pool goes still. Then it goes solid.*
-- **Room description, frozen:** *The pool fills the room wall to wall, frozen solid. Water still seeps down the walls and stops where it meets the ice. The passage north is on the other side, and nothing stands between you and it now.*
+- **Room description, frozen:** *The pool fills the room wall to wall, frozen solid. Water still seeps down the walls and stops where it meets the ice. The passage north is on the other side, and nothing stands between you and it now. The alcove is back to the south.*
 - Pouring the vial anywhere else: *You'd rather not waste it.*
 
 ### The Fountain Room (Room 12)
@@ -2192,7 +2236,8 @@ North of Tool Alcove. A channel of dark water fills the room wall to wall — na
 **Connections:** South → The Flooded Passage.
 North of The Flooded Passage. Contains a soldier encased in a block of magical ice — alive but suspended.
 
-**Room description:** *Cold stops you at the threshold — not wind, just cold, settled and absolute. The fountain to your left has been frozen mid-pour for what might be a very long time. The block of ice in the center of the room is frosted thick, but not so thick you can't see the shape inside it. A person. Standing. Composed.*
+**Room description:** *Cold stops you at the threshold — not wind, just cold, settled and absolute. The flooded passage is back to the south. The fountain to your left has been frozen mid-pour for what might be a very long time. The block of ice in the center of the room is frosted thick, but not so thick you can't see the shape inside it. A person. Standing. Composed.*
+(Exit line placed early, 2026-10-13, so the room still ends on the figure.)
 
 **Turn 1 (`HOLD TORCH NEAR ICE`):**
 *The ivory torch throws heat that seems wrong for its size. Where the flame meets the ice, the frost retreats — a wet gleam spreading outward from the torch's reach.*
@@ -2210,7 +2255,7 @@ He doesn't return to town — weapon training belongs to the Redcrosse Knight (Q
 - **`MELT ICE` / `THAW ICE` with no tool named** (decided 2026-10-12): the Ivory Torch if carried, else the ordinary torch (its lines below), else *You've nothing hot enough to make a dent in it.* **`MELT ICE WITH` anything but a torch:** *The [thing] won't melt anything.*
 - **The ordinary torch:** lit — *You hold the torch to the ice. The flame gutters against the frost and leaves no mark. Whatever holds this ice, ordinary fire isn't going to move it.* Burnt out — *The torch is burnt out. It wouldn't have been enough anyway.*
 - **`EXAMINE ICE`** (also SOLDIER / FIGURE): before — *Frosted thick. Inside, a soldier stands composed, eyes open, waiting.* After Turn 1 — *A small clear window has opened in the frost. The soldier inside hasn't moved.*
-- **Room description, after the thaw:** *The fountain to your left is still frozen mid-pour. Where the block of ice stood, there's only a spreading wet patch on the floor and a few sheets of ice melting at its edges.*
+- **Room description, after the thaw:** *The fountain to your left is still frozen mid-pour. Where the block of ice stood, there's only a spreading wet patch on the floor and a few sheets of ice melting at its edges. The flooded passage is back to the south.*
 
 ### Dark Room (Room 11 — Dark branch off The Lower Crossing)
 **XP: 2**
@@ -2221,6 +2266,7 @@ He doesn't return to town — weapon training belongs to the Redcrosse Knight (Q
 Magical darkness fills the passage ahead. Hard block without Guardian's Lantern. Normal torches and Light spell ineffective.
 
 **Before lantern:** *You cannot see anything. This is not like being in the dark. This is something the dark is doing on purpose.*
+Decided 2026-10-13: the dark stays absolute — no exit line before the lantern, not even the way back north. A deliberate exception to the rule that room text names its exits.
 
 **Lantern reveal:**
 *The lantern opens and the darkness collapses. No gradual brightening — one moment nothing, the next a plain stone room, fully lit, as if it had always been waiting to be seen.*
@@ -2244,7 +2290,7 @@ Magical darkness fills the passage ahead. Hard block without Guardian's Lantern.
 **Connections:** North → Dark Room. South → Burial Chamber.
 6–9 silent spirits. Hard block both directions while player is visible. The God-Forsaken Ring required. Spirits cannot be killed. South of Dark Room.
 
-**Room description:** *The room is silent. Shapes drift through it — sparse, irregular, neither here nor entirely anywhere. They are not human. They are not entirely not human. They take note of you the moment you enter. The passages on either side are visible. Getting to them is another matter.*
+**Room description:** *The room is silent. Shapes drift through it — sparse, irregular, neither here nor entirely anywhere. They are not human. They are not entirely not human. They take note of you the moment you enter. The passages north and south are visible. Getting to them is another matter.*
 
 **Room description, invisible:** *The room is silent. Shapes drift through it — sparse, irregular, neither here nor entirely anywhere. They pay you no attention at all. Passages lead north and south.*
 
@@ -2274,6 +2320,8 @@ Magical darkness fills the passage ahead. Hard block without Guardian's Lantern.
 South of Spirit Room.
 
 *The chamber is circular, the walls carved with processions of figures — mourners, by the look of them, rendered in a style no living hand in Roundabout would recognize. Niches hold candles that have not burned in centuries, wax melted flat and cold. The plinth at the center holds the mask. Everything in this room was arranged deliberately, long ago, by people who are not coming back.*
+*The only way out is north, back through the shapes. Whatever they were, they let you pass once — unseen. You'd like to keep it that way.*
+(Exit line 2026-10-13: "shapes", the only word the game gives them; the last two sentences hint the ring should stay on for the way back.)
 
 Contains **Funeral Mask of Hammered Gold** (treasure) on central plinth. Taking the mask triggers no reaction from the spirits. Once the mask has been taken, "The plinth at the center holds the mask." becomes *The plinth at the center stands empty.*
 

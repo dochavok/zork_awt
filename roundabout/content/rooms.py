@@ -18,19 +18,31 @@ INTO_THE_SEA = ("The ocean offers no opinion on that idea, and neither does your
 # returns True if something was found just now.
 # ---------------------------------------------------------------------------
 
+BEDROOM_DOOR_FOUND = "You notice a door to the north you hadn't seen before."
+BEDROOM_DOOR_STAYS = "A door in the north wall stands where you'd have sworn there wasn't one."
+
+
 def bedroom_door_check(w) -> bool:
-    """Will's tower: Easy, every visit until the bedroom door is found."""
+    """Will's tower: Easy, every visit until the bedroom door is found.
+    Announced at the end of the turn, after the room (bedroom_door_announce)."""
     if w.get_global("BEDROOM-DOOR-VISIBLE"):
         return False
     from content.perception import EASY
     from content.player import check_perception
     if not check_perception(w, EASY):
         return False
+    w.set_global("BEDROOM-DOOR-VISIBLE", "pending")
+    return True
+
+
+def bedroom_door_announce(w) -> None:
+    """End of turn in the tower: the door found this turn."""
+    if w.get_global("BEDROOM-DOOR-VISIBLE") != "pending":
+        return
     from content import quests
     w.set_global("BEDROOM-DOOR-VISIBLE", True)
-    print("You notice a door to the north you hadn't seen before.")
+    print(BEDROOM_DOOR_FOUND)
     quests.discover(w, "53")
-    return True
 
 
 def volcano_stairs_check(w) -> bool:
@@ -90,17 +102,20 @@ def _make_opening(world) -> None:
 # Will's Wizard Tower
 # ---------------------------------------------------------------------------
 
+TOWER_LDESC = (
+    "The tower doesn't announce itself. It simply is — books, firelight, "
+    "the low hum of something you can't quite locate. A desk dominates one "
+    "end, buried under papers that somehow manage to look organized. A "
+    "painting of a tavern hangs on the wall, slightly crooked. The room has the "
+    "feeling of a place where important things happen without any particular fuss."
+)
+
+
 def _make_tower(world) -> None:
     main = Room(
         name="WIZARDS-TOWER",
         desc="Will's Wizard Tower",
-        ldesc=(
-            "The tower doesn't announce itself. It simply is — books, firelight, "
-            "the low hum of something you can't quite locate. A desk dominates one "
-            "end, buried under papers that somehow manage to look organized. A "
-            "painting hangs on the wall, slightly crooked. The room has the feeling "
-            "of a place where important things happen without any particular fuss."
-        ),
+        ldesc="",            # tower_action: TOWER_LDESC, then the door once found
         value=1,
     )
     main.set_flag(ONBIT)
@@ -119,6 +134,7 @@ def _make_tower(world) -> None:
             "neatness of someone who knows they'll be up again soon.\n"
             "A nightstand holds a half-melted candle and a ring left by a cup "
             "that was never there long enough to matter.\n"
+            "The door back to the tower is south.\n"
             "The rest of the room is Will's business and clearly has been for "
             "a very long time."
         ),
@@ -137,7 +153,7 @@ def _make_tower(world) -> None:
         message="You push open the bedroom door and step inside.",
     )
 
-    from engine.game import M_NOT_HANDLED, M_ENTER, M_END
+    from engine.game import M_NOT_HANDLED, M_HANDLED, M_ENTER, M_END, M_LOOK
     from content.perception import EASY
 
     _WILL_SHAKEN = (    # npcs.md — Will Passion, Quest 50
@@ -147,7 +163,13 @@ def _make_tower(world) -> None:
     )
 
     def tower_action(w, msg=M_NOT_HANDLED):
+        if msg == M_LOOK:
+            print(TOWER_LDESC)
+            if w.get_global("BEDROOM-DOOR-VISIBLE") is True:   # not while still "pending"
+                print(BEDROOM_DOOR_STAYS)
+            return M_HANDLED
         if msg == M_END:
+            bedroom_door_announce(w)
             from content.will import glasses_seen
             glasses_seen(w)
             return M_NOT_HANDLED
@@ -438,7 +460,7 @@ def _make_town(world) -> None:
         name="ROUNDABOUT-BEACH",
         desc="Roundabout Beach",
         ldesc=(
-            "Roundabout Beach opens up as the town falls behind you — a generous "
+            "Roundabout Beach opens out below the town — a generous "
             "sweep of sand, the water catching whatever light the sky offers. The "
             "docks stretch east to where the Pie Rat Ship is moored, close enough "
             "to read the name on its hull. The lighthouse stands to the northeast "
@@ -552,6 +574,11 @@ LIGHTHOUSE_CHAIN = (
     "A tag on the chain reads: KEEPER ONLY. Whoever the keeper is, they'd "
     "clearly rather you didn't."
 )
+# Ways the text shows but the player can't take (mechanics.md — Room
+# Descriptions Name Their Exits)
+ALLEY_NORTH = "The alley splits here — northeast to the town square, northwest to Main West."
+BACK_ALLEY_SOUTH = "The tavern's back wall. It isn't going anywhere, and neither are you."
+SEA_WEST_NORTH = "The lighthouse stands on rocks. There's nowhere there to bring a boat in."
 
 _VOLCANO_LDESC = (
     "The volcano fills the sky above you — black rock streaked with old flows, "
@@ -717,7 +744,9 @@ def _make_west_town(world) -> None:
     alley.exits["northeast"] = Exit(destination="TOWN-SQUARE")
     alley.exits["northwest"] = Exit(destination="MAIN-WEST")
     alley.exits["south"]     = Exit(destination="BACK-ALLEY")
+    alley.exits["north"]     = Exit(message=ALLEY_NORTH)        # the split, not a way
     back_alley.exits["north"] = Exit(destination="ALLEY")
+    back_alley.exits["south"] = Exit(message=BACK_ALLEY_SOUTH)  # the tavern's back wall
     from content.back_alley import back_alley_action
     back_alley.action = back_alley_action
     # Archery Range: north → Roundabout Pond (not yet built)
@@ -933,9 +962,12 @@ def _make_mine(world) -> None:
         name="MINE-TUNNELS",
         desc="Mine Tunnels",
         ldesc=(
-            "The working tunnels branch off the main shaft. Torch sconces are fixed "
+            "The working tunnels branch off the main shaft, following veins of ore "
+            "that may or may not have been the point. Torch sconces are fixed "
             "to the walls at intervals — the torches in them are real and lit. "
-            "The floor is rutted with cart tracks."
+            "The smell of fresh-cut rock is strongest here. The cart tracks "
+            "rutting the floor run off to the north; the shaft climbs back up "
+            "to the main level."
         ),
         value=1,
     )
@@ -948,7 +980,10 @@ def _make_mine(world) -> None:
         ldesc=(
             "A widening in the tunnel that someone has decided is a room. Crates "
             "and barrels are stacked with more care than the surroundings suggest — "
-            "this is storage, not clutter. The Pie Rats keep their surplus here."
+            "this is storage, not clutter. The Pie Rats keep their surplus here: "
+            "things that aren't ore, things that don't show up on manifests, "
+            "things that would raise questions on a dock. The tunnel runs back "
+            "south."
         ),
         value=1,
     )
@@ -998,7 +1033,7 @@ def _make_beach_and_sea(world) -> None:
             "The smell of the town still reaches you here — smoke and bread "
             "underneath the salt. The beach stretches away to the west, the lighthouse "
             "standing watch to the north. The water is choppier than it looked "
-            "from shore."
+            "from shore. Eastward, the coast begins to fall away."
         ),
         value=1,
     )
@@ -1011,7 +1046,8 @@ def _make_beach_and_sea(world) -> None:
         ldesc=(
             "The coast is gone. There is nothing in any direction but open water "
             "and sky. The sea moves in long slow swells that lift and drop the hull "
-            "with a steady indifference. You are very small out here."
+            "with a steady indifference. You are very small out here. West is the "
+            "way home, if you trust your bearings. Whatever's east, you'll find out."
         ),
         value=1,
     )
@@ -1023,8 +1059,10 @@ def _make_beach_and_sea(world) -> None:
         desc="Eastern Roundabout Sea",
         ldesc=(
             "Is that — yes. An island. Small, tree-lined, a beach curving around "
-            "the side facing you. The water around it is shallow and clear. East "
-            "of it, the sea continues without comment."
+            "the side facing you. The water around it is shallow and clear. Nothing "
+            "out here suggested this was coming. It sits quietly off the bow, waiting "
+            "to be noticed. East of it, the sea continues without comment. West, the "
+            "swells run back toward town."
         ),
         value=1,
     )
@@ -1061,7 +1099,11 @@ def _make_beach_and_sea(world) -> None:
             "does not comfort you.\n"
             "Nothing here is threatening and nothing here is welcoming. The island "
             "feels like a place that has been waiting — not for you specifically, "
-            "but for someone. The ship rides at anchor just offshore."
+            "but for someone. The ship rides at anchor just offshore.\n"
+            "The quiet here is a different kind of quiet than the open ocean — "
+            "heavier, more deliberate.\n"
+            "You have the distinct feeling that something happened here once. The "
+            "island isn't telling."
         ),
         value=1,
     )
@@ -1076,6 +1118,7 @@ def _make_beach_and_sea(world) -> None:
 
     sea_west.exits["west"] = Exit(destination="SHIP-DECK")
     sea_west.exits["east"] = Exit(destination="SEA-MID")
+    sea_west.exits["north"] = Exit(message=SEA_WEST_NORTH)   # the lighthouse rocks
     sea_mid.exits["west"]  = Exit(destination="SEA-WEST")
     sea_mid.exits["east"]  = Exit(destination="SEA-EAST")
     sea_east.exits["west"] = Exit(destination="SEA-MID")
@@ -1116,7 +1159,7 @@ def _make_kevrys_island(world) -> None:
             "The beach is long and quiet, the sand unmarked. A line of scrubby "
             "trees runs along the inland edge. Somewhere beyond them to the east, "
             "half-hidden, a small structure. The ship rides at anchor just "
-            "offshore. The only sounds are the water behind you and the wind "
+            "offshore. The only sounds are the surf and the wind "
             "doing very little. It feels like a place that has been left alone "
             "for a long time and is content with that."
         ),

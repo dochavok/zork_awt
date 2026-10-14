@@ -38,7 +38,8 @@ if TYPE_CHECKING:
 # ---------------------------------------------------------------------------
 
 _CHAMBER = (
-    "A cave room, wider than the passage leading to it. One wall has been worked "
+    "A cave room, wider than the passages running north and south from it. One "
+    "wall has been worked "
     "— smoothed and carved with an inscription, old enough that the edges have "
     "softened. The other walls are natural stone, unmodified."
 )
@@ -79,7 +80,8 @@ _LAIR = (
     "A low, rank-smelling hollow at the end of the crawlspace. The floor is matted "
     "with old bedding — grass, fur, things that were once other things — and "
     "gnawed bones are pushed against the walls. Whatever lives here isn't home. It "
-    "hasn't been for a while, or it's only just left."
+    "hasn't been for a while, or it's only just left. The crawlspace leads back "
+    "west."
 )
 _ECHO = (
     "A shallow alcove, barely deeper than it is wide, the rock curved like the "
@@ -89,7 +91,7 @@ _ECHO = (
 )
 _VAULT = (
     "A square room, stone walls, a single chest at the center on a low stone "
-    "platform. The room feels subtly wrong in a way that takes a moment to "
+    "platform. Passages lead north and south. The room feels subtly wrong in a way that takes a moment to "
     "identify — small metal objects have drifted toward the chest, as if drawn."
 )
 _VAULT_DEFAULT = "A nail in the wall points toward it. Dust has settled in a faint ring around the latch."
@@ -126,8 +128,15 @@ _DEEP_LOCK = (
     "The passage ends at a door set deep into the stone. It is sealed absolutely — "
     "no lock visible, no handle, no gap at the frame. Whatever mechanism holds it "
     "closed is on the other side, or nowhere. This door does not open. The passage "
-    "ends here."
+    "ends here; the only way is back north."
 )
+DEEP_LOCK_SOUTH = "There is no south. There is a door, and the door does not open."
+DEEP_LOCK_EXAMINE = (
+    "Smooth, cold, and complete. You look for a keyhole, a hinge, a scratch from "
+    "someone who tried before you. There's nothing. Nobody has ever gotten through "
+    "this door, and the door seems to know it."
+)
+_DEEP_LOCK_PICK = "There's no lock to pick. That's rather the point."
 _DOOR_SHUT = "This door does not open."
 
 # Iron and steel only (items.md — Trap 15)
@@ -365,9 +374,16 @@ def _pry(w: World, obj) -> None:
 # ---------------------------------------------------------------------------
 
 def deep_lock_action(w: World, msg: int = M_NOT_HANDLED) -> int:
-    if msg == M_BEG and w.prsa in ("V-OPEN", "V-UNLOCK", "V-PICK") and w.prso is w.objects["DEEP-LOCK"]:
-        print(_DOOR_SHUT)
-        return M_HANDLED
+    if msg == M_BEG and w.prso is w.objects["DEEP-LOCK"]:
+        if w.prsa == "V-PICK":
+            print(_DEEP_LOCK_PICK)
+            return M_HANDLED
+        if w.prsa == "V-EXAMINE":
+            print(DEEP_LOCK_EXAMINE)
+            return M_HANDLED
+        if w.prsa in ("V-OPEN", "V-UNLOCK"):
+            print(_DOOR_SHUT)
+            return M_HANDLED
     return M_NOT_HANDLED
 
 
@@ -395,6 +411,7 @@ def make_rooms(world) -> None:
     lair.exits.update(west=Exit(destination="INSCRIPTION-CHAMBER"))
     echo.exits.update(north=Exit(destination="INSCRIPTION-CHAMBER"), south=Exit(destination="MAGNETIC-VAULT"))
     vault.exits.update(north=Exit(destination="ECHO-ALCOVE"), south=Exit(destination="DEEP-LOCK-DOOR"))
+    deep.exits["south"] = Exit(message=DEEP_LOCK_SOUTH)   # the door, which does not open
     deep.exits.update(north=Exit(destination="MAGNETIC-VAULT"))
 
     chamber.action = chamber_action

@@ -39,8 +39,9 @@ _ASKS = (
 )
 _OPEN = (
     "The passage ends at a shallow recess lined with empty iron brackets. The back "
-    "wall stands open. It has nothing left to ask."
+    "wall stands open onto a passage north. It has nothing left to ask."
 )
+_BACK_SOUTH = "The crossing is back to the south."   # LOOK only — _BRACKETS / _OPEN also answer EXAMINE WALL
 _ANSWERED = (
     "The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You "
     "get the sense it had begun to doubt anyone would ever answer."
@@ -74,15 +75,15 @@ def alcove_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         return M_NOT_HANDLED
     if msg == M_LOOK:
         if w.get_global("ALCOVE-OPEN"):
-            print(_OPEN)
+            print(_OPEN + " " + _BACK_SOUTH)
         elif w.get_global("ALCOVE-FOUND"):
-            print(_BRACKETS)
+            print(_BRACKETS + " " + _BACK_SOUTH)
             if w.get_global("ALCOVE-JUST-FOUND"):
                 print(_NOTICES)
                 w.set_global("ALCOVE-JUST-FOUND", False)
             print(_ASKS)
         else:
-            print(_BRACKETS)
+            print(_BRACKETS + " " + _BACK_SOUTH)
         return M_HANDLED
     if msg != M_BEG:
         return M_NOT_HANDLED

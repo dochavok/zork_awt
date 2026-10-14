@@ -38,12 +38,16 @@ WEREWOLF_DICE = (3, 20)   # raised from 3d10 2026-10-12: it barely landed past L
 
 _BONES = (
     "A low chamber, its floor carpeted wall to wall in dry bones — not scattered, "
-    "laid, every one of them placed. Doorways lead east and south; the way you "
-    "came is west."
+    "laid, every one of them placed. Doorways lead east and south, and the rubble "
+    "lies to the west."
 )
-_PATH = "A narrow path of bare stone runs through the bones, east to west."
+_PATH = (
+    "A low chamber, its floor carpeted wall to wall in dry bones — except for a "
+    "narrow path of bare stone that now runs through them, east to west. Doorways "
+    "lead east and south, and the rubble lies to the west."
+)
 _GRINDING = (
-    "The sound is coming from beyond that doorway — bone grinding on stone, "
+    "The sound is coming from beyond the south doorway — bone grinding on stone, "
     "steady and unhurried. You get the distinct impression that silence is not "
     "optional here."
 )
@@ -71,8 +75,14 @@ _CROSSING = (
 )
 _NARROW_PASS = (
     "A long passage, barely wide enough for your shoulders. The walls are close "
-    "and the ceiling drops as you move east. Somewhere ahead, something breathes "
-    "— slow and irregular, like sleep that isn't quite sleep."
+    "and the ceiling drops toward the east. Somewhere that way, something breathes "
+    "— slow and irregular, like sleep that isn't quite sleep. The crossing is back "
+    "to the west."
+)
+_NARROW_PASS_QUIET = (
+    "A long passage, barely wide enough for your shoulders. The walls are close "
+    "and the ceiling drops toward the east, where the den lies quiet now. The "
+    "crossing is back to the west."
 )
 
 _DEN = (
@@ -86,9 +96,10 @@ _DEN_ALIVE = (" Something lies curled at the far end of the oval, grey and motio
 _DEN_UP = (
     "A wide cave, low but not cramped, the walls gouged at every height. The werewolf "
     "paces the worn oval in the floor, grey fur hanging from skin that hasn't been alive "
-    "in years. It hasn't taken its eyes off you."
+    "in years. It hasn't taken its eyes off you. The narrow pass is back to the west."
 )
-_DEN_AFTER = " Nothing paces it now. The scholar lies where the creature fell, the stake still in him."
+_DEN_AFTER = (" Nothing paces it now. The scholar lies where the creature fell, the stake still "
+              "in him. The narrow pass is back to the west.")
 _RISES = (
     "The grey shape unfolds from the floor: a werewolf, taller than a man, long in the "
     "arm, its fur gone patchy over skin that hasn't been alive in years. It turns its "
@@ -139,6 +150,13 @@ def _game_over(w: World, text: str) -> None:
 # ---------------------------------------------------------------------------
 # Antechamber (Trap 36)
 # ---------------------------------------------------------------------------
+
+def narrow_pass_action(w: World, msg: int = M_NOT_HANDLED) -> int:
+    if msg == M_LOOK:
+        print(_NARROW_PASS_QUIET if w.get_global("WEREWOLF-DEAD") else _NARROW_PASS)
+        return M_HANDLED
+    return M_NOT_HANDLED
+
 
 def antechamber_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
@@ -272,7 +290,7 @@ def make_rooms(world) -> None:
 
     ante = room("ANTECHAMBER", "Antechamber", "")
     crossing = room("LOWER-CROSSING", "The Lower Crossing", _CROSSING)
-    narrow = room("NARROW-PASS", "The Narrow Pass", _NARROW_PASS)
+    narrow = room("NARROW-PASS", "The Narrow Pass", "")   # narrow_pass_action: before / after the kill
     den = room("STILL-DEN", "The Still Den", "")
 
     world.rooms["PILE-OF-RUBBLE"].exits["east"] = Exit(destination="ANTECHAMBER")
@@ -285,4 +303,5 @@ def make_rooms(world) -> None:
     den.exits.update(west=Exit(destination="NARROW-PASS"))
 
     ante.action = antechamber_action
+    narrow.action = narrow_pass_action
     den.action = den_action

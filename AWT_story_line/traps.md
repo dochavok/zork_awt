@@ -78,7 +78,7 @@ The idol is treasure — not required for the ring quest.
 **Descriptor:** a floor carpeted in dry bones, arranged to crack at the first step
 A section of floor outside the skeleton room in the dungeon lower tier is covered with dry bones arranged so they crunch loudly when walked on.
 The bones are plainly visible — no perception check required.
-The room text warns explicitly: *"The sound is coming from beyond that doorway — bone grinding on stone, steady and unhurried. You get the distinct impression that silence is not optional here."*
+The room text warns explicitly: *"The sound is coming from beyond the south doorway — bone grinding on stone, steady and unhurried. You get the distinct impression that silence is not optional here."*
 **Disarm:** `CLEAR BONES` sweeps a silent path through before moving to the next room — the only safe way to proceed.
 **If triggered** (player moves toward the skeleton room without clearing first): the bones crack underfoot, the grinding stops, and the doorway fills. Instant death — no combat round.
 `EAST` or `SOUTH` before clearing triggers it; `WEST` (the way in) is always safe. Room and `CLEAR BONES` text in locations.md (Antechamber).

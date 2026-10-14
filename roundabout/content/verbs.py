@@ -161,6 +161,10 @@ def v_examine(world: World) -> int:
     if gravestone.examine(world, obj):
         return M_HANDLED
 
+    from content import cellar             # the flood behind the black oak door
+    if cellar.examine_tunnel_door(world, obj):
+        return M_HANDLED
+
     if obj.name == "MUSIC-BOX":           # Quest 12 — Will's hints
         from content import music_box
         music_box.examine(world)

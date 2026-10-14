@@ -49,7 +49,7 @@ _SWEPT = ("The water closes over your head and the floor drops away. The current
           "you down through the sluice, turning you over in the dark, and lets go.")
 
 _SPILLWAY = (
-    "The sluice deposits you here — wet stone, low ceiling, the sound of water "
+    "The sluice deposited you here — wet stone, low ceiling, the sound of water "
     "draining somewhere below. The chamber is small and close. There's no way back "
     "up. The passage continues south."
 )

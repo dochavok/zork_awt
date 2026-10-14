@@ -28,11 +28,11 @@ _SHAFT = (
     "The passage narrows as it goes — not dangerously, but noticeably. The stonework "
     "changes here, older and less deliberate, as if this part of the tunnel predates "
     "whoever dug the rest. To the west, a rougher passage breaks off and climbs "
-    "toward the mine."
+    "toward the mine. Southward, the passage widens again."
 )
 _HIDDEN = (
-    "The gap in the assay room wall opens into a rough passage that connects to the "
-    "tunnel network below. It does not appear on any official plan of the mine. It "
+    "The gap in the assay room wall, to the west, opens into a rough passage that runs "
+    "east toward the tunnel network below. It does not appear on any official plan of the mine. It "
     "would not."
 )
 _GAP_FOUND = (

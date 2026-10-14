@@ -1584,7 +1584,7 @@ then Right.
 
 > JUMP ON PLATE               [sluice]
 > PULL LEFT LEVER             [grinds|water is at your knees]
-> PULL RIGHT LEVER            [snaps off|sluice deposits you]
+> PULL RIGHT LEVER            [snaps off|sluice deposited you]
 
 We are swept through the sluice to The Spillway (mid-tier trap side).
 
