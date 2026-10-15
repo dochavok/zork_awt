@@ -134,8 +134,8 @@ def fight_round(w: "World", dice: tuple[int, int], won: str, lost: str, tie: str
     """One round: higher roll hits for 1 heart; ties hit both. Prints the
     fight's line, applies the player's damage, and returns the hearts the enemy
     loses (0, 1, or FINISHED). lethal=False: the player's hearts can reach 0
-    without death (the mugger handles that himself). finishing=False: no
-    Finishing Move (the knight's trial)."""
+    without death (the mugger handles that himself). finishing=False: the
+    knight's trial — no Finishing Move and no last-heart line."""
     opening = not w.globals.get("FIGHT-OPENED")
     w.globals["FIGHT-OPENED"] = True
     if finishing and _finishing_move(w):
@@ -150,10 +150,10 @@ def fight_round(w: "World", dice: tuple[int, int], won: str, lost: str, tie: str
         return 1
     if theirs > mine:
         print(lost)
-        take_damage(w, 1, lethal=lethal)
+        take_damage(w, 1, lethal=lethal, last_heart=finishing)
         return 0
     print(tie)
-    take_damage(w, 1, lethal=lethal)
+    take_damage(w, 1, lethal=lethal, last_heart=finishing)
     return 1
 
 
@@ -194,14 +194,27 @@ _TUNIC_LINES = (
 )
 
 
-def take_damage(w: "World", amount: int, *, lethal: bool = True) -> None:
+_LAST_HEART = "You're hurting badly now. One more like that and you won't get up."
+
+
+def lose_hearts(w: "World", amount: int, *, last_heart: bool = True) -> None:
+    """Hearts drop; landing on exactly 1 prints the last-heart line
+    (mechanics.md — Hearts & Health). Death is the caller's to handle."""
+    w.globals["hearts"] = w.globals.get("hearts", 1) - amount
+    if last_heart and amount > 0 and w.globals["hearts"] == 1:
+        print(_LAST_HEART)
+
+
+def take_damage(w: "World", amount: int, *, lethal: bool = True,
+                last_heart: bool = True) -> None:
     """The player is hit: Ivanaar's Tunic may turn it (1d10 7+, while worn);
-    otherwise hearts drop, and at 0 the player dies (Nobu's Favor may intercept)."""
+    otherwise hearts drop, and at 0 the player dies (Nobu's Favor may intercept).
+    last_heart=False: no last-heart line (the knight's trial)."""
     tunic = w.objects.get("IVANAAR-TUNIC")
     if _carried(w, tunic) and tunic.has_flag("WEARBIT") and random.randint(1, 10) >= 7:
         print(random.choice(_TUNIC_LINES))
         return
-    w.globals["hearts"] = w.globals.get("hearts", 1) - amount
+    lose_hearts(w, amount, last_heart=last_heart)
     if lethal and w.globals["hearts"] <= 0:
         _handle_death(w)
 

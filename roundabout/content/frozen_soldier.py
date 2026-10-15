@@ -96,9 +96,9 @@ _NO_HEAT = "You've nothing hot enough to make a dent in it."
 
 def _hurt(w: World) -> None:
     """Swimming: 1 heart of arcane damage (not combat — the tunic doesn't apply)."""
-    w.globals["hearts"] = w.globals.get("hearts", 1) - 1
+    from content.combat import _handle_death, lose_hearts
+    lose_hearts(w, 1)
     if w.globals["hearts"] <= 0:
-        from content.combat import _handle_death
         _handle_death(w)
 
 

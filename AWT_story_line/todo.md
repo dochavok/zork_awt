@@ -34,7 +34,9 @@ From the 2026-10 playtest (theme 2 and the session 4 entries), set aside from TO
   - The same entry reports the in-between states as stale: after sealing (and before speaking) the room and `EXAMINE JAR` still say "cracked".
 - **The Lighthouse — the torch burns down in a room with a window** (moved from TODO #15). A question for the light rules (mechanics.md): does a windowed room count as lit, and should a torch burn there?
 
-### TODO #24 — A warning when the player drops to 1 heart (found 2026-10-15)
+### ~~TODO #24 — A warning when the player drops to 1 heart (found 2026-10-15)~~
+
+**Resolved 2026-10-15:** the last-heart line and its rules are in mechanics.md — Hearts & Health (Back Alley pointer in locations.md). Engine: `combat.lose_hearts`, used by `take_damage` and the Frozen Soldier's swim; the mugger ambush prints it itself; the knight's trial skips it. Tests: `test_last_heart.py`.
 
 Traps 16, 17 and 45 now fire far more often (TODO #17), and trap damage may go up, so a player can reach 1 heart without noticing.
 Today nothing marks it: hearts drop silently until the game-over line (mechanics.md — Death: *Your last heart gives out…*).

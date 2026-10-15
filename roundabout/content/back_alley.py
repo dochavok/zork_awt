@@ -79,11 +79,15 @@ def _mugged(w: World) -> None:
     g = w.globals
     print(_MUGGED)
     # Not death: being mugged knocks the player out, never below 1 heart
-    g["hearts"] = max(1, g.get("hearts", 1) - 1)
+    hearts = g.get("hearts", 1)
+    g["hearts"] = max(1, hearts - 1)
     zenni = g.get("zenni", 0)
     g["zenni"] = max(0, zenni - random.randint(2, 3))
     w.game.clock.tick(w, command_parsed=True)   # wakes one turn later
     print(_MUGGED_WAKE)
+    if hearts == 2:                             # mechanics.md — Hearts & Health
+        from content.combat import _LAST_HEART
+        print(_LAST_HEART)
 
 
 def fight_round(w: World) -> None:

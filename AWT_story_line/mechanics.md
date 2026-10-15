@@ -27,6 +27,10 @@ Each class can acquire the other classes' skills through training and quests.
 - Restored only at the inn (full heal) or by purchasing food and drink (1 heart).
 - The inn is the only healing location in the game.
 - Heart Necklace (quest reward) permanently adds one heart — equips in neck slot.
+- **Last heart (2026-10-15, TODO #24):** when damage leaves the player on exactly 1 heart, right after the hit's own line: *You're hurting badly now. One more like that and you won't get up.*
+  - One line for every source: traps, hazards, fights, the Frozen Soldier's pool swim. It can only fire on a fall from 2+ to 1 (a hit at 1 is death), so after healing the next fall shows it again. Not when Ivanaar's Tunic turns the blow (no damage).
+  - Back Alley mugger: the ambush shows it after the wake-up line when it takes the player from 2 hearts to 1; at 1 heart the ambush leaves them at 1 and nothing new shows. A lost mugger fight has its own line (*…The inn has beds.*) instead.
+  - Not in the Redcrosse Knight's trial (it stops at 1 heart by design; his closing line covers it), and not on Nobu's Favor (not damage).
 
 ---
 
