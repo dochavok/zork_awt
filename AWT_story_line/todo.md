@@ -1,7 +1,7 @@
 # Roundabout: The God-Forsaken Ring — Open Design Questions
 
 Consolidated from all source files. Update this file when items are resolved; record the resolution and the source file where it was written.
-Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23).
+Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23, 536aab4 for #21).
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 
@@ -47,24 +47,6 @@ From the 2026-10 playtest (theme 2 and the session 4 entries), set aside from TO
   - Suggested: make the letters unreadable until dusted (*"worn almost to nothing; you can make out the shape of words but not the words"*), and let the dust's description or May's tip lean that way.
   - The same entry reports the in-between states as stale: after sealing (and before speaking) the room and `EXAMINE JAR` still say "cracked".
 - **The Lighthouse — the torch burns down in a room with a window** (moved from TODO #15). A question for the light rules (mechanics.md): does a windowed room count as lit, and should a torch burn there?
-
-### TODO #21 — Combat Room redesign: the plate fires on entry (decided 2026-10-14)
-
-**Done 2026-10-14** — all items below built and tested (locations.md — Combat Room; traps.md — Trap 29; experience.md). Awaiting commit.
-
-Replaces Trap 29's spot-and-disarm plate (moved from TODO #17). The auto-disarm left ~92% of level-4 warriors, and nearly every Rogue, with the Den door shut and no idea why; the Guardian's Lantern behind it is needed for the lower-tier Dark Room.
-The room's name only makes sense if the fight happens, so the fight now always happens.
-- **First entry, from either side** (the Quest 38 shortcut brings some players up from the south first):
-  - No perception check, no disarm, no Actually Enchanted Glasses choice. The plate isn't "just inside the doorway" any more; the text is *as you enter the room you trigger…*.
-  - Then the bell and the door beginning to open (an "uh-oh" moment), then *[Press ENTER to continue]*, then the Warden comes through and the fight begins.
-- **The Warden blocks EAST only.** `NORTH` and `SOUTH` stay open (the critical path runs through this room). `EAST` while he lives needs a refusal line.
-  - Fleeing and returning: the trigger doesn't replay; he's there, back at full hearts (as now), with his presence line.
-  - **Ring:** an invisible player can slip past him east (decided 2026-10-14; the ring is dangerous enough). Use the Chuckle House rule — invisible means wearing the ring and not inked (`chuckle.py`).
-- **XP:** the plate's 3 disarm XP (+5 Rogue) goes; raise the Warden's kill XP (12, experience.md) slightly to make up for it. Rogues lose more (8 here) than a flat boost returns — accepted 2026-10-14.
-- **From TODO #15 (Combat Room row):** the east door becomes an object (`EXAMINE` / `OPEN` / `KNOCK` / `PUSH` / `PRY DOOR`, shut and open states), and the plate gets an `EXAMINE` line. The plate verbs (`STEP ON` / `PRESS` / `TRIGGER`…) are no longer needed.
-- **New text to write and approve:** the trigger line, the door opening before the pause, the `EAST` refusal, the door and plate examine lines.
-- **Docs:** traps.md Trap 29 becomes a scripted event (keep the number); locations.md (Combat Room, Creature Den connections); experience.md (Trap 29 row, Warden XP); items.md glasses text if it mentions the plates.
-- **Tests and walkthroughs:** remove `JUMP ON PLATE` / `DISARM PLATE` and the glasses-choice tests for this plate; walkthrough_fullscore.txt and walkthrough_ring.txt both pass through this room. The Press-ENTER pause is fine — the walkthrough feed answers bare pauses with "".
 
 ### TODO #22 — Flooding Room and the Lost Apprentice redesign (decided 2026-10-14)
 
