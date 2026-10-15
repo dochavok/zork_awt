@@ -502,7 +502,7 @@ He holds it out. "Take it. It was never meant for me."*
 **Discovery:** Quest Board — Will Passion posts anonymously, describing a missing person last seen heading toward the dungeon. Posted at game start.
 **Missability:** The Quest Board posting is removed permanently if the player disarms the Flooding Room trap (Trap 41). Those players never reach the trap side. Quest 50 is fully missable — no impact on the ring quest.
 
-**Prerequisites:** Access to trap side of mid-tier (via Flooding Room sweep — one-way). The Flooding Room is reached through the Creature Den, whose door opens only when the Trap 29 plate fires (the Warden fight). Shovel.
+**Prerequisites:** Access to trap side of mid-tier (via Flooding Room sweep — one-way). The Flooding Room is reached through the Creature Den, past the Warden: the Den door opens when the Trap 29 plate fires on first entry to the Combat Room, and the Warden blocks it until he's dead (or the player slips past invisible). Shovel.
 
 **Steps:**
 1. Be swept through the Flooding Room (Trap 41) → land on The Spillway (mid-tier).

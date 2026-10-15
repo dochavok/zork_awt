@@ -131,7 +131,8 @@ def _setup_and_act(case):
             return w, ["CHUCKLE-ENTRANCE", "REJECTION-MIRROR", "SHATTER-TRAP-MIRROR"]
         if case == "plate fired":
             at("COMBAT-ROOM")
-            combat_room._fire_plate(w)
+            with patch("content.char_create.input", lambda p="": ""):
+                combat_room._fire_plate(w)     # its Press-ENTER pause
             return w, ["COMBAT-ROOM"]
         if case == "dankhaus path":
             at("BOG-SE")

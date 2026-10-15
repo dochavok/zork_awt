@@ -24,8 +24,8 @@ from content import light
 LOW, HIGH = 0, 99          # level roll totals: every Medium check fails / passes
 
 # experience.md — Trap Disarmament: XP per disarm (Rogues +5 each)
-TRAP_XP = {8: 3, 15: 4, 16: 3, 17: 3, 19: 5, 29: 3, 33: 5, 36: 3, 41: 5, 45: 5}
-TRAP_TOTAL = 39
+TRAP_XP = {8: 3, 15: 4, 16: 3, 17: 3, 19: 5, 33: 5, 36: 3, 41: 5, 45: 5}
+TRAP_TOTAL = 36            # Trap 29 is a scripted event, 0 XP (2026-10-14)
 ROGUE_BONUS = 5
 
 # traps.md / locations.md text
@@ -64,10 +64,15 @@ def _rolls(total):
 def _arrive(w, g, room, total):
     """Walk into `room` and spend one turn there, every level roll fixed at `total`."""
     buf = io.StringIO()
-    with _rolls(total), patch("sys.stdout", buf):
+    with _rolls(total), patch("sys.stdout", buf), _no_pause():
         g.enter_room(w.rooms[room])
         g.do_turn("wait")
     return buf.getvalue()
+
+
+def _no_pause():
+    """Answer a [Press ENTER to continue] (the Combat Room's plate)."""
+    return patch("content.char_create.input", lambda p="": "")
 
 
 def _arrive_botched(w, g, room):
@@ -91,7 +96,7 @@ def _cmd(g, cmd, total):
 # What each disarm pays — experience.md's table, Warrior and Rogue
 # ---------------------------------------------------------------------------
 
-def test_trap_table_totals_39():
+def test_trap_table_totals_36():
     assert sum(TRAP_XP.values()) == TRAP_TOTAL
 
 
@@ -108,8 +113,6 @@ def _disarm(trap, w, g):
         _arrive(w, g, "SUPPLY-ROOM", HIGH)
     elif trap == 19:
         _arrive(w, g, "PORTCULLIS-CORRIDOR", HIGH)
-    elif trap == 29:
-        _arrive(w, g, "COMBAT-ROOM", HIGH)
     elif trap == 33:
         _give(w, "SACK-OF-SALT")
         _arrive(w, g, "IDOL-ROOM", HIGH)
@@ -138,7 +141,7 @@ def test_disarm_pays_design_xp(trap, cls, bonus):
 
 @pytest.mark.parametrize("cls", ["warrior", "rogue"])
 @pytest.mark.parametrize("room", ["INSCRIPTION-CHAMBER", "SHATTER-TRAP-MIRROR", "SUPPLY-ROOM",
-                                  "PORTCULLIS-CORRIDOR", "COMBAT-ROOM", "FLOODING-ROOM",
+                                  "PORTCULLIS-CORRIDOR", "FLOODING-ROOM",
                                   "INK-CORRIDOR"])
 def test_missed_trap_pays_nothing(room, cls):
     w, g = _world(cls)
@@ -323,7 +326,8 @@ def test_trap33_idol_without_swap_shuts_the_north_door():
     assert w.get_global("IDOL-DOOR-SHUT")
     assert SLAB_BLOCKS in _do(g, "north")
     assert w.here.name == "IDOL-ROOM"
-    _do(g, "south")                                 # the way south stays open
+    with _no_pause():
+        _do(g, "south")                             # the way south stays open
     assert w.here.name == "COMBAT-ROOM"
     assert w.globals["xp"] == 0
 
@@ -421,65 +425,188 @@ def test_trap45_thread_inks_the_player(botched):
 # Trap 29 — the Combat Room plate, and the Warden behind it
 # ---------------------------------------------------------------------------
 
-def test_trap29_missed_plate_rings_the_bell_and_opens_the_den():
-    from content.combat_room import _BELL, _WARDEN_EMERGES, WARDEN_HEARTS
-    w, g = _world()
-    out = _arrive(w, g, "COMBAT-ROOM", LOW)
-    assert _BELL in out and _WARDEN_EMERGES in out
-    assert not any(line in out for line in NOTICED)    # stepped on it unawares
-    assert not w.get_global("PLATE-SPOTTED")
+# locations.md — Combat Room: the plate fires on first entry, from either
+# side, whatever the rolls, the class or the glasses (redesigned 2026-10-14)
+@pytest.mark.parametrize("total,cls,glasses", [(LOW, "warrior", False), (HIGH, "rogue", False),
+                                               (HIGH, "rogue", True)])
+def test_trap29_fires_on_entry_whatever_the_player(total, cls, glasses):
+    from content.combat_room import _TRIGGER, _BELL, _WARDEN_EMERGES, WARDEN_HEARTS
+    w, g = _world(cls)
+    w.globals["actually_enchanted_glasses_worn"] = glasses
+    out = _arrive(w, g, "COMBAT-ROOM", total)
+    assert _TRIGGER in out and _BELL in out and _WARDEN_EMERGES in out
+    assert not any(line in out for line in NOTICED)    # nothing to spot or disarm
     assert w.get_global("PLATE-STATE") == "fired"
     assert w.objects["WARDEN"].location is w.rooms["COMBAT-ROOM"]
     assert w.globals["WARDEN-HEARTS"] == WARDEN_HEARTS == 5     # locations.md — 5 hearts
-    assert w.globals["xp"] == 0
+    assert w.globals["xp"] == 0                        # a scripted event pays nothing
 
 
-def test_trap29_botched_disarm_rings_the_bell():
+def test_trap29_pauses_between_the_bell_and_the_warden():
+    from content.combat_room import _TRIGGER, _BELL, _WARDEN_EMERGES
+    from content.char_create import _PAUSE_CUE
+    w, g = _world()
+    buf = io.StringIO()
+
+    def pause(prompt=""):
+        buf.write("<" + prompt + ">")
+        return ""
+    with patch("sys.stdout", buf), patch("content.char_create.input", pause):
+        g.enter_room(w.rooms["COMBAT-ROOM"])
+        g.do_turn("wait")
+    out = buf.getvalue()
+    assert out.count(_PAUSE_CUE) == 1
+    assert out.index(_TRIGGER) < out.index(_BELL) < out.index(_PAUSE_CUE) < out.index(_WARDEN_EMERGES)
+
+
+def test_trap29_fires_coming_up_from_the_south():
     from content.combat_room import _BELL
     w, g = _world()
-    assert _BELL in _arrive_botched(w, g, "COMBAT-ROOM")
+    w.move_object(w.player, w.rooms["PRAYER-ALCOVE"])
+    w.here = w.rooms["PRAYER-ALCOVE"]
+    with _no_pause():
+        out = _do(g, "north")
+    assert w.here.name == "COMBAT-ROOM" and _BELL in out
+
+
+def test_trap29_doesnt_replay_on_return():
+    from content.combat_room import _TRIGGER, WARDEN_PRESENCE
+    w, g = _world()
+    _arrive(w, g, "COMBAT-ROOM", LOW)
+    _do(g, "north")
+    out = _do(g, "south")                              # no pause needed: input isn't patched
+    assert _TRIGGER not in out and WARDEN_PRESENCE in out
+
+
+def test_trap29_an_old_save_with_the_plate_disarmed_fires_on_entry():
+    # Before 2026-10-14 a disarmed plate left the Den door shut for good
+    w, g = _world()
+    w.set_global("PLATE-STATE", "disarmed")
+    _arrive(w, g, "COMBAT-ROOM", LOW)
     assert w.get_global("PLATE-STATE") == "fired"
+    assert w.objects["WARDEN"].location is w.rooms["COMBAT-ROOM"]
+
+
+def test_trap29_the_flagstone_is_only_scenery():
+    from content.combat_room import PLATE_EXAMINE
+    w, g = _world()
+    _arrive(w, g, "COMBAT-ROOM", LOW)
+    assert PLATE_EXAMINE in _do(g, "examine flagstone")
+    assert PLATE_EXAMINE in _do(g, "examine plate")
+    assert "Nothing happens." in _do(g, "jump on plate")
+    assert "There's nothing here to disarm." in _do(g, "disarm plate")
     assert w.globals["xp"] == 0
 
 
-def test_trap29_disarmed_plate_leaves_the_den_door_shut():
+def test_trap29_the_den_door_is_open_once_the_warden_is_dead():
     w, g = _world()
-    _arrive(w, g, "COMBAT-ROOM", HIGH)
-    assert w.get_global("PLATE-STATE") == "disarmed"
-    _do(g, "east")                                  # locations.md — the Den door stays shut
+    _arrive(w, g, "COMBAT-ROOM", LOW)
+    w.set_global("WARDEN-DEAD", True)
+    w.set_global("WARDEN-OUT", False)
+    w.move_object(w.objects["WARDEN"], None)
+    _do(g, "east")
+    assert w.here.name == "CREATURE-DEN"
+
+
+# locations.md — Combat Room: the Warden blocks EAST only, and strikes at
+# anyone who tries (one roll; only he can hurt)
+def _warden_out(cls="warrior"):
+    w, g = _world(cls)
+    _arrive(w, g, "COMBAT-ROOM", LOW)                  # plate fires, Warden out
+    return w, g
+
+
+def _east(g, total, warden_die):
+    with _rolls(total), patch("content.combat.random.randint", return_value=warden_die):
+        return _do(g, "east")
+
+
+def test_warden_blocks_east_and_a_dodge_costs_nothing():
+    from content.combat_room import WARDEN_BLOCKS, _DODGE
+    w, g = _warden_out()
+    out = _east(g, HIGH, 1)
+    assert out.index(WARDEN_BLOCKS) < out.index(_DODGE)
+    assert w.here.name == "COMBAT-ROOM"
+    assert w.globals["hearts"] == 5
+
+
+@pytest.mark.parametrize("total", [LOW, 3])            # lost, and tied (3d10 all 1s = 3)
+def test_warden_blocks_east_and_a_lost_or_tied_roll_takes_a_heart(total):
+    from content.combat_room import WARDEN_BLOCKS, _ROUND_LOST, _DODGE
+    w, g = _warden_out()
+    out = _east(g, total, 1)
+    assert out.index(WARDEN_BLOCKS) < out.index(_ROUND_LOST) and _DODGE not in out
+    assert w.here.name == "COMBAT-ROOM"
+    assert w.globals["hearts"] == 4
+    assert w.globals["WARDEN-HEARTS"] == 5             # the player never hits back
+
+
+def test_warden_strike_at_east_can_kill():
+    # Normal death rules
+    w, g = _warden_out()
+    w.globals["hearts"] = 1
+    _east(g, LOW, 1)
+    assert w.get_global("GAME-OVER") is True
+
+
+@pytest.mark.parametrize("way,room", [("north", "IDOL-ROOM"), ("south", "PRAYER-ALCOVE")])
+def test_warden_lets_you_flee_north_or_south_unharmed(way, room):
+    from content.combat_room import WARDEN_BLOCKS, _ROUND_LOST
+    w, g = _warden_out()
+    with _rolls(LOW), patch("content.combat.random.randint", return_value=10):
+        out = _do(g, way)
+    assert w.here.name == room
+    assert WARDEN_BLOCKS not in out and _ROUND_LOST not in out
+    assert w.globals["hearts"] == 5
+
+
+def test_invisible_slips_past_the_warden():
+    from content.combat_room import WARDEN_BLOCKS, _SLIP_PAST
+    w, g = _warden_out()
+    w.globals["ring_worn"] = True
+    out = _east(g, LOW, 10)
+    assert _SLIP_PAST in out and WARDEN_BLOCKS not in out
+    assert w.here.name == "CREATURE-DEN"
+    assert w.globals["hearts"] == 5
+
+
+def test_inked_ring_wearer_is_seen_and_blocked():
+    # Ink (Trap 45) cancels the ring's invisibility — the Chuckle House rule
+    from content.combat_room import WARDEN_BLOCKS
+    w, g = _warden_out()
+    w.globals["ring_worn"] = True
+    w.set_global("INKED", True)
+    assert WARDEN_BLOCKS in _east(g, HIGH, 1)
     assert w.here.name == "COMBAT-ROOM"
 
 
-def test_trap29_jump_on_plate_fires_it_and_pays_nothing():
-    from content.combat_room import _BELL
-    w, g = _world()
-    _arrive(w, g, "COMBAT-ROOM", HIGH)              # disarmed: 3 XP
-    out = _do(g, "jump on plate")
-    assert _BELL in out
-    assert w.get_global("PLATE-STATE") == "fired"
-    assert w.globals["xp"] == TRAP_XP[29]           # the jump added nothing
+# locations.md — Combat Room: the Den door is an object, open from the
+# plate's first firing on
+@pytest.mark.parametrize("cmd", ["examine door", "examine heavy door", "look at door"])
+def test_den_door_examines_open(cmd):
+    from content.combat_room import DOOR_EXAMINE
+    w, g = _warden_out()
+    assert DOOR_EXAMINE in _do(g, cmd)
 
 
-def test_trap29_glasses_reveal_the_plate_and_the_player_chooses():
-    from content.combat_room import _PLATE_SPOTTED
-    w, g = _world()
-    w.globals["actually_enchanted_glasses_worn"] = True
-    out = _arrive(w, g, "COMBAT-ROOM", LOW)         # no perception roll needed
-    assert _PLATE_SPOTTED in out
-    assert w.get_global("PLATE-STATE") is None      # neither disarmed nor fired yet
-    assert not w.objects["PRESSURE-PLATE"].has_flag("INVISIBLE")
-    _cmd(g, "disarm plate", HIGH)
-    assert w.get_global("PLATE-STATE") == "disarmed"
-    assert w.globals["xp"] == TRAP_XP[29]
+def test_den_door_open_and_close():
+    from content.combat_room import _DOOR_OPEN, _DOOR_WONT_CLOSE
+    w, g = _warden_out()
+    assert _DOOR_OPEN in _do(g, "open door")
+    assert _DOOR_WONT_CLOSE in _do(g, "close door")
+    assert _DOOR_WONT_CLOSE in _do(g, "shut door")
+    assert w.here.name == "COMBAT-ROOM"
 
 
-def test_trap29_glasses_then_botched_disarm_fires():
-    w, g = _world()
-    w.globals["actually_enchanted_glasses_worn"] = True
+def test_warden_pays_15_xp():
+    # experience.md — Combat: the Warden 15 (raised from 12 when Trap 29 stopped paying)
+    from content.combat_room import fireball_hit
+    w, g = _world("rogue")                             # no Warrior +10 per kill
     _arrive(w, g, "COMBAT-ROOM", LOW)
-    _cmd(g, "disarm plate", LOW)
-    assert w.get_global("PLATE-STATE") == "fired"
-    assert w.globals["xp"] == 0
+    w.globals["WARDEN-HEARTS"] = 1
+    _quiet(fireball_hit, w)
+    assert w.get_global("WARDEN-DEAD")
+    assert w.globals["xp"] == 15
 
 
 def test_warden_back_to_full_hearts_after_fleeing():

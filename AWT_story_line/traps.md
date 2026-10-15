@@ -56,13 +56,8 @@ It blocks the corridor from both sides: coming up from the Shrine Room by the Qu
 *(Portcullis Corridor, upper tier.)*
 
 **29. Pressure Plate — Bell**
-**Descriptor:** a pressure plate set into the corridor floor
-A pressure plate in a corridor triggers a bell in an adjacent room, alerting whatever is inside.
-No direct damage, but the alerted enemy initiates combat when the player enters.
-Perception spots the plate; disarming means pressing it slowly from the side to wedge it down without triggering it.
-**Intentional trigger:** `JUMP ON PLATE` fires the bell deliberately — for cases where the player needs to initiate the fight on their own terms.
-**Den door:** The plate firing (by accident or `JUMP ON PLATE`) is the only thing that opens the door between the Combat Room and the Creature Den — the Warden comes out through it. A disarmed plate leaves the door shut until the player jumps on it; after the Warden is defeated the door stays open.
-**Enchanted Glasses:** Wearing the glasses auto-reveals the plate without a perception roll, allowing the player to choose between disarming and triggering.
+**A scripted event, not a trap to beat (2026-10-14, TODO #21).** The plate fires the first time the player enters the Combat Room, from either side. There's no perception check, no disarm, no Actually Enchanted Glasses choice and no XP. It rings a bell in the Creature Den, the door opens, and the Warden comes out to fight. The door stays open from then on.
+It used to be spotted and disarmed, but the auto-disarm left the Den door shut, and the Guardian's Lantern behind it, for most level-4 warriors and nearly every Rogue. The number is kept. All text: locations.md (Combat Room).
 *(Combat Room / Warden encounter, upper tier.)*
 
 **33. Weight-Sensitive Pedestal**
@@ -102,7 +97,7 @@ No clue in the room; trial and error is the intended mechanic.
 **Turn sequencing:** After turn 1 (wrong lever pulled), the game delivers an explicit warning: *"The water is at your knees. One turn left."*
 After turn 2 (room fills), the player is swept through a sluice into the mid tier directly below the flooding room's physical position on the map — one-way.
 No damage on sweep; displacement is the entire consequence — except that any thin paper carried is destroyed (items.md — Thin Paper).
-Built (2026-10-04) — entry, glasses, re-arm and all room text in locations.md (Flooding Room). Disarm: 5 XP (+5 Rogue, as Trap 29).
+Built (2026-10-04) — entry, glasses, re-arm and all room text in locations.md (Flooding Room). Disarm: 5 XP (+5 Rogue).
 The mid tier return path is via Quest 50 (Bog-NW exit) — there is no climbing back up.
 
 **Perception check** before entry spots the suspiciously clean pressure plate; **disarming** jams the plate before the sluice opens — avoiding the trap entirely. *(Flooding Room, upper tier.)*

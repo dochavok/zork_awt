@@ -1299,7 +1299,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `LOAD STONE ONTO CART` (also `LOAD STONE` / `PUT STONE IN CART` / `PUT STONE ON CART` / `PLACE STONE IN CART`; plain `PUT STONE` when the stone isn't on the cart) | Quest 32 — loads gravestone onto hand cart |
 | `UNLOAD STONE` (also `UNLOAD GRAVESTONE` / `UNLOAD CART` / `UNLOAD STONE FROM CART` / `PUT STONE ON GRAVE` / `PLACE STONE` / `SET STONE` / `RETURN STONE` / `DROP STONE`) | Quest 32 — at the Graveyard, sets the gravestone back and leaves the cart |
 | `USE CROWBAR ON DRAIN` (also `PRY COVER` / `REMOVE COVER WITH CROWBAR`) | Quest 25 — removes the cellar drain cover from the Kitchen top step |
-| `JUMP ON PLATE` | Trap 29 — intentionally triggers Warden bell; opens the Creature Den door |
+| `JUMP ON PLATE` | Trap 41 — floods the Flooding Room on purpose. In the Combat Room (Trap 29, a scripted event since 2026-10-14): *Nothing happens.* |
 | `PRY DOOR` | Trap 33 escape — crowbar + strength check |
 | `ASSEMBLE BOWL` (also `REASSEMBLE BOWL` / `REPAIR BOWL` / `FIX BOWL` / `GLUE BOWL` / `PATCH BOWL` / `COMBINE PIECES` / `COMBINE BOWL PIECES`) | Quest 49 — anywhere, holding all three bowl pieces and the clay adhesive → Repaired Bowl |
 | `USE PORTCULLIS BAR` (also `USE BAR ON PORTCULLIS` / `PUT BAR UNDER PORTCULLIS` / `PUT BAR` / `PLACE BAR` / `DROP BAR`) | Trap 19 — props portcullis open permanently; only straight after a successful `LIFT PORTCULLIS` (otherwise `PUT` / `PLACE` / `DROP BAR` just drops it) |

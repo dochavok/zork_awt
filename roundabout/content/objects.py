@@ -1097,14 +1097,19 @@ def _make_upper_tier_objects(world) -> None:
 # ---------------------------------------------------------------------------
 
 def _make_combat_room_objects(world) -> None:
-    from content.combat_room import WARDEN_PRESENCE
+    from content.combat_room import WARDEN_PRESENCE, PLATE_EXAMINE, DOOR_EXAMINE, den_door_action
     world.register_object(GameObject(
         name="WARDEN", desc="Warden", fdesc=WARDEN_PRESENCE, ldesc=WARDEN_PRESENCE,
         synonyms=["warden", "guard", "thing"], flags={ACTORBIT},
     ))
     world.register_object(GameObject(
         name="PRESSURE-PLATE", desc="pressure plate", synonyms=["plate", "flagstone"],
-        adjectives=["pressure"], flags={NDESCBIT, SACREDBIT, INVISIBLE},
+        adjectives=["pressure"], examine=PLATE_EXAMINE, flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="DEN-DOOR", desc="heavy door", synonyms=["door"],
+        adjectives=["heavy", "east", "den"], examine=DOOR_EXAMINE,
+        action=den_door_action, flags={NDESCBIT, SACREDBIT},
     ))
     world.register_object(GameObject(
         name="GUARDIANS-LANTERN", desc="Guardian's Lantern",

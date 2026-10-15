@@ -2,20 +2,19 @@
 Combat Room, the Warden, and the Creature Den (upper tier, batch 2).
 
 Design: locations.md (Combat Room, Creature Den), traps.md (Trap 29),
-mechanics.md (Warden: 2d10, 5 hearts), experience.md (Warden 12 XP; Warriors
-+10 per kill; Trap 29 disarm 3 XP).
+mechanics.md (Warden: 3d10, 5 hearts), experience.md (Warden XP; Warriors
++10 per kill).
 
-- The Trap 29 plate is at the Combat Room's north entrance. Arriving
-  unawares steps on it. A Medium perception check spots it; with Actually
-  Enchanted Glasses it's revealed and the player chooses (JUMP ON PLATE or
-  DISARM PLATE); otherwise spotting it rolls the disarm automatically.
-- The plate firing rings the bell and opens the Den door; the Warden comes
-  out. One round per KILL WARDEN. A disarmed plate keeps the door shut until
-  JUMP ON PLATE. The door stays open after the Warden is dead.
+- The Trap 29 plate fires the first time the player enters the Combat Room,
+  from either side (redesigned 2026-10-14: no spotting, no disarm). The bell
+  rings, the door begins to open, a pause, and the Warden comes out. One
+  round per KILL WARDEN. The door stays open from then on.
+- The Warden blocks EAST while he lives and strikes at anyone who tries;
+  NORTH and SOUTH are free. Invisible, the player slips past.
+- The flagstone is scenery, examine only.
 - The Flooding Room (north of the Den, Trap 41) is in content/flooding.py.
 
-State: PLATE-SPOTTED, PLATE-STATE (None | "disarmed" | "fired"),
-       WARDEN-OUT, WARDEN-HEARTS, WARDEN-DEAD
+State: PLATE-STATE (None | "fired"), WARDEN-OUT, WARDEN-HEARTS, WARDEN-DEAD
 """
 
 from __future__ import annotations
@@ -39,22 +38,38 @@ _ROOM_OPEN = "At the east end the heavy door stands open. "
 _ROOM_EXITS = "Doorways lead north and south. "
 _ROOM_END = "Whatever happened in here happened more than once."
 
-_TRAP29 = "a pressure plate set into the corridor floor"
-_TRAP_DISARMED = "You spot {d} and are able to disarm it, neutralizing it."
-_TRAP_BOTCHED = "You see {d}, but your attempt to disarm it fails miserably."
-_PLATE_SPOTTED = (
-    "Just inside the doorway, one flagstone sits a fraction higher than the "
-    "rest — a pressure plate."
+_TRIGGER = (
+    "As you enter the room, a flagstone shifts under your foot and sinks with "
+    "a heavy click. For a moment nothing happens, and that's somehow worse."
 )
 _BELL = (
     "Somewhere behind the heavy door, a bell rings — once, flat and loud. "
-    "Something on the other side moves."
+    "Something on the other side moves. Then, slowly, the door at the east "
+    "end begins to grind open."
 )
 _WARDEN_EMERGES = (
-    "The door at the east end grinds open. The thing that comes through it was "
+    "The door swings the rest of the way. The thing that comes through it was "
     "a guard once — the scraps of a uniform still hang off it — but whatever "
     "it is now is mostly reach, teeth, and intent. The Warden."
 )
+PLATE_EXAMINE = (
+    "One flagstone sits a finger's width lower than the rest. You found it "
+    "the usual way."
+)
+WARDEN_BLOCKS = "The Warden is between you and that door, and it means to stay there."
+_DODGE = "Its reach rakes the air where you were a heartbeat ago."
+_SLIP_PAST = (
+    "The Warden's head turns at something it can't see. You're past it and "
+    "through the door before it decides what."
+)
+DOOR_EXAMINE = (
+    "The heavy door stands open on the Creature Den. From this side you can "
+    "see it was never meant to be opened from here."
+)
+_DOOR_OPEN = "It's already open."
+_DOOR_WONT_CLOSE = "It won't budge. Whatever opened it isn't letting go."
+_NOTHING_HAPPENS = "Nothing happens."
+_NOTHING_TO_DISARM = "There's nothing here to disarm."
 WARDEN_PRESENCE = "The Warden stands between you and the open door, swaying, waiting for you to move."
 _ROUND_WON = "You land a solid blow. The Warden staggers, and comes on anyway."
 _ROUND_LOST = "The Warden's reach finds you. You take a hit."
@@ -66,12 +81,29 @@ _WARDEN_DIES = (
 
 
 class _DenDoor(Exit):
-    """Combat Room east: shut until the plate fires."""
+    """Combat Room east: the Warden blocks it while he lives, and strikes at
+    anyone who tries (one roll; only he can hurt). Invisible, the player
+    slips past (the Chuckle House rule)."""
 
     def resolve(self, world):
-        if world.get_global("PLATE-STATE") != "fired":
-            return None, "The door is shut."
+        if world.get_global("WARDEN-OUT") and not world.get_global("WARDEN-DEAD"):
+            from content.chuckle import _visible
+            if not _visible(world):
+                room, _ = super().resolve(world)
+                return room, _SLIP_PAST
+            print(WARDEN_BLOCKS)
+            _strike(world)
+            return None, None
         return super().resolve(world)
+
+
+def _strike(w: World) -> None:
+    from content import combat
+    if combat.player_roll(w) > combat._enemy_roll(WARDEN_DICE):
+        print(_DODGE)
+    else:                                       # lost or tied: he hits
+        print(_ROUND_LOST)
+        combat.take_damage(w, 1)
 
 
 def combat_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
@@ -86,70 +118,45 @@ def combat_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
             w.set_global("WARDEN-HEARTS", WARDEN_HEARTS)
     elif msg == M_END and w.get_global("ARRIVED-COMBAT"):
         w.set_global("ARRIVED-COMBAT", False)
-        if w.get_global("PLATE-STATE") is None and not w.get_global("PLATE-SPOTTED"):
-            _plate_on_arrival(w)
+        if w.get_global("PLATE-STATE") != "fired":   # an old save may say "disarmed"
+            _fire_plate(w)
     return M_NOT_HANDLED
 
 
-def _plate_on_arrival(w: World) -> None:
-    from content.player import check_perception, roll_class_bonus
-    from content.perception import MEDIUM
-    if not check_perception(w, MEDIUM):
-        _fire_plate(w)                   # stepped on it unawares
-        return
-    w.set_global("PLATE-SPOTTED", True)
-    w.objects["PRESSURE-PLATE"].clear_flag("INVISIBLE")
-    if w.globals.get("actually_enchanted_glasses_worn"):
-        print(_PLATE_SPOTTED)            # revealed; the player chooses
-        return
-    if roll_class_bonus(w, "trap") >= MEDIUM:
-        print(_TRAP_DISARMED.format(d=_TRAP29))
-        _disarmed(w)
-    else:
-        print(_TRAP_BOTCHED.format(d=_TRAP29))
-        _fire_plate(w)
-
-
-def _disarmed(w: World) -> None:
-    from content.experience import award_xp
-    w.set_global("PLATE-STATE", "disarmed")
-    award_xp(w, 3 + (5 if w.globals.get("player_class") == "rogue" else 0))
-
-
 def _fire_plate(w: World) -> None:
+    from content.char_create import _pause
     w.set_global("PLATE-STATE", "fired")
     w.ways_changed("COMBAT-ROOM")              # the Den door is open now
+    print(_TRIGGER)
     print(_BELL)
+    _pause()
     print(_WARDEN_EMERGES)
     w.set_global("WARDEN-OUT", True)
     w.set_global("WARDEN-HEARTS", WARDEN_HEARTS)
     w.move_object(w.objects["WARDEN"], w.rooms["COMBAT-ROOM"])
 
 
+def den_door_action(w: World) -> int:
+    """The Den door: open from the plate's first firing on (the player never
+    gets a turn with it shut)."""
+    if w.prsa == "V-OPEN":
+        print(_DOOR_OPEN)
+        return M_HANDLED
+    if w.prsa == "V-CLOSE":
+        print(_DOOR_WONT_CLOSE)
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
 def jump_on_plate(w: World) -> None:
     if w.here is None or w.here.name != "COMBAT-ROOM":
         print("There's nothing here to jump on.")
-    elif w.get_global("PLATE-STATE") == "fired":
-        print("Nothing happens.")
     else:
-        _fire_plate(w)
+        print(_NOTHING_HAPPENS)                # the flagstone is spent
 
 
 def disarm_plate(w: World) -> None:
-    if w.here is None or w.here.name != "COMBAT-ROOM" or not w.get_global("PLATE-SPOTTED"):
-        print("There's nothing here to disarm.")
-        return
-    if w.get_global("PLATE-STATE") is not None:
-        print("Nothing happens.")
-        return
-    from content.player import roll_class_bonus
-    from content.perception import MEDIUM
-    if roll_class_bonus(w, "trap") >= MEDIUM:
-        print(_TRAP_DISARMED.format(d=_TRAP29))
-        _disarmed(w)
-    else:
-        print(_TRAP_BOTCHED.format(d=_TRAP29))
-        _fire_plate(w)
+    print(_NOTHING_TO_DISARM)
 
 
 def fight_round(w: World) -> None:

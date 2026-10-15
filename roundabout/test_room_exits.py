@@ -7,6 +7,7 @@ Run with: pytest roundabout/test_room_exits.py  (from c:\\zork_awt)
 import sys
 import os
 import pytest
+from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
 from test_knight import _make_world, _do
@@ -278,7 +279,8 @@ def test_idol_slab_names_the_north_doorway_and_south_stays_open():
     assert "drops into the north doorway" in out and "The way back is gone." in out
     look = _do(g, "look")
     assert look.index("Doorways lead north and south.") < look.index("A stone slab fills the north doorway.")
-    _do(g, "south")
+    with patch("content.char_create.input", lambda p="": ""):   # the plate's pause
+        _do(g, "south")
     assert w.here.name == "COMBAT-ROOM"
 
 

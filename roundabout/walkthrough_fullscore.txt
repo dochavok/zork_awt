@@ -829,15 +829,14 @@ try again.
 > SAVE                        [Saved]
 > SOUTH                       [Combat Room]
 
-With Actually Enchanted Glasses the pressure plate at the Combat Room's
-threshold is revealed, and we get to choose. The Warden has the
-Guardian's Lantern (needed for the Dark Room), and his door to the
-Creature Den only opens when the plate fires — so jump on it. The bell
-rings, the door opens, and he comes out. One round per KILL; he has 5
-hearts. Some swings will miss and he hits back, so SAVE before jumping
-on the plate.
+Stepping in sets off a pressure plate — there's no spotting this one,
+glasses or not. A bell rings behind the heavy door at the east end, the
+door grinds open, and after a pause (press ENTER) the Warden comes out.
+He has the Guardian's Lantern (needed for the Dark Room), and he won't
+let anyone past him to the Creature Den while he's standing. One round
+per KILL; he has 5 hearts. Some swings will miss and he hits back —
+that's what the save is for.
 
-> JUMP ON PLATE               [bell]
 > KILL WARDEN                 [You land a solid blow.]
 > KILL WARDEN                 [You land a solid blow.]
 > KILL WARDEN                 [You land a solid blow.]

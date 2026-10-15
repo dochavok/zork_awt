@@ -50,6 +50,8 @@ From the 2026-10 playtest (theme 2 and the session 4 entries), set aside from TO
 
 ### TODO #21 — Combat Room redesign: the plate fires on entry (decided 2026-10-14)
 
+**Done 2026-10-14** — all items below built and tested (locations.md — Combat Room; traps.md — Trap 29; experience.md). Awaiting commit.
+
 Replaces Trap 29's spot-and-disarm plate (moved from TODO #17). The auto-disarm left ~92% of level-4 warriors, and nearly every Rogue, with the Den door shut and no idea why; the Guardian's Lantern behind it is needed for the lower-tier Dark Room.
 The room's name only makes sense if the fight happens, so the fight now always happens.
 - **First entry, from either side** (the Quest 38 shortcut brings some players up from the south first):

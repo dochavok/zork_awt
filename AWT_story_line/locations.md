@@ -1697,30 +1697,42 @@ South of the Collapsed Aqueduct. Timbers wedged across it blocking a secondary e
 **NPCs:** The Warden (hostile; one-time fight; permanently empty after defeat)
 **Items:** None (the Warden's Guardian's Lantern drops where he's defeated — the Combat Room)
 **Quest Hooks:** None (combat encounter; lantern is critical path item)
-**Connections:** West → Combat Room (door — opens when the Trap 29 plate fires; stays open after the Warden is defeated). North → Flooding Room.
+**Connections:** West → Combat Room (door — opens when the Trap 29 plate fires on first entry to the Combat Room, and stays open). North → Flooding Room.
 **Room description:** *A low den that stinks of old straw and older meat. Bones are piled in one corner with a care that's somehow worse than if they'd been scattered. A passage leads on to the north; the combat room is back through the door to the west.*
 **Insignia (examine):** *Pinned to the wall, almost lost under the grime: a faded insignia and the rags of a uniform. This was a guard post once.*
 East of the Combat Room — the only way in is through the Combat Room's door. Lair of **The Warden** — permanently empty after defeat. On examination post-fight: remnants of a uniform/insignia mark this as an official post. The Warden drops the **Guardian's Lantern** on defeat.
 
 ### Combat Room
 **XP: 1**
-**NPCs:** None (The Warden emerges from Creature Den via pressure plate bell)
+**NPCs:** None (The Warden comes out of the Creature Den when the plate fires)
 **Items:** Guardian's Lantern (dropped by The Warden on defeat; required for Dark Room in lower tier)
-**Quest Hooks:** None (Trap 29 — pressure plate rings bell in Creature Den)
-**Connections:** North → Idol Room. East → Creature Den (door — closed until the plate fires). South → Prayer Alcove.
+**Quest Hooks:** None (Trap 29 — the plate fires on entry and rings a bell in the Creature Den)
+**Connections:** North → Idol Room. East → Creature Den (the door opens on first entry; the Warden blocks it while he lives). South → Prayer Alcove.
 South of Idol Room. Two squares wide on the map — the Creature Den is off its east end.
 
 **Room description:** *A long, low room, wider than it is deep, the floor scarred and the walls pocked with old damage. At the east end a heavy door is set into the stone, shut. Doorways lead north and south. Whatever happened in here happened more than once.* (Once the door is open: *…At the east end the heavy door stands open. Doorways lead north and south. …*)
-**Plate:** at the north entrance; arriving unawares steps on it. Medium perception spots it — *Just inside the doorway, one flagstone sits a fraction higher than the rest — a pressure plate.* With Actually Enchanted Glasses it's revealed and the player chooses (`JUMP ON PLATE` / `DISARM PLATE`, Medium disarm); otherwise spotting it rolls the disarm automatically. Disarm: 3 XP.
-**Bell:** *Somewhere behind the heavy door, a bell rings — once, flat and loud. Something on the other side moves.*
-**The Warden emerges:** *The door at the east end grinds open. The thing that comes through it was a guard once — the scraps of a uniform still hang off it — but whatever it is now is mostly reach, teeth, and intent. The Warden.*
+The shut version is seen once, on first entry, just before the plate fires.
+
+**Redesigned 2026-10-14 (TODO #21): the fight always happens.** The plate can't be spotted or disarmed any more (the old auto-disarm left most level-4 warriors and nearly every Rogue with the Den door shut and no idea why). No perception check, no disarm, no Actually Enchanted Glasses choice.
+- **First entry, from either side** (the Quest 38 shortcut brings some players up from the south first). After the room description:
+  1. **Trigger:** *As you enter the room, a flagstone shifts under your foot and sinks with a heavy click. For a moment nothing happens, and that's somehow worse.*
+  2. **Bell:** *Somewhere behind the heavy door, a bell rings — once, flat and loud. Something on the other side moves. Then, slowly, the door at the east end begins to grind open.*
+  3. *[Press ENTER to continue]*
+  4. **The Warden emerges:** *The door swings the rest of the way. The thing that comes through it was a guard once — the scraps of a uniform still hang off it — but whatever it is now is mostly reach, teeth, and intent. The Warden.*
+- **The door is open from then on**, and stays open after the Warden is dead. It's an object:
+  - `EXAMINE DOOR`: *The heavy door stands open on the Creature Den. From this side you can see it was never meant to be opened from here.*
+  - `OPEN DOOR`: *It's already open.*
+  - `CLOSE` / `SHUT DOOR`: *It won't budge. Whatever opened it isn't letting go.*
+- **The flagstone** is scenery, examine only (no `JUMP ON` / `PRESS` / `DISARM`): *One flagstone sits a finger's width lower than the rest. You found it the usual way.* `JUMP ON PLATE` here: *Nothing happens.* `DISARM PLATE`: *There's nothing here to disarm.*
+- **The Warden blocks EAST only.** `NORTH` and `SOUTH` stay open, with no attack (the critical path runs through this room).
+  - `EAST` while he lives: *The Warden is between you and that door, and it means to stay there.* Then he strikes: one roll, his 3d10 against the player's; only he can do damage. Player wins — the dodge: *Its reach rakes the air where you were a heartbeat ago.* Loses or ties — *The Warden's reach finds you. You take a hit.* (1 heart; normal death rules). The player stays in the Combat Room.
+  - **Invisible** (wearing the ring and not inked — the Chuckle House rule) — no roll; the player slips past into the Den: *The Warden's head turns at something it can't see. You're past it and through the door before it decides what.*
+- **Fleeing and returning:** the trigger doesn't replay; he's there, back at full hearts, with his presence line.
+
 **Warden (presence):** *The Warden stands between you and the open door, swaying, waiting for you to move.* One round per `KILL WARDEN` (3d10, 5 hearts); fleeing resets him to full hearts.
 **Rounds:** won — *You land a solid blow. The Warden staggers, and comes on anyway.* Lost — *The Warden's reach finds you. You take a hit.* Tie — *You trade blows. Both of you feel it.*
-**Warden dies:** *The Warden goes down hard and doesn't get up. Something rolls from its grip and clatters across the floor — a lantern, unlit, its glass faintly green.* A pressure plate in the corridor before this room rings a bell in the Creature Den — player hears the sound before entering.
-**The Warden** emerges: completely monstrous in appearance; standard combat; one-time fight.
-**Trap interaction:** Perception check spots the plate; disarming it avoids the ambush but leaves the Den door shut; `JUMP ON PLATE` triggers it deliberately. Enchanted Glasses auto-reveal the plate and let the player choose.
-**Den door:** The door from the Combat Room east to the Creature Den is closed and opens only when the Trap 29 plate fires — stepping on it unawares, or `JUMP ON PLATE` on purpose. The bell rings, the door opens, and the Warden comes out to fight in the Combat Room. If the plate has been disarmed, the door stays shut until the player jumps on it.
-Once the Warden is defeated the door stays open, giving access to the Creature Den and the Flooding Room beyond it.
+**Warden dies:** *The Warden goes down hard and doesn't get up. Something rolls from its grip and clatters across the floor — a lantern, unlit, its glass faintly green.* 15 XP (raised from 12, 2026-10-14, to make up for the plate's disarm XP).
+**The Warden:** completely monstrous in appearance; standard combat; one-time fight. Once he's dead, the Creature Den and the Flooding Room beyond it are open.
 East to the Creature Den (Flooding Room beyond it, to the north). Connects south to Prayer Alcove. (Trap 29)
 
 ### The Warden's Drop
@@ -1732,7 +1744,7 @@ East to the Creature Den (Flooding Room beyond it, to the north). Connects south
 **Items:** None
 **Quest Hooks:** None (Trap 41 — wrong lever floods room; failure sweeps player one-way to mid tier Spillway)
 **Connections:** South → Creature Den. Down → Spillway (one-way; flood failure only).
-North of the Creature Den — reachable only once the Den door is open (Trap 29 plate; the Warden fight). Low-lying cave.
+North of the Creature Den — reachable once the Warden is dead (or past him invisible). Low-lying cave.
 Pressure plate opens a sluice — floods the room in two turns. Three levers: Left (stuck, permanently spent), Right (breaks off, permanently spent), Middle (correct, closes sluice).
 No warning on entry. After a wrong pull on turn 1: explicit warning *"The water is at your knees. One turn left."*
 Failure sweeps player through sluice into mid tier directly below — one-way, no damage.
@@ -1741,7 +1753,8 @@ Perception check *before entry* spots the suspiciously clean pressure plate; dis
 **Room description:** *A low cave, the floor dipping toward the middle and slick with old silt. Three iron levers stand in a row on the north wall — left, middle, right — above a grated sluice mouth. The only way out is back south.*
 
 **Built (2026-10-04):**
-- The plate works like Trap 29's: Medium perception on arrival. Missed — stepped on unawares. Spotted with Actually Enchanted Glasses — *In the middle of the floor, one stone is cleaner than everything around it — no silt, no grime. A pressure plate.* — and the player chooses (`JUMP ON PLATE` / `DISARM PLATE`). Spotted without them — the disarm rolls automatically (Trap 41 descriptor).
+- The plate works as Trap 29's did before 2026-10-14: Medium perception on arrival. Missed — stepped on unawares.
+  Spotted with Actually Enchanted Glasses — *In the middle of the floor, one stone is cleaner than everything around it — no silt, no grime. A pressure plate.* — and the player chooses (`JUMP ON PLATE` / `DISARM PLATE`). Spotted without them — the disarm rolls automatically (Trap 41 descriptor).
   Once spotted, the player walks around it.
 - **Plate fires:** *Something clicks underfoot. Behind the grate the sluice bangs open, and water comes through fast and cold, spreading across the floor.*
 - Any command counts as a turn. After the first, the warning; after the second: *The water closes over your head and the floor drops away. The current takes you down through the sluice, turning you over in the dark, and lets go.* — then The Spillway.
