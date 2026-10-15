@@ -1,7 +1,7 @@
 # Roundabout: The God-Forsaken Ring — Open Design Questions
 
 Consolidated from all source files. Update this file when items are resolved; record the resolution and the source file where it was written.
-Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23, 536aab4 for #21, cb0b094 for #22, 213bcd6 for #17).
+Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23, 536aab4 for #21, cb0b094 for #22, 213bcd6 for #17, c1c8b5e for #24).
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 
@@ -33,14 +33,3 @@ From the 2026-10 playtest (theme 2 and the session 4 entries), set aside from TO
   - Suggested: make the letters unreadable until dusted (*"worn almost to nothing; you can make out the shape of words but not the words"*), and let the dust's description or May's tip lean that way.
   - The same entry reports the in-between states as stale: after sealing (and before speaking) the room and `EXAMINE JAR` still say "cracked".
 - **The Lighthouse — the torch burns down in a room with a window** (moved from TODO #15). A question for the light rules (mechanics.md): does a windowed room count as lit, and should a torch burn there?
-
-### ~~TODO #24 — A warning when the player drops to 1 heart (found 2026-10-15)~~
-
-**Resolved 2026-10-15:** the last-heart line and its rules are in mechanics.md — Hearts & Health (Back Alley pointer in locations.md). Engine: `combat.lose_hearts`, used by `take_damage` and the Frozen Soldier's swim; the mugger ambush prints it itself; the knight's trial skips it. Tests: `test_last_heart.py`.
-
-Traps 16, 17 and 45 now fire far more often (TODO #17), and trap damage may go up, so a player can reach 1 heart without noticing.
-Today nothing marks it: hearts drop silently until the game-over line (mechanics.md — Death: *Your last heart gives out…*).
-- Craft a line shown when damage leaves the player on exactly 1 heart. Needs writing and review (2–3 options).
-- Engine: `combat.take_damage` is the one place every trap, hazard and fight deducts hearts, so the line can live there.
-- To decide: every time it happens, or once until healed; whether it differs for combat versus traps; whether the mugger knock-out (which leaves 1 heart) shows it; and where it sits relative to the damage line.
-
