@@ -2,8 +2,8 @@
 Roundabout Pond — the Ship-in-a-Bottle (locations.md — Roundabout Pond;
 items.md — Ship-in-a-Bottle).
 
-The bottle is spotted by a Medium perception check on each visit until seen,
-then fished out with the rod and a Hard fishing roll. It lands on the bank.
+The bottle is spotted by a Level 2 perception check on each visit until seen,
+then fished out with the rod and a Level 3 fishing roll. It lands on the bank.
 
 Globals: POND-BOTTLE-SEEN, POND-BOTTLE-LANDED.
 """
@@ -11,8 +11,8 @@ Globals: POND-BOTTLE-SEEN, POND-BOTTLE-LANDED.
 from __future__ import annotations
 from engine.world import World, Room, INVISIBLE, TAKEBIT
 
-SIGHT_DIFFICULTY = 9     # Medium
-FISH_DIFFICULTY = 14     # Hard
+SIGHT_DIFFICULTY = 9     # Level 2
+FISH_DIFFICULTY = 14     # Level 3
 
 BOTTLE_IN_POND = "You see a bottle at the bottom of the pond."
 BOTTLE_ON_BANK = "A Ship-in-a-Bottle lies in the reeds at the water's edge."

@@ -6,7 +6,7 @@ Ink Corridor (Trap 45), Supply Room (Trap 17), Narrow Passageway, Idol Room
 traps.md (Traps 17, 33, 45), items.md.
 
 - Every room here is dark (light.py).
-- Trap 45 (Ink Corridor): Medium perception, then Medium disarm (trap roll);
+- Trap 45 (Ink Corridor): Level 5 perception, then Level 4 disarm (trap roll);
   missed or botched, the player is inked. Inked (INKED) cancels the ring's
   invisibility. Renting a room at the inn clears it (tavern.py — the bath);
   May refuses everything else while inked. Other NPC refusals aren't built yet.
@@ -54,9 +54,9 @@ def ink_corridor_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_END and not w.get_global("TRAP45-DONE"):
         w.set_global("TRAP45-DONE", True)
         from content.player import check_perception, roll_class_bonus
-        from content.perception import MEDIUM
-        if check_perception(w, MEDIUM):
-            if roll_class_bonus(w, "trap") >= MEDIUM:
+        from content.perception import LEVEL_4, LEVEL_5
+        if check_perception(w, LEVEL_5):
+            if roll_class_bonus(w, "trap") >= LEVEL_4:
                 print(_TRAP_DISARMED.format(d=_TRAP45))
                 _award_disarm(w)
                 return M_NOT_HANDLED
@@ -86,7 +86,7 @@ def storage_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 
 
 # ---------------------------------------------------------------------------
-# Trap 17 — Smoke Bomb Cache (Supply Room): Medium perception, Medium disarm,
+# Trap 17 — Smoke Bomb Cache (Supply Room): Level 5 perception, Level 4 disarm,
 # on the first entry. Fired: 1 heart smoke damage. Either way the smoke jar
 # and the small clay pot are then on the shelf (traps.md, locations.md).
 # ---------------------------------------------------------------------------
@@ -123,11 +123,11 @@ def supply_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_END and not w.get_global("TRAP17-DONE"):
         w.set_global("TRAP17-DONE", True)
         from content.player import check_perception, roll_class_bonus
-        from content.perception import MEDIUM
+        from content.perception import LEVEL_4, LEVEL_5
         fired = True
-        if check_perception(w, MEDIUM):
+        if check_perception(w, LEVEL_5):
             w.set_global("TRAP17-SPOTTED", True)
-            if roll_class_bonus(w, "trap") >= MEDIUM:
+            if roll_class_bonus(w, "trap") >= LEVEL_4:
                 print(_TRAP_DISARMED.format(d=_TRAP17))
                 from content.experience import award_xp
                 award_xp(w, 3 + (5 if w.globals.get("player_class") == "rogue" else 0))
@@ -146,10 +146,10 @@ def supply_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 
 
 # ---------------------------------------------------------------------------
-# Trap 33 — Weight-Sensitive Pedestal (Idol Room). Medium perception (every
+# Trap 33 — Weight-Sensitive Pedestal (Idol Room). Level 5 perception (every
 # visit until found) shows the plate. SWAP IDOL WITH SALT is the safe swap
 # (5 XP). Taking the idol without it seals the north doorway; the way south
-# stays open, so the crowbar can be fetched — PRY DOOR, Medium strength.
+# stays open, so the crowbar can be fetched — PRY DOOR, Level 4 strength.
 # ---------------------------------------------------------------------------
 
 _IDOL_BASE = (
@@ -196,12 +196,12 @@ _NOT_BLOCKED = "Nothing is blocking the doorway."
 
 
 def idol_plate_check(w: World) -> bool:
-    """Idol Room: Medium, every visit (and SEARCH) until the plate is spotted."""
+    """Idol Room: Level 5, every visit (and SEARCH) until the plate is spotted."""
     if w.get_global("IDOL-PLATE-SPOTTED"):
         return False
     from content.player import check_perception
-    from content.perception import MEDIUM
-    if not check_perception(w, MEDIUM):
+    from content.perception import LEVEL_5
+    if not check_perception(w, LEVEL_5):
         return False
     w.set_global("IDOL-PLATE-SPOTTED", True)
     return True
@@ -266,7 +266,8 @@ def swap_idol(w: World) -> None:
 
 
 def pry_idol_door(w: World) -> None:
-    """PRY DOOR — the slab over the north doorway; crowbar + Medium strength."""
+    """PRY DOOR — the slab over the north doorway; crowbar + Level 4 strength
+    (never out of reach — traps.md, Trap 33)."""
     if not w.get_global("IDOL-DOOR-SHUT"):
         print("You can't get any leverage on that.")
         return
@@ -274,8 +275,8 @@ def pry_idol_door(w: World) -> None:
         print("You can't get any leverage on that.")
         return
     from content.player import check_strength
-    from content.perception import MEDIUM
-    if check_strength(w, MEDIUM):
+    from content.perception import LEVEL_4
+    if check_strength(w, LEVEL_4):
         w.set_global("IDOL-DOOR-SHUT", False)
         w.ways_changed("IDOL-ROOM")
         print(_PRIED)

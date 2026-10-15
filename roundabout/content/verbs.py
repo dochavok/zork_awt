@@ -1274,6 +1274,13 @@ def v_struggle(world: World) -> int:
     return M_HANDLED
 
 
+def v_let_go(world: World) -> int:
+    """Bare LET GO — only means something holding the portcullis up (shrine_path.py);
+    anywhere else it's the parser's refusal."""
+    print("That sentence isn't one I recognize.")
+    return M_HANDLED
+
+
 def v_disarm(world: World) -> int:
     from content import combat_room, flooding
     if flooding.handles_plate(world):
@@ -2671,6 +2678,7 @@ def register_verbs(game) -> None:
     game.register_verb("V-JUMP-ON",    v_jump_on)
     game.register_verb("V-DISARM",     v_disarm)
     game.register_verb("V-STRUGGLE",   v_struggle)
+    game.register_verb("V-LET-GO",     v_let_go)
     from content import whispering_jar
     game.register_verb("V-DUST",       whispering_jar.v_dust)
     game.register_verb("V-PUSH",       whispering_jar.v_push)

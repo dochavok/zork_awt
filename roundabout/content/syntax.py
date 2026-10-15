@@ -430,6 +430,13 @@ def make_syntax_rules() -> list[SyntaxRule]:
                    obj1=ObjectSpec(locations=_held_car_og_ir)),
 
         # ------------------------------------------------------------------ #
+        # LET GO [OF PORTCULLIS] — lets go of the held portcullis (Trap 19)   #
+        # ------------------------------------------------------------------ #
+        SyntaxRule(verb="let", particle="go", action="V-LET-GO"),   # first: bare LET GO never drops what you carry
+        SyntaxRule(verb="let", particle="go", action="V-DROP", preaction="PRE-DROP",
+                   obj1=ObjectSpec(locations=_held_car_many)),
+
+        # ------------------------------------------------------------------ #
         # LEAVE                                                               #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="leave", action="V-LEAVE"),     # LEAVE alone: "Which direction?" (before the

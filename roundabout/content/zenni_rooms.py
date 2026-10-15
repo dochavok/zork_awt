@@ -2,8 +2,8 @@
 Hidden Zenni rooms (mechanics.md — Zenni Rooms).
 
 36 rooms are chosen at game initialization from the eligible pool and fixed
-for the playthrough: 18 Easy / 10 Medium / 2 Hard pay 1–3 Zenni each, 6 Very
-Hard pay 5. A silent perception check fires on every visit until the room's
+for the playthrough: 18 Level 1 / 10 Level 2 / 2 Level 3 pay 1–3 Zenni each,
+6 Level 4 pay 5. A silent perception check fires on every visit until the room's
 Zenni is found. Actually Enchanted Glasses pass every check.
 
 The pool uses room IDs. Rooms not built yet are listed under the ID they must
@@ -51,7 +51,7 @@ ELIGIBLE_ROOMS = [
 ]
 
 # (tier difficulty, count, zenni) — difficulty targets from content/perception.py
-_TIERS = [("EASY", 18, None), ("MEDIUM", 10, None), ("HARD", 2, None), ("VERY_HARD", 6, 5)]
+_TIERS = [("LEVEL_1", 18, None), ("LEVEL_2", 10, None), ("LEVEL_3", 2, None), ("LEVEL_4", 6, 5)]
 
 _FOUND = "Something catches your eye, tucked out of sight: {n} Zenni. You pocket {it}."
 

@@ -8,7 +8,7 @@ Dust), mechanics.md (Whispering Jar).
   is used up and 5 Zenni turn up in the bottom of the jar. DUST JAR (or
   SPRINKLE / PUT DUST ON JAR) — the dust is used up. Dust before the seal is
   refused.
-- READ INSCRIPTION / LETTERS / ETCHING / BASE / JAR: Medium perception check every time
+- READ INSCRIPTION / LETTERS / ETCHING / BASE / JAR: Level 2 perception check every time
   (glasses bonus / auto-pass apply). Before both steps the words do nothing;
   after them the jar whispers the thermal vent hint and Quest 4 completes.
   Reading again repeats the whisper.
@@ -88,9 +88,9 @@ def _dust(w: World) -> None:
 
 def _read(w: World) -> None:
     from content import quests
-    from content.perception import MEDIUM
+    from content.perception import LEVEL_2
     from content.player import check_perception
-    if not check_perception(w, MEDIUM):
+    if not check_perception(w, LEVEL_2):
         print(_WORN)
         return
     if not (w.get_global("JAR-SEALED") and w.get_global("JAR-DUSTED")):

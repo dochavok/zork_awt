@@ -2,7 +2,7 @@
 The Pie Rat Ship heist in the mine (mechanics.md — The Pie Rat Ship Heist;
 locations.md — Mine Entrance, Assay Room, Mine Tunnels).
 
-Weak point in the Mine Tunnels (Easy perception, every visit until found) →
+Weak point in the Mine Tunnels (Level 1 perception, every visit until found) →
 DROP GUNPOWDER there → LIGHT GUNPOWDER (flint and steel carried) → 5-turn
 fuse → the explosion seals the main entrance and draws the Pie Rats off the
 ship. Still inside the mine when it goes: death.
@@ -73,12 +73,12 @@ _ENTRANCE_COLLAPSED = (
 # ---------------------------------------------------------------------------
 
 def on_enter(w: World, room: Room) -> bool:
-    """Easy, every visit (and SEARCH) until found. True if found just now."""
+    """Level 1, every visit (and SEARCH) until found. True if found just now."""
     if room.name != "MINE-TUNNELS" or w.get_global("WEAK-POINT-FOUND"):
         return False
     from content.player import check_perception
-    from content.perception import EASY
-    if not check_perception(w, EASY):
+    from content.perception import LEVEL_1
+    if not check_perception(w, LEVEL_1):
         return False
     w.set_global("WEAK-POINT-FOUND", True)
     w.objects["WEAK-POINT"].clear_flag("INVISIBLE")

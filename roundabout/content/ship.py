@@ -10,7 +10,7 @@ from __future__ import annotations
 import random
 from engine.world import World, Room, INVISIBLE
 
-MAP_DIFFICULTY = 14          # Hard (mechanics.md — Difficulty tiers)
+MAP_DIFFICULTY = 14          # Level 3 (mechanics.md — Difficulty tiers)
 CHEST_ZENNI = 30
 
 _MAP_FOUND = (
@@ -79,7 +79,7 @@ _ABOARD = frozenset({
 
 
 # ---------------------------------------------------------------------------
-# Treasure map — Hard perception check every turn aboard until found
+# Treasure map — Level 3 perception check every turn aboard until found
 # ---------------------------------------------------------------------------
 
 def on_enter(w: World, room: Room) -> None:

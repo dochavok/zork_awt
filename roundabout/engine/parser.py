@@ -908,6 +908,12 @@ class Parser:
                 add(obj)
                 if search_inv_deep:
                     self._collect_deep(obj, add)
+            # Something in the room the player is holding up (INHANDBIT, set by
+            # content — the lifted portcullis) counts as in hand: DROP PORTCULLIS
+            if world.here:
+                for obj in world.here.contents:
+                    if obj.has_flag("INHANDBIT"):
+                        add(obj)
 
         # Current room contents.
         if world.here and (search_room_top or search_room_deep):

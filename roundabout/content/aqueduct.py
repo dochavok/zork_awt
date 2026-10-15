@@ -5,7 +5,7 @@ Gallery (Dungeon Upper Tier, south of the Storage Area).
 Design: locations.md (Storage Area, Collapsed Aqueduct, Collapsed Gallery,
 Rickety Bridge), quests.md (Quest 22, Quest 38), items.md (Mortar Compound).
 
-- Collapsed Aqueduct: PLACE BLOCKS three times (one Medium strength check
+- Collapsed Aqueduct: PLACE BLOCKS three times (one Level 2 strength check
   each; a failure makes no progress), then SEAL JOINTS WITH MORTAR (or USE
   MORTAR ON JOINTS / BLOCKS / AQUEDUCT). The mortar is used up, Quest 22
   completes and the Town Square fountain runs.
@@ -136,8 +136,8 @@ def place_blocks(w: World) -> None:
         print(_ALL_IN)
         return
     from content.player import roll_class_bonus
-    from content.perception import MEDIUM
-    if roll_class_bonus(w, "strength") < MEDIUM:
+    from content.perception import LEVEL_2
+    if roll_class_bonus(w, "strength") < LEVEL_2:
         print(_SLIPS)
         return
     print(_PLACED[n])
@@ -174,7 +174,7 @@ def is_aqueduct_part(obj) -> bool:
 # Collapsed Gallery
 # ---------------------------------------------------------------------------
 
-# Quest 38 — three Hard strength checks with the pickaxe (retries allowed),
+# Quest 38 — three Level 3 strength checks with the pickaxe (retries allowed),
 # then the support beam props the passage. The way east opens only then.
 TIMBER_DIFFICULTY = 14
 _GALLERY_UNPROPPED = (

@@ -5,10 +5,10 @@ Design: locations.md (The Crypt, Charnel Walk, The Bone Passage, The Junction,
 The Undercroft, The Toll Bridge, Dungeon Entrance), quests.md (Quest 27),
 npcs.md (Boggart).
 - All of these rooms are dark (light.py).
-- Toll Bridge: Medium perception spots the faded official seal → Quest 27
+- Toll Bridge: Level 2 perception spots the faded official seal → Quest 27
   discovered. The Boggart blocks the way south and his toll (200) can't be
   paid. GIVE CHARTER TO BOGGART evicts him, drops the strongbox, completes
-  Quest 27. The strongbox opens on a Medium strength check: 10 Zenni.
+  Quest 27. The strongbox opens on a Level 2 strength check: 10 Zenni.
 - The Bone Passage's east door (Tavern Cellar) comes with Quest 25.
 
 State: CRYPT-VISITS, SEAL-FOUND, BOGGART-GONE, STRONGBOX-OPEN
@@ -111,13 +111,13 @@ def crypt_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 
 
 def seal_check(w: World) -> bool:
-    """Toll Bridge: Medium, every visit (and SEARCH) until the seal is found.
+    """Toll Bridge: Level 2, every visit (and SEARCH) until the seal is found.
     Announced at the end of the turn."""
     if w.get_global("SEAL-FOUND"):
         return False
     from content.player import check_perception
-    from content.perception import MEDIUM
-    if not check_perception(w, MEDIUM):
+    from content.perception import LEVEL_2
+    if not check_perception(w, LEVEL_2):
         return False
     w.set_global("SEAL-FOUND", "pending")
     return True
@@ -168,8 +168,8 @@ def open_strongbox(w: World) -> None:
         print("The strongbox is already open, and empty.")
         return
     from content.player import roll_class_bonus
-    from content.perception import MEDIUM
-    if roll_class_bonus(w, "strength") >= MEDIUM:
+    from content.perception import LEVEL_2
+    if roll_class_bonus(w, "strength") >= LEVEL_2:
         print(_BOX_OPENED)
         w.set_global("STRONGBOX-OPEN", True)
         w.globals["zenni"] = w.globals.get("zenni", 0) + STRONGBOX_ZENNI

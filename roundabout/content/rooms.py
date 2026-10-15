@@ -23,13 +23,13 @@ BEDROOM_DOOR_STAYS = "A door in the north wall stands where you'd have sworn the
 
 
 def bedroom_door_check(w) -> bool:
-    """Will's tower: Easy, every visit until the bedroom door is found.
+    """Will's tower: Level 1, every visit until the bedroom door is found.
     Announced at the end of the turn, after the room (bedroom_door_announce)."""
     if w.get_global("BEDROOM-DOOR-VISIBLE"):
         return False
-    from content.perception import EASY
+    from content.perception import LEVEL_1
     from content.player import check_perception
-    if not check_perception(w, EASY):
+    if not check_perception(w, LEVEL_1):
         return False
     w.set_global("BEDROOM-DOOR-VISIBLE", "pending")
     w.ways_changed("WIZARDS-TOWER")
@@ -47,17 +47,17 @@ def bedroom_door_announce(w) -> None:
 
 
 def volcano_stairs_check(w) -> bool:
-    """The Volcano: Hard, every visit until the staircase is found."""
-    from content.perception import HARD, reveal_exit_if_found
-    return reveal_exit_if_found(w, HARD, "VOLCANO-STAIRS-FOUND")
+    """The Volcano: Level 3, every visit until the staircase is found."""
+    from content.perception import LEVEL_3, reveal_exit_if_found
+    return reveal_exit_if_found(w, LEVEL_3, "VOLCANO-STAIRS-FOUND")
 
 
 def bog_sw_check(w) -> bool:
-    """Bog SW: the shrine bowl piece (Easy) and the bog thyme (Medium), each
+    """Bog SW: the shrine bowl piece (Level 1) and the bog thyme (Level 2), each
     every visit until found."""
-    from content.perception import EASY, reveal_if_found
+    from content.perception import LEVEL_1, reveal_if_found
     from content import bog
-    piece = reveal_if_found(w, "BOWL-PIECE-BOG", EASY)
+    piece = reveal_if_found(w, "BOWL-PIECE-BOG", LEVEL_1)
     thyme = bog.reveal(w, "BOG-SW")
     return piece or thyme
 
@@ -155,7 +155,7 @@ def _make_tower(world) -> None:
     )
 
     from engine.game import M_NOT_HANDLED, M_HANDLED, M_ENTER, M_END, M_LOOK
-    from content.perception import EASY
+    from content.perception import LEVEL_1
 
     _WILL_SHAKEN = (    # npcs.md — Will Passion, Quest 50
         "Will is standing at the window when you arrive. He doesn't turn around. "
@@ -596,7 +596,7 @@ _VOLCANO_STAIRS = (
 
 def _make_volcano(world) -> None:
     from engine.game import M_NOT_HANDLED, M_HANDLED, M_ENTER, M_LOOK
-    from content.perception import HARD, reveal_exit_if_found
+    from content.perception import LEVEL_3, reveal_exit_if_found
 
     volcano = Room(name="VOLCANO", desc="The Volcano", ldesc="", value=1)
     volcano.set_flag(ONBIT)
@@ -627,7 +627,7 @@ def _make_volcano(world) -> None:
 
     world.rooms["ROUNDABOUT-WASTELAND"].exits["south"] = Exit(destination="VOLCANO")
     volcano.exits["north"] = Exit(destination="ROUNDABOUT-WASTELAND")
-    # Down is hidden until a Hard perception check sees through the illusion
+    # Down is hidden until a Level 3 perception check sees through the illusion
     volcano.exits["down"] = Exit(
         destination="PYRONICUS-FORGE",
         condition=lambda w: bool(w.get_global("VOLCANO-STAIRS-FOUND")),

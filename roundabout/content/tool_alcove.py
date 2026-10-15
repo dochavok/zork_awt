@@ -5,7 +5,7 @@ speaking door).
 Design: locations.md (Tool Alcove, The Lower Crossing — 50/50 pull-back text),
 quests.md (Quest 34).
 
-- Tool Alcove: Medium perception on every visit until the speaking door is
+- Tool Alcove: Level 2 perception on every visit until the speaking door is
   found. Found: "Something in the back wall notices you", then the wall's
   question. EXAMINE WALL / LISTEN show the question once it's found.
 - Leaving south before the door is found: one of two pull-back lines in The
@@ -54,13 +54,13 @@ _PULLBACK = (
 
 
 def alcove_check(w: World) -> bool:
-    """Tool Alcove: Medium, once per visit until found. Shown with the room
+    """Tool Alcove: Level 2, once per visit until found. Shown with the room
     description."""
     if w.get_global("ALCOVE-FOUND"):
         return False
-    from content.perception import MEDIUM
+    from content.perception import LEVEL_2
     from content.player import check_perception
-    if not check_perception(w, MEDIUM):
+    if not check_perception(w, LEVEL_2):
         return False
     from content import quests
     quests.discover(w, "34")   # organic — the speaking door found

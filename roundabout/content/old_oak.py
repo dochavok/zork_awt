@@ -198,13 +198,13 @@ def swarm_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 
 
 # ---------------------------------------------------------------------------
-# Roundabout Forest — Verdant Circle shrine, bowl piece (Easy perception)
+# Roundabout Forest — Verdant Circle shrine, bowl piece (Level 1 perception)
 # ---------------------------------------------------------------------------
 
 def bowl_piece_check(w: World) -> bool:
-    """Roundabout Forest: the shrine bowl piece, Easy, every visit (and SEARCH)."""
-    from content.perception import EASY, reveal_if_found
-    return reveal_if_found(w, "BOWL-PIECE-FOREST", EASY)
+    """Roundabout Forest: the shrine bowl piece, Level 1, every visit (and SEARCH)."""
+    from content.perception import LEVEL_1, reveal_if_found
+    return reveal_if_found(w, "BOWL-PIECE-FOREST", LEVEL_1)
 
 
 def forest_action(w: World, msg: int = M_NOT_HANDLED) -> int:

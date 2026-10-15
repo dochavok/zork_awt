@@ -187,7 +187,7 @@ def _loaded():
 def test_gravestone_hidden_until_perception_easy():
     w, g = _world()
     with patch("content.player.roll", return_value=4), patch("sys.stdout", io.StringIO()):
-        g.enter_room(w.rooms["BOG-SE"])            # Easy target 5: a 4 misses
+        g.enter_room(w.rooms["BOG-SE"])            # Level 1 target 5: a 4 misses
         g.do_turn("wait")
     assert not w.get_global("GRAVESTONE-FOUND")
     assert w.objects["GRAVESTONE"].has_flag("INVISIBLE")

@@ -4,7 +4,7 @@ Quest 32 — The Missing Gravestone (Middle Tier Key).
 Design: quests.md (Quest 32), npcs.md (Councilman Rowan Finch), items.md
 (Hand Cart, Gravestone, Middle Tier Key), locations.md (Bog-SE, Graveyard).
 - Discovery: reaching the Rickety Bridge (shrine_path.py).
-- Bog-SE: Easy perception every visit until the gravestone is found.
+- Bog-SE: Level 1 perception every visit until the gravestone is found.
 - LOAD STONE ONTO CART puts the stone in the hand cart. A loaded cart goes
   anywhere on the level but not UP or DOWN.
 - UNLOAD STONE at the Graveyard sets the stone back and leaves the cart
@@ -111,12 +111,12 @@ def cart_loaded(w: World) -> bool:
 # ---------------------------------------------------------------------------
 
 def bog_se_enter(w: World) -> bool:
-    """Easy, every visit (and SEARCH) until found; announced at end of turn."""
+    """Level 1, every visit (and SEARCH) until found; announced at end of turn."""
     if w.get_global("GRAVESTONE-FOUND") or _stone(w).location is not w.rooms["BOG-SE"]:
         return False
     from content.player import check_perception
-    from content.perception import EASY
-    if not check_perception(w, EASY):
+    from content.perception import LEVEL_1
+    if not check_perception(w, LEVEL_1):
         return False
     w.set_global("GRAVESTONE-FOUND", "pending")
     return True

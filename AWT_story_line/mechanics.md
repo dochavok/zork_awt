@@ -54,7 +54,7 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 
 **Zenni sources:**
 - Will Passion opening gift: 10 Zenni
-- Hidden room Zenni: 36 rooms randomized per new game; 18 Easy / 10 Medium / 2 Hard pay 1–3 Zenni each; 6 Very Hard pay 5 Zenni each (~74 Zenni total if all found); Actually Enchanted Glasses pass all checks and find all rooms automatically
+- Hidden room Zenni: 36 rooms randomized per new game; 18 Level 1 / 10 Level 2 / 2 Level 3 pay 1–3 Zenni each; 6 Level 4 pay 5 Zenni each (~74 Zenni total if all found); Actually Enchanted Glasses pass all checks and find all rooms automatically
 - Desert Island buried chest: 30 Zenni
 - Quest rewards: ~133 Zenni across all 27 active quests (3–10 Zenni per quest, mirroring XP tiers)
 
@@ -84,7 +84,7 @@ All checks are dice-based and hidden from the player. Players see outcomes only,
 **Roll types:**
 - **Perception** — finding hidden things, noticing details, spotting traps. Class bonus: Mages and Rogues.
 - **Strength** — forcing doors, breaking locks, prying, physical feats (arm wrestling, rope snare escape, portcullis lift, timber clearing, Boggart strongbox, magnetic chest recovery, Thornbrew drinking contest — contested vs. Aylora's 1d6 + 2, see locations.md Fire Pit). Class bonus: Warriors.
-- **Agility** — dodging hazards (Archery Range arrow dodge before Viking trust earned; Easy, 5). No class bonus.
+- **Agility** — dodging hazards (Archery Range arrow dodge before Viking trust earned; Level 1, 5). No class bonus.
 - **Trap disarm** — disabling a detected trap without triggering it. Class bonus: Rogues.
 
 **Trap detection and disarm flow:**
@@ -107,23 +107,33 @@ All perception checks are fully invisible to the player. The roll fires silently
 - **Second Glance (Level 5 ability):** On any failed perception check, the roll automatically fires a second time. Invisible — the player never knows it happened. They simply find things more reliably after Level 5.
 - **Enchanted Glasses:** Small bonus to all perception rolls. **Actually Enchanted Glasses:** Pass all perception checks automatically — no roll required.
 - **Class bonuses:** Mages and Rogues receive an inherent bonus to perception rolls. Applied silently to every check.
-- **`SEARCH` (decided 2026-10-11):** one deliberate extra look per visit, for a turn. It re-runs the room's checks that haven't succeeded yet — hidden items, hidden exits, hidden Zenni, the Idol Room plate, the Magnetic Vault trap — with the same difficulty, bonuses, Second Glance and glasses as on arrival.
+- **`SEARCH` (decided 2026-10-11):** one deliberate extra look per visit, for a turn. It re-runs the room's checks that haven't succeeded yet — hidden items, hidden exits, hidden Zenni, the Idol Room plate, the Magnetic Vault trap, the Portcullis Corridor mechanism (Trap 19, since 2026-10-15) — with the same difficulty, bonuses, Second Glance and glasses as on arrival.
   - Includes the one-time-check rooms: SEARCH is their second roll that visit.
   - Found: the check's own line. A find that only shows in the room description gets *Searching carefully, you notice something you missed.*, then the full description.
   - Nothing found, nothing left to find, or already searched this visit: *You search carefully but find nothing unusual.* — the same line every time, so it never gives away whether something is there.
   - Leaving and coming back makes SEARCH available again. In the dark: *It's too dark to see!* (no roll). `SEARCH <thing>` searches the room.
-  - Not re-run: the arrival traps (Traps 8, 16, 17, 19, 45, the Combat Room and Flooding Room plates, the mugger) — already resolved on the way in — and the ship's treasure map, which rolls every turn aboard anyway.
+  - Not re-run: the arrival traps (Traps 8, 16, 17, 45, the Combat Room and Flooding Room plates, the mugger) — already resolved on the way in — and the ship's treasure map, which rolls every turn aboard anyway.
 
 **Difficulty tiers:**
 
 Target numbers are absolute — a higher-level player beats the same check more reliably as their dice pool grows.
 
-| Tier | Target | Usage |
-|------|--------|-------|
-| Easy | 5 | Critical path items, early overworld, quest breadcrumbs |
-| Medium | 9 | Optional items, repeating checks, moderate consequence traps |
-| Hard | 14 | Well-hidden traps, significant consequences, critical path with pull-back |
-| Very Hard | 18 | Most subtle tells, severe consequences (ink trap), intentionally punishing |
+**Named by level (decided 2026-10-15, TODO #17).** A **Level N check** is one a level-N player passes about a third of the time, with no class bonus (Lucky counted, Second Glance not). A level below passes it rarely; a level above usually does.
+- Levels 1–4 were Easy, Medium, Hard and Very Hard; the targets didn't change. Levels 5–8 were added so checks can be pitched at the levels players actually reach (the dungeon's upper tier is reached at about level 5).
+- In prose, write "a Level N check" (capital L) for the tier and "a level-N player" for the player, so the two never share a phrasing. Code: `perception.LEVEL_1` … `LEVEL_8`.
+- A check above the player's highest possible roll can't be passed at all (a Level 5 check is beyond level 4's maximum of 23). Critical-path checks must stay within reach of the lowest level a player can arrive at.
+- Two-roll traps (perception, then disarm) compound, and Second Glance doubles perception from level 5: pick both tiers together.
+
+| Tier | Target | Passed at its level (no bonus / +3 class) | A level below | A level above | Usage |
+|------|--------|------|------|------|-------|
+| Level 1 | 5 | 33% / 83% | — | 92% | Critical path items, early overworld, quest breadcrumbs |
+| Level 2 | 9 | 42% / 83% | 0% | 77% | Optional items, repeating checks, moderate consequence traps |
+| Level 3 | 14 | 23% / 56% | 0% | 64% | Well-hidden traps, significant consequences, critical path with pull-back |
+| Level 4 | 18 | 25% / 54% | 2% | 82% | Most subtle tells, severe consequences, intentionally punishing |
+| Level 5 | 24 | 37% / 61% | 0% | 66% | Upper-tier dungeon (reached at about level 5) |
+| Level 6 | 28 | 39% / 59% | 11% | 52% | Mid and lower tiers |
+| Level 7 | 32 | 33% / 47% | 16% | 80% | Late game only (level 7's 2d20 barely beats level 6's 3d12) |
+| Level 8 | 44 | 36% / 48% | 2% | — | Late game |
 
 Perception check locations and difficulty ratings are annotated inline in `locations.md`.
 
@@ -721,10 +731,10 @@ Beach `DIG`: succeeds up to 5 times with flavor text (nothing but wet sand); 6th
 **Difficulty distribution (assigned at game init):**
 | Tier | Count | Target | Zenni |
 |------|-------|--------|-------|
-| Easy | 18 | 5 | 1–3 |
-| Medium | 10 | 9 | 1–3 |
-| Hard | 2 | 14 | 1–3 |
-| Very Hard | 6 | 18 | 5 |
+| Level 1 | 18 | 5 | 1–3 |
+| Level 2 | 10 | 9 | 1–3 |
+| Level 3 | 2 | 14 | 1–3 |
+| Level 4 | 6 | 18 | 5 |
 
 **Eligible room pool:**
 
@@ -926,7 +936,7 @@ Full tree (paths numbered A1–A3, B1–B3):
 
 Hidden aboard the Pie Rat Ship in the hold.
 
-Each turn aboard fires a silent perception check (Hard, 14 — the map isn't critical, only extra Zenni). On success: map found and added to inventory. Actually Enchanted Glasses pass all checks — map found on first turn.
+Each turn aboard fires a silent perception check (Level 3, 14 — the map isn't critical, only extra Zenni). On success: map found and added to inventory. Actually Enchanted Glasses pass all checks — map found on first turn.
 
 Without the map: each `DIG` on Desert Island has a 10% chance of finding the buried chest (contains 30 Zenni). Player can keep trying indefinitely.
 
@@ -941,7 +951,7 @@ Multi-step quest chain that grants access to the Pie Rat Ship.
 1. Find Pie Rat disguise in The Rat's Nest (mine).
 2. Buy gunpowder from Shamus (5 Zenni).
 3. Take the flint and steel from the Assay Room workbench.
-4. Find the structural weak point in the Mine Tunnels (Easy perception, every visit until found), then `DROP GUNPOWDER` there.
+4. Find the structural weak point in the Mine Tunnels (Level 1 perception, every visit until found), then `DROP GUNPOWDER` there.
 5. `LIGHT GUNPOWDER` (flint and steel carried; gunpowder at the weak point) — fuse catches. Five turns to get out. A torch won't do (locations.md — Mine Tunnels).
 6. Still inside the mine (Mine Entrance, Main Shaft, Assay Room, Mine Tunnels, Rat's Nest) when it goes: death, GAME OVER.
 7. Explosion — cave-in seals main mine entrance permanently.
@@ -1044,7 +1054,7 @@ If the player's cargo already beats Ty's score — straight off the sequence or 
 
 ### Whispering Jar (Quest 4)
 
-Restored with wax seal + silver dust + the inscription etched into its base (`READ INSCRIPTION` — Medium perception check; Enchanted Glasses give their bonus, Actually Enchanted Glasses pass). Whispers: *"The ceiling of the thermal vent holds a secret."* Rules and text: items.md — The Whispering Jar.
+Restored with wax seal + silver dust + the inscription etched into its base (`READ INSCRIPTION` — Level 2 perception check; Enchanted Glasses give their bonus, Actually Enchanted Glasses pass). Whispers: *"The ceiling of the thermal vent holds a secret."* Rules and text: items.md — The Whispering Jar.
 
 Reading the inscription again repeats the whisper (no further reward). `LISTEN` afterwards: *Nothing. The jar is quiet now.* This is the only hint anywhere for the fire clay in the Thermal Vent Room (lower tier, `LOOK UP`).
 
@@ -1213,7 +1223,7 @@ Decided 2026-10-05.
 **Which object a word means:** when a word matches several objects, `TAKE`, `EXAMINE`, `LOAD`, `UNLOAD` and `CUT` prefer the ones not in the player's pack (e.g. `EXAMINE JAR` in the Pipe Room means the Whispering Jar, not a carried smoke jar; `CUT CORD` in the snare means the snare, not the heart necklace).
 **Second object of `PUT` / `SPRINKLE` / `PRESS … ON`:** prefers what isn't in the pack (`PUT SEAL ON JAR` means the Whispering Jar, not a carried smoke jar). `DUST` and `LISTEN TO` prefer what isn't in the pack, like `TAKE`.
 **`DUST [thing]`** (Quest 4): `DUST JAR` in the Pipe Room; anywhere else *There's nothing here worth dusting.* `PRESS SEAL` away from the jar: *There's nothing here to press it on.*
-**`STRUGGLE` / `PULL FREE`** (also `WRIGGLE`, `SQUIRM`, `THRASH`): escapes the Trap 8 snare (Medium strength); anywhere else *Nothing happens.*
+**`STRUGGLE` / `PULL FREE`** (also `WRIGGLE`, `SQUIRM`, `THRASH`): escapes the Trap 8 snare (Level 4 strength); anywhere else *Nothing happens.*
 **Keys:** `UNLOCK` / `OPEN [thing] WITH KEY` when several carried keys match "key": if only one of them fits that thing, it's used without asking (cellar door — cellar key, Mid-Tier Key Door — Middle Tier Key, Keeper's Chamber door — key ring, music box — music box key).
 **`GIVE [thing]` with several matches:** items meant for someone who is present are preferred (`GIVE SCROLL TO WILL` means a spell scroll, not the incantation scroll).
 **`READ SCROLL` with several scrolls carried:** every scroll is readable, so the parser asks which one (*Which scroll do you mean, the incantation scroll, or the Fireball scroll?*) — it never picks the incantation scroll on its own. `READ FIREBALL SCROLL` names it outright.
@@ -1302,6 +1312,8 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `UNLOAD STONE` (also `UNLOAD GRAVESTONE` / `UNLOAD CART` / `UNLOAD STONE FROM CART` / `PUT STONE ON GRAVE` / `PLACE STONE` / `SET STONE` / `RETURN STONE` / `DROP STONE`) | Quest 32 — at the Graveyard, sets the gravestone back and leaves the cart |
 | `USE CROWBAR ON DRAIN` (also `PRY COVER` / `REMOVE COVER WITH CROWBAR`) | Quest 25 — removes the cellar drain cover from the Kitchen top step |
 | `JUMP ON PLATE` | The Combat Room and Flooding Room plates (Traps 29 and 41) are scripted events since 2026-10-14: *Nothing happens.* `DISARM PLATE`: *There's nothing here to disarm.* |
+| `DROP PORTCULLIS` (also `RELEASE` / `LOWER PORTCULLIS`, `LET GO` [`OF PORTCULLIS`]) | Trap 19 — while it's held up after `LIFT PORTCULLIS`, lets it drop; while held, moving is refused (*You'll have to drop the portcullis first.*). Decided 2026-10-15; text in locations.md — Portcullis Corridor |
+| `DISARM PORTCULLIS` (also `DISARM MECHANISM`) | Trap 19 — once the mechanism is spotted, retries the Level 4 disarm while it's charged; a failure costs only the turn (decided 2026-10-15; text in locations.md — Portcullis Corridor) |
 | `PRY DOOR` | Trap 33 escape — crowbar + strength check |
 | `ASSEMBLE BOWL` (also `REASSEMBLE BOWL` / `REPAIR BOWL` / `FIX BOWL` / `GLUE BOWL` / `PATCH BOWL` / `COMBINE PIECES` / `COMBINE BOWL PIECES`) | Quest 49 — anywhere, holding all three bowl pieces and the clay adhesive → Repaired Bowl |
 | `USE PORTCULLIS BAR` (also `USE BAR ON PORTCULLIS` / `PUT BAR UNDER PORTCULLIS` / `PUT BAR` / `PLACE BAR` / `DROP BAR`) | Trap 19 — props portcullis open permanently; only straight after a successful `LIFT PORTCULLIS` (otherwise `PUT` / `PLACE` / `DROP BAR` just drops it) |
@@ -1354,7 +1366,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `PLUG <thing>` [`WITH <thing>`] (also `PATCH` / `REPAIR` / `FIX` / `GLUE`) | The aqueduct (`REPAIR AQUEDUCT`, `FIX JOINTS`): the same as `SEAL JOINTS` (Quest 22). The Whispering Jar: its seal step (items.md). The bowl: `ASSEMBLE BOWL`. Anything else: *You can't fix that.* One turn. `SEAL <anything else>`: *You can't seal that.* Decided 2026-10-12 |
 | `APPLY <thing> TO <thing>` (also `APPLY … ON`) | Wherever the action belongs: the wax seal or silver dust on the Whispering Jar — `PUT … ON JAR`; mortar on the aqueduct — `SEAL`; holy water on the silver stake — `POUR`. Anything else: *You can't apply the [thing] to the [thing].* One turn. Decided 2026-10-12 |
 | `ROLL <thing>` | Zork's *Rolling the [thing] has no obvious effect.* One turn. At Ty's table, `ROLL` / `ROLL DICE [n]` is `PLAY [n]` (Cargo). Decided 2026-10-12 |
-| `RUB <thing>` [`ON` / `WITH <thing>`] (also `TOUCH` / `FEEL` / `PAT` / `PET`) | An NPC: *[Name] wouldn't appreciate that.* Anything else: Zork's *Fiddling with the [thing] has no effect.* One turn. (The Inscription Chamber rubbing comes first.) Decided 2026-10-12 |
+| `RUB <thing>` [`ON` / `WITH <thing>`] (also `TOUCH` / `FEEL` / `PAT` / `PET`) | An NPC: *[Name] wouldn't appreciate that.* Anything else: Zork's *Fiddling with the [thing] has no effect.* One turn. (The Inscription Chamber rubbing comes first; a charged portcullis shocks — Trap 19, 2026-10-15.) Decided 2026-10-12 |
 | `SWING <thing> AT <thing>` (also `THRUST`) | The same as `ATTACK [target] WITH [thing]`. `SWING <thing>` alone: Zork's *Whoosh!* One turn. Decided 2026-10-12 |
 | `TAKE <thing> FROM <thing>` (also `REMOVE … FROM`) | `TAKE [thing]` if it's in or on the other; otherwise Zork's *The [thing] isn't in the [thing].* — nothing is picked up first. (The Trophy Case keeps its own refusal.) Decided 2026-10-12 |
 | `THROW <thing>` (also `HURL` / `CHUCK` / `TOSS`) | Alone: the same as `DROP` (designed drops and the ring's refusal included). `THROW <thing> AT <anything>`: *You'd rather keep hold of the [thing].* — nothing is thrown (no thrown-weapon combat; the bow is the ranged weapon). One turn. Decided 2026-10-12 |

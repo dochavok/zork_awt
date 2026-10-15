@@ -4,7 +4,7 @@ The Back Alley — Quest 51, The Back Alley Mugger.
 Design: locations.md (The Back Alley), quests.md (Quest 51), mechanics.md
 (Combat; enemy stats: mugger 1d6, 2 hearts), experience.md (mugger 5 XP).
 
-- Medium perception check on every visit until the mugger is spotted.
+- Level 2 perception check on every visit until the mugger is spotted.
   Fail: mugged — 1 heart, 2–3 Zenni stolen (none if broke), wake a turn later.
   Pass: the mugger is visible; fight with KILL MUGGER, one round per command.
 - Losing the fight is not death: wake with 1 heart; the mugger's hearts reset.
@@ -61,8 +61,8 @@ def back_alley_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         w.set_global("MUGGER-HEARTS", MUGGER_HEARTS)
         if not w.get_global("MUGGER-SPOTTED"):
             from content.player import check_perception
-            from content.perception import MEDIUM
-            if check_perception(w, MEDIUM):
+            from content.perception import LEVEL_2
+            if check_perception(w, LEVEL_2):
                 w.set_global("MUGGER-SPOTTED", True)
                 w.objects["MUGGER"].clear_flag("INVISIBLE")
             else:

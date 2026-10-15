@@ -8,7 +8,7 @@ exit mechanic), quests.md (Quest 17).
 - The Chuckle House (east of the Graveyard) exists only after Litlock's bonk.
 - Mirrors repel visible players until the ghost is freed: going south into a
   mirror room while visible fails and leaves the player where they were.
-- Trap 16 (Shatter Trap Mirror): Medium perception, then Medium disarm (trap
+- Trap 16 (Shatter Trap Mirror): Level 4 perception, then Level 4 disarm (trap
   roll). Missed or botched: the crossbow fires once (1 heart). Either way it's
   spent.
 - Ghost's Room: ghost visible only while the ring is worn; hostility is
@@ -144,9 +144,9 @@ def shatter_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_END and not w.get_global("TRAP16-DONE"):
         w.set_global("TRAP16-DONE", True)
         from content.player import check_perception, roll_class_bonus
-        from content.perception import MEDIUM
-        if check_perception(w, MEDIUM):
-            if roll_class_bonus(w, "trap") >= MEDIUM:
+        from content.perception import LEVEL_4
+        if check_perception(w, LEVEL_4):
+            if roll_class_bonus(w, "trap") >= LEVEL_4:
                 print(_TRAP_DISARMED.format(d=_TRAP16))
                 _award_disarm(w)
                 return M_NOT_HANDLED

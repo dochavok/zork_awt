@@ -68,7 +68,7 @@ Required to make ranged (bow) attacks in combat. `SHOOT` equips it (mechanics.md
 
 ### Dragon-Nip
 **Weight:** 1
-**Location:** Will Passion's Bedroom, under the nightstand (Hard perception check — locations.md)
+**Location:** Will Passion's Bedroom, under the nightstand (Level 4 perception check — locations.md)
 **Inventory description:** "glowing sprig"
 **Parser names:** dragon-nip, sprig, nip
 **Examine:** *A small sprig, three narrow leaves on a woody stem, giving off a faint golden glow. It smells of smoke and something sweet.*
@@ -207,7 +207,7 @@ Always lit from purchase. Timer starts on first dark room entry (not on purchase
 **Examine:** *A hand-drawn map on oilcloth. A small island south of the sea lane, east of Roundabout, with a dotted line up the beach and an X near the trees.*
 **Quest use:** Guarantees `DIG` success on the Desert Island buried chest on the first attempt. Without the map: 10% chance per `DIG`.
 
-Found via silent perception check (**Hard, 14** — not critical, only extra Zenni).
+Found via silent perception check (**Level 3, 14** — not critical, only extra Zenni).
 The check fires once per turn spent aboard the ship. Found text in locations.md (Pie Rat Ship — Deck). Actually Enchanted Glasses pass all perception checks; map found on first turn. A player who sails to Kevry's island without finding the map, gets the glasses enchanted there, and returns to the ship will auto-find the map on their next turn aboard.
 
 Not consumable — stays in inventory after use.
@@ -408,7 +408,7 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 - **`PRESS SEAL`** (also `PRESS SEAL ON JAR`, `PUT SEAL ON JAR`; and, decided 2026-10-12, `REPAIR` / `FIX` / `PATCH` / `PLUG` / `GLUE` / `SEAL JAR` or `CRACK` [`WITH SEAL`] — without the seal: *You've nothing to fill the crack with.*; once sealed: *The crack is already sealed.*):
   *You press the wax seal over the crack. The wax gives, then takes — it spreads along the line of the crack and sets, red against the blue-grey glaze. The hum steadies.* Then: *Something clinks inside the jar. Five Zenni sit in the bottom, kept there by the crack until now. You pocket them.* (The quest's 5 Zenni.)
 - **`DUST JAR`** (also `SPRINKLE DUST ON JAR`, `PUT DUST ON JAR`): with no silver dust — *You have nothing to dust it with.* Before the seal — *The dust would only sift into the crack.* After — *You sprinkle the silver dust over the jar. It clings to the glaze and settles into the etched letters around the base, and for a moment the whole jar glints.*
-- **`READ INSCRIPTION`** (also `READ LETTERS` / `ETCHING` / `WORDS` / `BASE` / `JAR`): Medium perception check every time. Failed: *The letters are worn almost smooth. You can't make them out.* Before seal and dust: *Around the base, worn almost smooth: "Hold what was heard. Speak what was held." You say the words aloud. The jar hums on, unchanged.* After both (Quest 4 completes;
+- **`READ INSCRIPTION`** (also `READ LETTERS` / `ETCHING` / `WORDS` / `BASE` / `JAR`): Level 2 perception check every time. Failed: *The letters are worn almost smooth. You can't make them out.* Before seal and dust: *Around the base, worn almost smooth: "Hold what was heard. Speak what was held." You say the words aloud. The jar hums on, unchanged.* After both (Quest 4 completes;
   the same text on every later read): *You read the words around the base aloud: "Hold what was heard. Speak what was held." The hum rises, wavers, and stops. In the silence, a voice no louder than breath: "The ceiling of the thermal vent holds a secret." Then nothing.*
 - **`LISTEN`** / **`LISTEN TO JAR`:** before — *A low, steady hum. Up close, it almost sounds like a voice holding a single note.* After — *Nothing. The jar is quiet now.*
 - **Restored room line:** *A mended ceramic jar sits on the side table, quiet.*
@@ -464,7 +464,7 @@ Will Passion 1-in-20 chance of audio note on any `DIG` command.
 
 ### Music Box Key
 **Weight:** 1
-**Location:** Hollow log in Bog-NW — Medium perception check to find the log (log text in locations.md)
+**Location:** Hollow log in Bog-NW — Level 2 perception check to find the log (log text in locations.md)
 **Examine:** *A small brass key, green at the edges, with a bow shaped like a treble clef.*
 **Quest use:** Quest 12 — opens the locked music box in Will's Wizard Tower. Stays in the lock once used.
 
@@ -726,7 +726,7 @@ The Old Oak rune stone falls free when the kite comes down — see Rune Stones.
 **Weight:** 2 each
 **Names (2026-10-04):** Old Oak stone: *flat rune stone*; bog stone: *grey rune stone*; Inscription Chamber stone: *pale rune stone*. Each answers to its own word (`TAKE GREY STONE`) and to "rune stone" when it's the only one in reach.
 **Locations:**
-1. **Bog rune stone:** Bog-NE (Medium perception check). Room listing: *A grey stone sits at the water's edge, one face worn flat.* Examine: *A grey stone, heavy for its size, one face worn flat by water. Faint lines are etched across the surface in no pattern you recognize.*
+1. **Bog rune stone:** Bog-NE (Level 2 perception check). Room listing: *A grey stone sits at the water's edge, one face worn flat.* Examine: *A grey stone, heavy for its size, one face worn flat by water. Faint lines are etched across the surface in no pattern you recognize.*
 2. **Dungeon rune stone:** Inscription Chamber, mid-tier (perception check) — *A pale stone, roughly square, with deep natural veins of darker mineral running through it like old script.*
 3. **Old Oak rune stone:** Falls into the grass when the kite comes down (Quest 41). Room listing: *A small flat stone on a cord lies in the grass.* Examine: *A small flat stone, dark and smooth, threaded on a cord. Mineral veins run through it in a pattern that looks almost intentional.*
 **Quest use:** Quest 42 (The Brotherhood Stones) — deliver all three to Ivanaar at the Viking Encampment.
@@ -754,7 +754,7 @@ Brotherhood weave, old but not worn. The runes along the hem and collar are fain
 
 ### Bog Thyme
 **Weight:** 1
-**Location:** Bog-SW — Medium perception check
+**Location:** Bog-SW — Level 2 perception check
 **Room description:** *A clump of thyme grows on a dry hummock among the reeds, improbably green.*
 **Examine:** *Small grey-green leaves with a smell sharp enough to cut through the bog. Almost.*
 **Quest use:** Quest 40 (Shamus's Recipe) — deliver with clay pot to Shamus for hearty stew menu upgrade.

@@ -308,18 +308,19 @@ def test_portcullis_corridor_names_its_exits(state, propped):
     assert (_PORT_EXITS_SHUT in out) != propped
 
 
-def test_walking_off_while_holding_the_portcullis_drops_it_on_the_way_out():
-    from content.shrine_path import _DROPS
-    w, g, _ = _look("PORTCULLIS-CORRIDOR", PORTCULLIS="discharged", PORTCULLIS_SIDE="north",
-                    TRAP19_CHECKED=True)
-    w.set_global("PORTCULLIS-HELD", w.moves)       # as LIFT PORTCULLIS leaves it
-    out = _do(g, "north")
-    assert w.here.name == "PRAYER-ALCOVE"
-    assert out.index(_DROPS) < out.index("Prayer Alcove")
-    out = _do(g, "south")
+@pytest.mark.parametrize("direction", ["north", "south", "east"])
+def test_no_leaving_while_holding_the_portcullis(direction):
+    # locations.md — Portcullis Corridor, Let go (2026-10-15): any move is refused
+    # and the portcullis stays up; walking off no longer lets go.
+    from content.shrine_path import _DROPS, _DROP_FIRST, _set_held
+    w, g, _ = _look("PORTCULLIS-CORRIDOR", PORTCULLIS="discharged", PORTCULLIS_SIDE="north")
+    _set_held(w, True)                             # as LIFT PORTCULLIS leaves it
+    out = _do(g, direction)
+    assert _DROP_FIRST in out and _DROPS not in out
     assert w.here.name == "PORTCULLIS-CORRIDOR"
-    assert _DROPS not in out
-    assert w.get_global("PORTCULLIS-HELD") is None
+    assert w.get_global("PORTCULLIS-HELD") is not None
+    assert _DROPS in _do(g, "wait")                # anything else still lets go
+    assert "Prayer Alcove" in _do(g, "north")
 
 
 # --- Mid-Tier Key Door: the bridge line on LOOK, not in the locked refusal ----

@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from test_knight import _make_world, _do
 from content import light
 
-LOW, HIGH = 0, 99          # level roll totals: every Medium check fails / passes
+LOW, HIGH = 0, 99          # level roll totals: every check (Level 1–8) fails / passes
 
 # experience.md — Trap Disarmament: XP per disarm (Rogues +5 each)
 TRAP_XP = {8: 3, 15: 4, 16: 3, 17: 3, 19: 5, 33: 5, 36: 3, 45: 5}
@@ -154,7 +154,7 @@ def test_trap8_snare_fires_and_holds_until_pulled_free():
     assert w.get_global("SNARE-HANGING")
     assert w.get_global("CRAWLSPACE-FOUND")        # triggering it reveals the crawlspace too
     assert _HANGING in _do(g, "west")              # can't leave while hanging
-    _cmd(g, "pull free", LOW)                      # Medium strength: retry allowed
+    _cmd(g, "pull free", LOW)                      # Level 2 strength: retry allowed
     assert w.get_global("SNARE-HANGING")
     for _ in range(5):
         _do(g, "wait")                             # no release on its own
@@ -162,6 +162,53 @@ def test_trap8_snare_fires_and_holds_until_pulled_free():
     _cmd(g, "pull free", HIGH)
     assert not w.get_global("SNARE-HANGING")
     assert w.globals["xp"] == 0
+
+
+def _perception_targets(w, g, room, spotted):
+    """Walk into `room` with every perception check answered `spotted`; return the targets asked."""
+    asked = []
+    def check(world, difficulty):
+        asked.append(difficulty)
+        return spotted
+    with patch("content.player.check_perception", side_effect=check), \
+         patch("sys.stdout", io.StringIO()):
+        g.enter_room(w.rooms[room])
+        g.do_turn("wait")
+    return asked
+
+
+def test_trap8_level_6_snare_and_level_4_pull_free():
+    # traps.md — Trap 8, Difficulty (2026-10-15). A Mage: no strength bonus.
+    from content.perception import LEVEL_6
+    w, g = _world("mage")
+    assert LEVEL_6 in _perception_targets(w, g, "INSCRIPTION-CHAMBER", False)
+    assert w.get_global("SNARE-HANGING")
+    _cmd(g, "pull free", 17)                       # Level 4 is 18
+    assert w.get_global("SNARE-HANGING")
+    _cmd(g, "pull free", 18)
+    assert not w.get_global("SNARE-HANGING")
+
+
+def test_trap15_level_6_spot_level_5_disarm():
+    from content.perception import LEVEL_6
+    w, g = _world("mage")                          # no trap-disarm bonus
+    assert LEVEL_6 in _perception_targets(w, g, "MAGNETIC-VAULT", True)
+    _cmd(g, "disarm lodestone", 23)                # Level 5 is 24
+    assert w.get_global("LODESTONE-STATE") is None
+    _cmd(g, "disarm lodestone", 24)
+    assert w.get_global("LODESTONE-STATE") == "removed"
+
+
+def test_trap15_stuck_items_pry_at_level_4():
+    w, g = _world("mage")                          # no strength bonus
+    _give(w, "CROWBAR")
+    _arrive(w, g, "MAGNETIC-VAULT", LOW)           # not spotted
+    _cmd(g, "open chest", LOW)
+    assert "CROWBAR" in (w.globals.get("MAGNET-STUCK") or [])
+    _cmd(g, "take crowbar", 17)                    # Level 4 is 18
+    assert w.objects["CROWBAR"].location is not w.player
+    _cmd(g, "take crowbar", 18)
+    assert w.objects["CROWBAR"].location is w.player
 
 
 def test_trap15_failed_disarm_leaves_the_lodestone_and_pays_nothing():
@@ -239,7 +286,115 @@ def test_trap19_botched_discharge_shocks():
     assert w.globals["xp"] == 0
 
 
-def test_trap19_discharged_lift_needs_medium_strength():
+def _spotted_but_botched(w, g):
+    """Spotted on arrival, the disarm botched: charged, with the mechanism known."""
+    _arrive_botched(w, g, "PORTCULLIS-CORRIDOR")
+    assert w.get_global("TRAP19-SPOTTED") and w.get_global("PORTCULLIS") is None
+
+
+@pytest.mark.parametrize("command", ["disarm portcullis", "disarm mechanism", "disarm lever"])
+def test_trap19_retry_once_spotted_discharges_and_pays(command):
+    from content.shrine_path import _RETRY_DISARMED
+    w, g = _world()
+    _spotted_but_botched(w, g)
+    assert _RETRY_DISARMED in _cmd(g, command, HIGH)
+    assert w.get_global("PORTCULLIS") == "discharged"
+    assert w.globals["xp"] == TRAP_XP[19]
+
+
+def test_trap19_failed_retry_costs_only_the_turn():
+    from content.shrine_path import _RETRY_FAILS, _RETRY_DISARMED
+    w, g = _world()
+    _spotted_but_botched(w, g)
+    hearts, moves = w.globals["hearts"], w.moves
+    assert _RETRY_FAILS in _cmd(g, "disarm portcullis", LOW)
+    assert w.globals["hearts"] == hearts            # no shock
+    assert w.moves == moves + 1                     # just the one turn
+    assert w.get_global("PORTCULLIS") is None
+    assert _RETRY_FAILS in _cmd(g, "disarm portcullis", LOW)    # as often as you like
+    assert _RETRY_DISARMED in _cmd(g, "disarm portcullis", HIGH)
+    assert w.globals["xp"] == TRAP_XP[19]
+
+
+def test_trap19_disarm_before_spotting_and_after_discharge():
+    from content.shrine_path import _UNSPOTTED, _NOTHING_LEFT
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", LOW)       # not spotted
+    assert _UNSPOTTED in _cmd(g, "disarm portcullis", HIGH)
+    assert w.get_global("PORTCULLIS") is None
+    assert "can't see any mechanism" in _cmd(g, "disarm mechanism", HIGH)
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", HIGH)      # spotted and discharged
+    assert _NOTHING_LEFT in _cmd(g, "disarm portcullis", HIGH)
+
+
+def test_trap19_checked_every_visit_until_spotted():
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", LOW)
+    _arrive(w, g, "PRAYER-ALCOVE", LOW)
+    out = _arrive(w, g, "PORTCULLIS-CORRIDOR", HIGH)  # the next visit checks again
+    assert NOTICED[0] in out
+    assert w.get_global("PORTCULLIS") == "discharged"
+
+
+def test_trap19_search_gives_one_more_check():
+    from content.search import NOTHING
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", LOW)
+    out = _cmd(g, "search", HIGH)
+    assert NOTICED[0] in out
+    assert w.get_global("PORTCULLIS") == "discharged"
+    assert NOTHING not in out
+
+
+def test_trap19_touching_the_charged_portcullis_shocks():
+    from content.shrine_path import _SHOCK
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", LOW)
+    moves = w.moves
+    assert _SHOCK in _cmd(g, "touch portcullis", HIGH)
+    assert w.globals["hearts"] == 4
+    assert w.moves == moves + 2                     # the touch, then the stunned turn
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", HIGH)      # discharged: harmless
+    assert _SHOCK not in _cmd(g, "touch portcullis", HIGH)
+    assert w.globals["hearts"] == 5
+
+
+def test_trap19_examine_portcullis_and_mechanism():
+    from content.shrine_path import (_EX_CHARGED, _EX_MECHANISM_SEEN, _EX_DISCHARGED,
+                                     _EX_MECHANISM, _EX_LEVER_DOWN)
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", LOW)
+    out = _do(g, "examine portcullis")
+    assert _EX_CHARGED in out and _EX_MECHANISM_SEEN.strip() not in out
+    w, g = _world()
+    _spotted_but_botched(w, g)
+    assert _EX_CHARGED + _EX_MECHANISM_SEEN in _do(g, "examine portcullis")
+    out = _do(g, "examine mechanism")
+    assert _EX_MECHANISM in out and _EX_LEVER_DOWN.strip() not in out
+    _cmd(g, "disarm mechanism", HIGH)
+    assert _EX_DISCHARGED in _do(g, "examine portcullis")
+    assert _EX_MECHANISM + _EX_LEVER_DOWN in _do(g, "examine mechanism")
+
+
+def test_trap19_level_4_spot_disarm_and_lift():
+    # traps.md — Trap 19, Difficulty (2026-10-15): Level 4 (18) for all three
+    from content.perception import LEVEL_4
+    from content.shrine_path import _LIFTED, _LIFT_FAILS, _RETRY_FAILS, _RETRY_DISARMED
+    w, g = _world("mage")                          # no strength or trap bonus
+    assert LEVEL_4 in _perception_targets(w, g, "PORTCULLIS-CORRIDOR", False)
+    w, g = _world("mage")
+    w.set_global("TRAP19-SPOTTED", True)            # spotted, still charged
+    w.objects["DISCHARGE-MECHANISM"].clear_flag("INVISIBLE")
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", LOW)
+    assert _RETRY_FAILS in _cmd(g, "disarm mechanism", 17)
+    assert _RETRY_DISARMED in _cmd(g, "disarm mechanism", 18)
+    assert _LIFT_FAILS in _cmd(g, "lift portcullis", 17)
+    assert _LIFTED in _cmd(g, "lift portcullis", 18)
+
+
+def test_trap19_discharged_lift_needs_level_4_strength():
     from content.shrine_path import _LIFT_FAILS
     w, g = _world()
     _arrive(w, g, "PORTCULLIS-CORRIDOR", HIGH)      # spotted and discharged
@@ -263,6 +418,40 @@ def test_trap19_bar_props_the_held_portcullis(command):
     assert _PROPPED in _do(g, command)
     assert w.get_global("PORTCULLIS") == "propped"
     assert w.objects["PORTCULLIS-BAR"].location is None
+
+
+@pytest.mark.parametrize("command", ["drop portcullis", "release portcullis", "lower gate",
+                                     "let go", "let go of portcullis", "let go of the bars"])
+def test_trap19_letting_go_of_the_held_portcullis(command):
+    from content.shrine_path import _DROPS, _DROP_FIRST
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", HIGH)
+    _cmd(g, "lift portcullis", HIGH)
+    out = _do(g, command)
+    assert out.count(_DROPS) == 1
+    assert w.get_global("PORTCULLIS-HELD") is None
+    assert not w.objects["PORTCULLIS"].has_flag("INHANDBIT")
+    assert _DROP_FIRST not in _do(g, "north")      # free to go
+    assert w.here.name == "PRAYER-ALCOVE"
+
+
+def test_trap19_bar_still_props_after_a_refused_move():
+    from content.shrine_path import _DROP_FIRST, _PROPPED
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", HIGH)
+    w.move_object(w.objects["PORTCULLIS-BAR"], w.player)
+    _cmd(g, "lift portcullis", HIGH)
+    assert _DROP_FIRST in _do(g, "south")
+    assert _PROPPED in _do(g, "use portcullis bar")
+    _do(g, "south")
+    assert w.here.name == "SHRINE-ROOM"
+
+
+def test_trap19_drop_or_let_go_with_nothing_held():
+    w, g = _world()
+    _arrive(w, g, "PORTCULLIS-CORRIDOR", HIGH)
+    assert "You can't see any portcullis here!" in _do(g, "drop portcullis")
+    assert "That sentence isn't one I recognize." in _do(g, "let go")
 
 
 def test_trap19_put_bar_with_portcullis_down_just_drops_it():
@@ -329,17 +518,24 @@ def test_trap33_idol_without_swap_shuts_the_north_door():
     assert w.globals["xp"] == 0
 
 
-def test_trap33_pry_needs_crowbar_and_medium_strength_with_retries():
-    w, g = _world()
+def test_trap33_pry_needs_crowbar_and_level_4_strength_with_retries():
+    # traps.md — Trap 33, Difficulty (2026-10-15): pry is Level 4 (18). A Mage: no strength bonus.
+    w, g = _world("mage")
     _arrive(w, g, "IDOL-ROOM", LOW)
     _do(g, "take idol")
     _cmd(g, "pry door", HIGH)                       # no crowbar
     assert w.get_global("IDOL-DOOR-SHUT")
     _give(w, "CROWBAR")
-    _cmd(g, "pry door", LOW)
+    _cmd(g, "pry door", 17)
     assert w.get_global("IDOL-DOOR-SHUT")
-    _cmd(g, "pry door", HIGH)
+    _cmd(g, "pry door", 18)                         # retry allowed
     assert not w.get_global("IDOL-DOOR-SHUT")
+
+
+def test_trap33_plate_is_a_level_5_check():
+    from content.perception import LEVEL_5
+    w, g = _world()
+    assert LEVEL_5 in _perception_targets(w, g, "IDOL-ROOM", False)
 
 
 def test_trap33_lift_slab_pries_with_the_crowbar():
@@ -495,6 +691,54 @@ def test_trap45_thread_inks_the_player(botched):
     assert w.get_global("INKED")
     assert w.globals["hearts"] == 5                 # no heart damage
     assert w.globals["xp"] == 0
+
+
+@pytest.mark.parametrize("perceive,disarm,shot", [
+    (17, 99, True), (18, 17, True), (18, 18, False),
+])
+def test_trap16_level_4_perception_then_level_4_disarm(perceive, disarm, shot):
+    # traps.md — Trap 16, Difficulty (2026-10-15): Level 4 (18) perception and disarm
+    w, g = _world()                                 # level 1: no Second Glance reroll
+    w.globals.get("ZENNI-ROOMS", {}).pop("SHATTER-TRAP-MIRROR", None)
+    with patch("content.player.roll", side_effect=[perceive, disarm]), \
+         patch("sys.stdout", io.StringIO()):
+        g.enter_room(w.rooms["SHATTER-TRAP-MIRROR"])
+        g.do_turn("wait")
+    assert w.globals["hearts"] == (4 if shot else 5)
+    assert w.globals["xp"] == (0 if shot else TRAP_XP[16])
+
+
+@pytest.mark.parametrize("perceive,disarm,smoked", [
+    (23, 99, True), (24, 17, True), (24, 18, False),
+])
+def test_trap17_level_5_perception_then_level_4_disarm(perceive, disarm, smoked):
+    # traps.md — Trap 17 (2026-10-15): Level 5 (24) perception, Level 4 (18) disarm
+    w, g = _world()                                 # level 1: no Second Glance reroll
+    w.globals.get("ZENNI-ROOMS", {}).pop("SUPPLY-ROOM", None)   # no Zenni roll in the way
+    with patch("content.player.roll", side_effect=[perceive, disarm]), \
+         patch("sys.stdout", io.StringIO()):
+        g.enter_room(w.rooms["SUPPLY-ROOM"])
+        g.do_turn("wait")
+    assert w.get_global("TRAP17-STATE") == ("fired" if smoked else "disarmed")
+    assert w.globals["hearts"] == (4 if smoked else 5)
+
+
+@pytest.mark.parametrize("perceive,disarm,inked", [
+    (23, 99, True), (24, 17, True), (24, 18, False),
+])
+def test_trap45_level_5_perception_then_level_4_disarm(perceive, disarm, inked):
+    # traps.md — Trap 45, Difficulty (2026-10-15): Level 5 (24) perception, Level 4 (18) disarm
+    from content.perception import LEVEL_4, LEVEL_5
+    assert (LEVEL_5, LEVEL_4) == (24, 18)
+    w, g = _world()                                 # level 1: no Second Glance reroll
+    room = w.rooms["INK-CORRIDOR"]
+    w.globals.get("ZENNI-ROOMS", {}).pop("INK-CORRIDOR", None)   # no Zenni roll in the way
+    with patch("content.player.roll", side_effect=[perceive, disarm]), \
+         patch("sys.stdout", io.StringIO()):
+        g.enter_room(room)
+        g.do_turn("wait")
+    assert bool(w.get_global("INKED")) is inked
+    assert w.globals["xp"] == (0 if inked else TRAP_XP[45])
 
 
 # ---------------------------------------------------------------------------

@@ -10,7 +10,7 @@ here, so the difficulty lives in one place.
   show in the room description get a lead-in, then the full description.
 - Nothing found, nothing left to find, or already searched this visit:
   "You search carefully but find nothing unusual." — the same line either way.
-- Not re-run: the arrival traps (Traps 8, 16, 17, 19, 45, the Combat Room and
+- Not re-run: the arrival traps (Traps 8, 16, 17, 45, the Combat Room and
   Flooding Room plates, the mugger) — they're over before the player can type —
   and the ship's map, which already rolls every turn.
 
@@ -43,6 +43,7 @@ _CHECKS = {
     "MINE-PASSAGE":        [("mid_tier", "silver_dust_check", False)],
     "ROUNDABOUT-FOREST":   [("old_oak", "bowl_piece_check", False)],
     "PRAYER-ALCOVE":       [("shrine_path", "niche_check", False)],
+    "PORTCULLIS-CORRIDOR": [("shrine_path", "trap19_check", True)],
     "SHRINE-ROOM":         [("shrine_path", "shrine_piece_check", False)],
     "TOOL-ALCOVE":         [("tool_alcove", "alcove_check", False)],
     "TOLL-BRIDGE":         [("tunnels", "seal_check", True)],

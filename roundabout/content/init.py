@@ -326,6 +326,7 @@ def _place_objects(world) -> None:
                       ("INSIGNIA", "CREATURE-DEN"),
                       ("CROWBAR", "PRAYER-ALCOVE"), ("GLACIER-MELT", "PRAYER-ALCOVE"),
                       ("BOWL-PIECE-SHRINE", "SHRINE-ROOM"), ("PORTCULLIS", "PORTCULLIS-CORRIDOR"),
+                      ("DISCHARGE-MECHANISM", "PORTCULLIS-CORRIDOR"),
                       ("MID-TIER-DOOR", "MID-TIER-KEY-DOOR"), ("MINE-CHEST", "MINE-PASSAGE"),
                       ("CHARCOAL", "MINE-PASSAGE"), ("SILVER-DUST", "MINE-PASSAGE"),
                       ("GOLD-WATCH", "THE-CREVICE"), ("CREVICE-SKELETON", "THE-CREVICE"),

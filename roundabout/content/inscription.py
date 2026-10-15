@@ -6,16 +6,16 @@ Design: locations.md (those rooms), traps.md (Trap 8 Rope Snare, Trap 15
 Magnetic Chest), quests.md (Quests 7, 28, 42), items.md (Rubbing, Bone Flute,
 Diamond Brooch), experience.md (Trap Disarmament XP).
 
-- Inscription Chamber: Medium perception each visit for the dungeon rune stone
-  and for the snare (Trap 8). Spotting the snare reveals the crawlspace (east,
+- Inscription Chamber: perception each visit for the dungeon rune stone (Level 2)
+  and for the snare (Trap 8, Level 6). Spotting the snare reveals the crawlspace (east,
   Cave Creature's Lair) and the player steps around it (3 XP, Rogue +5). A
   failed check fires the snare on entry: the player hangs upside down — only
-  LOOK / INVENTORY work until PULL FREE / STRUGGLE (Medium strength, retry) or
+  LOOK / INVENTORY work until PULL FREE / STRUGGLE (Level 4 strength, retry) or
   CUT CORD with a blade. Firing it also reveals the crawlspace.
 - RUB PAPER ON ENGRAVING: thin paper + charcoal → rubbing (both used up).
-- Magnetic Vault: Medium perception spots the filings. DISARM LODESTONE (Medium
+- Magnetic Vault: Level 6 perception spots the filings. DISARM LODESTONE (Level 5
   trap disarm, retry) → 4 XP, Rogue +5. OPEN CHEST undisarmed fires the pulse
-  once: carried iron items stick to the chest; TAKE / PULL each is a Medium
+  once: carried iron items stick to the chest; TAKE / PULL each is a Level 4
   strength check.
 - Deep Lock Door: sealed dead end.
 
@@ -162,18 +162,18 @@ def _carried(w: World, name: str) -> bool:
 # ---------------------------------------------------------------------------
 
 def rune_stone_check(w: World) -> bool:
-    """Inscription Chamber: Medium, every visit (and SEARCH) until found."""
-    from content.perception import MEDIUM, reveal_if_found
-    return reveal_if_found(w, "DUNGEON-RUNE-STONE", MEDIUM)
+    """Inscription Chamber: Level 2, every visit (and SEARCH) until found."""
+    from content.perception import LEVEL_2, reveal_if_found
+    return reveal_if_found(w, "DUNGEON-RUNE-STONE", LEVEL_2)
 
 
 def chamber_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_ENTER:
-        from content.perception import MEDIUM
+        from content.perception import LEVEL_6
         from content.player import check_perception
         rune_stone_check(w)
         if not w.get_global("CRAWLSPACE-FOUND"):
-            if check_perception(w, MEDIUM):
+            if check_perception(w, LEVEL_6):          # the snare (Trap 8)
                 w.set_global("INSCRIPTION-SNARE-SPOTTED", True)
                 w.set_global("CRAWLSPACE-FOUND", True)
                 w.ways_changed("INSCRIPTION-CHAMBER")
@@ -218,9 +218,9 @@ def _hanging_turn(w: World) -> int:
     if w.prsa in _FREE_ACTIONS:
         return M_NOT_HANDLED
     if w.prsa == "V-STRUGGLE":
-        from content.perception import MEDIUM
+        from content.perception import LEVEL_4
         from content.player import check_strength
-        if check_strength(w, MEDIUM):
+        if check_strength(w, LEVEL_4):     # never out of reach (traps.md — Trap 8)
             print(_STRUGGLE_OK)
             w.set_global("SNARE-HANGING", False)
         else:
@@ -267,12 +267,12 @@ class _CrawlspaceExit(Exit):
 # ---------------------------------------------------------------------------
 
 def vault_check(w: World) -> bool:
-    """Magnetic Vault: Medium, every visit (and SEARCH) until the trap is seen."""
+    """Magnetic Vault: Level 6, every visit (and SEARCH) until the trap is seen."""
     if w.get_global("VAULT-SPOTTED") or w.get_global("LODESTONE-STATE") is not None:
         return False
-    from content.perception import MEDIUM
+    from content.perception import LEVEL_6
     from content.player import check_perception
-    if not check_perception(w, MEDIUM):
+    if not check_perception(w, LEVEL_6):
         return False
     w.set_global("VAULT-SPOTTED", True)
     return True
@@ -322,9 +322,9 @@ def _disarm(w: World) -> None:
     elif not w.get_global("VAULT-SPOTTED"):
         print(_NOTHING_TO_DISARM)
     else:
-        from content.perception import MEDIUM
+        from content.perception import LEVEL_5
         from content.player import check_trap_disarm
-        if check_trap_disarm(w, MEDIUM):
+        if check_trap_disarm(w, LEVEL_5):
             print(_LODESTONE_OUT)
             w.set_global("LODESTONE-STATE", "removed")
             _rogue_xp(w, 4)
@@ -360,9 +360,9 @@ def _list(names) -> str:
 
 
 def _pry(w: World, obj) -> None:
-    from content.perception import MEDIUM
+    from content.perception import LEVEL_4
     from content.player import check_strength
-    if check_strength(w, MEDIUM):
+    if check_strength(w, LEVEL_4):         # never out of reach (traps.md — Trap 15)
         print(f"You wrench the {obj.desc} free.")
         w.move_object(obj, w.player)
         obj.clear_flag(NDESCBIT)

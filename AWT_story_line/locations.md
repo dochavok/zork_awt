@@ -37,7 +37,7 @@ Accessed via mailbox portal from White House (opening sequence) or via mailbox i
 **First impression:** *The tower doesn't announce itself. It simply is — books, firelight, the low hum of something you can't quite locate. A desk dominates one end, buried under papers that somehow manage to look organized. A painting of a tavern hangs on the wall, slightly crooked. The room has the feeling of a place where important things happen without any particular fuss.*
 ("Of a tavern" added 2026-10-13: the painting is the tower's only ordinary way out, and nothing else says what it shows — its listing isn't printed and `EXAMINE` teleports first.)
 
-**Bedroom door** (Easy perception, every visit until found; `SEARCH` too):
+**Bedroom door** (Level 1 perception, every visit until found; `SEARCH` too):
 - **Found** — at the end of the turn, after the room description (2026-10-13; it used to print before the room title): *You notice a door to the north you hadn't seen before.* Discovers Quest 53.
 - **Afterwards**, a line after the room text on every full description: *A door in the north wall stands where you'd have sworn there wasn't one.*
 - `NORTH` before it's found: *You can't go that way.*
@@ -52,17 +52,17 @@ Contains a painting of the Tale and Ale — `LOOK AT PAINTING` teleports player 
 ### Will Passion's Bedroom
 **XP: 1**
 **NPCs:** None (Will is not present here)
-**Items:** Enchanted Glasses (nightstand); dragon-nip (under nightstand, Very Hard perception check — Actually Enchanted Glasses auto-pass)
+**Items:** Enchanted Glasses (nightstand); dragon-nip (under nightstand, Level 4 perception check — Actually Enchanted Glasses auto-pass)
 **Quest Hooks:** Dragon-nip return to Will → Golden Dragon Scale (treasure)
 **Connections:** South → Will's Wizard Tower (Main Room)
 Hidden room inside the tower.
-**Discovery:** Silent Easy perception check fires on every visit to the Main Room. On success, bedroom door becomes visible to the north — permanently. No nudge, no hint. Repeating check.
+**Discovery:** Silent Level 1 perception check fires on every visit to the Main Room. On success, bedroom door becomes visible to the north — permanently. No nudge, no hint. Repeating check.
 "Where the magic happens." Contains the Enchanted Glasses on the nightstand.
 Equipping the glasses in Will's presence triggers an instant fail state — Will attacks, no recovery. The bedroom is safe because Will is not there.
 `DROP GLASSES` or `PUT GLASSES ON NIGHTSTAND` places them on the nightstand — description persists, and the first time completes Quest 53 (quests.md).
 The nightstand is scenery: it can be examined and things can be put on it.
 The bed is scenery too (decided 2026-10-12): `EXAMINE BED` — *Narrow, and made with the perfunctory neatness of someone who knows they'll be up again soon.* `LOOK UNDER BED` — *Nothing under the bed but dust and a sock that has given up.*
-Contains **dragon-nip** — a glowing sprig hidden under the nightstand. `LOOK UNDER NIGHTSTAND` finds it outright, no roll — the same found line (decided 2026-10-12); once it has been taken, *There is nothing but dust there.* Silent Very Hard (18) perception check (raised from Hard 2026-10-05:
+Contains **dragon-nip** — a glowing sprig hidden under the nightstand. `LOOK UNDER NIGHTSTAND` finds it outright, no roll — the same found line (decided 2026-10-12); once it has been taken, *There is nothing but dust there.* Silent Level 4 (18) perception check (raised from Level 3 2026-10-05:
 a Level 3 Mage found it on ~56% of tries) on every entry (after the room description) and again when the glasses are put on in the bedroom; Actually Enchanted Glasses auto-pass.
 Will has been looking for it everywhere. Returning it to Will earns the **Golden Dragon Scale** (treasure item). Will suspects where it was found but doesn't ask.
 
@@ -160,7 +160,7 @@ Accessible from Roundabout Town Square (southwest) and Main West (southeast).
 *Darker than the alley, smaller, and considerably less welcoming. The tavern's back wall seals the south end. The only way out is back north, which is worth remembering. Broken crates and barrels have accumulated here the way things do when no one is watching. The ground is stained. The air is close. This is where things happen that don't happen on Main Street.* Dead end behind the tavern.
 `SOUTH` (2026-10-13): *The tavern's back wall. It isn't going anywhere, and neither are you.*
 
-**Mugger mechanic:** A shadowy figure lurks here. Perception check (**Medium, 9**) fires every visit until the mugger is spotted and slain. Combat is one round per `KILL MUGGER` (mugger 1d6, 2 hearts); leaving mid-fight resets him to full hearts.
+**Mugger mechanic:** A shadowy figure lurks here. Perception check (**Level 2, 9**) fires every visit until the mugger is spotted and slain. Combat is one round per `KILL MUGGER` (mugger 1d6, 2 hearts); leaving mid-fight resets him to full hearts.
 - **Spotted (presence line):** *A figure waits in the shadow of the crates, very still, weight on the balls of their feet. They've seen you see them. There's a cudgel in one hand — this is the alley's mugger, and they mean business.*
 - **Mugged:** *Something hits you from behind. The alley tilts, then goes away.*
   One turn later: *You come to in the Back Alley, lighter in the pocket and sore in the head. Mugged — and whoever did it is still out there.* (Hearts never drop below 1 from a mugging — being knocked out isn't dying. A very low-level player can stumble on the mugger without knowing what happened; it shouldn't kill them.)
@@ -674,7 +674,8 @@ A mirror that repels visible players — stepping in front of it while visible s
 **Items:** None
 **Quest Hooks:** Quest 17 (Trap 16 — crossbow fires on passage; ring required to pass mirror)
 **Connections:** North → The Rejection Mirror. South → Ghost's Room.
-A mirror that repels visible players. Also rigged with a crossbow behind the frame (Trap 16). Fires at any player passing through — visible or invisible. Perception check spots the firing pin and disarms it before it fires; otherwise the crossbow fires once and is spent. Mirror still repels visible players until the ghost is freed.
+A mirror that repels visible players. Also rigged with a crossbow behind the frame (Trap 16). Fires at any player passing through — visible or invisible.
+Perception check (Level 4) spots the firing pin and the disarm (Level 4) neutralizes it before it fires — raised 2026-10-15, traps.md; otherwise the crossbow fires once and is spent. Mirror still repels visible players until the ghost is freed.
 
 **Room description (no hint of the trap):** *Another mirror, another frame of carved smiles. This one is larger than the last, the glass faintly rippled with age, so your reflection wavers as you move. The way on is past it, to the south. The first mirror's room is back to the north.*
 
@@ -733,7 +734,7 @@ Post-freeing: mirrors no longer repel visible players anywhere in the Chuckle Ho
 **Items:** None
 **Quest Hooks:** None (perception check reveals entrance to Pyronicus's Forge)
 **Connections:** North → Roundabout Wasteland. Down → Pyronicus's Forge (perception check required to reveal entrance).
-The illusory volcano itself. Appears entirely real. Hard perception check (silent, every visit until found) required to see through it. On success: uneven staircase DOWN revealed permanently. On failure: player sees only an active volcano with no apparent entrance.
+The illusory volcano itself. Appears entirely real. Level 3 perception check (silent, every visit until found) required to see through it. On success: uneven staircase DOWN revealed permanently. On failure: player sees only an active volcano with no apparent entrance.
 
 **Room description:** *The volcano fills the sky above you — black rock streaked with old flows, a thread of smoke rising from the summit, heat rolling down the slope in slow waves. It is large, dark, and entirely convincing. There is no way in that you can see. The wasteland is back to the north.*
 
@@ -770,7 +771,7 @@ Single room.
 *The Vikings from the encampment to the west use it freely — and apparently consider the entire field fair game, including the parts you're standing in.*
 *The road back to town runs east. To the north, a footpath slips away through the reeds toward lower, wetter ground.*
 Hazardous — agility challenge roll each time the player passes through to avoid being hit by an errant arrow; failure deals 1 heart physical damage.
-**Arrow hazard roll:** Agility, Easy (5). No class bonus.
+**Arrow hazard roll:** Agility, Level 1 (5). No class bonus.
 - **Dodge:** *An arrow hisses past, close enough to hear the fletching.*
 - **Hit:** *An arrow from the far end of the range catches you. Someone shouts an apology in a language you don't speak.*
 Permanently safe once all three Viking trust trials are complete (silent mechanic, no acknowledgment).
@@ -920,9 +921,9 @@ Between town and the bog. Two-state room.
 
 **Base description:** *The pond is easy to walk past without noticing. It sits low between the town path to the south and the bog to the north, ringed with reeds and the occasional frog. The water is dark and calm.*
 
-Each visit fires a silent perception check (**Medium, 9**). On success: "You see a bottle at the bottom of the pond." Sighting not permanent; check fires on every visit until the bottle is seen. Retrieving the bottle requires a fishing rod (purchased from vendor) and a successful challenge roll (`FISH`); Rogues get a bonus. The bottle is a treasure item.
+Each visit fires a silent perception check (**Level 2, 9**). On success: "You see a bottle at the bottom of the pond." Sighting not permanent; check fires on every visit until the bottle is seen. Retrieving the bottle requires a fishing rod (purchased from vendor) and a successful challenge roll (`FISH`); Rogues get a bonus. The bottle is a treasure item.
 
-**Fishing (`FISH`, Hard 14 fishing roll — Rogue bonus applies):** retries are unlimited. Once seen, the bottle stays listed with the line above until it's fished out; `TAKE BOTTLE` before then gets the standard "You can't take the bottle."
+**Fishing (`FISH`, Level 3 (14) fishing roll — Rogue bonus applies):** retries are unlimited. Once seen, the bottle stays listed with the line above until it's fished out; `TAKE BOTTLE` before then gets the standard "You can't take the bottle."
 - **Success:** *You cast, let the hook sink, and drag it slowly along the bottom. On the third pass it catches on something with weight. You reel it in carefully: a bottle, green glass furred with pond-scum, and inside it a tiny ship in full sail. You set it on the bank.*
 - **Failure:** *You drag the hook along the bottom. It catches, holds for a moment, and slips free. The bottle settles back into the silt.*
 - **Bottle not yet seen:** *You fish for a while. Nothing bites, and nothing on the bottom catches the hook.*
@@ -935,10 +936,10 @@ the bog is a small maze. Only the ways out are named — the pond from SW, and t
 ### Bog of Eternal Stench (SE)
 **XP: 1**
 **NPCs:** None
-**Items:** Calder Finch's gravestone (Quest 32; perception check (Easy) every visit until found — face-down in the mud; text in `items.md`). Dankhaus path hidden here (perception check).
+**Items:** Calder Finch's gravestone (Quest 32; perception check (Level 1) every visit until found — face-down in the mud; text in `items.md`). Dankhaus path hidden here (perception check).
 **Quest Hooks:** Dankhaus discovery (perception-gated; once found, path permanent)
 **Connections:** North → Bog of Eternal Stench (NE). West → Bog of Eternal Stench (SW). Northwest → Bog of Eternal Stench (NW). East → Dankhaus Common Room (perception-gated; ward-gated entry).
-The Dankhaus is east of here. Dankhaus hidden here — dense brush conceals the path; perception check (Medium) required each visit until discovered. Once discovered, path is permanently visible.
+The Dankhaus is east of here. Dankhaus hidden here — dense brush conceals the path; perception check (Level 2) required each visit until discovered. Once discovered, path is permanently visible.
 - **Path spotted (first time):** *Off to the east, the brush isn't quite as dense as it should be. Behind it, a path — narrow, deliberate — leads to something low and round. A yurt, improbably dry.*
 - **Added to the room description once found:** *A narrow path leads east through the brush to a low, round yurt.*
 - `EAST` or `ENTER DANKHAUS` / `ENTER YURT` / `ENTER DOOR` (or bare `ENTER` / `IN`, 2026-10-14) goes in (ward-gated until Lynds's invitation). The ring (worn, not inked) gets an uninvited player past the ward — see npcs.md, Litlock, for what happens inside.
@@ -953,7 +954,7 @@ The Dankhaus is east of here. Dankhaus hidden here — dense brush conceals the 
 **Items:** Rune stone (Quest 42; perception check)
 **Quest Hooks:** Quest 42
 **Connections:** South → Bog of Eternal Stench (SE). West → Bog of Eternal Stench (NW). Southwest → Bog of Eternal Stench (SW).
-Contains a rune stone — perception check (**Medium, 9**), every visit until found.
+Contains a rune stone — perception check (**Level 2, 9**), every visit until found.
 - **Room listing once found:** *A grey stone sits at the water's edge, one face worn flat.* (Examine text in items.md — Rune Stones.)
 
 **Room description:** *The ground here is technically solid. Technically. Dark water pools between tufts of coarse grass. The smell has layers. You have stopped trying to identify them, and don't really want to.*
@@ -961,10 +962,10 @@ Contains a rune stone — perception check (**Medium, 9**), every visit until fo
 ### Bog of Eternal Stench (SW)
 **XP: 1**
 **NPCs:** None
-**Items:** Bog thyme (Quest 40; perception check — among the reeds); Verdant Circle shrine bowl piece (Quest 49; Easy perception check, every visit until found — text in items.md)
+**Items:** Bog thyme (Quest 40; perception check — among the reeds); Verdant Circle shrine bowl piece (Quest 49; Level 1 perception check, every visit until found — text in items.md)
 **Quest Hooks:** Quest 40
 **Connections:** South → Roundabout Pond. East → Bog of Eternal Stench (SE). North → Bog of Eternal Stench (NW). Northeast → Bog of Eternal Stench (NE).
-Entry point from Roundabout Pond. Contains bog thyme — perception check (**Medium, 9**), every visit until found, to spot it among the reeds.
+Entry point from Roundabout Pond. Contains bog thyme — perception check (**Level 2, 9**), every visit until found, to spot it among the reeds.
 - **Room listing once found:** *A clump of thyme grows on a dry hummock among the reeds, improbably green.*
 
 **Room description:** *A flat expanse of bog, grey-green and indifferent. The water is still except where it isn't. The smell arrived before you did and will be here long after you leave. The pond lies back to the south.*
@@ -975,7 +976,7 @@ Entry point from Roundabout Pond. Contains bog thyme — perception check (**Med
 **Items:** Hollow log (perception check); key to Will's music box inside (Quest 12)
 **Quest Hooks:** Quest 12; the Quest 50 tunnel surfaces here (from the Lost Apprentice's Cell)
 **Connections:** East → Bog of Eternal Stench (NE). South → Bog of Eternal Stench (SW). Southeast → Bog of Eternal Stench (SE).
-Contains a hollow log — perception check (**Medium, 9**), every visit until found. Inside: the key to Will's music box (Quest 12), found with the log; `TAKE KEY` works straight away.
+Contains a hollow log — perception check (**Level 2, 9**), every visit until found. Inside: the key to Will's music box (Quest 12), found with the log; `TAKE KEY` works straight away.
 - **Log listing, key inside:** *A hollow log lies half-sunk among the reeds. Something small and metal glints inside it.* Once the key is taken: *A hollow log lies half-sunk among the reeds.*
 - **Examine log, key inside:** *Rotten through the middle and hollow end to end. Wedged inside: a small brass key.* Once empty: *Rotten through the middle and hollow end to end.*
 - The log can't be taken. The Quest 50 tunnel from the Lost Apprentice's Cell surfaces here (one-way; the apprentice digs it through).
@@ -1122,7 +1123,7 @@ The crumbled Verdant Circle shrine is visible on entry — no perception check r
 *On it, the remains of a ceramic bowl, smashed at some point and not recently. Three or four pieces visible here; others have clearly gone elsewhere.*
 *The symbol on the pedestal is a sprouting seed inside a circle of leaves.*
 
-**Bowl piece (Easy perception check, every visit until found):** room listing *Among the shards on the pedestal, one piece is larger than the rest — a curved section of the rim, still whole.*
+**Bowl piece (Level 1 perception check, every visit until found):** room listing *Among the shards on the pedestal, one piece is larger than the rest — a curved section of the rim, still whole.*
 
 **Pedestal states:** the "remains of a ceramic bowl" sentence stays until the bowl is repaired (2026-10-14: it used to stay until the bowl was placed, describing the pieces the player was carrying); then *The pedestal is bare.* until it's placed, and the bowl's own line replaces it (*The repaired bowl sits on the pedestal.* / *A crystal bowl sits on the pedestal, clear as still water.*).
 After the Crystal Bowl is taken: *The pedestal is bare.*
@@ -1186,7 +1187,7 @@ The gap deliberately gets no direction here (decided 2026-10-12): it's the clue 
 **Connections:** West → Assay Room. East → Forgotten Shaft.
 Perception check required from mine side; auto-discovered from tunnel side. Coming through from the tunnel side also reveals the gap in the Assay Room wall. Remains accessible after cave-in.
 
-**Built (2026-10-04):** Dark (tunnel network). From the mine side: Medium perception on every Assay Room visit until found (Actually Enchanted Glasses pass it) — *Looking closer, the gap in the far wall goes further back than it should — a rough passage, just wide enough to squeeze through, running east into the dark.* `EAST` before it's found:
+**Built (2026-10-04):** Dark (tunnel network). From the mine side: Level 2 perception on every Assay Room visit until found (Actually Enchanted Glasses pass it) — *Looking closer, the gap in the far wall goes further back than it should — a rough passage, just wide enough to squeeze through, running east into the dark.* `EAST` before it's found:
 *It's just a crack in the wall. Nothing you could get through.* Arriving here from the Forgotten Shaft finds it without a line.
 
 *The gap in the assay room wall, to the west, opens into a rough passage that runs east toward the tunnel network below. It does not appear on any official plan of the mine. It would not.*
@@ -1194,7 +1195,7 @@ Perception check required from mine side; auto-discovered from tunnel side. Comi
 ### Mine Tunnels
 **XP: 1**
 **NPCs:** None
-**Items:** Structural weak point (Easy perception, every visit until found) — the heist's gunpowder goes here
+**Items:** Structural weak point (Level 1 perception, every visit until found) — the heist's gunpowder goes here
 **Quest Hooks:** None
 **Connections:** Up → Main Shaft. North → The Rat's Nest.
 Below Main Shaft. Torch sconces on walls; the torches in them are scenery.
@@ -1300,8 +1301,8 @@ Followed by the way off, which depends on where she lies (decided 2026-10-12):
 
 **Shovel (in room, before taken):** *A shovel is lashed to the rail near the bow, practical and out of place at the same time.*
 
-**Perception check (each turn aboard — Hard, 14):** Silent check fires every turn aboard (deck and every sea / Open Ocean square) until the treasure map is found.
-Hard because the map isn't critical — it only guarantees the Desert Island chest (extra Zenni).
+**Perception check (each turn aboard — Level 3, 14):** Silent check fires every turn aboard (deck and every sea / Open Ocean square) until the treasure map is found.
+Level 3 because the map isn't critical — it only guarantees the Desert Island chest (extra Zenni).
 On success: map added to inventory — *Wedged under a barrel lashed to the rail is a fold of oilcloth. Inside is a hand-drawn map: a small island just off the sea lane, a dotted line, and an X near the trees. You tuck it away.*
 Actually Enchanted Glasses pass automatically — map found on first turn. A player who sails to Kevry's island without finding the map, gets the glasses enchanted there, and returns to the ship will auto-find the map on their next turn aboard.
 
@@ -1506,9 +1507,9 @@ Final room before Graveyard Crypt entrance.
 **Quest Hooks:** Quest 27 — GIVE CHARTER TO BOGGART forces him out; perception check reveals faded official seal triggering quest discovery
 **Connections:** North → The Junction. South → Dungeon Entrance.
 A **Boggart** has claimed squatter's rights and charges an extortionate toll.
-Perception check (Medium; automatic with Actually Enchanted Glasses) reveals faded official seal — public property — triggering Quest 27 discovery and unlocking May's hint. Seal text: *Carved into the bridge's keystone, half worn away: the town's crest, and beneath it, PUBLIC PROPERTY.* If the player already has the town charter, it's followed by:
+Perception check (Level 2; automatic with Actually Enchanted Glasses) reveals faded official seal — public property — triggering Quest 27 discovery and unlocking May's hint. Seal text: *Carved into the bridge's keystone, half worn away: the town's crest, and beneath it, PUBLIC PROPERTY.* If the player already has the town charter, it's followed by:
 *"You remember something about a bridge in the town charter."*
-`GIVE CHARTER TO BOGGART` forces him out; drops strongbox (Medium strength check to open; 10 Zenni). Bridge permanently free after. (Quest 27)
+`GIVE CHARTER TO BOGGART` forces him out; drops strongbox (Level 2 strength check to open; 10 Zenni). Bridge permanently free after. (Quest 27)
 The toll is 200 — of something he never names — and can't actually be paid; the charter is the only way past him. Invisibility doesn't get past him either (npcs.md — Boggart, 2026-10-14).
 - **Trying to pass him:** *The Boggart doesn't move. Neither, it turns out, can you.*
 - **Strongbox opened:** *You get your fingers under the lid and heave. It gives with a shriek of rusted hinges. Inside: 10 Zenni. You pocket them.*
@@ -1551,7 +1552,7 @@ Threshold between Secret Tunnels and Dungeon Upper Tier.
 **Items:** None
 **Quest Hooks:** None
 **Connections:** North → Dungeon Entrance. West → Supply Room. East → Storage Area. South → Narrow Passageway.
-First room past the Dungeon Entrance. A thin cord stretched at chest height carries an ink bladder — triggering it douses the player in ink (negates invisibility). No warning; cord invisible until hit. Splits west to Supply Room, east to Storage Area, south to the Narrow Passageway. (Trap 45 — Medium perception, Medium disarm)
+First room past the Dungeon Entrance. A thin cord stretched at chest height carries an ink bladder — triggering it douses the player in ink (negates invisibility). No warning; cord invisible until hit. Splits west to Supply Room, east to Storage Area, south to the Narrow Passageway. (Trap 45 — Level 5 perception, Level 4 disarm; raised 2026-10-15, traps.md)
 **Inked:** *Something snags across your chest — a thread, there and gone. Above you, something bursts. Ink comes down in a cold black sheet and doesn't stop until you're wearing all of it.*
 
 **Room description:** *The corridor is narrow and plain — bare stone, low ceiling, torch brackets empty. It feels like an entrance to something, which it is. The passage splits ahead — west, east, and on to the south; the dungeon entrance is back to the north.*
@@ -1569,7 +1570,7 @@ Contains: sack of salt ("looks like it weighs as much as a Chachapoyan Fertility
 **Item listings:** portcullis bar — *A heavy iron bar leans in the corner, notched at one end — the kind of thing made to hold something open.* Mortar — *A sealed tub of mortar compound sits on a low shelf.* Salt — *A fat sack of salt slumps against the shelves.*
 **Trap 17:** A shelf of clay pots — disturbing without disarming smashes one pot, 1 heart smoke damage; smoke jar and small clay pot (Quest 40) visible in wreckage either way. Perception spots the unstable arrangement.
 The small clay pot is the one intact pot that survives the collapse.
-- **Trap 17:** fires on first entry; Medium perception, Medium disarm. Fired text in traps.md. Spotting and resolving happen on the same turn, so the room description shows how it was resolved (below), not a warning.
+- **Trap 17:** fires on first entry; Level 5 perception, Level 4 disarm (raised 2026-10-15, traps.md). Fired text in traps.md. Spotting and resolving happen on the same turn, so the room description shows how it was resolved (below), not a warning.
 - **Smoke jar listing:** *A squat glass jar sits among the clay pots, stoppered with wax.* **Small clay pot listing:** *One small clay pot sits on the shelf, the only one without a crack.* (Both appear once the trap is resolved, fired or disarmed.)
 The sack of salt is what makes the Idol Room swap safe (`SWAP IDOL WITH SALT`); taking the idol without it triggers Trap 33. Nothing forces a visit first — the Supply Room is a dead end west of the Ink Corridor, and the Idol Room is reachable without it.
 
@@ -1596,7 +1597,8 @@ Short connecting passage between the Ink Corridor and the Idol Room.
 **Items:** Chachapoyan Fertility Idol (treasure; on pressure-sensitive pedestal — safe swap with sack of salt)
 **Quest Hooks:** None (treasure item; Trap 33 mechanic)
 **Connections:** North → Narrow Passageway. South → Combat Room.
-South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a pressure-sensitive pedestal. Removing without replacing with equal weight slams a stone slab over the north doorway; the way south stays open, so the crowbar can be fetched (`PRY DOOR`, Medium strength, retries). Safe swap: `SWAP IDOL WITH SALT` with sack of salt. Idol is treasure. Connects south to Combat Room. (Trap 33)
+South end of Narrow Passageway. A **Chachapoyan Fertility Idol** sits on a pressure-sensitive pedestal. Removing without replacing with equal weight slams a stone slab over the north doorway; the way south stays open, so the crowbar can be fetched (`PRY DOOR`, Level 4 strength, retries).
+The plate is a Level 5 perception check (raised 2026-10-15, traps.md). Safe swap: `SWAP IDOL WITH SALT` with sack of salt. Idol is treasure. Connects south to Combat Room. (Trap 33)
 - **`SWAP IDOL WITH SALT`:** *You set the sack of salt on the pedestal and lift the idol away in the same motion. The pedestal doesn't so much as twitch.* Without the salt: *You'd need something of the same weight to put in its place.* Afterwards the salt stays on the pedestal (can't be taken back): *A sack of salt sits on the pedestal where the idol was.*
 - **Once the idol is gone** (swapped or taken), the room description's second line reads *At the center stands a stone pedestal.* in place of *At the center, a stone pedestal holds a figurine.*
 - **`TAKE IDOL` unswapped:** *You lift the idol. Somewhere under the pedestal something clicks, and a slab of stone drops into the north doorway with a boom you feel in your teeth. The way back is gone.* (2026-10-13: was "the doorway… The way out is gone.", which read as sealed in, though south stays open.) North while shut: *The stone slab fills the doorway. It isn't moving.*
@@ -1639,7 +1641,7 @@ The equipment sentence follows what is still in the room (the rest of the descri
 **Items:** Three fallen stone blocks (scenery — never carried; `PLACE BLOCKS`)
 **Quest Hooks:** Quest 22 — the collapsed aqueduct section
 **Connections:** North → Storage Area. South → Collapsed Gallery.
-Split out of the Collapsed Gallery (2026-10-03). The aqueduct channel runs through this room; a section has given way and its three blocks lie on the floor. `PLACE BLOCKS` three times (one Medium strength check each — a failure makes no progress, no damage), then `SEAL JOINTS WITH MORTAR` (mortar used up) → Quest 22 complete; the Town Square fountain flows.
+Split out of the Collapsed Gallery (2026-10-03). The aqueduct channel runs through this room; a section has given way and its three blocks lie on the floor. `PLACE BLOCKS` three times (one Level 2 strength check each — a failure makes no progress, no damage), then `SEAL JOINTS WITH MORTAR` (mortar used up) → Quest 22 complete; the Town Square fountain flows.
 Until sealed, the spill runs south and floods the far end of the Collapsed Gallery.
 Not in the Zenni room pool (kept out so the seeded Zenni placement doesn't change).
 `EAST` / `WEST`, along the channel (2026-10-13): *The channel runs into the stone at both ends. You'd have to be water.*
@@ -1682,7 +1684,7 @@ South of the Collapsed Aqueduct. Timbers wedged across it blocking a secondary e
 
 **Flood line (until Quest 22 is complete), added to either description:** *Water from the passage north pools across the floor here and runs on into the dark, deep enough at the far end that there's no telling what's under it.*
 - **`EAST` while flooded (timbers cleared):** *The water's too deep at the far end to wade, and it's moving fast.* While the timbers are up, they block first: *The timbers block the way.*
-- **Quest 38 timbers** (pickaxe, Hard strength each, retries): first — *You set the pickaxe into the first timber and lever. It groans, splinters, and comes down. Behind it, the second shifts.*
+- **Quest 38 timbers** (pickaxe, Level 3 strength each, retries): first — *You set the pickaxe into the first timber and lever. It groans, splinters, and comes down. Behind it, the second shifts.*
   second — *The second timber is wedged tighter. It gives anyway, all at once, and the third sags loose.* third — *The last timber comes away in two pieces. The way east is open — though the rock overhead creaks, and a little dust drifts down.*
 - Failed swing: *You swing at the timber. It shudders and holds.* No pickaxe: *You'd need something to break them with.* All three down: *There are no timbers left to clear.*
 - `PRY` / `LEVER TIMBER` with the pickaxe held is a swing too (2026-10-14; the success line says "lever", but `PRY` used to answer *"You can't get any leverage on that."*).
@@ -1777,7 +1779,7 @@ North of the Creature Den — reachable once the Warden is dead (or past him inv
 **Items:** Crowbar (Quests 19, 25, 30; Trap 33 escape); vial of glacier melt (Quest 34 — freezes pool in Mid Room)
 **Quest Hooks:** Quest 19, 25, 30, 34 — items sourced here
 **Connections:** North → Combat Room. South → Portcullis Corridor.
-South of Combat Room. A low stone alcove off the passage; its niche looks shallow until examined. Carved niche in the back wall. Contains: **crowbar** (Quests 19&30, 25; Trap 33 escape); **vial of glacier melt** (Quest 34 mid room freeze). Perception check (Easy, once per visit) reveals full depth. Connects south to Portcullis Corridor.
+South of Combat Room. A low stone alcove off the passage; its niche looks shallow until examined. Carved niche in the back wall. Contains: **crowbar** (Quests 19&30, 25; Trap 33 escape); **vial of glacier melt** (Quest 34 mid room freeze). Perception check (Level 1, once per visit) reveals full depth. Connects south to Portcullis Corridor.
 
 **Room description:** *A low stone alcove off a passage that runs north and south, barely deep enough to stand in. A carved niche is set into the back wall, its edges worn smooth by hands.*
 Decided 2026-10-13: the alcove is a recess off a through-passage (the critical path runs south); "looks like a dead end" means the niche, not the room. The old closing line *It looks like a dead end.* was dropped — it was wrong for the room, stayed after the niche gave up its contents, and drew May's Quest 34 hint ("a room that looks like a dead end", meant for the Tool Alcove) here.
@@ -1793,16 +1795,24 @@ Decided 2026-10-13: the alcove is a recess off a through-passage (the critical p
 South of Prayer Alcove. A metal portcullis blocks the corridor, carrying an arcane charge.
 Touching without disarming: 1 heart lightning damage, stunned one turn.
 Three ways through: (1) perception spots charge and discharge mechanism; (2) disarm check discharges safely; (3) strength check lifts — only after discharge.
-Portcullis Bar from Supply Room props it permanently open. Without the bar it drops when released. (Trap 19 — Medium perception, Medium disarm; `LIFT PORTCULLIS` Medium strength; the next command must be `USE PORTCULLIS BAR` — or `PUT` / `PLACE BAR` (optionally `UNDER PORTCULLIS`), or `DROP BAR` — or it drops)
+Portcullis Bar from Supply Room props it permanently open. Without the bar it drops when released. (Trap 19 — Level 4 perception, Level 4 disarm; `LIFT PORTCULLIS` Level 4 strength — all raised 2026-10-15, traps.md; the next command must be `USE PORTCULLIS BAR` — or `PUT` / `PLACE BAR` (optionally `UNDER PORTCULLIS`), or `DROP BAR` — or it drops)
 
 **Room description:** *A straight corridor, closed off halfway along by an iron portcullis. The air around the bars has a faint, dry crackle, and the hairs on your arms stand up as you get close. The corridor runs north and south; the bars stand between you and the far end.*
 (Discharged: without the crackle sentence. Propped: *…The portcullis is propped open with an iron bar. The corridor runs north and south, the way through clear now.*) Exit lines added 2026-10-13.
 - **Shock** (touching/lifting while charged — 1 heart, lose a turn): *Your hands close on the bars and the charge goes through you — a white snap, a smell like a struck match. When you can think again, you're on the floor.*
 - **Lift:** *You get under the portcullis and heave. It rises, grinding, until it's head-high — and stays there only as long as you hold it.* Fails: *You strain against the portcullis. It shifts an inch and settles back.*
-- **Let go:** *You let go. The portcullis slams back down.* (After any command but the bar; walking out of the corridor while holding it lets go too, the line printing before the next room — fixed 2026-10-13, it used to fire on the player's return.)
+- **Let go:** *You let go. The portcullis slams back down.* After any command but the bar, or straight away with `DROP PORTCULLIS` / `RELEASE PORTCULLIS` / `LOWER PORTCULLIS` / `LET GO` (also `LET GO OF PORTCULLIS`) — decided 2026-10-15; the parser counts the held portcullis as in your hands for these.
+  - **No leaving while holding it** (decided 2026-10-15, replacing the 2026-10-13 rule that walking out let go): any move, either direction, gets *You'll have to drop the portcullis first.* The move takes the turn, but you're still holding it — `USE PORTCULLIS BAR` still works next.
+  - `DROP PORTCULLIS` when it isn't held keeps the parser's *You can't see any portcullis here!*; bare `LET GO` with nothing held gets the parser's *That sentence isn't one I recognize.*
 - **Propped:** *You wedge the iron bar under the portcullis. It takes the weight with a groan and holds. The way south is open.* **Blocked:** *The portcullis is down.*
 - **Either side** (decided 2026-10-12): the portcullis is halfway along, so you're on the side you came in from — north from the Prayer Alcove, south from the Shrine Room (the Quest 38 shortcut, up from the Rickety Bridge). Until it's propped, only the way back is open; the far side is *The portcullis is down.* Lifting, the shock, Trap 19 and the bar work the same from either side.
   Propped from the south side: *You wedge the iron bar under the portcullis. It takes the weight with a groan and holds. The way north is open.* (A save from before this has no side recorded and counts as the north side.)
+- **Retries** (decided 2026-10-15, TODO #17 — rules in traps.md, Trap 19). The perception check runs every visit until the mechanism is spotted; `SEARCH` gives one more. `TOUCH PORTCULLIS` while charged is the shock, like `LIFT`.
+  - `DISARM PORTCULLIS` / `DISARM MECHANISM`, spotted and still charged, succeeds: *You work the discharge mechanism set into the wall. Something gives with a soft click, and the crackle around the bars dies away.*
+  - Fails (no shock; try again): *Your fingers slip on the lever before it catches. The bars crackle on. It might go next time.*
+  - Charged but not spotted yet: *You can feel the charge, but you can't see where it's coming from.* Discharged or propped: *There's nothing left to disarm.*
+- **Examine portcullis:** charged — *Heavy iron bars, set into grooves in the walls. The air around them crackles faintly.* Once the mechanism is spotted, add: *Set into the wall beside it is the discharge mechanism.* Discharged or propped — *Heavy iron bars, set into grooves in the walls. The crackle is gone.*
+- **Examine mechanism** (there to see once spotted): *A plate of dark metal set flush into the stone, a short lever at its center.* Discharged, add: *The lever is down.*
 
 ### Shrine Room
 **XP: 1**
@@ -1810,7 +1820,7 @@ Portcullis Bar from Supply Room props it permanently open. Without the bar it dr
 **Items:** Verdant Circle shrine bowl piece (Quest 49; perception check — near base of plinth)
 **Quest Hooks:** Quest 49 (The Ruined Shrine) — one of three bowl pieces found here
 **Connections:** North → Portcullis Corridor. South → Rickety Bridge.
-South of Portcullis Corridor. A small carved stone room, older than surrounding dungeon stonework. Contains one of three Verdant Circle shrine bowl pieces (Quest 49) — visible on a perception check (Easy). Connects south into the Rickety Bridge.
+South of Portcullis Corridor. A small carved stone room, older than surrounding dungeon stonework. Contains one of three Verdant Circle shrine bowl pieces (Quest 49) — visible on a perception check (Level 1). Connects south into the Rickety Bridge.
 
 **Room description (default):** *The room is older than the dungeon around it — the stonework finer, the walls carved rather than cut. Someone built this with intention.*
 *A shallow bowl depression is set into a stone plinth at the center. The air is stiller here than in the corridors outside, as if the room has been holding its breath for a long time. A corridor leads north; to the south, the floor gives way to a narrow stone bridge.*
@@ -1894,7 +1904,7 @@ A large iron chest is bolted to the floor against one wall.*
 *A faint shimmer near the base of one timber catches your eye — silver dust, settled into a crack in the stone.*
 
 - **Charcoal (always listed until taken):** *A few lumps of charcoal lie in a cold fire ring near the tools.*
-- **Silver dust:** Medium perception check on every visit until found (glasses: automatic).
+- **Silver dust:** Level 2 perception check on every visit until found (glasses: automatic).
 - **Iron chest:** `OPEN CHEST` (with or without `WITH LOCKPICKS`), `UNLOCK CHEST`, or `PICK LOCK` / `PICK CHEST` (decided 2026-10-12) while carrying the lockpicks: *The lockpicks find the pins one by one, and the lid comes up with a groan. Inside are 20 Zenni, which you pocket.* The Zenni are pocketed directly (like the cashbox and the buried chest).
 - **Without the lockpicks:** *The chest is locked. The lock looks pickable — if you had the tools.*
 - **Already open:** *The chest is empty.* The room description's last sentence becomes *A large iron chest is bolted to the floor against one wall, its lid open.*
@@ -1961,12 +1971,12 @@ Ancient inscription on cave wall (Quest 28: `RUB PAPER ON ENGRAVING` with thin p
 
 Both perception checks are independent — either, both, or neither may fire on a given visit.*
 
-**Perception:** both checks are Medium, repeated every visit until found (glasses: automatic). The crawlspace check is the snare check (Trap 8):
+**Perception:** the rune stone is a Level 2 check and the snare a Level 6 check (raised 2026-10-15, traps.md — Trap 8), each repeated every visit until found (glasses: automatic). The crawlspace check is the snare check (Trap 8):
 - **Spotted:** the crawlspace is revealed and the player steps around the snare (Trap 8 XP: 3, Rogue +5). Added room line: *A loop of fine cord lies half-buried in the dirt in front of the gap — a snare, set and waiting.* The snare doesn't block the crawlspace.
 - **Not spotted:** the snare fires on entry, after the room description. The crawlspace is revealed. No damage, no XP.
   *Your foot comes down on something that gives. A cord snaps tight around your ankle and the floor drops away — you're yanked off your feet and left swinging upside down from a hook in the ceiling. From down here the room looks different: there's a low gap in the east wall you hadn't noticed.*
 - **Hanging:** only `LOOK` / `INVENTORY` (and meta commands) work; anything else: *You're hanging upside down by one ankle. That needs dealing with first.* No release on its own.
-  - `PULL FREE` / `STRUGGLE` — Medium strength check, retry allowed. Fail: *You twist and strain, but the cord holds. You swing gently, upside down.* Success: *You haul yourself up, get a hand to the knot and work your ankle free. You drop to the dirt in an undignified heap.*
+  - `PULL FREE` / `STRUGGLE` — Level 4 strength check, retry allowed. Fail: *You twist and strain, but the cord holds. You swing gently, upside down.* Success: *You haul yourself up, get a hand to the knot and work your ankle free. You drop to the dirt in an undignified heap.*
   - `CUT CORD` [`WITH` blade] — needs a blade (Pale Blade): *You saw through the cord and drop to the dirt in a heap.* Without one: *You've nothing to cut it with.*
   - After it has fired, added room line: *A snapped cord dangles from a hook in the ceiling.*
 - `STRUGGLE` / `PULL FREE` anywhere else: *Nothing happens.*
@@ -2014,15 +2024,15 @@ Heavily magnetic room. Trap 15 (Magnetic Chest) on central chest — opening wit
 *A square room, stone walls, a single chest at the center on a low stone platform. Passages lead north and south. The room feels subtly wrong in a way that takes a moment to identify — small metal objects have drifted toward the chest, as if drawn.*
 *A nail in the wall still points toward it, though nothing pulls at it now. The filings lie in a loose scatter below the latch.*
 
-**Trap 15 (traps.md):** Medium perception on every visit until spotted (glasses: automatic). Once the lodestone is out or the pulse has fired, the room uses the after-the-trap description.
-- `DISARM LODESTONE` / `REMOVE LODESTONE` / `DISARM TRAP` — only once spotted, else *You don't see anything to disarm.* Medium trap-disarm roll (boots +3), retry allowed.
+**Trap 15 (traps.md):** Level 6 perception on every visit until spotted (perception Level 6, disarm Level 5, pry Level 4 since 2026-10-15) (glasses: automatic). Once the lodestone is out or the pulse has fired, the room uses the after-the-trap description.
+- `DISARM LODESTONE` / `REMOVE LODESTONE` / `DISARM TRAP` — only once spotted, else *You don't see anything to disarm.* Level 5 trap-disarm roll (boots +3), retry allowed.
   - Success (4 XP, Rogue +5): *You slide a hand under the lid's lip, find the lodestone and work it loose. The filings slump out of their ring. The chest is just a chest now.*
   - Fail: *The lodestone is set fast. You can't get it loose — not this time.*
   - Afterwards: *There's nothing left to disarm.*
 - `OPEN CHEST`, disarmed: *The lid lifts easily. Inside, on a fold of black cloth, lies a diamond brooch.* Room line while the brooch is inside: *In the open chest lies a diamond brooch.* Again: *The chest is already open.*
 - `OPEN CHEST`, not disarmed — the pulse fires once and the lid opens: *The lid comes up an inch and the air goes tight. Everything iron you're carrying wrenches toward the chest and slams against it: [items]. They're stuck fast.* No iron carried: *The lid comes up an inch and the air goes tight — then eases. Nothing you're carrying answers to it.*
 - Stuck items are listed by one room line instead of their own: *Stuck fast to the side of the chest: [items].* `EXAMINE` shows their usual text.
-- Stuck items: `TAKE` / `PULL` each — Medium strength check, one turn per try. Fail: *The [item] won't budge.* Success: *You wrench the [item] free.*
+- Stuck items: `TAKE` / `PULL` each — Level 4 strength check, one turn per try. Fail: *The [item] won't budge.* Success: *You wrench the [item] free.*
 - Iron items (the only ones the lodestone pulls): lockpicks, crowbar, pickaxe, shovel, flint and steel, key ring, Middle Tier Key, cellar key, portcullis bar, Pale Blade. Not the ring, the gold watch or the silver stake.
 
 #### Deep Lock Door
@@ -2329,7 +2339,7 @@ A won round still shows it attacking — one of these, in turn (decided 2026-10-
 **Items:** None (the incantation scroll opens the passage; it isn't used up)
 **Quest Hooks:** Quest 34 — speaking door requires scroll to open; passage north leads to frozen soldier
 **Connections:** South → The Lower Crossing. North → The Flooded Passage (quest-gated; READ SCROLL opens passage permanently).
-Quest 34 barrier room. North of The Lower Crossing. Speaking door disguised as back wall. Perception check required for discovery — Medium, every visit until found (glasses: automatic).
+Quest 34 barrier room. North of The Lower Crossing. Speaking door disguised as back wall. Perception check required for discovery — Level 2, every visit until found (glasses: automatic).
 
 - Found: the bracket description, then the "notices you" line (that visit only), then the persistent line. Found on a return visit (short description): the two lines print after the room title.
 - `EXAMINE WALL` / `LISTEN` / `KNOCK ON WALL` once found (and not yet open): the persistent line. `EXAMINE WALL` before: the before-discovery description. Open: the open-state line.

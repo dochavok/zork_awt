@@ -3,7 +3,7 @@ The Dankhaus and Litlock — Quest 52, Make Litlock Laugh.
 
 Design: locations.md (Bog-SE, the Dankhaus rooms), npcs.md (Litlock),
 quests.md (Quest 52).
-- Bog-SE: Medium perception check every visit until the path east is found.
+- Bog-SE: Level 2 perception check every visit until the path east is found.
 - East from Bog-SE: hidden until the path is found; warded until Lynds's
   invitation (DANKHAUS-INVITED, set when Lynds is beaten). The ring (not
   inked) slips an uninvited player past the ward; taking it off inside
@@ -68,13 +68,13 @@ class _WardedExit(Exit):
 
 
 def path_check(w: World) -> bool:
-    """Bog SE: Medium, every visit (and SEARCH) until the path to the Dankhaus
+    """Bog SE: Level 2, every visit (and SEARCH) until the path to the Dankhaus
     is found. Announced at the end of the turn."""
     if w.get_global("DANKHAUS-PATH-FOUND"):
         return False
     from content.player import check_perception
-    from content.perception import MEDIUM
-    if not check_perception(w, MEDIUM):
+    from content.perception import LEVEL_2
+    if not check_perception(w, LEVEL_2):
         return False
     w.set_global("DANKHAUS-PATH-FOUND", True)
     w.ways_changed("BOG-SE")

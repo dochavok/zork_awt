@@ -1,5 +1,5 @@
 """
-The dragon-nip under Will's nightstand: a silent Very Hard (18) perception check,
+The dragon-nip under Will's nightstand: a silent Level 4 (18) perception check,
 or LOOK UNDER NIGHTSTAND with no roll; LOOK IN / LOOK UNDER defaults (mechanics.md)
 (locations.md — Will Passion's Bedroom; quests.md — Quest 58).
 Run with: pytest roundabout/test_sprig_check.py  (from c:\\zork_awt)

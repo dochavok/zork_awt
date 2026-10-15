@@ -236,7 +236,7 @@ def test_map_check_keeps_running_after_restore_in_a_fresh_game():
     _do(g, "save")
     w2, g2 = _make_world()
     _do(g2, "restore")
-    with patch("content.player.roll", return_value=14):     # Hard
+    with patch("content.player.roll", return_value=14):     # Level 3
         _do(g2, "wait")
     assert w2.get_global("MAP-FOUND")
 

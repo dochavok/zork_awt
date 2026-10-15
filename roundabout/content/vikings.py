@@ -45,7 +45,7 @@ def _arrived(w: World, msg: int, room: str) -> bool:
 
 
 # ---------------------------------------------------------------------------
-# Archery Range — arrow hazard (Agility, Easy 5, no class bonus)
+# Archery Range — arrow hazard (Agility, Level 1 (5), no class bonus)
 # ---------------------------------------------------------------------------
 
 _ARROW_DODGE = "An arrow hisses past, close enough to hear the fletching."
@@ -58,8 +58,8 @@ _ARROW_HIT = (
 def archery_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if _arrived(w, msg, "ARCHERY-RANGE") and not w.get_global("VIKING-TRUST"):
         from content.player import roll_class_bonus
-        from content.perception import EASY
-        if roll_class_bonus(w, "agility") >= EASY:
+        from content.perception import LEVEL_1
+        if roll_class_bonus(w, "agility") >= LEVEL_1:
             print(_ARROW_DODGE)
         else:
             print(_ARROW_HIT)

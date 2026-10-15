@@ -139,6 +139,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("lock")
     v.add_verb("look", "l", "stare", "gaze")
     v.add_verb("lower")
+    v.add_verb("let")                               # LET GO [OF PORTCULLIS] (Trap 19)
     v.add_verb("make")
     v.add_verb("melt", "liquify", "thaw")
     v.add_verb("move")

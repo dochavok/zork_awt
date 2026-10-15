@@ -5,7 +5,7 @@ Text: locations.md (Will Passion's Bedroom), items.md (Dragon-Nip, Golden
 Dragon Scale, Enchanted Glasses), npcs.md (Will Passion — Dragon-nip
 returned), quests.md (Quests 53 and 58).
 
-The sprig is hidden under the nightstand: a silent Very Hard perception check on
+The sprig is hidden under the nightstand: a silent Level 4 perception check on
 every entry (after the description) and again when the glasses are put on
 here. Actually Enchanted Glasses auto-pass.
 
@@ -53,14 +53,14 @@ def _in_bedroom(w: World) -> bool:
 
 
 def check_sprig(w: World) -> bool:
-    """Silent Very Hard check while the sprig is still hidden under the
+    """Silent Level 4 check while the sprig is still hidden under the
     nightstand. True if found just now."""
-    from content.perception import VERY_HARD
+    from content.perception import LEVEL_4
     from content.player import check_perception
     sprig = w.objects["DRAGON-NIP"]
     if INVISIBLE not in sprig.flags or sprig.location is not w.rooms[BEDROOM]:
         return False
-    if not check_perception(w, VERY_HARD):
+    if not check_perception(w, LEVEL_4):
         return False
     _reveal(w)
     return True

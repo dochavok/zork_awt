@@ -110,10 +110,10 @@ def test_lucky_from_level_four():
     assert abs(_mean_roll(4) - 14.9) < 0.1
 
 
-# --- Difficulty tiers (Medium, 9) through real checks --------------------------------
+# --- Difficulty tiers (Level 2, 9) through real checks --------------------------------
 
 def _blocks(cls, roll):
-    """PLACE BLOCKS at the Collapsed Aqueduct (quests.md — Quest 22: Medium strength)."""
+    """PLACE BLOCKS at the Collapsed Aqueduct (quests.md — Quest 22: Level 2 strength)."""
     w, g = _make_world(cls=cls)
     w.move_object(w.player, w.rooms["COLLAPSED-AQUEDUCT"])
     w.here = w.rooms["COLLAPSED-AQUEDUCT"]
@@ -122,7 +122,7 @@ def _blocks(cls, roll):
     return w.get_global("BLOCKS-PLACED") or 0
 
 
-def test_medium_strength_check_is_nine():
+def test_level_2_strength_check_is_nine():
     assert _blocks("mage", 8) == 0
     assert _blocks("mage", 9) == 1
 
@@ -133,7 +133,7 @@ def test_warrior_strength_bonus_counts():
 
 
 def _alley(roll):
-    """Enter the Back Alley (locations.md: mugger perception, Medium 9) as a Warrior."""
+    """Enter the Back Alley (locations.md: mugger perception, Level 2 (9)) as a Warrior."""
     w, g = _make_world(cls="warrior", zenni=10)
     with patch("content.player.roll", return_value=roll):
         _quiet(g.enter_room, w.rooms["BACK-ALLEY"])
@@ -141,7 +141,7 @@ def _alley(roll):
     return w
 
 
-def test_medium_perception_check_is_nine():
+def test_level_2_perception_check_is_nine():
     assert not _alley(8).get_global("MUGGER-SPOTTED")
     assert _alley(9).get_global("MUGGER-SPOTTED")
 

@@ -15,17 +15,22 @@ Once known, add to operations.md (Antivirus false positives) whichever steps act
 
 ### TODO #17 — Trap 45 (Ink Corridor) barely fires at the level players reach it (found 2026-10-13)
 
+- **Difficulty tiers renamed and extended** (2026-10-15): Easy / Medium / Hard / Very Hard are now Level 1–4 checks (same targets), and Level 5–8 were added (24 / 28 / 32 / 44). A Level N check is passed about a third of the time by a level-N player. Written in mechanics.md (Difficulty tiers); the old names below are kept as found.
+- **Arrival level** (checked 2026-10-15): both walkthroughs reach the Ink Corridor at level 5 (ring route 159 XP, full score 187), where Level 2 / Level 2 traps fire 0% of the time.
+- ~~**Trap 45**~~ **resolved 2026-10-15:** Level 5 perception, Level 4 disarm — inks about half of level-5 Warriors, 20% of Rogues (traps.md, Trap 45).
+- ~~**Traps 16 and 17**~~ **resolved 2026-10-15:** Trap 17 (Supply Room) Level 5 / Level 4, like Trap 45; Trap 16 (Chuckle House) Level 4 / Level 4, since most players arrive there at level 4 (traps.md). The Ghost's Room 50% exit roll stays as it is (decided 2026-10-15).
+- ~~**Mid and lower tiers**~~ **resolved 2026-10-15:** Trap 8 (snare) Level 6 perception, Level 4 pull free; Trap 15 (Magnetic Vault) Level 6 perception, Level 5 disarm, Level 4 pry. Strength checks stay at Level 4 so a level-4 Mage or Rogue can always get free. No other lower-tier trap rolls (36 has no check; 29 and 41 are scripted). The dungeon's Level 2 item finds are left as they are.
+- ~~**Traps 19 and 33**~~ **resolved 2026-10-15:** Trap 19 Level 4 perception / disarm / lift (no higher: it guards the north route); Trap 33 Level 5 plate perception, Level 4 pry (traps.md).
+
 Level 4 is about the lowest level a player can be on reaching the dungeon.
 At level 4 (2d10+3 with Lucky), a warrior without glasses passes the Medium (9) perception check 95.7% of the time and the Medium disarm the same, so the trap inks them only ~8.4% of the time (exact; a 20,000-run engine simulation gave 8.7%).
 Rogues and mages, with +3, almost never trigger it. For comparison, a warrior is inked ~83% of the time at level 2 and ~41% at level 3 — levels that don't get here.
 Review the trap's difficulty against the levels players actually arrive at (traps.md, Trap 45). The ink is what negates invisibility, so how often it fires matters beyond this room. Check the other upper-tier traps for the same problem.
 - **Trap 29 (Combat Room plate) and Trap 41 (Flooding Room plate)** — the auto-disarm locked out the Guardian's Lantern and the trap side for ~92% of level-4 warriors and nearly every Rogue. Decided 2026-10-14: neither plate can be spotted or disarmed any more; both fire on entry. Moved to TODO #21 (Combat Room) and TODO #22 (Flooding Room and the apprentice).
-- **Trap 19 (Portcullis Corridor) — a failed check leaves the portcullis charged for good** (found 2026-10-13).
-  - Same Medium + Medium odds (~8.4% failure for a level-4 warrior), but the failure is permanent, not a nuisance. `_check_trap19` runs once (`TRAP19-CHECKED`).
-  - If perception fails (~4.3%) — or it's spotted and the disarm botches (~4.1%; the player is shocked) — the portcullis stays charged, and nothing can discharge it afterwards.
-  - `DISARM PORTCULLIS` gives *"There's nothing here to disarm."*, `SEARCH` doesn't re-check, `EXAMINE PORTCULLIS` gives *"You see nothing special about the portcullis."*, and every `LIFT` shocks (1 heart, a lost turn).
-  - The north route to the Shrine Room is then closed for good; only the Quest 38 shortcut (Collapsed Gallery → Rickety Bridge) gets past. traps.md says the disarm check is one of the "ways to pass", which implies it can be retried.
-  - Fix: e.g. allow `DISARM PORTCULLIS` (and SEARCH) to retry once the charge is known — the room text's crackle line already tells every player it's charged.
+- ~~**Trap 19 (Portcullis Corridor) — a failed check leaves the portcullis charged for good**~~ (found 2026-10-13). **Resolved 2026-10-15:** perception every visit until spotted, plus SEARCH; `DISARM PORTCULLIS` / `MECHANISM` retries once spotted (a failure costs only the turn); `TOUCH` shocks like `LIFT`; new mechanism object and examine text.
+  Written in traps.md (Trap 19), locations.md (Portcullis Corridor) and mechanics.md (SEARCH, Parser Verbs).
+- ~~**Trap 19 — walking through the held portcullis**~~ (found 2026-10-15). With it lifted and held, `SOUTH` said *"The portcullis is down."* and then *"You let go. The portcullis slams back down."*
+  **Resolved 2026-10-15:** no leaving while it's held (*You'll have to drop the portcullis first.*, still held); `DROP` / `RELEASE` / `LOWER PORTCULLIS` and `LET GO` let it drop. Written in locations.md (Portcullis Corridor, Let go) and mechanics.md (Parser Verbs).
 
 ### TODO #18 — The ring: warnings come too late to budget invisibility (found 2026-10-13)
 
@@ -47,4 +52,12 @@ From the 2026-10 playtest (theme 2 and the session 4 entries), set aside from TO
   - Suggested: make the letters unreadable until dusted (*"worn almost to nothing; you can make out the shape of words but not the words"*), and let the dust's description or May's tip lean that way.
   - The same entry reports the in-between states as stale: after sealing (and before speaking) the room and `EXAMINE JAR` still say "cracked".
 - **The Lighthouse — the torch burns down in a room with a window** (moved from TODO #15). A question for the light rules (mechanics.md): does a windowed room count as lit, and should a torch burn there?
+
+### TODO #24 — A warning when the player drops to 1 heart (found 2026-10-15)
+
+Traps 16, 17 and 45 now fire far more often (TODO #17), and trap damage may go up, so a player can reach 1 heart without noticing.
+Today nothing marks it: hearts drop silently until the game-over line (mechanics.md — Death: *Your last heart gives out…*).
+- Craft a line shown when damage leaves the player on exactly 1 heart. Needs writing and review (2–3 options).
+- Engine: `combat.take_damage` is the one place every trap, hazard and fight deducts hearts, so the line can live there.
+- To decide: every time it happens, or once until healed; whether it differs for combat versus traps; whether the mugger knock-out (which leaves 1 heart) shows it; and where it sits relative to the damage line.
 

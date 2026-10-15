@@ -3,8 +3,8 @@ Perception (mechanics.md — Perception mechanic, Difficulty tiers, Enchanted
 Glasses; experience.md — Second Glance at Level 5). Checks are played through
 real room entries; the player's level roll is fixed per check.
 
-Design tiers used here: Easy 5 (Prayer Alcove niche), Medium 9 (Back Alley
-mugger; Tool Alcove door), Hard 14 (the volcano's staircase).
+Design tiers used here: Level 1 (5, Prayer Alcove niche), Level 2 (9, Back
+Alley mugger; Tool Alcove door), Level 3 (14, the volcano's staircase).
 Run with: pytest roundabout/test_perception.py  (from c:\\zork_awt)
 """
 
@@ -37,12 +37,45 @@ def _spotted(w):
     return bool(w.get_global("MUGGER-SPOTTED"))
 
 
+# --- Difficulty tiers: the definition (mechanics.md — Difficulty tiers) ------------
+
+def _pass_rate(level, target):
+    """Exact chance a level's roll (no class bonus; Lucky from Level 4) meets target."""
+    from fractions import Fraction
+    from content.experience import _DICE_BY_LEVEL
+    n, sides, bonus = _DICE_BY_LEVEL[level]
+    die = {}
+    for r in range(1, sides + 1):
+        if level >= 4 and r == 1:                   # Lucky: a 1 is rerolled once
+            for r2 in range(1, sides + 1):
+                die[r2] = die.get(r2, 0) + Fraction(1, sides * sides)
+        else:
+            die[r] = die.get(r, 0) + Fraction(1, sides)
+    totals = {bonus: Fraction(1)}
+    for _ in range(n):
+        added = {}
+        for t, pt in totals.items():
+            for r, pr in die.items():
+                added[t + r] = added.get(t + r, 0) + pt * pr
+        totals = added
+    return float(sum(p for t, p in totals.items() if t >= target))
+
+
+@pytest.mark.parametrize("level", range(1, 9))
+def test_level_n_check_is_about_a_third_at_level_n(level):
+    from content import perception
+    target = getattr(perception, f"LEVEL_{level}")
+    assert 0.23 <= _pass_rate(level, target) <= 0.42
+    if level > 1:
+        assert _pass_rate(level - 1, target) < 0.2         # rarely a level below
+
+
 # --- Difficulty tiers through real checks ------------------------------------------
 
 @pytest.mark.parametrize("room,flag,target", [
-    ("PRAYER-ALCOVE", "NICHE-FOUND", 5),               # Easy
-    ("TOOL-ALCOVE", "ALCOVE-FOUND", 9),                # Medium
-    ("VOLCANO", "VOLCANO-STAIRS-FOUND", 14),           # Hard
+    ("PRAYER-ALCOVE", "NICHE-FOUND", 5),               # Level 1
+    ("TOOL-ALCOVE", "ALCOVE-FOUND", 9),                # Level 2
+    ("VOLCANO", "VOLCANO-STAIRS-FOUND", 14),           # Level 3
 ])
 def test_tier_targets(room, flag, target):
     w, g = _world()
@@ -126,7 +159,7 @@ def test_second_glance_is_only_one_reroll():
 @pytest.mark.parametrize("cls,spots", [("warrior", False), ("mage", True), ("rogue", True)])
 def test_class_perception_bonus(cls, spots):
     w, g = _world(cls=cls)
-    _enter(g, w, "BACK-ALLEY", [8])                            # one short of Medium 9
+    _enter(g, w, "BACK-ALLEY", [8])                            # one short of Level 2 (9)
     assert _spotted(w) is spots
 
 
@@ -158,5 +191,5 @@ def test_glasses_only_while_worn():
 
 def test_actually_enchanted_glasses_pass_everything():
     w, g = _wearing_glasses(enchanted=True)
-    _enter(g, w, "VOLCANO", [0])                               # Hard, with a roll of 0
+    _enter(g, w, "VOLCANO", [0])                               # Level 3, with a roll of 0
     assert w.get_global("VOLCANO-STAIRS-FOUND")

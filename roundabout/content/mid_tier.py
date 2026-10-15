@@ -10,7 +10,7 @@ Rubble), mechanics.md (Shovel & Dig Mechanic), items.md (Rope, Shovel).
   player climb down and back up; once tied, the rope stays. JUMP into the hole
   is death.
 - Any successful DIG: Will's 1-in-20 audio note.
-- Mine Passage: charcoal (no check), silver dust (Medium perception each
+- Mine Passage: charcoal (no check), silver dust (Level 2 perception each
   visit until found), iron chest — the lockpicks open it and the 20 Zenni are
   pocketed directly.
 - The Crevice (Stored Room east): gold pocket watch on a skeleton's finger.
@@ -133,9 +133,9 @@ def open_chest(w: World) -> None:
 
 
 def silver_dust_check(w: World) -> bool:
-    """Mine Passage: Medium, every visit (and SEARCH) until found."""
-    from content.perception import MEDIUM, reveal_if_found
-    return reveal_if_found(w, "SILVER-DUST", MEDIUM)
+    """Mine Passage: Level 2, every visit (and SEARCH) until found."""
+    from content.perception import LEVEL_2, reveal_if_found
+    return reveal_if_found(w, "SILVER-DUST", LEVEL_2)
 
 
 def mine_action(w: World, msg: int = M_NOT_HANDLED) -> int:

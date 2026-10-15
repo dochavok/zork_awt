@@ -1,6 +1,6 @@
 """
 Bog items (locations.md — Bog of Eternal Stench NE / NW / SW; items.md —
-Rune Stones, Music Box Key, Bog Thyme). Each is found by a Medium perception
+Rune Stones, Music Box Key, Bog Thyme). Each is found by a Level 2 perception
 check on every visit until found, then listed in the room description.
 """
 
@@ -24,11 +24,11 @@ _FINDS = {
 
 
 def reveal(w: World, room_name: str) -> bool:
-    """M_ENTER (and SEARCH): silent Medium check until found (before the room
+    """M_ENTER (and SEARCH): silent Level 2 check until found (before the room
     description). True if found just now."""
-    from content.perception import MEDIUM, reveal_if_found
+    from content.perception import LEVEL_2, reveal_if_found
     names = _FINDS.get(room_name, ())
-    if names and reveal_if_found(w, names[0], MEDIUM):
+    if names and reveal_if_found(w, names[0], LEVEL_2):
         for other in names[1:]:          # the key is found with its log
             w.objects[other].clear_flag("INVISIBLE")
         return True

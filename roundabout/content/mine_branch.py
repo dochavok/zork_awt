@@ -7,7 +7,7 @@ Design: locations.md (The Undercroft, The Forgotten Shaft, Hidden Secondary
 Entrance, Assay Room).
 
 - Both new rooms are dark (tunnels); the Assay Room is lit (the mine).
-- The gap from the mine side: Medium perception on every visit to the Assay
+- The gap from the mine side: Level 2 perception on every visit to the Assay
   Room until found (Actually Enchanted Glasses pass it). Coming through from
   the tunnel side finds it without a line. EAST before then is refused.
 - The branch stays open after the mine entrance is blown.
@@ -63,9 +63,9 @@ def on_enter(w: World, room) -> bool:
     until found. True if found just now."""
     if room.name != "ASSAY-ROOM" or w.get_global("ASSAY-GAP-FOUND"):
         return False
-    from content.perception import MEDIUM
+    from content.perception import LEVEL_2
     from content.player import check_perception
-    if not check_perception(w, MEDIUM):
+    if not check_perception(w, LEVEL_2):
         return False
     w.set_global("ASSAY-GAP-FOUND", True)
     w.ways_changed("ASSAY-ROOM")

@@ -114,7 +114,7 @@ He turns back to his work.
 **Inked player:** turned away at the Dankhaus door, even when invited (instead of the ward line): *The air near the door shifts as you approach, then settles, firmly. From inside, Litlock's voice: "Not like that, you're not."*
 **Personality:** Jovial. Raises Aurix the Kobold child.
 
-Each time the player passes through Bog-SE, a perception check (Medium, 9) occurs. On success the path to the Dankhaus is revealed — permanently visible for the rest of the playthrough. Access gated by magical wards — unlocked by Lynds after arm wrestling quest.
+Each time the player passes through Bog-SE, a perception check (Level 2, 9) occurs. On success the path to the Dankhaus is revealed — permanently visible for the rest of the playthrough. Access gated by magical wards — unlocked by Lynds after arm wrestling quest.
 
 **Quest 52 — Make Litlock Laugh**
 

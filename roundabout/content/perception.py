@@ -14,11 +14,18 @@ from content.player import check_perception
 if TYPE_CHECKING:
     from engine.world import World
 
-# Difficulty tier constants
-EASY      = 5
-MEDIUM    = 9
-HARD      = 14
-VERY_HARD = 18
+# Difficulty tiers (mechanics.md — Difficulty tiers, 2026-10-15): a Level N check
+# is passed about a third of the time by a level-N player with no class bonus
+# (Lucky counted, Second Glance not); a level below passes it rarely, a level
+# above usually. Levels 1–4 were Easy, Medium, Hard and Very Hard (same targets).
+LEVEL_1 = 5
+LEVEL_2 = 9
+LEVEL_3 = 14
+LEVEL_4 = 18
+LEVEL_5 = 24
+LEVEL_6 = 28
+LEVEL_7 = 32
+LEVEL_8 = 44
 
 
 def reveal_if_found(world: "World", obj_name: str, difficulty: int) -> bool:

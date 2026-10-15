@@ -5,13 +5,16 @@ Design: locations.md (Prayer Alcove, Portcullis Corridor, Shrine Room,
 Rickety Bridge, Mid-Tier Key Door), traps.md (Trap 19), mechanics.md
 (Weight System), quests.md (Quest 32, Quest 49).
 
-- Prayer Alcove: the hidden niche — Easy perception, once per visit — holds
+- Prayer Alcove: the hidden niche — Level 1 perception, once per visit — holds
   the crowbar and the vial of glacier melt.
-- Portcullis (Trap 19): Medium perception spots the charge, then the Medium
-  disarm runs. Touching or lifting a charged portcullis shocks (1 heart, lose
-  a turn). Discharged: LIFT PORTCULLIS (Medium strength) holds it up for one
-  turn — USE PORTCULLIS BAR props it open for good, anything else drops it.
-- Shrine Room: the third bowl piece — Easy perception.
+- Portcullis (Trap 19): Level 4 perception — every visit (and SEARCH) until
+  spotted — finds the discharge mechanism, then the Level 4 disarm runs. Once
+  spotted, DISARM PORTCULLIS / MECHANISM retries it (a failure costs only the
+  turn). Touching or lifting a charged portcullis shocks (1 heart, lose a
+  turn). Discharged: LIFT PORTCULLIS (Level 4 strength) holds it up for one
+  turn — USE PORTCULLIS BAR props it open for good, DROP PORTCULLIS (or
+  anything else) drops it, and moving is refused while it's held.
+- Shrine Room: the third bowl piece — Level 1 perception.
 - Rickety Bridge: carry weight over 12 blocks the crossing either way (south
   from the bridge, north from the Key Door). Seeing the iron door from the
   bridge discovers Quest 32 (silently).
@@ -19,13 +22,13 @@ Rickety Bridge, Mid-Tier Key Door), traps.md (Trap 19), mechanics.md
   the lock and the door stays open.
 
 State: NICHE-FOUND, PORTCULLIS (charged | discharged | propped),
-       PORTCULLIS-HELD (turn lifted), TRAP19-CHECKED, KEY-DOOR-UNLOCKED
+       PORTCULLIS-HELD (turn lifted), TRAP19-SPOTTED, KEY-DOOR-UNLOCKED
 """
 
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from engine.game import M_HANDLED, M_NOT_HANDLED, M_ENTER, M_LOOK, M_END
+from engine.game import M_HANDLED, M_NOT_HANDLED, M_BEG, M_ENTER, M_LOOK, M_END
 from engine.world import Room, Exit, RLANDBIT
 
 if TYPE_CHECKING:
@@ -52,6 +55,18 @@ _PORT_EXITS_OPEN = " The corridor runs north and south, the way through clear no
 _TRAP19 = "an arcane charge running through the portcullis, the discharge mechanism set into the wall beside it"
 _TRAP_DISARMED = "You spot {d} and are able to disarm it, neutralizing it."
 _TRAP_BOTCHED = "You see {d}, but your attempt to disarm it fails miserably."
+_RETRY_DISARMED = (
+    "You work the discharge mechanism set into the wall. Something gives with a "
+    "soft click, and the crackle around the bars dies away."
+)
+_RETRY_FAILS = "Your fingers slip on the lever before it catches. The bars crackle on. It might go next time."
+_UNSPOTTED = "You can feel the charge, but you can't see where it's coming from."
+_NOTHING_LEFT = "There's nothing left to disarm."
+_EX_CHARGED = "Heavy iron bars, set into grooves in the walls. The air around them crackles faintly."
+_EX_MECHANISM_SEEN = " Set into the wall beside it is the discharge mechanism."
+_EX_DISCHARGED = "Heavy iron bars, set into grooves in the walls. The crackle is gone."
+_EX_MECHANISM = "A plate of dark metal set flush into the stone, a short lever at its center."
+_EX_LEVER_DOWN = " The lever is down."
 _SHOCK = (
     "Your hands close on the bars and the charge goes through you — a white "
     "snap, a smell like a struck match. When you can think again, you're on the floor."
@@ -62,6 +77,7 @@ _LIFTED = (
 )
 _LIFT_FAILS = "You strain against the portcullis. It shifts an inch and settles back."
 _DROPS = "You let go. The portcullis slams back down."
+_DROP_FIRST = "You'll have to drop the portcullis first."
 _PROPPED = (
     "You wedge the iron bar under the portcullis. It takes the weight with a "
     "groan and holds. The way south is open."
@@ -119,13 +135,13 @@ _WRONG_KEY = "That key doesn't fit."
 # ---------------------------------------------------------------------------
 
 def niche_check(w: World) -> bool:
-    """Prayer Alcove: Easy, once per visit until the niche is found. Shown with
+    """Prayer Alcove: Level 1, once per visit until the niche is found. Shown with
     the room description."""
     if w.get_global("NICHE-FOUND"):
         return False
     from content.player import check_perception
-    from content.perception import EASY
-    if not check_perception(w, EASY):
+    from content.perception import LEVEL_1
+    if not check_perception(w, LEVEL_1):
         return False
     w.set_global("NICHE-FOUND", "pending")
     for name in ("CROWBAR", "GLACIER-MELT"):
@@ -160,35 +176,104 @@ def portcullis_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         exits = _PORT_EXITS_OPEN if state == "propped" else _PORT_EXITS_SHUT
         print(_PORT_BASE + extra + exits)
         return M_HANDLED
+    if msg == M_BEG:
+        return _portcullis_verbs(w)
     if msg == M_ENTER:
         w.set_global("ARRIVED-PORTCULLIS", True)
     elif msg == M_END:
         held = w.get_global("PORTCULLIS-HELD")
         if held is not None and w.moves > held:
             # Anything other than USE PORTCULLIS BAR straight after lifting
-            w.set_global("PORTCULLIS-HELD", None)
-            print(_DROPS)
+            _let_go(w)
         if w.get_global("ARRIVED-PORTCULLIS"):
             w.set_global("ARRIVED-PORTCULLIS", False)
-            if _state(w) == "charged" and not w.get_global("TRAP19-CHECKED"):
-                _check_trap19(w)
+            trap19_check(w)
     return M_NOT_HANDLED
 
 
-def _check_trap19(w: World) -> None:
-    w.set_global("TRAP19-CHECKED", True)
-    from content.player import check_perception, roll_class_bonus
-    from content.perception import MEDIUM
-    if not check_perception(w, MEDIUM):
-        return                         # the charge goes unnoticed until touched
-    if roll_class_bonus(w, "trap") >= MEDIUM:
+def _set_held(w: World, held: bool) -> None:
+    """Held up after LIFT PORTCULLIS (until the end of this turn); while held,
+    the parser counts it as in hand (INHANDBIT) so DROP PORTCULLIS works."""
+    w.set_global("PORTCULLIS-HELD", w.moves if held else None)
+    port = w.objects["PORTCULLIS"]
+    port.set_flag("INHANDBIT") if held else port.clear_flag("INHANDBIT")
+
+
+def _let_go(w: World) -> None:
+    _set_held(w, False)
+    print(_DROPS)
+
+
+def _portcullis_verbs(w: World) -> int:
+    port, mech = w.objects["PORTCULLIS"], w.objects["DISCHARGE-MECHANISM"]
+    if w.get_global("PORTCULLIS-HELD") is not None:
+        if w.prsa == "V-WALK":
+            print(_DROP_FIRST)
+            _set_held(w, True)          # still holding it at the end of this turn
+            return M_HANDLED
+        if w.prsa == "V-LET-GO" or (w.prsa in ("V-DROP", "V-UNTIE", "V-LOWER") and w.prso is port):
+            _let_go(w)
+            return M_HANDLED
+    if w.prsa == "V-DISARM" and w.prso in (None, port, mech):
+        disarm(w)
+    elif w.prsa == "V-RUB" and w.prso is port and _state(w) == "charged":
+        _shock(w)
+    elif w.prsa == "V-EXAMINE" and w.prso is port:
+        if _state(w) == "charged":
+            print(_EX_CHARGED + (_EX_MECHANISM_SEEN if w.get_global("TRAP19-SPOTTED") else ""))
+        else:
+            print(_EX_DISCHARGED)
+    elif w.prsa == "V-EXAMINE" and w.prso is mech:
+        print(_EX_MECHANISM + ("" if _state(w) == "charged" else _EX_LEVER_DOWN))
+    else:
+        return M_NOT_HANDLED
+    return M_HANDLED
+
+
+def trap19_check(w: World) -> bool:
+    """Level 4 perception, every visit (and SEARCH) until the discharge mechanism
+    is spotted; spotting it runs the disarm straight away. Not higher: it guards
+    the north route, and level 4 can't roll a Level 5 check (traps.md)."""
+    if _state(w) != "charged" or w.get_global("TRAP19-SPOTTED"):
+        return False
+    from content.player import check_perception
+    from content.perception import LEVEL_4
+    if not check_perception(w, LEVEL_4):
+        return False                   # the charge goes unnoticed until touched
+    w.set_global("TRAP19-SPOTTED", True)
+    w.objects["DISCHARGE-MECHANISM"].clear_flag("INVISIBLE")
+    if _disarm_roll(w):
         print(_TRAP_DISARMED.format(d=_TRAP19))
-        w.set_global("PORTCULLIS", "discharged")
-        from content.experience import award_xp
-        award_xp(w, 5 + (5 if w.globals.get("player_class") == "rogue" else 0))
+        _discharge(w)
     else:
         print(_TRAP_BOTCHED.format(d=_TRAP19))
         _shock(w)
+    return True
+
+
+def disarm(w: World) -> None:
+    """DISARM PORTCULLIS / MECHANISM: retry once spotted; a failure costs only the turn."""
+    if _state(w) != "charged":
+        print(_NOTHING_LEFT)
+    elif not w.get_global("TRAP19-SPOTTED"):
+        print(_UNSPOTTED)
+    elif _disarm_roll(w):
+        print(_RETRY_DISARMED)
+        _discharge(w)
+    else:
+        print(_RETRY_FAILS)
+
+
+def _disarm_roll(w: World) -> bool:
+    from content.player import roll_class_bonus
+    from content.perception import LEVEL_4
+    return roll_class_bonus(w, "trap") >= LEVEL_4
+
+
+def _discharge(w: World) -> None:
+    w.set_global("PORTCULLIS", "discharged")
+    from content.experience import award_xp
+    award_xp(w, 5 + (5 if w.globals.get("player_class") == "rogue" else 0))
 
 
 def _shock(w: World) -> None:
@@ -208,10 +293,10 @@ def lift(w: World) -> None:
         _shock(w)
     else:
         from content.player import roll_class_bonus
-        from content.perception import MEDIUM
-        if roll_class_bonus(w, "strength") >= MEDIUM:
+        from content.perception import LEVEL_4
+        if roll_class_bonus(w, "strength") >= LEVEL_4:
             print(_LIFTED)
-            w.set_global("PORTCULLIS-HELD", w.moves)
+            _set_held(w, True)
         else:
             print(_LIFT_FAILS)
 
@@ -229,7 +314,7 @@ def use_bar(w: World) -> bool:
     if w.get_global("PORTCULLIS-HELD") is None:
         print(_DOWN)
         return True
-    w.set_global("PORTCULLIS-HELD", None)
+    _set_held(w, False)
     w.set_global("PORTCULLIS", "propped")
     w.ways_changed("PORTCULLIS-CORRIDOR")
     w.move_object(w.objects["PORTCULLIS-BAR"], None)   # stays in the portcullis
@@ -265,11 +350,7 @@ class _PortcullisExit(Exit):
     def resolve(self, world):
         if _state(world) != "propped" and _side(world) != self.beyond:
             return None, _DOWN
-        room, msg = super().resolve(world)
-        if room is not None and world.get_global("PORTCULLIS-HELD") is not None:
-            world.set_global("PORTCULLIS-HELD", None)   # walking off lets go
-            print(_DROPS)
-        return room, msg
+        return super().resolve(world)        # (holding it up, V-WALK is refused first)
 
 
 # ---------------------------------------------------------------------------
@@ -277,9 +358,9 @@ class _PortcullisExit(Exit):
 # ---------------------------------------------------------------------------
 
 def shrine_piece_check(w: World) -> bool:
-    """Shrine Room: the shrine bowl piece, Easy, every visit (and SEARCH)."""
-    from content.perception import EASY, reveal_if_found
-    return reveal_if_found(w, "BOWL-PIECE-SHRINE", EASY)
+    """Shrine Room: the shrine bowl piece, Level 1, every visit (and SEARCH)."""
+    from content.perception import LEVEL_1, reveal_if_found
+    return reveal_if_found(w, "BOWL-PIECE-SHRINE", LEVEL_1)
 
 
 def shrine_action(w: World, msg: int = M_NOT_HANDLED) -> int:

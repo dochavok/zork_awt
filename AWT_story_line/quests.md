@@ -202,7 +202,7 @@ Both quests are discovered at the statue (`LOOK AT STATUE`, or prying it open) a
 **Steps:**
 1. Find the Collapsed Aqueduct (Dungeon Upper Tier — south of the Storage Area).
 2. Three fallen stone blocks lie in the room under the gap.
-3. `PLACE BLOCKS` three times — one Medium strength check each (a failure makes no progress, no damage). `PUT` / `LIFT` / `RAISE` / `HEAVE` / `REPLACE` / `MOVE` / `PUSH BLOCK` work the same (locations.md — Collapsed Aqueduct).
+3. `PLACE BLOCKS` three times — one Level 2 strength check each (a failure makes no progress, no damage). `PUT` / `LIFT` / `RAISE` / `HEAVE` / `REPLACE` / `MOVE` / `PUSH BLOCK` work the same (locations.md — Collapsed Aqueduct).
 4. Seal joints with mortar from Supply Room (`SEAL JOINTS WITH MORTAR`; mortar used up) → aqueduct restored.
 Until sealed, the spill floods the far end of the Collapsed Gallery — the Quest 38 shortcut to the Rickety Bridge also needs this quest.
 
@@ -269,7 +269,7 @@ Going `DOWN` into the cellar before it's drained, or opening the tunnel door fro
 1. Find Toll Bridge — Boggart charges extortionate toll, gives no hints about what would satisfy him.
 2. Obtain town charter (via Quest 17 chain).
 3. `GIVE CHARTER TO BOGGART` → Boggart reads it, grumbles, vacates. Drops strongbox.
-4. Strength check (Medium) to open strongbox → 10 Zenni.
+4. Strength check (Level 2) to open strongbox → 10 Zenni.
 
 **Reward:** Bridge permanently free. Dungeon Entrance accessible. 3 Zenni.
 
@@ -341,7 +341,7 @@ He holds it out. "Take it. It was never meant for me."*
 **Prerequisites:** Incantation scroll (Quest 28 reward) + Ivory Torch (The Still Den, lower tier).
 
 **Steps:**
-1. Find Tool Alcove (lower tier, north of The Lower Crossing) — perception check (Medium) reveals speaking door disguised as back wall.
+1. Find Tool Alcove (lower tier, north of The Lower Crossing) — perception check (Level 2) reveals speaking door disguised as back wall.
 2. Door speaks in unknown language — clearly a question; cannot be understood.
 3. `READ SCROLL` (incantation scroll) → door opens; the scroll isn't used up (it can be left behind once the door is open). (*"The wall goes quiet in a way it wasn't quiet before. Then, slowly, it opens. You get the sense it had begun to doubt anyone would ever answer."*)
 4. Pass through The Flooded Passage — dark pool wall to wall.
@@ -379,7 +379,7 @@ He holds it out. "Take it. It was never meant for me."*
 **Steps:**
 1. Find Collapsed Gallery (east branch off Ink Corridor — Storage Area → Collapsed Aqueduct → Collapsed Gallery).
 2. Get pickaxe from mine.
-3. Three strength checks (**Hard, 14**, retries allowed) — one per main timber. After each success, another loosens. Commands: `USE PICKAXE ON TIMBER`, `HIT` / `CHOP` / `BREAK` / `PRY` / `LEVER TIMBER (WITH PICKAXE)`. The crowbar won't do (locations.md — Collapsed Gallery).
+3. Three strength checks (**Level 3, 14**, retries allowed) — one per main timber. After each success, another loosens. Commands: `USE PICKAXE ON TIMBER`, `HIT` / `CHOP` / `BREAK` / `PRY` / `LEVER TIMBER (WITH PICKAXE)`. The crowbar won't do (locations.md — Collapsed Gallery).
 4. After clearing all three, prop passage with support beam (`USE SUPPORT BEAM`, `PROP PASSAGE WITH BEAM`, `PUT BEAM` in the Gallery). The way east opens only once it's propped. Quest 38 completes then. Text in locations.md (Collapsed Gallery).
 
 **Reward:** Permanent shortcut — passage exits into Rickety Bridge, placing player between Shrine Room and Mid-Tier Key Door, bypassing everything above. Significantly speeds dungeon traversal. 5 Zenni.
@@ -559,7 +559,7 @@ He holds it out. "Take it. It was never meant for me."*
 **Prerequisites:** None — accessible from the start of the game.
 
 **Steps:**
-1. Visit Will's Wizard Tower Main Room — silent perception check fires (Easy difficulty). On success: bedroom door becomes visible. Check repeats every visit until discovered.
+1. Visit Will's Wizard Tower Main Room — silent perception check fires (Level 1 difficulty). On success: bedroom door becomes visible. Check repeats every visit until discovered.
 2. Enter Will's Bedroom — glasses on nightstand. Room description visible in full.
 3. `TAKE GLASSES` — wire-rimmed glasses added to inventory.
 4. Leave the tower through the main room (`EXAMINE PAINTING` → Tale and Ale), then `WEAR GLASSES` or `PUT ON GLASSES`. Wearing them anywhere Will can see the player triggers an instant fail state (Will attacks, no recovery). The bedroom itself is safe, but the only way out is through the main room, so putting them on there just moves the fail one step later.
@@ -677,14 +677,14 @@ He holds it out. "Take it. It was never meant for me."*
 
 ## Quest 58 — The Dragon-Nip
 
-**Discovery:** Organic only — silent perception check (Very Hard, 18 — raised from Hard 2026-10-05) fires on every visit to Will's Bedroom.
+**Discovery:** Organic only — silent perception check (Level 4, 18 — raised from Level 3 2026-10-05) fires on every visit to Will's Bedroom.
 On success: *"Something small glows faintly under the nightstand — easy to miss, impossible to unsee once noticed. A sprig of something, tucked against the baseboard as if it rolled there and was forgotten."*
 Actually Enchanted Glasses auto-succeed. They can't be worn through the tower's main room (wearing them in Will's presence is an instant fail), so the player removes them before the mailbox and puts them back on in the bedroom — putting them on in the bedroom fires the check too. No Quest Board posting. No May hints.
 **Prerequisites:** Access to Will's Bedroom (hidden door revealed via Quest 53 perception check).
-**Missability:** Extremely high. Hard perception check, no hints anywhere, no cascade from any other quest except the glasses connection.  Eating the sprig (`EAT SPRIG`) fails the quest for good — see Failed quests, above.
+**Missability:** Extremely high. Level 4 perception check, no hints anywhere, no cascade from any other quest except the glasses connection.  Eating the sprig (`EAT SPRIG`) fails the quest for good — see Failed quests, above.
 
 **Steps:**
-1. Pass perception check in Will's Bedroom (Very Hard; auto-pass with Actually Enchanted Glasses — put them on once inside the bedroom).
+1. Pass perception check in Will's Bedroom (Level 4; auto-pass with Actually Enchanted Glasses — put them on once inside the bedroom).
 2. `TAKE DRAGON-NIP` or `TAKE SPRIG` — item added to inventory.
 3. Bring dragon-nip to Will Passion in the tower. `GIVE DRAGON-NIP TO WILL` (GIVE only — there is no SHOW verb).
 4. Will takes it (dialogue in npcs.md). Produces a Golden Dragon Scale, which goes straight into the inventory: *[Golden Dragon Scale added to inventory.]* Quest complete.

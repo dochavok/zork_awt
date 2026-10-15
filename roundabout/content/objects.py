@@ -298,7 +298,7 @@ def _make_mine_objects(world) -> None:
     )
     world.register_object(flint)
 
-    # Mine Tunnels weak point (Easy perception — content/mine.py)
+    # Mine Tunnels weak point (Level 1 perception — content/mine.py)
     from content.mine import WEAK_POINT_LISTING
     world.register_object(GameObject(
         name="WEAK-POINT", desc="split timber support",
@@ -384,7 +384,7 @@ def _make_sea_objects(world) -> None:
     )
     world.register_object(rope)
 
-    # Found by a Hard perception check aboard; goes straight to inventory
+    # Found by a Level 3 perception check aboard; goes straight to inventory
     world.register_object(GameObject(
         name="TREASURE-MAP", desc="treasure map",
         examine="A hand-drawn map on oilcloth. A small island south of the sea lane, "
@@ -766,7 +766,7 @@ def _make_old_oak_objects(world) -> None:
         name="BEEKEEPER", desc="beekeeper", synonyms=["beekeeper", "woman", "keeper"],
         adjectives=["broad"], flags={ACTORBIT, NDESCBIT},
     ))
-    # Forest bowl piece — hidden until an Easy perception check finds it
+    # Forest bowl piece — hidden until a Level 1 perception check finds it
     world.register_object(GameObject(
         name="BOWL-PIECE-FOREST", desc="large bowl piece",
         fdesc="Among the shards on the pedestal, one piece is larger than the "
@@ -783,7 +783,7 @@ def _make_old_oak_objects(world) -> None:
 # ---------------------------------------------------------------------------
 
 def _make_bog_objects(world) -> None:
-    # Bog-SW shrine bowl piece — hidden until an Easy perception check finds it
+    # Bog-SW shrine bowl piece — hidden until a Level 1 perception check finds it
     world.register_object(GameObject(
         name="BOWL-PIECE-BOG", desc="muddy bowl piece",
         fdesc="Half-sunk in the mud at the edge of the reeds, a curved shard of "
@@ -793,7 +793,7 @@ def _make_bog_objects(world) -> None:
         synonyms=["piece", "shard", "bowl"], adjectives=["bowl", "muddy", "ceramic"],
         flags={TAKEBIT, INVISIBLE},
     ))
-    # Bog items below: Medium perception, every visit until found (content/bog.py)
+    # Bog items below: Level 2 perception, every visit until found (content/bog.py)
     world.register_object(GameObject(
         name="BOG-RUNE-STONE", desc="grey rune stone",
         fdesc="A grey stone sits at the water's edge, one face worn flat.",
@@ -831,7 +831,7 @@ def _make_bog_objects(world) -> None:
 
 def _make_alley_objects(world) -> None:
     from content.back_alley import MUGGER_PRESENCE
-    # Hidden until the Medium perception check spots him
+    # Hidden until the Level 2 perception check spots him
     world.register_object(GameObject(
         name="MUGGER", desc="mugger", fdesc=MUGGER_PRESENCE, ldesc=MUGGER_PRESENCE,
         synonyms=["mugger", "figure", "thief"], adjectives=["shadowy"],
@@ -1156,6 +1156,10 @@ def _make_shrine_path_objects(world) -> None:
     world.register_object(GameObject(
         name="PORTCULLIS", desc="portcullis", synonyms=["portcullis", "gate", "bars"],
         adjectives=["iron"], flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(   # Trap 19: there to see once spotted
+        name="DISCHARGE-MECHANISM", desc="discharge mechanism", synonyms=["mechanism", "lever"],
+        adjectives=["discharge"], flags={NDESCBIT, SACREDBIT, INVISIBLE},
     ))
     world.register_object(GameObject(
         name="MID-TIER-DOOR", desc="iron door", synonyms=["door", "lock"],
