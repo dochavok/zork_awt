@@ -1,7 +1,7 @@
 # Roundabout: The God-Forsaken Ring — Open Design Questions
 
 Consolidated from all source files. Update this file when items are resolved; record the resolution and the source file where it was written.
-Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20).
+Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23).
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 
@@ -47,30 +47,6 @@ From the 2026-10 playtest (theme 2 and the session 4 entries), set aside from TO
   - Suggested: make the letters unreadable until dusted (*"worn almost to nothing; you can make out the shape of words but not the words"*), and let the dust's description or May's tip lean that way.
   - The same entry reports the in-between states as stale: after sealing (and before speaking) the room and `EXAMINE JAR` still say "cracked".
 - **The Lighthouse — the torch burns down in a room with a window** (moved from TODO #15). A question for the light rules (mechanics.md): does a windowed room count as lit, and should a torch burn there?
-
-### TODO #23 — ENTER for the other buildings and places (found 2026-10-14)
-
-TODO #15 made `ENTER` / `GO INTO` / `GO IN` / `GO THROUGH [place]` work for the mine (Roundabout Forest) and the crypt and arch (Charnel Walk) — mechanics.md, Stairs and places.
-The 2026-10 playtest summary lists `enter <place>` among the commands the parser refuses. Extend the same table to the other places a room names as a way in: e.g. the tavern from the Town Square, the lighthouse from the beach, the church, the Town Hall, the library, the mausoleum, the Chuckle House, the beekeeper's cottage.
-Each is a noun and a direction (no new text unless the noun needs an `EXAMINE` line). Check each noun against objects already in that room first.
-
-Decided 2026-10-14 (mechanics.md, Stairs and places):
-- `EXAMINE` / `LOOK AT` / `LOOK IN [place]`: *Why not go in and look around?* for every building, the ship and the yurt. The mine and the arch keep their lines. The volcano is dropped.
-- Bare `ENTER` / `IN`: the room's one place; *Enter what?* (no turn) where there are several (Town Square, Graveyard); none: unchanged.
-- `OUT`, `GO OUT`, bare `LEAVE` and `LEAVE [place]`: *Which direction?* (no turn). On the ship: *Do you wish to land?* (yes runs `LAND`); at sea, *There's no place to land here.* straight away. `EXIT` stays QUIT; `LEAVE [thing]` stays `DROP`.
-- `LAND` / `DOCK` on the deck at the Docks go ashore (west).
-- The ship in a bottle also answers to "ship" — check `EXAMINE SHIP` at the Docks while carrying it.
-
-Items:
-1. ~~Engine: several places per room, shown-by-state, the shared examine line, *Enter what?*~~ (done 2026-10-14)
-2. ~~Town: Town Square (tavern, Town Hall), Main West (library), Main East (church).~~ (done 2026-10-14)
-3. ~~Graveyard: church, mausoleum, Chuckle House (once visible).~~ (done 2026-10-14)
-4. ~~Coast and country: Beach (lighthouse), Docks (ship), Old Oak (cottage), Empty Beach (structure), Viking Encampment (hut, plus the longhouses as scenery), Bog SE (yurt, once found).~~ (done 2026-10-14)
-5. ~~`OUT` / `LEAVE` and the ship's question; rewrite mechanics.md's 2026-10-10 `EXIT` / `LEAVE` entry.~~ (done 2026-10-14; the ship asks *Do you wish to land? [yes/no]*)
-6. ~~`LAND` / `DOCK` at the Docks deck.~~ (done 2026-10-14)
-7. ~~`DROP ALL` named room globals (*You aren't carrying the stairs.*) and gave the forest Zenni to the shrine~~ (fixed 2026-10-14: ALL leaves out uncarried room globals for held-only verbs).
-8. ~~`X` for `EXAMINE` (playtest feedback).~~ (done 2026-10-14)
-9. ~~Apostrophes split words: every possessive failed (`EXAMINE KEEPER'S DESK`)~~ (fixed 2026-10-14: dropped, not split).
 
 ### TODO #21 — Combat Room redesign: the plate fires on entry (decided 2026-10-14)
 
