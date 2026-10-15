@@ -1,7 +1,7 @@
 # Roundabout: The God-Forsaken Ring — Open Design Questions
 
 Consolidated from all source files. Update this file when items are resolved; record the resolution and the source file where it was written.
-Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23, 536aab4 for #21, cb0b094 for #22).
+Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23, 536aab4 for #21, cb0b094 for #22, 213bcd6 for #17).
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 
@@ -12,25 +12,6 @@ Resolved items are removed; their history is in git (last full lists: commit 7ee
 A player using ESET couldn't open the v2.5 .exe (permission error, most likely quarantine).
 The .exe was uploaded to VirusTotal afterwards; waiting to hear whether their next download gets through.
 Once known, add to operations.md (Antivirus false positives) whichever steps actually helped: e.g. uploading each new build to VirusTotal before announcing it, and submitting false positives to the engines that flag it (ESET: in-product Tools → Submit sample for analysis, or samples@eset.com).
-
-### TODO #17 — Trap 45 (Ink Corridor) barely fires at the level players reach it (found 2026-10-13)
-
-- **Difficulty tiers renamed and extended** (2026-10-15): Easy / Medium / Hard / Very Hard are now Level 1–4 checks (same targets), and Level 5–8 were added (24 / 28 / 32 / 44). A Level N check is passed about a third of the time by a level-N player. Written in mechanics.md (Difficulty tiers); the old names below are kept as found.
-- **Arrival level** (checked 2026-10-15): both walkthroughs reach the Ink Corridor at level 5 (ring route 159 XP, full score 187), where Level 2 / Level 2 traps fire 0% of the time.
-- ~~**Trap 45**~~ **resolved 2026-10-15:** Level 5 perception, Level 4 disarm — inks about half of level-5 Warriors, 20% of Rogues (traps.md, Trap 45).
-- ~~**Traps 16 and 17**~~ **resolved 2026-10-15:** Trap 17 (Supply Room) Level 5 / Level 4, like Trap 45; Trap 16 (Chuckle House) Level 4 / Level 4, since most players arrive there at level 4 (traps.md). The Ghost's Room 50% exit roll stays as it is (decided 2026-10-15).
-- ~~**Mid and lower tiers**~~ **resolved 2026-10-15:** Trap 8 (snare) Level 6 perception, Level 4 pull free; Trap 15 (Magnetic Vault) Level 6 perception, Level 5 disarm, Level 4 pry. Strength checks stay at Level 4 so a level-4 Mage or Rogue can always get free. No other lower-tier trap rolls (36 has no check; 29 and 41 are scripted). The dungeon's Level 2 item finds are left as they are.
-- ~~**Traps 19 and 33**~~ **resolved 2026-10-15:** Trap 19 Level 4 perception / disarm / lift (no higher: it guards the north route); Trap 33 Level 5 plate perception, Level 4 pry (traps.md).
-
-Level 4 is about the lowest level a player can be on reaching the dungeon.
-At level 4 (2d10+3 with Lucky), a warrior without glasses passes the Medium (9) perception check 95.7% of the time and the Medium disarm the same, so the trap inks them only ~8.4% of the time (exact; a 20,000-run engine simulation gave 8.7%).
-Rogues and mages, with +3, almost never trigger it. For comparison, a warrior is inked ~83% of the time at level 2 and ~41% at level 3 — levels that don't get here.
-Review the trap's difficulty against the levels players actually arrive at (traps.md, Trap 45). The ink is what negates invisibility, so how often it fires matters beyond this room. Check the other upper-tier traps for the same problem.
-- **Trap 29 (Combat Room plate) and Trap 41 (Flooding Room plate)** — the auto-disarm locked out the Guardian's Lantern and the trap side for ~92% of level-4 warriors and nearly every Rogue. Decided 2026-10-14: neither plate can be spotted or disarmed any more; both fire on entry. Moved to TODO #21 (Combat Room) and TODO #22 (Flooding Room and the apprentice).
-- ~~**Trap 19 (Portcullis Corridor) — a failed check leaves the portcullis charged for good**~~ (found 2026-10-13). **Resolved 2026-10-15:** perception every visit until spotted, plus SEARCH; `DISARM PORTCULLIS` / `MECHANISM` retries once spotted (a failure costs only the turn); `TOUCH` shocks like `LIFT`; new mechanism object and examine text.
-  Written in traps.md (Trap 19), locations.md (Portcullis Corridor) and mechanics.md (SEARCH, Parser Verbs).
-- ~~**Trap 19 — walking through the held portcullis**~~ (found 2026-10-15). With it lifted and held, `SOUTH` said *"The portcullis is down."* and then *"You let go. The portcullis slams back down."*
-  **Resolved 2026-10-15:** no leaving while it's held (*You'll have to drop the portcullis first.*, still held); `DROP` / `RELEASE` / `LOWER PORTCULLIS` and `LET GO` let it drop. Written in locations.md (Portcullis Corridor, Let go) and mechanics.md (Parser Verbs).
 
 ### TODO #18 — The ring: warnings come too late to budget invisibility (found 2026-10-13)
 
