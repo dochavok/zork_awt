@@ -132,6 +132,47 @@ def test_drain_needs_the_cover_off_first():
     assert quests.is_complete(w, "25")
 
 
+def test_cover_off_shows_the_clog():
+    # 2026-10-15 (TODO #19): the cover-off text says there's a second step
+    from content.cellar import _COVER_OFF
+    w, g = _door_open()
+    out = _do(g, "use crowbar on drain")
+    assert _COVER_OFF in out
+    assert "packed solid with rotted sacking and root" in out
+    assert not w.get_global("CELLAR-DRAINED")
+
+
+def test_examine_drain_follows_the_cover():
+    from content.cellar import _EX_COVER_ON, _EX_COVER_OFF
+    w, g = _world()
+    _go(w, "KITCHEN")
+    assert "nothing special" in _do(g, "examine drain")    # door still shut
+    w, g = _door_open()
+    assert _EX_COVER_ON in _do(g, "examine drain")
+    _do(g, "use crowbar on drain")
+    assert _EX_COVER_OFF in _do(g, "examine drain")
+
+
+@pytest.mark.parametrize("command", ["use crowbar on drain", "pry drain",
+                                     "remove cover with crowbar", "unclog drain"])
+def test_crowbar_again_or_unclog_clears_the_drain(command):
+    from content.cellar import _DRAINED
+    w, g = _door_open()
+    _do(g, "use crowbar on drain")
+    out = _do(g, command)
+    assert _DRAINED in out
+    assert w.get_global("CELLAR-DRAINED")
+    assert quests.is_complete(w, "25")
+
+
+def test_clearing_still_needs_the_crowbar():
+    w, g = _door_open()
+    _do(g, "use crowbar on drain")
+    w.move_object(w.objects["CROWBAR"], w.here)
+    assert "bare hands" in _do(g, "clear drain")
+    assert not w.get_global("CELLAR-DRAINED")
+
+
 def test_drained_cellar_is_safe_and_pays_the_cache_once():
     w, g = _door_open(drained=True)
     _do(g, "down")

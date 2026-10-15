@@ -34,10 +34,18 @@ START = {n: (_w.objects[n].location.name if _w.objects[n].location is not None
              and _w.objects[n].location.name in _w.rooms else None) for n in TAKEABLE}
 
 
+# What a player has done before they can pick these up where they start: the
+# quest step that makes the object reachable, set as the game sets it
+_BEFORE = {
+    "QUEEN-VIAL": {"SWARM_SETTLED": True},   # the smoke jar, used in the hollow (old_oak.py)
+}
+
+
 def _pick_up(name, how):
     """The object in the player's hands, picked up as a player would."""
     room = START[name] or PLAIN
-    w, g, _ = _look(room)
+    # Dark rooms: light by the spell, not a second torch ("Which torch do you mean")
+    w, g, _ = _look(room, LIGHT_SPELL_ACTIVE=True, **_BEFORE.get(name, {}))
     obj = w.objects[name]
     obj.flags.discard("INVISIBLE")                  # as if found
     if START[name] is None:

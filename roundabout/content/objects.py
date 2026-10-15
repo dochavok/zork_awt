@@ -1186,7 +1186,8 @@ def _make_mid_tier_objects(world) -> None:
         name="SILVER-DUST", desc="silver dust",
         fdesc="A faint shimmer near the base of one timber catches your eye — silver "
               "dust, settled into a crack in the stone.",
-        examine="A pinch of fine silver dust. It catches the light even down here.",
+        examine="A pinch of fine silver dust. It catches the light even down here. "
+                "Where it's settled in the creases of your fingers, every line stands out.",
         synonyms=["dust", "shimmer"], adjectives=["silver", "fine"], size=1,
         flags={TAKEBIT, INVISIBLE},
     ))

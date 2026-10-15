@@ -8,10 +8,11 @@ Dust), mechanics.md (Whispering Jar).
   is used up and 5 Zenni turn up in the bottom of the jar. DUST JAR (or
   SPRINKLE / PUT DUST ON JAR) — the dust is used up. Dust before the seal is
   refused.
-- READ INSCRIPTION / LETTERS / ETCHING / BASE / JAR: Level 2 perception check every time
-  (glasses bonus / auto-pass apply). Before both steps the words do nothing;
-  after them the jar whispers the thermal vent hint and Quest 4 completes.
+- READ INSCRIPTION / LETTERS / ETCHING / BASE / JAR: unreadable until dusted (no
+  roll); then a Level 2 perception check every time (glasses bonus / auto-pass
+  apply), and the jar whispers the thermal vent hint and Quest 4 completes.
   Reading again repeats the whisper.
+- The room line and EXAMINE follow the state: sealed, dusted, mended.
 - LISTEN: the hum before, quiet after.
 
 State: JAR-SEALED, JAR-DUSTED, JAR-RESTORED
@@ -39,10 +40,29 @@ _DUST = (
     "You sprinkle the silver dust over the jar. It clings to the glaze and settles into "
     "the etched letters around the base, and for a moment the whole jar glints."
 )
-_WORN = "The letters are worn almost smooth. You can't make them out."
-_UNCHANGED = (
-    "Around the base, worn almost smooth: \"Hold what was heard. Speak what was held.\" "
-    "You say the words aloud. The jar hums on, unchanged."
+_UNREADABLE = (
+    "You trace the letters around the base. The silver that once filled them has worn "
+    "away to a few bright flecks, and without it they're only the shape of words, not "
+    "the words."
+)
+_WORN = (
+    "The silver picks out the letters, but your eyes keep sliding off them. You can't "
+    "make them out."
+)
+_SEALED = "A ceramic jar sits on the side table, its crack sealed with red wax, humming faintly to itself."
+_SEALED_EXAMINE = (
+    "A ceramic jar, glazed blue-grey, its crack sealed with red wax. It hums — a low, "
+    "steady note you feel more than hear. Letters are etched around its base, worn "
+    "almost smooth."
+)
+_DUSTED = (
+    "A ceramic jar sits on the side table, its crack sealed with red wax, silver "
+    "glinting around its base. It hums faintly to itself."
+)
+_DUSTED_EXAMINE = (
+    "A ceramic jar, glazed blue-grey, its crack sealed with red wax. It hums — a low, "
+    "steady note you feel more than hear. Silver dust has settled into the letters "
+    "around its base, and they stand out clearly now."
 )
 _WHISPER = (
     "You read the words around the base aloud: \"Hold what was heard. Speak what was "
@@ -67,10 +87,18 @@ def _held(w: World, name: str) -> bool:
     return w.player is not None and w.objects[name] in w.player.contents
 
 
+def _describe(w: World, room_line: str, examine: str) -> None:
+    jar = w.objects["WHISPERING-JAR"]
+    jar.fdesc = room_line
+    jar.ldesc = room_line
+    jar.examine = examine
+
+
 def _press(w: World) -> None:
     from content import quests
     w.move_object(w.objects["WAX-SEAL"], None)
     w.set_global("JAR-SEALED", True)
+    _describe(w, _SEALED, _SEALED_EXAMINE)
     quests.discover(w, "4")
     print(_PRESS)
     w.globals["zenni"] = w.globals.get("zenni", 0) + 5
@@ -83,6 +111,7 @@ def _dust(w: World) -> None:
         return
     w.move_object(w.objects["SILVER-DUST"], None)
     w.set_global("JAR-DUSTED", True)
+    _describe(w, _DUSTED, _DUSTED_EXAMINE)
     print(_DUST)
 
 
@@ -90,19 +119,16 @@ def _read(w: World) -> None:
     from content import quests
     from content.perception import LEVEL_2
     from content.player import check_perception
+    if not w.get_global("JAR-DUSTED"):          # the dust needs the seal first
+        print(_UNREADABLE)                      # no roll: nothing there to read
+        return
     if not check_perception(w, LEVEL_2):
         print(_WORN)
-        return
-    if not (w.get_global("JAR-SEALED") and w.get_global("JAR-DUSTED")):
-        print(_UNCHANGED)
         return
     print(_WHISPER)
     if not w.get_global("JAR-RESTORED"):
         w.set_global("JAR-RESTORED", True)
-        jar = w.objects["WHISPERING-JAR"]
-        jar.fdesc = _MENDED
-        jar.ldesc = _MENDED
-        jar.examine = _MENDED_EXAMINE
+        _describe(w, _MENDED, _MENDED_EXAMINE)
         quests.complete(w, "4", zenni_override=0)   # the 5 Zenni came with the seal
 
 

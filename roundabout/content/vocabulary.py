@@ -91,7 +91,7 @@ def make_vocabulary() -> Vocabulary:
     # buy: new canonical for BUY DRINK / ORDER FOOD / RENT ROOM
     v.add_verb("buy", "order", "purchase", "rent")
     v.add_verb("cast", "incant", "chant")  # takes incant/chant from exorcise; never "spell" (spelling)
-    v.add_verb("clear")                             # CLEAR BONES / CLEAR DRAIN
+    v.add_verb("clear", "unclog")                   # CLEAR BONES / CLEAR DRAIN
     v.add_verb("climb", "sit")
     v.add_verb("ascend")                            # ASCEND [STAIRS] = CLIMB UP (2026-10-14)
     v.add_verb("descend")                           # DESCEND [STAIRS] = CLIMB DOWN

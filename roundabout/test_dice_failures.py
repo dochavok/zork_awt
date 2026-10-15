@@ -56,6 +56,7 @@ FAILURE_TESTS = {
     "upper_tier.pry_idol_door: check_strength": "test_traps.py::test_trap33_pry_needs_crowbar_and_level_4_strength_with_retries",
     "upper_tier.supply_action: check_perception": "test_traps.py::test_trap17_smoke_costs_a_heart_but_the_jar_is_still_there",
     "upper_tier.supply_action: roll_class_bonus": "test_traps.py::test_trap17_botched_disarm_still_smokes",
+    "whispering_jar._read: check_perception": "test_whispering_jar.py::test_failed_read_once_dusted",
 }
 
 # Known gaps: the failure side runs in no test that checks it. Move an entry to
@@ -82,7 +83,6 @@ NOT_YET_TESTED = {
     "tunnels.open_strongbox: roll_class_bonus": "the strongbox lid holds (locations.md — Strongbox stuck)",
     "vikings.archery_action: roll_class_bonus": "an arrow hits on the range",
     "vikings.drink_contest: roll_class_bonus": "Aylora wins a round",
-    "whispering_jar._read: check_perception": "the jar's writing reads as worn",
     "zenni_rooms.on_enter: check_perception": "a room's Zenni stays unfound",
 }
 

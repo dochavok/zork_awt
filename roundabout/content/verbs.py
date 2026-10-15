@@ -162,7 +162,7 @@ def v_examine(world: World) -> int:
         return M_HANDLED
 
     from content import cellar             # the flood behind the black oak door
-    if cellar.examine_tunnel_door(world, obj):
+    if cellar.examine_tunnel_door(world, obj) or cellar.examine_drain(world, obj):
         return M_HANDLED
 
     if obj.name == "MUSIC-BOX":           # Quest 12 — Will's hints

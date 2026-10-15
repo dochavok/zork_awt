@@ -351,7 +351,12 @@ Back-of-house. **Shamus** works here — cook and unofficial vendor. `BUY X` buy
 
 - **`UNLOCK DOOR WITH KEY`:** *The key turns stiffly. The lock hasn't been asked to do anything in years. You leave it where it is.*
 - **`OPEN DOOR` (flooded):** *The cellar door comes up on a breath of cold, wet air. Stone steps lead down — three of them, then water, still and clear, filling the cellar nearly to the beams. At the foot of the steps, through the water, you can make out the square iron cover of a drain.*
-- **`USE CROWBAR ON DRAIN` (door open; also `PRY COVER`, `REMOVE COVER WITH CROWBAR`):** *You lie flat on the top step and reach the crowbar down through the water, feeling along the bottom step until the lip catches the edge of the grate. You lean on it. The cover comes up with a jolt and slides off into the dark.*
+- **`USE CROWBAR ON DRAIN` (door open; also `PRY COVER`, `REMOVE COVER WITH CROWBAR`):** *You lie flat on the top step and reach the crowbar down through the water, feeling along the bottom step until the lip catches the edge of the grate. You lean on it. The cover comes up with a jolt and slides off into the dark. Below the cover, the drain mouth is packed solid with rotted sacking and root. The water isn't going anywhere.*
+  - The last two sentences added 2026-10-15 (TODO #19; playtest: nothing suggested a second step after the cover came off).
+- **`EXAMINE DRAIN`** (door open, before the cellar drains; 2026-10-15, TODO #19). Otherwise the ordinary *You see nothing special about the drain.*
+  - Cover on: *A square iron cover at the foot of the steps, under the water.*
+  - Cover off: *The drain mouth is choked with rotted sacking and root. Clear that, and the water has somewhere to go.*
+- **The crowbar again (cover off):** `USE CROWBAR ON DRAIN`, `PRY DRAIN` and `REMOVE COVER WITH CROWBAR` act as `CLEAR DRAIN` (2026-10-15). `UNCLOG` is a synonym for `CLEAR`.
 - **`CLEAR DRAIN` (cover off):** *You work the crowbar down into the open drain and lever. Something gives — a fist of rotted sacking and root comes up through the water — and the whole cellar starts to turn. The water drops a step, then another, then goes all at once with a long, sucking roar you feel through the kitchen floor. When it's quiet again, the stairs go all the way down.*
   Quest 25 completes.
 - **`DOWN` before the drain is cleared (instant drowning, GAME OVER):** *You start down the steps. On the fourth there isn't a step — only water, colder than it has any right to be. The kitchen's light shrinks to a square above you, and then it doesn't.*

@@ -80,7 +80,14 @@ _OPENED_FLOODED = (
 _COVER_OFF = (
     "You lie flat on the top step and reach the crowbar down through the water, "
     "feeling along the bottom step until the lip catches the edge of the grate. "
-    "You lean on it. The cover comes up with a jolt and slides off into the dark."
+    "You lean on it. The cover comes up with a jolt and slides off into the dark. "
+    "Below the cover, the drain mouth is packed solid with rotted sacking and "
+    "root. The water isn't going anywhere."
+)
+_EX_COVER_ON = "A square iron cover at the foot of the steps, under the water."
+_EX_COVER_OFF = (
+    "The drain mouth is choked with rotted sacking and root. Clear that, and the "
+    "water has somewhere to go."
 )
 _DRAINED = (
     "You work the crowbar down into the open drain and lever. Something gives — "
@@ -207,7 +214,7 @@ def pry_drain(w: World) -> None:
         print("You'd need something with leverage — and reach.")
         return
     if w.get_global("DRAIN-COVER-OFF"):
-        print("The cover's already off.")
+        clear_drain(w)               # the crowbar again: the clog is next
         return
     print(_COVER_OFF)
     w.set_global("DRAIN-COVER-OFF", True)
@@ -268,6 +275,16 @@ def open_tunnel_door(w: World) -> None:
     w.set_global("TUNNEL-DOOR-OPEN", True)
     w.ways_changed("CELLAR", "BONE-PASSAGE")
     print(_TUNNEL_OPENED_BONE if w.here.name == "BONE-PASSAGE" else _TUNNEL_OPENED_CELLAR)
+
+
+def examine_drain(w: World, obj) -> bool:
+    """EXAMINE DRAIN from the top step while the cellar is flooded: the cover,
+    then the clog (locations.md — Kitchen). True if handled."""
+    if obj.name != "DRAIN" or w.here.name != "KITCHEN" \
+            or not w.get_global("CELLAR-DOOR-OPEN") or w.get_global("CELLAR-DRAINED"):
+        return False
+    print(_EX_COVER_OFF if w.get_global("DRAIN-COVER-OFF") else _EX_COVER_ON)
+    return True
 
 
 def examine_tunnel_door(w: World, obj) -> bool:

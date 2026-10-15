@@ -70,6 +70,10 @@ USED_BY_TESTS = [
     ("cargo", "_TY_SIX_ON_TWO"),
     ("cargo", "_WIN"),
     ("cellar", "_BONE_DOOR_SEEP"),
+    ("cellar", "_COVER_OFF"),
+    ("cellar", "_DRAINED"),
+    ("cellar", "_EX_COVER_OFF"),
+    ("cellar", "_EX_COVER_ON"),
     ("cellar", "_DROWN_STAIRS"),
     ("cellar", "_DROWN_TUNNEL"),
     ("cellar", "_MAY_BOOTS"),
@@ -371,9 +375,16 @@ USED_BY_TESTS = [
     ("verbs", "_WHICH_DIRECTION"),
     ("vikings", "_IVANAAR_STATES"),
     ("whispering_jar", "_ALREADY_SEALED"),
+    ("whispering_jar", "_DUSTED"),
+    ("whispering_jar", "_DUSTED_EXAMINE"),
     ("whispering_jar", "_NO_FILL"),
     ("whispering_jar", "_NO_JAR_SEAL"),
     ("whispering_jar", "_PRESS"),
+    ("whispering_jar", "_SEALED"),
+    ("whispering_jar", "_SEALED_EXAMINE"),
+    ("whispering_jar", "_UNREADABLE"),
+    ("whispering_jar", "_WHISPER"),
+    ("whispering_jar", "_WORN"),
 ]
 
 # Imported by tests but not design text (the guard below skips them)

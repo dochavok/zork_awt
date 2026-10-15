@@ -564,6 +564,8 @@ Purchased from Shamus (Kitchen, Tale and Ale) for 3 Zenni. Weight: 2.
 | 15 | *The torch gutters. You don't have much time left on it.* |
 | 0 | Burnout — see below |
 
+**The torch burns in lit rooms too** (confirmed 2026-10-15, TODO #19): once started, the timer runs in lit rooms (the Lighthouse, the tavern, the bog) as well as dark ones. The 2026-10 playtester found that odd three times; kept because the torch is a small early-game cost that the Light spell replaces. They bought three torches, then cast Light on every trip down from about halfway through.
+
 **Torch burnout (turn 0):** Once lit, the torch can't be put out — the timer runs every turn after the first dark room entry. `TURN OFF` / `EXTINGUISH` / `BLOW OUT TORCH`: *A torch burns until it's done. There's no putting it out.*
 - **Game over** only if the player is in a dark room **and** no exit from it leads straight to a lit room: *The torch goes out. In the dark, something shifts. You never find out what.*
 - **Otherwise** (in a lit area, or one move from one, or with the Light spell already lit) the torch just goes out: *The torch gutters and goes out.* The player can walk back to the light.
@@ -1071,7 +1073,7 @@ If the player's cargo already beats Ty's score — straight off the sequence or 
 
 ### Whispering Jar (Quest 4)
 
-Restored with wax seal + silver dust + the inscription etched into its base (`READ INSCRIPTION` — Level 2 perception check; Enchanted Glasses give their bonus, Actually Enchanted Glasses pass). Whispers: *"The ceiling of the thermal vent holds a secret."* Rules and text: items.md — The Whispering Jar.
+Restored with wax seal + silver dust + the inscription etched into its base (`READ INSCRIPTION` — unreadable until dusted, then a Level 2 perception check; Enchanted Glasses give their bonus, Actually Enchanted Glasses pass). Whispers: *"The ceiling of the thermal vent holds a secret."* Rules and text: items.md — The Whispering Jar.
 
 Reading the inscription again repeats the whisper (no further reward). `LISTEN` afterwards: *Nothing. The jar is quiet now.* This is the only hint anywhere for the fire clay in the Thermal Vent Room (lower tier, `LOOK UP`).
 

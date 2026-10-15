@@ -29,7 +29,7 @@ Update this file immediately when any quest detail is designed or changed.
 
 **Reward:** The Whispering Jar hint points player to fire clay in the Thermal Vent Room (lower tier, `LOOK UP`). No other hint for this exists anywhere. 5 Zenni — found in the bottom of the jar when the seal closes the crack.
 
-**May's hint (one tier only — unlocks once player has first descended to the lower tier):** *"That jar in the back room of the inn — people say it used to warn about things. If it's still got something to say, I'd want to hear it before going any deeper."*
+**May's hint (one tier only — unlocks once player has first descended to the lower tier):** (names the room, 2026-10-15, TODO #19) *"That jar in the pipe room, east off the main room — people say it used to warn about things. If it's still got something to say, I'd want to hear it before going any deeper."*
 Decided 2026-10-04: May sells it from the first lower-tier descent whether or not Quest 4 is discovered, and buying it discovers Quest 4. It counts as Tier 1.
 
 ---

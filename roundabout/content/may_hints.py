@@ -63,7 +63,7 @@ _NOT_HERE = "May isn't here."
 
 # --- Hints (quests.md) --------------------------------------------------------
 
-_Q4 = ("That jar in the back room of the inn — people say it used to warn about "
+_Q4 = ("That jar in the pipe room, east off the main room — people say it used to warn about "
        "things. If it's still got something to say, I'd want to hear it before "
        "going any deeper.")
 _Q17_BEFORE = (
