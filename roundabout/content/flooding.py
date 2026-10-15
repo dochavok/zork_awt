@@ -1,21 +1,17 @@
 """
 The Flooding Room (Trap 41, upper tier) and The Spillway (mid-tier trap side).
 
-Design: locations.md (Flooding Room, Trap Side — The Spillway), traps.md
-(Trap 41), experience.md (Trap 41 disarm 5 XP), quests.md (Quest 50).
+Design: locations.md (Flooding Room, Creature Den, Trap Side — The Spillway),
+traps.md (Trap 41), quests.md (Quest 50).
 
-- The plate works like Trap 29's: a Medium perception check on arrival. Missed:
-  stepped on unawares. Spotted with Actually Enchanted Glasses: the player
-  chooses (JUMP ON PLATE / DISARM PLATE). Spotted without them: the disarm
-  rolls automatically. Once spotted, the player walks around it.
-- The plate opens the sluice. Two turns (any command counts): after the first,
-  the warning; after the second, the player is swept one-way to the Spillway.
-  The middle lever closes the sluice; the plate re-arms. Left and right levers
-  are spent once pulled. Leaving south while it floods closes the sluice too.
-- Disarming jams the plate for good, and Quest 50's notice comes off the board.
+- Redesigned 2026-10-14: the plate fires on entry, the first and only visit.
+  No spotting, no disarm, no timer. A slab drops behind the player (the room
+  has no south exit) and water pours in.
+- Three levers, one pull each: the right snaps off and the water rises; the
+  middle stops it; the left sweeps the player one-way down to the Spillway.
+- Once the player has been in, the Creature Den's way north is sealed.
 
-State: FLOOD-PLATE-SPOTTED, FLOOD-PLATE (None | "disarmed"),
-       FLOOD-TURNS (None while closed; 0, 1 while flooding), LEVER-LEFT, LEVER-RIGHT
+State: FLOOD-FIRED, LEVER-LEFT, LEVER-MIDDLE, LEVER-RIGHT
 """
 
 from __future__ import annotations
@@ -27,26 +23,58 @@ from engine.world import Room, Exit, RLANDBIT
 if TYPE_CHECKING:
     from engine.world import World
 
-_ROOM = (
+_ROOM_FIRST = (
     "A low cave, the floor dipping toward the middle and slick with old silt. Three "
     "iron levers stand in a row on the north wall — left, middle, right — above a "
-    "grated sluice mouth. The only way out is back south."
+    "grated sluice mouth."
 )
-_TRAP41 = "a suspiciously clean pressure plate set into the cave floor"
-_TRAP_DISARMED = "You spot {d} and are able to disarm it, neutralizing it."
-_TRAP_BOTCHED = "You see {d}, but your attempt to disarm it fails miserably."
-_SPOTTED = ("In the middle of the floor, one stone is cleaner than everything around "
-            "it — no silt, no grime. A pressure plate.")
-_FIRES = ("Something clicks underfoot. Behind the grate the sluice bangs open, and "
-          "water comes through fast and cold, spreading across the floor.")
-_LEFT = "The lever grinds but won't move."
-_RIGHT = "The lever snaps off in your hand."
-_SPENT = "You already tried that one."
+_ROOM = (
+    "A low cave, the floor dipping toward the middle. Three iron levers stand in a "
+    "row on the north wall — left, middle, right — above a grated sluice mouth. A "
+    "stone slab seals the doorway to the south."
+)
+_WATER_ENTRY = "Water churns knee-deep across the floor, still pouring through the grate."
+_WATER_RISEN = ("Water churns waist-deep across the floor, pouring through the grate "
+                "harder than ever.")
+_WATER_STILL = ("Water stands knee-deep across the floor, flat and still. The grate has "
+                "stopped pouring.")
+_WATER_RISEN_STILL = ("Water stands waist-deep across the floor, flat and still. The "
+                      "grate has stopped pouring.")
+
+_TRIGGER = (
+    "Your foot comes down on a stone that sinks a little too easily. Click. You're "
+    "starting to suspect the builders got a discount on pressure plates."
+)
+_SLAB = (
+    "Behind you, a stone slab drops across the doorway with a boom you feel in your "
+    "teeth. The grate on the north wall bursts open and water comes through in a "
+    "cold, roaring sheet. In a few heartbeats it's above your knees."
+)
+_URGENCY = "The levers on the north wall suddenly look very interesting."
+
+_RIGHT = ("The lever snaps off in your hand. Behind the grate something gives with a "
+          "groan, and a fresh surge pushes the water up to your waist.")
 _MIDDLE = ("The middle lever comes down with a heavy clunk. Behind the grate the sluice "
-           "slams shut, and the water drains away through the floor.")
-_WARNING = "The water is at your knees. One turn left."
+           "slams shut, and the water stops coming. It doesn't go anywhere, either.")
+_LEFT = ("The left lever fights you, then comes down all at once. Under the water, "
+         "something in the floor opens with a deep, sucking roar.")
+_SPENT = "You already tried that one."
 _SWEPT = ("The water closes over your head and the floor drops away. The current takes "
           "you down through the sluice, turning you over in the dark, and lets go.")
+
+LEVERS_EXAMINE = "Three iron levers in a row — left, middle, right. Nothing says which does what."
+_STUMP = "The right one is a stump now."
+SLUICE_POURING = ("A square mouth low in the north wall, barred with an iron grate. Water "
+                  "is pouring through it.")
+SLUICE_STOPPED = ("A square mouth low in the north wall, barred with an iron grate. "
+                  "Nothing comes through it now.")
+PLATE_EXAMINE = ("Somewhere under the water is the stone that started this. You don't "
+                 "need to see it again.")
+_NOTHING_HAPPENS = "Nothing happens."
+_NOTHING_TO_DISARM = "There's nothing here to disarm."
+
+DEN_SEALED = ("The passage north ends at a stone slab now, wet around its edges. That way "
+              "is closed.")
 
 _SPILLWAY = (
     "The sluice deposited you here — wet stone, low ceiling, the sound of water "
@@ -59,41 +87,19 @@ def _here(w: World) -> bool:
     return w.here is not None and w.here.name == "FLOODING-ROOM"
 
 
-def _flooding(w: World) -> bool:
-    return w.get_global("FLOOD-TURNS") is not None
+def _water_line(w: World) -> str:
+    risen = w.get_global("LEVER-RIGHT")
+    if w.get_global("LEVER-MIDDLE"):
+        return _WATER_RISEN_STILL if risen else _WATER_STILL
+    return _WATER_RISEN if risen else _WATER_ENTRY
 
 
 def _fire(w: World) -> None:
-    print(_FIRES)
-    w.set_global("FLOOD-TURNS", 0)
-    w.set_global("FLOOD-JUST-OPENED", True)
-
-
-def _disarmed(w: World) -> None:
-    from content.experience import award_xp
-    w.set_global("FLOOD-PLATE", "disarmed")
-    from content import quest_board
-    quest_board.remove(w, "50")           # Will's notice comes down for good
-    award_xp(w, 5 + (5 if w.globals.get("player_class") == "rogue" else 0))
-
-
-def _on_arrival(w: World) -> None:
-    from content.player import check_perception, roll_class_bonus
-    from content.perception import MEDIUM
-    if not check_perception(w, MEDIUM):
-        _fire(w)                          # stepped on it unawares
-        return
-    w.set_global("FLOOD-PLATE-SPOTTED", True)
-    w.objects["FLOOD-PLATE"].clear_flag("INVISIBLE")
-    if w.globals.get("actually_enchanted_glasses_worn"):
-        print(_SPOTTED)                   # revealed; the player chooses
-        return
-    if roll_class_bonus(w, "trap") >= MEDIUM:
-        print(_TRAP_DISARMED.format(d=_TRAP41))
-        _disarmed(w)
-    else:
-        print(_TRAP_BOTCHED.format(d=_TRAP41))
-        _fire(w)
+    w.set_global("FLOOD-FIRED", True)
+    w.ways_changed("CREATURE-DEN")              # the way north is sealed now
+    print(_TRIGGER)
+    print(_SLAB)
+    print(_URGENCY)
 
 
 def handles_plate(w: World) -> bool:
@@ -102,42 +108,46 @@ def handles_plate(w: World) -> bool:
 
 
 def jump_on_plate(w: World) -> None:
-    if w.get_global("FLOOD-PLATE") == "disarmed" or _flooding(w):
-        print("Nothing happens.")
-    else:
-        _fire(w)
+    print(_NOTHING_HAPPENS)
 
 
 def disarm_plate(w: World) -> None:
-    if not w.get_global("FLOOD-PLATE-SPOTTED"):
-        print("There's nothing here to disarm.")
-        return
-    if w.get_global("FLOOD-PLATE") == "disarmed" or _flooding(w):
-        print("Nothing happens.")
-        return
-    from content.player import roll_class_bonus
-    from content.perception import MEDIUM
-    if roll_class_bonus(w, "trap") >= MEDIUM:
-        print(_TRAP_DISARMED.format(d=_TRAP41))
-        _disarmed(w)
-    else:
-        print(_TRAP_BOTCHED.format(d=_TRAP41))
-        _fire(w)
+    print(_NOTHING_TO_DISARM)
+
+
+def levers_examine(w: World) -> str:
+    if w.get_global("LEVER-RIGHT"):
+        return LEVERS_EXAMINE + " " + _STUMP
+    return LEVERS_EXAMINE
+
+
+def lever_action(w: World) -> int:
+    """EXAMINE any lever, or the levers: the row of three."""
+    if w.prsa == "V-EXAMINE":
+        print(levers_examine(w))
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
+def sluice_action(w: World) -> int:
+    if w.prsa in ("V-EXAMINE", "V-LOOK-INSIDE"):
+        print(SLUICE_STOPPED if w.get_global("LEVER-MIDDLE") else SLUICE_POURING)
+        return M_HANDLED
+    return M_NOT_HANDLED
 
 
 def _pull(w: World, lever) -> None:
-    if lever.name == "LEVER-MIDDLE":
-        if _flooding(w):
-            print(_MIDDLE)
-            w.set_global("FLOOD-TURNS", None)
-        else:
-            print("Nothing happens.")
-        return
     if w.get_global(lever.name):
         print(_SPENT)
         return
     w.set_global(lever.name, True)
-    print(_LEFT if lever.name == "LEVER-LEFT" else _RIGHT)
+    if lever.name == "LEVER-RIGHT":
+        print(_RIGHT)
+    elif lever.name == "LEVER-MIDDLE":
+        print(_MIDDLE)
+    else:
+        print(_LEFT)
+        _sweep(w)
 
 
 _PAPER_RUINED = ("The thin paper didn't survive the trip. What's left of it comes apart "
@@ -161,48 +171,38 @@ def _sweep(w: World) -> None:
     if _carried(w, paper):
         w.move_object(paper, None)
         print(_PAPER_RUINED)
-    w.set_global("FLOOD-TURNS", None)
     w.game.enter_room(w.rooms["SPILLWAY"])
-
-
-class _LeaveExit(Exit):
-    """South out of the Flooding Room: the sluice shuts behind you."""
-    def resolve(self, world):
-        world.set_global("FLOOD-TURNS", None)
-        return super().resolve(world)
 
 
 def flooding_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
-        print(_ROOM)
+        if w.get_global("FLOOD-FIRED"):
+            print(_ROOM + " " + _water_line(w))
+        else:
+            print(_ROOM_FIRST)
         return M_HANDLED
     if msg == M_ENTER:
         w.set_global("ARRIVED-FLOODING", True)
         return M_NOT_HANDLED
     if msg == M_BEG:
-        if w.prsa == "V-PULL" and w.prso is not None and w.prso.name.startswith("LEVER-"):
+        if w.prsa == "V-PULL" and w.prso is not None and w.prso.name in (
+                "LEVER-LEFT", "LEVER-MIDDLE", "LEVER-RIGHT"):
             _pull(w, w.prso)
             return M_HANDLED
         return M_NOT_HANDLED
-    if msg == M_END and _here(w):
-        if w.get_global("ARRIVED-FLOODING"):
-            w.set_global("ARRIVED-FLOODING", False)
-            if w.get_global("FLOOD-PLATE") is None and not w.get_global("FLOOD-PLATE-SPOTTED"):
-                _on_arrival(w)
-            w.set_global("FLOOD-JUST-OPENED", False)   # the arrival turn is the opening turn
-            return M_NOT_HANDLED
-        if not _flooding(w):
-            return M_NOT_HANDLED
-        if w.get_global("FLOOD-JUST-OPENED"):
-            w.set_global("FLOOD-JUST-OPENED", False)
-            return M_NOT_HANDLED
-        turns = w.get_global("FLOOD-TURNS") + 1
-        w.set_global("FLOOD-TURNS", turns)
-        if turns == 1:
-            print(_WARNING)
-        else:
-            _sweep(w)
+    if msg == M_END and _here(w) and w.get_global("ARRIVED-FLOODING"):
+        w.set_global("ARRIVED-FLOODING", False)
+        if not w.get_global("FLOOD-FIRED"):
+            _fire(w)
     return M_NOT_HANDLED
+
+
+class _DenNorth(Exit):
+    """Creature Den north: sealed by the slab once the player has been in."""
+    def resolve(self, world):
+        if world.get_global("FLOOD-FIRED"):
+            return None, DEN_SEALED
+        return super().resolve(world)
 
 
 def spillway_action(w: World, msg: int = M_NOT_HANDLED) -> int:
@@ -220,7 +220,6 @@ def make_rooms(world) -> None:
         world.register_room(r)
         return r
 
-    flooding = room("FLOODING-ROOM", "Flooding Room", flooding_room_action, 1)
+    room("FLOODING-ROOM", "Flooding Room", flooding_room_action, 1)   # no exits: the slab
     room("SPILLWAY", "The Spillway", spillway_action, 2)   # south → Dream Corridor (LL)
-    world.rooms["CREATURE-DEN"].exits["north"] = Exit(destination="FLOODING-ROOM")
-    flooding.exits["south"] = _LeaveExit(destination="CREATURE-DEN")
+    world.rooms["CREATURE-DEN"].exits["north"] = _DenNorth(destination="FLOODING-ROOM")

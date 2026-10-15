@@ -74,6 +74,11 @@ _PAY_REFUSED = (
     "He doesn't want your money. Whatever he wants 200 of, you don't have it."
 )
 _BLOCKED = "The Boggart doesn't move. Neither, it turns out, can you."
+_SEES_YOU = (
+    "'Toll,' the Boggart says, holding out a hand to the exact patch of air "
+    "you're standing in. 'Don't think I can't see you.' He doesn't move. "
+    "Neither, it turns out, can you."
+)
 _EVICTED = (
     "The Boggart takes the charter, unrolls it, and reads. His lips move. He "
     "reads a particular clause twice. Then he rolls it back up with great "
@@ -91,7 +96,8 @@ _BOX_STUCK = "The lid doesn't budge. Whatever's holding it shut is stronger than
 class _BoggartExit(Exit):
     def resolve(self, world):
         if not world.get_global("BOGGART-GONE"):
-            return None, _BLOCKED
+            from content.chuckle import _visible
+            return None, _BLOCKED if _visible(world) else _SEES_YOU   # not fooled by the ring
         return super().resolve(world)
 
 

@@ -10,7 +10,7 @@ import os
 sys.path.insert(0, os.path.dirname(__file__))
 
 from test_knight import _make_world, _do
-from content.tunnels import _TOLL, _PAY_REFUSED, _BLOCKED
+from content.tunnels import _TOLL, _PAY_REFUSED, _BLOCKED, _SEES_YOU
 from content.verbs import _JUST_GO
 
 
@@ -61,3 +61,21 @@ def test_cross_on_the_rickety_bridge_points_the_way():
     w.move_object(w.player, w.rooms["RICKETY-BRIDGE"])
     w.here = w.rooms["RICKETY-BRIDGE"]
     assert _JUST_GO in _do(g, "cross")
+
+
+# npcs.md — Boggart, Invisible: he isn't fooled by the ring (2026-10-14)
+def test_invisible_the_boggart_sees_you():
+    w, g = _at_bridge()
+    w.globals["ring_worn"] = True
+    out = _do(g, "south")
+    assert _SEES_YOU in out
+    assert w.here.name == "TOLL-BRIDGE"
+
+
+def test_inked_ring_wearer_gets_the_usual_block():
+    w, g = _at_bridge()
+    w.globals["ring_worn"] = True
+    w.set_global("INKED", True)
+    out = _do(g, "south")
+    assert _BLOCKED in out and _SEES_YOU not in out
+    assert w.here.name == "TOLL-BRIDGE"

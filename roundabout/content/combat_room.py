@@ -136,6 +136,22 @@ def _fire_plate(w: World) -> None:
     w.move_object(w.objects["WARDEN"], w.rooms["COMBAT-ROOM"])
 
 
+_DEN_BASE = (
+    "A low den that stinks of old straw and older meat. Bones are piled in one "
+    "corner with a care that's somehow worse than if they'd been scattered. "
+)
+_DEN_NORTH = "A passage leads on to the north; the combat room is back through the door to the west."
+_DEN_SEALED = "The combat room is back through the door to the west."
+
+
+def den_action(w: World, msg: int = M_NOT_HANDLED) -> int:
+    """The Den loses its way north once the Flooding Room's slab is down."""
+    if msg == M_LOOK:
+        print(_DEN_BASE + (_DEN_SEALED if w.get_global("FLOOD-FIRED") else _DEN_NORTH))
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
 def den_door_action(w: World) -> int:
     """The Den door: open from the plate's first firing on (the player never
     gets a turn with it shut)."""
@@ -192,14 +208,9 @@ def make_rooms(world) -> None:
     combat = Room(name="COMBAT-ROOM", desc="Combat Room", ldesc="", value=1)
     combat.set_flag(RLANDBIT)
     world.register_room(combat)
-    den = Room(
-        name="CREATURE-DEN", desc="Creature Den", value=1,
-        ldesc=("A low den that stinks of old straw and older meat. Bones are piled "
-               "in one corner with a care that's somehow worse than if they'd been "
-               "scattered. A passage leads on to the north; the combat room is "
-               "back through the door to the west."),
-    )
+    den = Room(name="CREATURE-DEN", desc="Creature Den", value=1, ldesc="")
     den.set_flag(RLANDBIT)
+    den.action = den_action
     world.register_room(den)
 
     world.rooms["IDOL-ROOM"].exits["south"] = Exit(destination="COMBAT-ROOM")

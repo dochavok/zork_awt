@@ -128,7 +128,8 @@ def test_refused_with_a_live_enemy_here(room, setup):
 def test_allowed_once_the_enemy_is_done(room, flag):
     w, g = _rester(room=room)
     w.set_global(flag, True)
-    assert RESTED in _do(g, "rest")
+    with patch("content.char_create.input", lambda p="": ""):    # the apprentice's farewell
+        assert RESTED in _do(g, "rest")
 
 
 def test_unspotted_mugger_does_not_block():

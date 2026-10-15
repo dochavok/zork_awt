@@ -147,27 +147,23 @@ class TestQuestBoard(unittest.TestCase):
         self.wait(BOUNTY_TURN)
         self.assertNotIn(POSTINGS["51"], self.read_board())
 
-    # --- Quest 50's notice comes down (Trap 41 disarmed) --------------------
+    # --- Quest 50's notice stays up until the quest is done -----------------
+    # (Until 2026-10-14 it came down when Trap 41 was disarmed; the plate
+    # can't be disarmed any more.)
 
-    def _disarm_trap_41(self):
-        # A level-1 roll can't spot or disarm a Medium trap; a player reaching
-        # the Flooding Room is well past level 1.
-        self.w.globals["level"] = 6
+    def test_the_flooding_room_leaves_the_apprentice_notice_up(self):
         self.go("FLOODING-ROOM")
-        self.do("wait")                     # the arrival check: spotted and disarmed
-        self.assertEqual(self.w.get_global("FLOOD-PLATE"), "disarmed")
+        self.do("wait")
+        self.assertTrue(self.w.get_global("FLOOD-FIRED"))
+        self.assertIn(POSTINGS["50"], self.read_board())
 
-    def test_trap_41_disarmed_removes_apprentice_notice(self):
-        self._disarm_trap_41()
-        out = self.read_board()
-        self.assertNotIn(POSTINGS["50"], out)
-        self.assertFalse(quests.is_discovered(self.w, "50"))
-
-    def test_read_before_removal_stays_discovered(self):
-        self.read_board()
-        self._disarm_trap_41()
+    def test_freeing_the_apprentice_takes_the_notice_down(self):
+        from content import trap_side
+        self.read_board()                    # discovered
+        self.go("LOST-APPRENTICES-CELL")
+        with patch("sys.stdout", io.StringIO()):
+            trap_side._freed(self.w)         # he digs out; Quest 50 completes
         self.assertNotIn(POSTINGS["50"], self.read_board())
-        self.assertTrue(quests.is_discovered(self.w, "50"))
 
 
 if __name__ == "__main__":

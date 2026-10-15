@@ -134,6 +134,11 @@ def _setup_and_act(case):
             with patch("content.char_create.input", lambda p="": ""):
                 combat_room._fire_plate(w)     # its Press-ENTER pause
             return w, ["COMBAT-ROOM"]
+        if case == "flooding slab":
+            from content import flooding
+            at("FLOODING-ROOM")
+            flooding._fire(w)                  # the Den's way north is sealed
+            return w, ["CREATURE-DEN"]
         if case == "dankhaus path":
             at("BOG-SE")
             dankhaus.path_check(w)
@@ -202,8 +207,9 @@ def _setup_and_act(case):
             w.rooms["TOOL-ALCOVE"].action(w, M_BEG)
             return w, ["TOOL-ALCOVE"]
         if case == "apprentice's tunnel":
-            at("LOST-APPRENTICES-CELL"); w.set_global("APPRENTICE-FREED", True); hold("SHOVEL")
-            trap_side._dig(w)
+            at("LOST-APPRENTICES-CELL"); w.set_global("APPRENTICE-FREED", True)
+            with patch("content.char_create.input", lambda p="": ""):
+                trap_side._digs_himself_out(w)     # he digs through himself
             return w, ["LOST-APPRENTICES-CELL"]
         if case == "boggart leaves":
             at("TOLL-BRIDGE"); hold("TOWN-CHARTER")
@@ -234,7 +240,7 @@ def _setup_and_act(case):
 
 CASES = [
     "aqueduct seal", "gallery propped", "timbers down", "cellar door", "cellar drained",
-    "tunnel door", "ghost freed", "plate fired", "dankhaus path", "litlock's reveal",
+    "tunnel door", "ghost freed", "plate fired", "flooding slab", "dankhaus path", "litlock's reveal",
     "lantern hung", "pool frozen", "crawlspace spotted", "keeper's door", "stored room dug",
     "rope tied", "cave-in", "assay gap, mine side", "assay gap, tunnel side",
     "portcullis propped", "key door", "bones cleared", "alcove opened",

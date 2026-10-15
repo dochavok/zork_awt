@@ -1289,15 +1289,26 @@ def _make_mid_tier_objects(world) -> None:
         size=2, flags={TAKEBIT, INVISIBLE},
     ))
     # Flooding Room, Trap 41 (content/flooding.py)
+    from content.flooding import PLATE_EXAMINE as FLOOD_PLATE_EXAMINE, lever_action, sluice_action
     world.register_object(GameObject(
         name="FLOOD-PLATE", desc="pressure plate", synonyms=["plate", "stone"],
-        adjectives=["pressure", "clean"], flags={NDESCBIT, SACREDBIT, INVISIBLE},
+        adjectives=["pressure", "clean"], examine=FLOOD_PLATE_EXAMINE,
+        flags={NDESCBIT, SACREDBIT},
     ))
     for side in ("left", "middle", "right"):
         world.register_object(GameObject(
             name=f"LEVER-{side.upper()}", desc=f"{side} lever", synonyms=["lever"],
-            adjectives=[side, "iron"], flags={NDESCBIT, SACREDBIT},
+            adjectives=[side, "iron"], action=lever_action, flags={NDESCBIT, SACREDBIT},
         ))
+    world.register_object(GameObject(
+        name="LEVERS", desc="levers", synonyms=["levers"], adjectives=["iron", "three"],
+        action=lever_action, flags={NDESCBIT, SACREDBIT},
+    ))
+    world.register_object(GameObject(
+        name="SLUICE", desc="sluice", synonyms=["sluice", "grate", "mouth"],
+        adjectives=["grated", "sluice", "iron"], action=sluice_action,
+        flags={NDESCBIT, SACREDBIT},
+    ))
     # Spirit Room and Burial Chamber (content/dark_branch.py)
     world.register_object(GameObject(
         name="SPIRITS", desc="spirits",

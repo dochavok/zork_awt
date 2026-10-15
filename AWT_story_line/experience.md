@@ -74,10 +74,10 @@ Successfully disarming a trap awards XP. Triggering a trap awards nothing. Inten
 | Trap 29 | Pressure Plate — Bell (a scripted event since 2026-10-14 — fires on entry, nothing to disarm) | 0 |
 | Trap 33 | Weight-Sensitive Pedestal (safe swap) | 5 |
 | Trap 36 | Bone Crunch Floor | 3 |
-| Trap 41 | Pressure Plate — Flooding | 5 |
+| Trap 41 | Pressure Plate — Flooding (a scripted event since 2026-10-14 — fires on entry, nothing to disarm) | 0 |
 | Trap 45 | Invisible Thread — Ink | 5 |
 
-**Trap total (confirmed): 36 XP**
+**Trap total (confirmed): 31 XP**
 
 ---
 
@@ -88,11 +88,11 @@ XP scales with enemy difficulty. Named/boss enemies award toward the higher end.
 |-------|----------|----|
 | Back Alley Mugger | The Back Alley | 5 |
 | Aylora (drinking challenge) | The Fire Pit, Viking Encampment | 2 |
-| Afflicted Apprentice | Lost Apprentice's Cell, mid-tier trap side | 8 |
+| Afflicted Apprentice | Lost Apprentice's Cell, mid-tier trap side | 12 (raised from 8, 2026-10-14, when Trap 41 stopped paying disarm XP) |
 | The Warden | Combat Room, Dungeon Upper Tier | 15 (raised from 12, 2026-10-14, when Trap 29 stopped paying disarm XP) |
 | Undead Werewolf | The Still Den, Dungeon Lower Tier | 15 |
 
-**Combat total (confirmed): 45 XP**
+**Combat total (confirmed): 49 XP**
 
 *Note: Additional combat encounters will be assigned XP during the combat design pass. Guidelines: standard enemies 2–4 XP, named/boss enemies 10–15 XP.*
 
@@ -104,11 +104,11 @@ XP scales with enemy difficulty. Named/boss enemies award toward the higher end.
 |--------|---------|------|-------|
 | Exploration | 167 | 167 | 167 |
 | Quests | 272–282 | 268–278 | 274–284 |
-| Traps (disarm) | 36 | 36 | 36 |
-| Combat | 45 | 45 | 45 |
-| **Confirmed base total** | **520–530** | **516–526** | **522–532** |
-| Class bonus | +30 | +43 | +45 |
-| **Confirmed total with class bonus** | **550–560** | **559–569** | **567–577** |
+| Traps (disarm) | 31 | 31 | 31 |
+| Combat | 49 | 49 | 49 |
+| **Confirmed base total** | **519–529** | **515–525** | **521–531** |
+| Class bonus | +30 | +43 | +40 |
+| **Confirmed total with class bonus** | **549–559** | **558–568** | **561–571** |
 
 Class bonuses are awarded on top of base XP and vary by class. Quest 53 awards 10 XP (glasses not enchanted) or 20 XP (Actually Enchanted) — a completionist who sails to Kevry earns the higher value. All classes clear the Level 8 threshold of 420 XP comfortably on a completionist run.
 
@@ -167,7 +167,7 @@ Each class gets a bonus in their natural domain. Class identity feels present in
 - **Warriors** — +10 XP per combat kill (3 confirmed kills — the Back Alley Mugger, the Warden, the Undead Werewolf = +30 XP; the Afflicted Apprentice is freed, not killed, and Aylora's challenge is a drinking contest; grows naturally as combat design pass adds encounters)
 - **Mages** — +1 XP per new dungeon room discovered (dungeon only — not overworld or ocean; 43 reachable rooms = +43 XP). Dungeon = the Upper (15), Middle (14) and Lower (15) Tier rooms in locations.md; not the Secret Tunnels, Dungeon Entrance, Toll Bridge or mine. The Skeleton Room can't be earned (death on entry); the Stored Room / Hole to Below counts once.
   - Paid silently on first entry, lit or dark; each room is credited once even if its visited state resets. A move refused by darkness pays nothing.
-- **Rogues** — +5 XP per trap disarmed (9 disarmable traps = +45 XP; Trap 29 stopped being one 2026-10-14)
+- **Rogues** — +5 XP per trap disarmed (8 disarmable traps = +40 XP; Traps 29 and 41 stopped being ones 2026-10-14)
 
 **Class bonus totals (confirmed content):**
 
@@ -175,4 +175,4 @@ Each class gets a bonus in their natural domain. Class identity feels present in
 |-------|-------|-----------------|----------|
 | Warrior | +10/kill | 3 kills | +30 XP |
 | Mage | +1/dungeon room | 43 rooms | +43 XP |
-| Rogue | +5/trap disarmed | 9 traps | +45 XP |
+| Rogue | +5/trap disarmed | 8 traps | +40 XP |

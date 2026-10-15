@@ -23,15 +23,13 @@ def _flooding(carry=("THIN-PAPER",)):
     room = w.rooms["FLOODING-ROOM"]
     w.move_object(w.player, room)
     w.here = room
-    w.set_global("FLOOD-PLATE", "fired")
-    w.set_global("FLOOD-TURNS", 1)               # the warning has been given
-    w.set_global("FLOOD-JUST-OPENED", False)
+    w.set_global("FLOOD-FIRED", True)            # the slab is down, the water's in
     return w, g
 
 
 def test_sweep_ruins_the_paper():
     w, g = _flooding()
-    out = _do(g, "wait")
+    out = _do(g, "pull left lever")
     assert w.here.name == "SPILLWAY"
     assert out.index(SWEPT) < out.index(RUINED)    # then the (dark) Spillway
     assert w.objects["THIN-PAPER"].location is None
@@ -39,7 +37,7 @@ def test_sweep_ruins_the_paper():
 
 def test_paper_back_on_the_slate():
     w, g = _flooding()
-    _do(g, "wait")
+    _do(g, "pull left lever")
     w.move_object(w.player, w.rooms["KITCHEN"])
     w.here = w.rooms["KITCHEN"]
     out = _do(g, "read slate")
@@ -50,20 +48,22 @@ def test_paper_back_on_the_slate():
 
 def test_no_paper_no_line():
     w, g = _flooding(carry=())
-    out = _do(g, "wait")
+    out = _do(g, "pull left lever")
     assert w.here.name == "SPILLWAY" and RUINED not in out
 
 
 def test_rubbing_and_scrolls_survive():
     w, g = _flooding(carry=("THIN-PAPER", "RUBBING", "INCANTATION-SCROLL"))
-    _do(g, "wait")
+    _do(g, "pull left lever")
+    assert w.here.name == "SPILLWAY"
     assert w.objects["RUBBING"].location is w.player
     assert w.objects["INCANTATION-SCROLL"].location is w.player
 
 
-def test_knee_deep_water_is_harmless():
+def test_the_water_in_the_room_is_harmless():
+    # items.md — Thin Paper: only the sweep soaks the player
     w, g = _flooding()
-    w.set_global("FLOOD-TURNS", 0)               # first turn of the flood
-    _do(g, "wait")
+    _do(g, "pull right lever")                   # waist-deep
+    _do(g, "pull middle lever")
     assert w.here.name == "FLOODING-ROOM"
     assert w.objects["THIN-PAPER"].location is w.player

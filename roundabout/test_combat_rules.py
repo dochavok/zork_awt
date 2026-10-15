@@ -435,7 +435,7 @@ def test_finishing_move_fells_the_mugger():
 def test_finishing_move_frees_the_apprentice():
     from content import trap_side
     w, g = _world(level=8)
-    with patch("content.combat.random.randint", lambda a, b: 1):
+    with patch("content.combat.random.randint", lambda a, b: 1),          patch("content.char_create.input", lambda p="": ""):   # his farewell's pause
         trap_side.fight_round(w)
     assert w.get_global("APPRENTICE-FREED")
 

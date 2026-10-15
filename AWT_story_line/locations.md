@@ -973,12 +973,12 @@ Entry point from Roundabout Pond. Contains bog thyme — perception check (**Med
 **XP: 1**
 **NPCs:** None
 **Items:** Hollow log (perception check); key to Will's music box inside (Quest 12)
-**Quest Hooks:** Quest 12; Quest 50 exit surfaces here (shovel required from Lost Apprentice's Cell)
+**Quest Hooks:** Quest 12; the Quest 50 tunnel surfaces here (from the Lost Apprentice's Cell)
 **Connections:** East → Bog of Eternal Stench (NE). South → Bog of Eternal Stench (SW). Southeast → Bog of Eternal Stench (SE).
 Contains a hollow log — perception check (**Medium, 9**), every visit until found. Inside: the key to Will's music box (Quest 12), found with the log; `TAKE KEY` works straight away.
 - **Log listing, key inside:** *A hollow log lies half-sunk among the reeds. Something small and metal glints inside it.* Once the key is taken: *A hollow log lies half-sunk among the reeds.*
 - **Examine log, key inside:** *Rotten through the middle and hollow end to end. Wedged inside: a small brass key.* Once empty: *Rotten through the middle and hollow end to end.*
-- The log can't be taken. Quest 50 Bog-NW exit surfaces here (shovel required to finish hole from Lost Apprentice's Cell).
+- The log can't be taken. The Quest 50 tunnel from the Lost Apprentice's Cell surfaces here (one-way; the apprentice digs it through).
 
 **Room description:** *The reeds are taller here, crowding in from the edges. The water is darker. The smell is worse. This part of the bog feels less visited, which is saying something.*
 
@@ -1509,7 +1509,7 @@ A **Boggart** has claimed squatter's rights and charges an extortionate toll.
 Perception check (Medium; automatic with Actually Enchanted Glasses) reveals faded official seal — public property — triggering Quest 27 discovery and unlocking May's hint. Seal text: *Carved into the bridge's keystone, half worn away: the town's crest, and beneath it, PUBLIC PROPERTY.* If the player already has the town charter, it's followed by:
 *"You remember something about a bridge in the town charter."*
 `GIVE CHARTER TO BOGGART` forces him out; drops strongbox (Medium strength check to open; 10 Zenni). Bridge permanently free after. (Quest 27)
-The toll is 200 — of something he never names — and can't actually be paid; the charter is the only way past him.
+The toll is 200 — of something he never names — and can't actually be paid; the charter is the only way past him. Invisibility doesn't get past him either (npcs.md — Boggart, 2026-10-14).
 - **Trying to pass him:** *The Boggart doesn't move. Neither, it turns out, can you.*
 - **Strongbox opened:** *You get your fingers under the lid and heave. It gives with a shriek of rusted hinges. Inside: 10 Zenni. You pocket them.*
 - **Strongbox stuck:** *The lid doesn't budge. Whatever's holding it shut is stronger than you are, for now.*
@@ -1697,8 +1697,11 @@ South of the Collapsed Aqueduct. Timbers wedged across it blocking a secondary e
 **NPCs:** The Warden (hostile; one-time fight; permanently empty after defeat)
 **Items:** None (the Warden's Guardian's Lantern drops where he's defeated — the Combat Room)
 **Quest Hooks:** None (combat encounter; lantern is critical path item)
-**Connections:** West → Combat Room (door — opens when the Trap 29 plate fires on first entry to the Combat Room, and stays open). North → Flooding Room.
+**Connections:** West → Combat Room (door — opens when the Trap 29 plate fires on first entry to the Combat Room, and stays open). North → Flooding Room (sealed once the player has been in).
 **Room description:** *A low den that stinks of old straw and older meat. Bones are piled in one corner with a care that's somehow worse than if they'd been scattered. A passage leads on to the north; the combat room is back through the door to the west.*
+**Once the player has entered the Flooding Room (2026-10-14, TODO #22):** the slab seals the way north for good.
+- `NORTH`: *The passage north ends at a stone slab now, wet around its edges. That way is closed.*
+- **Room description:** *A low den that stinks of old straw and older meat. Bones are piled in one corner with a care that's somehow worse than if they'd been scattered. The combat room is back through the door to the west.* That's a change of ways, so the Den shows its full description next time.
 **Insignia (examine):** *Pinned to the wall, almost lost under the grime: a faded insignia and the rags of a uniform. This was a guard post once.*
 East of the Combat Room — the only way in is through the Combat Room's door. Lair of **The Warden** — permanently empty after defeat. On examination post-fight: remnants of a uniform/insignia mark this as an official post. The Warden drops the **Guardian's Lantern** on defeat.
 
@@ -1742,24 +1745,31 @@ East to the Creature Den (Flooding Room beyond it, to the north). Connects south
 **XP: 1**
 **NPCs:** None
 **Items:** None
-**Quest Hooks:** None (Trap 41 — wrong lever floods room; failure sweeps player one-way to mid tier Spillway)
-**Connections:** South → Creature Den. Down → Spillway (one-way; flood failure only).
-North of the Creature Den — reachable once the Warden is dead (or past him invisible). Low-lying cave.
-Pressure plate opens a sluice — floods the room in two turns. Three levers: Left (stuck, permanently spent), Right (breaks off, permanently spent), Middle (correct, closes sluice).
-No warning on entry. After a wrong pull on turn 1: explicit warning *"The water is at your knees. One turn left."*
-Failure sweeps player through sluice into mid tier directly below — one-way, no damage.
-Perception check *before entry* spots the suspiciously clean pressure plate; disarming jams it. (Trap 41)
+**Quest Hooks:** Trap 41 — the plate fires on entry; the left lever sweeps the player one-way down to the Spillway (the trap side, Quest 50)
+**Connections:** None back — the slab seals the way south on entry. Down → Spillway (one-way; the left lever).
+North of the Creature Den — reachable once the Warden is dead (or past him invisible). Low-lying cave. One visit only: anyone who walks in is sent down to the trap side.
 
-**Room description:** *A low cave, the floor dipping toward the middle and slick with old silt. Three iron levers stand in a row on the north wall — left, middle, right — above a grated sluice mouth. The only way out is back south.*
-
-**Built (2026-10-04):**
-- The plate works as Trap 29's did before 2026-10-14: Medium perception on arrival. Missed — stepped on unawares.
-  Spotted with Actually Enchanted Glasses — *In the middle of the floor, one stone is cleaner than everything around it — no silt, no grime. A pressure plate.* — and the player chooses (`JUMP ON PLATE` / `DISARM PLATE`). Spotted without them — the disarm rolls automatically (Trap 41 descriptor).
-  Once spotted, the player walks around it.
-- **Plate fires:** *Something clicks underfoot. Behind the grate the sluice bangs open, and water comes through fast and cold, spreading across the floor.*
-- Any command counts as a turn. After the first, the warning; after the second: *The water closes over your head and the floor drops away. The current takes you down through the sluice, turning you over in the dark, and lets go.* — then The Spillway.
-- **Middle lever** while flooding: *The middle lever comes down with a heavy clunk. Behind the grate the sluice slams shut, and the water drains away through the floor.* The plate re-arms (`JUMP ON PLATE` floods it again), so closing the sluice doesn't lock the player out of Quest 50. The left and right levers stay spent.
-- Leaving south while it floods closes the sluice too (no extra line).
+**Redesigned 2026-10-14 (TODO #22).** The plate can't be spotted or disarmed any more, and there's no flood timer. No perception check, no disarm, no Actually Enchanted Glasses choice. The thin paper is still ruined by the sweep.
+- **Entry** (first and only visit), after the room description:
+  1. *Your foot comes down on a stone that sinks a little too easily. Click. You're starting to suspect the builders got a discount on pressure plates.*
+  2. *Behind you, a stone slab drops across the doorway with a boom you feel in your teeth. The grate on the north wall bursts open and water comes through in a cold, roaring sheet. In a few heartbeats it's above your knees.*
+  3. *The levers on the north wall suddenly look very interesting.*
+- **Room description:** *A low cave, the floor dipping toward the middle. Three iron levers stand in a row on the north wall — left, middle, right — above a grated sluice mouth. A stone slab seals the doorway to the south.* Then one water line:
+  - On entry: *Water churns knee-deep across the floor, still pouring through the grate.*
+  - Right lever pulled, middle not: *Water churns waist-deep across the floor, pouring through the grate harder than ever.*
+  - Middle pulled, right not: *Water stands knee-deep across the floor, flat and still. The grate has stopped pouring.*
+  - Both: *Water stands waist-deep across the floor, flat and still. The grate has stopped pouring.*
+  - **The first look**, before the plate fires: *A low cave, the floor dipping toward the middle and slick with old silt. Three iron levers stand in a row on the north wall — left, middle, right — above a grated sluice mouth.*
+- **The levers** — each is one pull, then *You already tried that one.* No hint needed: after the middle one, the only thing left is to pull the others.
+  - **Right:** *The lever snaps off in your hand. Behind the grate something gives with a groan, and a fresh surge pushes the water up to your waist.*
+  - **Middle:** *The middle lever comes down with a heavy clunk. Behind the grate the sluice slams shut, and the water stops coming. It doesn't go anywhere, either.*
+  - **Left:** *The left lever fights you, then comes down all at once. Under the water, something in the floor opens with a deep, sucking roar.* Then the sweep — *The water closes over your head and the floor drops away. The current takes you down through the sluice, turning you over in the dark, and lets go.* — and The Spillway.
+  - `EXAMINE LEVERS` (or `LEVER`): *Three iron levers in a row — left, middle, right. Nothing says which does what.* Once the right one is pulled, add: *The right one is a stump now.*
+- **The sluice** (also `GRATE`), examine:
+  - Pouring: *A square mouth low in the north wall, barred with an iron grate. Water is pouring through it.*
+  - Stopped: *A square mouth low in the north wall, barred with an iron grate. Nothing comes through it now.*
+- **The plate** is scenery, examine only (no `JUMP ON` / `PRESS` / `DISARM`): *Somewhere under the water is the stone that started this. You don't need to see it again.* `JUMP ON PLATE`: *Nothing happens.* `DISARM PLATE`: *There's nothing here to disarm.*
+- **No south exit:** the slab drops on entry and this is the only visit, so the room has no way out but the left lever. `SOUTH`: *You can't go that way.*
 
 ### Prayer Alcove
 **XP: 2**
@@ -2055,22 +2065,21 @@ Liminal branching passage. 2×3×2 decision tree — 12 outcomes (6 success, 6 f
 
 #### Lost Apprentice's Cell
 **XP: 2**
-**NPCs:** Afflicted apprentice (hostile; combat; follows player out after being freed)
-**Items:** Apprentice's Gloves (Quest 50 reward; hands slot, +3)
-**Quest Hooks:** Quest 50 — combat, USE SHOVEL to finish hole to Bog-NW, apprentice follows out; quest completes on bog exit
-**Connections:** North → Dream Corridor. South → Supply Cache. Up → Bog of Eternal Stench (NW) (Quest 50; shovel required; one-way).
-Quest 50: combat with afflicted apprentice; post-combat `USE SHOVEL` finishes hole to Bog-NW; apprentice follows player out; Apprentice's Gloves reward (hands slot, +3); quest completes on bog exit.
+**NPCs:** Afflicted apprentice (hostile; combat; once freed he finishes the tunnel, hands over his gloves and leaves)
+**Items:** Apprentice's Gloves (Quest 50 reward, given in the cell; hands slot, +3)
+**Quest Hooks:** Quest 50 — combat; freed, he finishes the tunnel himself and gives the gloves; the quest completes at the handover
+**Connections:** North → Dream Corridor. South → Supply Cache. Up → Bog of Eternal Stench (NW) (Quest 50; once he's dug through; one-way).
+Quest 50: combat with the afflicted apprentice; freed, he finishes the tunnel to Bog-NW himself, gives the Apprentice's Gloves (hands slot, +3) and climbs out ahead of the player. No shovel needed (2026-10-14, TODO #22).
 
 **Room description** (two states, 2026-10-13 — the old single text said "a tunnel has been dug" in the "west wall", though it isn't through until the dig and `WEST` went nowhere):
 - **Before the dig:** *A cramped cell cut into the rock, more burrow than room. Scraps of bedding are heaped in one corner. Low in the weakest stretch of wall, where the rock gives way to packed earth, someone has clawed out a tunnel, angling steeply up into the dark — and stopping a little short of anything. Passages lead north and south.*
-- **After the dig:** *A cramped cell cut into the rock, more burrow than room. Scraps of bedding are heaped in one corner. Low in the weakest stretch of wall, where the rock gives way to packed earth, the tunnel angles steeply up to a ragged patch of grey light. Passages lead north and south.*
+- **After the dig** (he's gone by then): *A cramped cell cut into the rock, more burrow than room. Scraps of bedding are heaped in one corner. Low in the weakest stretch of wall, where the rock gives way to packed earth, the tunnel angles steeply up to a ragged patch of grey light. Passages lead north and south.*
 
-**Built (2026-10-04):**
-- The tunnel to Bog-NW is in the wall, angling up. Apprentice text and the fight: npcs.md — The Afflicted Apprentice.
-- **`USE SHOVEL`** (also `DIG`, `DIG WITH SHOVEL`, `DIG TUNNEL`), once he's freed: *You climb into the tunnel and dig. The earth is soft and wet and close, and it doesn't take long — a few strokes, then a few more, and the shovel breaks through into grey light and a smell you'd know anywhere. The bog. The apprentice is right behind you.* Before he's freed: *He's not going to let you near it.*
-  No shovel: *You'd need something to dig with.*
-- **`UP` before it's dug:** *The tunnel isn't through. You can see where it ends, a little short of anything.*
-- **`UP` once dug** (one-way): the apprentice's farewell and *[Apprentice's Gloves added to inventory.]* (npcs.md), then Bog-NW. Quest 50 completes (12 XP, 5 Zenni, silent). No hole on the bog side.
+**Redesigned 2026-10-14 (TODO #22) — he digs himself out:**
+- The tunnel to Bog-NW is in the wall, angling up. Apprentice text, the fight, his freeing and farewell: npcs.md — The Afflicted Apprentice.
+- **`USE SHOVEL`** (also `DIG`, `DIG WITH SHOVEL`, `DIG TUNNEL`): before he's freed, *He's not going to let you near it.* After: *The tunnel's through. There's nothing left to dig.*
+- **`UP` before he's freed:** *The tunnel isn't through. You can see where it ends, a little short of anything.*
+- **`UP` once he's gone** (one-way): *You climb the tunnel hand over hand and haul yourself out into the reeds. A line of muddy footprints leads away toward town.* Then Bog-NW. No hole on the bog side.
 
 #### Supply Cache
 **XP: 2**
@@ -2078,7 +2087,7 @@ Quest 50: combat with afflicted apprentice; post-combat `USE SHOVEL` finishes ho
 **Items:** Gold nugget (treasure; buried in rubble)
 **Quest Hooks:** None (treasure item)
 **Connections:** North → Lost Apprentice's Cell. South → Flood Sump.
-Partially collapsed side room. Contains a **gold nugget** — buried in rubble, treasure item.
+Partially collapsed side room. Contains a **gold nugget** — buried in rubble, treasure item. Missable: the trap side is one visit only, so leaving up the tunnel before searching the rubble leaves the nugget behind for good (mechanics.md — missable treasures).
 
 **Room description:** *A side room half-buried by a collapse. Broken crates and a toppled shelf poke out of the rubble that fills the far end. Whatever was stored here was stored a long time ago. Passages lead north and south.*
 - **`SEARCH RUBBLE`** (also `DIG IN RUBBLE`, `MOVE RUBBLE`, `DIG`): *You shift the loose stone at the edge of the rubble. Something underneath catches the light — a nugget of gold the size of a thumb joint.* The nugget can't be seen before that. Again: *There's nothing else under there.*

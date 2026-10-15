@@ -24,8 +24,8 @@ from content import light
 LOW, HIGH = 0, 99          # level roll totals: every Medium check fails / passes
 
 # experience.md — Trap Disarmament: XP per disarm (Rogues +5 each)
-TRAP_XP = {8: 3, 15: 4, 16: 3, 17: 3, 19: 5, 33: 5, 36: 3, 41: 5, 45: 5}
-TRAP_TOTAL = 36            # Trap 29 is a scripted event, 0 XP (2026-10-14)
+TRAP_XP = {8: 3, 15: 4, 16: 3, 17: 3, 19: 5, 33: 5, 36: 3, 45: 5}
+TRAP_TOTAL = 31            # Traps 29 and 41 are scripted events, 0 XP (2026-10-14)
 ROGUE_BONUS = 5
 
 # traps.md / locations.md text
@@ -33,7 +33,6 @@ BONES_CRACK = "The bones crack underfoot. The grinding stops. Then the doorway f
 # mechanics.md — the shared disarm success / failure lines
 NOTICED = ("and are able to disarm it, neutralizing it.",
            "but your attempt to disarm it fails miserably.")
-FLOOD_WARNING = "The water is at your knees. One turn left."
 
 
 def _quiet(fn, *a, **kw):
@@ -96,7 +95,7 @@ def _cmd(g, cmd, total):
 # What each disarm pays — experience.md's table, Warrior and Rogue
 # ---------------------------------------------------------------------------
 
-def test_trap_table_totals_36():
+def test_trap_table_totals_31():
     assert sum(TRAP_XP.values()) == TRAP_TOTAL
 
 
@@ -120,8 +119,6 @@ def _disarm(trap, w, g):
     elif trap == 36:
         _arrive(w, g, "ANTECHAMBER", HIGH)
         _cmd(g, "clear bones", HIGH)
-    elif trap == 41:
-        _arrive(w, g, "FLOODING-ROOM", HIGH)
     elif trap == 45:
         _arrive(w, g, "INK-CORRIDOR", HIGH)
 
@@ -141,7 +138,7 @@ def test_disarm_pays_design_xp(trap, cls, bonus):
 
 @pytest.mark.parametrize("cls", ["warrior", "rogue"])
 @pytest.mark.parametrize("room", ["INSCRIPTION-CHAMBER", "SHATTER-TRAP-MIRROR", "SUPPLY-ROOM",
-                                  "PORTCULLIS-CORRIDOR", "FLOODING-ROOM",
+                                  "PORTCULLIS-CORRIDOR",
                                   "INK-CORRIDOR"])
 def test_missed_trap_pays_nothing(room, cls):
     w, g = _world(cls)
@@ -378,35 +375,114 @@ def test_trap36_west_is_always_safe():
     assert w.here.name == "PILE-OF-RUBBLE"
 
 
-def test_trap41_glasses_then_botched_disarm_floods():
-    from content.flooding import _SPOTTED
+# locations.md — Flooding Room: the plate fires on entry, the first and only
+# visit, whatever the rolls, the class or the glasses (redesigned 2026-10-14)
+@pytest.mark.parametrize("total,cls,glasses", [(LOW, "warrior", False), (HIGH, "rogue", False),
+                                               (HIGH, "rogue", True)])
+def test_trap41_fires_on_entry_whatever_the_player(total, cls, glasses):
+    from content.flooding import _ROOM_FIRST, _TRIGGER, _SLAB, _URGENCY
+    w, g = _world(cls)
+    w.globals["actually_enchanted_glasses_worn"] = glasses
+    out = _arrive(w, g, "FLOODING-ROOM", total)
+    assert out.index(_ROOM_FIRST) < out.index(_TRIGGER) < out.index(_SLAB) < out.index(_URGENCY)
+    assert not any(line in out for line in NOTICED)     # nothing to spot or disarm
+    assert w.get_global("FLOOD-FIRED")
+    assert w.globals["xp"] == 0                         # a scripted event pays nothing
+
+
+def test_trap41_an_old_save_with_the_plate_disarmed_fires_on_entry():
     w, g = _world()
-    w.globals["actually_enchanted_glasses_worn"] = True
-    assert _SPOTTED in _arrive(w, g, "FLOODING-ROOM", LOW)     # revealed; the player chooses
-    assert w.get_global("FLOOD-TURNS") is None
-    _cmd(g, "disarm plate", LOW)
-    assert w.get_global("FLOOD-TURNS") is not None
-    assert w.get_global("FLOOD-PLATE") != "disarmed"
-    assert w.globals["xp"] == 0
+    w.set_global("FLOOD-PLATE", "disarmed")
+    _arrive(w, g, "FLOODING-ROOM", LOW)
+    assert w.get_global("FLOOD-FIRED")
 
 
-def test_trap41_missed_plate_floods_the_room():
+def test_trap41_the_slab_leaves_no_way_south():
     w, g = _world()
     _arrive(w, g, "FLOODING-ROOM", LOW)
-    assert w.get_global("FLOOD-TURNS") is not None
-    assert FLOOD_WARNING in _do(g, "pull left lever")
-    _do(g, "pull right lever")
-    assert w.here.name != "FLOODING-ROOM"           # swept down to the mid tier
-    assert not w.get_global("GAME-OVER")            # no damage on the sweep
+    assert "You can't go that way." in _do(g, "south")
+    assert w.here.name == "FLOODING-ROOM"
+
+
+def _flooded():
+    w, g = _world()
+    _arrive(w, g, "FLOODING-ROOM", LOW)
+    return w, g
+
+
+@pytest.mark.parametrize("pulls,line", [
+    ([], "_WATER_ENTRY"), (["right"], "_WATER_RISEN"),
+    (["middle"], "_WATER_STILL"), (["right", "middle"], "_WATER_RISEN_STILL"),
+    (["middle", "right"], "_WATER_RISEN_STILL"),
+])
+def test_trap41_the_water_line_follows_the_levers(pulls, line):
+    from content import flooding
+    w, g = _flooded()
+    for side in pulls:
+        _do(g, f"pull {side} lever")
+    look = _do(g, "look")
+    assert flooding._ROOM + " " + getattr(flooding, line) in look
+
+
+def test_trap41_each_lever_pulls_once():
+    from content.flooding import _RIGHT, _MIDDLE, _SPENT
+    w, g = _flooded()
+    assert _RIGHT in _do(g, "pull right lever")
+    assert _SPENT in _do(g, "pull right lever")
+    assert _MIDDLE in _do(g, "pull middle lever")
+    assert _SPENT in _do(g, "pull middle lever")
+    assert w.here.name == "FLOODING-ROOM"
+
+
+@pytest.mark.parametrize("first", [[], ["middle"], ["right", "middle"]])
+def test_trap41_the_left_lever_sweeps_the_player_down(first):
+    from content.flooding import _LEFT, _SWEPT
+    w, g = _flooded()
+    for side in first:
+        _do(g, f"pull {side} lever")
+    out = _do(g, "pull left lever")
+    assert out.index(_LEFT) < out.index(_SWEPT)
+    assert w.here.name == "SPILLWAY"
+    assert not w.get_global("GAME-OVER")                # no damage on the sweep
     assert w.globals["hearts"] == 5
 
 
-def test_trap41_botched_disarm_on_arrival_floods():
+def test_trap41_the_levers_and_sluice_examine():
+    from content.flooding import LEVERS_EXAMINE, _STUMP, SLUICE_POURING, SLUICE_STOPPED
+    w, g = _flooded()
+    for cmd in ("examine levers", "examine left lever", "examine middle lever"):
+        out = _do(g, cmd)
+        assert LEVERS_EXAMINE in out and _STUMP not in out
+    assert SLUICE_POURING in _do(g, "examine sluice")
+    assert SLUICE_POURING in _do(g, "examine grate")
+    _do(g, "pull right lever")
+    assert LEVERS_EXAMINE + " " + _STUMP in _do(g, "examine levers")
+    _do(g, "pull middle lever")
+    assert SLUICE_STOPPED in _do(g, "examine sluice")
+
+
+def test_trap41_the_plate_is_only_scenery():
+    from content.flooding import PLATE_EXAMINE
+    w, g = _flooded()
+    assert PLATE_EXAMINE in _do(g, "examine plate")
+    assert "Nothing happens." in _do(g, "jump on plate")
+    assert "There's nothing here to disarm." in _do(g, "disarm plate")
+    assert w.here.name == "FLOODING-ROOM"
+
+
+# locations.md — Creature Den: once the player has been in, the way north is sealed
+def test_creature_den_north_is_sealed_after_the_flooding_room():
+    from content.flooding import DEN_SEALED
+    from content.combat_room import _DEN_BASE, _DEN_NORTH, _DEN_SEALED
     w, g = _world()
-    assert NOTICED[1] in _arrive_botched(w, g, "FLOODING-ROOM")
-    assert w.get_global("FLOOD-TURNS") is not None
-    assert w.get_global("FLOOD-PLATE") != "disarmed"
-    assert w.globals["xp"] == 0
+    den = w.rooms["CREATURE-DEN"]
+    w.move_object(w.player, den)
+    w.here = den
+    assert _DEN_BASE + _DEN_NORTH in _do(g, "look")
+    w.set_global("FLOOD-FIRED", True)
+    assert DEN_SEALED in _do(g, "north")
+    assert w.here is den
+    assert _DEN_BASE + _DEN_SEALED in _do(g, "look")
 
 
 @pytest.mark.parametrize("botched", [False, True])

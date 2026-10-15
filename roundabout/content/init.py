@@ -357,7 +357,7 @@ def _place_objects(world) -> None:
                       ("APPRENTICE-TUNNEL", "LOST-APPRENTICES-CELL"),
                       ("CACHE-RUBBLE", "SUPPLY-CACHE"), ("GOLD-NUGGET", "SUPPLY-CACHE")):
         world.move_object(world.objects[obj], world.rooms[room])
-    for obj in ("FLOOD-PLATE", "LEVER-LEFT", "LEVER-MIDDLE", "LEVER-RIGHT"):
+    for obj in ("FLOOD-PLATE", "LEVER-LEFT", "LEVER-MIDDLE", "LEVER-RIGHT", "LEVERS", "SLUICE"):
         world.move_object(world.objects[obj], world.rooms["FLOODING-ROOM"])
     world.move_object(world.objects["FUNERAL-MASK"], world.rooms["BURIAL-CHAMBER"])
 

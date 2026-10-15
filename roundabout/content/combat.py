@@ -29,7 +29,7 @@ _BOW_TIE = "You loose an arrow as it closes on you. Both of you feel it."
 
 # experience.md — Combat
 _COMBAT_XP: dict[str, int] = {
-    "mugger": 5, "aylora": 2, "apprentice": 8, "warden": 15, "werewolf": 15,
+    "mugger": 5, "aylora": 2, "apprentice": 12, "warden": 15, "werewolf": 15,
 }
 
 # Round results

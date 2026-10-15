@@ -85,22 +85,10 @@ The skeleton room beyond is a full room of undead skeletons, a dead end with not
 *(Antechamber → Skeleton Room, lower tier.)*
 
 **41. Pressure Plate — Flooding**
-**Descriptor:** a suspiciously clean pressure plate set into the cave floor
-In a low-lying upper tier cave room, a pressure plate opens a sluice and begins flooding the room.
-Three levers on the wall — Left, Middle, Right — control the sluice. The player has exactly **two turns** to pull the correct lever before the room fills.
-**Left lever:** stuck on pull — "The lever grinds but won't move."
-**Right lever:** breaks off on pull — "The lever snaps off in your hand."
-Both are permanently spent after being pulled; subsequent attempts return "You already tried that one."
-**Middle lever:** correct, closes the sluice. Levers are always the same — no randomization.
-No clue in the room; trial and error is the intended mechanic.
-
-**Turn sequencing:** After turn 1 (wrong lever pulled), the game delivers an explicit warning: *"The water is at your knees. One turn left."*
-After turn 2 (room fills), the player is swept through a sluice into the mid tier directly below the flooding room's physical position on the map — one-way.
-No damage on sweep; displacement is the entire consequence — except that any thin paper carried is destroyed (items.md — Thin Paper).
-Built (2026-10-04) — entry, glasses, re-arm and all room text in locations.md (Flooding Room). Disarm: 5 XP (+5 Rogue).
-The mid tier return path is via Quest 50 (Bog-NW exit) — there is no climbing back up.
-
-**Perception check** before entry spots the suspiciously clean pressure plate; **disarming** jams the plate before the sluice opens — avoiding the trap entirely. *(Flooding Room, upper tier.)*
+**A scripted event, not a trap to beat (2026-10-14, TODO #22).** The plate fires on entry to the Flooding Room — the first and only visit. A slab drops behind the player (there's no way back south), and water pours in. No perception check, no disarm, no Actually Enchanted Glasses choice, no timer and no XP.
+Three levers, each one pull: **Right** snaps off and more water surges in; **Middle** stops the water; **Left** opens the sluice and sweeps the player one-way down to the Spillway (the mid-tier trap side, Quest 50). No hint — after the middle one, the only thing left is to pull the others.
+No damage on the sweep, except that any thin paper carried is destroyed (items.md — Thin Paper). The way back out is the apprentice's tunnel to Bog-NW (Quest 50) — there is no climbing back up.
+It used to be spotted and disarmed with a two-turn flood, but the auto-disarm locked most level-4 warriors and nearly every Rogue out of the trap side. The number is kept. All text: locations.md (Flooding Room). *(Flooding Room, upper tier.)*
 
 **45. Invisible Thread — Ink**
 **Descriptor:** a near-invisible thread strung at chest height across the corridor

@@ -500,18 +500,17 @@ He holds it out. "Take it. It was never meant for me."*
 ## Quest 50 — The Lost Apprentice
 
 **Discovery:** Quest Board — Will Passion posts anonymously, describing a missing person last seen heading toward the dungeon. Posted at game start.
-**Missability:** The Quest Board posting is removed permanently if the player disarms the Flooding Room trap (Trap 41). Those players never reach the trap side. Quest 50 is fully missable — no impact on the ring quest.
+**Missability:** Fully missable — a player who never enters the Flooding Room never reaches the trap side. No impact on the ring quest. (Until 2026-10-14 the notice came down when Trap 41 was disarmed; the plate can't be disarmed any more. The notice now comes down when the quest completes, like any other.)
 
-**Prerequisites:** Access to trap side of mid-tier (via Flooding Room sweep — one-way). The Flooding Room is reached through the Creature Den, past the Warden: the Den door opens when the Trap 29 plate fires on first entry to the Combat Room, and the Warden blocks it until he's dead (or the player slips past invisible). Shovel.
+**Prerequisites:** Access to trap side of mid-tier (via Flooding Room sweep — one-way). The Flooding Room is reached through the Creature Den, past the Warden: the Den door opens when the Trap 29 plate fires on first entry to the Combat Room, and the Warden blocks it until he's dead (or the player slips past invisible). No shovel needed (2026-10-14).
 
 **Steps:**
-1. Be swept through the Flooding Room (Trap 41) → land on The Spillway (mid-tier).
+1. Enter the Flooding Room (Trap 41 fires; the slab seals the way back) and pull the left lever → swept down to The Spillway (mid-tier).
 2. Navigate Dream Corridor → Lost Apprentice's Cell.
 3. Combat with afflicted apprentice — defeating him breaks the affliction.
-4. Apprentice comes around — disoriented, sad. The tunnel he's dug in the cell wall, angling up, is nearly through to the surface.
-5. `USE SHOVEL` → finishes hole to Bog-NW. Permanent exit created.
-6. Apprentice follows player out.
-7. As they surface in Bog-NW, apprentice gives his gloves. Quest completes on bog exit — no return to Will required.
+4. Apprentice comes around, goes back into the tunnel he'd dug in the cell wall and breaks through to Bog-NW himself.
+5. He gives the player his gloves and climbs out. Quest completes at the handover (redesigned 2026-10-14) — no return to Will required.
+6. The player follows him up the tunnel to Bog-NW (one-way).
 
 **Reward:** Apprentice's Gloves — hands slot, +3 combat roll bonus. Will is visibly shaken when player next visits the tower; says little about it (npcs.md — Will Passion). 5 Zenni.
 
@@ -592,7 +591,7 @@ He holds it out. "Take it. It was never meant for me."*
 - Quest 7 (The Bone Flute) — posted 20 turns after player first meets Pyronicus
 - Quest 17 (The Frozen Watch) — posted by Records Room Worker when player delivers ring to Will (second briefing)
 - Quest 24 (The Beekeeper's Swarm) — posted when player receives town charter (Quest 17 reward)
-- Quest 50 (The Lost Apprentice) — posted anonymously by Will at game start; removed if Flooding Room trap disarmed
+- Quest 50 (The Lost Apprentice) — posted anonymously by Will at game start; comes down when it's completed
 - Quest 51 (The Back Alley Mugger) — posted by May after 100 turns if mugger not yet slain; also discoverable organically
 
 **Confirmed non-Board quests:**

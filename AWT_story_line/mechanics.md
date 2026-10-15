@@ -654,7 +654,7 @@ Located in The Bar of the Tale and Ale. Described in the room text. `LOOK AT BOA
 - Quest 7 (The Bone Flute) — posted 20 turns after player first meets Pyronicus
 - Quest 17 (The Frozen Watch) — posted by Records Room Worker when player delivers ring to Will (second briefing)
 - Quest 24 (The Beekeeper's Swarm) — posted when player receives town charter (Quest 17 reward)
-- Quest 50 (The Lost Apprentice) — posted anonymously by Will at game start; removed if Flooding Room trap disarmed
+- Quest 50 (The Lost Apprentice) — posted anonymously by Will at game start; comes down when it's completed
 - Quest 51 (The Back Alley Mugger) — posted by May after 100 turns if mugger not yet slain; also discoverable organically
 
 **Non-Board quests (discovered organically or via NPC):**
@@ -674,7 +674,7 @@ Full cascade design — which quests unlock new postings — confirmed above.
 - Postings are listed in the order they went up. Completed quests are left off.
 - "First meets Pyronicus" (Quest 7) is the ring hand-over (`TALK TO PYRONICUS`); the notice goes up 20 turns later.
 - Quest 40 is also discovered by talking to Shamus; the Kitchen-visit posting is a second route.
-- Quest 50's notice comes down for good when Trap 41 is disarmed. If the player already read it, the quest stays discovered; unread, it never appears.
+- Quest 50's notice used to come down for good when Trap 41 was disarmed; since 2026-10-14 the plate can't be disarmed, and the notice stays up until the quest is completed.
 - The Quest 51 bounty goes up at 100 turns only if the mugger is still alive.
 
 **Board text:**
@@ -694,14 +694,15 @@ Full cascade design — which quests unlock new postings — confirmed above.
 
 ## Shovel & Dig Mechanic
 
-One shovel in the world. Three confirmed uses:
+One shovel in the world. Two confirmed uses:
 1. Stored Room (mid-tier dungeon) → Hole to Below
 2. Desert Island buried chest
-3. Quest 50 — finish hole from Lost Apprentice's Cell to Bog-NW
+
+(Quest 50 used to need it to finish the apprentice's tunnel; since 2026-10-14 he finishes it himself.)
 
 The Werewolf's Amulet (Veil of the Arcane ring ritual artifact) is dropped by the undead werewolf on defeat — not found via dig.
 
-**Will Passion audio note:** 1-in-20 random chance on any `DIG` command (all three dig locations equally, no cooldown):
+**Will Passion audio note:** 1-in-20 random chance on any `DIG` command (every dig location equally, no cooldown):
 
 *Will Passion materializes in your thoughts, uninvited. "Do you know how long it takes to dig a six-foot hole?" You suspect he does. You suspect he has timed it.*
 
@@ -1156,8 +1157,9 @@ Shown at game end alongside player level. Based on total points deposited in the
 | 240–299 | Roundabout's Unhinged Treasure Enthusiast |
 | 300 | Calder Finch |
 
-Total possible: 300 points (9 treasures). Three are missable: the Gold Pocket Watch (30 pts) — permanently inaccessible after the Stored Room collapses; the Funeral Mask of Hammered Gold (36 pts) — unreachable once the ring is bound, because the Spirit Room can't be crossed (locations.md — Spirit Room);
-and the Golden Dragon Scale (36 pts) — never earned if the player eats the dragon-nip (items.md — Dragon-Nip). A thorough player who misses one high-value item or two low-value items will land in the 240–299 tier.
+Total possible: 300 points (9 treasures). Four are missable: the Gold Pocket Watch (30 pts) — permanently inaccessible after the Stored Room collapses; the Funeral Mask of Hammered Gold (36 pts) — unreachable once the ring is bound, because the Spirit Room can't be crossed (locations.md — Spirit Room);
+the Golden Dragon Scale (36 pts) — never earned if the player eats the dragon-nip (items.md — Dragon-Nip);
+and the Gold Nugget (21 pts) — left behind for good if the player leaves the trap side up the apprentice's tunnel without searching the Supply Cache rubble (one visit only, 2026-10-14). A thorough player who misses one high-value item or two low-value items will land in the 240–299 tier.
 
 ---
 
@@ -1261,7 +1263,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | Verb | Context |
 |------|---------|
 | `OPEN MAILBOX` | White House / Tale and Ale — portal to Will's Tower |
-| `DIG` | Shovel required; three confirmed uses plus beach flavor |
+| `DIG` | Shovel required; two confirmed uses plus beach flavor |
 | `LIGHT GUNPOWDER` (also `BURN` / `IGNITE` / `INCINERATE` — synonyms of `LIGHT` everywhere, decided 2026-10-12) | Pie Rat heist — requires flint and steel in inventory |
 | `CAST LIGHT` | Light spell — runs continuously while in darkness, no reuse timer |
 | `FISH` | Roundabout Pond; requires fishing rod |
@@ -1299,7 +1301,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `LOAD STONE ONTO CART` (also `LOAD STONE` / `PUT STONE IN CART` / `PUT STONE ON CART` / `PLACE STONE IN CART`; plain `PUT STONE` when the stone isn't on the cart) | Quest 32 — loads gravestone onto hand cart |
 | `UNLOAD STONE` (also `UNLOAD GRAVESTONE` / `UNLOAD CART` / `UNLOAD STONE FROM CART` / `PUT STONE ON GRAVE` / `PLACE STONE` / `SET STONE` / `RETURN STONE` / `DROP STONE`) | Quest 32 — at the Graveyard, sets the gravestone back and leaves the cart |
 | `USE CROWBAR ON DRAIN` (also `PRY COVER` / `REMOVE COVER WITH CROWBAR`) | Quest 25 — removes the cellar drain cover from the Kitchen top step |
-| `JUMP ON PLATE` | Trap 41 — floods the Flooding Room on purpose. In the Combat Room (Trap 29, a scripted event since 2026-10-14): *Nothing happens.* |
+| `JUMP ON PLATE` | The Combat Room and Flooding Room plates (Traps 29 and 41) are scripted events since 2026-10-14: *Nothing happens.* `DISARM PLATE`: *There's nothing here to disarm.* |
 | `PRY DOOR` | Trap 33 escape — crowbar + strength check |
 | `ASSEMBLE BOWL` (also `REASSEMBLE BOWL` / `REPAIR BOWL` / `FIX BOWL` / `GLUE BOWL` / `PATCH BOWL` / `COMBINE PIECES` / `COMBINE BOWL PIECES`) | Quest 49 — anywhere, holding all three bowl pieces and the clay adhesive → Repaired Bowl |
 | `USE PORTCULLIS BAR` (also `USE BAR ON PORTCULLIS` / `PUT BAR UNDER PORTCULLIS` / `PUT BAR` / `PLACE BAR` / `DROP BAR`) | Trap 19 — props portcullis open permanently; only straight after a successful `LIFT PORTCULLIS` (otherwise `PUT` / `PLACE` / `DROP BAR` just drops it) |

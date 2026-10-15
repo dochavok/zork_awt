@@ -12,12 +12,15 @@ npcs.md (The Afflicted Apprentice).
   them in the Cell. Afterwards it's an ordinary passage.
 - Cell: the afflicted apprentice — one round per KILL APPRENTICE (2d8, 3
   hearts, the Warden's rules; leaving resets him). Fireball works. Defeat
-  breaks the affliction (8 XP, not a kill). USE SHOVEL finishes his tunnel; UP
-  is one-way to Bog-NW, where he hands over his gloves and Quest 50 completes.
+  breaks the affliction (12 XP, not a kill); he finishes his tunnel himself,
+  hands over his gloves and climbs out, and Quest 50 completes (2026-10-14:
+  no shovel needed). UP is then one-way to Bog-NW. An invisible player he
+  doesn't see.
 - Supply Cache: SEARCH RUBBLE uncovers the gold nugget.
 
 State: DREAM-STEP (None | "1" | "2A" | "2B" | "A1".."B3"), DREAM-PASSED,
-       APPRENTICE-HEARTS, APPRENTICE-FREED, TUNNEL-DUG, NUGGET-FOUND
+       APPRENTICE-HEARTS, APPRENTICE-FREED, APPRENTICE-SEEN, APPRENTICE-UNSEEN,
+       TUNNEL-DUG, NUGGET-FOUND
 """
 
 from __future__ import annotations
@@ -201,15 +204,19 @@ _CELL_DUG = (
     "earth, the tunnel angles steeply up to a ragged patch of grey light. Passages lead "
     "north and south."
 )
-APPRENTICE_ATTACKS = (
-    "A young man crouches at the mouth of the tunnel, dirt to the elbows, scraping at the "
-    "earth with his bare hands. He turns as you come in. His eyes are wrong — too wide, too "
-    "fixed — and he comes at you without a word."
+_STOPPED = (
+    "A young man crouches at the mouth of the tunnel, his hands raw, fingers still hooked "
+    "as if he stopped mid-scrape and forgot how to start again."
 )
+APPRENTICE_ATTACKS = (
+    _STOPPED + " He turns as you come in. His eyes are wrong — too wide, too fixed — and "
+    "he comes at you without a word."
+)
+APPRENTICE_UNSEEING = _STOPPED + " He doesn't look round."
 APPRENTICE_AFFLICTED = ("The apprentice crouches between you and the tunnel, breathing "
                         "hard, watching you with eyes that don't blink enough.")
-APPRENTICE_FREED = ("The apprentice sits against the wall, arms around his knees, looking "
-                    "at the tunnel as if he's not sure he dug it.")
+APPRENTICE_UNAWARE = ("The apprentice crouches at the mouth of the tunnel, staring up into "
+                      "the dark. He hasn't noticed you.")
 _ROUND_WON = "You get a blow in. He staggers, shakes his head, and comes again."
 _ROUND_LOST = "He's faster than he looks. His fists find you. You take a hit."
 _ROUND_TIE = "You trade blows. Both of you feel it."
@@ -218,25 +225,24 @@ _FREED = (
     "— red-rimmed, frightened, very young. \"I was digging,\" he says. \"I was digging for "
     "so long.\" He looks at his hands as if they belong to someone else."
 )
-_TALK = (
-    "\"It's nearly through,\" he says, nodding at the tunnel. \"I could hear the bog. I could "
-    "smell it. I just couldn't—\" He stops. \"I don't know what I was doing, at the end.\""
+_DIGS_THROUGH = (
+    "He gets to his feet slowly and looks at the tunnel for a long moment. Then he climbs "
+    "back into it. You hear him digging — not frantic now, just steady — then a soft slump "
+    "of earth, and grey light spills down the shaft along with the smell of the bog."
 )
-_DIG = (
-    "You climb into the tunnel and dig. The earth is soft and wet and close, and it doesn't "
-    "take long — a few strokes, then a few more, and the shovel breaks through into grey "
-    "light and a smell you'd know anywhere. The bog. The apprentice is right behind you."
+_FAREWELL = (
+    "He slides back down, filthy and almost smiling. He peels off his gloves and holds them "
+    "out. \"They were for digging,\" he says. \"I won't be doing that again.\" He starts up "
+    "the tunnel, stops, and looks back. \"Tell Will—\" He shakes his head. \"No. I'll tell "
+    "him myself.\" Then he's gone."
 )
+_GLOVES_ADDED = "[Apprentice's Gloves added to inventory.]"
 _DIG_BLOCKED = "He's not going to let you near it."
-_NO_SHOVEL = "You'd need something to dig with."
+_DUG = "The tunnel's through. There's nothing left to dig."
 _NOT_THROUGH = "The tunnel isn't through. You can see where it ends, a little short of anything."
 _SURFACE = (
-    "You haul yourself out into the reeds, and the apprentice climbs out after you, blinking "
-    "at the sky. He stands there a long moment, breathing the stench like it's fresh air. "
-    "Then he pulls off his gloves and presses them into your hands. \"They were for "
-    "digging,\" he says. \"I won't be doing that again.\" He heads off toward town without "
-    "looking back.\n"
-    "[Apprentice's Gloves added to inventory.]"
+    "You climb the tunnel hand over hand and haul yourself out into the reeds. A line of "
+    "muddy footprints leads away toward town."
 )
 
 # --- Supply Cache / Flood Sump ------------------------------------------------
@@ -368,41 +374,58 @@ def _freed(w: World) -> None:
     from content.combat import award_combat_xp
     print(_FREED)
     w.set_global("APPRENTICE-FREED", True)
-    _apprentice(w).ldesc = APPRENTICE_FREED
     award_combat_xp(w, "apprentice", kill=False)   # the affliction breaks; he lives
+    _digs_himself_out(w)
+
+
+def _digs_himself_out(w: World) -> None:
+    """Freed, he finishes the tunnel, hands over his gloves and climbs out
+    (redesigned 2026-10-14: no shovel needed). Quest 50 completes here."""
+    from content import quests
+    from content.char_create import _pause
+    print(_DIGS_THROUGH)
+    _pause()
+    print(_FAREWELL)
+    print(_GLOVES_ADDED)
+    w.move_object(_apprentice(w), None)
+    w.move_object(w.objects["APPRENTICE-GLOVES"], w.player)
+    w.set_global("TUNNEL-DUG", True)
+    w.ways_changed("LOST-APPRENTICES-CELL")
+    w.set_global("QUEST50-DONE", True)
+    quests.complete(w, "50")              # 12 XP, 5 Zenni, silent; the notice comes down
 
 
 def _dig(w: World) -> None:
-    if _afflicted(w):
-        print(_DIG_BLOCKED)
-        return
-    if w.objects["SHOVEL"] not in w.player.contents:
-        print(_NO_SHOVEL)
-        return
-    w.set_global("TUNNEL-DUG", True)
-    w.ways_changed("LOST-APPRENTICES-CELL")
-    print(_DIG)
+    print(_DIG_BLOCKED if _afflicted(w) else _DUG)
 
 
 class _TunnelUp(Exit):
-    """UP the apprentice's tunnel to Bog-NW — one-way, once it's dug."""
+    """UP the apprentice's tunnel to Bog-NW — one-way, once he's dug through."""
     def resolve(self, world):
-        from content import quests
         if not world.get_global("TUNNEL-DUG"):
             return None, _NOT_THROUGH
-        if world.get_global("QUEST50-DONE"):
-            return super().resolve(world)
-        print(_SURFACE)
-        world.move_object(_apprentice(world), None)
-        world.move_object(world.objects["APPRENTICE-GLOVES"], world.player)
-        world.set_global("QUEST50-DONE", True)
-        quests.complete(world, "50")      # 12 XP, 5 Zenni, silent
-        return super().resolve(world)
+        room, _ = super().resolve(world)
+        return room, _SURFACE
+
+
+def _set_presence(w: World) -> None:
+    """His first-sight line, then his presence — seen or not (the ring, not
+    inked: the Chuckle House rule). Visible for the first time, he attacks."""
+    from content.chuckle import _visible
+    app = _apprentice(w)
+    if _visible(w):
+        app.ldesc = APPRENTICE_AFFLICTED if w.get_global("APPRENTICE-SEEN") else APPRENTICE_ATTACKS
+        w.set_global("APPRENTICE-SEEN", True)
+    else:
+        app.ldesc = APPRENTICE_UNAWARE if w.get_global("APPRENTICE-UNSEEN") else APPRENTICE_UNSEEING
+        w.set_global("APPRENTICE-UNSEEN", True)
 
 
 def cell_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_LOOK:
         print(_CELL_DUG if w.get_global("TUNNEL-DUG") else _CELL)
+        if _afflicted(w):
+            _set_presence(w)
         return M_HANDLED
     if msg == M_ENTER:
         if _afflicted(w):
@@ -411,16 +434,10 @@ def cell_action(w: World, msg: int = M_NOT_HANDLED) -> int:
         return M_NOT_HANDLED
     if msg != M_BEG:
         return M_NOT_HANDLED
-    app = _apprentice(w)
-    if not w.get_global("APPRENTICE-FREED"):
-        app.ldesc = APPRENTICE_AFFLICTED      # the attack line shows on first sight only
-    if w.prsa == "V-TALK" and w.prso is app and w.get_global("APPRENTICE-FREED"):
-        print(_TALK)
-        return M_HANDLED
+    if w.get_global("APPRENTICE-FREED") and _apprentice(w).location is w.here:
+        _digs_himself_out(w)                  # a save from before he dug himself out
     shovel = w.objects["SHOVEL"]
     tunnel = w.objects["APPRENTICE-TUNNEL"]
-    if w.get_global("TUNNEL-DUG"):
-        return M_NOT_HANDLED
     if (w.prsa == "V-USE" and w.prso is shovel) or \
             (w.prsa == "V-DIG" and w.prso in (None, shovel, tunnel)):
         _dig(w)

@@ -50,6 +50,8 @@ From the 2026-10 playtest (theme 2 and the session 4 entries), set aside from TO
 
 ### TODO #22 — Flooding Room and the Lost Apprentice redesign (decided 2026-10-14)
 
+**Done 2026-10-14** — all items below built and tested, plus the Boggart question (he isn't fooled by the ring: npcs.md — Boggart). Docs: locations.md, npcs.md, traps.md, quests.md, items.md, experience.md, mechanics.md. Awaiting commit.
+
 Replaces Trap 41's spot-and-disarm plate and its two-turn flood (moved from TODO #17). Anyone who walks into the Flooding Room is now sent down to the trap side; the apprentice finishes his own tunnel, so no shovel is needed to get out.
 - **Entry (every player, first and only visit):**
   - The plate fires on entry, with a cheeky nod (e.g. whoever designed this dungeon sure liked pressure plates).
@@ -74,3 +76,4 @@ Replaces Trap 41's spot-and-disarm plate and its two-turn flood (moved from TODO
 - **Docs:** traps.md Trap 41 (keep the number); locations.md (Flooding Room, Creature Den, Spillway, Lost Apprentice's Cell, Supply Cache); quests.md Quest 50 (missability, prerequisites — no shovel, steps); npcs.md (The Afflicted Apprentice); items.md (Shovel, Thin Paper — still accurate); experience.md; mechanics.md (missable treasures).
 - **Tests and walkthroughs:** remove `JUMP ON PLATE` / `DISARM PLATE`, the glasses-choice, two-turn flood, re-arm and bog-completion tests; fix walkthrough_fullscore.txt (Quest 50 route) and any walkthrough that disarms or jumps on this plate.
 - **New text to write and approve:** the entry trigger, the slab, the water lines, the three lever lines, the Den's blocked north, the apprentice's freeing, digging and farewell, the cell after he's gone, the new Bog-NW arrival.
+- **At the end of #22 (noted 2026-10-14):** decide what invisibility (the ring, not inked) does with the Boggart on the bridge. The Warden now lets an invisible player past (TODO #21), and the apprentice doesn't see one (#22), so the Boggart is the next guard to settle.

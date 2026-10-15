@@ -788,15 +788,21 @@ Lighthouse keeper. **Unmet NPC — never appears in game.** Referenced only in M
 ---
 
 ### The Afflicted Apprentice (Quest 50)
-Will's missing apprentice, found in the Lost Apprentice's Cell (mid-tier trap side). Fight: 2d8, 3 hearts, 8 XP — one round per `KILL APPRENTICE`, the Warden's rules (higher roll hits for 1 heart, ties hit both; leaving resets him to full). Fireball works (1 heart). Defeat breaks the affliction — he lives, so it isn't a kill (no Warrior bonus, as Aylora).
-- **First sight:** *A young man crouches at the mouth of the tunnel, dirt to the elbows, scraping at the earth with his bare hands. He turns as you come in. His eyes are wrong — too wide, too fixed — and he comes at you without a word.*
+Will's missing apprentice, found in the Lost Apprentice's Cell (mid-tier trap side). Fight: 2d8, 3 hearts, 12 XP (raised from 8, 2026-10-14) — one round per `KILL APPRENTICE`, the Warden's rules (higher roll hits for 1 heart, ties hit both; leaving resets him to full). Fireball works (1 heart). Defeat breaks the affliction — he lives, so it isn't a kill (no Warrior bonus, as Aylora).
+- **He isn't digging when the player arrives** (2026-10-14): the affliction has stopped his progress, and he only goes back to the tunnel after the fight.
+- **First sight:** *A young man crouches at the mouth of the tunnel, his hands raw, fingers still hooked as if he stopped mid-scrape and forgot how to start again. He turns as you come in. His eyes are wrong — too wide, too fixed — and he comes at you without a word.*
 - **Afflicted (presence):** *The apprentice crouches between you and the tunnel, breathing hard, watching you with eyes that don't blink enough.*
 - **Rounds:** won — *You get a blow in. He staggers, shakes his head, and comes again.* Lost — *He's faster than he looks. His fists find you. You take a hit.* Tie — *You trade blows. Both of you feel it.*
 - **Freed:** *He goes down on one knee and stays there. When he looks up, his eyes are his own again — red-rimmed, frightened, very young. "I was digging," he says. "I was digging for so long." He looks at his hands as if they belong to someone else.*
-- **Freed (presence):** *The apprentice sits against the wall, arms around his knees, looking at the tunnel as if he's not sure he dug it.*
-- **`TALK TO APPRENTICE`, freed:** *"It's nearly through," he says, nodding at the tunnel. "I could hear the bog. I could smell it. I just couldn't—" He stops. "I don't know what I was doing, at the end."*
-- **Surfacing in Bog-NW:** *You haul yourself out into the reeds, and the apprentice climbs out after you, blinking at the sky. He stands there a long moment, breathing the stench like it's fresh air. Then he pulls off his gloves and presses them into your hands. "They were for digging," he says. "I won't be doing that again." He heads off toward town without looking back.*
-  — *[Apprentice's Gloves added to inventory.]*
+- ~~**Freed (presence)**~~ — retired 2026-10-14: he leaves straight after he's freed, so it can't show.
+- **Invisible** (wearing the ring, not inked — 2026-10-14): he doesn't see the player and doesn't attack — a nudge to take the ring off. Attacking him gives the player away: the fight runs as normal.
+  - First sight: *A young man crouches at the mouth of the tunnel, his hands raw, fingers still hooked as if he stopped mid-scrape and forgot how to start again. He doesn't look round.*
+  - Presence: *The apprentice crouches at the mouth of the tunnel, staring up into the dark. He hasn't noticed you.*
+- **After he's freed (2026-10-14, TODO #22) — he digs himself out.** Straight after the freed line, then one *[Press ENTER to continue]* before the handover:
+  1. *He gets to his feet slowly and looks at the tunnel for a long moment. Then he climbs back into it. You hear him digging — not frantic now, just steady — then a soft slump of earth, and grey light spills down the shaft along with the smell of the bog.*
+  2. *He slides back down, filthy and almost smiling. He peels off his gloves and holds them out. "They were for digging," he says. "I won't be doing that again." He starts up the tunnel, stops, and looks back. "Tell Will—" He shakes his head. "No. I'll tell him myself." Then he's gone.*
+  — *[Apprentice's Gloves added to inventory.]* Quest 50 completes here (12 XP, 5 Zenni, silent), and its Quest Board notice comes down.
+- The old freed `TALK` line (*"It's nearly through…"*) and the Bog-NW farewell are retired: he never waits in the cell, and the player surfaces alone (locations.md — Lost Apprentice's Cell).
 
 ### The Soldier (Quest 34)
 Encased in magical ice in The Fountain Room (dungeon lower tier). Thawed by Ivory Torch over two turns. Hands over the Forgotten Blade without ceremony. Wanders off dazed. He doesn't return to town — weapon training belongs to the Redcrosse Knight (Quest 54). (Decided 2026-10-05.) Intentionally unnamed — referred to only as "the soldier."
@@ -811,6 +817,8 @@ Described in the Toll Bridge's room description (no separate presence line).
 
 **`TALK TO BOGGART`:** *"Toll," the Boggart says, holding out a hand without looking at it. "Two hundred. Each way. Non-negotiable." He doesn't say two hundred of what, and you get the impression he's never had to.* The toll can't actually be paid.
 He never names Zenni, so `PAY BOGGART` doesn't contradict him, and a player who has saved 200 Zenni (possible before the dungeon on a lucky seed) isn't cheated. (Decided 2026-10-12.)
+
+**Invisible** (wearing the ring, not inked — decided 2026-10-14): he isn't fooled. The player has the ring from the start and the bridge is the only way into the dungeon, so slipping past him would skip Quests 17 and 27. `SOUTH` while invisible: *'Toll,' the Boggart says, holding out a hand to the exact patch of air you're standing in. 'Don't think I can't see you.' He doesn't move. Neither, it turns out, can you.* Visible, the usual block: *The Boggart doesn't move. Neither, it turns out, can you.*
 
 **`PAY BOGGART` (any attempt to pay):** *He doesn't want your money. Whatever he wants 200 of, you don't have it.*
 

@@ -166,10 +166,10 @@ Always lit from purchase. Timer starts on first dark room entry (not on purchase
 ### Apprentice's Gloves
 **Slot:** Hands
 **Weight:** 1
-**Location:** Reward from Quest 50 (The Lost Apprentice) — apprentice gives them on Bog-NW exit
+**Location:** Reward from Quest 50 (The Lost Apprentice) — the apprentice gives them in the Lost Apprentice's Cell, once freed
 **Quest use:** None — combat bonus.
 
-+3 combat roll bonus. Missable — Quest 50 is inaccessible if Flooding Room trap is disarmed before triggering. Straight to the inventory from the apprentice.
++3 combat roll bonus. Missable — a player who never enters the Flooding Room never reaches the apprentice. Straight to the inventory from the apprentice.
 
 ---
 
@@ -385,7 +385,7 @@ Mages read scroll directly (consumed). Warriors/Rogues bring to Will (consumed, 
 ### Shovel
 **Weight:** 3
 **Location:** Pie Rat Ship — Deck (lashed to rail near bow; takeable once aboard post-heist)
-**Quest use:** Three confirmed uses: (1) Stored Room collapse → Hole to Below; (2) Desert Island buried chest; (3) Quest 50 — finish hole to Bog-NW from Lost Apprentice's Cell.
+**Quest use:** Two confirmed uses: (1) Stored Room collapse → Hole to Below; (2) Desert Island buried chest. (Quest 50 no longer needs it — the apprentice finishes his own tunnel, 2026-10-14.)
 
 **In-room description:** *A shovel is lashed to the rail near the bow, practical and out of place at the same time.*
 **Inventory description:** *A sturdy shovel, slightly salt-pitted. It has clearly spent time at sea.*
@@ -555,7 +555,7 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 ### Thin Paper
 **Weight:** 1
 **Location:** Purchased from Shamus (2 Zenni). Destroyed if player gets wet — reappears for sale.
-**Getting wet:** only the Flooding Room sweep (Trap 41) soaks the player — knee-deep water before it doesn't. Carried through the sweep, the paper is destroyed; after the sweep text, before the Spillway: *The thin paper didn't survive the trip. What's left of it comes apart in your fingers.*
+**Getting wet:** only the Flooding Room sweep (Trap 41) soaks the player — the water in the room before it doesn't. Carried through the sweep, the paper is destroyed; after the sweep text, before the Spillway: *The thin paper didn't survive the trip. What's left of it comes apart in your fingers.*
 It's back on Shamus's slate at 2 Zenni. Only the thin paper is affected — the rubbing, the scrolls and other paper survive (the charcoal can't be replaced, and the rubbing leads to the incantation scroll).
 **Examine:** *A few sheets of thin, almost translucent paper — the kind that takes a rubbing.*
 **Quest use:** Quest 28 — `RUB PAPER ON ENGRAVING` in Inscription Chamber with charcoal → produces rubbing for archivist.
@@ -795,5 +795,5 @@ All high-value items. Delivered to the Trophy Case in Town Hall Tower.
 | **Chachapoyan Fertility Idol** | Idol Room, Dungeon Upper Tier | 4 | 30 | Safe swap required (sack of salt); same weight as sack of salt. Examine: *A small stone figurine, squat and round-bellied, worn smooth by hands that weren't yours. A Chachapoyan Fertility Idol, if you had to guess.* |
 | **Gold Pocket Watch** | The Crevice, Dungeon Mid-Tier | 1 | 30 | **Missable** — permanently inaccessible after Stored Room collapses |
 | **Ship-in-a-Bottle** | Roundabout Pond (fishing rod + challenge roll) | 2 | 24 | Plain treasure — no quest, no May hint |
-| **Gold Nugget** | Supply Cache, Dungeon Mid-Tier Trap Side | 2 | 21 | Buried in rubble (`SEARCH RUBBLE`). Examine: *A rough nugget of gold, heavy for its size, still gritty with rock dust.* |
+| **Gold Nugget** | Supply Cache, Dungeon Mid-Tier Trap Side | 2 | 21 | **Missable** — the trap side is one visit only; leave up the apprentice's tunnel without searching and it's gone. Buried in rubble (`SEARCH RUBBLE`). Examine: *A rough nugget of gold, heavy for its size, still gritty with rock dust.* |
 | **Pie Rat Coin** | Flipped by a Pie Rat after returning the stolen ship | 1 | 18 | Unusual currency; pirate provenance |

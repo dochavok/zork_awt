@@ -1545,26 +1545,25 @@ react to taking it.
 =============================================================================
 KK) Quest 50 — The Lost Apprentice (Trap Side)
 =============================================================================
-Quest 50 requires being swept through the Flooding Room (Trap 41) —
-the ONLY way to reach the trap side of the mid-tier. We must NOT disarm
-the Flooding Room or the quest posting is removed permanently.
+Quest 50 is on the trap side of the mid-tier, and the only way there is
+through the Flooding Room (Trap 41). There's no coming back the way we
+came: a slab seals the doorway behind us.
 
 Return up through the Hole to Below and navigate to the Flooding Room.
 
 > WEST                        [Antechamber]
 > WEST                        [Pile of Rubble]
 > UP                          [Hole to Below]
-> TAKE SHOVEL                 [You take the shovel.]
 > WEST                        [Mine Passage]
 > NORTH                       [Key Door Landing]
 > NORTH                       [Mid-Tier Key Door]
-> DROP SHOVEL, FIRE CLAY AND AMULET   [You drop the shovel|You drop the fire clay|Amulet]
+> DROP FIRE CLAY AND AMULET   [You drop the fire clay|Amulet]
 > NORTH                       [Rickety Bridge]
 > NORTH                       [Shrine Room]
 > DROP BLADE AND MASK         [You drop the Forgotten Blade|You drop the Funeral Mask]
 > SOUTH                       [Rickety Bridge]
 > SOUTH                       [Mid-Tier Key Door]
-> TAKE SHOVEL, FIRE CLAY AND AMULET   [You take the shovel|You take the fire clay|Amulet]
+> TAKE FIRE CLAY AND AMULET   [You take the fire clay|Amulet]
 > NORTH                       [Rickety Bridge]
 > NORTH                       [Shrine Room]
 > TAKE BLADE AND MASK         [You take the Forgotten Blade|You take the Funeral Mask]
@@ -1574,16 +1573,12 @@ Return up through the Hole to Below and navigate to the Flooding Room.
 > EAST                        [Creature Den]
 > NORTH                       [Flooding Room]
 
-The Flooding Room: with the glasses on, we spot the pressure plate on the
-way in. Jump on it to open the sluice. Three levers: Left (stuck/spent),
-Right (breaks/spent), Middle (correct — closes sluice). After the first
-turn we get the warning ("water is at your knees"); after the second
-we're swept through to the Spillway — which is what we want. Pull Left,
-then Right.
+The Flooding Room: the plate fires as we step in, a slab drops behind
+us, and water pours through the grate. Three levers: Right breaks off
+(and the water rises), Middle stops the water, Left opens the sluice and
+sweeps us down to the Spillway — which is what we want. Pull Left.
 
-> JUMP ON PLATE               [sluice]
-> PULL LEFT LEVER             [grinds|water is at your knees]
-> PULL RIGHT LEVER            [snaps off|sluice deposited you]
+> PULL LEFT LEVER             [sucking roar|sluice deposited you]
 
 We are swept through the sluice to The Spillway (mid-tier trap side).
 
@@ -1603,10 +1598,12 @@ We are through. Arrive in the Lost Apprentice's Cell.
 
 > KILL APPRENTICE             [You get a blow in]
 > KILL APPRENTICE             [You get a blow in]
-> KILL APPRENTICE             [eyes are his own]
+> KILL APPRENTICE             [eyes are his own|Apprentice's Gloves added to inventory]
 
-The apprentice comes around. Supply Cache is south of Lost Apprentice's Cell. Retrieve the Gold Nugget
-before going UP to Bog-NW — the UP exit is one-way.
+The apprentice comes around, finishes his tunnel himself and hands us
+his gloves — Quest 50 is complete. The Supply Cache is south of the
+cell. Retrieve the Gold Nugget before going UP to Bog-NW — the UP exit
+is one-way, and there's no coming back to the trap side.
 
 > SOUTH                       [Supply Cache]
 > SEARCH RUBBLE               [nugget of gold]
@@ -1615,15 +1612,9 @@ before going UP to Bog-NW — the UP exit is one-way.
 > NORTH                       [Supply Cache]
 > NORTH                       [Lost Apprentice's Cell]
 
-Finish the hole to Bog-NW with the shovel.
+Up the tunnel to Bog-NW.
 
-> USE SHOVEL                  [breaks through]
-
-The apprentice follows us out. Quest completes on bog exit.
-
-> UP                          [Apprentice's Gloves added to inventory|Bog of Eternal Stench]
-
-Quest 50 complete. Apprentice's Gloves received.
+> UP                          [muddy footprints|Bog of Eternal Stench]
 
 > WEAR GLOVES                 [You put on the Apprentice's Gloves.]
 
