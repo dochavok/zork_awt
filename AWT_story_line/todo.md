@@ -1,7 +1,7 @@
 # Roundabout: The God-Forsaken Ring — Open Design Questions
 
 Consolidated from all source files. Update this file when items are resolved; record the resolution and the source file where it was written.
-Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23, 536aab4 for #21).
+Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23, 536aab4 for #21, cb0b094 for #22).
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 
@@ -48,32 +48,3 @@ From the 2026-10 playtest (theme 2 and the session 4 entries), set aside from TO
   - The same entry reports the in-between states as stale: after sealing (and before speaking) the room and `EXAMINE JAR` still say "cracked".
 - **The Lighthouse — the torch burns down in a room with a window** (moved from TODO #15). A question for the light rules (mechanics.md): does a windowed room count as lit, and should a torch burn there?
 
-### TODO #22 — Flooding Room and the Lost Apprentice redesign (decided 2026-10-14)
-
-**Done 2026-10-14** — all items below built and tested, plus the Boggart question (he isn't fooled by the ring: npcs.md — Boggart). Docs: locations.md, npcs.md, traps.md, quests.md, items.md, experience.md, mechanics.md. Awaiting commit.
-
-Replaces Trap 41's spot-and-disarm plate and its two-turn flood (moved from TODO #17). Anyone who walks into the Flooding Room is now sent down to the trap side; the apprentice finishes his own tunnel, so no shovel is needed to get out.
-- **Entry (every player, first and only visit):**
-  - The plate fires on entry, with a cheeky nod (e.g. whoever designed this dungeon sure liked pressure plates).
-  - A new **slab** drops behind the player, sealing the way south; the room is suddenly half full of water. A softened urgency line (not "you may not have much time" — there's no timer, and the line mustn't be a promise the game breaks).
-  - No perception check, no disarm, no glasses choice, no timer. The thin paper is still destroyed by the sweep (accepted).
-- **The levers** (no hint needed — after the middle one, the only thing left to do is pull the others):
-  - **Right:** snaps off, and more water rushes in.
-  - **Middle:** stops the water; the room stays half full.
-  - **Left:** opens the sluice — the player goes down to the Spillway (the existing sweep text). It used to grind and stick; its pull text is new.
-  - Each is one pull, then *"You already tried that one."* The room description needs a water-level line per state (half full, more water, stopped).
-  - The sluice becomes a noun (moved from TODO #15, 2026-10-14: `EXAMINE SLUICE` answers *"You can't see any sluice here!"*; playtest theme 2).
-- **The Creature Den, once the player has entered the Flooding Room:** `NORTH` is refused (the slab — *the way is blocked…*), and the Den description loses "A passage leads on to the north". That's a change of ways, so the Den shows its full description next time. No later visits to the Flooding Room.
-- **The apprentice (Lost Apprentice's Cell):**
-  - More narrative when he's freed from the affliction, and he finishes the tunnel himself. `USE SHOVEL` / `DIG` there needs a new reply (or none); the shovel's uses in items.md drop from three to two.
-  - He gives the player the gloves in the cell (he doesn't need them), and his departure text comes before he climbs out; the cell description changes once he's gone. The Bog-NW surfacing line changes (he's already gone).
-  - Quest 50 completes at the handover, not on reaching the bog (12 XP, 5 Zenni).
-  - **Ring:** if the player is still invisible on reaching him, that interaction needs designing (he crouches "between you and the tunnel"; today nothing checks the ring here).
-  - Check Will's homecoming line (npcs.md — Quest 50) for anything tied to the bog.
-- **Quest 50 stays missable** (a player who never enters the Flooding Room). The Quest Board notice comes down when the apprentice is freed, not when Trap 41 is disarmed.
-- **The gold nugget** stays missable: leaving up the tunnel before searching the Supply Cache leaves it behind for good. Add it to mechanics.md's missable treasures (four, not three) and recheck the tier sentence there.
-- **XP:** Trap 41's 5 disarm XP (+5 Rogue) goes; raise the apprentice's XP (8, experience.md) slightly.
-- **Docs:** traps.md Trap 41 (keep the number); locations.md (Flooding Room, Creature Den, Spillway, Lost Apprentice's Cell, Supply Cache); quests.md Quest 50 (missability, prerequisites — no shovel, steps); npcs.md (The Afflicted Apprentice); items.md (Shovel, Thin Paper — still accurate); experience.md; mechanics.md (missable treasures).
-- **Tests and walkthroughs:** remove `JUMP ON PLATE` / `DISARM PLATE`, the glasses-choice, two-turn flood, re-arm and bog-completion tests; fix walkthrough_fullscore.txt (Quest 50 route) and any walkthrough that disarms or jumps on this plate.
-- **New text to write and approve:** the entry trigger, the slab, the water lines, the three lever lines, the Den's blocked north, the apprentice's freeing, digging and farewell, the cell after he's gone, the new Bog-NW arrival.
-- **At the end of #22 (noted 2026-10-14):** decide what invisibility (the ring, not inked) does with the Boggart on the bridge. The Warden now lets an invisible player past (TODO #21), and the apprentice doesn't see one (#22), so the Boggart is the next guard to settle.
