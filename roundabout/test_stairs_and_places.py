@@ -156,7 +156,7 @@ def test_examine_arch():
 
 
 def test_bare_enter_with_no_place_is_unchanged():
-    w, out = _go("TOWN-SQUARE", "enter")
+    w, out = _go("ALLEY", "enter")              # the Town Square has places (TODO #23)
     assert "You can't go in there." in out
-    w, out = _go("TOWN-SQUARE", "in")
+    w, out = _go("ALLEY", "in")
     assert "You can't go that way." in out

@@ -363,6 +363,8 @@ class Parser:
         # A comma separates list items ("drop all but key, torch and rope");
         # "and" is a buzzword, so this only matters where lists are split.
         text = text.replace(",", " and ")
+        # An apostrophe joins its word ("keeper's" -> "keepers"); it doesn't split it
+        text = re.sub(r"['’]", "", text)
         text = _PUNCT_RE.sub(" ", text.strip().lower())
         return [w for w in text.split() if w]
 
@@ -731,8 +733,15 @@ class Parser:
         """Everything "all" covers. DROP ALL leaves worn items on the player;
         TAKE ALL leaves out what the player already carries. KEEPBIT items
         (content: never parted with) are left out of anything that parts
-        with them."""
+        with them. Room globals (stairs, windows, places) only count when the
+        syntax searches the room: DROP ALL is what you carry."""
         candidates = self._scope_objects(spec, world)
+        locs = spec.locations
+        if locs and not locs.issubset({LOC_MANY, LOC_TAKE}) \
+                and not locs & {LOC_ON_GROUND, LOC_IN_ROOM, LOC_HAVE}:
+            room_globals = {id(o) for o in world.global_objects_for()}
+            candidates = [o for o in candidates
+                          if id(o) not in room_globals or self._carried(o, world)]
         action = getattr(self, "_current_action", None)
         if action in _PARTING_ACTIONS:
             candidates = [o for o in candidates if not o.has_flag("KEEPBIT")]

@@ -1194,18 +1194,14 @@ def v_move(world: World) -> int:
 
 
 # ---------------------------------------------------------------------------
-# V-ENTER  (ENTER DANKHAUS / ENTER YURT)
+# V-ENTER  (ENTER [place] — content/ways.py)
 # ---------------------------------------------------------------------------
 
 def v_enter(world: World) -> int:
-    obj = world.prso
-    if obj is not None and obj.name == "DANKHAUS":
-        from content import dankhaus
-        dankhaus.enter_dankhaus(world)
-        return M_HANDLED
-    from content import ways                    # ENTER MINE, GO THROUGH ARCH, ENTER
-    if ways.enter(world):
-        return M_HANDLED
+    from content import ways                    # ENTER MINE, ENTER YURT, GO THROUGH ARCH, ENTER
+    result = ways.enter(world)
+    if result is not None:
+        return result
     print("You can't go in there.")
     return M_HANDLED
 
@@ -2204,6 +2200,21 @@ _ASHORE = {
 }
 
 
+def _land_dest(world: World):
+    """The shore beside the ship, or None. On the deck the ship is wherever
+    it's moored; in harbor, that's the Docks."""
+    here = world.here
+    if here.name == "SHIP-DECK":
+        at = _ship_origin(world)
+        if at is None:
+            return world.rooms["DOCKS"]
+        here = at
+    return world.rooms.get(_ASHORE.get(here.name, ""))
+
+
+_NO_PLACE_TO_LAND = "There's no place to land here."
+
+
 def _handle_land(world: World) -> None:
     """DOCK / LAND / MOOR / MAKE LAND — one action: go ashore where there's
     land beside the ship."""
@@ -2212,13 +2223,9 @@ def _handle_land(world: World) -> None:
         print("You're not on a ship.")
         return
 
-    # On the deck the ship is wherever it's moored (None = in harbor)
-    at = here
-    if here.name == "SHIP-DECK":
-        at = _ship_origin(world)
-    dest = world.rooms.get(_ASHORE.get(at.name, "")) if at is not None else None
+    dest = _land_dest(world)
     if dest is None:
-        print("There's no place to land here.")
+        print(_NO_PLACE_TO_LAND)
         return
 
     world.set_global("AT-SEA", False)
@@ -2226,6 +2233,84 @@ def _handle_land(world: World) -> None:
     if dest.name == "DOCKS":
         from content import ship
         ship.ship_returned(world)
+
+
+_WHICH_DIRECTION = "Which direction?"
+_LAND_PROMPT = "Do you wish to land? [yes/no] "
+
+
+def leave_here(world: World) -> int:
+    """OUT / GO OUT / LEAVE / LEAVE <place> (mechanics.md — EXIT / LEAVE / OUT).
+    Aboard: ask to land where there's land beside the ship (yes is LAND, a
+    turn); elsewhere aboard, no place to land. Ashore: "Which direction?"
+    No turn unless the player lands."""
+    from engine.game import M_NO_TURN
+    here = world.here
+    if here is not None and here.name in _ABOARD_ROOMS:
+        if _land_dest(world) is None:
+            print(_NO_PLACE_TO_LAND)
+            return M_NO_TURN
+        try:
+            answer = input(_LAND_PROMPT)
+        except (EOFError, KeyboardInterrupt):
+            print()
+            return M_NO_TURN
+        if answer.strip().lower() in ("y", "yes"):
+            _handle_land(world)
+            return M_HANDLED
+        return M_NO_TURN
+    print(_WHICH_DIRECTION)
+    return M_NO_TURN
+
+
+def v_leave(world: World) -> int:
+    """LEAVE alone."""
+    return leave_here(world)
+
+
+def _place_words(world: World) -> set:
+    """Words that name a place to LEAVE: the places you go into, and the words
+    of every room's name."""
+    words = getattr(world, "_place_words", None)
+    if words is None:
+        import re
+        from content import ways
+        words = set()
+        for places in ways.PLACES.values():
+            for name, _way in places:
+                words.update(world.objects[name].synonyms)
+        for room in world.rooms.values():
+            title = re.sub(r"['’]", "", (room.desc or "").lower())
+            words.update(w for w in re.findall(r"[a-z]+", title) if len(w) > 2)
+        words -= {"the", "and", "of"}
+        world._place_words = words
+    return words
+
+
+def _item_at_hand(world: World, word: str) -> bool:
+    """A takeable item by that name carried or in the room (LEAVE BAR holding
+    the portcullis bar is DROP BAR)."""
+    from engine.world import TAKEBIT
+    for obj in world.objects.values():
+        if not obj.has_flag(TAKEBIT) or word not in obj.synonyms:
+            continue
+        loc = obj.location
+        while loc is not None:
+            if loc is world.player or loc is world.here:
+                return True
+            loc = getattr(loc, "location", None)
+    return False
+
+
+def leave_place_input_hook(world: World, text: str):
+    """LEAVE <place> — LEAVE BAR, LEAVE TAVERN, LEAVE SHIP: as LEAVE alone.
+    The parser would refuse a place it can't see before any handler ran."""
+    import re
+    from engine.game import HOOK_NO_TURN, M_NO_TURN
+    words = re.sub(r"['’]", "", text.lower()).split()
+    if len(words) < 2 or words[0] != "leave" or words[-1] not in _place_words(world)             or _item_at_hand(world, words[-1]):
+        return False
+    return HOOK_NO_TURN if leave_here(world) == M_NO_TURN else True
 
 
 def make_land_input_hook(world: World, text: str) -> bool:
@@ -2621,9 +2706,13 @@ def register_verbs(game) -> None:
     game.register_verb("V-EAT",        v_eat)
     from content.vikings import riddle_input_hook
     game.register_input_hook(riddle_input_hook)
+    game.register_input_hook(leave_place_input_hook)   # LEAVE BAR, LEAVE SHIP
+    game.register_verb("V-LEAVE",      v_leave)
     # Preaction intercepts GO EAST/WEST and LAND while at sea; bare IN takes
-    # the room's one place (content/ways.py)
+    # the room's place(s) (content/ways.py); OUT with no "out" exit is LEAVE
     def _pre_walk(world: World) -> int:
         from content import ways
+        if getattr(world, "walk_dir", None) == "out" and world.here is not None                 and "out" not in world.here.exits:
+            return leave_here(world)
         return _pre_walk_at_sea(world) or ways.pre_walk_in(world)
     game.register_preaction("V-WALK",  _pre_walk)

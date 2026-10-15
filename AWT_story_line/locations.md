@@ -794,6 +794,10 @@ Central hub. Fire pit, longhouses, Vikings going about their business.
 **Banner:** `LOOK AT BANNER` reveals four elemental rune symbols in order: Earth, Air, Fire, Water (clue for Ritual Circle Trial 2).
 *Four runes are stitched along the banner, left to right: Earth, Air, Fire, Water.*
 
+**Longhouses** (2026-10-14, TODO #23): scenery, not a way in (`LONGHOUSE`, `LONGHOUSES`, `HALL`, `HALLS`). `EXAMINE LONGHOUSES`:
+*Timber halls with turf roofs, each long enough to sleep a ship's crew. Nobody has invited you in, and nobody looks likely to.*
+`ENTER LONGHOUSE`: the usual *You can't go in there.* `ENTER HUT` / `IN` go north to Haalvar's Hut (mechanics.md, Stairs and places).
+
 **Ivanaar Stormbringer states:**
 - 0 trials: *"You want something from us. They always want something. Prove yourself. Talk to Haalvar — north. If you can satisfy him, come back."*
 - 1 trial: *"Haalvar speaks well of you. That's not nothing. The circle is south."* (Riddle done, circle not. If only the circle is done, Ivanaar still gives the 0-trial line pointing to Haalvar.)
@@ -937,7 +941,8 @@ the bog is a small maze. Only the ways out are named — the pond from SW, and t
 The Dankhaus is east of here. Dankhaus hidden here — dense brush conceals the path; perception check (Medium) required each visit until discovered. Once discovered, path is permanently visible.
 - **Path spotted (first time):** *Off to the east, the brush isn't quite as dense as it should be. Behind it, a path — narrow, deliberate — leads to something low and round. A yurt, improbably dry.*
 - **Added to the room description once found:** *A narrow path leads east through the brush to a low, round yurt.*
-- `EAST` or `ENTER DANKHAUS` / `ENTER YURT` / `ENTER DOOR` goes in (ward-gated until Lynds's invitation). The ring (worn, not inked) gets an uninvited player past the ward — see npcs.md, Litlock, for what happens inside.
+- `EAST` or `ENTER DANKHAUS` / `ENTER YURT` / `ENTER DOOR` (or bare `ENTER` / `IN`, 2026-10-14) goes in (ward-gated until Lynds's invitation). The ring (worn, not inked) gets an uninvited player past the ward — see npcs.md, Litlock, for what happens inside.
+- `EXAMINE YURT` (also `DANKHAUS`, `PATH`, `DOOR`), once the path is found: *Why not go in and look around?* (2026-10-14, TODO #23; was the generic "nothing special").
 - `KNOCK ON DOOR` / `KNOCK ON YURT` (path found; decided 2026-10-12) — inked: the inked line (npcs.md — Litlock); not yet invited: *You rap on the doorframe. From inside, a cheerful voice: "Don't know you! Lovely knock, though."*; invited: *From inside, Litlock's voice: "It's open!"* One turn; knocking never moves the player.
 
 **Room description:** *The bog stretches in every direction, dark water between clumps of soggy earth. The smell is comprehensive and personal. Reeds crowd the edges of every dry patch. Something is moving just out of sight, or was.*
@@ -1274,9 +1279,10 @@ Sailing commands: `SET SAIL` (primary), `SAIL` (synonym). Directional movement o
 Leaving the ship at sea: *"The ocean offers no opinion on that idea, and neither does your survival instinct."*
 **Going ashore — `DOCK` / `LAND` / `MOOR` / `MAKE LAND` (all four are the same action):** works only where there's land beside the ship.
 - Western Roundabout Sea → The Docks. Eastern Roundabout Sea → Desert Island. Land, Ho! → Empty Beach (Kevry's Island).
-- On the deck it counts from where the ship is moored: off Desert Island → Desert Island; off Kevry's island → Empty Beach. In harbor it's "There's no place to land here." (`WEST` steps off onto the Docks.)
+- On the deck it counts from where the ship is moored: off Desert Island → Desert Island; off Kevry's island → Empty Beach. In harbor → the Docks, as `WEST` (2026-10-14, TODO #23; it used to say *There's no place to land here.*).
 - Anywhere else aboard (Roundabout Sea (Middle), Open Ocean squares 1–68): *There's no place to land here.*
 - Off the ship (including standing on Desert Island or the Empty Beach): *You're not on a ship.*
+- `OUT`, `GO OUT`, `LEAVE` and `LEAVE SHIP` aboard (2026-10-14, TODO #23): where there's land beside the ship, *Do you wish to land? [yes/no]* (no turn to ask); yes is `LAND`, anything else plays on. Anywhere else aboard: *There's no place to land here.* straight away.
 - Ship and shore connect only this way and by `BOARD SHIP` (decided 2026-10-04). Walking off a shore into the sea (`NORTH` on Desert Island, `WEST` on the Empty Beach): *The ocean offers no opinion on that idea, and neither does your survival instinct.* Sailing at an island (`EAST` at Land, Ho!): *You'll have to land the ship.*
 
 **The gangplank (decided 2026-10-05):** `BOARD SHIP` and `EAST` from the Docks are the same action with the same checks. In order:

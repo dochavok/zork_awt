@@ -7,6 +7,8 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
 
+import pytest
+
 from test_knight import _make_world, _do
 
 KEEP = '"Bring it to me, or keep it close," Will said. You keep it close.'
@@ -76,6 +78,38 @@ def test_drop_all_skips_the_ring():
 def test_drop_all_empty_handed():
     w, g = _make_world()
     assert _do(g, "drop all").strip() == "You are empty-handed."
+
+
+@pytest.mark.parametrize("room", [
+    "TALE-AND-ALE",       # mailbox, stairs
+    "UPSTAIRS-HALL",      # stairs, window
+    "TOWN-SQUARE",        # tavern, Town Hall
+    "CHARNEL-WALK",       # stairs, arch
+    "ROUNDABOUT-FOREST",  # mine entrance, the shrine's Zenni (no donation)
+])
+def test_drop_all_leaves_the_room_globals(room):
+    """Room globals aren't carried: DROP ALL never names them (TODO #23)."""
+    from test_room_exits import _look
+    w, g, _ = _look(room)
+    torch = w.objects["TORCH"]
+    if torch.location is w.player:                 # dark room: _look's lit torch
+        w.move_object(torch, None)
+    zenni = w.globals.get("zenni")
+    out = _do(g, "drop all")
+    assert out.strip() == "You are empty-handed."
+    assert w.globals.get("zenni") == zenni
+
+
+def test_drop_all_still_drops_a_carried_global():
+    """A room global the player carries is still dropped (the glasses)."""
+    w, g = _make_world()
+    w.move_object(w.player, w.rooms["WIZARDS-BEDROOM"])
+    w.here = w.rooms["WIZARDS-BEDROOM"]
+    glasses = w.objects["ENCHANTED-GLASSES"]
+    w.move_object(glasses, w.player)
+    glasses.clear_flag("WORNBIT")
+    _do(g, "drop all")
+    assert glasses.location is not w.player
 
 
 def test_drop_all_only_worn():

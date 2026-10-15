@@ -103,12 +103,6 @@ def bog_se_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     return M_NOT_HANDLED
 
 
-def enter_dankhaus(w: World) -> None:
-    """ENTER DANKHAUS / ENTER YURT from Bog-SE — same as walking east."""
-    w.walk_dir = "east"
-    w.game.do_walk("east")
-
-
 # ---------------------------------------------------------------------------
 # Rooms (locations.md). Dankhaus rooms aren't strictly grid-aligned — see the
 # layout note there.

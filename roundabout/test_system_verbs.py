@@ -95,8 +95,10 @@ def test_pray_in_the_church_of_all():
 
 # --- EXIT / LEAVE --------------------------------------------------------------
 
-@pytest.mark.parametrize("command", ["exit", "leave"])
-def test_exit_and_leave_alone_are_quit(command):
+@pytest.mark.parametrize("command", ["exit"])
+def test_exit_alone_is_quit(command):
+    """EXIT alone is QUIT. LEAVE alone was too, until 2026-10-14 (TODO #23):
+    it's "Which direction?" now — test_places.py."""
     w, g = _make_world()
     moves = w.moves
     script, _ = _run(g, [command, "yes", "inventory"])
@@ -180,7 +182,7 @@ def _bare_commands():
 
 @pytest.mark.parametrize("verb", _bare_commands())
 def test_every_bare_command_answers(verb):
-    if verb in ("quit", "q", "restart", "exit", "leave"):
+    if verb in ("quit", "q", "restart", "exit"):
         return                                      # prompts: covered above
     w, g = _make_world()
     _goto(w, "TOWN-SQUARE")

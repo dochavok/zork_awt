@@ -528,6 +528,13 @@ def _make_viking_objects(world) -> None:
         flags={NDESCBIT, SACREDBIT},
     )
     world.register_object(banner)
+    world.register_object(GameObject(
+        name="LONGHOUSES", desc="longhouses",
+        examine=("Timber halls with turf roofs, each long enough to sleep a ship's "
+                 "crew. Nobody has invited you in, and nobody looks likely to."),
+        synonyms=["longhouses", "longhouse", "halls", "hall"],
+        flags={NDESCBIT, SACREDBIT},
+    ))
 
     riddle_stone = GameObject(
         name="RIDDLE-STONE", desc="riddle stone",
@@ -630,6 +637,27 @@ def _make_scrolls(world) -> None:
         synonyms=["arch", "archway", "crypt"], adjectives=["low"],
         flags={NDESCBIT},
     ))
+    # Buildings you go into (TODO #23): EXAMINE / LOOK IN is "Why not go in…"
+    from content.ways import place_action
+    for name, desc, syns, adjs in (
+        ("TAVERN-BUILDING", "tavern", ["tavern", "inn", "pub", "ale"], ["tale"]),
+        ("TOWN-HALL-BUILDING", "Town Hall", ["hall", "townhall"], ["town"]),
+        ("LIBRARY-BUILDING", "library", ["library"], []),
+        ("CHURCH-BUILDING", "church", ["church"], []),
+        ("MAUSOLEUM-BUILDING", "mausoleum", ["mausoleum", "tomb"], []),
+        ("CHUCKLE-HOUSE-BUILDING", "building", ["building", "house", "structure", "facade"],
+         ["chuckle", "low", "painted"]),
+        ("LIGHTHOUSE-BUILDING", "lighthouse", ["lighthouse"], []),
+        ("PIE-RAT-SHIP", "ship", ["ship", "vessel", "boat"], ["pie", "rat", "pirate"]),
+        ("COTTAGE-BUILDING", "cottage", ["cottage", "house"],
+         ["beekeeper's", "beekeepers", "wooden"]),
+        ("KEVRY-HOUSE-BUILDING", "structure", ["structure", "house", "building"], ["small"]),
+        ("HUT-BUILDING", "hut", ["hut"], ["haalvar's", "haalvars"]),
+    ):
+        world.register_object(GameObject(
+            name=name, desc=desc, synonyms=syns, adjectives=adjs,
+            flags={NDESCBIT}, action=place_action,
+        ))
     # Surface scenery (content/scenery.py; placed in init.py)
     from content import scenery as sc
     for name, desc, examine, syns, adjs, action in (
@@ -845,10 +873,12 @@ def _make_lynds_objects(world) -> None:
 # ---------------------------------------------------------------------------
 
 def _make_dankhaus_objects(world) -> None:
-    # The yurt seen from Bog-SE — hidden until the path is found
+    # The yurt seen from Bog-SE — hidden until the path is found; a place you
+    # go into (content/ways.py, TODO #23)
+    from content.ways import place_action
     world.register_object(GameObject(
         name="DANKHAUS", desc="yurt", synonyms=["dankhaus", "yurt", "path", "house", "door", "doorframe"],
-        adjectives=["low", "round"], flags={NDESCBIT, SACREDBIT, INVISIBLE},
+        adjectives=["low", "round"], flags={NDESCBIT, SACREDBIT, INVISIBLE}, action=place_action,
     ))
     # Litlock is described in the Common Room's room description
     world.register_object(GameObject(

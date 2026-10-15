@@ -54,6 +54,24 @@ TODO #15 made `ENTER` / `GO INTO` / `GO IN` / `GO THROUGH [place]` work for the 
 The 2026-10 playtest summary lists `enter <place>` among the commands the parser refuses. Extend the same table to the other places a room names as a way in: e.g. the tavern from the Town Square, the lighthouse from the beach, the church, the Town Hall, the library, the mausoleum, the Chuckle House, the beekeeper's cottage.
 Each is a noun and a direction (no new text unless the noun needs an `EXAMINE` line). Check each noun against objects already in that room first.
 
+Decided 2026-10-14 (mechanics.md, Stairs and places):
+- `EXAMINE` / `LOOK AT` / `LOOK IN [place]`: *Why not go in and look around?* for every building, the ship and the yurt. The mine and the arch keep their lines. The volcano is dropped.
+- Bare `ENTER` / `IN`: the room's one place; *Enter what?* (no turn) where there are several (Town Square, Graveyard); none: unchanged.
+- `OUT`, `GO OUT`, bare `LEAVE` and `LEAVE [place]`: *Which direction?* (no turn). On the ship: *Do you wish to land?* (yes runs `LAND`); at sea, *There's no place to land here.* straight away. `EXIT` stays QUIT; `LEAVE [thing]` stays `DROP`.
+- `LAND` / `DOCK` on the deck at the Docks go ashore (west).
+- The ship in a bottle also answers to "ship" — check `EXAMINE SHIP` at the Docks while carrying it.
+
+Items:
+1. ~~Engine: several places per room, shown-by-state, the shared examine line, *Enter what?*~~ (done 2026-10-14)
+2. ~~Town: Town Square (tavern, Town Hall), Main West (library), Main East (church).~~ (done 2026-10-14)
+3. ~~Graveyard: church, mausoleum, Chuckle House (once visible).~~ (done 2026-10-14)
+4. ~~Coast and country: Beach (lighthouse), Docks (ship), Old Oak (cottage), Empty Beach (structure), Viking Encampment (hut, plus the longhouses as scenery), Bog SE (yurt, once found).~~ (done 2026-10-14)
+5. ~~`OUT` / `LEAVE` and the ship's question; rewrite mechanics.md's 2026-10-10 `EXIT` / `LEAVE` entry.~~ (done 2026-10-14; the ship asks *Do you wish to land? [yes/no]*)
+6. ~~`LAND` / `DOCK` at the Docks deck.~~ (done 2026-10-14)
+7. ~~`DROP ALL` named room globals (*You aren't carrying the stairs.*) and gave the forest Zenni to the shrine~~ (fixed 2026-10-14: ALL leaves out uncarried room globals for held-only verbs).
+8. ~~`X` for `EXAMINE` (playtest feedback).~~ (done 2026-10-14)
+9. ~~Apostrophes split words: every possessive failed (`EXAMINE KEEPER'S DESK`)~~ (fixed 2026-10-14: dropped, not split).
+
 ### TODO #21 — Combat Room redesign: the plate fires on entry (decided 2026-10-14)
 
 Replaces Trap 29's spot-and-disarm plate (moved from TODO #17). The auto-disarm left ~92% of level-4 warriors, and nearly every Rogue, with the Den door shut and no idea why; the Guardian's Lantern behind it is needed for the lower-tier Dark Room.

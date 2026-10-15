@@ -1180,7 +1180,10 @@ Decided 2026-10-05.
 **Restarting** (decided 2026-10-10)
 - `RESTART` asks: *Start over from the beginning? Anything you haven't saved will be lost. [yes/no]* `YES` or `Y` starts a brand-new game at West of House (the opening plays again). Any other answer — or input closing at the question — plays on. No turn.
 
-**`EXIT` / `LEAVE`** (decided 2026-10-10): on their own, the same as `QUIT` (same question, no turn) — no room has an OUT exit, and going ashore is `DOCK`. `LEAVE <thing>` is `DROP <thing>`. `EXIT <thing>` (`EXIT SHIP`): *You can't go that way.*
+**`EXIT` / `LEAVE` / `OUT`** (decided 2026-10-10; `LEAVE` and `OUT` changed 2026-10-14, TODO #23): `EXIT` alone is the same as `QUIT` (same question, no turn). `EXIT <thing>` (`EXIT SHIP`): *You can't go that way.*
+- `OUT`, `GO OUT`, `LEAVE` alone and `LEAVE <place>` (a building, the ship, or a word from a room's name — `LEAVE BAR`, `LEAVE TAVERN`, `LEAVE ROOM` — unless an item by that name is carried or in the room: holding the portcullis bar, `LEAVE BAR` drops it): *Which direction?* No turn. No room has an OUT exit; one that did would take it.
+- Aboard the ship they ask to land instead (locations.md — Pie Rat Ship, going ashore): *Do you wish to land? [yes/no]* where there's land beside the ship; elsewhere aboard, *There's no place to land here.*
+- `LEAVE <thing>` is `DROP <thing>`, held or not (`LEAVE CROWBAR` answers as `DROP CROWBAR`).
 
 **The end of the game** (decided 2026-10-09)
 - When the game ends on its own (death, corruption, declining the adventure, the ending), the final text stays on screen with *[Press ENTER to exit]*; the game closes on ENTER. Without it, a console window opened by double-clicking the game closes before the player can read how it ended.
@@ -1223,6 +1226,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 **`DROP`:** *You drop the [item].* (Designed drops — e.g. the gravestone — use their own text.) Dropping something worn takes it off first, silently.
 **Several objects in one command** (`DROP ALL`, `TAKE ALL`, comma lists): one result per item. A result is labelled "[item]:" only when its line doesn't already name the item (refusals, special lines).
 - `TAKE ALL` (and `TAKE ALL BUT …`) leaves out what the player already carries; if nothing is left: "There's nothing here you can take." (as in Zork). `TAKE X` for a carried item still says "You already have the X."
+- `DROP ALL` is only what you carry: room scenery (stairs, windows, places you go into, the mailbox, the forest shrine's Zenni) is never part of it (2026-10-14, TODO #23 — they were named as *You aren't carrying the …*, and the forest's `DROP ALL` gave Zenni to the shrine). `PUT ZENNI ON PEDESTAL` still donates.
 - `DROP ALL` (and `DROP ALL BUT …`) leaves out worn items and the ring. If nothing is left: carrying nothing at all — *You are empty-handed.*; worn items other than the ring — *You'll need to remove anything you want to drop.*; only the ring (worn or not) — the ring's line, *"Bring it to me, or keep it close," Will said. You keep it close.*
 - `DROP ALL BUT …` that keeps back everything droppable: *That leaves nothing to drop.* The ring's line and the worn-items line above take priority when they apply. (Decided 2026-10-05.)
 
@@ -1265,7 +1269,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `TURN DIAL LEFT` / `TURN DIAL RIGHT` | Church of All altar — cycles through 7 religions. `SPIN` is a synonym of `TURN` (decided 2026-10-12) |
 | `BOARD SHIP` / `GET ON SHIP` / `CLIMB ABOARD` / `ENTER SHIP` | Boarding Pie Rat Ship (all synonyms) |
 | `SET SAIL` / `SAIL` | Begin sailing from Docks; directional movement (`GO EAST`, `SAIL EAST`) once underway |
-| `DOCK` | Going ashore — same action as `LAND` / `MOOR` / `MAKE LAND` (locations.md — Pie Rat Ship) |
+| `DOCK` | Going ashore — same action as `LAND` / `MOOR` / `MAKE LAND` (locations.md — Pie Rat Ship); on the deck in harbor, the Docks (2026-10-14) |
 | `TALK TO [NPC]` | Standard NPC interaction verb |
 | `BUY DRINK` / `ORDER DRINK` | The Bar only — 2 Zenni, restores 1 heart; May refuses at full hearts |
 | `BUY FOOD` / `ORDER FOOD` | The Bar only — 2 Zenni, restores 1 heart; May refuses at full hearts |
@@ -1312,6 +1316,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `BRIEF` | Full description on the first visit only (the default) — *Brief descriptions.* No turn |
 | `SUPERBRIEF` / `SUPER` | Room name only — *Superbrief descriptions.* No turn |
 | `WAIT` / `Z` | *Time passes...* — one turn |
+| `X` / `X <thing>` | Same as `EXAMINE` — the usual shorthand (2026-10-12 playtest; added 2026-10-14, TODO #23) |
 | `PRAY` | *If you pray enough, your prayers may be answered.* In the Church of All: *You bow your head. The church receives it the way it receives everything — without asking which god it was meant for.* At the forest shrine: a line per Quest 49 state (locations.md, Roundabout Forest). Flavor only — one turn |
 | `CURSE` / `DAMN` / `SHIT` / `FUCK` | Cursing and Notorious — Will fines it in his tower |
 | `SEARCH` / `SEARCH <thing>` | Re-runs the room's unfound perception checks, once per visit; one turn (Perception — SEARCH) |
@@ -1393,9 +1398,17 @@ then the stairs (the Key Door Landing's `ASCEND` goes north; the Tale and Ale's 
 - `EXAMINE STAIRS`: *The stairs lead up.* / *The stairs lead down.* / *The stairs lead up and down.*
 
 **Places.** `ENTER [place]`, `GO INTO` / `GO IN` / `GO THROUGH [place]` take the way into a place named in the room. Bare `ENTER` / `IN` use the room's one place, if it has one.
+- Several places in the room (TODO #23, 2026-10-14): bare `ENTER` / `IN` gets *Enter what?* (no turn). No place: *You can't go in there.* (`ENTER`) / *You can't go that way.* (`IN`), as before.
+- Buildings and other places you go into (TODO #23, 2026-10-14): `EXAMINE`, `LOOK AT` and `LOOK IN [place]` all get *Why not go in and look around?* The mine and the arch keep their own lines (below). A place only some states show (the Chuckle House, the Dankhaus yurt) isn't there until it's shown.
 - Roundabout Forest: the mine (`MINE`, `MINE ENTRANCE`, `MOUTH`) — `DOWN`. `EXAMINE MINE`: the room's own sentence, *The mine entrance sits among the roots and undergrowth, a dark mouth leading down into the ground — easy to miss if you don't know to look.*
 - Charnel Walk: the crypt and the arch — `UP` (playtest: `ENTER CRYPT` and `GO THROUGH ARCH` both failed there). `EXAMINE ARCH`: *A low arch of older stone, its keystone worn smooth. Beyond it, steps climb up into the crypt.*
-- Other buildings and places (tavern, lighthouse, church…): TODO #23.
+- Town Square: the tavern (`TAVERN`, `INN`, `PUB`, `TALE AND ALE`) — `SOUTH`; the Town Hall (`HALL`, `TOWN HALL`, `TOWNHALL`) — `NORTH`. Two places: bare `ENTER` / `IN` asks *Enter what?*
+- Main West: the library — `NORTH`. Main East: the church — `SOUTH`.
+- Graveyard: the church — `NORTH`; the mausoleum (`MAUSOLEUM`, `TOMB`) — `SOUTH`; once Litlock's bonk has shown it, the Chuckle House (`BUILDING`, `HOUSE`, `STRUCTURE`, `FACADE`) — `EAST`, by the same rules as `EAST`. Bare `ENTER` / `IN`: *Enter what?*
+- Roundabout Beach: the lighthouse — `NORTHEAST`. The Docks: the Pie Rat Ship (`SHIP`, `VESSEL`, `BOAT`, `PIE RAT SHIP`) — `EAST`, the Pie Rat's welcome or refusal as `BOARD SHIP`; `EXAMINE SHIP` there is the Pie Rat Ship even with the ship in a bottle in hand (`EXAMINE BOTTLE` for that).
+- The Old Oak: the cottage (`COTTAGE`, `HOUSE`, `BEEKEEPER'S COTTAGE`) — `WEST`. Empty Beach: the structure (`STRUCTURE`, `HOUSE`, `BUILDING`) — `EAST`. Viking Encampment: Haalvar's hut — `NORTH` (the longhouses are scenery: locations.md).
+- Bog SE: the yurt (`YURT`, `DANKHAUS`, `PATH`, `DOOR`), once its path is found — `EAST`, ward and all.
+- Not a place: the volcano (the Wasteland's `SOUTH` only reaches its slopes).
 
 **Windows** (2026-10-14; a tester's `LOOK OUT WINDOW` wasn't understood). One "window" scenery object (also `WINDOWS`) in every room whose text has one: the Upstairs Hall, Guest Rooms 1 and 2, the Records Room, The Tower, the Church nave and the Lighthouse.
 - `LOOK OUT WINDOW`, `LOOK OUT OF WINDOW`, `LOOK THROUGH WINDOW` and `EXAMINE WINDOW` give that room's view (text in locations.md, under each room).
@@ -1412,7 +1425,8 @@ then the stairs (the Key Door Landing's `ASCEND` goes north; the Tale and Ale's 
 5. **`cast` is its own canonical** — split from `exorcise`. `cast` owns `incant`, `chant`, `spell`. `exorcise` keeps `banish`, `begone`. (`drive` is its own canonical — `DRIVE STAKE INTO WEREWOLF`, see below.)
 6. **`set` ownership** — `set` is removed from `turn` aliases and assigned to `sail` so `SET SAIL` → canonical `sail`. Deliberate collision resolution.
 7. **Object lists** — `TAKE BLADE AND MASK`, `DROP SHOVEL, FIRE CLAY AND AMULET`: each item resolved on its own, one line per item (verbs that take several objects). Two words for one thing (`FLINT AND STEEL`) count once.
-8. **Numeric arguments** (`TIP MAY 5`) — `tip` is the canonical verb; the handler parses the trailing number from raw input. No vocabulary entry needed for the number token.
+8. **Apostrophes are dropped, not split** (2026-10-14, TODO #23): `KEEPER'S DESK` reads as `KEEPERS DESK`, `WHAT'S` as `WHATS`. Possessive adjectives are listed without the apostrophe (`keepers`, `wills`, `haalvars`). Before this, every possessive failed (*You can't see any desk here!*).
+9. **Numeric arguments** (`TIP MAY 5`) — `tip` is the canonical verb; the handler parses the trailing number from raw input. No vocabulary entry needed for the number token.
 
 ---
 

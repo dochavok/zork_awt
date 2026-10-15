@@ -231,6 +231,7 @@ def _place_objects(world) -> None:
         ("RAZNAK",       "ARCHERY-RANGE"),
         ("IVANAAR",      "VIKING-ENCAMPMENT"),
         ("BANNER",       "VIKING-ENCAMPMENT"),
+        ("LONGHOUSES",   "VIKING-ENCAMPMENT"),
         ("HAALVAR",      "HAALVARS-HUT"),
         ("RIDDLE-STONE", "HAALVARS-HUT"),
         ("CHILD",        "RITUAL-CIRCLE"),
@@ -253,8 +254,10 @@ def _place_objects(world) -> None:
     from content import ways
     for room in ways.STAIRS:
         world.rooms[room].global_objects.append("STAIRS")
-    for room, (place, _way) in ways.PLACES.items():
-        world.rooms[room].global_objects.append(place)
+    for room, places in ways.PLACES.items():
+        for place, _way in places:
+            if place not in ways.IN_ROOM:
+                world.rooms[room].global_objects.append(place)
     world.global_filter = ways.global_filter
     from content import listing                    # what a room's own text describes
     world.listing_filter = listing.listing_filter

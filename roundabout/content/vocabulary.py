@@ -118,7 +118,7 @@ def make_vocabulary() -> Vocabulary:
     v.add_verb("enchant")
     v.add_verb("enter")
     v.add_verb("exit")
-    v.add_verb("examine", "describe", "what", "whats")
+    v.add_verb("examine", "x", "describe", "what", "whats")
     v.add_verb("drag")                              # DRAG AYLORA only
     v.add_verb("exorcise", "banish", "begone")      # "drive" is its own verb
     v.add_verb("extinguish", "douse")

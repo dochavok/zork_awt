@@ -432,7 +432,7 @@ def make_syntax_rules() -> list[SyntaxRule]:
         # ------------------------------------------------------------------ #
         # LEAVE                                                               #
         # ------------------------------------------------------------------ #
-        SyntaxRule(verb="leave", action="V-QUIT"),      # LEAVE alone = QUIT (before the
+        SyntaxRule(verb="leave", action="V-LEAVE"),     # LEAVE alone: "Which direction?" (before the
         SyntaxRule(verb="leave", action="V-DROP", preaction="PRE-DROP",   # many-rule, which
                    obj1=ObjectSpec(locations=_held_car_many)),            # matches nothing too)
 
