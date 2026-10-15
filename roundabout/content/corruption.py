@@ -20,7 +20,11 @@ _MILESTONE_MESSAGES = {
         "The ring is warm. You hadn't noticed until just now. "
         "You're not sure when it started."
     ),
-    25: (
+    20: (
+        "The ring feels less like something you're wearing and more like "
+        "something you're holding onto. Or something holding onto you."
+    ),
+    30: (
         "The ring is heavier than it was. Not in weight — in presence. "
         "It knows you're wearing it. You find yourself aware of it "
         "in a way you weren't before."
@@ -41,6 +45,14 @@ _MILESTONE_MESSAGES = {
     48: "It's fine. The ring is fine.",
     49: "The ring is warm, and you are warm, and everything is fine.",
 }
+
+# WEAR RING again once it has a hold (tick 10+): the timer carried over
+_REWEAR = ("The warmth is there before the ring is all the way on. "
+           "It remembers where it left off.")
+
+# Removal below tick 41 (no roll): how far it has gone, from tick 20
+_OFF_20 = "It slides off easily enough. Your finger stays warm where it was."
+_OFF_30 = "It sticks at the knuckle, just for a moment, before it lets you go."
 
 # Late-stage removal difficulty targets (ticks 41-49)
 _REMOVAL_DIFFICULTY = {
@@ -94,6 +106,10 @@ def try_remove_ring(world: "World") -> bool:
 
     if tick < 41:
         # Normal removal
+        if tick >= 30:
+            print(_OFF_30)
+        elif tick >= 20:
+            print(_OFF_20)
         _do_remove_ring(world)
         return True
 

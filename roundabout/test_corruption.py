@@ -21,7 +21,9 @@ from test_knight import _make_world, _do
 # mechanics.md — Milestone messages, removal outcomes, game over
 TICK_10 = ("The ring is warm. You hadn't noticed until just now. "
            "You're not sure when it started.")
-TICK_25 = ("The ring is heavier than it was. Not in weight — in presence. It knows "
+TICK_20 = ("The ring feels less like something you're wearing and more like something "
+           "you're holding onto. Or something holding onto you.")
+TICK_30 = ("The ring is heavier than it was. Not in weight — in presence. It knows "
            "you're wearing it. You find yourself aware of it in a way you weren't before.")
 TICK_40 = ("The ring is harder to ignore than it was. You are aware of it the way you're "
            "aware of a sound that hasn't stopped. You should take it off. You know you "
@@ -93,12 +95,89 @@ def test_off_pauses_and_back_on_resumes_never_resets():
     assert _tick(w) == before + 1
 
 
-@pytest.mark.parametrize("tick,text", [(10, TICK_10), (25, TICK_25), (40, TICK_40)])
+MILESTONES = {10: TICK_10, 20: TICK_20, 30: TICK_30, 40: TICK_40}
+
+
+@pytest.mark.parametrize("tick,text", sorted(MILESTONES.items()))
 def test_milestone_lines(tick, text):
     w, g = _ringed(tick=tick - 1)
     assert text in _do(g, "wait")
     assert _tick(w) == tick
     assert text not in _do(g, "wait")          # once, at its tick only
+
+
+def test_no_milestone_line_between_tens():
+    # Every 10 ticks (2026-10-15): 25 is no longer a milestone
+    w, g = _ringed(tick=10)
+    out = "".join(_do(g, "wait") for _ in range(9))       # 11–19
+    assert _tick(w) == 19
+    assert not any(text in out for text in MILESTONES.values())
+    _do(g, "wait")                                         # 20
+    out = "".join(_do(g, "wait") for _ in range(9))        # 21–29
+    assert _tick(w) == 29
+    assert not any(text in out for text in MILESTONES.values())
+
+
+# --- Wearing it again: the timer carried over (2026-10-15) ----------------------
+
+REWEAR = ("The warmth is there before the ring is all the way on. "
+          "It remembers where it left off.")
+
+
+def _rewear(tick):
+    w, g = _ringed(tick=tick)
+    with _removal_roll(99):
+        _do(g, "remove ring")
+    return w, _do(g, "wear ring")
+
+
+@pytest.mark.parametrize("tick", [10, 25, 40, 45])
+def test_wearing_again_from_ten_says_it_remembers(tick):
+    w, out = _rewear(tick)
+    assert "You slip the ring on." in out
+    assert out.index("You slip the ring on.") < out.index(REWEAR)
+
+
+@pytest.mark.parametrize("tick", [0, 9])
+def test_wearing_again_below_ten_adds_nothing(tick):
+    w, out = _rewear(tick)
+    assert "You slip the ring on." in out
+    assert REWEAR not in out
+
+
+def test_first_wearing_adds_nothing():
+    w, g = _make_world(cls="warrior")
+    w.move_object(w.objects["RING"], w.player)
+    assert REWEAR not in _do(g, "wear ring")
+
+
+# --- Taking it off below 41: how far it has gone (2026-10-15) -------------------
+
+OFF_20 = "It slides off easily enough. Your finger stays warm where it was."
+OFF_30 = "It sticks at the knuckle, just for a moment, before it lets you go."
+REMOVED = "Plain dark ring removed."
+
+
+@pytest.mark.parametrize("tick,line", [(0, None), (19, None), (20, OFF_20), (29, OFF_20),
+                                       (30, OFF_30), (40, OFF_30)])
+def test_removal_line_by_tick(tick, line):
+    w, g = _ringed(tick=tick)
+    with _removal_roll(0):                     # no roll below 41
+        out = _do(g, "remove ring")
+    assert w.globals["ring_worn"] is False
+    assert REMOVED in out
+    shown = [l for l in (OFF_20, OFF_30) if l in out]
+    assert shown == ([line] if line else []), out
+    if line:
+        assert out.index(line) < out.index(REMOVED)
+
+
+def test_late_removal_has_no_early_line():
+    w, g = _ringed(tick=41)
+    with _removal_roll(99):
+        out = _do(g, "remove ring")
+    assert CLEAN in out
+    assert OFF_20 not in out and OFF_30 not in out
 
 
 def test_each_late_tick_has_its_own_line():

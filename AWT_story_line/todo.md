@@ -13,7 +13,9 @@ A player using ESET couldn't open the v2.5 .exe (permission error, most likely q
 The .exe was uploaded to VirusTotal afterwards; waiting to hear whether their next download gets through.
 Once known, add to operations.md (Antivirus false positives) whichever steps actually helped: e.g. uploading each new build to VirusTotal before announcing it, and submitting false positives to the engines that flag it (ESET: in-product Tools → Submit sample for analysis, or samples@eset.com).
 
-### TODO #18 — The ring: warnings come too late to budget invisibility (found 2026-10-13)
+### ~~TODO #18 — The ring: warnings come too late to budget invisibility (found 2026-10-13)~~
+
+**Resolved 2026-10-15** (mechanics.md — The God-Forsaken Ring): milestones every 10 ticks (new line at 20; the 25 line moved to 30); a line on `WEAR RING` from tick 10 saying the ring remembers; removal lines at ticks 20–29 and 30–40; the 41–49 roll kept as it is (decided 2026-10-15); and the invisibility budget written up (Chuckle House 5 at least, Spirit Room 5, walkthroughs 17; leaving the Chuckle House needs no ring). Tests: `test_corruption.py`.
 
 From the 2026-10 playtest (`roundabout_playtest/feedback-2026-10-12.md`: "The ring's growing 'presence' is good foreshadowing", "The ring's countdown on the way out was excellent", "The ring's 'you can't take it off' game over is random").
 The playtester didn't get enough early warning, didn't take the ring off soon enough, and ran short of corruption ticks in the end game, where invisibility is needed (the Spirit Room).

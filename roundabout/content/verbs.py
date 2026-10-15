@@ -706,6 +706,8 @@ def v_wear(world: World) -> int:
         obj.set_flag(WEARBIT)
         print("You slip the ring on. When you look down, your hand is still "
               "there — but only because you know where to look.")
+        if corruption.get_tick(world) >= 10:      # the timer carried over
+            print(corruption._REWEAR)
         chuckle.update_ghost_visibility(world)
         return M_HANDLED
     obj.set_flag(WEARBIT)

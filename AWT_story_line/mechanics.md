@@ -278,17 +278,28 @@ When the enemy wins a combat round and would deal 1 heart damage, the tunic fire
 
 - Grants invisibility while worn. `WEAR RING`: *You slip the ring on. When you look down, your hand is still there — but only because you know where to look.*
 - Corruption timer advances each turn worn. Pauses on removal; resumes on re-equip. Never resets.
+- **Wearing it again (2026-10-15, TODO #18):** once the ring is at tick 10 or more, `WEAR RING` adds a second line after the usual one, so the player knows the timer carried over: *The warmth is there before the ring is all the way on. It remembers where it left off.*
+- **Taking it off (2026-10-15, TODO #18):** below tick 41 removal needs no roll and prints *Plain dark ring removed.* From tick 20 a line before it shows how far it has gone (also when the worn ring is placed on the altar):
+  - Ticks 20–29: *It slides off easily enough. Your finger stays warm where it was.*
+  - Ticks 30–40: *It sticks at the knuckle, just for a moment, before it lets you go.*
+  - Below 20: no extra line. Ticks 41–49 keep their roll and outcome lines (Late-stage removal, below).
 - Can't be dropped (items.md — The God-Forsaken Ring): *"Bring it to me, or keep it close," Will said. You keep it close.* Weight 0.
 - **Total ticks to full corruption: 50.**
 - Altar use at Church of All does NOT tick corruption — the ring is being used for its purpose, not personal gain.
 - Quests requiring invisibility: Chuckle House (Quest 17 — mirrors repel visible players) and Dankhaus (Litlock will not engage while player is invisible).
+- **The budget (reviewed 2026-10-15, TODO #18):** what the game needs from the 50 ticks. Each turn worn is a tick, the turn it goes on included.
+  - **Chuckle House:** 5 at least. Put it on at the Entrance, three steps south past the mirrors, `CAST UNBIND UNDEAD` (the ghost is seen only by the unseen). Leaving needs no ring: only the southward mirror doorways repel. Take it off before trying the Ghost's Room exit, which fails half the time either way; worn, each failed try costs a tick.
+  - **Spirit Room and the Burial Chamber:** 5 at least. The spirits block both ways out while the player is visible: put it on in the Spirit Room, south, take the mask, north, north to the Dark Room.
+  - **The walkthroughs** spend 17: 11 in the Chuckle House (worn from the Graveyard and back) and 6 in the Spirit Room. The 2026-10 playtester reached the Spirit Room at 49 (about 18 in town, 25 in the Chuckle House, 6 past the Warden).
+  - **Optional uses:** slipping past the Warden (Combat Room), the Dankhaus ward uninvited, and passing the afflicted apprentice unseen (Trap Side). Each costs ticks the Spirit Room may need later.
 
 **Corruption milestones:**
 
 | Tick | Event |
 |------|-------|
 | 10 | First warning |
-| 25 | Midpoint warning |
+| 20 | Second warning |
+| 30 | Third warning |
 | 40 | Urgent warning |
 | 41–49 | Challenge roll window — removal requires passing a roll; difficulty escalates each tick; a message each tick |
 | 50 | Full corruption — game over (failure ending), no roll offered |
@@ -296,7 +307,9 @@ When the enemy wins a combat round and would deal 1 heart damage, the tunic fire
 **Milestone messages:**
 
 - **Tick 10:** *The ring is warm. You hadn't noticed until just now. You're not sure when it started.*
-- **Tick 25:** *The ring is heavier than it was. Not in weight — in presence. It knows you're wearing it. You find yourself aware of it in a way you weren't before.*
+- **Tick 20** (2026-10-15, TODO #18): *The ring feels less like something you're wearing and more like something you're holding onto. Or something holding onto you.*
+- **Tick 30** (moved from 25, 2026-10-15): *The ring is heavier than it was. Not in weight — in presence. It knows you're wearing it. You find yourself aware of it in a way you weren't before.*
+- Why every 10 (2026-10-15, TODO #18): the 2026-10 playtester got one line between 10 and 40 (at 25) and couldn't tell the ring had a real cost. The tick-20 line says it does; the tick-30 line leads into 40 (*aware of it… aware of it the way…*).
 - **Tick 40:** *The ring is harder to ignore than it was. You are aware of it the way you're aware of a sound that hasn't stopped. You should take it off. You know you should take it off.*
 - **Ticks 41–49** (decided 2026-10-09): one line on each tick, the player's own voice giving way, so tick 50 lands as the end of a slide. Like every milestone, a line prints once, on the turn the ring reaches that tick — ticks only advance while the ring is worn.
   - **41:** *Take it off. You should take it off.*
