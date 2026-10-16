@@ -1,7 +1,7 @@
 # Roundabout: The God-Forsaken Ring — Open Design Questions
 
 Consolidated from all source files. Update this file when items are resolved; record the resolution and the source file where it was written.
-Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23, 536aab4 for #21, cb0b094 for #22, 213bcd6 for #17, c1c8b5e for #24, 89de697 for #18, eb9fbc5 for #19, 76430e1 for #26–#28).
+Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23, 536aab4 for #21, cb0b094 for #22, 213bcd6 for #17, c1c8b5e for #24, 89de697 for #18, eb9fbc5 for #19, 76430e1 for #26–#28, 66bfb6e for #29–#30).
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 
@@ -20,22 +20,6 @@ When input runs out at a prompt, `input()` raises `EOFError` and the .exe prints
 - Only piped input reaches it (the playtester's runs; a closed console), not a player typing. It clutters playtest transcripts, and a traceback is never the right ending.
 - Likely fix: treat end of input as quitting. Catch `EOFError` (and `KeyboardInterrupt`?) once, around the main loop in `main.py` / `engine/game.py`, so every prompt is covered, and exit quietly without saving.
 - To decide: whether a short closing line prints (it would need writing and review), and whether Ctrl+C at the keyboard should behave the same.
-
-### TODO #29 — The ink (found 2026-10-15)
-
-From the v2.7 playtest. After the Ink Corridor, the ink isn't mentioned again until the councilman refuses the player. Done 2026-10-15 (traps.md — Trap 45, the player's side; npcs.md — May):
-- ~~No `wash` verb~~ — `WASH` / `RINSE` / `SCRUB`, `CLEAN ME` / `INK`, and `SWIM` / `BATHE` while inked point at a bath.
-- ~~`x me` doesn't show the ink, and says "the Sable"~~ — `EXAMINE ME` / `EXAMINE INK` show it; clean, `EXAMINE ME` has its own line.
-- ~~May's "Rooms are upstairs" goes round in a circle~~ — *"Five Zenni gets you a room with a bath…"*
-
-### TODO #30 — Early traps and fight feedback (found 2026-10-15)
-
-From the v2.7 playtest. Done 2026-10-15 unless noted:
-- At level 4 the Shatter Trap, Ink Corridor and Supply Room each took a heart with no roll shown (7 → 4 hearts). **Kept:** by design (TODO #17, traps.md).
-- ~~The portcullis disarm line is garbled~~ — the shared disarm lines are two sentences (mechanics.md — trap disarm), for all four traps.
-- ~~Swarm Tree hits are silent~~ — *…You retreat, stung in more places than you'd like.* (locations.md — Swarm Tree).
-- ~~No progress feedback from the Warden~~ — a won-round line for each heart he has left (locations.md — Combat Room). Lynds skipped; the mugger, apprentice and knight kept as they are (short fights; the knight's is a trial).
-- ~~Unbind Undead on the Warden~~ — its own line (mechanics.md — Casting).
 
 ### TODO #31 — The ring, round 2 (found 2026-10-15)
 
