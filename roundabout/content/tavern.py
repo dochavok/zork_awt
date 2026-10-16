@@ -74,8 +74,8 @@ def talk_may(w: World) -> None:
 # ---------------------------------------------------------------------------
 
 MAY_INKED = (
-    'May looks at the ink, then at you. "Rooms are upstairs. That\'s all '
-    'you\'re getting from me until you\'ve used one."'
+    'May looks at the ink, then at you. "Five Zenni gets you a room with a '
+    'bath. That\'s all you\'re getting from me until you\'ve used it."'
 )
 _NO_SELLER = "There's no one here to sell you that."
 _SHORT = 'May looks at you evenly. "You\'re short." She goes back to work.'

@@ -11,7 +11,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from test_knight import _make_world, _do
 
-_MAY_INKED = "Rooms are upstairs. That's all you're getting from me until you've used one."
+_MAY_INKED = ('"Five Zenni gets you a room with a bath. That\'s all you\'re getting from me '
+              'until you\'ve used it."')                 # npcs.md — May, inked (TODO #29)
 _SHORT = '"You\'re short."'
 _FULL = "You don't need it. Come back when you do."
 _FULL_ROOM = "You're fine. Come back when you're not."

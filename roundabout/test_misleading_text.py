@@ -20,10 +20,10 @@ from content.upper_tier import _SUPPLY_DISARMED, _SUPPLY_FIRED
 from content.objects import (CHARTER_TEXT, LIGHTHOUSE_STONE, LIGHTHOUSE_STONE_STAYS,
                              LIGHTHOUSE_DESK, LIGHTHOUSE_LOG)
 
-DISARM_LINE = ("You spot a trigger hidden among an unstable arrangement of clay pots and are "
-               "able to disarm it, neutralizing it.")
-BOTCH_LINE = ("You see a trigger hidden among an unstable arrangement of clay pots, but your "
-              "attempt to disarm it fails miserably.")
+DISARM_LINE = ("You spot a trigger hidden among an unstable arrangement of clay pots. You "
+               "disarm it before it can do anything.")
+BOTCH_LINE = ("You see a trigger hidden among an unstable arrangement of clay pots. You try "
+              "to disarm it, and fail miserably.")
 OLD_SPOTTED = "Whatever it triggers, it isn't subtle."
 
 

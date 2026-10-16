@@ -154,7 +154,8 @@ def cottage_action(w: World, msg: int = M_NOT_HANDLED) -> int:
 # Swarm Tree — without the smoke jar the swarm drives the player back out
 # ---------------------------------------------------------------------------
 
-_SWARM = "The swarm boils out of the hollow before you can do anything useful. You retreat."
+_SWARM = ("The swarm boils out of the hollow before you can do anything useful. You retreat, "
+          "stung in more places than you'd like.")
 _TREE = (
     "A broad-trunked tree at the forest edge, older than the others around it. A low "
     "drone comes from a dark gap in the bark at chest height. The air nearby has a "

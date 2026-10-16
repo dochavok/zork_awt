@@ -838,9 +838,9 @@ per KILL; he has 5 hearts. Some swings will miss and he hits back —
 that's what the save is for.
 
 > KILL WARDEN                 [You land a solid blow.]
-> KILL WARDEN                 [You land a solid blow.]
-> KILL WARDEN                 [You land a solid blow.]
-> KILL WARDEN                 [You land a solid blow.]
+> KILL WARDEN                 [Another blow lands.]
+> KILL WARDEN                 [You land a blow.]
+> KILL WARDEN                 [The Warden reels.]
 > KILL WARDEN                 [lantern]
 > TAKE LANTERN                [Guardian's Lantern]
 

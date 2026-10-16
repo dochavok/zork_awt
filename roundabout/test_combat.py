@@ -254,3 +254,27 @@ def test_consecrated_stake_kills_and_drops_the_amulet():
     assert REVERTS in out
     assert w.get_global("WEREWOLF-DEAD") is True
     assert w.objects["WEREWOLFS-AMULET"].location is w.here
+
+
+# --- TODO #30 (2026-10-15): the Warden's progress, Unbind Undead on him -----------------
+
+def test_warden_won_rounds_show_progress():
+    from content.combat_room import _ROUND_WON, _WARDEN_DIES
+    w, g = _warden_fight()
+    with patch("content.combat.player_roll", return_value=99), \
+         patch("content.combat._enemy_roll", return_value=1):
+        outs = [_do(g, "kill warden") for _ in range(5)]
+    for out, left in zip(outs, (4, 3, 2, 1)):
+        assert _ROUND_WON[left] in out
+    assert _ROUND_WON[1] in outs[4] and _WARDEN_DIES in outs[4]       # the killing blow
+    assert w.get_global("WARDEN-DEAD")
+
+
+def test_unbind_undead_on_the_warden():
+    from content.spells import _NOT_A_BINDING
+    w, g = _warden_fight()
+    w.globals["spell_unbind_undead"] = True
+    assert _NOT_A_BINDING in _do(g, "cast unbind undead")
+    assert not w.get_global("COOLDOWN-spell_unbind_undead")            # no timer
+    w.set_global("WARDEN-DEAD", True)
+    assert "Nothing here answers the spell." in _do(g, "cast unbind undead")

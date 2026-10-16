@@ -67,9 +67,21 @@ def cast_input_hook(w: World, text: str) -> bool:
         from content import chuckle
         if chuckle.free_ghost(w):
             w.set_global(f"COOLDOWN-{flag}", w.moves + reuse)
+        elif _warden_up(w):
+            print(_NOT_A_BINDING)
         else:
             print("Nothing here answers the spell.")
     return True
+
+
+# The Warden is undead but not bound (mechanics.md — Casting; TODO #30). No timer.
+_NOT_A_BINDING = ("The spell reaches the Warden and finds nothing to loosen. Whatever keeps it "
+                  "standing isn't a binding.")
+
+
+def _warden_up(w: World) -> bool:
+    return (w.here is not None and w.here.name == "COMBAT-ROOM"
+            and bool(w.get_global("WARDEN-OUT")) and not w.get_global("WARDEN-DEAD"))
 
 
 # CAST alone (or with anything but a spell) lists what's known (mechanics.md — Parser Verbs)

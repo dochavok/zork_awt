@@ -31,8 +31,8 @@ ROGUE_BONUS = 5
 # traps.md / locations.md text
 BONES_CRACK = "The bones crack underfoot. The grinding stops. Then the doorway fills."
 # mechanics.md — the shared disarm success / failure lines
-NOTICED = ("and are able to disarm it, neutralizing it.",
-           "but your attempt to disarm it fails miserably.")
+NOTICED = (". You disarm it before it can do anything.",      # TODO #30, 2026-10-15
+           ". You try to disarm it, and fail miserably.")
 
 
 def _quiet(fn, *a, **kw):
@@ -941,3 +941,13 @@ def test_warden_back_to_full_hearts_after_fleeing():
     _do(g, "south")
     assert w.here.name == "COMBAT-ROOM"
     assert w.globals["WARDEN-HEARTS"] == 5
+
+
+def test_disarm_lines_read_with_a_comma_in_the_descriptor():
+    # mechanics.md — Trap disarm (two sentences; TODO #30, 2026-10-15)
+    from content import shrine_path as sp
+    assert sp._TRAP_DISARMED.format(d=sp._TRAP19) == (
+        "You spot an arcane charge running through the portcullis, the discharge mechanism "
+        "set into the wall beside it. You disarm it before it can do anything.")
+    assert sp._TRAP_BOTCHED.format(d=sp._TRAP19).endswith(
+        "beside it. You try to disarm it, and fail miserably.")

@@ -41,6 +41,12 @@ _WILL = ("Will peers over his spectacles. \"And you found the thread,\" he says,
          "pauses. \"Everyone finds the thread.\" He turns back to his work. \"The inn "
          'has a bath. Use it. Twice."')
 
+# The player's side (traps.md — Trap 45; TODO #29)
+INK_SEEN = "Ink, everywhere, drying in streaks. People are going to notice."
+SELF_CLEAN = "You look like someone who's been adventuring. That's the best that can be said."
+WASH_INKED = "It isn't coming off with anything you've got here. Somewhere with a bath, then."
+WASH_CLEAN = "You're clean enough."
+
 # Everything done *with* an NPC. Looking at one, or listening, is not.
 _GATED = frozenset({
     "V-TALK", "V-HELLO", "V-GIVE", "V-BUY", "V-PAY", "V-CHALLENGE", "V-MELEE",
@@ -50,6 +56,17 @@ _GATED = frozenset({
 
 def inked(w: World) -> bool:
     return bool(w.get_global("INKED"))
+
+
+def examine_self(w: World) -> None:
+    """EXAMINE ME (EXAMINE INK is the INK object's own text)."""
+    print(INK_SEEN if inked(w) else SELF_CLEAN)
+
+
+def wash(w: World) -> None:
+    """WASH / RINSE / SCRUB yourself, CLEAN ME / INK, and SWIM / BATHE while inked.
+    Only the inn's bath clears the ink (tavern.py)."""
+    print(WASH_INKED if inked(w) else WASH_CLEAN)
 
 
 def refusal(w: World, name: str) -> Optional[str]:

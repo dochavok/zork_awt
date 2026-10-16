@@ -720,6 +720,17 @@ def test_swarm_tree_names_the_way_back_with_the_smoke_jar():
     assert "The oak's clearing is back to the west" in out
 
 
+def test_swarm_without_the_jar_says_it_stung_you():
+    # locations.md — Swarm Tree (the heart it costs is named; TODO #30, 2026-10-15)
+    w, g = _make_world()
+    w.globals.update({"hearts": 5, "max_hearts": 5})
+    w.move_object(w.player, w.rooms["OLD-OAK"])
+    w.here = w.rooms["OLD-OAK"]
+    out = _do(g, "east")
+    assert "You retreat, stung in more places than you'd like." in out
+    assert w.here.name == "OLD-OAK" and w.globals["hearts"] == 4
+
+
 def test_mine_entrance_after_the_cave_in_names_the_way_up():
     _, _, out = _look("MINE-ENTRANCE", MINE_BLOWN=True)
     assert "The entrance is gone." in out

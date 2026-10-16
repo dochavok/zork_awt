@@ -156,7 +156,7 @@ def _make_player(world) -> None:
     player = GameObject(
         name="PLAYER",
         desc="Adventurer",
-        synonyms=["me", "myself", "self"],
+        synonyms=["me", "myself", "self", "hands"],      # WASH HANDS (TODO #29)
     )
     from content import ink, ring
 
@@ -168,6 +168,14 @@ def _make_player(world) -> None:
     world.register_object(player)
     world.player = player
     world.winner = player
+    # The ink on an inked player: a noun everywhere while INKED (ways.GLOBAL_SHOWN;
+    # traps.md — Trap 45, TODO #29)
+    world.register_object(GameObject(
+        name="INK", desc="ink", examine=ink.INK_SEEN, synonyms=["ink", "streaks"],
+        adjectives=["black"], flags={"NDESCBIT"},
+    ))
+    for room in world.rooms.values():
+        room.global_objects.append("INK")
 
 
 def _init_player_state(world) -> None:

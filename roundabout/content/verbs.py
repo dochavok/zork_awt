@@ -176,6 +176,11 @@ def v_examine(world: World) -> int:
         quests.discover(world, "4")
         return M_HANDLED
 
+    if obj is world.player:               # EXAMINE ME (traps.md — Trap 45; TODO #29)
+        from content import ink
+        ink.examine_self(world)
+        return M_HANDLED
+
     # Generic examine: the examine text, else the room line. Looking at an
     # object doesn't touch it — its room listing stays the same.
     desc = obj.examine or obj.ldesc or obj.fdesc
@@ -500,6 +505,40 @@ def v_wave(world: World) -> int:
     return M_HANDLED
 
 
+# ---------------------------------------------------------------------------
+# V-WASH / V-WASH-IN / V-BRUSH — the ink (traps.md — Trap 45; TODO #29)
+# ---------------------------------------------------------------------------
+
+def _yourself(world: World, obj) -> bool:
+    return obj is None or obj is world.player or obj.name == "INK"
+
+
+def v_wash(world: World) -> int:
+    """WASH [ME / INK / HANDS]: yourself. WASH <other thing> is BRUSH."""
+    if not _yourself(world, world.prso):
+        return v_brush(world)
+    from content import ink
+    ink.wash(world)
+    return M_HANDLED
+
+
+def v_wash_in(world: World) -> int:
+    """WASH IN <thing> / WASH ME IN <thing>: still only the inn's bath works."""
+    from content import ink
+    ink.wash(world)
+    return M_HANDLED
+
+
+def v_brush(world: World) -> int:
+    """BRUSH / CLEAN <thing>: Zork's line; CLEAN ME / CLEAN INK are WASH."""
+    if world.prso is not None and _yourself(world, world.prso):
+        from content import ink
+        ink.wash(world)
+    else:
+        print("If you wish, but heaven only knows why.")
+    return M_HANDLED
+
+
 # Rooms with water to swim in (the rest: "There's nothing here to swim in.")
 _WATER_ROOMS = frozenset({
     "SEA-WEST", "SEA-MID", "SEA-EAST", "LAND-HO", "SHIP-DECK", "DOCKS",
@@ -510,6 +549,10 @@ _WATER_ROOMS = frozenset({
 
 
 def v_swim(world: World) -> int:
+    from content import ink
+    if ink.inked(world):                  # SWIM / BATHE while inked: the WASH line (TODO #29)
+        ink.wash(world)
+        return M_HANDLED
     wet = world.here is not None and world.here.name in _WATER_ROOMS
     print("You don't want to swim in that!" if wet else "There's nothing here to swim in.")
     return M_HANDLED
@@ -2618,11 +2661,13 @@ def register_verbs(game) -> None:
     game.register_verb("V-SMELL",      v_smell)
     game.register_verb("V-WAVE",       v_wave)
     game.register_verb("V-SWIM",       v_swim)
+    game.register_verb("V-WASH",       v_wash)
+    game.register_verb("V-WASH-IN",    v_wash_in)
+    game.register_verb("V-BRUSH",      v_brush)
     for action, line in (
         ("V-BACK",     "Sorry, my memory is poor. Please give a direction."),
         ("V-STAND",    "You are already standing, I think."),
         ("V-BLAST",    "You can't blast anything by using words."),
-        ("V-BRUSH",    "If you wish, but heaven only knows why."),
         ("V-CLOSE",    "You can't close that."),     # the Trophy Case closes (trophy_case.py)
         ("V-COUNT",    "You have lost your mind."),  # COUNT ZENNI: count_input_hook
         ("V-CROSS",    "You can't cross that!"),

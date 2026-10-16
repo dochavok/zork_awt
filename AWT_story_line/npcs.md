@@ -339,7 +339,8 @@ If you can get the cover off that drain, it's yours to clear." She slides the ke
 
 **Quest 25 — Bartender's Boots (`TALK TO MAY` after the cellar is drained; fires once):** *May looks you over — the wet sleeves, the silt. "You got the cellar dry." She ducks under the bar and comes up with a pair of tall leather boots, salt-stained and broken in. "Forgot I had these. Should have given them to you BEFORE you cleaned up the cellar."* Boots to inventory.
 
-**Inked player — everything but rooms** (`TALK TO MAY`, `BUY FOOD` / `DRINK` / `STEW`, `TIP MAY`, `GIVE` Zenni; no charge; quest hand-overs and a pending free drink wait until the player is clean): *May looks at the ink, then at you. "Rooms are upstairs. That's all you're getting from me until you've used one."*
+**Inked player — everything but rooms** (`TALK TO MAY`, `BUY FOOD` / `DRINK` / `STEW`, `TIP MAY`, `GIVE` Zenni; no charge; quest hand-overs and a pending free drink wait until the player is clean): *May looks at the ink, then at you. "Five Zenni gets you a room with a bath. That's all you're getting from me until you've used it."*
+(2026-10-15, TODO #29; was "Rooms are upstairs…", which sent the v2.7 playtester up to the doors and back down again.)
 Her first-visit introduction still fires if the player is inked — it's unprompted.
 
 **TALK TO MAY priority:** Quest 51 free drink → Quest 25 boots → Quest 25 cellar key → default (*"She picks the glass back up and goes back to work. The conversation is over when she decides it is."*).

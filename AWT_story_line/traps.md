@@ -124,4 +124,7 @@ Triggering it douses the player in black ink — no heart damage, but the player
 - **Chuckle House ghost:** Inaccessible while inked — ink negates ring invisibility so the ghost cannot be seen or interacted with.
 - **Kevry:** Unaffected — too isolated to notice or care.
 - **Toll Bridge Boggart:** Unaffected.
+**The player's side** (2026-10-15, TODO #29; the v2.7 playtest found nothing that showed the ink or pointed at a bath):
+- `EXAMINE ME` / `EXAMINE INK` (INK is a noun only while inked): *Ink, everywhere, drying in streaks. People are going to notice.* Clean, `EXAMINE ME`: *You look like someone who's been adventuring. That's the best that can be said.*
+- `WASH` / `RINSE` / `SCRUB` (alone, `ME`, `INK`, `HANDS`, `IN [thing]`), `CLEAN ME` / `CLEAN INK`, and `SWIM` / `BATHE` anywhere: *It isn't coming off with anything you've got here. Somewhere with a bath, then.* Clean, the `WASH` forms: *You're clean enough.* One turn. Only the inn's bath (`RENT ROOM`) clears it.
 Perception spots the thread's slight shadow on the wall; disarming cuts it cleanly. *(Ink Corridor, upper tier.)*

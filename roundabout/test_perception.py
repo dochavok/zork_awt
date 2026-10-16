@@ -194,3 +194,16 @@ def test_actually_enchanted_glasses_pass_everything():
     w, g = _wearing_glasses(enchanted=True)
     _enter(g, w, "VOLCANO", [0])                               # Level 2, with a roll of 0
     assert w.get_global("VOLCANO-STAIRS-FOUND")
+
+
+def test_volcano_drops_no_way_in_once_the_stairs_are_found():
+    # locations.md — The Volcano (TODO #32, 2026-10-15)
+    w, g = _world()
+    _enter(g, w, "VOLCANO", [1])
+    assert "There is no way in that you can see." in _do(g, "look")
+    _enter(g, w, "TOWN-SQUARE", [])
+    _enter(g, w, "VOLCANO", [9])
+    out = _do(g, "look")
+    assert "There is no way in that you can see." not in out
+    assert "entirely convincing. The wasteland is back to the north." in out
+    assert "an uneven staircase leads down into the dark." in out

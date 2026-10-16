@@ -65,8 +65,8 @@ _DISORIENTED = (
 
 # Trap 16 (traps.md) — general spot/disarm lines from mechanics.md
 _TRAP16 = "a firing pin behind the mirror's frame, a crossbow cocked and ready"
-_TRAP_DISARMED = "You spot {d} and are able to disarm it, neutralizing it."
-_TRAP_BOTCHED = "You see {d}, but your attempt to disarm it fails miserably."
+_TRAP_DISARMED = "You spot {d}. You disarm it before it can do anything."
+_TRAP_BOTCHED = "You see {d}. You try to disarm it, and fail miserably."
 _CROSSBOW = (
     "Something clicks behind the frame. A bolt cracks out of the dark and "
     "catches you before you can move."

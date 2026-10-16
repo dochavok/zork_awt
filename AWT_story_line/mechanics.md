@@ -96,8 +96,9 @@ Both rolls fire automatically on room entry. The player issues no verb — the m
 
 1. **Perception roll fires.** On failure: trap not seen, springs normally with its standard consequence text.
 2. **On perception success: disarm roll fires immediately.**
-   - **Disarm success:** *"You spot [descriptor] and are able to disarm it, neutralizing it."* Trap does not fire.
-   - **Disarm failure:** *"You see [descriptor], but your attempt to disarm it fails miserably."* Trap fires — standard consequence text follows immediately after.
+   - **Disarm success:** *"You spot [descriptor]. You disarm it before it can do anything."* Trap does not fire.
+   - **Disarm failure:** *"You see [descriptor]. You try to disarm it, and fail miserably."* Trap fires — standard consequence text follows immediately after.
+   - Two sentences so any descriptor reads (2026-10-15, TODO #30): the one-sentence form garbled descriptors with a comma in them (*…set into the wall beside it and are able to disarm it, neutralizing it.*).
 
 Each trap entry in `traps.md` includes a `descriptor` field used in the above messages.
 - **Fishing** — `FISH` at Roundabout Pond; success retrieves the bottle (a treasure; no quest). Class bonus: Rogues.
@@ -372,6 +373,7 @@ Spells learned permanently once acquired.
 
 **Casting (`CAST <spell>`):**
 - Nothing to affect: *"Nothing here answers the spell."* — the reuse timer does not start.
+- `CAST UNBIND UNDEAD` in the Combat Room while the Warden is up (2026-10-15, TODO #30): *The spell reaches the Warden and finds nothing to loosen. Whatever keeps it standing isn't a binding.* No timer.
 - Reuse timer still running: *"You reach for the spell and find it isn't ready yet."*
 - Spell not learned: *"You don't know that spell."* (a spell name only — any other word gets the `CAST` alone list, Parser Verbs)
 
@@ -1358,14 +1360,15 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `VERSION` | *Roundabout: The God-Forsaken Ring — [git tag]* — the tag the .exe was built from (operations.md). Works at West of House. No turn |
 | `DIAGNOSE` | Full hearts: *You are in perfect health — 5 of 5 hearts.* Otherwise: *You have 3 of 5 hearts.* The only place hearts are shown after character creation. No turn |
 | `DISEMBARK` | Same as `DOCK` / `LAND` |
-| `SWIM` / `BATHE` / `WADE` | Sea, Open Ocean, Land, Ho!, ship deck, Docks, beaches, Desert Island, pond, Bog, Cellar, Flooding Room: *You don't want to swim in that!* Elsewhere: *There's nothing here to swim in.* One turn |
+| `WASH` / `RINSE` / `SCRUB` (alone, `ME`, `INK`, `HANDS`, `IN <thing>`) | Inked: *It isn't coming off with anything you've got here. Somewhere with a bath, then.* Otherwise *You're clean enough.* `WASH <other thing>` is `BRUSH` (traps.md — Trap 45, 2026-10-15). One turn |
+| `SWIM` / `BATHE` / `WADE` | Inked, anywhere: the `WASH` line. Sea, Open Ocean, Land, Ho!, ship deck, Docks, beaches, Desert Island, pond, Bog, Cellar, Flooding Room: *You don't want to swim in that!* Elsewhere: *There's nothing here to swim in.* One turn |
 | `BUY` (alone) | *Buy what?* No turn |
 | `FIND` | Alone: *Find what?* `FIND <thing>`: *You'll have to look for it yourself.* No turn |
 | `BACK` | *Sorry, my memory is poor. Please give a direction.* No turn |
 | `STAND` | *You are already standing, I think.* No turn |
 | `SMELL` | Alone: *You smell nothing unusual.* `SMELL <thing>`: *It smells like a [thing].* One turn |
 | `WAVE` | Alone: *You wave. Nobody waves back.* `WAVE <thing>`: *Waving the [thing] has no effect.* One turn |
-| `BRUSH <thing>` / `CLEAN <thing>` (also `… WITH <thing>`) | Zork's line: *If you wish, but heaven only knows why.* One turn |
+| `BRUSH <thing>` / `CLEAN <thing>` (also `… WITH <thing>`) | Zork's line: *If you wish, but heaven only knows why.* `CLEAN ME` / `CLEAN INK` are `WASH`. One turn |
 | `COUNT` (alone) / `COUNT ZENNI` / `MONEY` / `COINS` / `CASH` | The purse line from `INVENTORY`: *You have 12 Zenni.* / *You have no Zenni.* No turn. `COUNT <anything else>`: Zork's *You have lost your mind.* One turn. Decided 2026-10-12 |
 | `CROSS <thing>` | Zork's line: *You can't cross that!* One turn. On the Toll Bridge or the Rickety Bridge, `CROSS` with anything (or alone): *Just go north or south.* No turn. While the Boggart still holds the Toll Bridge, it's a walk south into him instead: his refusal (*The Boggart doesn't move. Neither, it turns out, can you.*), as a move. Decided 2026-10-12 |
 | `DESTROY <thing>` (also `BREAK` / `SMASH` / `CHOP` / `DAMAGE`) | As `CUT`: something the player can fight — the same as `ATTACK`; any other NPC — *[Name] wouldn't appreciate that.*; the Fountain Room ice — *You hit the ice. The ice wins. It's harder than ice has any right to be.*; anything else — Zork's *Nice try.* One turn. (`BREAK TIMBER` in the Collapsed Gallery is the pickaxe strike. Zork's `BLOCK` synonym is dropped — "block" is only a noun.) Decided 2026-10-12 |

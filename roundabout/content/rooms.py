@@ -584,9 +584,10 @@ SEA_WEST_NORTH = "The lighthouse stands on rocks. There's nowhere there to bring
 _VOLCANO_LDESC = (
     "The volcano fills the sky above you — black rock streaked with old flows, "
     "a thread of smoke rising from the summit, heat rolling down the slope in "
-    "slow waves. It is large, dark, and entirely convincing. There is no way in "
-    "that you can see. The wasteland is back to the north."
+    "slow waves. It is large, dark, and entirely convincing.{no_way} The "
+    "wasteland is back to the north."
 )
+_VOLCANO_NO_WAY = " There is no way in that you can see."   # until the stairs are found
 
 _VOLCANO_STAIRS = (
     "Something about the heat is wrong — it rises, but it doesn't burn. Where "
@@ -626,7 +627,7 @@ def _make_volcano(world) -> None:
 
     world.rooms["ROUNDABOUT-WASTELAND"].exits["south"] = Exit(destination="VOLCANO")
     volcano.exits["north"] = Exit(destination="ROUNDABOUT-WASTELAND")
-    # Down is hidden until a Level 3 perception check sees through the illusion
+    # Down is hidden until a Level 2 perception check sees through the illusion
     volcano.exits["down"] = Exit(
         destination="PYRONICUS-FORGE",
         condition=lambda w: bool(w.get_global("VOLCANO-STAIRS-FOUND")),
@@ -639,8 +640,9 @@ def _make_volcano(world) -> None:
             volcano_stairs_check(w)   # every visit until found (and SEARCH)
             return M_NOT_HANDLED
         if msg == M_LOOK:
-            print(_VOLCANO_LDESC)
-            if w.get_global("VOLCANO-STAIRS-FOUND"):
+            found = w.get_global("VOLCANO-STAIRS-FOUND")
+            print(_VOLCANO_LDESC.format(no_way="" if found else _VOLCANO_NO_WAY))
+            if found:
                 print(_VOLCANO_STAIRS)
             return M_HANDLED
         return M_NOT_HANDLED

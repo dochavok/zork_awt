@@ -754,7 +754,7 @@ The illusory volcano itself. Appears entirely real. Level 2 perception check (si
 
 **Room description:** *The volcano fills the sky above you — black rock streaked with old flows, a thread of smoke rising from the summit, heat rolling down the slope in slow waves. It is large, dark, and entirely convincing. There is no way in that you can see. The wasteland is back to the north.*
 
-**Staircase found (appended to room description):** *Something about the heat is wrong — it rises, but it doesn't burn. Where the rock meets the ground, an uneven staircase leads down into the dark.*
+**Staircase found (appended to room description):** the sentence *There is no way in that you can see.* drops out of the room description (2026-10-15, TODO #32), then: *Something about the heat is wrong — it rises, but it doesn't burn. Where the rock meets the ground, an uneven staircase leads down into the dark.*
 
 **`EXAMINE VOLCANO`** (2026-10-15, TODO #28): *Large, dark, and smoking gently. It seems determined to be every inch a volcano.* Once the stairs are found: *Even knowing about the stairs, it doesn't look any less real. That's the unsettling part.* (The same in the Wasteland.)
 
@@ -1124,7 +1124,7 @@ Spur west off The Old Oak, at the forest edge.
 **Connections:** West → The Old Oak.
 *A broad-trunked tree at the forest edge, older than the others around it. A low drone comes from a dark gap in the bark at chest height. The air nearby has a quality that suggests strongly you should not approach without a plan. The oak's clearing is back to the west, at a more comfortable distance.* Spur east off The Old Oak, adjacent to Beekeeper's Cottage.
 
-**Without smoke jar:** Walking within reach triggers the swarm — 1 heart damage (physical), player retreats automatically to The Old Oak. *"The swarm boils out of the hollow before you can do anything useful. You retreat."*
+**Without smoke jar:** Walking within reach triggers the swarm — 1 heart damage (physical), player retreats automatically to The Old Oak. *"The swarm boils out of the hollow before you can do anything useful. You retreat, stung in more places than you'd like."* ("stung…" added 2026-10-15, TODO #30: the heart it costs went unmentioned.)
 **With smoke jar:** `USE SMOKE JAR` — bees settle. Queen vial visible in hollow. `TAKE VIAL` completes the collection step.
 
 **Built (2026-10-04):**
@@ -1764,7 +1764,13 @@ The shut version is seen once, on first entry, just before the plate fires.
 - **Fleeing and returning:** the trigger doesn't replay; he's there, back at full hearts, with his presence line.
 
 **Warden (presence):** *The Warden stands between you and the open door, swaying, waiting for you to move.* One round per `KILL WARDEN` (3d10, 5 hearts); fleeing resets him to full hearts.
-**Rounds:** won — *You land a solid blow. The Warden staggers, and comes on anyway.* Lost — *The Warden's reach finds you. You take a hit.* Tie — *You trade blows. Both of you feel it.*
+**Rounds:** won, by the Warden's hearts left (2026-10-15, TODO #30; one line every time gave no sense of progress):
+- 4: *You land a solid blow. The Warden staggers, and comes on anyway.*
+- 3: *Another blow lands. Something in the Warden cracks, and it comes on anyway.*
+- 2: *You land a blow. The Warden is slower to straighten this time.*
+- 1: *The Warden reels. It's barely holding together.* (also the killing blow, before *Warden dies*)
+
+Lost — *The Warden's reach finds you. You take a hit.* Tie — *You trade blows. Both of you feel it.*
 **Warden dies:** *The Warden goes down hard and doesn't get up. Something rolls from its grip and clatters across the floor — a lantern, unlit, its glass faintly green.* 15 XP (raised from 12, 2026-10-14, to make up for the plate's disarm XP).
 **The Warden:** completely monstrous in appearance; standard combat; one-time fight. Once he's dead, the Creature Den and the Flooding Room beyond it are open.
 East to the Creature Den (Flooding Room beyond it, to the north). Connects south to Prayer Alcove. (Trap 29)

@@ -248,3 +248,53 @@ def test_clean_player_is_served():
     w, g = _at("KITCHEN", inked=False)
     assert SHAMUS not in _do(g, "talk to shamus")
     assert "What can I do for you?" in _do(g, "talk to shamus")
+
+
+# --- The player's side (traps.md — Trap 45; TODO #29, 2026-10-15) ---------------------
+
+from content.ink import INK_SEEN, SELF_CLEAN, WASH_INKED, WASH_CLEAN
+
+_WASH = ["wash", "wash me", "wash hands", "rinse", "scrub ink", "wash in fountain",
+         "wash me in fountain", "clean ink", "clean me", "bathe", "swim"]
+
+
+@pytest.mark.parametrize("cmd", _WASH)
+def test_washing_doesnt_take_the_ink_off(cmd):
+    w, g = _at("TOWN-SQUARE")
+    assert WASH_INKED in _do(g, cmd)
+    assert w.get_global("INKED")                                  # only the inn's bath
+
+
+@pytest.mark.parametrize("cmd", ["wash", "wash me", "rinse", "wash in fountain", "clean me"])
+def test_washing_when_clean(cmd):
+    w, g = _at("TOWN-SQUARE", inked=False)
+    assert WASH_CLEAN in _do(g, cmd)
+
+
+def test_wash_or_clean_a_thing_is_brush():
+    w, g = _at("TOWN-SQUARE")
+    _carry(w, "DAGGER")
+    for cmd in ("wash dagger", "clean dagger"):
+        assert "If you wish, but heaven only knows why." in _do(g, cmd)
+
+
+def test_swim_where_there_is_water_when_clean():
+    w, g = _at("ROUNDABOUT-POND", inked=False)
+    assert "You don't want to swim in that!" in _do(g, "swim")
+
+
+def test_examine_me_and_the_ink():
+    w, g = _at("TOWN-SQUARE")
+    w.player.desc = "Sable"
+    assert INK_SEEN in _do(g, "x me")
+    assert INK_SEEN in _do(g, "x ink")
+    w.set_global("INKED", False)
+    out = _do(g, "x me")
+    assert SELF_CLEAN in out and "the Sable" not in out
+    assert "You can't see any ink here!" in _do(g, "x ink")
+
+
+def test_the_ink_isnt_listed():
+    w, g = _at("TOWN-SQUARE")
+    assert "ink" not in _do(g, "inventory").lower()
+    assert "There is a ink" not in _do(g, "look")

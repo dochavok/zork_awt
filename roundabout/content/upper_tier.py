@@ -26,8 +26,8 @@ if TYPE_CHECKING:
     from engine.world import World
 
 _TRAP45 = "a near-invisible thread strung at chest height across the corridor"
-_TRAP_DISARMED = "You spot {d} and are able to disarm it, neutralizing it."
-_TRAP_BOTCHED = "You see {d}, but your attempt to disarm it fails miserably."
+_TRAP_DISARMED = "You spot {d}. You disarm it before it can do anything."
+_TRAP_BOTCHED = "You see {d}. You try to disarm it, and fail miserably."
 _INKED = (
     "Something snags across your chest — a thread, there and gone. Above you, "
     "something bursts. Ink comes down in a cold black sheet and doesn't stop "

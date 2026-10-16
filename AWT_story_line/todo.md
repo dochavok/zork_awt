@@ -23,19 +23,19 @@ When input runs out at a prompt, `input()` raises `EOFError` and the .exe prints
 
 ### TODO #29 — The ink (found 2026-10-15)
 
-From the v2.7 playtest. After the Ink Corridor, the ink isn't mentioned again until the councilman refuses the player.
-- No `wash` verb (also tried: `clean ink`, `bathe`, `rinse`, `wash in fountain`).
-- `x me` doesn't show the ink, and says "You see nothing special about the Sable."
-- May's "Rooms are upstairs" sends the player to the door, which sends them back to the bartender; it works, but goes round in a circle.
+From the v2.7 playtest. After the Ink Corridor, the ink isn't mentioned again until the councilman refuses the player. Done 2026-10-15 (traps.md — Trap 45, the player's side; npcs.md — May):
+- ~~No `wash` verb~~ — `WASH` / `RINSE` / `SCRUB`, `CLEAN ME` / `INK`, and `SWIM` / `BATHE` while inked point at a bath.
+- ~~`x me` doesn't show the ink, and says "the Sable"~~ — `EXAMINE ME` / `EXAMINE INK` show it; clean, `EXAMINE ME` has its own line.
+- ~~May's "Rooms are upstairs" goes round in a circle~~ — *"Five Zenni gets you a room with a bath…"*
 
 ### TODO #30 — Early traps and fight feedback (found 2026-10-15)
 
-From the v2.7 playtest.
-- At level 4 the Shatter Trap, Ink Corridor and Supply Room each took a heart with no roll shown and no chance to react (7 → 4 hearts). The tester wanted a visible attempt that can fail, or a warning.
-- The portcullis disarm line is garbled: "You spot an arcane charge running through the portcullis, the discharge mechanism set into the wall beside it and are able to disarm it, neutralizing it."
-- Swarm Tree hits are silent ("You retreat"); only the last-heart warning speaks.
-- No progress feedback: the Warden ("…comes on anyway" every hit), Lynds ("Not bad").
-- Unbind Undead on the Warden: "Nothing here answers the spell."
+From the v2.7 playtest. Done 2026-10-15 unless noted:
+- At level 4 the Shatter Trap, Ink Corridor and Supply Room each took a heart with no roll shown (7 → 4 hearts). **Kept:** by design (TODO #17, traps.md).
+- ~~The portcullis disarm line is garbled~~ — the shared disarm lines are two sentences (mechanics.md — trap disarm), for all four traps.
+- ~~Swarm Tree hits are silent~~ — *…You retreat, stung in more places than you'd like.* (locations.md — Swarm Tree).
+- ~~No progress feedback from the Warden~~ — a won-round line for each heart he has left (locations.md — Combat Room). Lynds skipped; the mugger, apprentice and knight kept as they are (short fights; the knight's is a trial).
+- ~~Unbind Undead on the Warden~~ — its own line (mechanics.md — Casting).
 
 ### TODO #31 — The ring, round 2 (found 2026-10-15)
 
@@ -55,6 +55,5 @@ From the v2.7 playtest.
 - The heart necklace gives no message about the extra heart.
 - ~~`x man` in the Council Chamber: "You see nothing special about the Councilman Rowan Finch."~~ Fixed 2026-10-15 (mechanics.md — Object descriptions). Still open: the name also matches a common player name.
 - The mugger ambushes on entry and isn't seen again; nothing says where he went.
-- The Volcano still says "There is no way in that you can see" next to the staircase line once it's found (from TODO #26).
-- Rowan's "It's been empty for years" ignores treasures already in the Trophy Case (from TODO #26).
+- ~~The Volcano still says "There is no way in that you can see" once the stairs are found~~ — the sentence drops out (2026-10-15, locations.md — The Volcano).
 - Em-dashes print as "�" in the console (the VERSION line too).

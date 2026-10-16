@@ -92,6 +92,7 @@ GLOBAL_SHOWN = {
     "LIBRARY-LEDGER": lambda w: bool(w.get_global("LIBRARIAN-MET")),   # she's brought it out
     # The crypt's text names footprints from the second visit (tunnels.py — _CRYPT)
     "CRYPT-FOOTPRINTS": lambda w: int(w.get_global("CRYPT-VISITS") or 0) >= 2,
+    "INK": lambda w: bool(w.get_global("INKED")),                        # on the player
 }
 
 

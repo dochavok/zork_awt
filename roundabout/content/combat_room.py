@@ -71,7 +71,14 @@ _DOOR_WONT_CLOSE = "It won't budge. Whatever opened it isn't letting go."
 _NOTHING_HAPPENS = "Nothing happens."
 _NOTHING_TO_DISARM = "There's nothing here to disarm."
 WARDEN_PRESENCE = "The Warden stands between you and the open door, swaying, waiting for you to move."
-_ROUND_WON = "You land a solid blow. The Warden staggers, and comes on anyway."
+# A won round, by the Warden's hearts left after it (TODO #30); the killing blow
+# takes the last line, then _WARDEN_DIES
+_ROUND_WON = {
+    4: "You land a solid blow. The Warden staggers, and comes on anyway.",
+    3: "Another blow lands. Something in the Warden cracks, and it comes on anyway.",
+    2: "You land a blow. The Warden is slower to straighten this time.",
+    1: "The Warden reels. It's barely holding together.",
+}
 _ROUND_LOST = "The Warden's reach finds you. You take a hit."
 _ROUND_TIE = "You trade blows. Both of you feel it."
 _WARDEN_DIES = (
@@ -180,7 +187,8 @@ def fight_round(w: World) -> None:
     from content import combat
     g = w.globals
     hearts = int(g.get("WARDEN-HEARTS", WARDEN_HEARTS))
-    hearts -= combat.fight_round(w, WARDEN_DICE, _ROUND_WON, _ROUND_LOST, _ROUND_TIE)
+    won = _ROUND_WON[min(4, max(1, hearts - 1))]
+    hearts -= combat.fight_round(w, WARDEN_DICE, won, _ROUND_LOST, _ROUND_TIE)
     g["WARDEN-HEARTS"] = hearts
     if hearts <= 0 and not w.get_global("GAME-OVER"):
         _warden_dies(w)

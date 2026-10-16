@@ -757,6 +757,18 @@ def make_syntax_rules() -> list[SyntaxRule]:
         SyntaxRule(verb="swim", action="V-SWIM"),
 
         # ------------------------------------------------------------------ #
+        # WASH (traps.md — Trap 45, the player's side; TODO #29)             #
+        # ------------------------------------------------------------------ #
+        SyntaxRule(verb="wash", action="V-WASH"),
+        SyntaxRule(verb="wash", action="V-WASH-IN", prep="in",      # WASH IN FOUNTAIN
+                   obj1=ObjectSpec(locations=_held_car_og_ir)),
+        SyntaxRule(verb="wash", action="V-WASH",
+                   obj1=ObjectSpec(locations=_held_car_og_ir_have)),
+        SyntaxRule(verb="wash", action="V-WASH-IN",
+                   obj1=ObjectSpec(locations=_held_car_og_ir_have),
+                   prep="in", obj2=ObjectSpec(locations=_held_car_og_ir)),
+
+        # ------------------------------------------------------------------ #
         # SWING                                                               #
         # ------------------------------------------------------------------ #
         SyntaxRule(verb="swing", action="V-SWING",
