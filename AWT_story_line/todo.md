@@ -1,7 +1,7 @@
 # Roundabout: The God-Forsaken Ring — Open Design Questions
 
 Consolidated from all source files. Update this file when items are resolved; record the resolution and the source file where it was written.
-Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23, 536aab4 for #21, cb0b094 for #22, 213bcd6 for #17, c1c8b5e for #24, 89de697 for #18, eb9fbc5 for #19).
+Resolved items are removed; their history is in git (last full lists: commit 7eec353 for TODO #1–#6, b9e5feb for #7–#8, fecb0f2 for #9, cfd1724 for #13, 4a4e63c for #12, 337bf02 for #11, 6bbb3e5 for #16, 8084dfa for #14, 6cb6920 for #15, 9130035 for #20, 26df3b1 for #23, 536aab4 for #21, cb0b094 for #22, 213bcd6 for #17, c1c8b5e for #24, 89de697 for #18, eb9fbc5 for #19, 76430e1 for #26–#28).
 
 **Policy:** When a new walkthrough test fails, fix the engine. Never adjust the narrative or add state injection to make a test pass. Only fix the walkthrough when the design doc confirms the walkthrough is wrong.
 
@@ -20,33 +20,6 @@ When input runs out at a prompt, `input()` raises `EOFError` and the .exe prints
 - Only piped input reaches it (the playtester's runs; a closed console), not a player typing. It clutters playtest transcripts, and a traceback is never the right ending.
 - Likely fix: treat end of input as quitting. Catch `EOFError` (and `KeyboardInterrupt`?) once, around the main loop in `main.py` / `engine/game.py`, so every prompt is covered, and exit quietly without saving.
 - To decide: whether a short closing line prints (it would need writing and review), and whether Ctrl+C at the keyboard should behave the same.
-
-### TODO #26 — Hidden gates with no pointer (found 2026-10-15)
-
-From the v2.7 playtest (`roundabout_playtest/evaluation-v2.7.md`, "New problems" and "Still open").
-- **The Volcano:** ~~the staircase needs a silent Level 3 perception check~~ lowered to Level 2 (2026-10-15, locations.md — The Volcano). Still open: once found, the room still says "There is no way in that you can see" next to the staircase line.
-- ~~**The Middle Tier Key:** the councilman gives it only after the player has seen the iron door.~~ Spotting the gravestone now discovers Quest 32 too (2026-10-15, quests.md — Quest 32); Rowan's lines unchanged. Still open, if wanted: "It's been empty for years" even with treasures in the case.
-- **Thornbrew and Lynds** are level-gated with no hint (Thornbrew lost at level 2, won at 3; Lynds lost at 3, won at 4).
-
-### TODO #27 — Leaving buildings: OUT, LEAVE and EXIT (found 2026-10-15)
-
-From the v2.7 playtest.
-- `out`, `leave`, `leave church` and `go out` give "Which direction?" in every building tried (tavern, Town Hall, church, mausoleum, Chuckle House).
-- `exit` opens "Quit now? … [yes/no]", and the next command (`leave tavern`) was taken as the answer.
-
-**Kept as decided (2026-10-15):** both are the 2026-10-14 TODO #23 decision (mechanics.md — EXIT / LEAVE / OUT); the exits are named, so "Which direction?" costs one command. Fixed the stale verb-table row that said `LEAVE` alone quits. Nothing else to do.
-
-### TODO #28 — Parser and scenery gaps (found 2026-10-15)
-
-From the v2.7 playtest. Done 2026-10-15 unless noted:
-- ~~A possessive naming a person fails (`x shamus's slate`, `x child's kite`)~~ — an owner that isn't an adjective is dropped (mechanics.md, apostrophes). The tester reported `x slate` failing; it works — in their launch 3 the `exit` quit prompt ate a command, so commands and outputs were one step apart.
-- ~~`drop burnt-out torch`~~ — the burnt-out torch answers to `burnt-out` / `burnt` / `burned` (mechanics.md — Torch).
-- ~~"sacking" isn't a noun~~ — `sacking` / `root` are the drain (locations.md — Kitchen).
-- ~~Named scenery that "can't be seen"~~ — added, the default line except the volcano, the pedestal, the circle's stones and symbol (locations.md under each room). Not in any room text, so dropped: the Archivist's maps, the Cache's sacking; the Idol Room plate stays hidden until spotted (Trap 33). The Cache's crates were already scenery.
-- ~~`read` contradicts `examine`~~ — gravestone repeats its examine line, watch *You can't read that.*, banner keeps "nothing written" (items.md, locations.md).
-- ~~Haalvar's riddle~~ — `the sea` / `it's the sea` accepted (locations.md — Haalvar's Hut). `say sea` already worked; the tester tried it after solving.
-- ~~`EXAMINE VOLCANO` once the stairs are found~~ — its own line (locations.md — The Volcano).
-- ~~Only `ACTIVATE` works on the rune stones~~ — `TOUCH` / `PRESS` / `PUSH` too (locations.md — The Ritual Circle). Raised in the 2026-10-12 playtest but never made a TODO.
 
 ### TODO #29 — The ink (found 2026-10-15)
 
@@ -82,4 +55,6 @@ From the v2.7 playtest.
 - The heart necklace gives no message about the extra heart.
 - ~~`x man` in the Council Chamber: "You see nothing special about the Councilman Rowan Finch."~~ Fixed 2026-10-15 (mechanics.md — Object descriptions). Still open: the name also matches a common player name.
 - The mugger ambushes on entry and isn't seen again; nothing says where he went.
+- The Volcano still says "There is no way in that you can see" next to the staircase line once it's found (from TODO #26).
+- Rowan's "It's been empty for years" ignores treasures already in the Trophy Case (from TODO #26).
 - Em-dashes print as "�" in the console (the VERSION line too).
