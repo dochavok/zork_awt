@@ -259,6 +259,7 @@ class Parser:
         and returns None.
         """
         words = self._tokenize(input_text)
+        self._possessives = self._possessive_words(input_text)
         which, self._which = self._which, None
 
         if not words:
@@ -368,8 +369,15 @@ class Parser:
         text = _PUNCT_RE.sub(" ", text.strip().lower())
         return [w for w in text.split() if w]
 
+    @staticmethod
+    def _possessive_words(text: str) -> set[str]:
+        """The possessives in the input, as tokenized ("shamus's" -> "shamuss",
+        "shamus'" -> "shamus")."""
+        return {re.sub(r"['’]", "", m).lower()
+                for m in re.findall(r"\w+(?:['’]s|s['’])(?!\w)", text)}
+
     # ------------------------------------------------------------------ #
-    # Direction resolution                                                 #
+    # Direction resolution                                               #
     # ------------------------------------------------------------------ #
 
     def _resolve_direction(self, words: list[str]) -> Optional[str]:
@@ -796,6 +804,12 @@ class Parser:
         # Normal noun phrase.
         candidates = self._scope_objects(spec, world)
         matched = [o for o in candidates if self._matches_phrase(o, words)]
+        # Nothing by that owner's name: the owner is dropped (SHAMUS'S SLATE is
+        # the slate). KEEPER'S DESK, an adjective, matched above (TODO #28).
+        owners = getattr(self, "_possessives", set())
+        if not matched and owners & set(words[:-1]):
+            words = [w for w in words[:-1] if w not in owners] + words[-1:]
+            matched = [o for o in candidates if self._matches_phrase(o, words)]
 
         # Re-running a command whose "Which X?" was answered: the answer stands.
         chosen = self._chosen

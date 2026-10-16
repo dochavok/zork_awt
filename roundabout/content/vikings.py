@@ -208,6 +208,9 @@ def _haalvar_next(w: World) -> str:
     return _HAALVAR_TO_AYLORA if w.get_global("CIRCLE-DONE") else _HAALVAR_TO_CIRCLE
 
 
+_FILLER = ("the", "a", "an", "it", "is", "its", "it's", "it’s")
+
+
 def riddle_input_hook(w: World, text: str) -> bool:
     """
     Free-text riddle answers in Haalvar's Hut: a bare word (SEA), or
@@ -222,6 +225,8 @@ def riddle_input_hook(w: World, text: str) -> bool:
 
     if words[0] in ("answer", "reply", "say") and len(words) > 1:
         answer = words[1:]
+    elif words[0] in _FILLER and len(words) > 1:      # THE SEA, IT'S THE SEA (TODO #28)
+        answer = words
     elif len(words) == 1:
         vocab = w.game.parser._vocab
         if vocab.canonical_direction(words[0]) or vocab.canonical_verb(words[0]):
@@ -233,7 +238,7 @@ def riddle_input_hook(w: World, text: str) -> bool:
     from content import ink
     if ink.refuse(w, "HAALVAR"):
         return True
-    if [a for a in answer if a not in ("the", "a")] == ["sea"]:
+    if [a for a in answer if a not in _FILLER] == ["sea"]:
         print(_RIDDLE_SOLVED + _haalvar_next(w))
         w.set_global("RIDDLE-DONE", True)
     else:

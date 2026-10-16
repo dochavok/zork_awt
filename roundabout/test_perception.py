@@ -4,7 +4,8 @@ Glasses; experience.md — Second Glance at Level 5). Checks are played through
 real room entries; the player's level roll is fixed per check.
 
 Design tiers used here: Level 1 (5, Prayer Alcove niche), Level 2 (9, Back
-Alley mugger; Tool Alcove door), Level 3 (14, the volcano's staircase).
+Alley mugger; Tool Alcove door; the volcano's staircase — Level 3 until
+2026-10-15, TODO #26).
 Run with: pytest roundabout/test_perception.py  (from c:\\zork_awt)
 """
 
@@ -75,7 +76,7 @@ def test_level_n_check_is_about_a_third_at_level_n(level):
 @pytest.mark.parametrize("room,flag,target", [
     ("PRAYER-ALCOVE", "NICHE-FOUND", 5),               # Level 1
     ("TOOL-ALCOVE", "ALCOVE-FOUND", 9),                # Level 2
-    ("VOLCANO", "VOLCANO-STAIRS-FOUND", 14),           # Level 3
+    ("VOLCANO", "VOLCANO-STAIRS-FOUND", 9),            # Level 2 (the first errand)
 ])
 def test_tier_targets(room, flag, target):
     w, g = _world()
@@ -191,5 +192,5 @@ def test_glasses_only_while_worn():
 
 def test_actually_enchanted_glasses_pass_everything():
     w, g = _wearing_glasses(enchanted=True)
-    _enter(g, w, "VOLCANO", [0])                               # Level 3, with a roll of 0
+    _enter(g, w, "VOLCANO", [0])                               # Level 2, with a roll of 0
     assert w.get_global("VOLCANO-STAIRS-FOUND")

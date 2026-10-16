@@ -182,7 +182,7 @@ def v_examine(world: World) -> int:
     if desc:
         print(desc)
     else:
-        print(f"You see nothing special about the {obj.desc}.")
+        print(f"You see nothing special about {_npc_object(obj)}.")
     return M_HANDLED
 
 
@@ -1187,7 +1187,9 @@ def v_move(world: World) -> int:
     if obj.has_flag("ACTORBIT"):
         print(f"{_npc_subject(obj)} wouldn't appreciate that.")
     elif world.prsa == "V-PUSH":
-        print(f"Pushing the {obj.desc} has no effect.")
+        from content import vikings          # PUSH / PRESS a rune stone is ACTIVATE (TODO #28)
+        if not vikings.activate_stone(world, obj):
+            print(f"Pushing the {obj.desc} has no effect.")
     elif obj.has_flag(TAKEBIT):
         print(f"Moving the {obj.desc} reveals nothing.")
     else:
@@ -1504,9 +1506,10 @@ def v_rub(world: World) -> int:
     obj = world.prso
     if obj is None:
         return M_NOT_HANDLED
+    from content import vikings              # TOUCH a rune stone is ACTIVATE (TODO #28)
     if obj.has_flag("ACTORBIT"):
         print(f"{_npc_subject(obj)} wouldn't appreciate that.")
-    else:
+    elif not vikings.activate_stone(world, obj):
         print(f"Fiddling with the {obj.desc} has no effect.")
     return M_HANDLED
 

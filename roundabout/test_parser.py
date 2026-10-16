@@ -102,3 +102,97 @@ def test_get_is_take():
     w.move_object(w.objects["ROPE"], w.here)
     _do(g, "get rope")
     assert w.objects["ROPE"].location is w.player
+
+
+# --- The default examine line: no "the" before a name (mechanics.md — Object descriptions; TODO #32)
+
+@pytest.mark.parametrize("room,noun,line", [
+    ("COUNCIL-CHAMBER", "man", "You see nothing special about Councilman Rowan Finch."),
+    ("BAR", "may", "You see nothing special about May."),
+])
+def test_nothing_special_about_a_named_npc(room, noun, line):
+    w, g = _make_world()
+    _goto(w, room)
+    assert line in _do(g, f"look at {noun}")
+
+
+def test_nothing_special_keeps_the_for_a_title():
+    w, g = _make_world()
+    _goto(w, "COUNCIL-CHAMBER")
+    w.move_object(w.objects["ROWAN-FINCH"], None)
+    w.move_object(w.objects["ARCHIVIST"], w.here)
+    assert "You see nothing special about the Archivist." in _do(g, "x archivist")
+
+
+# --- TODO #28: possessives, the burnt-out torch, READ, the riddle's answers --------
+
+def _carry(w, name):
+    obj = w.objects[name]
+    obj.clear_flag("INVISIBLE")
+    w.move_object(obj, w.player)
+    return obj
+
+
+@pytest.mark.parametrize("cmd", ["x shamus's slate", "x shamus' slate", "x the slate"])
+def test_an_owners_name_is_dropped(cmd):
+    w, g = _make_world()
+    _goto(w, "KITCHEN")
+    assert "Chalked on the slate" in _do(g, cmd)
+
+
+def test_an_owner_on_a_carried_thing_and_on_nothing():
+    w, g = _make_world()
+    _goto(w, "TOWN-SQUARE")
+    _carry(w, "KITE")
+    assert "You can't see" not in _do(g, "x child's kite")
+    assert "You can't see any banana here!" in _do(g, "x shamus's banana")
+
+
+def test_a_possessive_adjective_still_matches():
+    w, g = _make_world()
+    _goto(w, "LIGHTHOUSE")
+    assert "You can't see" not in _do(g, "x keeper's desk")
+
+
+def test_burnt_out_torch_by_its_name():
+    from content import light
+    w, g = _make_world()
+    _goto(w, "TOWN-SQUARE")
+    torch = _carry(w, "TORCH")
+    light._go_out(w)
+    assert "You toss the burnt-out torch aside." in _do(g, "drop burnt-out torch")
+    assert torch.location is None
+    light.light_torch(w)                                   # a fresh one isn't "burnt"
+    assert torch.adjectives == []
+
+
+@pytest.mark.parametrize("name,line", [
+    ("GRAVESTONE", "You tip up one edge far enough to read it: CALDER FINCH — EXPLORER."),
+    ("POCKET-WATCH", "You can't read that."),
+])
+def test_read_text(name, line):
+    w, g = _make_world()
+    _goto(w, "TOWN-SQUARE")
+    obj = _carry(w, name)
+    assert line in _do(g, f"read {obj.synonyms[0]}")
+
+
+def test_read_banner_stays_nothing_written():
+    w, g = _make_world()
+    _goto(w, "VIKING-ENCAMPMENT")
+    assert "There's nothing written on the banner." in _do(g, "read banner")
+
+
+@pytest.mark.parametrize("answer", ["the sea", "it's the sea", "it is the sea", "a sea"])
+def test_riddle_takes_the_sea(answer):
+    w, g = _make_world()
+    _goto(w, "HAALVARS-HUT")
+    assert '"The stone is satisfied.' in _do(g, answer)          # locations.md — Haalvar's Hut
+    assert w.get_global("RIDDLE-DONE")
+
+
+def test_riddle_wrong_with_an_article():
+    w, g = _make_world()
+    _goto(w, "HAALVARS-HUT")
+    assert '"Impressive. Wrong, but impressive in its wrongness."' in _do(g, "the ocean")
+    assert not w.get_global("RIDDLE-DONE")

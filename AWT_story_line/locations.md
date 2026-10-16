@@ -180,6 +180,8 @@ Winning: mugger is slain permanently, Back Alley is safe.
 
 ## Town Hall
 
+**Scenery (2026-10-15, TODO #28):** `EXAMINE CRATES` / `BARRELS`: the ordinary *You see nothing special about the crates.*
+
 ### Town Hall
 **XP: 1**
 **NPCs:** None
@@ -353,7 +355,7 @@ Back-of-house. **Shamus** works here — cook and unofficial vendor. `BUY X` buy
 - **`OPEN DOOR` (flooded):** *The cellar door comes up on a breath of cold, wet air. Stone steps lead down — three of them, then water, still and clear, filling the cellar nearly to the beams. At the foot of the steps, through the water, you can make out the square iron cover of a drain.*
 - **`USE CROWBAR ON DRAIN` (door open; also `PRY COVER`, `REMOVE COVER WITH CROWBAR`):** *You lie flat on the top step and reach the crowbar down through the water, feeling along the bottom step until the lip catches the edge of the grate. You lean on it. The cover comes up with a jolt and slides off into the dark. Below the cover, the drain mouth is packed solid with rotted sacking and root. The water isn't going anywhere.*
   - The last two sentences added 2026-10-15 (TODO #19; playtest: nothing suggested a second step after the cover came off).
-- **`EXAMINE DRAIN`** (door open, before the cellar drains; 2026-10-15, TODO #19). Otherwise the ordinary *You see nothing special about the drain.*
+- **`EXAMINE DRAIN`** (door open, before the cellar drains; 2026-10-15, TODO #19; `EXAMINE SACKING` / `ROOT` the same, TODO #28). Otherwise the ordinary *You see nothing special about the drain.*
   - Cover on: *A square iron cover at the foot of the steps, under the water.*
   - Cover off: *The drain mouth is choked with rotted sacking and root. Clear that, and the water has somewhere to go.*
 - **The crowbar again (cover off):** `USE CROWBAR ON DRAIN`, `PRY DRAIN` and `REMOVE COVER WITH CROWBAR` act as `CLEAR DRAIN` (2026-10-15). `UNCLOG` is a synonym for `CLEAR`.
@@ -505,6 +507,8 @@ Appears as a normal medieval church from the outside. Near the Graveyard. The al
 - **`WEST` / `OPEN DOOR` while locked:** *The door is locked.*
 - **Wrong key:** *That key doesn't fit.* **No key:** *You don't have the key to it.*
 
+**Scenery (2026-10-15, TODO #28):** `EXAMINE PEWS`: the ordinary *You see nothing special about the pews.*
+
 ### The Altar
 **XP: 1**
 **NPCs:** None
@@ -608,6 +612,8 @@ May's tier 1 hint (fires only if player has not yet examined the statue): *"Some
 *The mausoleum is older than anything around it. The stone is dark with age and moisture, the carved details worn to suggestions. The door is heavy iron, pitted with rust but still on its hinges. Whatever family name was once above the entrance has been lost to weather. Steps descend inside toward the crypt below. The graveyard lies back to the north.* South of the Graveyard.
 Weathered and decrepit. Stairs lead down to The Crypt.
 
+**Scenery (2026-10-15, TODO #28):** `EXAMINE DOOR` (the iron door): the ordinary *You see nothing special about the iron door.*
+
 ### The Crypt
 **XP: 1**
 **NPCs:** None
@@ -629,6 +635,8 @@ Weathered and decrepit. Stairs lead down to The Crypt.
 Four rooms, linear. Ring (invisibility) required throughout — all mirrors repel visible players. Quest 17 anchor.
 
 **Chuckle House layout:** The Entrance is east of the Graveyard; the other three rooms run south from it in a line (Entrance → Rejection Mirror → Shatter Trap Mirror → Ghost's Room). South, not north, so it doesn't run into the church above.
+
+**Scenery (2026-10-15, TODO #28):** `EXAMINE ALCOVES` / `REMAINS`, `EXAMINE PASSAGE`, and from the second visit (when the text names them) `EXAMINE FOOTPRINTS`: the ordinary *You see nothing special about the alcoves.* (passage, footprints).
 
 ### The Entrance
 **XP: 1**
@@ -733,17 +741,22 @@ Post-freeing: mirrors no longer repel visible players anywhere in the Chuckle Ho
 *The cause is a matter of some local sensitivity. The prevailing theory among residents involves adventurers, which explains why no one wants to discuss it in detail.*
 *To the south, a volcano rises against the sky — large, dark, and entirely convincing. Eastward, a rutted road leaves the wreckage behind and heads for the smell of salt; the town is back to the west.*
 
+**Scenery (2026-10-15, TODO #28):** `EXAMINE VOLCANO`, here and in The Volcano: see The Volcano (one line before the stairs are found, one after). `ENTER VOLCANO`: *You can't go in there.*
+
 ### The Volcano
 **XP: 1**
 **NPCs:** None
 **Items:** None
 **Quest Hooks:** None (perception check reveals entrance to Pyronicus's Forge)
 **Connections:** North → Roundabout Wasteland. Down → Pyronicus's Forge (perception check required to reveal entrance).
-The illusory volcano itself. Appears entirely real. Level 3 perception check (silent, every visit until found) required to see through it. On success: uneven staircase DOWN revealed permanently. On failure: player sees only an active volcano with no apparent entrance.
+The illusory volcano itself. Appears entirely real. Level 2 perception check (silent, every visit until found) required to see through it. On success: uneven staircase DOWN revealed permanently. On failure: player sees only an active volcano with no apparent entrance.
+- Lowered from Level 3 (2026-10-15, TODO #26): the ring errand is the first thing Will sends the player to do, and below level 3 the Level 3 check all but never passed. Per visit, at level 2: 42% Warrior, 83% Mage or Rogue; at level 3: 77% / 95%. A level-1 Warrior can't pass it (1d6 never reaches 9); experience.md has players at level 2 before the dungeon.
 
 **Room description:** *The volcano fills the sky above you — black rock streaked with old flows, a thread of smoke rising from the summit, heat rolling down the slope in slow waves. It is large, dark, and entirely convincing. There is no way in that you can see. The wasteland is back to the north.*
 
 **Staircase found (appended to room description):** *Something about the heat is wrong — it rises, but it doesn't burn. Where the rock meets the ground, an uneven staircase leads down into the dark.*
+
+**`EXAMINE VOLCANO`** (2026-10-15, TODO #28): *Large, dark, and smoking gently. It seems determined to be every inch a volcano.* Once the stairs are found: *Even knowing about the stairs, it doesn't look any less real. That's the unsettling part.* (The same in the Wasteland.)
 
 ### Pyronicus's Forge
 **XP: 2**
@@ -782,6 +795,8 @@ Hazardous — agility challenge roll each time the player passes through to avoi
 Permanently safe once all three Viking trust trials are complete (silent mechanic, no acknowledgment).
 **Raznak** found here.
 
+**Scenery (2026-10-15, TODO #28):** `EXAMINE TARGETS`: the ordinary *You see nothing special about the targets.*
+
 ### Viking Encampment (The Encampment — hub)
 **XP: 1**
 **NPCs:** Ivanaar Stormbringer (hub NPC; runed metal handoff after all three trials; Quest 42 stone return)
@@ -799,6 +814,7 @@ Central hub. Fire pit, longhouses, Vikings going about their business.
 
 **Banner:** `LOOK AT BANNER` reveals four elemental rune symbols in order: Earth, Air, Fire, Water (clue for Ritual Circle Trial 2).
 *Four runes are stitched along the banner, left to right: Earth, Air, Fire, Water.*
+`READ BANNER` keeps the ordinary *There's nothing written on the banner.* — the runes are stitched, not written (confirmed 2026-10-15, TODO #28).
 
 **Longhouses** (2026-10-14, TODO #23): scenery, not a way in (`LONGHOUSE`, `LONGHOUSES`, `HALL`, `HALLS`). `EXAMINE LONGHOUSES`:
 *Timber halls with turf roofs, each long enough to sleep a ship's crew. Nobody has invited you in, and nobody looks likely to.*
@@ -865,6 +881,7 @@ Central hub. Fire pit, longhouses, Vikings going about their business.
 
 North of The Encampment. **Haalvar** administers the trial. The hut contains a stone with runic carvings and a fluid-like appearance — solid to the touch, its surface moves like dark water. On entry, Haalvar delivers the riddle: *"I have no legs but travel far. I have no mouth but swallow ships. I have no hands but I will take everything you own if you let me. What am I?"*
 
+- **Answers accepted** (2026-10-15, TODO #28): a bare word (`SEA`), `ANSWER` / `REPLY` / `SAY` and the words, or the words alone when they start with *the*, *a*, *an*, *it*, *is* or *it's* (`THE SEA`, `IT'S THE SEA`). Those little words are ignored in judging the answer.
 - **Correct answer:** `SEA` — stone glows; Haalvar: *"The stone is satisfied. I am also satisfied, which happens less often. Go south — there is a circle there that will want your attention next."* Trial 1 complete.
 - **Correct answer, circle already done:** stone glows; Haalvar: *"The stone is satisfied. I am also satisfied, which happens less often. The circle has already had its look at you, I hear — so that leaves Aylora, at the fire pit. Try not to drown."* Trial 1 complete.
 - **Wrong answer:** *"Impressive. Wrong, but impressive in its wrongness."* Retryable.
@@ -884,10 +901,13 @@ South of The Encampment. An unnamed child administers the trial — he does not 
 **Correct order:** Earth → Air → Fire → Water → Heart. First four from the banner; Heart stone always last.
 
 **Commands:** `ACTIVATE EARTH STONE`, `ACTIVATE AIR STONE`, `ACTIVATE FIRE STONE`, `ACTIVATE WATER STONE`, `ACTIVATE HEART STONE` (also accepts `ACTIVATE LOVE STONE` and `ACTIVATE LIFE STONE`).
+`TOUCH`, `PRESS` and `PUSH` a stone are the same as `ACTIVATE` (2026-10-15, TODO #28; the 2026-10-12 playtest tried them first and got *Fiddling with the heart stone has no effect.*). TOUCH shares its verb with `RUB` / `FEEL` / `PAT` / `PET`, so those do too. On anything else these verbs answer as before.
 
 - **Each correct stone:** *The [Earth] stone hums and lights from within.* (stone name substituted)
 - **Wrong order:** *"The child looks disappointed in you."* Resets all five.
 - **Correct completion:** *The fifth stone lights, and all five hum together for a moment. The child looks at you, then points back toward the encampment.* Trial 2 complete.
+
+**Scenery (2026-10-15, TODO #28):** `EXAMINE STONES` (plural; `EXAMINE STONE` still asks which): *Five rune stones, waist-high, set evenly around the symbol. Each has one rune cut deep into its face: Air, Earth, Fire, Water, and a heart.* `EXAMINE SYMBOL`: *Lines cut into the packed earth run from the center out to each of the five stones, joining them.*
 
 ### The Fire Pit (Trial 3 — The Drinking Challenge)
 **XP: 1**
@@ -1623,6 +1643,8 @@ The plate is a Level 5 perception check (raised 2026-10-15, traps.md). Safe swap
 
 **Slab line** (every player, after the plate line, while the slab is down; gone once pried): *A stone slab fills the north doorway.*
 
+**`EXAMINE PEDESTAL`** (2026-10-15, TODO #28): with the idol, *A waist-high column of the same deliberate stonework. The figurine sits exactly at its center, as if someone measured.*; taken, *A waist-high column of the same deliberate stonework, empty now.*; swapped, *A sack of salt sits on the pedestal where the idol was.* Once the plate is spotted, its line from the room description follows.
+
 ### Storage Area
 **XP: 1**
 **NPCs:** None
@@ -1711,6 +1733,8 @@ South of the Collapsed Aqueduct. Timbers wedged across it blocking a secondary e
 - **Room description:** *A low den that stinks of old straw and older meat. Bones are piled in one corner with a care that's somehow worse than if they'd been scattered. The combat room is back through the door to the west.* That's a change of ways, so the Den shows its full description next time.
 **Insignia (examine):** *Pinned to the wall, almost lost under the grime: a faded insignia and the rags of a uniform. This was a guard post once.*
 East of the Combat Room — the only way in is through the Combat Room's door. Lair of **The Warden** — permanently empty after defeat. On examination post-fight: remnants of a uniform/insignia mark this as an official post. The Warden drops the **Guardian's Lantern** on defeat.
+
+**Scenery (2026-10-15, TODO #28):** `EXAMINE BONES`: the ordinary *You see nothing special about the bones.*
 
 ### Combat Room
 **XP: 1**

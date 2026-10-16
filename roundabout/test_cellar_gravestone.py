@@ -207,9 +207,10 @@ def test_may_gives_the_boots_once_after_the_drain():
 # Quest 32 — The Missing Gravestone
 # ===========================================================================
 
-def _stone_found():
+def _stone_found(w=None, g=None):
     """Standing in Bog-SE with the gravestone spotted."""
-    w, g = _world()
+    if w is None:
+        w, g = _world()
     with patch("content.player.roll", return_value=99), patch("sys.stdout", io.StringIO()):
         g.enter_room(w.rooms["BOG-SE"])
         g.do_turn("wait")
@@ -217,8 +218,8 @@ def _stone_found():
     return w, g
 
 
-def _loaded():
-    w, g = _stone_found()
+def _loaded(w=None, g=None):
+    w, g = _stone_found(w, g)
     _give(w, "HAND-CART")
     _do(g, "load stone onto cart")
     assert w.objects["GRAVESTONE"].location is w.objects["HAND-CART"]
@@ -340,7 +341,7 @@ def _at_rowan(w):
 def test_rowan_dialogue_states_in_order():
     from content.gravestone import (_ROWAN_FIRST, _ROWAN_TROPHY, _ROWAN_START,
                                     _ROWAN_WAITING, _ROWAN_AFTER)
-    w, g = _loaded()
+    w, g = _world()
     _at_rowan(w)
     assert _ROWAN_FIRST in _do(g, "talk to rowan")             # quest not yet discovered
     assert _ROWAN_TROPHY in _do(g, "talk to rowan")
@@ -348,6 +349,7 @@ def test_rowan_dialogue_states_in_order():
     assert _ROWAN_START in _do(g, "talk to rowan")
     assert _ROWAN_WAITING in _do(g, "talk to rowan")
     assert not quests.is_complete(w, "32")
+    _loaded(w, g)
     _go(w, "GRAVEYARD")
     _do(g, "unload stone")
     _at_rowan(w)
@@ -356,6 +358,25 @@ def test_rowan_dialogue_states_in_order():
     assert w.objects["MIDDLE-TIER-KEY"] in w.player.contents
     assert quests.is_complete(w, "32")
     assert _ROWAN_AFTER in _do(g, "talk to rowan")
+
+
+def test_spotting_the_stone_discovers_the_quest():
+    w, g = _world()
+    _stone_found(w, g)
+    assert quests.is_discovered(w, "32")
+
+
+def test_stone_returned_before_the_door_still_gets_the_key():
+    # The v2.7 playtest: the stone home first, the iron door never seen (TODO #26)
+    from content.gravestone import _ROWAN_START
+    w, g = _loaded()
+    _go(w, "GRAVEYARD")
+    _do(g, "unload stone")
+    _at_rowan(w)
+    out = _do(g, "talk to rowan")
+    assert ROWAN_KEY in out and _ROWAN_START not in out
+    assert w.objects["MIDDLE-TIER-KEY"] in w.player.contents
+    assert quests.is_complete(w, "32")
 
 
 def test_rowan_pays_nothing_until_the_stone_is_set():

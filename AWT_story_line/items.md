@@ -509,6 +509,8 @@ Opening it again: *The chest is open, and empty.*
 **Weight:** 1
 **Location:** Dropped by ghost in Ghost's Room, Chuckle House (after `CAST UNBIND UNDEAD`)
 **Quest use:** Quest 17 — deliver to Records Room Worker → receives town charter in thanks.
+**Examine:** *A plain silver pocket watch, stopped. The inside of the lid is engraved, but too worn to read.*
+**`READ WATCH`** (2026-10-15, TODO #28): *You can't read that.*
 
 Also: a separate gold pocket watch hangs from the skeleton's finger in The Crevice (mid-tier dungeon) — Trophy Case treasure item, **missable** (The Crevice is permanently inaccessible after the Stored Room collapses).
 
@@ -547,6 +549,7 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 - **Room description (found, in the bog):** *A gravestone lies face-down in the mud.*
 - **Room description (tipped off the cart outside the bog):** *A gravestone lies face-down on the ground.* (In the four bog rooms the mud line above is used.)
 - **Examine:** *You tip up one edge far enough to read it: CALDER FINCH — EXPLORER.*
+- **`READ STONE`** (2026-10-15, TODO #28): the same line as examine.
 - **`TAKE STONE`:** *It doesn't budge. Whatever carried this out here didn't carry it by hand.*
 - **`LOAD STONE ONTO CART` (no cart):** *You'll need something to put it on.*
 - **`LOAD STONE ONTO CART`:** *You tip the gravestone up out of the mud and walk it, corner by corner, onto the cart. The axle complains. The bog lets go of the stone with a sound you'd rather not have heard. The gravestone is loaded.*

@@ -301,7 +301,9 @@ Going `DOWN` into the cellar before it's drained, or opening the tunnel door fro
 
 ## Quest 32 — The Missing Gravestone
 
-**Discovery:** Seeing the Mid-Tier Key Door (it's in sight from the Rickety Bridge) triggers quest discovery silently and unlocks May's three-tier hints. Councilman Rowan Finch raises it when the player next talks to him in the Council Chamber — his grandfather Calder Finch's gravestone was stolen from the cemetery. No Quest Board posting.
+**Discovery:** Seeing the Mid-Tier Key Door (it's in sight from the Rickety Bridge) triggers quest discovery silently and unlocks May's three-tier hints.
+So does spotting the gravestone in Bog-SE, whichever comes first (added 2026-10-15, TODO #26: a player who returned the stone before seeing the door got only Rowan's Trophy Case line, forever). Rowan's lines are unchanged either way.
+Councilman Rowan Finch raises it when the player next talks to him in the Council Chamber — his grandfather Calder Finch's gravestone was stolen from the cemetery. No Quest Board posting.
 
 **May's hints:**
 - Tier 1: *"There's a locked door down in the tunnels, they say. Heavy thing — needs a proper key. Word is someone in town might know something about it."*
@@ -314,7 +316,7 @@ Going `DOWN` into the cellar before it's drained, or opening the tunnel door fro
 2. After talking to Rowan, until the stone is back at the Graveyard: the gravestone hint only (counts as Tier 1).
 
 **Steps:**
-1. See the Mid-Tier Key Door from the Rickety Bridge (dungeon upper tier) → quest discovered.
+1. See the Mid-Tier Key Door from the Rickety Bridge (dungeon upper tier) → quest discovered (or step 3, if it comes first).
 2. Talk to Councilman Rowan Finch in Council Chamber (Town Hall).
 3. Perception check in the bog (Bog-SE) → gravestone face-down in mud.
 4. Find hand cart in Storage Area (Dungeon Upper Tier).

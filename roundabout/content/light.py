@@ -115,6 +115,7 @@ def light_torch(w: World) -> None:
     torch = _torch(w)
     torch.set_flag("ONBIT")
     torch.ldesc = "A lit torch."
+    torch.adjectives = []
     w.set_global("TORCH-LIT-TIMER", None)
 
 
@@ -158,6 +159,7 @@ def _go_out(w: World) -> None:
     torch.clear_flag("ONBIT")
     torch.desc = "burnt-out torch"
     torch.ldesc = "A burnt-out torch, cold and black at the end."
+    torch.adjectives = ["burnt-out", "burnt", "burned"]      # DROP BURNT-OUT TORCH (TODO #28)
     w.set_global("TORCH-LIT-TIMER", None)
 
 

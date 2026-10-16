@@ -3,7 +3,8 @@ Quest 32 — The Missing Gravestone (Middle Tier Key).
 
 Design: quests.md (Quest 32), npcs.md (Councilman Rowan Finch), items.md
 (Hand Cart, Gravestone, Middle Tier Key), locations.md (Bog-SE, Graveyard).
-- Discovery: reaching the Rickety Bridge (shrine_path.py).
+- Discovery: reaching the Rickety Bridge (shrine_path.py), or spotting the
+  gravestone in Bog-SE, whichever comes first.
 - Bog-SE: Level 1 perception every visit until the gravestone is found.
 - LOAD STONE ONTO CART puts the stone in the hand cart. A loaded cart goes
   anywhere on the level but not UP or DOWN.
@@ -128,6 +129,8 @@ def bog_se_end(w: World) -> None:
         w.set_global("GRAVESTONE-FOUND", True)
         _stone(w).clear_flag("INVISIBLE")
         print(_SPOTTED)
+        from content import quests      # the stone first: Rowan still knows it (TODO #26)
+        quests.discover(w, "32")
 
 
 # ---------------------------------------------------------------------------

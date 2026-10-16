@@ -572,6 +572,7 @@ Purchased from Shamus (Kitchen, Tale and Ale) for 3 Zenni. Weight: 2.
 - **Light spell known but not lit** (stranded as above): not game over, but the player must cast it fast — *The torch goes out. The dark closes in fast — if you're going to cast something, now would be the time.* `CAST LIGHT` within the next two commands (commands the parser doesn't understand don't count). Otherwise: *In the dark, something shifts. You never find out what.* — GAME OVER.
 
 **Dropping the torch** (decided 2026-10-05):
+- A burnt-out torch also answers to `BURNT-OUT TORCH`, `BURNT TORCH` and `BURNED TORCH` (2026-10-15, TODO #28); a lit one doesn't.
 - A burnt-out torch has no use. `DROP TORCH` (or `DROP ALL`) removes it from the game, back into Shamus's stock: *You toss the burnt-out torch aside. It's no good to anyone now.*
 - A lit torch dropped stays on the floor (*A lit torch.*).
 - `BUY TORCH` when not carrying one sells a fresh torch; a lit one left lying elsewhere quietly leaves its room (there is only one torch).
@@ -1211,7 +1212,7 @@ Decided 2026-10-05.
 **Restarting** (decided 2026-10-10)
 - `RESTART` asks: *Start over from the beginning? Anything you haven't saved will be lost. [yes/no]* `YES` or `Y` starts a brand-new game at West of House (the opening plays again). Any other answer — or input closing at the question — plays on. No turn.
 
-**`EXIT` / `LEAVE` / `OUT`** (decided 2026-10-10; `LEAVE` and `OUT` changed 2026-10-14, TODO #23): `EXIT` alone is the same as `QUIT` (same question, no turn). `EXIT <thing>` (`EXIT SHIP`): *You can't go that way.*
+**`EXIT` / `LEAVE` / `OUT`** (decided 2026-10-10; `LEAVE` and `OUT` changed 2026-10-14, TODO #23; kept 2026-10-15, TODO #27, after the v2.7 playtest tried `out` / `leave` / `exit` in every building — the exits are named, so this costs one command): `EXIT` alone is the same as `QUIT` (same question, no turn). `EXIT <thing>` (`EXIT SHIP`): *You can't go that way.*
 - `OUT`, `GO OUT`, `LEAVE` alone and `LEAVE <place>` (a building, the ship, or a word from a room's name — `LEAVE BAR`, `LEAVE TAVERN`, `LEAVE ROOM` — unless an item by that name is carried or in the room: holding the portcullis bar, `LEAVE BAR` drops it): *Which direction?* No turn. No room has an OUT exit; one that did would take it.
 - Aboard the ship they ask to land instead (locations.md — Pie Rat Ship, going ashore): *Do you wish to land? [yes/no]* where there's land beside the ship; elsewhere aboard, *There's no place to land here.*
 - `LEAVE <thing>` is `DROP <thing>`, held or not (`LEAVE CROWBAR` answers as `DROP CROWBAR`).
@@ -1238,7 +1239,8 @@ Decided 2026-10-05.
 
 ### Parser Verbs (Confirmed)
 
-**Object descriptions (global):** an item has a room line (where it's first placed), an optional listing for after it's been moved, and its examine text (items.md "Examine"). `EXAMINE` shows the examine text and never changes how the item is listed; with no examine text it shows the item's room line. A moved item with no designed listing is listed as "There is a [item] here."
+**Object descriptions (global):** an item has a room line (where it's first placed), an optional listing for after it's been moved, and its examine text (items.md "Examine"). `EXAMINE` shows the examine text and never changes how the item is listed; with no examine text it shows the item's room line.
+- With neither, *You see nothing special about the [thing].* — a named NPC without "the" (*You see nothing special about Councilman Rowan Finch.*), as for `GIVE` refused (2026-10-15, TODO #32). A moved item with no designed listing is listed as "There is a [item] here."
 **Which object a word means:** when a word matches several objects, `TAKE`, `EXAMINE`, `LOAD`, `UNLOAD` and `CUT` prefer the ones not in the player's pack (e.g. `EXAMINE JAR` in the Pipe Room means the Whispering Jar, not a carried smoke jar; `CUT CORD` in the snare means the snare, not the heart necklace).
 **Second object of `PUT` / `SPRINKLE` / `PRESS … ON`:** prefers what isn't in the pack (`PUT SEAL ON JAR` means the Whispering Jar, not a carried smoke jar). `DUST` and `LISTEN TO` prefer what isn't in the pack, like `TAKE`.
 **`DUST [thing]`** (Quest 4): `DUST JAR` in the Pipe Room; anywhere else *There's nothing here worth dusting.* `PRESS SEAL` away from the jar: *There's nothing here to press it on.*
@@ -1311,7 +1313,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `LOOK AT STATUE` | Town Square statue — reveals seam (no roll) |
 | `LOOK AT BANNER` | Viking Encampment — reveals elemental runes (Trial 2 clue) |
 | `LOOK UP` / `LOOK AT CEILING` | Thermal Vent Room — reveals fire clay on ceiling (synonyms). Anywhere else it acts as a plain `LOOK`. |
-| `ACTIVATE [ELEMENT] STONE` | Ritual Circle (Trial 2) — also accepts LOVE/LIFE for Heart |
+| `ACTIVATE [ELEMENT] STONE` | Ritual Circle (Trial 2) — also accepts LOVE/LIFE for Heart; `TOUCH` / `PRESS` / `PUSH` a stone the same (2026-10-15, TODO #28) |
 | `POUR HOLY WATER ON STAKE` | Creates consecrated silver stake |
 | `DRIVE STAKE INTO WEREWOLF` | Destroys undead werewolf (other phrasings: Undead Werewolf Chain). Otherwise (decided 2026-10-12): `DRIVE STAKE` with no werewolf here — *There's nothing here that needs a stake through it.*; `DRIVE` anything `INTO` an NPC you can't fight — *[Name] wouldn't appreciate that.*; anything but the stake `INTO` an enemy — `ATTACK [enemy] WITH [thing]`; `DRIVE` anything else — *You can't drive the [thing] into anything.* |
 | `CAST UNBIND UNDEAD` | Releases ghost in Ghost's Room (Chuckle House) |
@@ -1342,7 +1344,7 @@ Anything else (`NORTH`, `INVENTORY`) is a new command, and the question lapses.
 | `REST` | Level 6+ — recovers 1 heart; 50-turn reuse; not with a live enemy in the room (Spell Mechanics — REST notes) |
 | `SAVE` | Saves to `<name>.sav`, named after the character; no turn (Save and Restore) |
 | `RESTORE` / `RESTORE <name>` | Loads the character's own save, or the named character's; no turn (Save and Restore) |
-| `QUIT` / `Q` (also `EXIT` / `LEAVE` on their own) | Asks first; yes ends the game, anything else plays on; no turn (Save and Restore — Quitting) |
+| `QUIT` / `Q` (also `EXIT` on its own; `LEAVE` alone is *Which direction?* — EXIT / LEAVE / OUT) | Asks first; yes ends the game, anything else plays on; no turn (Save and Restore — Quitting) |
 | `RESTART` | Asks first; yes starts a new game at West of House; no turn (Save and Restore — Restarting) |
 | `LEAVE <thing>` | Same as `DROP <thing>` |
 | `VERBOSE` | Full room description on every visit — *Maximum verbosity.* No turn |
@@ -1459,6 +1461,7 @@ then the stairs (the Key Door Landing's `ASCEND` goes north; the Tale and Ale's 
 6. **`set` ownership** — `set` is removed from `turn` aliases and assigned to `sail` so `SET SAIL` → canonical `sail`. Deliberate collision resolution.
 7. **Object lists** — `TAKE BLADE AND MASK`, `DROP SHOVEL, FIRE CLAY AND AMULET`: each item resolved on its own, one line per item (verbs that take several objects). Two words for one thing (`FLINT AND STEEL`) count once.
 8. **Apostrophes are dropped, not split** (2026-10-14, TODO #23): `KEEPER'S DESK` reads as `KEEPERS DESK`, `WHAT'S` as `WHATS`. Possessive adjectives are listed without the apostrophe (`keepers`, `wills`, `haalvars`). Before this, every possessive failed (*You can't see any desk here!*).
+   - **An owner's name that isn't an adjective is dropped** (2026-10-15, TODO #28): when nothing matches with the possessive in place, the noun is tried without it, so `X SHAMUS'S SLATE` / `X SHAMUS' SLATE` is `X SLATE` and `X CHILD'S KITE` is `X KITE`. A possessive that is an adjective (`KEEPER'S DESK`) matches first, as before.
 9. **Numeric arguments** (`TIP MAY 5`) — `tip` is the canonical verb; the handler parses the trailing number from raw input. No vocabulary entry needed for the number token.
 
 ---

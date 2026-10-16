@@ -274,6 +274,16 @@ def _place_objects(world) -> None:
                       ("SHATTER-GLASS", "SHATTER-TRAP-MIRROR")):
         world.move_object(world.objects[obj], world.rooms[room])
     world.rooms["LIBRARY"].global_objects.append("LIBRARY-LEDGER")   # after her first scene
+    # Named in room text (TODO #28)
+    for obj, room in (("ALLEY-CRATES", "BACK-ALLEY"), ("RANGE-TARGETS", "ARCHERY-RANGE"),
+                      ("PEWS", "CHURCH-NAVE"), ("MAUSOLEUM-DOOR", "MAUSOLEUM"),
+                      ("CRYPT-ALCOVES", "CRYPT"), ("CRYPT-PASSAGE", "CRYPT"),
+                      ("DEN-BONES", "CREATURE-DEN"), ("IDOL-PEDESTAL", "IDOL-ROOM"),
+                      ("RING-STONES", "RITUAL-CIRCLE"), ("CIRCLE-SYMBOL", "RITUAL-CIRCLE")):
+        world.move_object(world.objects[obj], world.rooms[room])
+    world.rooms["CRYPT"].global_objects.append("CRYPT-FOOTPRINTS")   # once visited (ways.py)
+    for room in ("VOLCANO", "ROUNDABOUT-WASTELAND"):
+        world.rooms[room].global_objects.append("VOLCANO-SCENERY")
     for room in scenery.WINDOW_ROOMS:
         world.rooms[room].global_objects.append("WINDOW")
     world.objects["FOUNTAIN"].action = scenery.fountain_action

@@ -696,6 +696,20 @@ def _make_scrolls(world) -> None:
          ["tall", "old"], sc.mirrors_action),
         ("SHATTER-GLASS", "mirror", "", ["mirror", "reflection", "frame", "glass"],
          ["large", "rippled"], sc.mirrors_action),
+        # Named in room text (TODO #28); placed in init.py
+        ("ALLEY-CRATES", "crates", "", ["crates", "crate", "barrels", "barrel"], ["broken"], None),
+        ("RANGE-TARGETS", "targets", "", ["targets", "target"], ["straw"], None),
+        ("PEWS", "pews", "", ["pews", "pew"], ["wooden"], None),
+        ("MAUSOLEUM-DOOR", "iron door", "", ["door"], ["iron", "heavy", "mausoleum"], None),
+        ("CRYPT-ALCOVES", "alcoves", "", ["alcoves", "alcove", "remains"], [], None),
+        ("CRYPT-PASSAGE", "passage", "", ["passage"], ["rough-cut", "sloping"], None),
+        ("CRYPT-FOOTPRINTS", "footprints", "", ["footprints", "prints", "tracks"], [], None),
+        ("DEN-BONES", "bones", "", ["bones", "bone"], [], None),
+        ("VOLCANO-SCENERY", "volcano", "", ["volcano", "mountain"], [], sc.volcano_action),
+        ("IDOL-PEDESTAL", "pedestal", "", ["pedestal", "column"], ["stone"], sc.pedestal_action),
+        ("RING-STONES", "stones", sc.RING_STONES, ["stones"], ["rune", "five"], None),
+        ("CIRCLE-SYMBOL", "symbol", sc.CIRCLE_SYMBOL, ["symbol", "carving", "lines"],
+         ["carved"], None),
     ):
         world.register_object(GameObject(
             name=name, desc=desc, examine=examine, synonyms=syns, adjectives=adjs,
@@ -925,6 +939,7 @@ def _make_chuckle_objects(world) -> None:
         fdesc="A pocket watch lies on the floor where the ghost stood.",
         examine="A plain silver pocket watch, stopped. The inside of the lid is "
               "engraved, but too worn to read.",
+        text="You can't read that.",              # the engraving is worn away (TODO #28)
         synonyms=["watch"], adjectives=["pocket", "silver"], flags={TAKEBIT},
     ))
 
@@ -969,9 +984,10 @@ def _make_town_hall_objects(world) -> None:
         synonyms=["key"], adjectives=["middle", "tier", "iron", "heavy", "calder's"],
         size=1, flags={TAKEBIT},
     ))
-    from content.gravestone import LISTING_MUD
+    from content.gravestone import LISTING_MUD, EXAMINE_STONE
     world.register_object(GameObject(
         name="GRAVESTONE", desc="gravestone", fdesc=LISTING_MUD, ldesc=LISTING_MUD,
+        text=EXAMINE_STONE,                       # READ: the name it carries (TODO #28)
         synonyms=["gravestone", "stone", "headstone", "slab"],
         adjectives=["calder", "finch's"], size=10,
         flags={INVISIBLE, TAKEBIT, TRYTAKEBIT},   # TAKE refuses it (gravestone.take_stone)
@@ -1599,7 +1615,8 @@ def _make_cellar_objects(world) -> None:
     ))
     fixed("CELLAR-DOOR", "cellar door", ["door", "trapdoor", "lock"], ["cellar"])
     # In the Kitchen (reached from the top step) until the cellar drains
-    fixed("DRAIN", "drain", ["drain", "cover", "grate", "clog"], ["drain", "iron", "square"])
+    fixed("DRAIN", "drain", ["drain", "cover", "grate", "clog", "sacking", "root", "roots"],
+          ["drain", "iron", "square", "rotted"])                # SACKING: TODO #28
     fixed("TUNNEL-DOOR-CELLAR", "black oak door", ["door"], ["black", "oak", "low", "tunnel"])
     fixed("TUNNEL-DOOR-BONE", "black oak door", ["door"], ["black", "oak", "low", "tunnel"])
     world.register_object(GameObject(

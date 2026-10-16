@@ -47,9 +47,9 @@ def bedroom_door_announce(w) -> None:
 
 
 def volcano_stairs_check(w) -> bool:
-    """The Volcano: Level 3, every visit until the staircase is found."""
-    from content.perception import LEVEL_3, reveal_exit_if_found
-    return reveal_exit_if_found(w, LEVEL_3, "VOLCANO-STAIRS-FOUND")
+    """The Volcano: Level 2, every visit until the staircase is found."""
+    from content.perception import LEVEL_2, reveal_exit_if_found
+    return reveal_exit_if_found(w, LEVEL_2, "VOLCANO-STAIRS-FOUND")
 
 
 def bog_sw_check(w) -> bool:
@@ -596,7 +596,6 @@ _VOLCANO_STAIRS = (
 
 def _make_volcano(world) -> None:
     from engine.game import M_NOT_HANDLED, M_HANDLED, M_ENTER, M_LOOK
-    from content.perception import LEVEL_3, reveal_exit_if_found
 
     volcano = Room(name="VOLCANO", desc="The Volcano", ldesc="", value=1)
     volcano.set_flag(ONBIT)

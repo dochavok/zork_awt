@@ -90,6 +90,8 @@ ARCH = ("A low arch of older stone, its keystone worn smooth. Beyond it, steps "
 # Other room globals that only exist in some states
 GLOBAL_SHOWN = {
     "LIBRARY-LEDGER": lambda w: bool(w.get_global("LIBRARIAN-MET")),   # she's brought it out
+    # The crypt's text names footprints from the second visit (tunnels.py — _CRYPT)
+    "CRYPT-FOOTPRINTS": lambda w: int(w.get_global("CRYPT-VISITS") or 0) >= 2,
 }
 
 

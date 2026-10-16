@@ -301,3 +301,43 @@ def window_action(w: World) -> int:
         print(WINDOW_SHUT)
         return M_HANDLED
     return M_NOT_HANDLED
+
+
+# --- TODO #28 (2026-10-15): nouns the room text names ---------------------------------
+# Plain ones (default "nothing special" line): the Back Alley's crates, the range's
+# targets, the pews, the mausoleum's iron door, the crypt's alcoves, passage and
+# footprints (once visited), the Creature Den's bones. Lines in locations.md.
+VOLCANO = "Large, dark, and smoking gently. It seems determined to be every inch a volcano."
+VOLCANO_FOUND = "Even knowing about the stairs, it doesn't look any less real. That's the unsettling part."
+PEDESTAL = ("A waist-high column of the same deliberate stonework. The figurine sits "
+            "exactly at its center, as if someone measured.")
+PEDESTAL_EMPTY = "A waist-high column of the same deliberate stonework, empty now."
+RING_STONES = ("Five rune stones, waist-high, set evenly around the symbol. Each has one "
+               "rune cut deep into its face: Air, Earth, Fire, Water, and a heart.")
+CIRCLE_SYMBOL = ("Lines cut into the packed earth run from the center out to each of the "
+                 "five stones, joining them.")
+
+
+def volcano_action(w: World) -> int:
+    if w.prsa != "V-EXAMINE":
+        return M_NOT_HANDLED
+    print(VOLCANO_FOUND if w.get_global("VOLCANO-STAIRS-FOUND") else VOLCANO)
+    return M_HANDLED
+
+
+def pedestal_action(w: World) -> int:
+    """The Idol Room's pedestal: the idol on it, the salt, or nothing; the plate
+    line once it's been spotted (upper_tier.py — Trap 33)."""
+    if w.prsa != "V-EXAMINE":
+        return M_NOT_HANDLED
+    from content import upper_tier as ut
+    if ut._idol_on_pedestal(w):
+        lines, plate = [PEDESTAL], ut._IDOL_SPOTTED
+    elif w.get_global("IDOL-SWAPPED"):
+        lines, plate = [ut.SALT_ON_PEDESTAL], ut._PLATE_SALTED
+    else:
+        lines, plate = [PEDESTAL_EMPTY], ut._PLATE_FIRED
+    if w.get_global("IDOL-PLATE-SPOTTED"):
+        lines.append(plate)
+    print(" ".join(lines))
+    return M_HANDLED
