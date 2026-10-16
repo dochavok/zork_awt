@@ -706,6 +706,7 @@ Perception check (Level 4) spots the firing pin and the disarm (Level 4) neutral
 Mirrors on all sides. The ghost of the Records Room Worker's missing relative haunts this room — hostile (atmosphere only: no attacks).
 
 **Room description:** *Mirrors on every wall, angled at each other so the room goes on in every direction at once. Your reflections are wrong by a fraction — a beat late, or a beat early. Somewhere among them is the one real doorway, back the way you came. It is very cold.* (The exit is north; "the way you came" keeps the room disorienting, and the Shatter Trap Mirror is the only way in.)
+The reflections sentence follows the mirrors' state, as `EXAMINE MIRRORS` does (2026-10-15, TODO #31): ring worn (and not inked) while the ghost is here, *None of the reflections are yours.*; once he's freed, *Your reflections keep time now, every one of them.*
 **Ghost (presence, ring worn):** *A figure stands among the reflections, grey and thin and turned toward you — the only thing in the room that isn't repeated.*
 **Pocket watch (after freeing):** listing *A pocket watch lies on the floor where the ghost stood.* Examine: *A plain silver pocket watch, stopped. The inside of the lid is engraved, but too worn to read.*
 Ghost visible only while wearing the ring. `CAST UNBIND UNDEAD` releases the ghost; he says *"Thank you. I can rest now."* and drops the pocket watch: *The grey figure thins until the mirrors have nothing left to repeat. Something falls where he stood and lands with a small metallic click — a pocket watch.*
@@ -1508,6 +1509,7 @@ Crossroads east of the Junction: Tavern Cellar to the east, the Graveyard Crypt 
 
 *The stonework here is older than the rest of the tunnels — rougher cut, the joints wider, the walls slightly damp to the touch. The passage runs south, and west toward the junction. Whatever built this part didn't build it at the same time as the rest. The name feels earned.*
 *In the east wall, a low door of black oak is set into the older stone.*
+Once the door is open (from either side): *In the east wall, a low door of black oak stands open on the cellar.* (2026-10-15, TODO #32)
 
 The door line is the same before and after the cellar drains: the room description gives no warning. `EAST` needs the door open.
 - **`EXAMINE DOOR` before the cellar is drained** (decided 2026-10-13, playtest theme 3, feedback "Instant death behind the black oak door, with no fair warning"; the drowning stays, but a careful player can see it coming):
@@ -1789,10 +1791,10 @@ North of the Creature Den — reachable once the Warden is dead (or past him inv
 **Redesigned 2026-10-14 (TODO #22).** The plate can't be spotted or disarmed any more, and there's no flood timer. No perception check, no disarm, no Actually Enchanted Glasses choice. The thin paper is still ruined by the sweep.
 - **Entry** (first and only visit), after the room description:
   1. *Your foot comes down on a stone that sinks a little too easily. Click. You're starting to suspect the builders got a discount on pressure plates.*
-  2. *Behind you, a stone slab drops across the doorway with a boom you feel in your teeth. The grate on the north wall bursts open and water comes through in a cold, roaring sheet. In a few heartbeats it's above your knees.*
+  2. *Behind you, a stone slab drops across the doorway with a boom you feel in your teeth. The grate on the north wall bursts open and water comes through in a cold, roaring sheet. In a few heartbeats it's up to your knees.* (was "above your knees" — the room then says knee-deep; 2026-10-15, TODO #32)
   3. *The levers on the north wall suddenly look very interesting.*
 - **Room description:** *A low cave, the floor dipping toward the middle. Three iron levers stand in a row on the north wall — left, middle, right — above a grated sluice mouth. A stone slab seals the doorway to the south.* Then one water line:
-  - On entry: *Water churns knee-deep across the floor, still pouring through the grate.*
+  - On entry: *Water churns knee-deep across the floor, still pouring through the grate. The level holds there, for now.* ("The level holds…" added 2026-10-15, TODO #32: it pours but never rises, and there's no timer.)
   - Right lever pulled, middle not: *Water churns waist-deep across the floor, pouring through the grate harder than ever.*
   - Middle pulled, right not: *Water stands knee-deep across the floor, flat and still. The grate has stopped pouring.*
   - Both: *Water stands waist-deep across the floor, flat and still. The grate has stopped pouring.*

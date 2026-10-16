@@ -147,7 +147,7 @@ def take_stone(w: World) -> None:
 def examine(w: World, obj) -> bool:
     """Examine text for the stone and the loaded cart. True if handled."""
     if obj.name == "GRAVESTONE":
-        print(EXAMINE_STONE)
+        print(_GRAVEYARD_STONE if w.get_global("GRAVESTONE-RETURNED") else EXAMINE_STONE)
         return True
     if obj.name == "HAND-CART" and cart_loaded(w):
         print(_EXAMINE_LOADED)
@@ -191,6 +191,7 @@ def unload(w: World) -> None:
         stone.set_flag("SACREDBIT")
         w.move_object(cart, here)
         w.set_global("GRAVESTONE-RETURNED", True)
+        stone.text = _GRAVEYARD_STONE         # READ, standing (TODO #32)
         return
     print(_TIPPED_OFF)
     stone.ldesc = LISTING_MUD if here.name in _BOG_ROOMS else _LISTING_GROUND

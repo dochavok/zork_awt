@@ -101,6 +101,24 @@ class _BoggartExit(Exit):
         return super().resolve(world)
 
 
+_BONE = (
+    "The stonework here is older than the rest of the tunnels — rougher cut, "
+    "the joints wider, the walls slightly damp to the touch. The passage runs "
+    "south, and west toward the junction. Whatever built this part didn't build it "
+    "at the same time as the rest. The name feels earned."
+)
+_BONE_DOOR_SHUT = "In the east wall, a low door of black oak is set into the older stone."
+_BONE_DOOR_OPEN = "In the east wall, a low door of black oak stands open on the cellar."   # TODO #32
+
+
+def bone_action(w: World, msg: int = M_NOT_HANDLED) -> int:
+    if msg == M_LOOK:
+        print(_BONE)
+        print(_BONE_DOOR_OPEN if w.get_global("TUNNEL-DOOR-OPEN") else _BONE_DOOR_SHUT)
+        return M_HANDLED
+    return M_NOT_HANDLED
+
+
 def crypt_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg == M_ENTER:
         w.set_global("CRYPT-VISITS", int(w.get_global("CRYPT-VISITS") or 0) + 1)
@@ -193,14 +211,7 @@ def make_rooms(world) -> None:
         "are older stone, darker with moisture. The silence has a different "
         "quality than the tunnels running back to the north.",
     )
-    bone = room(
-        "BONE-PASSAGE", "The Bone Passage",
-        "The stonework here is older than the rest of the tunnels — rougher cut, "
-        "the joints wider, the walls slightly damp to the touch. The passage runs "
-        "south, and west toward the junction. Whatever built this part didn't build it at the same time as the "
-        "rest. The name feels earned.\n"
-        "In the east wall, a low door of black oak is set into the older stone.",
-    )
+    bone = room("BONE-PASSAGE", "The Bone Passage", "")       # bone_action
     junction = room(
         "JUNCTION", "The Junction",
         "The tunnel opens up here — not much, but enough to feel like a decision "
@@ -248,4 +259,5 @@ def make_rooms(world) -> None:
     entrance.exits["north"] = Exit(destination="TOLL-BRIDGE")
 
     crypt.action = crypt_action
+    bone.action = bone_action
     bridge.action = bridge_action

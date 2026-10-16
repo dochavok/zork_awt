@@ -1221,6 +1221,8 @@ Decided 2026-10-05.
 
 **The end of the game** (decided 2026-10-09)
 - When the game ends on its own (death, corruption, declining the adventure, the ending), the final text stays on screen with *[Press ENTER to exit]*; the game closes on ENTER. Without it, a console window opened by double-clicking the game closes before the player can read how it ended.
+- **Input ends, or Ctrl+C, at any prompt** (2026-10-15, TODO #25): the game ends quietly — a blank line, no save, no closing text — as the `>` prompt always has. Covers the opening's questions and `[Press ENTER to continue]` anywhere; before this they printed a Python traceback (piped input: the playtest runs, a closed console).
+- **Output is always UTF-8** (2026-10-15, TODO #25), so piped output and transcripts show em-dashes, not *�*. A console looks the same either way.
 
 ### Cursing and Notorious (decided 2026-10-10)
 

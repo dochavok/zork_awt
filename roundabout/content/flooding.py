@@ -33,7 +33,8 @@ _ROOM = (
     "row on the north wall — left, middle, right — above a grated sluice mouth. A "
     "stone slab seals the doorway to the south."
 )
-_WATER_ENTRY = "Water churns knee-deep across the floor, still pouring through the grate."
+_WATER_ENTRY = ("Water churns knee-deep across the floor, still pouring through the grate. "
+                "The level holds there, for now.")             # no timer (TODO #32)
 _WATER_RISEN = ("Water churns waist-deep across the floor, pouring through the grate "
                 "harder than ever.")
 _WATER_STILL = ("Water stands knee-deep across the floor, flat and still. The grate has "
@@ -48,7 +49,7 @@ _TRIGGER = (
 _SLAB = (
     "Behind you, a stone slab drops across the doorway with a boom you feel in your "
     "teeth. The grate on the north wall bursts open and water comes through in a "
-    "cold, roaring sheet. In a few heartbeats it's above your knees."
+    "cold, roaring sheet. In a few heartbeats it's up to your knees."
 )
 _URGENCY = "The levers on the north wall suddenly look very interesting."
 

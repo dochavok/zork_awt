@@ -20,24 +20,23 @@ When input runs out at a prompt, `input()` raises `EOFError` and the .exe prints
 - Only piped input reaches it (the playtester's runs; a closed console), not a player typing. It clutters playtest transcripts, and a traceback is never the right ending.
 - Likely fix: treat end of input as quitting. Catch `EOFError` (and `KeyboardInterrupt`?) once, around the main loop in `main.py` / `engine/game.py`, so every prompt is covered, and exit quietly without saving.
 - To decide: whether a short closing line prints (it would need writing and review), and whether Ctrl+C at the keyboard should behave the same.
+- **Also (moved from TODO #32):** em-dashes print as "�" in piped output (the playtest transcripts; the VERSION line too). Piped, Python writes the Windows code page, not UTF-8; a console shows them correctly. Likely fix: always write UTF-8.
+**Resolved 2026-10-15** (mechanics.md — The end of the game): main.py catches end of input and Ctrl+C around the game, so every prompt ends quietly as `>` does — a blank line, no save, no closing text. Output is always UTF-8. Untested in the .exe until the next build.
 
 ### TODO #31 — The ring, round 2 (found 2026-10-15)
 
-From the v2.7 playtest ("Does the ring now feel fair? Mostly, yes").
-- A clean removal at 41–49 still prints "Whatever it wants, it didn't get it this time" (mechanics.md — Clean success), which reassures; the near-miss line at 47 was the honest one.
-- The tick-10 warning ("You hadn't noticed until just now") read as too soft to be a budget, without the next wearing's "remembers" line.
-- The Ghost's Room exit fails half the time with or without the ring (by design, mechanics.md), and the tester spent 4 ticks on it. Its room text ("Your reflections are wrong by a fraction") contradicts `x mirrors` after the ghost is freed ("keeping time properly").
+From the v2.7 playtest ("Does the ring now feel fair? Mostly, yes"). Done 2026-10-15:
+- A clean removal at 41–49 prints "Whatever it wants, it didn't get it this time". **Kept** — "this time" says it will try again.
+- The tick-10 warning read as soft. **Kept** — the next wearing's "remembers" line makes it a budget.
+- The Ghost's Room exit failing half the time: **kept** (mechanics.md); four in a row was bad luck. ~~Its room text contradicts `x mirrors`~~ — the reflections sentence follows the mirrors' state (locations.md — Ghost's Room).
 
 ### TODO #32 — Small text fixes (found 2026-10-15)
 
-From the v2.7 playtest.
-- Flooding Room: "In a few heartbeats it's above your knees", then knee-deep "still pouring" forever.
-- The two middle bog rooms (log room, grey-stone room) name no exits; the one above the apprentice's tunnel doesn't mention the tunnel after climbing out. The Upstairs Hall names only the stairs.
-- The Bone Passage still describes the black oak door as shut after it's opened from the cellar side.
-- The gravestone says "You tip up one edge far enough to read it" after it stands in the graveyard.
-- The Bar description says "She works the bar…" before May is introduced.
-- The heart necklace gives no message about the extra heart.
-- ~~`x man` in the Council Chamber: "You see nothing special about the Councilman Rowan Finch."~~ Fixed 2026-10-15 (mechanics.md — Object descriptions). Still open: the name also matches a common player name.
-- The mugger ambushes on entry and isn't seen again; nothing says where he went.
-- ~~The Volcano still says "There is no way in that you can see" once the stairs are found~~ — the sentence drops out (2026-10-15, locations.md — The Volcano).
-- Em-dashes print as "�" in the console (the VERSION line too).
+From the v2.7 playtest. Done 2026-10-15:
+- ~~Flooding Room: "above your knees", then knee-deep "still pouring" forever~~ — "up to your knees"; *The level holds there, for now.* (locations.md — Flooding Room).
+- ~~The Bone Passage describes the black oak door as shut once open~~ — its own line (locations.md — The Bone Passage).
+- ~~The gravestone says "tip up one edge" standing in the graveyard~~ — the Graveyard's line (items.md — Gravestone).
+- ~~The heart necklace gives no message~~ — wear and remove lines (items.md — Heart Necklace).
+- ~~`x man`: "the Councilman Rowan Finch"~~ (mechanics.md — Object descriptions). ~~The Volcano's "no way in" once the stairs are found~~ (locations.md — The Volcano).
+- **Kept, by design:** the bog interior names no exits (mechanics.md — navigation is the puzzle); no hole on the bog side of the apprentice's tunnel (locations.md); the Upstairs Hall has only the stairs; the Bar's "She" is the bartender, before May's introduction (locations.md); the mugger hides behind a repeating perception check, with the bounty after 100 turns; Rowan's name.
+- Em-dashes printing as "�": moved to TODO #25 (piped output only).

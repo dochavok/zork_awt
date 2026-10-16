@@ -760,7 +760,10 @@ def v_wear(world: World) -> int:
         print("You pull the tunic on. The weave settles across your shoulders, "
               "lighter than it looks.")
         return M_HANDLED
-    print(f"You put on the {obj.desc}.")
+    if obj.name == "HEART-NECKLACE":                     # the extra heart (TODO #32)
+        print(_NECKLACE_ON)
+    else:
+        print(f"You put on the {obj.desc}.")
     if obj.name == "ENCHANTED-GLASSES":
         from content import kevry, bedroom
         kevry.on_wear_glasses(world)
@@ -791,8 +794,16 @@ def v_remove(world: World) -> int:
         return M_HANDLED
 
     if _take_off(world, obj):
-        print(f"{obj.desc[0].upper()}{obj.desc[1:]} removed.")
+        if obj.name == "HEART-NECKLACE":
+            print(_NECKLACE_OFF)
+        else:
+            print(f"{obj.desc[0].upper()}{obj.desc[1:]} removed.")
     return M_HANDLED
+
+
+_NECKLACE_ON = ("You put on the heart necklace. The charm is warm against your chest. "
+                "You feel sturdier.")
+_NECKLACE_OFF = "You take off the heart necklace. You feel a little easier to break."
 
 
 def _take_off(world: World, obj) -> bool:

@@ -97,6 +97,22 @@ def test_mirrors_by_visibility(command):
     assert MIRRORS_FREED in out
 
 
+def test_ghost_room_text_agrees_with_the_mirrors():
+    # locations.md — Ghost's Room (TODO #31, 2026-10-15)
+    from content.chuckle import _REFLECTIONS_SEEN, _REFLECTIONS_UNSEEN, _REFLECTIONS_FREED
+    _, out = _say("GHOSTS-ROOM", "look")
+    assert _REFLECTIONS_SEEN in out
+    w, g, _ = _look("GHOSTS-ROOM")
+    w.globals["ring_worn"] = True
+    out = _do(g, "look")
+    assert _REFLECTIONS_UNSEEN in out and _REFLECTIONS_SEEN not in out
+    w, g, _ = _look("GHOSTS-ROOM", INKED=True)            # ink cancels the ring
+    w.globals["ring_worn"] = True
+    assert _REFLECTIONS_SEEN in _do(g, "look")
+    _, out = _say("GHOSTS-ROOM", "look", GHOST_FREED=True)
+    assert _REFLECTIONS_FREED in out and _REFLECTIONS_SEEN not in out
+
+
 @pytest.mark.parametrize("down, text", [(0, _TIMBERS), (1, _TIMBERS_LEFT[0]),
                                         (2, _TIMBERS_LEFT[1]), (3, _NO_TIMBERS)])
 def test_examine_timbers_follows_the_count(down, text):

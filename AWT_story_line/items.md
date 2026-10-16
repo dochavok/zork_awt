@@ -85,6 +85,8 @@ Required to make ranged (bow) attacks in combat. `SHOOT` equips it (mechanics.md
 **Quest use:** None — permanent stat bonus.
 
 Adds one heart to the player's maximum heart count **while worn** (neck slot). Removing it takes the heart away again.
+- **`WEAR NECKLACE`** (2026-10-15, TODO #32; the heart was never mentioned): *You put on the heart necklace. The charm is warm against your chest. You feel sturdier.*
+- **`REMOVE NECKLACE`:** *You take off the heart necklace. You feel a little easier to break.*
 
 ---
 
@@ -550,6 +552,7 @@ After the stone is back at the Graveyard the cart stays there (still takeable �
 - **Room description (tipped off the cart outside the bog):** *A gravestone lies face-down on the ground.* (In the four bog rooms the mud line above is used.)
 - **Examine:** *You tip up one edge far enough to read it: CALDER FINCH — EXPLORER.*
 - **`READ STONE`** (2026-10-15, TODO #28): the same line as examine.
+- **Back at the Graveyard, `EXAMINE` / `READ`** (2026-10-15, TODO #32; it had kept *tip up one edge*): the Graveyard's line, *One headstone near the path stands straighter than the others, newly scrubbed of mud: CALDER FINCH — EXPLORER.*
 - **`TAKE STONE`:** *It doesn't budge. Whatever carried this out here didn't carry it by hand.*
 - **`LOAD STONE ONTO CART` (no cart):** *You'll need something to put it on.*
 - **`LOAD STONE ONTO CART`:** *You tip the gravestone up out of the mud and walk it, corner by corner, onto the cart. The axle complains. The bog lets go of the stone with a sound you'd rather not have heard. The gravestone is loaded.*

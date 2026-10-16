@@ -164,9 +164,27 @@ def _award_disarm(w: World) -> None:
     award_xp(w, xp)
 
 
+_GHOST_ROOM = (
+    "Mirrors on every wall, angled at each other so the room goes on in "
+    "every direction at once. {reflections} Somewhere among them is the one real "
+    "doorway, back the way you came. It is very cold."
+)
+# The reflections, as EXAMINE MIRRORS sees them (scenery.mirrors_action; TODO #31)
+_REFLECTIONS_SEEN = "Your reflections are wrong by a fraction — a beat late, or a beat early."
+_REFLECTIONS_UNSEEN = "None of the reflections are yours."
+_REFLECTIONS_FREED = "Your reflections keep time now, every one of them."
+
+
 def ghost_room_action(w: World, msg: int = M_NOT_HANDLED) -> int:
     if msg in (M_ENTER, M_END):
         update_ghost_visibility(w)
+    if msg == M_LOOK:
+        if w.get_global("GHOST-FREED"):
+            line = _REFLECTIONS_FREED
+        else:
+            line = _REFLECTIONS_SEEN if _visible(w) else _REFLECTIONS_UNSEEN
+        print(_GHOST_ROOM.format(reflections=line))
+        return M_HANDLED
     return M_NOT_HANDLED
 
 
@@ -250,13 +268,7 @@ def make_rooms(world) -> None:
         "as you move. The way on is past it, to the south. The first mirror's "
         "room is back to the north.",
     )
-    ghost_room = room(
-        "GHOSTS-ROOM", "Ghost's Room",
-        "Mirrors on every wall, angled at each other so the room goes on in "
-        "every direction at once. Your reflections are wrong by a fraction — a "
-        "beat late, or a beat early. Somewhere among them is the one real "
-        "doorway, back the way you came. It is very cold.",
-    )
+    ghost_room = room("GHOSTS-ROOM", "Ghost's Room", "")     # ghost_room_action
 
     # Main East ↔ Nave ↔ Graveyard ↔ Mausoleum. Nave east (Altar), west
     # (Keeper's Chamber) and Mausoleum down (Crypt) come with later sections.
