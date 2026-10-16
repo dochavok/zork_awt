@@ -13,7 +13,7 @@ from unittest.mock import patch
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _goto, _quiet
 from content import light
 
 IGNITION = "The torch catches the dark and pushes it back. Good thinking, getting one of these."
@@ -35,16 +35,6 @@ MUGGED_WAKE = ("You come to in the Back Alley, lighter in the pocket and sore in
                "Mugged — and whoever did it is still out there.")
 BOUNTY = ("BOUNTY: someone's been robbing people in the back alley. Whoever puts a stop "
           "to it drinks free. — May")
-
-
-def _quiet(fn, *a, **kw):
-    with patch("sys.stdout", io.StringIO()):
-        return fn(*a, **kw)
-
-
-def _goto(w, room):
-    w.move_object(w.player, w.rooms[room])
-    w.here = w.rooms[room]
 
 
 # --- Torch: 100 turns from the first dark room; warnings at 50 / 30 / 15 left -------

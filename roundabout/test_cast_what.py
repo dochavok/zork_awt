@@ -10,7 +10,7 @@ import os
 sys.path.insert(0, os.path.dirname(__file__))
 
 import pytest
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 
 
 def test_no_spells():

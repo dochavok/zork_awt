@@ -10,7 +10,7 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_room_exits import _look, _do
+from testkit import _do, _look
 from content.tunnels import _BONE_DOOR_SHUT, _BONE_DOOR_OPEN
 from content.gravestone import EXAMINE_STONE, _GRAVEYARD_STONE
 from content.verbs import _NECKLACE_ON, _NECKLACE_OFF

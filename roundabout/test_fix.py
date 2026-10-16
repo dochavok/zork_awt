@@ -11,7 +11,7 @@ import os
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 from content.aqueduct import _NO_MORTAR, _STILL_GAP
 from content.whispering_jar import _PRESS, _NO_FILL, _ALREADY_SEALED
 

@@ -12,7 +12,7 @@ import io
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _quiet
 from content import combat
 from content.experience import award_xp
 
@@ -31,11 +31,6 @@ TUNIC_LINES = (
     "The runes along the collar catch the light briefly. You are less hurt than you expected to be.",
     "Something in the weave absorbed it. You felt the impact — and then didn't.",
 )
-
-
-def _quiet(fn, *a, **kw):
-    with patch("sys.stdout", io.StringIO()):
-        return fn(*a, **kw)
 
 
 # ---------------------------------------------------------------------------
@@ -206,7 +201,7 @@ def test_no_nobus_favor_below_level_7():
 
 
 # ---------------------------------------------------------------------------
-# The Undead Werewolf: 3d10; only the consecrated stake harms it
+# The Undead Werewolf: 3d20; only the consecrated stake harms it
 # ---------------------------------------------------------------------------
 
 def _den(hearts=6):
@@ -219,14 +214,24 @@ def _den(hearts=6):
     return w, g
 
 
-def test_werewolf_rolls_three_d10():
-    # Player's roll 25. The werewolf's dice all show 10: 3d10 = 30 beats 25.
+def test_werewolf_rolls_three_d20():
+    # Every die shows its top face. 3d20 = 60 beats 31; 3d10 (30) would not.
     w, g = _den()
-    with patch("content.player.roll", return_value=25), \
-         patch("content.combat.random.randint", lambda a, b: 10):
+    with patch("content.player.roll", return_value=31), \
+         patch("content.combat.random.randint", lambda a, b: b):
         out = _do(g, "wait")
     assert CLAWS in out
     assert w.globals["hearts"] == 5
+
+
+def test_werewolf_tops_out_at_sixty():
+    # 60 doesn't beat 60: a fourth die, or bigger ones, would land.
+    w, g = _den()
+    with patch("content.player.roll", return_value=60), \
+         patch("content.combat.random.randint", lambda a, b: b):
+        out = _do(g, "wait")
+    assert CLAWS not in out
+    assert w.globals["hearts"] == 6
 
 
 def test_plain_stake_does_not_kill():

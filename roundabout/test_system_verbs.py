@@ -11,16 +11,11 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 import pytest
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _goto
 from test_quit_and_exit import _run, QUIT_PROMPT
 from engine.game import VERBOSE, BRIEF, SUPER_BRIEF
 
 RESTART_PROMPT = "Start over from the beginning? Anything you haven't saved will be lost. [yes/no] "
-
-
-def _goto(w, name):
-    w.move_object(w.player, w.rooms[name])
-    w.here = w.rooms[name]
 
 
 # --- Description modes ---------------------------------------------------------

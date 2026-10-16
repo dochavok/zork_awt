@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 import pytest
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _carry
 
 KEEP = '"Bring it to me, or keep it close," Will said. You keep it close.'
 
@@ -22,12 +22,6 @@ def _with_ring(room="TOWN-SQUARE", worn=False):
     if worn:
         _do(g, "wear ring")
     return w, g
-
-
-def _carry(w, name):
-    obj = w.objects[name]
-    obj.flags.discard("INVISIBLE")
-    w.move_object(obj, w.player)
 
 
 def test_drop_ring_refused():

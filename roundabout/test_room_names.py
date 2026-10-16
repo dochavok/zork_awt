@@ -16,15 +16,10 @@ import sys
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _goto
 from engine import savegame
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-
-
-def _at(w, room):
-    w.move_object(w.player, w.rooms[room])
-    w.here = w.rooms[room]
 
 
 def _title(g):
@@ -39,7 +34,7 @@ def _stored_room():
     with patch("sys.stdout", io.StringIO()):
         light.light_torch(w)
     w.move_object(w.objects["SHOVEL"], w.player)
-    _at(w, "STORED-ROOM")
+    _goto(w, "STORED-ROOM")
     return w, g
 
 
@@ -54,9 +49,9 @@ def _dug():
 
 def _met_kevry():
     w, g = _make_world(cls="warrior")
-    _at(w, "KEVRYS-HOUSE")
+    _goto(w, "KEVRYS-HOUSE")
     assert _title(g) == "A House"
-    _at(w, "CAPTAINS-QUARTERS")
+    _goto(w, "CAPTAINS-QUARTERS")
     _do(g, "talk to kevry")
     assert w.get_global("KEVRY-MET")
     return w, g
@@ -79,7 +74,7 @@ def test_digging_renames_the_stored_room():
 
 def test_meeting_kevry_names_his_house():
     w, g = _met_kevry()
-    _at(w, "KEVRYS-HOUSE")
+    _goto(w, "KEVRYS-HOUSE")
     assert _title(g) == "Kevry's House"
 
 
@@ -95,7 +90,7 @@ def test_hole_to_below_survives_restore(tmp_path):
 def test_kevrys_house_survives_restore(tmp_path):
     w, g = _met_kevry()
     w2, g2 = _restored(g, tmp_path)
-    _at(w2, "KEVRYS-HOUSE")
+    _goto(w2, "KEVRYS-HOUSE")
     assert _title(g2) == "Kevry's House"
 
 

@@ -19,7 +19,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-import test_walkthrough_fullscore_v2 as fullscore
+import walkthrough_runner as wt
 from content import quests
 from content import may_hints as mh
 
@@ -34,8 +34,8 @@ class MayHintsBase(unittest.TestCase):
         # patches already running first, or they outlive this file.
         self.tearDown()
         self._patches = [
-            patch("random.randint", fullscore._always_max),
-            patch("content.char_create.input", fullscore._make_input_feed()),
+            patch("random.randint", wt._always_max),
+            patch("content.char_create.input", wt._make_input_feed()),
         ]
         for p in self._patches:
             p.start()
@@ -43,7 +43,7 @@ class MayHintsBase(unittest.TestCase):
 
     def fresh(self):
         """A new game in the Bar (patches stay as set up)."""
-        self.game, self.w = fullscore._make_game()
+        self.game, self.w = wt._make_game()
         self.w.globals["zenni"] = 100
         self.w.globals["player_name"] = "Tester"
         # Quests 19&30 are sold from the start of the game (before discovery), so

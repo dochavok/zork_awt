@@ -10,7 +10,7 @@ import os
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 from content.dark_branch import (
     _TRAPPED_NO_RING, _TRAPPED_BOUND, _TRAPPED_INKED, _TRAPPED_END, _SPIRITS_SEE,
     _SPIRITS_IGNORE, _BLOCKED,

@@ -11,7 +11,7 @@ import pytest
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 
 NUDGE = 'A nearby Viking stares at her, then at you. "Ivanaar won\'t believe that unless he sees it."'
 NOT_HERE = ('"You\'re standing. That\'s something. But Aylora\'s not here to tell me '

@@ -18,7 +18,7 @@ from unittest.mock import patch
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 from content import light, quests
 
 
@@ -264,11 +264,11 @@ def test_fuse_lit_after_the_save_is_out_after_restore():
 def test_every_mid_game_clock_event_can_be_rebuilt():
     # Replay the full-score walkthrough; any clock event created after setup
     # needs a factory (content/init.py), or a fresh-game RESTORE drops it.
-    import test_walkthrough_fullscore_v2 as fullscore
-    with patch("random.randint", fullscore._always_max),             patch("content.char_create.input", fullscore._make_input_feed()),             patch("sys.stdout", io.StringIO()):
-        g, w = fullscore._make_game()
+    import walkthrough_runner as wt
+    with patch("random.randint", wt._always_max),             patch("content.char_create.input", wt._make_input_feed()),             patch("sys.stdout", io.StringIO()):
+        g, w = wt._make_game()
         at_setup = set(g.clock._events)
-        for section in fullscore.parse_walkthrough(fullscore._WALKTHROUGH_PATH):
+        for section in wt.parse_walkthrough(wt.FULLSCORE_PATH):
             for cmd, _frag in section.steps:
                 g.do_turn(cmd)
     created = set(g.clock._events) - at_setup

@@ -77,7 +77,7 @@ Found in the world, in chests, or rewarded by Dungeon Masters. No Zenni cap. Spe
 
 `WEAR X` works only on wearable items (the glasses, the ring, the Heart Necklace, the gloves, the tunic, the boots, the Pie Rat disguise); anything else: *You can't wear the X.*
 
-`INVENTORY` / `I` lists carried items by their inventory description (items.md). Worn items show **(being worn)**; an equipped weapon shows **(equipped)**; wearable items carried but not worn show **(not worn)**. Nothing carried: *"You are empty-handed."*
+`INVENTORY` / `I` lists carried items by their inventory description (items.md). Worn items show **(being worn)**; an equipped weapon shows **(equipped)**; wearable items carried but not worn show **(not worn)**. Nothing carried: *"You are empty-handed."* `INVENTORY` uses a turn (decided 2026-10-15).
 
 The purse always ends the list: *"You have 12 Zenni."* (*"You have 1 Zenni."*, *"You have no Zenni."*). Empty-handed prints both lines. There is no other place the player is told the total, besides `SCORE` during play (below) — no `ZENNI` / `PURSE` command, and the end-of-game score leaves Zenni out (decided 2026-10-05).
 

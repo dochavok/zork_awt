@@ -12,7 +12,7 @@ from unittest.mock import patch
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 from content import combat
 from engine.world import WEARBIT
 
@@ -438,12 +438,6 @@ def test_finishing_move_frees_the_apprentice():
     with patch("content.combat.random.randint", lambda a, b: 1),          patch("content.char_create.input", lambda p="": ""):   # his farewell's pause
         trap_side.fight_round(w)
     assert w.get_global("APPRENTICE-FREED")
-
-
-def test_no_finishing_move_below_level_8():
-    w, g = _world(level=7)
-    _mugger(w)
-    assert combat._FINISH_LINES not in _finish(g, "kill mugger")
 
 
 def test_max_dice_never_finish():

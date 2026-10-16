@@ -12,26 +12,14 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _goto, _carry
 from content import init, light
-
-
-def _hold(w, name):
-    obj = w.objects[name]
-    obj.flags.discard("INVISIBLE")
-    w.move_object(obj, w.player)
-    return obj
-
-
-def _goto(w, name):
-    w.move_object(w.player, w.rooms[name])
-    w.here = w.rooms[name]
 
 
 def test_plural_and_mass_listings():
     w, g = _make_world(cls="warrior")
     for name, article in init._ARTICLES.items():
-        obj = _hold(w, name)
+        obj = _carry(w, name)
         assert "You drop" in _do(g, f"drop {obj.synonyms[0]}"), name
         out = _do(g, "look")
         if article == "plural":
@@ -43,7 +31,7 @@ def test_plural_and_mass_listings():
 
 def test_ordinary_item_keeps_a_or_an():
     w, g = _make_world(cls="warrior")
-    _hold(w, "BOW")
+    _carry(w, "BOW")
     _do(g, "drop bow")
     assert "There is a bow here." in _do(g, "look")
 
@@ -82,7 +70,7 @@ def test_burnt_out_torch_dropped_with_drop_all():
     _goto(w, "KITCHEN")
     _do(g, "buy torch")
     light._burn_out(w)
-    _hold(w, "BOW")
+    _carry(w, "BOW")
     out = _do(g, "drop all")
     assert "You toss the burnt-out torch aside." in out
     assert w.objects["TORCH"].location is None

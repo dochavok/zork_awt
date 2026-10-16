@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 import pytest
 
-from test_room_exits import _look, _do
+from testkit import _do, _look
 from content import scenery as sc
 from content.scenery import (TOWER_DESK, TOWER_PAPERS_WILL, TOWER_PAPERS_ALONE, CATALOGUE,
                              CATALOGUE_CARD, SHELVES, LEDGER, FOUNTAIN_DRY, FOUNTAIN_RUNNING,

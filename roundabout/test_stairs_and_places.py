@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 import pytest
 
-from test_room_exits import _look, _do
+from testkit import _do, _look
 from content import ways
 
 LEAD_UP, LEAD_DOWN, LEAD_BOTH = "The stairs lead up.", "The stairs lead down.", "The stairs lead up and down."

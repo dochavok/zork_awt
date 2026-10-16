@@ -9,12 +9,7 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
-
-
-def _goto(w, name):
-    w.move_object(w.player, w.rooms[name])
-    w.here = w.rooms[name]
+from testkit import _make_world, _do, _goto
 
 
 def test_plain_listen():

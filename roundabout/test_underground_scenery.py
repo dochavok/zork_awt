@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 import pytest
 
-from test_room_exits import _look, _do
+from testkit import _do, _look
 from content.scenery import (RUBBLE, RUBBLE_SEARCH, RUBBLE_CLIMB, JOURNALS, JOURNALS_STAY,
                              BEDROLLS, EQUIPMENT, CRATES, CRATES_SEARCH, STOOL, RUNNER,
                              ENTRANCE_CEILING, MIRRORS_SEEN, MIRRORS_UNSEEN, MIRRORS_FREED,

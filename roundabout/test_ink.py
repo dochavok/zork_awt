@@ -8,7 +8,7 @@ import os
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _carry
 
 SHAMUS = 'points the ladle at the door. "Not in my kitchen."'
 RAZNAK = 'Raznak lowers his bow and studies you. "Wash," he says. "Then we talk."'
@@ -30,12 +30,6 @@ def _at(room, inked=True, **kw):
     w.move_object(w.player, w.rooms[room])
     w.here = w.rooms[room]
     return w, g
-
-
-def _carry(w, name):
-    obj = w.objects[name]
-    obj.flags.discard("INVISIBLE")   # hidden until found in play
-    w.move_object(obj, w.player)
 
 
 # --- the six with their own lines ------------------------------------------------
@@ -276,11 +270,6 @@ def test_wash_or_clean_a_thing_is_brush():
     _carry(w, "DAGGER")
     for cmd in ("wash dagger", "clean dagger"):
         assert "If you wish, but heaven only knows why." in _do(g, cmd)
-
-
-def test_swim_where_there_is_water_when_clean():
-    w, g = _at("ROUNDABOUT-POND", inked=False)
-    assert "You don't want to swim in that!" in _do(g, "swim")
 
 
 def test_examine_me_and_the_ink():

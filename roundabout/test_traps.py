@@ -18,7 +18,7 @@ from unittest.mock import patch
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _carry, _quiet
 from content import light
 
 LOW, HIGH = 0, 99          # level roll totals: every check (Level 1–8) fails / passes
@@ -35,25 +35,14 @@ NOTICED = (". You disarm it before it can do anything.",      # TODO #30, 2026-1
            ". You try to disarm it, and fail miserably.")
 
 
-def _quiet(fn, *a, **kw):
-    with patch("sys.stdout", io.StringIO()):
-        return fn(*a, **kw)
-
-
 def _world(cls="warrior"):
     """Level 1, torch lit, and no room pays exploration XP — so XP moves only for traps."""
     w, g = _make_world(cls=cls, level=1, hearts=5, zenni=10)
-    _give(w, "TORCH")
+    _carry(w, "TORCH")
     _quiet(light.light_torch, w)
     for room in w.rooms.values():
         room.value = 0
     return w, g
-
-
-def _give(w, name):
-    obj = w.objects[name]
-    obj.clear_flag("INVISIBLE")
-    w.move_object(obj, w.player)
 
 
 def _rolls(total):
@@ -113,7 +102,7 @@ def _disarm(trap, w, g):
     elif trap == 19:
         _arrive(w, g, "PORTCULLIS-CORRIDOR", HIGH)
     elif trap == 33:
-        _give(w, "SACK-OF-SALT")
+        _carry(w, "SACK-OF-SALT")
         _arrive(w, g, "IDOL-ROOM", HIGH)
         _cmd(g, "swap idol with salt", HIGH)
     elif trap == 36:
@@ -201,7 +190,7 @@ def test_trap15_level_6_spot_level_5_disarm():
 
 def test_trap15_stuck_items_pry_at_level_4():
     w, g = _world("mage")                          # no strength bonus
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     _arrive(w, g, "MAGNETIC-VAULT", LOW)           # not spotted
     _cmd(g, "open chest", LOW)
     assert "CROWBAR" in (w.globals.get("MAGNET-STUCK") or [])
@@ -485,7 +474,7 @@ def test_trap33_plate_line_after_salt_swap():
     from content.upper_tier import _IDOL_SPOTTED, _PLATE_SALTED, _SLAB_DOWN
     w, g = _world()
     _arrive(w, g, "IDOL-ROOM", HIGH)
-    _give(w, "SACK-OF-SALT")
+    _carry(w, "SACK-OF-SALT")
     _cmd(g, "swap idol with salt", HIGH)
     out = _do(g, "look")
     assert _PLATE_SALTED in out
@@ -499,7 +488,7 @@ def test_trap33_slab_described_until_pried_even_if_plate_unseen():
     _do(g, "take idol")
     out = _do(g, "look")
     assert _SLAB_DOWN in out and _PLATE_FIRED not in out
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     _cmd(g, "pry slab", HIGH)
     assert _SLAB_DOWN not in _do(g, "look")
 
@@ -525,7 +514,7 @@ def test_trap33_pry_needs_crowbar_and_level_4_strength_with_retries():
     _do(g, "take idol")
     _cmd(g, "pry door", HIGH)                       # no crowbar
     assert w.get_global("IDOL-DOOR-SHUT")
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     _cmd(g, "pry door", 17)
     assert w.get_global("IDOL-DOOR-SHUT")
     _cmd(g, "pry door", 18)                         # retry allowed
@@ -546,7 +535,7 @@ def test_trap33_lift_slab_pries_with_the_crowbar():
     _do(g, "take idol")
     assert _LIFT_BARE in _cmd(g, "lift slab", HIGH)  # no crowbar
     assert w.get_global("IDOL-DOOR-SHUT")
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     assert _PRY_FAILED in _cmd(g, "raise slab", LOW)
     assert w.get_global("IDOL-DOOR-SHUT")
     assert _PRIED in _cmd(g, "lift slab", HIGH)

@@ -10,7 +10,7 @@ import os
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 from content.verbs import (
     _ALREADY_LIT, _IVORY_HEAT, _TORCH_STAYS_LIT, _LANTERN_STAYS_LIT, _NOT_LIT,
     _LANTERN_NOT_HELD,

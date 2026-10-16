@@ -14,7 +14,7 @@ import os
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 from content import quests
 from content.whispering_jar import (_UNREADABLE, _WORN, _WHISPER, _SEALED, _SEALED_EXAMINE,
                                     _DUSTED, _DUSTED_EXAMINE)

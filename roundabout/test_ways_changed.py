@@ -13,13 +13,8 @@ from unittest.mock import patch
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world
+from testkit import _make_world, _quiet
 from engine.game import M_END
-
-
-def _quiet(fn, *args):
-    with contextlib.redirect_stdout(io.StringIO()):
-        return fn(*args)
 
 
 def _arrive(w, g, room, perceive=False):

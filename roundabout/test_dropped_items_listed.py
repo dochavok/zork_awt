@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 import pytest
 
-from test_room_exits import _look, _do, _make_world
+from testkit import _make_world, _do, _look
 
 PLAIN = "MAIN-EAST"
 # Not dropped the ordinary way (their own DROP rules — mechanics.md / items.md)

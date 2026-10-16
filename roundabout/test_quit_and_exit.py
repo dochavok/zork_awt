@@ -20,7 +20,7 @@ import subprocess
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world
+from testkit import _make_world
 from test_cellar_gravestone import _door_open
 from test_corruption import _ringed, GAME_OVER as CORRUPTION_GAME_OVER
 

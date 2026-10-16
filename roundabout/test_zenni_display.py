@@ -9,7 +9,7 @@ import os
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 
 
 def _empty_handed(zenni):
@@ -43,9 +43,11 @@ def test_empty_handed_prints_both():
     assert "You are empty-handed." in out and "You have 7 Zenni." in out
 
 
-def test_inventory_uses_no_turn_change_to_zenni():
+def test_inventory_takes_a_turn_and_leaves_the_purse_alone():
     w, g = _make_world(cls="warrior", zenni=12)
+    moves = w.moves
     _do(g, "i")
+    assert w.moves == moves + 1
     assert w.globals["zenni"] == 12
 
 

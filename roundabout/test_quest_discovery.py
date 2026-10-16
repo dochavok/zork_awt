@@ -19,7 +19,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-import test_walkthrough_fullscore_v2 as fullscore
+import walkthrough_runner as wt
 from content import quests
 
 # Organic discoveries: quest -> room the trigger fires in (quests.md — Discovery)
@@ -47,9 +47,9 @@ def _replay():
     found_in: dict[str, str] = {}
     real_set_state = quests.set_state
 
-    with patch("random.randint", fullscore._always_max), \
-            patch("content.char_create.input", fullscore._make_input_feed()):
-        g, w = fullscore._make_game()
+    with patch("random.randint", wt._always_max), \
+            patch("content.char_create.input", wt._make_input_feed()):
+        g, w = wt._make_game()
 
         def recording_set_state(world, quest_id, state):
             history.setdefault(quest_id, []).append(state)
@@ -58,7 +58,7 @@ def _replay():
             real_set_state(world, quest_id, state)
 
         with patch.object(quests, "set_state", recording_set_state):
-            for section in fullscore.parse_walkthrough(fullscore._WALKTHROUGH_PATH):
+            for section in wt.parse_walkthrough(wt.FULLSCORE_PATH):
                 for cmd, _frag in section.steps:
                     with patch("sys.stdout", io.StringIO()):
                         g.do_turn(cmd)

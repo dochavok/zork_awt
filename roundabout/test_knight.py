@@ -6,40 +6,10 @@ Run with: pytest roundabout/test_knight.py  (from c:\\zork_awt)
 
 import sys
 import os
-import io
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
-from engine.world import World
-from engine.clock import Clock
-from engine.game import Game
-from content.init import initialize_world
-
-
-def _make_world(cls="mage", level=3, hearts=5, zenni=10):
-    from engine.parser import Parser
-    from content.vocabulary import make_vocabulary
-    from content.syntax import make_syntax_rules
-    w = World()
-    p = Parser(make_vocabulary(), make_syntax_rules())
-    g = Game(w, p, Clock())
-    initialize_world(w, g)
-    w.globals.update({
-        "hearts": hearts, "max_hearts": hearts, "level": level, "xp": 0, "zenni": zenni,
-        "player_class": cls, "player_name": "Tess", "ring_corruption": 0,
-        "ring_worn": False, "quest_states": {},
-    })
-    w.move_object(w.player, w.rooms["TOWN-SQUARE"])
-    w.here = w.rooms["TOWN-SQUARE"]
-    return w, g
-
-
-def _do(g, cmd):
-    buf = io.StringIO()
-    with patch("sys.stdout", buf):
-        g.do_turn(cmd)
-    return buf.getvalue()
-
+from testkit import _make_world, _do
 
 def _rolls(player, knight):
     """Fix one round: the player's roll and the knight's 2d8 total."""

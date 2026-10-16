@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 import pytest
 
-from test_room_exits import _look, _do
+from testkit import _do, _look
 from content.scenery import VOLCANO, VOLCANO_FOUND, PEDESTAL, PEDESTAL_EMPTY, RING_STONES, CIRCLE_SYMBOL
 from content.upper_tier import SALT_ON_PEDESTAL, _IDOL_SPOTTED
 from content.cellar import _EX_COVER_OFF

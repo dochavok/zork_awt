@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from unittest.mock import patch
 import pytest
 
-from test_room_exits import _look, _do
+from testkit import _do, _look
 from content.upper_tier import _SUPPLY_DISARMED, _SUPPLY_FIRED
 from content.objects import (CHARTER_TEXT, LIGHTHOUSE_STONE, LIGHTHOUSE_STONE_STAYS,
                              LIGHTHOUSE_DESK, LIGHTHOUSE_LOG)

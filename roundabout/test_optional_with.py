@@ -10,13 +10,8 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _goto, _carry
 from content import aqueduct, shrine_bowl
-
-
-def _goto(w, name):
-    w.move_object(w.player, w.rooms[name])
-    w.here = w.rooms[name]
 
 
 def _aqueduct():
@@ -24,13 +19,6 @@ def _aqueduct():
     _goto(w, "COLLAPSED-AQUEDUCT")
     w.set_global("LIGHT-SPELL-ACTIVE", True)
     return w, g
-
-
-def _hold(w, name):
-    obj = w.objects[name]
-    obj.flags.discard("INVISIBLE")
-    w.move_object(obj, w.player)
-    return obj
 
 
 def test_seal_with_mortar_without_mortar():
@@ -42,7 +30,7 @@ def test_seal_with_mortar_without_mortar():
 
 def test_seal_with_mortar_still_works():
     w, g = _aqueduct()
-    _hold(w, "MORTAR")
+    _carry(w, "MORTAR")
     w.set_global("BLOCKS-PLACED", 3)
     out = _do(g, "seal joints with mortar")
     assert aqueduct._SEALED in out
@@ -51,7 +39,7 @@ def test_seal_with_mortar_still_works():
 
 def test_mix_with_water_away_from_fountain():
     w, g = _make_world(cls="warrior")
-    _hold(w, "FIRE-CLAY")
+    _carry(w, "FIRE-CLAY")
     _goto(w, "KITCHEN")
     out = _do(g, "mix clay with water")
     assert shrine_bowl._NO_WATER in out
@@ -60,7 +48,7 @@ def test_mix_with_water_away_from_fountain():
 
 def test_mix_with_water_at_running_fountain_still_works():
     w, g = _make_world(cls="warrior")
-    _hold(w, "FIRE-CLAY")
+    _carry(w, "FIRE-CLAY")
     w.set_global("FOUNTAIN-RUNNING", True)
     out = _do(g, "mix clay with water")
     assert shrine_bowl._MIXED in out

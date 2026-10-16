@@ -10,26 +10,9 @@ import pytest
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _look
 from content.shrine_path import BRIDGE_WEST_SHUT
 from content.mine import SHAFT_UP_OPEN, SHAFT_UP_BURIED
-
-
-def _look(room, **globals_):
-    w, g = _make_world()
-    for k, v in globals_.items():
-        w.set_global(k.replace("_", "-"), v)
-    w.move_object(w.player, w.rooms[room])
-    w.here = w.rooms[room]
-    if not w.is_lit():                  # dark rooms: carry a lit torch
-        torch = w.objects["TORCH"]
-        w.move_object(torch, w.player)
-        torch.clear_flag("INVISIBLE")
-        from content import light
-        import io, contextlib
-        with contextlib.redirect_stdout(io.StringIO()):
-            light.light_torch(w)
-    return w, g, _do(g, "look")
 
 
 @pytest.mark.parametrize("room, phrases", [

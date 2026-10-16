@@ -10,7 +10,7 @@ import io
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world
+from testkit import _make_world
 
 _CUE = "[Press ENTER to continue] "
 

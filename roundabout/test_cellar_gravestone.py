@@ -18,7 +18,7 @@ from unittest.mock import patch
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _goto, _carry
 from content import light, quests
 
 CACHE_ZENNI = 10                                   # quests.md — Quest 25 cashbox
@@ -34,21 +34,10 @@ STATUE_LOOTED = "its base pried open and empty. Whatever was inside is gone."
 
 def _world():
     w, g = _make_world(cls="warrior", level=3, hearts=5, zenni=10)
-    _give(w, "TORCH")
+    _carry(w, "TORCH")
     with patch("sys.stdout", io.StringIO()):
         light.light_torch(w)
     return w, g
-
-
-def _give(w, name):
-    obj = w.objects[name]
-    obj.clear_flag("INVISIBLE")
-    w.move_object(obj, w.player)
-
-
-def _go(w, room):
-    w.move_object(w.player, w.rooms[room])
-    w.here = w.rooms[room]
 
 
 # ===========================================================================
@@ -57,10 +46,10 @@ def _go(w, room):
 
 def _at_may(crowbar=True):
     w, g = _world()
-    _go(w, "BAR")
+    _goto(w, "BAR")
     _do(g, "talk to may")                          # her introduction comes first
     if crowbar:
-        _give(w, "CROWBAR")
+        _carry(w, "CROWBAR")
     return w, g
 
 
@@ -85,7 +74,7 @@ def test_may_gives_the_key_only_to_someone_carrying_the_crowbar():
     assert _MAY_KEY not in _do(g, "talk to may")
     assert w.objects["CELLAR-KEY"] not in w.player.contents
     assert quests.get_state(w, "25") == "undiscovered"
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     assert _MAY_KEY in _do(g, "talk to may")
     assert w.objects["CELLAR-KEY"] in w.player.contents
     assert quests.get_state(w, "25") != "undiscovered"
@@ -116,7 +105,7 @@ def test_down_before_the_drain_drowns():
 def test_tunnel_door_from_bone_passage_before_the_drain_drowns():
     from content.cellar import _DROWN_TUNNEL
     w, g = _world()
-    _go(w, "BONE-PASSAGE")
+    _goto(w, "BONE-PASSAGE")
     out = _do(g, "open door")
     assert _DROWN_TUNNEL in out
     assert w.get_global("GAME-OVER") is True
@@ -145,7 +134,7 @@ def test_cover_off_shows_the_clog():
 def test_examine_drain_follows_the_cover():
     from content.cellar import _EX_COVER_ON, _EX_COVER_OFF
     w, g = _world()
-    _go(w, "KITCHEN")
+    _goto(w, "KITCHEN")
     assert "nothing special" in _do(g, "examine drain")    # door still shut
     w, g = _door_open()
     assert _EX_COVER_ON in _do(g, "examine drain")
@@ -220,7 +209,7 @@ def _stone_found(w=None, g=None):
 
 def _loaded(w=None, g=None):
     w, g = _stone_found(w, g)
-    _give(w, "HAND-CART")
+    _carry(w, "HAND-CART")
     _do(g, "load stone onto cart")
     assert w.objects["GRAVESTONE"].location is w.objects["HAND-CART"]
     return w, g
@@ -252,7 +241,7 @@ def test_loaded_cart_cant_use_stairs(direction):
     from content.gravestone import _NO_STAIRS
     w, g = _loaded()
     room = "MAUSOLEUM" if direction == "down" else "CELLAR"
-    _go(w, room)
+    _goto(w, room)
     out = _do(g, direction)
     assert _NO_STAIRS in out
     assert w.here.name == room
@@ -261,7 +250,7 @@ def test_loaded_cart_cant_use_stairs(direction):
 def test_unloading_away_from_the_graveyard_tips_the_stone_off():
     from content.gravestone import _TIPPED_OFF, LISTING_MUD
     w, g = _loaded()
-    _go(w, "BOG-NE")
+    _goto(w, "BOG-NE")
     assert _TIPPED_OFF in _do(g, "unload stone")
     assert w.objects["GRAVESTONE"].location is w.rooms["BOG-NE"]
     assert w.objects["HAND-CART"] in w.player.contents          # the player keeps the cart
@@ -272,7 +261,7 @@ def test_unloading_away_from_the_graveyard_tips_the_stone_off():
 def test_unloading_at_the_graveyard_sets_it_and_leaves_the_cart():
     from content.gravestone import _PLACED
     w, g = _loaded()
-    _go(w, "GRAVEYARD")
+    _goto(w, "GRAVEYARD")
     assert _PLACED in _do(g, "unload stone")
     assert w.get_global("GRAVESTONE-RETURNED")
     assert w.objects["GRAVESTONE"].location is w.rooms["GRAVEYARD"]
@@ -291,7 +280,7 @@ def test_put_stone_in_or_on_cart_loads_it(command, cart_held):
     w, g = _stone_found()
     cart = w.objects["HAND-CART"]
     if cart_held:
-        _give(w, "HAND-CART")
+        _carry(w, "HAND-CART")
     else:
         w.move_object(cart, w.here)
     assert _LOADED in _do(g, command)
@@ -311,7 +300,7 @@ def test_put_stone_without_a_cart_is_refused(command, line):
 def test_put_stone_alone_unloads_when_loaded():
     from content.gravestone import _PLACED
     w, g = _loaded()
-    _go(w, "GRAVEYARD")
+    _goto(w, "GRAVEYARD")
     assert _PLACED in _do(g, "put stone")
     assert w.get_global("GRAVESTONE-RETURNED")
 
@@ -319,7 +308,7 @@ def test_put_stone_alone_unloads_when_loaded():
 @pytest.mark.parametrize("command", ["load stone", "put stone in cart", "put stone"])
 def test_returned_stone_cant_be_loaded_again(command):
     w, g = _loaded()
-    _go(w, "GRAVEYARD")
+    _goto(w, "GRAVEYARD")
     _do(g, "unload stone")
     _do(g, "take cart")
     assert "The gravestone is fixed in place." in _do(g, command)
@@ -328,14 +317,14 @@ def test_returned_stone_cant_be_loaded_again(command):
 
 def test_cart_takes_only_the_gravestone():
     w, g = _stone_found()
-    _give(w, "HAND-CART")
-    _give(w, "CROWBAR")
+    _carry(w, "HAND-CART")
+    _carry(w, "CROWBAR")
     assert "The cart's for the gravestone." in _do(g, "put crowbar in cart")
     assert w.objects["CROWBAR"] in w.player.contents
 
 
 def _at_rowan(w):
-    _go(w, "COUNCIL-CHAMBER")
+    _goto(w, "COUNCIL-CHAMBER")
 
 
 def test_rowan_dialogue_states_in_order():
@@ -350,7 +339,7 @@ def test_rowan_dialogue_states_in_order():
     assert _ROWAN_WAITING in _do(g, "talk to rowan")
     assert not quests.is_complete(w, "32")
     _loaded(w, g)
-    _go(w, "GRAVEYARD")
+    _goto(w, "GRAVEYARD")
     _do(g, "unload stone")
     _at_rowan(w)
     out = _do(g, "talk to rowan")
@@ -370,7 +359,7 @@ def test_stone_returned_before_the_door_still_gets_the_key():
     # The v2.7 playtest: the stone home first, the iron door never seen (TODO #26)
     from content.gravestone import _ROWAN_START
     w, g = _loaded()
-    _go(w, "GRAVEYARD")
+    _goto(w, "GRAVEYARD")
     _do(g, "unload stone")
     _at_rowan(w)
     out = _do(g, "talk to rowan")
@@ -384,7 +373,7 @@ def test_rowan_pays_nothing_until_the_stone_is_set():
     quests.discover(w, "32")
     _at_rowan(w)
     _do(g, "talk to rowan")
-    _go(w, "BOG-NE")
+    _goto(w, "BOG-NE")
     _do(g, "unload stone")                                     # tipped off in the wrong place
     _at_rowan(w)
     assert ROWAN_KEY not in _do(g, "talk to rowan")
@@ -419,7 +408,7 @@ def test_crowbar_on_the_floor_is_not_enough():
 def test_crowbar_opens_the_statue_with_no_roll():
     from content.statue import _PRIED
     w, g = _world()
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     with patch("content.player.roll", return_value=0):
         out = _do(g, "use crowbar on statue")
     assert _PRIED in out
@@ -429,7 +418,7 @@ def test_crowbar_opens_the_statue_with_no_roll():
 
 def test_statue_looted_once_both_items_are_taken():
     w, g = _world()
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     _do(g, "use crowbar on statue")
     _do(g, "take stake")
     assert STATUE_LOOTED not in _do(g, "look")                # the note is still inside
@@ -440,7 +429,7 @@ def test_statue_looted_once_both_items_are_taken():
 def test_unloading_outside_the_bog_leaves_it_on_the_ground():
     from content.gravestone import _LISTING_GROUND
     w, g = _loaded()
-    _go(w, "MAUSOLEUM")
+    _goto(w, "MAUSOLEUM")
     _do(g, "unload stone")
     assert _LISTING_GROUND in _do(g, "look")
 
@@ -456,9 +445,9 @@ def test_unloading_outside_the_bog_leaves_it_on_the_ground():
 def test_storage_area_describes_what_is_left(take, line):
     from content import upper_tier
     w, g = _world()
-    _go(w, "STORAGE-AREA")
+    _goto(w, "STORAGE-AREA")
     for name in take:
-        _give(w, name)
+        _carry(w, name)
     out = _do(g, "look")
     others = {"_STORAGE_BOTH", "_STORAGE_BEAM", "_STORAGE_CART", "_STORAGE_NONE"} - {line}
     assert getattr(upper_tier, line) in out

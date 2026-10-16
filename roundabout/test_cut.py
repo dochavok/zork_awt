@@ -12,7 +12,7 @@ from unittest.mock import patch
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _carry
 from content.mid_tier import _ROPE_STAYS
 
 
@@ -24,12 +24,6 @@ def _at(room, *flags):
     w.move_object(w.player, w.rooms[room])
     w.here = w.rooms[room]
     return w, g
-
-
-def _give(w, name):
-    obj = w.objects[name]
-    obj.clear_flag("INVISIBLE")
-    w.move_object(obj, w.player)
 
 
 def test_cut_an_enemy_is_an_attack():
@@ -54,8 +48,8 @@ def test_cut_another_npc(room, cmd, line):
 
 def test_cut_a_thing():
     w, g = _at("TOWN-SQUARE")
-    _give(w, "CROWBAR")
-    _give(w, "TORCH")
+    _carry(w, "CROWBAR")
+    _carry(w, "TORCH")
     moves = w.moves
     assert "Strange concept, cutting the crowbar..." in _do(g, "cut crowbar")
     assert "Strange concept, cutting the crowbar..." in _do(g, "cut crowbar with torch")
@@ -76,7 +70,7 @@ def test_cut_the_rope_from_below():
 
 def test_cut_the_loose_rope():
     w, g = _at("TOWN-SQUARE")
-    _give(w, "ROPE")
+    _carry(w, "ROPE")
     assert "Strange concept, cutting the coil of rope..." in _do(g, "cut rope")
 
 
@@ -107,7 +101,7 @@ def test_kick_an_enemy_is_an_attack():
 
 def test_kick_an_npc_and_a_thing():
     w, g = _at("BAR")
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     assert "May wouldn't appreciate that." in _do(g, "kick may")
     assert "Kicking the crowbar has no obvious effect." in _do(g, "kick crowbar")
 
@@ -122,7 +116,7 @@ def test_taunt_is_not_a_word():
 @pytest.mark.parametrize("verb", ["rub", "touch", "feel", "pat", "pet"])
 def test_rub_an_npc_and_a_thing(verb):
     w, g = _at("BAR")
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     assert "May wouldn't appreciate that." in _do(g, f"{verb} may")
     assert "Fiddling with the crowbar has no effect." in _do(g, f"{verb} crowbar")
 
@@ -130,8 +124,8 @@ def test_rub_an_npc_and_a_thing(verb):
 @pytest.mark.parametrize("cmd", ["rub paper", "rub charcoal on paper", "rub engraving with charcoal"])
 def test_the_rubbing_from_the_paper_or_charcoal(cmd):
     w, g = _at("INSCRIPTION-CHAMBER")
-    _give(w, "THIN-PAPER")
-    _give(w, "CHARCOAL")
+    _carry(w, "THIN-PAPER")
+    _carry(w, "CHARCOAL")
     assert "You press the thin paper flat against the carved wall" in _do(g, cmd)
 
 
@@ -140,7 +134,7 @@ def test_the_rubbing_from_the_paper_or_charcoal(cmd):
 @pytest.mark.parametrize("verb", ["swing", "thrust"])
 def test_swing_at_an_enemy_is_attack_with(verb):
     w, g = _at("BACK-ALLEY", "MUGGER-SPOTTED")
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     mugger = w.objects["MUGGER"]
     mugger.clear_flag("INVISIBLE")
     w.move_object(mugger, w.here)
@@ -153,7 +147,7 @@ def test_swing_at_an_enemy_is_attack_with(verb):
 
 def test_swing_alone_and_at_a_non_enemy():
     w, g = _at("BAR")
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     assert "Whoosh!" in _do(g, "swing crowbar")
     assert "You can't fight May." in _do(g, "swing crowbar at may")
 
@@ -163,7 +157,7 @@ def test_swing_alone_and_at_a_non_enemy():
 @pytest.mark.parametrize("verb", ["throw", "hurl", "chuck", "toss"])
 def test_throw_alone_is_drop(verb):
     w, g = _at("TOWN-SQUARE")
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     assert "You drop the crowbar." in _do(g, f"{verb} crowbar")
     assert w.objects["CROWBAR"].location is w.here
 
@@ -171,7 +165,7 @@ def test_throw_alone_is_drop(verb):
 @pytest.mark.parametrize("target", ["statue", "may"])
 def test_throw_at_anything_keeps_it(target):
     w, g = _at("BAR" if target == "may" else "TOWN-SQUARE")
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     assert "You'd rather keep hold of the crowbar." in _do(g, f"throw crowbar at {target}")
     assert w.objects["CROWBAR"].location is w.player
 
@@ -192,7 +186,7 @@ def test_smash_an_enemy_is_an_attack():
 @pytest.mark.parametrize("verb", ["destroy", "break", "smash", "chop", "damage"])
 def test_break_an_npc_and_a_thing(verb):
     w, g = _at("BAR")
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     assert "May wouldn't appreciate that." in _do(g, f"{verb} may")
     assert "Nice try." in _do(g, f"{verb} crowbar")
 
@@ -209,21 +203,21 @@ def test_break_the_ice():
 def test_drive_stake_with_no_werewolf():
     from content.verbs import _NO_STAKE_TARGET
     w, g = _at("TOWN-SQUARE")
-    _give(w, "SILVER-STAKE")
-    _give(w, "CROWBAR")
+    _carry(w, "SILVER-STAKE")
+    _carry(w, "CROWBAR")
     assert _NO_STAKE_TARGET in _do(g, "drive stake")
     assert "You can't drive the crowbar into anything." in _do(g, "drive crowbar")
 
 
 def test_drive_into_an_npc():
     w, g = _at("BAR")
-    _give(w, "SILVER-STAKE")
+    _carry(w, "SILVER-STAKE")
     assert "May wouldn't appreciate that." in _do(g, "drive stake into may")
 
 
 def test_drive_something_else_into_the_werewolf_is_an_attack():
     w, g = _at("STILL-DEN")
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     seen = []
     with patch("content.verbs._fight",
                lambda world, obj: seen.append((world.prsa, obj.name, world.prsi.name))):
@@ -236,7 +230,7 @@ def test_drive_something_else_into_the_werewolf_is_an_attack():
 @pytest.mark.parametrize("verb", ["eat", "consume", "taste", "bite"])
 def test_eat_an_npc_and_a_thing(verb):
     w, g = _at("BAR")
-    _give(w, "CROWBAR")
+    _carry(w, "CROWBAR")
     assert "May wouldn't appreciate that." in _do(g, f"{verb} may")
     assert "I don't think that the crowbar would agree with you." in _do(g, f"{verb} crowbar")
     assert w.objects["CROWBAR"].location is w.player
@@ -261,7 +255,7 @@ def test_eating_the_only_item_fails_the_quest(item, word, quest, line):
     from content import quests
     w, g = _at("TOWN-SQUARE")
     quests.discover(w, quest)
-    _give(w, item)
+    _carry(w, item)
     assert line in _do(g, f"eat {word}")
     assert w.objects[item].location is None
     assert quests.is_failed(w, quest)
@@ -276,7 +270,7 @@ def test_a_failed_quest_leaves_the_journal_and_the_board():
     quest_board.post(w, "40")
     quests.discover(w, "40")
     assert "40" in quest_board.notices(w)
-    _give(w, "BOG-THYME")
+    _carry(w, "BOG-THYME")
     _do(g, "eat thyme")
     assert "40" not in quest_board.notices(w)
     assert all(q != "40" for q, _s in journal._entries(w))

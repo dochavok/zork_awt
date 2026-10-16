@@ -9,13 +9,8 @@ import os
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _goto
 from content.altar import ALTAR_EAST
-
-
-def _goto(w, name):
-    w.move_object(w.player, w.rooms[name])
-    w.here = w.rooms[name]
 
 
 def test_the_nave_names_its_exits():

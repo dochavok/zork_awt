@@ -12,13 +12,8 @@ import os
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _do
+from testkit import _do, _goto
 from test_traps import _world, _arrive, _cmd, HIGH
-
-
-def _at(w, room):
-    w.move_object(w.player, w.rooms[room])
-    w.here = w.rooms[room]
 
 
 # ---------------------------------------------------------------------------
@@ -29,7 +24,7 @@ def test_after_the_cave_in_the_way_up_is_buried():
     from content.mine import _BURIED_UP
     w, g = _world()
     w.set_global("MINE-BLOWN", True)
-    _at(w, "MAIN-SHAFT")
+    _goto(w, "MAIN-SHAFT")
     assert _BURIED_UP in _do(g, "up")
     assert w.here.name == "MAIN-SHAFT"
 
@@ -38,7 +33,7 @@ def test_after_the_cave_in_the_way_down_is_buried():
     from content.mine import _BURIED
     w, g = _world()
     w.set_global("MINE-BLOWN", True)
-    _at(w, "MINE-ENTRANCE")
+    _goto(w, "MINE-ENTRANCE")
     assert _BURIED in _do(g, "down")
     assert w.here.name == "MINE-ENTRANCE"
 
@@ -47,7 +42,7 @@ def test_after_the_cave_in_the_way_out_is_the_hidden_entrance():
     w, g = _world()
     w.set_global("MINE-BLOWN", True)
     w.set_global("ASSAY-GAP-FOUND", True)
-    _at(w, "MAIN-SHAFT")
+    _goto(w, "MAIN-SHAFT")
     _do(g, "south")
     assert w.here.name == "ASSAY-ROOM"
     _do(g, "east")
@@ -56,7 +51,7 @@ def test_after_the_cave_in_the_way_out_is_the_hidden_entrance():
 
 def test_before_the_cave_in_up_is_open():
     w, g = _world()
-    _at(w, "MAIN-SHAFT")
+    _goto(w, "MAIN-SHAFT")
     _do(g, "up")
     assert w.here.name == "MINE-ENTRANCE"
 
@@ -67,7 +62,7 @@ def test_before_the_cave_in_up_is_open():
 
 def _from_south(w, g):
     """Come up from the Shrine Room, the charge already spotted and discharged."""
-    _at(w, "SHRINE-ROOM")
+    _goto(w, "SHRINE-ROOM")
     w.set_global("PORTCULLIS", "discharged")
     _do(g, "north")
     assert w.here.name == "PORTCULLIS-CORRIDOR"
@@ -88,7 +83,7 @@ def test_from_the_south_north_is_blocked_until_propped(state):
 def test_from_the_north_south_is_blocked_and_north_is_open():
     from content.shrine_path import _DOWN
     w, g = _world()
-    _at(w, "PRAYER-ALCOVE")
+    _goto(w, "PRAYER-ALCOVE")
     w.set_global("PORTCULLIS", "discharged")
     _do(g, "south")
     assert _DOWN in _do(g, "south")
@@ -110,7 +105,7 @@ def test_propped_from_the_south_the_way_north_is_open():
 def test_propped_both_ways_are_open_from_either_side():
     w, g = _world()
     w.set_global("PORTCULLIS", "propped")
-    _at(w, "SHRINE-ROOM")
+    _goto(w, "SHRINE-ROOM")
     for step, room in [("north", "PORTCULLIS-CORRIDOR"), ("north", "PRAYER-ALCOVE"),
                        ("south", "PORTCULLIS-CORRIDOR"), ("south", "SHRINE-ROOM")]:
         _do(g, step)

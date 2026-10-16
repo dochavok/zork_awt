@@ -18,7 +18,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-import test_walkthrough_fullscore_v2 as fullscore
+import walkthrough_runner as wt
 
 _STOCK = {"GUNPOWDER": 5, "TORCH": 3, "FISHING-ROD": 8, "THIN-PAPER": 2}
 
@@ -27,12 +27,12 @@ class TestShamusShop(unittest.TestCase):
 
     def setUp(self):
         self._patches = [
-            patch("random.randint", fullscore._always_max),
-            patch("content.char_create.input", fullscore._make_input_feed()),
+            patch("random.randint", wt._always_max),
+            patch("content.char_create.input", wt._make_input_feed()),
         ]
         for p in self._patches:
             p.start()
-        self.game, self.w = fullscore._make_game()
+        self.game, self.w = wt._make_game()
         self.w.globals["zenni"] = 50
         with patch("sys.stdout", io.StringIO()):
             self.game.enter_room(self.w.rooms["KITCHEN"])

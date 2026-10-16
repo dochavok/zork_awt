@@ -15,7 +15,7 @@ from unittest.mock import patch
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _quiet
 from content.experience import award_xp
 from content import player, quests
 
@@ -33,11 +33,6 @@ QUEST_REWARDS = {
     "52": (6, 3), "53": (10, 5), "54": (8, 0), "55": (6, 0), "57": (12, 5),
     "58": (15, 5), "59": (5, 3),
 }
-
-
-def _quiet(fn, *a, **kw):
-    with patch("sys.stdout", io.StringIO()):
-        return fn(*a, **kw)
 
 
 def _fresh(cls="warrior", **kw):

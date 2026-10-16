@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 import pytest
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 
 _BASE = ("A wide cave, low but not cramped. The walls are gouged at every height — long "
          "parallel marks, overlapping, years of them. The floor is worn smooth in a rough "

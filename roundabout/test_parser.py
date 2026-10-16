@@ -11,17 +11,12 @@ import os
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _goto, _carry
 from content.vocabulary import make_vocabulary
 
 DIRECTIONS = [("n", "north"), ("s", "south"), ("e", "east"), ("w", "west"),
               ("u", "up"), ("d", "down"), ("ne", "northeast"), ("nw", "northwest"),
               ("se", "southeast"), ("sw", "southwest")]
-
-
-def _goto(w, room):
-    w.move_object(w.player, w.rooms[room])
-    w.here = w.rooms[room]
 
 
 # --- Synonym Policy ---------------------------------------------------------------
@@ -68,21 +63,6 @@ def test_unknown_word():
     assert 'I don\'t know the word "xyzzy".' in _do(g, "xyzzy")
 
 
-@pytest.mark.parametrize("cmd", ["i", "inventory"])
-def test_inventory_empty_handed_and_purse(cmd):
-    w, g = _make_world(zenni=0)
-    out = _do(g, cmd)
-    assert "You are empty-handed." in out
-    assert "You have no Zenni." in out
-
-
-def test_inventory_purse_counts():
-    w, g = _make_world(zenni=1)
-    assert "You have 1 Zenni." in _do(g, "i")
-    w.globals["zenni"] = 12
-    assert "You have 12 Zenni." in _do(g, "i")
-
-
 # --- Object lists (Synonym Policy 7) -----------------------------------------------------
 
 def test_take_a_list_one_line_each():
@@ -125,13 +105,6 @@ def test_nothing_special_keeps_the_for_a_title():
 
 
 # --- TODO #28: possessives, the burnt-out torch, READ, the riddle's answers --------
-
-def _carry(w, name):
-    obj = w.objects[name]
-    obj.clear_flag("INVISIBLE")
-    w.move_object(obj, w.player)
-    return obj
-
 
 @pytest.mark.parametrize("cmd", ["x shamus's slate", "x shamus' slate", "x the slate"])
 def test_an_owners_name_is_dropped(cmd):

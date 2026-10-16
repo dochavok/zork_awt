@@ -9,7 +9,7 @@ import os
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 
 _MAY_INKED = ('"Five Zenni gets you a room with a bath. That\'s all you\'re getting from me '
               'until you\'ve used it."')                 # npcs.md — May, inked (TODO #29)

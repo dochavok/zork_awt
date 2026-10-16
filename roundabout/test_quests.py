@@ -10,18 +10,13 @@ import os
 from unittest.mock import patch
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _goto
 from content import quests
 
 FOUNTAIN_DRY = "The fountain is dry. You'll need clean running water."
 ADHESIVE = ("You work the clay in your hands under the fountain's spill until it softens, "
             "then keeps softening, into something smooth and tacky that holds whatever it "
             "touches. Clay adhesive — enough for one careful job.")
-
-
-def _goto(w, room):
-    w.move_object(w.player, w.rooms[room])
-    w.here = w.rooms[room]
 
 
 # --- State machine ---------------------------------------------------------------

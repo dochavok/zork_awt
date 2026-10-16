@@ -11,7 +11,7 @@ import os
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 
 MAGE_READS = "the words settle into you as if they had always meant to"
 RESISTANCE = "Will Passion, in his tower, has been known to translate"

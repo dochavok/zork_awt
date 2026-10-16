@@ -10,17 +10,7 @@ import os
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
-
-
-def _at(room, *flags):
-    w, g = _make_world()
-    w.set_global("LIGHT-SPELL-ACTIVE", True)
-    for flag in flags:
-        w.set_global(flag, True)
-    w.move_object(w.player, w.rooms[room])
-    w.here = w.rooms[room]
-    return w, g
+from testkit import _do, _at
 
 
 @pytest.mark.parametrize("cmd", ["climb down", "climb down rope"])

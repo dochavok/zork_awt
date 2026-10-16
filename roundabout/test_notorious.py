@@ -10,14 +10,9 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 import pytest
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _goto
 from test_quit_and_exit import _run
 from content import notorious, quests
-
-def _goto(w, name):
-    w.move_object(w.player, w.rooms[name])
-    w.here = w.rooms[name]
-
 
 def _tower(zenni):
     w, g = _make_world(zenni=zenni)

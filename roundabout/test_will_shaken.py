@@ -8,7 +8,7 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 
 SHAKEN = ('Will is standing at the window when you arrive. He doesn\'t turn around. '
           '"Thank you," he says, to the glass. Then he sits back down, and that\'s the end of it.')

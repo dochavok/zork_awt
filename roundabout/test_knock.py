@@ -10,23 +10,13 @@ import os
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do, _at
 from content.verbs import _LITLOCK_UNKNOWN, _LITLOCK_OPEN
 from content.ink import LITLOCK_DOOR
 from content.tool_alcove import _ASKS
 from content.init import WHITE_HOUSE_KNOCK
 
 _JOKE = "What does this look like? A Great Underground Empire?"
-
-
-def _at(room, *flags):
-    w, g = _make_world()
-    w.set_global("LIGHT-SPELL-ACTIVE", True)
-    for flag in flags:
-        w.set_global(flag, True)
-    w.move_object(w.player, w.rooms[room])
-    w.here = w.rooms[room]
-    return w, g
 
 
 @pytest.mark.parametrize("cmd", ["knock on door", "knock at door", "knock door", "rap on door"])

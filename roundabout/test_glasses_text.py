@@ -12,7 +12,7 @@ from unittest.mock import patch
 import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
-from test_knight import _make_world, _do
+from testkit import _make_world, _do
 from content.objects import GLASSES_EXAMINE, GLASSES_EXAMINE_ENCHANTED
 
 
