@@ -65,6 +65,14 @@ Run from source (`py roundabout/main.py`), VERSION asks git directly, so it alwa
    >
    > Put the .exe in its own folder: your saved games are written next to it. `SAVE` saves your game. To continue another time, start the game, create a character with the same name, then type `RESTORE`.
 
+4. **What's new, without spoilers.** Players read the notes before they've played. Say what kind of thing changed, not where or what:
+   - No names of places, characters, enemies or items a player wouldn't meet in the first few minutes (the town, Will, May, Shamus and Ty's Cargo game are fine). Write "an enemy", "a room", "one scene".
+   - No puzzle solutions or commands that solve something (`PUT STONE IN CART`, `DRAG AYLORA`), and no lists of verbs that point at puzzles (`MELT`, `TIE`, `LOWER`).
+   - No hidden mechanics a player should discover (what the ring does to you, that traps scale with level).
+   - Parser and interface changes can be specific (`X` for examine, `AGAIN`, apostrophes).
+
+   All releases from v2.2 to v2.8 were reviewed against this on 2026-10-15.
+
 To replace the .exe on an existing release (same tag), use `gh release upload vX.Y-roundabout "<path>\Roundabout.exe" --clobber`. Only do this if the tag hasn't moved. Otherwise VERSION in the new .exe won't match the release name.
 
 ## Antivirus false positives
